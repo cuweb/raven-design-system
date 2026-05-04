@@ -5,6 +5,8 @@ import { Card } from './Card';
 
 import { NewsData } from '../../data/NewsData';
 import { EventData } from '../../data/EventData';
+import { PeopleData } from '../../data/PeopleData';
+import { PageData } from '../../data/PageData';
 
 const meta: Meta = {
   title: 'Components/Elements/Card',
@@ -62,6 +64,51 @@ export const EventCards: Story = {
                         onCampusRoomNumber={item.on_campus_room_number}
                         eventAddress={item.event_address}
                     />
+                </Card.Body>
+            </Card>
+        ))}
+      </Column>
+    </Main>
+  ),
+};
+
+export const PeopleCards: Story = {
+  render: () => (
+    <Main>
+      <Column cols="3">
+        {PeopleData.slice(0, 24).map((item) => (
+            <Card key={`people-${item.id}`} isCenter>
+                <Card.Figure isRound>
+                    <img src={item.image} alt={item.alt} width={280} height={280} />
+                </Card.Figure>
+                <Card.Header title={`${item.firstName} ${item.lastName}`} link={item.link} />
+                <Card.Body>
+                <Card.PeopleMeta jobTitle={item.jobTitle} phone={item.phone}>
+                    <a href={`mailto:${item.email}`}>{item.email}</a>
+                </Card.PeopleMeta>
+                </Card.Body>
+            </Card>
+        ))}
+      </Column>
+    </Main>
+  ),
+};
+
+export const PageCards: Story = {
+  render: () => (
+    <Main>
+      <Column cols="3">
+        {PageData.slice(0, 24).map((item) => (
+            <Card key={`page-${item.id}`}>
+                <Card.Header
+                    title={item.title}
+                    link={item.link}
+                    date={item.date}
+                    datePrefix="Modified on "
+                    datePosition="bottom"
+                />
+                <Card.Body>
+                    <Card.Excerpt text={item.excerpt} />
                 </Card.Body>
             </Card>
         ))}

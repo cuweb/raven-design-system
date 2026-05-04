@@ -6,8 +6,8 @@ import { Card } from './Card';
 
 import { NewsData } from '../../data/NewsData';
 import { EventData } from '../../data/EventData';
+import { PeopleData } from '../../data/PeopleData';
 // import { IconData } from '../../data/IconData';
-// import { PeopleData } from '../../data/PeopleData';
 // import { StatData } from '../../data/StatData';
 // import { VideoData } from '../../data/VideoData';
 
@@ -27,10 +27,10 @@ const EXCERPT =
 
 const news = NewsData[0];
 const event = EventData[0];
-// const page = NewsData[1];
+const person = PeopleData[0];
+const page = NewsData[1];
 // const featured = NewsData[2];
 // const icon = IconData[0];
-// const person = PeopleData[0];
 // const hours = NewsData[3];
 // const wave = NewsData[0];
 // const stat = StatData[0];
@@ -78,8 +78,21 @@ export const Variants: Story = {
           </Card.Body>
         </Card>
 
+        {/* People card — round figure, centered */}
+        <Card isCenter>
+          <Card.Figure isRound>
+            <img src={person.image} alt={person.alt} width={280} height={280} />
+          </Card.Figure>
+          <Card.Header title={`${person.firstName} ${person.lastName}`} link={person.link} />
+          <Card.Body>
+            <Card.PeopleMeta jobTitle={person.jobTitle} phone={person.phone}>
+              <a href={`mailto:${person.email}`}>{person.email}</a>
+            </Card.PeopleMeta>
+          </Card.Body>
+        </Card>
+
         {/* Page card — date below title */}
-        {/* <Card>
+        <Card>
           <Card.Header
             title={page.title}
             link={page.link}
@@ -90,7 +103,7 @@ export const Variants: Story = {
           <Card.Body>
             <Card.Excerpt text={EXCERPT} />
           </Card.Body>
-        </Card> */}
+        </Card>
 
         {/* Featured card — small image thumb, no hover */}
         {/* <Card noHover>
@@ -109,19 +122,6 @@ export const Variants: Story = {
           <Card.Header title={icon.title} link={icon.link} />
           <Card.Body>
             <Card.Excerpt text={EXCERPT} />
-          </Card.Body>
-        </Card> */}
-
-        {/* People card — round figure, centered */}
-        {/* <Card isCenter>
-          <Card.Figure isRound>
-            <img src={person.image} alt={person.alt} width={280} height={280} />
-          </Card.Figure>
-          <Card.Header title={`${person.firstName} ${person.lastName}`} link={person.link} />
-          <Card.Body>
-            <Card.PeopleMeta jobTitle={person.jobTitle} phone={person.phone}>
-              <a href={`mailto:${person.email}`}>{person.email}</a>
-            </Card.PeopleMeta>
           </Card.Body>
         </Card> */}
 

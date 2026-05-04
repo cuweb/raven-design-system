@@ -46,7 +46,7 @@ export const CardEventMeta = ({
   const location = onCampus ? `${onCampusRoomNumber} ${onCampusBuilding}` : eventAddress;
 
   return (
-    <ul className="cu-card__meta">
+    <ul className="cu-card__meta cu-card__meta--has-icons">
       <li>
         {isEventSameDay ? (
           <>

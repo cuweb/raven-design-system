@@ -8,7 +8,7 @@ export interface CardPeopleMetaProps {
 
 export const CardPeopleMeta = ({ jobTitle, children, phone }: CardPeopleMetaProps) => {
   return (
-    <ul className="cu-card__people-meta">
+    <ul className="cu-card__meta">
       {jobTitle && <li className="cu-card__people-meta-job">{jobTitle}</li>}
       {children && (
         <li>

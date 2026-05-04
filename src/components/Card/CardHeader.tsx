@@ -62,11 +62,22 @@ export const CardHeader = ({
         {link ? <LinkComponent href={link}>{title}</LinkComponent> : title}
       </HeaderComponent>
 
-      {date && datePosition === 'bottom' && (
-        <time className="cu-card__header-date-bottom">
-          {datePrefix && `${datePrefix} `}
-          {formattedDate}
-        </time>
+      {((date && datePosition === 'bottom') || readTime) && (
+        <div className="cu-card__header-meta">
+          {date && (
+            <time className="cu-card__header-time">
+              {datePrefix && `${datePrefix} `}
+              {formattedDate}
+            </time>
+          )}
+          {readTime && (
+            <p
+              className={`cu-card__header-readtime${date ? ' cu-card__header-readtime--with-divider' : ''}`}
+            >
+              {readTime} minute read
+            </p>
+          )}
+        </div>
       )}
     </header>
   );
