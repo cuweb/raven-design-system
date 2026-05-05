@@ -15,6 +15,7 @@ import { StatData } from '../../data/StatData';
 import { HoursData } from '../../data/HoursData';
 import { AvailabilityData } from '../../data/AvailabilityData';
 import { SystemData } from '../../data/SystemData';
+import { LanguageData } from '../../data/LanguageData';
 
 const meta: Meta = {
   title: 'Components/Elements/Card',
@@ -270,4 +271,27 @@ export const SystemCards: Story = {
       </Column>
     </Main>
   ),
+};
+
+export const LanguageCards: Story = {
+    render: () => (
+        <Main>
+            <Column cols="3">
+                {LanguageData.map((item) => (
+                    <Card key={`language-${item.id}`} isGrey hasWave>
+                        <Card.Header
+                            title={item.title}
+                            link={item.link}
+                            date={item.date}
+                            datePrefix="Released on "
+                            position="bottom"
+                        />
+                        <Card.Body>
+                            <Card.Excerpt text={item.excerpt} />
+                        </Card.Body>
+                    </Card>
+                ))}
+            </Column>
+        </Main>
+    ),
 };
