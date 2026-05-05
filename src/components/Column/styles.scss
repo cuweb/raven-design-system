@@ -19,7 +19,7 @@
   &--three {
     grid-template-columns: 1fr;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (min-width: $rds-media-query-md) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
