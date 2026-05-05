@@ -29,7 +29,7 @@ const news = NewsData[0];
 const event = EventData[0];
 const person = PeopleData[0];
 const page = NewsData[1];
-// const featured = NewsData[2];
+const featured = NewsData[2];
 // const icon = IconData[0];
 // const hours = NewsData[3];
 // const wave = NewsData[0];
@@ -112,15 +112,21 @@ export const Variants: Story = {
         </Card>
 
         {/* Featured card — small image thumb, no hover */}
-        {/* <Card noHover>
-          <Card.ImageThumb>
-            <img src={featured.image} alt={featured.alt} width="200" height="133" />
-          </Card.ImageThumb>
-          <Card.Header title={featured.title} link={featured.link} />
+        <Card>
+          <Card.Figure>
+            <img src={featured.image} alt={featured.alt} width="400" height="300" />
+          </Card.Figure>
+          <Card.Header
+            title={featured.title}
+            link={featured.link}
+            datePrefix="Published on"
+            date={featured.date}
+            readTime="7"
+          />
           <Card.Body>
             <Card.Excerpt text={EXCERPT} />
           </Card.Body>
-        </Card> */}
+        </Card>
 
         {/* Icon card */}
         {/* <Card>

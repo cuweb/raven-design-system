@@ -132,3 +132,26 @@ export const VideoCards: Story = {
     </Main>
   ),
 };
+
+export const FeaturedCards: Story = {
+  render: () => (
+    <Main>
+      <Column cols="3">
+        {NewsData.slice(0, 24).map((item) => (
+            <Card key={`news-${item.id}`}>
+                <Card.Figure isSmall>
+                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                </Card.Figure>
+                <Card.Header
+                    title={item.title}
+                    link={item.link}
+                />
+                <Card.Body>
+                    <Card.Excerpt text={item.excerpt} />
+                </Card.Body>
+            </Card>
+        ))}
+      </Column>
+    </Main>
+  ),
+};
