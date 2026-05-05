@@ -1,6 +1,7 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-card__figure {
+    overflow: hidden;
     margin: calc(1.25rem * -1);
     margin-bottom: 1.25rem;
     line-height: 0;
@@ -11,16 +12,29 @@
     }
 }
 
-.cu-card__figure--round {
-    overflow: hidden;
-    margin-top: var(--rds--spacing-small);
-    padding: 0 var(--rds--spacing-2-x-large);
+.cu-card__figure--round,
+.cu-card__figure--square {
+    aspect-ratio: 1 / 1;
+    max-width: 180px;
 
-    img {
+    img,
+    svg {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border: 4px solid var(--rds--color-grey-pale);
-        border-radius: 50%;
+        display: block;
     }
+}
+
+.cu-card__figure--round {
+    margin: var(--rds--spacing-small) auto 1.25rem;
+    border: 4px solid var(--rds--color-grey-pale);
+    border-radius: 50%;
+}
+
+.cu-card__figure--square {
+    margin: var(--rds--spacing-small) 0 1.25rem;
+    border-radius: var(--rds--radius-md);
 }
 
 .cu-card__figure--small {
@@ -28,11 +42,10 @@
     padding: 1rem 1rem 0 1rem;
 
     img {
-        border-radius: var(--rds--radius-md);
+        border-radius: var(--rds--radius-lg);
     }
 }
 
-.cu-card__figure--square {
-    aspect-ratio: 1 / 1;
-    max-width: 180px;
+.cu-card__figure--icon {
+    padding: 1.25rem 1.25rem 0 1.25rem;
 }

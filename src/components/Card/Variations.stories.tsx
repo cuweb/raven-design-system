@@ -2,12 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Column } from '../Column/Column';
 import { Main } from '../Main/Main';
 import { Card } from './Card';
+import { Icon } from '../Icon/Icon';
 // import { Status } from '../Status/Status';
 
 import { NewsData } from '../../data/NewsData';
 import { EventData } from '../../data/EventData';
 import { PeopleData } from '../../data/PeopleData';
-// import { IconData } from '../../data/IconData';
+import { IconData } from '../../data/IconData';
 // import { StatData } from '../../data/StatData';
 import { VideoData } from '../../data/VideoData';
 
@@ -30,7 +31,7 @@ const event = EventData[0];
 const person = PeopleData[0];
 const page = NewsData[1];
 const featured = NewsData[2];
-// const icon = IconData[0];
+const icon = IconData[0];
 // const hours = NewsData[3];
 // const wave = NewsData[0];
 // const stat = StatData[0];
@@ -113,15 +114,12 @@ export const Variants: Story = {
 
         {/* Featured card — small image thumb, no hover */}
         <Card>
-          <Card.Figure>
+          <Card.Figure isSmall>
             <img src={featured.image} alt={featured.alt} width="400" height="300" />
           </Card.Figure>
           <Card.Header
             title={featured.title}
             link={featured.link}
-            datePrefix="Published on"
-            date={featured.date}
-            readTime="7"
           />
           <Card.Body>
             <Card.Excerpt text={EXCERPT} />
@@ -129,13 +127,15 @@ export const Variants: Story = {
         </Card>
 
         {/* Icon card */}
-        {/* <Card>
-          <Card.IconThumb icon={icon.icon} />
+        <Card>
+          <Card.Figure isIcon>
+            <Icon name={icon.icon} size={48} color="var(--rds--color-primary)" />
+          </Card.Figure>
           <Card.Header title={icon.title} link={icon.link} />
           <Card.Body>
             <Card.Excerpt text={EXCERPT} />
           </Card.Body>
-        </Card> */}
+        </Card>
 
         {/* Hours card — Status component */}
         {/* <Card>

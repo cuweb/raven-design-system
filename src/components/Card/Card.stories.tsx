@@ -2,12 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Column } from '../Column/Column';
 import { Main } from '../Main/Main';
 import { Card } from './Card';
+import { Icon } from '../Icon/Icon';
 
 import { NewsData } from '../../data/NewsData';
 import { EventData } from '../../data/EventData';
 import { PeopleData } from '../../data/PeopleData';
 import { PageData } from '../../data/PageData';
 import { VideoData } from '../../data/VideoData';
+import { IconData } from '../../data/IconData';
 
 const meta: Meta = {
   title: 'Components/Elements/Card',
@@ -146,6 +148,26 @@ export const FeaturedCards: Story = {
                     title={item.title}
                     link={item.link}
                 />
+                <Card.Body>
+                    <Card.Excerpt text={item.excerpt} />
+                </Card.Body>
+            </Card>
+        ))}
+      </Column>
+    </Main>
+  ),
+};
+
+export const IconCards: Story = {
+  render: () => (
+    <Main>
+      <Column cols="3">
+        {IconData.slice(0, 24).map((item) => (
+            <Card key={`icon-${item.id}`}>
+                <Card.Figure isIcon>
+                    <Icon name={item.icon} size={48} color="var(--rds--color-primary)" />
+                </Card.Figure>
+                <Card.Header title={item.title} link={item.link} />
                 <Card.Body>
                     <Card.Excerpt text={item.excerpt} />
                 </Card.Body>

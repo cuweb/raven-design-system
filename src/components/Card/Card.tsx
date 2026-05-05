@@ -7,7 +7,6 @@ import { CardEventMeta } from './CardEventMeta';
 import { CardFigure } from './CardFigure';
 import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
-import { CardIconThumb } from './CardIconThumb';
 import { CardImageThumb } from './CardImageThumb';
 import { CardInitials } from './CardInitials';
 import { CardPeopleMeta } from './CardPeopleMeta';
@@ -73,7 +72,6 @@ export const Card = Object.assign(CardWrapper, {
   Figure: CardFigure,
   VideoFigure: CardVideoFigure,
   DateThumb: CardDateThumb,
-  IconThumb: CardIconThumb,
   ImageThumb: CardImageThumb,
   Initials: CardInitials,
   Header: CardHeader,
