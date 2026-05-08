@@ -16,7 +16,7 @@
 .cu-column--three {
   grid-template-columns: 1fr;
 }
-@media (min-width: 600px) {
+@media (min-width: 784px) {
   .cu-column--three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

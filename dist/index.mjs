@@ -37,9 +37,9 @@ p.displayName = "Column";
 //#endregion
 //#region src/components/Main/Main.tsx
 var h = ({ children: e, hasPadding: t = !0 }) => /* @__PURE__ */ a("main", {
-	className: `cu-main ${t ? "cu-main--padding" : ""}`,
+	className: `${t ? "cu-main cu-main--padding" : "cu-main"}`,
 	children: /* @__PURE__ */ a("div", {
-		className: "alignfull has-global-padding is-layout-constrained",
+		className: "alignfull has-global-padding is-layout-constrained entry-content",
 		children: e
 	})
 }), g = ({ children: e, as: t = "section", isGrey: n, maxWidth: r = "aligncontent" }) => /* @__PURE__ */ a(t, {
@@ -57,17 +57,17 @@ var h = ({ children: e, hasPadding: t = !0 }) => /* @__PURE__ */ a("main", {
 		...i,
 		children: e
 	});
-}, y = (e, t, n, r) => {
+}, te = (e, t, n, r) => {
 	let i = {};
 	return e !== void 0 && (i.top = `${e}px`), t !== void 0 && (i.right = `${t}px`), n !== void 0 && (i.bottom = `${n}px`), r !== void 0 && (i.left = `${r}px`), i;
-}, te = ({ children: e, isAbsolute: t = !1, top: n = 0, right: r, bottom: i, left: o = 0 }) => /* @__PURE__ */ a("div", {
+}, ne = ({ children: e, isAbsolute: t = !1, top: n = 0, right: r, bottom: i, left: o = 0 }) => /* @__PURE__ */ a("div", {
 	className: "cu-badge-group",
 	style: t ? {
 		position: "absolute",
-		...y(n, r, i, o)
+		...te(n, r, i, o)
 	} : {},
 	children: e
-}), ne = {
+}), re = {
 	abacus: (e) => /* @__PURE__ */ a("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		viewBox: "0 0 576 512",
@@ -1552,8 +1552,8 @@ var h = ({ children: e, hasPadding: t = !0 }) => /* @__PURE__ */ a("main", {
 		...e,
 		children: /* @__PURE__ */ a("path", { d: "M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" })
 	})
-}, b = ({ name: e, size: t = "1em", title: n, ...r }) => {
-	let i = ne[e];
+}, y = ({ name: e, size: t = "1em", title: n, ...r }) => {
+	let i = re[e];
 	return i ? /* @__PURE__ */ a(i, {
 		width: t,
 		height: t,
@@ -1565,7 +1565,7 @@ var h = ({ children: e, hasPadding: t = !0 }) => /* @__PURE__ */ a("main", {
 		...r,
 		children: n ? /* @__PURE__ */ a("title", { children: n }) : null
 	}) : null;
-}, x = ({ color: e = "red", title: t, icon: n, type: r = "button", isSmall: i, isFull: s, isDisabled: c, ariaLabel: l, ...u }) => {
+}, b = ({ color: e = "red", title: t, icon: n, type: r = "button", isSmall: i, isFull: s, isDisabled: c, ariaLabel: l, ...u }) => {
 	let d = c ? "cu-button--disabled" : `cu-button--${e}`;
 	return /* @__PURE__ */ o("button", {
 		type: r,
@@ -1573,133 +1573,152 @@ var h = ({ children: e, hasPadding: t = !0 }) => /* @__PURE__ */ a("main", {
 		className: `cu-button ${d} ${i ? "cu-button--small" : ""} ${s ? "cu-button--full" : ""}`.trim(),
 		disabled: c,
 		...u,
-		children: [n && /* @__PURE__ */ a(b, {
+		children: [n && /* @__PURE__ */ a(y, {
 			className: "cu-icon",
 			name: n,
 			size: i ? 16 : 20
 		}), t]
 	});
-}, S = ({ children: e, align: t = "start" }) => /* @__PURE__ */ a("div", {
+}, ie = ({ children: e, align: t = "start" }) => /* @__PURE__ */ a("div", {
 	className: `cu-buttongroup cu-buttongroup--justify-${t}`,
 	children: e
-}), re = ({ children: e }) => /* @__PURE__ */ a("div", {
+}), ae = ({ children: e }) => /* @__PURE__ */ a("div", {
 	className: "cu-card__body",
 	children: e
 });
-re.displayName = "Card.Body";
+ae.displayName = "Card.Body";
 //#endregion
 //#region src/components/Card/CardContent.tsx
-var ie = ({ children: e }) => /* @__PURE__ */ a("div", {
+var oe = ({ children: e }) => /* @__PURE__ */ a("div", {
 	className: "cu-card__content",
 	children: e
 });
-ie.displayName = "Card.Content";
+oe.displayName = "Card.Content";
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/constants.js
-var ae = 365.2425, oe = 6048e5, se = 864e5, ce = 6e4, le = 36e5, ue = 1e3, de = 3600 * 24;
-de * 7, de * ae / 12 * 3;
-var fe = Symbol.for("constructDateFrom");
+var se = 365.2425, ce = 6048e5, le = 864e5, ue = 6e4, de = 36e5, fe = 1e3, pe = 3600 * 24;
+pe * 7, pe * se / 12 * 3;
+var me = Symbol.for("constructDateFrom");
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/constructFrom.js
-function C(e, t) {
-	return typeof e == "function" ? e(t) : e && typeof e == "object" && fe in e ? e[fe](t) : e instanceof Date ? new e.constructor(t) : new Date(t);
+function x(e, t) {
+	return typeof e == "function" ? e(t) : e && typeof e == "object" && me in e ? e[me](t) : e instanceof Date ? new e.constructor(t) : new Date(t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/toDate.js
-function w(e, t) {
-	return C(t || e, e);
+function S(e, t) {
+	return x(t || e, e);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/addDays.js
-function pe(e, t, n) {
-	let r = w(e, n?.in);
-	return isNaN(t) ? C(n?.in || e, NaN) : (t && r.setDate(r.getDate() + t), r);
+function C(e, t, n) {
+	let r = S(e, n?.in);
+	return isNaN(t) ? x(n?.in || e, NaN) : (t && r.setDate(r.getDate() + t), r);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/defaultOptions.js
-var me = {};
-function T() {
-	return me;
+var he = {};
+function w() {
+	return he;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/startOfWeek.js
-function E(e, t) {
-	let n = T(), r = t?.weekStartsOn ?? t?.locale?.options?.weekStartsOn ?? n.weekStartsOn ?? n.locale?.options?.weekStartsOn ?? 0, i = w(e, t?.in), a = i.getDay(), o = (a < r ? 7 : 0) + a - r;
+function T(e, t) {
+	let n = w(), r = t?.weekStartsOn ?? t?.locale?.options?.weekStartsOn ?? n.weekStartsOn ?? n.locale?.options?.weekStartsOn ?? 0, i = S(e, t?.in), a = i.getDay(), o = (a < r ? 7 : 0) + a - r;
 	return i.setDate(i.getDate() - o), i.setHours(0, 0, 0, 0), i;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/startOfISOWeek.js
-function D(e, t) {
-	return E(e, {
+function E(e, t) {
+	return T(e, {
 		...t,
 		weekStartsOn: 1
 	});
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getISOWeekYear.js
-function he(e, t) {
-	let n = w(e, t?.in), r = n.getFullYear(), i = C(n, 0);
+function ge(e, t) {
+	let n = S(e, t?.in), r = n.getFullYear(), i = x(n, 0);
 	i.setFullYear(r + 1, 0, 4), i.setHours(0, 0, 0, 0);
-	let a = D(i), o = C(n, 0);
+	let a = E(i), o = x(n, 0);
 	o.setFullYear(r, 0, 4), o.setHours(0, 0, 0, 0);
-	let s = D(o);
+	let s = E(o);
 	return n.getTime() >= a.getTime() ? r + 1 : n.getTime() >= s.getTime() ? r : r - 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds.js
-function O(e) {
-	let t = w(e), n = new Date(Date.UTC(t.getFullYear(), t.getMonth(), t.getDate(), t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds()));
+function D(e) {
+	let t = S(e), n = new Date(Date.UTC(t.getFullYear(), t.getMonth(), t.getDate(), t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds()));
 	return n.setUTCFullYear(t.getFullYear()), e - +n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/normalizeDates.js
-function ge(e, ...t) {
-	let n = C.bind(null, e || t.find((e) => typeof e == "object"));
+function _e(e, ...t) {
+	let n = x.bind(null, e || t.find((e) => typeof e == "object"));
 	return t.map(n);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/startOfDay.js
-function k(e, t) {
-	let n = w(e, t?.in);
+function O(e, t) {
+	let n = S(e, t?.in);
 	return n.setHours(0, 0, 0, 0), n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/differenceInCalendarDays.js
-function _e(e, t, n) {
-	let [r, i] = ge(n?.in, e, t), a = k(r), o = k(i), s = +a - O(a), c = +o - O(o);
-	return Math.round((s - c) / se);
+function ve(e, t, n) {
+	let [r, i] = _e(n?.in, e, t), a = O(r), o = O(i), s = +a - D(a), c = +o - D(o);
+	return Math.round((s - c) / le);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/startOfISOWeekYear.js
-function ve(e, t) {
-	let n = he(e, t), r = C(t?.in || e, 0);
-	return r.setFullYear(n, 0, 4), r.setHours(0, 0, 0, 0), D(r);
+function ye(e, t) {
+	let n = ge(e, t), r = x(t?.in || e, 0);
+	return r.setFullYear(n, 0, 4), r.setHours(0, 0, 0, 0), E(r);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/isSameDay.js
-function ye(e, t, n) {
-	let [r, i] = ge(n?.in, e, t);
-	return +k(r) == +k(i);
+function be(e, t, n) {
+	let [r, i] = _e(n?.in, e, t);
+	return +O(r) == +O(i);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/isDate.js
-function be(e) {
+function xe(e) {
 	return e instanceof Date || typeof e == "object" && Object.prototype.toString.call(e) === "[object Date]";
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/isValid.js
-function xe(e) {
-	return !(!be(e) && typeof e != "number" || isNaN(+w(e)));
+function Se(e) {
+	return !(!xe(e) && typeof e != "number" || isNaN(+S(e)));
+}
+//#endregion
+//#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/getRoundingMethod.js
+function Ce(e) {
+	return (t) => {
+		let n = (e ? Math[e] : Math.trunc)(t);
+		return n === 0 ? 0 : n;
+	};
+}
+//#endregion
+//#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/differenceInMilliseconds.js
+function we(e, t) {
+	return S(e) - +S(t);
+}
+//#endregion
+//#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/differenceInMinutes.js
+function Te(e, t, n) {
+	let r = we(e, t) / ue;
+	return Ce(n?.roundingMethod)(r);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/startOfYear.js
-function Se(e, t) {
-	let n = w(e, t?.in);
+function Ee(e, t) {
+	let n = S(e, t?.in);
 	return n.setFullYear(n.getFullYear(), 0, 1), n.setHours(0, 0, 0, 0), n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/locale/en-US/_lib/formatDistance.js
-var Ce = {
+var De = {
 	lessThanXSeconds: {
 		one: "less than a second",
 		other: "less than {{count}} seconds"
@@ -1761,20 +1780,20 @@ var Ce = {
 		one: "almost 1 year",
 		other: "almost {{count}} years"
 	}
-}, we = (e, t, n) => {
-	let r, i = Ce[e];
+}, Oe = (e, t, n) => {
+	let r, i = De[e];
 	return r = typeof i == "string" ? i : t === 1 ? i.one : i.other.replace("{{count}}", t.toString()), n?.addSuffix ? n.comparison && n.comparison > 0 ? "in " + r : r + " ago" : r;
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/locale/_lib/buildFormatLongFn.js
-function A(e) {
+function k(e) {
 	return (t = {}) => {
 		let n = t.width ? String(t.width) : e.defaultWidth;
 		return e.formats[n] || e.formats[e.defaultWidth];
 	};
 }
-var Te = {
-	date: A({
+var ke = {
+	date: k({
 		formats: {
 			full: "EEEE, MMMM do, y",
 			long: "MMMM do, y",
@@ -1783,7 +1802,7 @@ var Te = {
 		},
 		defaultWidth: "full"
 	}),
-	time: A({
+	time: k({
 		formats: {
 			full: "h:mm:ss a zzzz",
 			long: "h:mm:ss a z",
@@ -1792,7 +1811,7 @@ var Te = {
 		},
 		defaultWidth: "full"
 	}),
-	dateTime: A({
+	dateTime: k({
 		formats: {
 			full: "{{date}} 'at' {{time}}",
 			long: "{{date}} 'at' {{time}}",
@@ -1801,17 +1820,17 @@ var Te = {
 		},
 		defaultWidth: "full"
 	})
-}, Ee = {
+}, Ae = {
 	lastWeek: "'last' eeee 'at' p",
 	yesterday: "'yesterday at' p",
 	today: "'today at' p",
 	tomorrow: "'tomorrow at' p",
 	nextWeek: "eeee 'at' p",
 	other: "P"
-}, De = (e, t, n, r) => Ee[e];
+}, je = (e, t, n, r) => Ae[e];
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/locale/_lib/buildLocalizeFn.js
-function j(e) {
+function A(e) {
 	return (t, n) => {
 		let r = n?.context ? String(n.context) : "standalone", i;
 		if (r === "formatting" && e.formattingValues) {
@@ -1825,7 +1844,7 @@ function j(e) {
 		return i[a];
 	};
 }
-var Oe = {
+var Me = {
 	ordinalNumber: (e, t) => {
 		let n = Number(e), r = n % 100;
 		if (r > 20 || r < 10) switch (r % 10) {
@@ -1835,7 +1854,7 @@ var Oe = {
 		}
 		return n + "th";
 	},
-	era: j({
+	era: A({
 		values: {
 			narrow: ["B", "A"],
 			abbreviated: ["BC", "AD"],
@@ -1843,7 +1862,7 @@ var Oe = {
 		},
 		defaultWidth: "wide"
 	}),
-	quarter: j({
+	quarter: A({
 		values: {
 			narrow: [
 				"1",
@@ -1867,7 +1886,7 @@ var Oe = {
 		defaultWidth: "wide",
 		argumentCallback: (e) => e - 1
 	}),
-	month: j({
+	month: A({
 		values: {
 			narrow: [
 				"J",
@@ -1914,7 +1933,7 @@ var Oe = {
 		},
 		defaultWidth: "wide"
 	}),
-	day: j({
+	day: A({
 		values: {
 			narrow: [
 				"S",
@@ -1955,7 +1974,7 @@ var Oe = {
 		},
 		defaultWidth: "wide"
 	}),
-	dayPeriod: j({
+	dayPeriod: A({
 		values: {
 			narrow: {
 				am: "a",
@@ -2026,11 +2045,11 @@ var Oe = {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/locale/_lib/buildMatchFn.js
-function M(e) {
+function j(e) {
 	return (t, n = {}) => {
 		let r = n.width, i = r && e.matchPatterns[r] || e.matchPatterns[e.defaultMatchWidth], a = t.match(i);
 		if (!a) return null;
-		let o = a[0], s = r && e.parsePatterns[r] || e.parsePatterns[e.defaultParseWidth], c = Array.isArray(s) ? Ae(s, (e) => e.test(o)) : ke(s, (e) => e.test(o)), l;
+		let o = a[0], s = r && e.parsePatterns[r] || e.parsePatterns[e.defaultParseWidth], c = Array.isArray(s) ? Pe(s, (e) => e.test(o)) : Ne(s, (e) => e.test(o)), l;
 		l = e.valueCallback ? e.valueCallback(c) : c, l = n.valueCallback ? n.valueCallback(l) : l;
 		let u = t.slice(o.length);
 		return {
@@ -2039,15 +2058,15 @@ function M(e) {
 		};
 	};
 }
-function ke(e, t) {
+function Ne(e, t) {
 	for (let n in e) if (Object.prototype.hasOwnProperty.call(e, n) && t(e[n])) return n;
 }
-function Ae(e, t) {
+function Pe(e, t) {
 	for (let n = 0; n < e.length; n++) if (t(e[n])) return n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/locale/_lib/buildMatchPatternFn.js
-function je(e) {
+function Fe(e) {
 	return (t, n = {}) => {
 		let r = t.match(e.matchPattern);
 		if (!r) return null;
@@ -2064,19 +2083,19 @@ function je(e) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/locale/en-US.js
-var Me = {
+var Ie = {
 	code: "en-US",
-	formatDistance: we,
-	formatLong: Te,
-	formatRelative: De,
-	localize: Oe,
+	formatDistance: Oe,
+	formatLong: ke,
+	formatRelative: je,
+	localize: Me,
 	match: {
-		ordinalNumber: je({
+		ordinalNumber: Fe({
 			matchPattern: /^(\d+)(th|st|nd|rd)?/i,
 			parsePattern: /\d+/i,
 			valueCallback: (e) => parseInt(e, 10)
 		}),
-		era: M({
+		era: j({
 			matchPatterns: {
 				narrow: /^(b|a)/i,
 				abbreviated: /^(b\.?\s?c\.?|b\.?\s?c\.?\s?e\.?|a\.?\s?d\.?|c\.?\s?e\.?)/i,
@@ -2086,7 +2105,7 @@ var Me = {
 			parsePatterns: { any: [/^b/i, /^(a|c)/i] },
 			defaultParseWidth: "any"
 		}),
-		quarter: M({
+		quarter: j({
 			matchPatterns: {
 				narrow: /^[1234]/i,
 				abbreviated: /^q[1234]/i,
@@ -2102,7 +2121,7 @@ var Me = {
 			defaultParseWidth: "any",
 			valueCallback: (e) => e + 1
 		}),
-		month: M({
+		month: j({
 			matchPatterns: {
 				narrow: /^[jfmasond]/i,
 				abbreviated: /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
@@ -2141,7 +2160,7 @@ var Me = {
 			},
 			defaultParseWidth: "any"
 		}),
-		day: M({
+		day: j({
 			matchPatterns: {
 				narrow: /^[smtwf]/i,
 				short: /^(su|mo|tu|we|th|fr|sa)/i,
@@ -2171,7 +2190,7 @@ var Me = {
 			},
 			defaultParseWidth: "any"
 		}),
-		dayPeriod: M({
+		dayPeriod: j({
 			matchPatterns: {
 				narrow: /^(a|p|mi|n|(in the|at) (morning|afternoon|evening|night))/i,
 				any: /^([ap]\.?\s?m\.?|midnight|noon|(in the|at) (morning|afternoon|evening|night))/i
@@ -2197,56 +2216,56 @@ var Me = {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getDayOfYear.js
-function Ne(e, t) {
-	let n = w(e, t?.in);
-	return _e(n, Se(n)) + 1;
+function Le(e, t) {
+	let n = S(e, t?.in);
+	return ve(n, Ee(n)) + 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getISOWeek.js
-function Pe(e, t) {
-	let n = w(e, t?.in), r = D(n) - +ve(n);
-	return Math.round(r / oe) + 1;
+function Re(e, t) {
+	let n = S(e, t?.in), r = E(n) - +ye(n);
+	return Math.round(r / ce) + 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getWeekYear.js
-function N(e, t) {
-	let n = w(e, t?.in), r = n.getFullYear(), i = T(), a = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? i.firstWeekContainsDate ?? i.locale?.options?.firstWeekContainsDate ?? 1, o = C(t?.in || e, 0);
+function M(e, t) {
+	let n = S(e, t?.in), r = n.getFullYear(), i = w(), a = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? i.firstWeekContainsDate ?? i.locale?.options?.firstWeekContainsDate ?? 1, o = x(t?.in || e, 0);
 	o.setFullYear(r + 1, 0, a), o.setHours(0, 0, 0, 0);
-	let s = E(o, t), c = C(t?.in || e, 0);
+	let s = T(o, t), c = x(t?.in || e, 0);
 	c.setFullYear(r, 0, a), c.setHours(0, 0, 0, 0);
-	let l = E(c, t);
+	let l = T(c, t);
 	return +n >= +s ? r + 1 : +n >= +l ? r : r - 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/startOfWeekYear.js
-function Fe(e, t) {
-	let n = T(), r = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? n.firstWeekContainsDate ?? n.locale?.options?.firstWeekContainsDate ?? 1, i = N(e, t), a = C(t?.in || e, 0);
-	return a.setFullYear(i, 0, r), a.setHours(0, 0, 0, 0), E(a, t);
+function ze(e, t) {
+	let n = w(), r = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? n.firstWeekContainsDate ?? n.locale?.options?.firstWeekContainsDate ?? 1, i = M(e, t), a = x(t?.in || e, 0);
+	return a.setFullYear(i, 0, r), a.setHours(0, 0, 0, 0), T(a, t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getWeek.js
-function Ie(e, t) {
-	let n = w(e, t?.in), r = E(n, t) - +Fe(n, t);
-	return Math.round(r / oe) + 1;
+function Be(e, t) {
+	let n = S(e, t?.in), r = T(n, t) - +ze(n, t);
+	return Math.round(r / ce) + 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/addLeadingZeros.js
-function P(e, t) {
+function N(e, t) {
 	return (e < 0 ? "-" : "") + Math.abs(e).toString().padStart(t, "0");
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/format/lightFormatters.js
-var F = {
+var P = {
 	y(e, t) {
 		let n = e.getFullYear(), r = n > 0 ? n : 1 - n;
-		return P(t === "yy" ? r % 100 : r, t.length);
+		return N(t === "yy" ? r % 100 : r, t.length);
 	},
 	M(e, t) {
 		let n = e.getMonth();
-		return t === "M" ? String(n + 1) : P(n + 1, 2);
+		return t === "M" ? String(n + 1) : N(n + 1, 2);
 	},
 	d(e, t) {
-		return P(e.getDate(), t.length);
+		return N(e.getDate(), t.length);
 	},
 	a(e, t) {
 		let n = e.getHours() / 12 >= 1 ? "pm" : "am";
@@ -2259,22 +2278,22 @@ var F = {
 		}
 	},
 	h(e, t) {
-		return P(e.getHours() % 12 || 12, t.length);
+		return N(e.getHours() % 12 || 12, t.length);
 	},
 	H(e, t) {
-		return P(e.getHours(), t.length);
+		return N(e.getHours(), t.length);
 	},
 	m(e, t) {
-		return P(e.getMinutes(), t.length);
+		return N(e.getMinutes(), t.length);
 	},
 	s(e, t) {
-		return P(e.getSeconds(), t.length);
+		return N(e.getSeconds(), t.length);
 	},
 	S(e, t) {
 		let n = t.length, r = e.getMilliseconds();
-		return P(Math.trunc(r * 10 ** (n - 3)), t.length);
+		return N(Math.trunc(r * 10 ** (n - 3)), t.length);
 	}
-}, I = {
+}, F = {
 	am: "am",
 	pm: "pm",
 	midnight: "midnight",
@@ -2283,7 +2302,7 @@ var F = {
 	afternoon: "afternoon",
 	evening: "evening",
 	night: "night"
-}, Le = {
+}, Ve = {
 	G: function(e, t, n) {
 		let r = +(e.getFullYear() > 0);
 		switch (t) {
@@ -2299,23 +2318,23 @@ var F = {
 			let t = e.getFullYear(), r = t > 0 ? t : 1 - t;
 			return n.ordinalNumber(r, { unit: "year" });
 		}
-		return F.y(e, t);
+		return P.y(e, t);
 	},
 	Y: function(e, t, n, r) {
-		let i = N(e, r), a = i > 0 ? i : 1 - i;
-		return t === "YY" ? P(a % 100, 2) : t === "Yo" ? n.ordinalNumber(a, { unit: "year" }) : P(a, t.length);
+		let i = M(e, r), a = i > 0 ? i : 1 - i;
+		return t === "YY" ? N(a % 100, 2) : t === "Yo" ? n.ordinalNumber(a, { unit: "year" }) : N(a, t.length);
 	},
 	R: function(e, t) {
-		return P(he(e), t.length);
+		return N(ge(e), t.length);
 	},
 	u: function(e, t) {
-		return P(e.getFullYear(), t.length);
+		return N(e.getFullYear(), t.length);
 	},
 	Q: function(e, t, n) {
 		let r = Math.ceil((e.getMonth() + 1) / 3);
 		switch (t) {
 			case "Q": return String(r);
-			case "QQ": return P(r, 2);
+			case "QQ": return N(r, 2);
 			case "Qo": return n.ordinalNumber(r, { unit: "quarter" });
 			case "QQQ": return n.quarter(r, {
 				width: "abbreviated",
@@ -2335,7 +2354,7 @@ var F = {
 		let r = Math.ceil((e.getMonth() + 1) / 3);
 		switch (t) {
 			case "q": return String(r);
-			case "qq": return P(r, 2);
+			case "qq": return N(r, 2);
 			case "qo": return n.ordinalNumber(r, { unit: "quarter" });
 			case "qqq": return n.quarter(r, {
 				width: "abbreviated",
@@ -2355,7 +2374,7 @@ var F = {
 		let r = e.getMonth();
 		switch (t) {
 			case "M":
-			case "MM": return F.M(e, t);
+			case "MM": return P.M(e, t);
 			case "Mo": return n.ordinalNumber(r + 1, { unit: "month" });
 			case "MMM": return n.month(r, {
 				width: "abbreviated",
@@ -2375,7 +2394,7 @@ var F = {
 		let r = e.getMonth();
 		switch (t) {
 			case "L": return String(r + 1);
-			case "LL": return P(r + 1, 2);
+			case "LL": return N(r + 1, 2);
 			case "Lo": return n.ordinalNumber(r + 1, { unit: "month" });
 			case "LLL": return n.month(r, {
 				width: "abbreviated",
@@ -2392,19 +2411,19 @@ var F = {
 		}
 	},
 	w: function(e, t, n, r) {
-		let i = Ie(e, r);
-		return t === "wo" ? n.ordinalNumber(i, { unit: "week" }) : P(i, t.length);
+		let i = Be(e, r);
+		return t === "wo" ? n.ordinalNumber(i, { unit: "week" }) : N(i, t.length);
 	},
 	I: function(e, t, n) {
-		let r = Pe(e);
-		return t === "Io" ? n.ordinalNumber(r, { unit: "week" }) : P(r, t.length);
+		let r = Re(e);
+		return t === "Io" ? n.ordinalNumber(r, { unit: "week" }) : N(r, t.length);
 	},
 	d: function(e, t, n) {
-		return t === "do" ? n.ordinalNumber(e.getDate(), { unit: "date" }) : F.d(e, t);
+		return t === "do" ? n.ordinalNumber(e.getDate(), { unit: "date" }) : P.d(e, t);
 	},
 	D: function(e, t, n) {
-		let r = Ne(e);
-		return t === "Do" ? n.ordinalNumber(r, { unit: "dayOfYear" }) : P(r, t.length);
+		let r = Le(e);
+		return t === "Do" ? n.ordinalNumber(r, { unit: "dayOfYear" }) : N(r, t.length);
 	},
 	E: function(e, t, n) {
 		let r = e.getDay();
@@ -2433,7 +2452,7 @@ var F = {
 		let i = e.getDay(), a = (i - r.weekStartsOn + 8) % 7 || 7;
 		switch (t) {
 			case "e": return String(a);
-			case "ee": return P(a, 2);
+			case "ee": return N(a, 2);
 			case "eo": return n.ordinalNumber(a, { unit: "day" });
 			case "eee": return n.day(i, {
 				width: "abbreviated",
@@ -2457,7 +2476,7 @@ var F = {
 		let i = e.getDay(), a = (i - r.weekStartsOn + 8) % 7 || 7;
 		switch (t) {
 			case "c": return String(a);
-			case "cc": return P(a, t.length);
+			case "cc": return N(a, t.length);
 			case "co": return n.ordinalNumber(a, { unit: "day" });
 			case "ccc": return n.day(i, {
 				width: "abbreviated",
@@ -2481,7 +2500,7 @@ var F = {
 		let r = e.getDay(), i = r === 0 ? 7 : r;
 		switch (t) {
 			case "i": return String(i);
-			case "ii": return P(i, t.length);
+			case "ii": return N(i, t.length);
 			case "io": return n.ordinalNumber(i, { unit: "day" });
 			case "iii": return n.day(r, {
 				width: "abbreviated",
@@ -2525,7 +2544,7 @@ var F = {
 	},
 	b: function(e, t, n) {
 		let r = e.getHours(), i;
-		switch (i = r === 12 ? I.noon : r === 0 ? I.midnight : r / 12 >= 1 ? "pm" : "am", t) {
+		switch (i = r === 12 ? F.noon : r === 0 ? F.midnight : r / 12 >= 1 ? "pm" : "am", t) {
 			case "b":
 			case "bb": return n.dayPeriod(i, {
 				width: "abbreviated",
@@ -2547,7 +2566,7 @@ var F = {
 	},
 	B: function(e, t, n) {
 		let r = e.getHours(), i;
-		switch (i = r >= 17 ? I.evening : r >= 12 ? I.afternoon : r >= 4 ? I.morning : I.night, t) {
+		switch (i = r >= 17 ? F.evening : r >= 12 ? F.afternoon : r >= 4 ? F.morning : F.night, t) {
 			case "B":
 			case "BB":
 			case "BBB": return n.dayPeriod(i, {
@@ -2569,45 +2588,45 @@ var F = {
 			let t = e.getHours() % 12;
 			return t === 0 && (t = 12), n.ordinalNumber(t, { unit: "hour" });
 		}
-		return F.h(e, t);
+		return P.h(e, t);
 	},
 	H: function(e, t, n) {
-		return t === "Ho" ? n.ordinalNumber(e.getHours(), { unit: "hour" }) : F.H(e, t);
+		return t === "Ho" ? n.ordinalNumber(e.getHours(), { unit: "hour" }) : P.H(e, t);
 	},
 	K: function(e, t, n) {
 		let r = e.getHours() % 12;
-		return t === "Ko" ? n.ordinalNumber(r, { unit: "hour" }) : P(r, t.length);
+		return t === "Ko" ? n.ordinalNumber(r, { unit: "hour" }) : N(r, t.length);
 	},
 	k: function(e, t, n) {
 		let r = e.getHours();
-		return r === 0 && (r = 24), t === "ko" ? n.ordinalNumber(r, { unit: "hour" }) : P(r, t.length);
+		return r === 0 && (r = 24), t === "ko" ? n.ordinalNumber(r, { unit: "hour" }) : N(r, t.length);
 	},
 	m: function(e, t, n) {
-		return t === "mo" ? n.ordinalNumber(e.getMinutes(), { unit: "minute" }) : F.m(e, t);
+		return t === "mo" ? n.ordinalNumber(e.getMinutes(), { unit: "minute" }) : P.m(e, t);
 	},
 	s: function(e, t, n) {
-		return t === "so" ? n.ordinalNumber(e.getSeconds(), { unit: "second" }) : F.s(e, t);
+		return t === "so" ? n.ordinalNumber(e.getSeconds(), { unit: "second" }) : P.s(e, t);
 	},
 	S: function(e, t) {
-		return F.S(e, t);
+		return P.S(e, t);
 	},
 	X: function(e, t, n) {
 		let r = e.getTimezoneOffset();
 		if (r === 0) return "Z";
 		switch (t) {
-			case "X": return ze(r);
+			case "X": return Ue(r);
 			case "XXXX":
-			case "XX": return L(r);
-			default: return L(r, ":");
+			case "XX": return I(r);
+			default: return I(r, ":");
 		}
 	},
 	x: function(e, t, n) {
 		let r = e.getTimezoneOffset();
 		switch (t) {
-			case "x": return ze(r);
+			case "x": return Ue(r);
 			case "xxxx":
-			case "xx": return L(r);
-			default: return L(r, ":");
+			case "xx": return I(r);
+			default: return I(r, ":");
 		}
 	},
 	O: function(e, t, n) {
@@ -2615,8 +2634,8 @@ var F = {
 		switch (t) {
 			case "O":
 			case "OO":
-			case "OOO": return "GMT" + Re(r, ":");
-			default: return "GMT" + L(r, ":");
+			case "OOO": return "GMT" + He(r, ":");
+			default: return "GMT" + I(r, ":");
 		}
 	},
 	z: function(e, t, n) {
@@ -2624,49 +2643,49 @@ var F = {
 		switch (t) {
 			case "z":
 			case "zz":
-			case "zzz": return "GMT" + Re(r, ":");
-			default: return "GMT" + L(r, ":");
+			case "zzz": return "GMT" + He(r, ":");
+			default: return "GMT" + I(r, ":");
 		}
 	},
 	t: function(e, t, n) {
-		return P(Math.trunc(e / 1e3), t.length);
+		return N(Math.trunc(e / 1e3), t.length);
 	},
 	T: function(e, t, n) {
-		return P(+e, t.length);
+		return N(+e, t.length);
 	}
 };
-function Re(e, t = "") {
+function He(e, t = "") {
 	let n = e > 0 ? "-" : "+", r = Math.abs(e), i = Math.trunc(r / 60), a = r % 60;
-	return a === 0 ? n + String(i) : n + String(i) + t + P(a, 2);
+	return a === 0 ? n + String(i) : n + String(i) + t + N(a, 2);
 }
-function ze(e, t) {
-	return e % 60 == 0 ? (e > 0 ? "-" : "+") + P(Math.abs(e) / 60, 2) : L(e, t);
+function Ue(e, t) {
+	return e % 60 == 0 ? (e > 0 ? "-" : "+") + N(Math.abs(e) / 60, 2) : I(e, t);
 }
-function L(e, t = "") {
-	let n = e > 0 ? "-" : "+", r = Math.abs(e), i = P(Math.trunc(r / 60), 2), a = P(r % 60, 2);
+function I(e, t = "") {
+	let n = e > 0 ? "-" : "+", r = Math.abs(e), i = N(Math.trunc(r / 60), 2), a = N(r % 60, 2);
 	return n + i + t + a;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/_lib/format/longFormatters.js
-var Be = (e, t) => {
+var We = (e, t) => {
 	switch (e) {
 		case "P": return t.date({ width: "short" });
 		case "PP": return t.date({ width: "medium" });
 		case "PPP": return t.date({ width: "long" });
 		default: return t.date({ width: "full" });
 	}
-}, Ve = (e, t) => {
+}, Ge = (e, t) => {
 	switch (e) {
 		case "p": return t.time({ width: "short" });
 		case "pp": return t.time({ width: "medium" });
 		case "ppp": return t.time({ width: "long" });
 		default: return t.time({ width: "full" });
 	}
-}, He = {
-	p: Ve,
+}, L = {
+	p: Ge,
 	P: (e, t) => {
 		let n = e.match(/(P+)(p+)?/) || [], r = n[1], i = n[2];
-		if (!i) return Be(e, t);
+		if (!i) return We(e, t);
 		let a;
 		switch (r) {
 			case "P":
@@ -2682,42 +2701,42 @@ var Be = (e, t) => {
 				a = t.dateTime({ width: "full" });
 				break;
 		}
-		return a.replace("{{date}}", Be(r, t)).replace("{{time}}", Ve(i, t));
+		return a.replace("{{date}}", We(r, t)).replace("{{time}}", Ge(i, t));
 	}
-}, Ue = /^D+$/, We = /^Y+$/, Ge = [
+}, Ke = /^D+$/, qe = /^Y+$/, Je = [
 	"D",
 	"DD",
 	"YY",
 	"YYYY"
 ];
-function Ke(e) {
-	return Ue.test(e);
+function Ye(e) {
+	return Ke.test(e);
 }
-function qe(e) {
-	return We.test(e);
+function Xe(e) {
+	return qe.test(e);
 }
 function R(e, t, n) {
-	let r = Je(e, t, n);
-	if (console.warn(r), Ge.includes(e)) throw RangeError(r);
+	let r = Ze(e, t, n);
+	if (console.warn(r), Je.includes(e)) throw RangeError(r);
 }
-function Je(e, t, n) {
+function Ze(e, t, n) {
 	let r = e[0] === "Y" ? "years" : "days of the month";
 	return `Use \`${e.toLowerCase()}\` instead of \`${e}\` (in \`${t}\`) for formatting ${r} to the input \`${n}\`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md`;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/format.js
-var Ye = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, Xe = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, Ze = /^'([^]*?)'?$/, Qe = /''/g, $e = /[a-zA-Z]/;
+var Qe = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, $e = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, et = /^'([^]*?)'?$/, tt = /''/g, nt = /[a-zA-Z]/;
 function z(e, t, n) {
-	let r = T(), i = n?.locale ?? r.locale ?? Me, a = n?.firstWeekContainsDate ?? n?.locale?.options?.firstWeekContainsDate ?? r.firstWeekContainsDate ?? r.locale?.options?.firstWeekContainsDate ?? 1, o = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, s = w(e, n?.in);
-	if (!xe(s)) throw RangeError("Invalid time value");
-	let c = t.match(Xe).map((e) => {
+	let r = w(), i = n?.locale ?? r.locale ?? Ie, a = n?.firstWeekContainsDate ?? n?.locale?.options?.firstWeekContainsDate ?? r.firstWeekContainsDate ?? r.locale?.options?.firstWeekContainsDate ?? 1, o = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, s = S(e, n?.in);
+	if (!Se(s)) throw RangeError("Invalid time value");
+	let c = t.match($e).map((e) => {
 		let t = e[0];
 		if (t === "p" || t === "P") {
-			let n = He[t];
+			let n = L[t];
 			return n(e, i.formatLong);
 		}
 		return e;
-	}).join("").match(Ye).map((e) => {
+	}).join("").match(Qe).map((e) => {
 		if (e === "''") return {
 			isToken: !1,
 			value: "'"
@@ -2725,13 +2744,13 @@ function z(e, t, n) {
 		let t = e[0];
 		if (t === "'") return {
 			isToken: !1,
-			value: et(e)
+			value: rt(e)
 		};
-		if (Le[t]) return {
+		if (Ve[t]) return {
 			isToken: !0,
 			value: e
 		};
-		if (t.match($e)) throw RangeError("Format string contains an unescaped latin alphabet character `" + t + "`");
+		if (t.match(nt)) throw RangeError("Format string contains an unescaped latin alphabet character `" + t + "`");
 		return {
 			isToken: !1,
 			value: e
@@ -2746,48 +2765,58 @@ function z(e, t, n) {
 	return c.map((r) => {
 		if (!r.isToken) return r.value;
 		let a = r.value;
-		(!n?.useAdditionalWeekYearTokens && qe(a) || !n?.useAdditionalDayOfYearTokens && Ke(a)) && R(a, t, String(e));
-		let o = Le[a[0]];
+		(!n?.useAdditionalWeekYearTokens && Xe(a) || !n?.useAdditionalDayOfYearTokens && Ye(a)) && R(a, t, String(e));
+		let o = Ve[a[0]];
 		return o(s, a, i.localize, l);
 	}).join("");
 }
-function et(e) {
-	let t = e.match(Ze);
-	return t ? t[1].replace(Qe, "'") : e;
+function rt(e) {
+	let t = e.match(et);
+	return t ? t[1].replace(tt, "'") : e;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getDate.js
-function B(e, t) {
-	return w(e, t?.in).getDate();
+function it(e, t) {
+	return S(e, t?.in).getDate();
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getDefaultOptions.js
-function tt() {
-	return Object.assign({}, T());
+function at() {
+	return Object.assign({}, w());
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/getISODay.js
-function nt(e, t) {
-	let n = w(e, t?.in).getDay();
+function ot(e, t) {
+	let n = S(e, t?.in).getDay();
 	return n === 0 ? 7 : n;
 }
 //#endregion
+//#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/isAfter.js
+function st(e, t) {
+	return +S(e) > +S(t);
+}
+//#endregion
+//#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/isBefore.js
+function ct(e, t) {
+	return +S(e) < +S(t);
+}
+//#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/transpose.js
-function rt(e, t) {
-	let n = it(t) ? new t(0) : C(t, 0);
+function lt(e, t) {
+	let n = ut(t) ? new t(0) : x(t, 0);
 	return n.setFullYear(e.getFullYear(), e.getMonth(), e.getDate()), n.setHours(e.getHours(), e.getMinutes(), e.getSeconds(), e.getMilliseconds()), n;
 }
-function it(e) {
+function ut(e) {
 	return typeof e == "function" && e.prototype?.constructor === e;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/Setter.js
-var at = 10, ot = class {
+var dt = 10, ft = class {
 	subPriority = 0;
 	validate(e, t) {
 		return !0;
 	}
-}, st = class extends ot {
+}, pt = class extends ft {
 	constructor(e, t, n, r, i) {
 		super(), this.value = e, this.validateValue = t, this.setValue = n, this.priority = r, i && (this.subPriority = i);
 	}
@@ -2797,27 +2826,27 @@ var at = 10, ot = class {
 	set(e, t, n) {
 		return this.setValue(e, t, this.value, n);
 	}
-}, ct = class extends ot {
-	priority = at;
+}, mt = class extends ft {
+	priority = dt;
 	subPriority = -1;
 	constructor(e, t) {
-		super(), this.context = e || ((e) => C(t, e));
+		super(), this.context = e || ((e) => x(t, e));
 	}
 	set(e, t) {
-		return t.timestampIsSet ? e : C(e, rt(e, this.context));
+		return t.timestampIsSet ? e : x(e, lt(e, this.context));
 	}
-}, V = class {
+}, B = class {
 	run(e, t, n, r) {
 		let i = this.parse(e, t, n, r);
 		return i ? {
-			setter: new st(i.value, this.validate, this.set, this.priority, this.subPriority),
+			setter: new pt(i.value, this.validate, this.set, this.priority, this.subPriority),
 			rest: i.rest
 		} : null;
 	}
 	validate(e, t, n) {
 		return !0;
 	}
-}, lt = class extends V {
+}, ht = class extends B {
 	priority = 140;
 	parse(e, t, n) {
 		switch (t) {
@@ -2837,7 +2866,7 @@ var at = 10, ot = class {
 		"t",
 		"T"
 	];
-}, H = {
+}, V = {
 	month: /^(1[0-2]|0?\d)/,
 	date: /^(3[0-1]|[0-2]?\d)/,
 	dayOfYear: /^(36[0-6]|3[0-5]\d|[0-2]?\d?\d)/,
@@ -2857,7 +2886,7 @@ var at = 10, ot = class {
 	twoDigitsSigned: /^-?\d{1,2}/,
 	threeDigitsSigned: /^-?\d{1,3}/,
 	fourDigitsSigned: /^-?\d{1,4}/
-}, U = {
+}, H = {
 	basicOptionalMinutes: /^([+-])(\d{2})(\d{2})?|Z/,
 	basic: /^([+-])(\d{2})(\d{2})|Z/,
 	basicOptionalSeconds: /^([+-])(\d{2})(\d{2})((\d{2}))?|Z/,
@@ -2866,20 +2895,20 @@ var at = 10, ot = class {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/utils.js
-function W(e, t) {
+function U(e, t) {
 	return e && {
 		value: t(e.value),
 		rest: e.rest
 	};
 }
-function G(e, t) {
+function W(e, t) {
 	let n = t.match(e);
 	return n ? {
 		value: parseInt(n[0], 10),
 		rest: t.slice(n[0].length)
 	} : null;
 }
-function K(e, t) {
+function G(e, t) {
 	let n = t.match(e);
 	if (!n) return null;
 	if (n[0] === "Z") return {
@@ -2888,32 +2917,32 @@ function K(e, t) {
 	};
 	let r = n[1] === "+" ? 1 : -1, i = n[2] ? parseInt(n[2], 10) : 0, a = n[3] ? parseInt(n[3], 10) : 0, o = n[5] ? parseInt(n[5], 10) : 0;
 	return {
-		value: r * (i * le + a * ce + o * ue),
+		value: r * (i * de + a * ue + o * fe),
 		rest: t.slice(n[0].length)
 	};
 }
-function ut(e) {
-	return G(H.anyDigitsSigned, e);
+function gt(e) {
+	return W(V.anyDigitsSigned, e);
 }
-function q(e, t) {
+function K(e, t) {
 	switch (e) {
-		case 1: return G(H.singleDigit, t);
-		case 2: return G(H.twoDigits, t);
-		case 3: return G(H.threeDigits, t);
-		case 4: return G(H.fourDigits, t);
-		default: return G(RegExp("^\\d{1," + e + "}"), t);
+		case 1: return W(V.singleDigit, t);
+		case 2: return W(V.twoDigits, t);
+		case 3: return W(V.threeDigits, t);
+		case 4: return W(V.fourDigits, t);
+		default: return W(RegExp("^\\d{1," + e + "}"), t);
 	}
 }
-function dt(e, t) {
+function _t(e, t) {
 	switch (e) {
-		case 1: return G(H.singleDigitSigned, t);
-		case 2: return G(H.twoDigitsSigned, t);
-		case 3: return G(H.threeDigitsSigned, t);
-		case 4: return G(H.fourDigitsSigned, t);
-		default: return G(RegExp("^-?\\d{1," + e + "}"), t);
+		case 1: return W(V.singleDigitSigned, t);
+		case 2: return W(V.twoDigitsSigned, t);
+		case 3: return W(V.threeDigitsSigned, t);
+		case 4: return W(V.fourDigitsSigned, t);
+		default: return W(RegExp("^-?\\d{1," + e + "}"), t);
 	}
 }
-function J(e) {
+function q(e) {
 	switch (e) {
 		case "morning": return 4;
 		case "evening": return 17;
@@ -2923,7 +2952,7 @@ function J(e) {
 		default: return 0;
 	}
 }
-function ft(e, t) {
+function vt(e, t) {
 	let n = t > 0, r = n ? t : 1 - t, i;
 	if (r <= 50) i = e || 100;
 	else {
@@ -2932,12 +2961,12 @@ function ft(e, t) {
 	}
 	return n ? i : 1 - i;
 }
-function pt(e) {
+function yt(e) {
 	return e % 400 == 0 || e % 4 == 0 && e % 100 != 0;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/parsers/YearParser.js
-var mt = class extends V {
+var bt = class extends B {
 	priority = 130;
 	incompatibleTokens = [
 		"Y",
@@ -2957,9 +2986,9 @@ var mt = class extends V {
 			isTwoDigitYear: t === "yy"
 		});
 		switch (t) {
-			case "y": return W(q(4, e), r);
-			case "yo": return W(n.ordinalNumber(e, { unit: "year" }), r);
-			default: return W(q(t.length, e), r);
+			case "y": return U(K(4, e), r);
+			case "yo": return U(n.ordinalNumber(e, { unit: "year" }), r);
+			default: return U(K(t.length, e), r);
 		}
 	}
 	validate(e, t) {
@@ -2968,13 +2997,13 @@ var mt = class extends V {
 	set(e, t, n) {
 		let r = e.getFullYear();
 		if (n.isTwoDigitYear) {
-			let t = ft(n.year, r);
+			let t = vt(n.year, r);
 			return e.setFullYear(t, 0, 1), e.setHours(0, 0, 0, 0), e;
 		}
 		let i = !("era" in t) || t.era === 1 ? n.year : 1 - n.year;
 		return e.setFullYear(i, 0, 1), e.setHours(0, 0, 0, 0), e;
 	}
-}, ht = class extends V {
+}, xt = class extends B {
 	priority = 130;
 	parse(e, t, n) {
 		let r = (e) => ({
@@ -2982,22 +3011,22 @@ var mt = class extends V {
 			isTwoDigitYear: t === "YY"
 		});
 		switch (t) {
-			case "Y": return W(q(4, e), r);
-			case "Yo": return W(n.ordinalNumber(e, { unit: "year" }), r);
-			default: return W(q(t.length, e), r);
+			case "Y": return U(K(4, e), r);
+			case "Yo": return U(n.ordinalNumber(e, { unit: "year" }), r);
+			default: return U(K(t.length, e), r);
 		}
 	}
 	validate(e, t) {
 		return t.isTwoDigitYear || t.year > 0;
 	}
 	set(e, t, n, r) {
-		let i = N(e, r);
+		let i = M(e, r);
 		if (n.isTwoDigitYear) {
-			let t = ft(n.year, i);
-			return e.setFullYear(t, 0, r.firstWeekContainsDate), e.setHours(0, 0, 0, 0), E(e, r);
+			let t = vt(n.year, i);
+			return e.setFullYear(t, 0, r.firstWeekContainsDate), e.setHours(0, 0, 0, 0), T(e, r);
 		}
 		let a = !("era" in t) || t.era === 1 ? n.year : 1 - n.year;
-		return e.setFullYear(a, 0, r.firstWeekContainsDate), e.setHours(0, 0, 0, 0), E(e, r);
+		return e.setFullYear(a, 0, r.firstWeekContainsDate), e.setHours(0, 0, 0, 0), T(e, r);
 	}
 	incompatibleTokens = [
 		"y",
@@ -3014,14 +3043,14 @@ var mt = class extends V {
 		"t",
 		"T"
 	];
-}, gt = class extends V {
+}, St = class extends B {
 	priority = 130;
 	parse(e, t) {
-		return dt(t === "R" ? 4 : t.length, e);
+		return _t(t === "R" ? 4 : t.length, e);
 	}
 	set(e, t, n) {
-		let r = C(e, 0);
-		return r.setFullYear(n, 0, 4), r.setHours(0, 0, 0, 0), D(r);
+		let r = x(e, 0);
+		return r.setFullYear(n, 0, 4), r.setHours(0, 0, 0, 0), E(r);
 	}
 	incompatibleTokens = [
 		"G",
@@ -3040,10 +3069,10 @@ var mt = class extends V {
 		"t",
 		"T"
 	];
-}, _t = class extends V {
+}, Ct = class extends B {
 	priority = 130;
 	parse(e, t) {
-		return dt(t === "u" ? 4 : t.length, e);
+		return _t(t === "u" ? 4 : t.length, e);
 	}
 	set(e, t, n) {
 		return e.setFullYear(n, 0, 1), e.setHours(0, 0, 0, 0), e;
@@ -3061,12 +3090,12 @@ var mt = class extends V {
 		"t",
 		"T"
 	];
-}, vt = class extends V {
+}, wt = class extends B {
 	priority = 120;
 	parse(e, t, n) {
 		switch (t) {
 			case "Q":
-			case "QQ": return q(t.length, e);
+			case "QQ": return K(t.length, e);
 			case "Qo": return n.ordinalNumber(e, { unit: "quarter" });
 			case "QQQ": return n.quarter(e, {
 				width: "abbreviated",
@@ -3113,12 +3142,12 @@ var mt = class extends V {
 		"t",
 		"T"
 	];
-}, yt = class extends V {
+}, Tt = class extends B {
 	priority = 120;
 	parse(e, t, n) {
 		switch (t) {
 			case "q":
-			case "qq": return q(t.length, e);
+			case "qq": return K(t.length, e);
 			case "qo": return n.ordinalNumber(e, { unit: "quarter" });
 			case "qqq": return n.quarter(e, {
 				width: "abbreviated",
@@ -3165,7 +3194,7 @@ var mt = class extends V {
 		"t",
 		"T"
 	];
-}, bt = class extends V {
+}, Et = class extends B {
 	incompatibleTokens = [
 		"Y",
 		"R",
@@ -3185,9 +3214,9 @@ var mt = class extends V {
 	parse(e, t, n) {
 		let r = (e) => e - 1;
 		switch (t) {
-			case "M": return W(G(H.month, e), r);
-			case "MM": return W(q(2, e), r);
-			case "Mo": return W(n.ordinalNumber(e, { unit: "month" }), r);
+			case "M": return U(W(V.month, e), r);
+			case "MM": return U(K(2, e), r);
+			case "Mo": return U(n.ordinalNumber(e, { unit: "month" }), r);
 			case "MMM": return n.month(e, {
 				width: "abbreviated",
 				context: "formatting"
@@ -3217,14 +3246,14 @@ var mt = class extends V {
 	set(e, t, n) {
 		return e.setMonth(n, 1), e.setHours(0, 0, 0, 0), e;
 	}
-}, xt = class extends V {
+}, Dt = class extends B {
 	priority = 110;
 	parse(e, t, n) {
 		let r = (e) => e - 1;
 		switch (t) {
-			case "L": return W(G(H.month, e), r);
-			case "LL": return W(q(2, e), r);
-			case "Lo": return W(n.ordinalNumber(e, { unit: "month" }), r);
+			case "L": return U(W(V.month, e), r);
+			case "LL": return U(K(2, e), r);
+			case "Lo": return U(n.ordinalNumber(e, { unit: "month" }), r);
 			case "LLL": return n.month(e, {
 				width: "abbreviated",
 				context: "standalone"
@@ -3272,26 +3301,26 @@ var mt = class extends V {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/setWeek.js
-function St(e, t, n) {
-	let r = w(e, n?.in), i = Ie(r, n) - t;
-	return r.setDate(r.getDate() - i * 7), w(r, n?.in);
+function Ot(e, t, n) {
+	let r = S(e, n?.in), i = Be(r, n) - t;
+	return r.setDate(r.getDate() - i * 7), S(r, n?.in);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/parsers/LocalWeekParser.js
-var Ct = class extends V {
+var kt = class extends B {
 	priority = 100;
 	parse(e, t, n) {
 		switch (t) {
-			case "w": return G(H.week, e);
+			case "w": return W(V.week, e);
 			case "wo": return n.ordinalNumber(e, { unit: "week" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
 		return t >= 1 && t <= 53;
 	}
 	set(e, t, n, r) {
-		return E(St(e, n, r), r);
+		return T(Ot(e, n, r), r);
 	}
 	incompatibleTokens = [
 		"y",
@@ -3311,26 +3340,26 @@ var Ct = class extends V {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/setISOWeek.js
-function wt(e, t, n) {
-	let r = w(e, n?.in), i = Pe(r, n) - t;
+function At(e, t, n) {
+	let r = S(e, n?.in), i = Re(r, n) - t;
 	return r.setDate(r.getDate() - i * 7), r;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/parsers/ISOWeekParser.js
-var Tt = class extends V {
+var jt = class extends B {
 	priority = 100;
 	parse(e, t, n) {
 		switch (t) {
-			case "I": return G(H.week, e);
+			case "I": return W(V.week, e);
 			case "Io": return n.ordinalNumber(e, { unit: "week" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
 		return t >= 1 && t <= 53;
 	}
 	set(e, t, n) {
-		return D(wt(e, n));
+		return E(At(e, n));
 	}
 	incompatibleTokens = [
 		"y",
@@ -3348,7 +3377,7 @@ var Tt = class extends V {
 		"t",
 		"T"
 	];
-}, Et = [
+}, Mt = [
 	31,
 	28,
 	31,
@@ -3361,7 +3390,7 @@ var Tt = class extends V {
 	31,
 	30,
 	31
-], Dt = [
+], Nt = [
 	31,
 	29,
 	31,
@@ -3374,19 +3403,19 @@ var Tt = class extends V {
 	31,
 	30,
 	31
-], Ot = class extends V {
+], Pt = class extends B {
 	priority = 90;
 	subPriority = 1;
 	parse(e, t, n) {
 		switch (t) {
-			case "d": return G(H.date, e);
+			case "d": return W(V.date, e);
 			case "do": return n.ordinalNumber(e, { unit: "date" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
-		let n = pt(e.getFullYear()), r = e.getMonth();
-		return n ? t >= 1 && t <= Dt[r] : t >= 1 && t <= Et[r];
+		let n = yt(e.getFullYear()), r = e.getMonth();
+		return n ? t >= 1 && t <= Nt[r] : t >= 1 && t <= Mt[r];
 	}
 	set(e, t, n) {
 		return e.setDate(n), e.setHours(0, 0, 0, 0), e;
@@ -3405,19 +3434,19 @@ var Tt = class extends V {
 		"t",
 		"T"
 	];
-}, kt = class extends V {
+}, Ft = class extends B {
 	priority = 90;
 	subpriority = 1;
 	parse(e, t, n) {
 		switch (t) {
 			case "D":
-			case "DD": return G(H.dayOfYear, e);
+			case "DD": return W(V.dayOfYear, e);
 			case "Do": return n.ordinalNumber(e, { unit: "date" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
-		return pt(e.getFullYear()) ? t >= 1 && t <= 366 : t >= 1 && t <= 365;
+		return yt(e.getFullYear()) ? t >= 1 && t <= 366 : t >= 1 && t <= 365;
 	}
 	set(e, t, n) {
 		return e.setMonth(0, n), e.setHours(0, 0, 0, 0), e;
@@ -3442,13 +3471,13 @@ var Tt = class extends V {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/setDay.js
-function Y(e, t, n) {
-	let r = T(), i = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, a = w(e, n?.in), o = a.getDay(), s = (t % 7 + 7) % 7, c = 7 - i;
-	return pe(a, t < 0 || t > 6 ? t - (o + c) % 7 : (s + c) % 7 - (o + c) % 7, n);
+function J(e, t, n) {
+	let r = w(), i = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, a = S(e, n?.in), o = a.getDay(), s = (t % 7 + 7) % 7, c = 7 - i;
+	return C(a, t < 0 || t > 6 ? t - (o + c) % 7 : (s + c) % 7 - (o + c) % 7, n);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/parsers/DayParser.js
-var At = class extends V {
+var It = class extends B {
 	priority = 90;
 	parse(e, t, n) {
 		switch (t) {
@@ -3494,7 +3523,7 @@ var At = class extends V {
 		return t >= 0 && t <= 6;
 	}
 	set(e, t, n, r) {
-		return e = Y(e, n, r), e.setHours(0, 0, 0, 0), e;
+		return e = J(e, n, r), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"D",
@@ -3504,7 +3533,7 @@ var At = class extends V {
 		"t",
 		"T"
 	];
-}, jt = class extends V {
+}, Lt = class extends B {
 	priority = 90;
 	parse(e, t, n, r) {
 		let i = (e) => {
@@ -3513,8 +3542,8 @@ var At = class extends V {
 		};
 		switch (t) {
 			case "e":
-			case "ee": return W(q(t.length, e), i);
-			case "eo": return W(n.ordinalNumber(e, { unit: "day" }), i);
+			case "ee": return U(K(t.length, e), i);
+			case "eo": return U(n.ordinalNumber(e, { unit: "day" }), i);
 			case "eee": return n.day(e, {
 				width: "abbreviated",
 				context: "formatting"
@@ -3555,7 +3584,7 @@ var At = class extends V {
 		return t >= 0 && t <= 6;
 	}
 	set(e, t, n, r) {
-		return e = Y(e, n, r), e.setHours(0, 0, 0, 0), e;
+		return e = J(e, n, r), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"y",
@@ -3574,7 +3603,7 @@ var At = class extends V {
 		"t",
 		"T"
 	];
-}, Mt = class extends V {
+}, Rt = class extends B {
 	priority = 90;
 	parse(e, t, n, r) {
 		let i = (e) => {
@@ -3583,8 +3612,8 @@ var At = class extends V {
 		};
 		switch (t) {
 			case "c":
-			case "cc": return W(q(t.length, e), i);
-			case "co": return W(n.ordinalNumber(e, { unit: "day" }), i);
+			case "cc": return U(K(t.length, e), i);
+			case "co": return U(n.ordinalNumber(e, { unit: "day" }), i);
 			case "ccc": return n.day(e, {
 				width: "abbreviated",
 				context: "standalone"
@@ -3625,7 +3654,7 @@ var At = class extends V {
 		return t >= 0 && t <= 6;
 	}
 	set(e, t, n, r) {
-		return e = Y(e, n, r), e.setHours(0, 0, 0, 0), e;
+		return e = J(e, n, r), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"y",
@@ -3647,21 +3676,21 @@ var At = class extends V {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/setISODay.js
-function Nt(e, t, n) {
-	let r = w(e, n?.in);
-	return pe(r, t - nt(r, n), n);
+function zt(e, t, n) {
+	let r = S(e, n?.in);
+	return C(r, t - ot(r, n), n);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/parse/_lib/parsers/ISODayParser.js
-var Pt = class extends V {
+var Bt = class extends B {
 	priority = 90;
 	parse(e, t, n) {
 		let r = (e) => e === 0 ? 7 : e;
 		switch (t) {
 			case "i":
-			case "ii": return q(t.length, e);
+			case "ii": return K(t.length, e);
 			case "io": return n.ordinalNumber(e, { unit: "day" });
-			case "iii": return W(n.day(e, {
+			case "iii": return U(n.day(e, {
 				width: "abbreviated",
 				context: "formatting"
 			}) || n.day(e, {
@@ -3671,18 +3700,18 @@ var Pt = class extends V {
 				width: "narrow",
 				context: "formatting"
 			}), r);
-			case "iiiii": return W(n.day(e, {
+			case "iiiii": return U(n.day(e, {
 				width: "narrow",
 				context: "formatting"
 			}), r);
-			case "iiiiii": return W(n.day(e, {
+			case "iiiiii": return U(n.day(e, {
 				width: "short",
 				context: "formatting"
 			}) || n.day(e, {
 				width: "narrow",
 				context: "formatting"
 			}), r);
-			default: return W(n.day(e, {
+			default: return U(n.day(e, {
 				width: "wide",
 				context: "formatting"
 			}) || n.day(e, {
@@ -3701,7 +3730,7 @@ var Pt = class extends V {
 		return t >= 1 && t <= 7;
 	}
 	set(e, t, n) {
-		return e = Nt(e, n), e.setHours(0, 0, 0, 0), e;
+		return e = zt(e, n), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"y",
@@ -3720,7 +3749,7 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, Ft = class extends V {
+}, Vt = class extends B {
 	priority = 80;
 	parse(e, t, n) {
 		switch (t) {
@@ -3750,7 +3779,7 @@ var Pt = class extends V {
 		}
 	}
 	set(e, t, n) {
-		return e.setHours(J(n), 0, 0, 0), e;
+		return e.setHours(q(n), 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"b",
@@ -3760,7 +3789,7 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, It = class extends V {
+}, Ht = class extends B {
 	priority = 80;
 	parse(e, t, n) {
 		switch (t) {
@@ -3790,7 +3819,7 @@ var Pt = class extends V {
 		}
 	}
 	set(e, t, n) {
-		return e.setHours(J(n), 0, 0, 0), e;
+		return e.setHours(q(n), 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"a",
@@ -3800,7 +3829,7 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, Lt = class extends V {
+}, Ut = class extends B {
 	priority = 80;
 	parse(e, t, n) {
 		switch (t) {
@@ -3830,7 +3859,7 @@ var Pt = class extends V {
 		}
 	}
 	set(e, t, n) {
-		return e.setHours(J(n), 0, 0, 0), e;
+		return e.setHours(q(n), 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"a",
@@ -3838,13 +3867,13 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, Rt = class extends V {
+}, Wt = class extends B {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
-			case "h": return G(H.hour12h, e);
+			case "h": return W(V.hour12h, e);
 			case "ho": return n.ordinalNumber(e, { unit: "hour" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
@@ -3861,13 +3890,13 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, zt = class extends V {
+}, Gt = class extends B {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
-			case "H": return G(H.hour23h, e);
+			case "H": return W(V.hour23h, e);
 			case "Ho": return n.ordinalNumber(e, { unit: "hour" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
@@ -3885,13 +3914,13 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, Bt = class extends V {
+}, Kt = class extends B {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
-			case "K": return G(H.hour11h, e);
+			case "K": return W(V.hour11h, e);
 			case "Ko": return n.ordinalNumber(e, { unit: "hour" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
@@ -3907,13 +3936,13 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, Vt = class extends V {
+}, qt = class extends B {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
-			case "k": return G(H.hour24h, e);
+			case "k": return W(V.hour24h, e);
 			case "ko": return n.ordinalNumber(e, { unit: "hour" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
@@ -3932,13 +3961,13 @@ var Pt = class extends V {
 		"t",
 		"T"
 	];
-}, Ht = class extends V {
+}, Jt = class extends B {
 	priority = 60;
 	parse(e, t, n) {
 		switch (t) {
-			case "m": return G(H.minute, e);
+			case "m": return W(V.minute, e);
 			case "mo": return n.ordinalNumber(e, { unit: "minute" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
@@ -3948,13 +3977,13 @@ var Pt = class extends V {
 		return e.setMinutes(n, 0, 0), e;
 	}
 	incompatibleTokens = ["t", "T"];
-}, Ut = class extends V {
+}, Yt = class extends B {
 	priority = 50;
 	parse(e, t, n) {
 		switch (t) {
-			case "s": return G(H.second, e);
+			case "s": return W(V.second, e);
 			case "so": return n.ordinalNumber(e, { unit: "second" });
-			default: return q(t.length, e);
+			default: return K(t.length, e);
 		}
 	}
 	validate(e, t) {
@@ -3964,122 +3993,122 @@ var Pt = class extends V {
 		return e.setSeconds(n, 0), e;
 	}
 	incompatibleTokens = ["t", "T"];
-}, Wt = class extends V {
+}, Xt = class extends B {
 	priority = 30;
 	parse(e, t) {
-		return W(q(t.length, e), (e) => Math.trunc(e * 10 ** (-t.length + 3)));
+		return U(K(t.length, e), (e) => Math.trunc(e * 10 ** (-t.length + 3)));
 	}
 	set(e, t, n) {
 		return e.setMilliseconds(n), e;
 	}
 	incompatibleTokens = ["t", "T"];
-}, Gt = class extends V {
+}, Zt = class extends B {
 	priority = 10;
 	parse(e, t) {
 		switch (t) {
-			case "X": return K(U.basicOptionalMinutes, e);
-			case "XX": return K(U.basic, e);
-			case "XXXX": return K(U.basicOptionalSeconds, e);
-			case "XXXXX": return K(U.extendedOptionalSeconds, e);
-			default: return K(U.extended, e);
+			case "X": return G(H.basicOptionalMinutes, e);
+			case "XX": return G(H.basic, e);
+			case "XXXX": return G(H.basicOptionalSeconds, e);
+			case "XXXXX": return G(H.extendedOptionalSeconds, e);
+			default: return G(H.extended, e);
 		}
 	}
 	set(e, t, n) {
-		return t.timestampIsSet ? e : C(e, e.getTime() - O(e) - n);
+		return t.timestampIsSet ? e : x(e, e.getTime() - D(e) - n);
 	}
 	incompatibleTokens = [
 		"t",
 		"T",
 		"x"
 	];
-}, Kt = class extends V {
+}, Qt = class extends B {
 	priority = 10;
 	parse(e, t) {
 		switch (t) {
-			case "x": return K(U.basicOptionalMinutes, e);
-			case "xx": return K(U.basic, e);
-			case "xxxx": return K(U.basicOptionalSeconds, e);
-			case "xxxxx": return K(U.extendedOptionalSeconds, e);
-			default: return K(U.extended, e);
+			case "x": return G(H.basicOptionalMinutes, e);
+			case "xx": return G(H.basic, e);
+			case "xxxx": return G(H.basicOptionalSeconds, e);
+			case "xxxxx": return G(H.extendedOptionalSeconds, e);
+			default: return G(H.extended, e);
 		}
 	}
 	set(e, t, n) {
-		return t.timestampIsSet ? e : C(e, e.getTime() - O(e) - n);
+		return t.timestampIsSet ? e : x(e, e.getTime() - D(e) - n);
 	}
 	incompatibleTokens = [
 		"t",
 		"T",
 		"X"
 	];
-}, qt = class extends V {
+}, $t = class extends B {
 	priority = 40;
 	parse(e) {
-		return ut(e);
+		return gt(e);
 	}
 	set(e, t, n) {
-		return [C(e, n * 1e3), { timestampIsSet: !0 }];
+		return [x(e, n * 1e3), { timestampIsSet: !0 }];
 	}
 	incompatibleTokens = "*";
-}, Jt = class extends V {
+}, en = class extends B {
 	priority = 20;
 	parse(e) {
-		return ut(e);
+		return gt(e);
 	}
 	set(e, t, n) {
-		return [C(e, n), { timestampIsSet: !0 }];
+		return [x(e, n), { timestampIsSet: !0 }];
 	}
 	incompatibleTokens = "*";
-}, Yt = {
-	G: new lt(),
-	y: new mt(),
-	Y: new ht(),
-	R: new gt(),
-	u: new _t(),
-	Q: new vt(),
-	q: new yt(),
-	M: new bt(),
-	L: new xt(),
-	w: new Ct(),
-	I: new Tt(),
-	d: new Ot(),
-	D: new kt(),
-	E: new At(),
-	e: new jt(),
-	c: new Mt(),
-	i: new Pt(),
-	a: new Ft(),
-	b: new It(),
-	B: new Lt(),
-	h: new Rt(),
-	H: new zt(),
-	K: new Bt(),
-	k: new Vt(),
-	m: new Ht(),
-	s: new Ut(),
-	S: new Wt(),
-	X: new Gt(),
-	x: new Kt(),
-	t: new qt(),
-	T: new Jt()
-}, Xt = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, Zt = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, Qt = /^'([^]*?)'?$/, $t = /''/g, en = /\S/, tn = /[a-zA-Z]/;
-function X(e, t, n, r) {
-	let i = () => C(r?.in || n, NaN), a = tt(), o = r?.locale ?? a.locale ?? Me, s = r?.firstWeekContainsDate ?? r?.locale?.options?.firstWeekContainsDate ?? a.firstWeekContainsDate ?? a.locale?.options?.firstWeekContainsDate ?? 1, c = r?.weekStartsOn ?? r?.locale?.options?.weekStartsOn ?? a.weekStartsOn ?? a.locale?.options?.weekStartsOn ?? 0;
-	if (!t) return e ? i() : w(n, r?.in);
+}, tn = {
+	G: new ht(),
+	y: new bt(),
+	Y: new xt(),
+	R: new St(),
+	u: new Ct(),
+	Q: new wt(),
+	q: new Tt(),
+	M: new Et(),
+	L: new Dt(),
+	w: new kt(),
+	I: new jt(),
+	d: new Pt(),
+	D: new Ft(),
+	E: new It(),
+	e: new Lt(),
+	c: new Rt(),
+	i: new Bt(),
+	a: new Vt(),
+	b: new Ht(),
+	B: new Ut(),
+	h: new Wt(),
+	H: new Gt(),
+	K: new Kt(),
+	k: new qt(),
+	m: new Jt(),
+	s: new Yt(),
+	S: new Xt(),
+	X: new Zt(),
+	x: new Qt(),
+	t: new $t(),
+	T: new en()
+}, nn = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, rn = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, an = /^'([^]*?)'?$/, on = /''/g, sn = /\S/, cn = /[a-zA-Z]/;
+function Y(e, t, n, r) {
+	let i = () => x(r?.in || n, NaN), a = at(), o = r?.locale ?? a.locale ?? Ie, s = r?.firstWeekContainsDate ?? r?.locale?.options?.firstWeekContainsDate ?? a.firstWeekContainsDate ?? a.locale?.options?.firstWeekContainsDate ?? 1, c = r?.weekStartsOn ?? r?.locale?.options?.weekStartsOn ?? a.weekStartsOn ?? a.locale?.options?.weekStartsOn ?? 0;
+	if (!t) return e ? i() : S(n, r?.in);
 	let l = {
 		firstWeekContainsDate: s,
 		weekStartsOn: c,
 		locale: o
-	}, u = [new ct(r?.in, n)], d = t.match(Zt).map((e) => {
+	}, u = [new mt(r?.in, n)], d = t.match(rn).map((e) => {
 		let t = e[0];
-		if (t in He) {
-			let n = He[t];
+		if (t in L) {
+			let n = L[t];
 			return n(e, o.formatLong);
 		}
 		return e;
-	}).join("").match(Xt), f = [];
+	}).join("").match(nn), f = [];
 	for (let n of d) {
-		!r?.useAdditionalWeekYearTokens && qe(n) && R(n, t, e), !r?.useAdditionalDayOfYearTokens && Ke(n) && R(n, t, e);
-		let a = n[0], s = Yt[a];
+		!r?.useAdditionalWeekYearTokens && Xe(n) && R(n, t, e), !r?.useAdditionalDayOfYearTokens && Ye(n) && R(n, t, e);
+		let a = n[0], s = tn[a];
 		if (s) {
 			let { incompatibleTokens: t } = s;
 			if (Array.isArray(t)) {
@@ -4094,13 +4123,13 @@ function X(e, t, n, r) {
 			if (!r) return i();
 			u.push(r.setter), e = r.rest;
 		} else {
-			if (a.match(tn)) throw RangeError("Format string contains an unescaped latin alphabet character `" + a + "`");
-			if (n === "''" ? n = "'" : a === "'" && (n = nn(n)), e.indexOf(n) === 0) e = e.slice(n.length);
+			if (a.match(cn)) throw RangeError("Format string contains an unescaped latin alphabet character `" + a + "`");
+			if (n === "''" ? n = "'" : a === "'" && (n = ln(n)), e.indexOf(n) === 0) e = e.slice(n.length);
 			else return i();
 		}
 	}
-	if (e.length > 0 && en.test(e)) return i();
-	let p = u.map((e) => e.priority).sort((e, t) => t - e).filter((e, t, n) => n.indexOf(e) === t).map((e) => u.filter((t) => t.priority === e).sort((e, t) => t.subPriority - e.subPriority)).map((e) => e[0]), m = w(n, r?.in);
+	if (e.length > 0 && sn.test(e)) return i();
+	let p = u.map((e) => e.priority).sort((e, t) => t - e).filter((e, t, n) => n.indexOf(e) === t).map((e) => u.filter((t) => t.priority === e).sort((e, t) => t.subPriority - e.subPriority)).map((e) => e[0]), m = S(n, r?.in);
 	if (isNaN(+m)) return i();
 	let h = {};
 	for (let e of p) {
@@ -4110,17 +4139,17 @@ function X(e, t, n, r) {
 	}
 	return m;
 }
-function nn(e) {
-	return e.match(Qt)[1].replace($t, "'");
+function ln(e) {
+	return e.match(an)[1].replace(on, "'");
 }
 //#endregion
 //#region src/components/Card/CardDateThumb.tsx
-var rn = ({ startDate: e, endDate: t }) => {
-	let n = X(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), r = X(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), s = z(n, "MMM"), c = B(n);
+var un = ({ startDate: e, endDate: t }) => {
+	let n = Y(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), r = Y(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), s = z(n, "MMM"), c = it(n);
 	return /* @__PURE__ */ a("div", {
 		className: "cu-card__date-thumb",
 		"aria-hidden": "true",
-		children: ye(n, r) ? /* @__PURE__ */ o(i, { children: [/* @__PURE__ */ a("span", {
+		children: be(n, r) ? /* @__PURE__ */ o(i, { children: [/* @__PURE__ */ a("span", {
 			className: "cu-card__date-thumb-month",
 			children: s
 		}), /* @__PURE__ */ a("span", {
@@ -4135,42 +4164,42 @@ var rn = ({ startDate: e, endDate: t }) => {
 		})] })
 	});
 };
-rn.displayName = "Card.DateThumb";
+un.displayName = "Card.DateThumb";
 //#endregion
 //#region src/components/Card/CardExcerpt.tsx
-var an = ({ text: e, hasMore: t, truncateOnMobile: n }) => /* @__PURE__ */ o("p", {
+var dn = ({ text: e, hasMore: t, truncateOnMobile: n }) => /* @__PURE__ */ o("p", {
 	className: `cu-card__excerpt${n ? " cu-card__excerpt--truncate-mobile" : ""}`,
 	children: [e && e.length > 170 ? `${e.substring(0, 150)}...` : e, t && /* @__PURE__ */ a("span", {
 		className: "cu-card__excerpt-more",
 		children: " More"
 	})]
 });
-an.displayName = "Card.Excerpt";
+dn.displayName = "Card.Excerpt";
 //#endregion
 //#region src/components/Card/CardEventMeta.tsx
-var Z = 18, on = (e) => e.replace(" ", "T"), sn = (e) => e.split(" ")[0], cn = (e) => `${e.getHours() % 12 || 12}:${z(e, "mm")} ${z(e, "a")}`, ln = ({ startDateTime: e, endDateTime: t, onCampus: n, onCampusBuilding: r, onCampusRoomNumber: s, eventAddress: c }) => {
-	let l = X(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), u = X(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), d = ye(l, u), f = z(l, "MMMM"), p = B(l), m = z(u, "MMMM"), h = B(u), g = cn(l), _ = cn(u), v = n ? `${s} ${r}` : c;
+var X = 18, fn = (e) => e.replace(" ", "T"), pn = (e) => e.split(" ")[0], mn = (e) => `${e.getHours() % 12 || 12}:${z(e, "mm")} ${z(e, "a")}`, hn = ({ startDateTime: e, endDateTime: t, onCampus: n, onCampusBuilding: r, onCampusRoomNumber: s, eventAddress: c }) => {
+	let l = Y(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), u = Y(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), d = be(l, u), f = z(l, "MMMM"), p = it(l), m = z(u, "MMMM"), h = it(u), g = mn(l), _ = mn(u), v = n ? `${s} ${r}` : c;
 	return /* @__PURE__ */ o("ul", {
 		className: "cu-card__meta cu-card__meta--has-icons",
-		children: [/* @__PURE__ */ a("li", { children: d ? /* @__PURE__ */ o(i, { children: [/* @__PURE__ */ a(b, {
+		children: [/* @__PURE__ */ a("li", { children: d ? /* @__PURE__ */ o(i, { children: [/* @__PURE__ */ a(y, {
 			name: "clock",
-			size: Z,
+			size: X,
 			title: "When"
 		}), /* @__PURE__ */ o("time", {
-			dateTime: `${on(e)}/${on(t)}`,
+			dateTime: `${fn(e)}/${fn(t)}`,
 			children: [
 				g,
 				" — ",
 				_
 			]
 		})] }) : /* @__PURE__ */ o(i, { children: [
-			/* @__PURE__ */ a(b, {
+			/* @__PURE__ */ a(y, {
 				name: "calendar-days",
-				size: Z,
+				size: X,
 				title: "When"
 			}),
 			/* @__PURE__ */ o("time", {
-				dateTime: sn(e),
+				dateTime: pn(e),
 				children: [
 					f,
 					" ",
@@ -4179,38 +4208,44 @@ var Z = 18, on = (e) => e.replace(" ", "T"), sn = (e) => e.split(" ")[0], cn = (
 			}),
 			" — ",
 			/* @__PURE__ */ o("time", {
-				dateTime: sn(t),
+				dateTime: pn(t),
 				children: [
 					m,
 					" ",
 					h
 				]
 			})
-		] }) }), /* @__PURE__ */ o("li", { children: [/* @__PURE__ */ a(b, {
+		] }) }), /* @__PURE__ */ o("li", { children: [/* @__PURE__ */ a(y, {
 			name: "location-dot",
-			size: Z,
+			size: X,
 			title: "Where"
 		}), v] })]
 	});
 };
-ln.displayName = "Card.EventMeta";
+hn.displayName = "Card.EventMeta";
 //#endregion
 //#region src/components/Card/CardFigure.tsx
-var un = ({ children: e, isRound: t }) => /* @__PURE__ */ a("figure", {
-	className: `cu-card__figure${t ? " cu-card__figure--round" : ""}`,
+var gn = ({ children: e, isRound: t, isSmall: n, isSquare: r, isIcon: i }) => /* @__PURE__ */ a("figure", {
+	className: [
+		"cu-card__figure",
+		t && "cu-card__figure--round",
+		n && "cu-card__figure--small",
+		r && "cu-card__figure--square",
+		i && "cu-card__figure--icon"
+	].filter(Boolean).join(" "),
 	children: e
 });
-un.displayName = "Card.Figure";
+gn.displayName = "Card.Figure";
 //#endregion
 //#region src/components/Card/CardFooter.tsx
-var dn = ({ children: e }) => /* @__PURE__ */ a("footer", {
+var _n = ({ children: e }) => /* @__PURE__ */ a("footer", {
 	className: "cu-card__footer",
 	children: e
 });
-dn.displayName = "Card.Footer";
+_n.displayName = "Card.Footer";
 //#endregion
 //#region src/components/Card/CardHeader.tsx
-var fn = ({ title: e = "No title available", link: t, extraText: n, as: r = "h2", date: i, datePrefix: s, readTime: c, position: l = "top" }) => {
+var vn = ({ title: e = "No title available", link: t, extraText: n, as: r = "h2", date: i, datePrefix: s, readTime: c, position: l = "top" }) => {
 	let u = v(), d = r, f = i ? new Date(i).toLocaleString("en-US", {
 		month: "long",
 		day: "2-digit",
@@ -4253,31 +4288,17 @@ var fn = ({ title: e = "No title available", link: t, extraText: n, as: r = "h2"
 		]
 	});
 };
-fn.displayName = "Card.Header";
-//#endregion
-//#region src/components/Card/CardIconThumb.tsx
-var pn = ({ icon: e }) => {
-	let t = e && e.startsWith("file-") && e.endsWith("x") ? e.substring(0, e.length - 1) : e;
-	return /* @__PURE__ */ a("figure", {
-		className: "cu-card__icon-thumb",
-		children: t && /* @__PURE__ */ a(b, {
-			name: t,
-			size: 48,
-			color: "#E91C24"
-		})
-	});
-};
-pn.displayName = "Card.IconThumb";
+vn.displayName = "Card.Header";
 //#endregion
 //#region src/components/Card/CardImageThumb.tsx
-var mn = ({ children: e, isSquare: t }) => /* @__PURE__ */ a("figure", {
+var yn = ({ children: e, isSquare: t }) => /* @__PURE__ */ a("figure", {
 	className: `cu-card__image-thumb${t ? " cu-card__image-thumb--square" : ""}`,
 	children: e
 });
-mn.displayName = "Card.ImageThumb";
+yn.displayName = "Card.ImageThumb";
 //#endregion
 //#region src/components/Card/CardInitials.tsx
-var hn = ({ initials: e }) => /* @__PURE__ */ o("figure", {
+var bn = ({ initials: e }) => /* @__PURE__ */ o("figure", {
 	className: "cu-card__initials",
 	children: [/* @__PURE__ */ a("img", {
 		src: "https://cu-production.s3.amazonaws.com/rds/assets/graphics/grey-bg.jpg",
@@ -4289,10 +4310,10 @@ var hn = ({ initials: e }) => /* @__PURE__ */ o("figure", {
 		children: e
 	})]
 });
-hn.displayName = "Card.Initials";
+bn.displayName = "Card.Initials";
 //#endregion
 //#region src/components/Card/CardPeopleMeta.tsx
-var gn = ({ jobTitle: e, children: t, phone: n }) => /* @__PURE__ */ o("ul", {
+var xn = ({ jobTitle: e, children: t, phone: n }) => /* @__PURE__ */ o("ul", {
 	className: "cu-card__meta",
 	children: [
 		e && /* @__PURE__ */ a("li", {
@@ -4306,10 +4327,10 @@ var gn = ({ jobTitle: e, children: t, phone: n }) => /* @__PURE__ */ o("ul", {
 		n && /* @__PURE__ */ a("li", { children: n })
 	]
 });
-gn.displayName = "Card.PeopleMeta";
+xn.displayName = "Card.PeopleMeta";
 //#endregion
 //#region src/components/Card/CardStats.tsx
-var _n = ({ stat: e, desc: t, reverse: n }) => {
+var Sn = ({ stat: e, desc: t, reverse: n }) => {
 	let r = `cu-card__stats${n ? " cu-card__stats--reverse" : ""}`, i = t && t.length > 80 ? `${t.substring(0, 80)}...` : t, s = e && e.length > 60 ? `${e.substring(0, 60)}...` : e;
 	return /* @__PURE__ */ o("div", {
 		className: r,
@@ -4322,10 +4343,62 @@ var _n = ({ stat: e, desc: t, reverse: n }) => {
 		})]
 	});
 };
-_n.displayName = "Card.Stats";
+Sn.displayName = "Card.Stats";
+//#endregion
+//#region src/components/Status/types.ts
+var Cn = {
+	hours: {
+		ariaPrefix: "Hours",
+		labels: {
+			success: "Open",
+			warning: "Closing soon",
+			error: "Closed"
+		}
+	},
+	availability: {
+		ariaPrefix: "Availability",
+		labels: {
+			success: "Available",
+			warning: "Limited availability",
+			error: "Unavailable"
+		}
+	},
+	system: {
+		ariaPrefix: "System status",
+		labels: {
+			success: "Operational",
+			warning: "Degraded",
+			error: "Outage",
+			info: "Maintenance"
+		}
+	}
+}, Z = ({ children: e, variant: t = "success", type: n, label: r, context: i = "standalone" }) => {
+	let s = n ? Cn[n] : void 0, c = s?.labels?.[t], l = e ?? r ?? c ?? void 0;
+	if (n !== void 0 && l === void 0) return null;
+	let u = s && l !== void 0 && typeof l != "object" ? `${s.ariaPrefix}: ${l}` : void 0;
+	return /* @__PURE__ */ o("span", {
+		className: `cu-status cu-status--${t} cu-status--${i}`,
+		"aria-label": u,
+		children: [/* @__PURE__ */ a("span", {
+			className: "cu-status__dot",
+			"aria-hidden": "true"
+		}), l]
+	});
+};
+Z.displayName = "Status";
+//#endregion
+//#region src/components/Card/CardStatus.tsx
+var wn = (e) => /* @__PURE__ */ a("div", {
+	className: "cu-card__status",
+	children: /* @__PURE__ */ a(Z, {
+		...e,
+		context: "in-card"
+	})
+});
+wn.displayName = "Card.Status";
 //#endregion
 //#region src/utils/video/providers.ts
-var Q = [
+var Tn = [
 	{
 		name: "youtube",
 		matches: (e) => /(?:youtube\.com|youtu\.be)/i.test(e),
@@ -4361,11 +4434,11 @@ var Q = [
 		buildEmbedUrl: (e) => `https://embed.ted.com/talks/${e}`,
 		buildOEmbedUrl: (e) => `https://www.ted.com/services/v1/oembed.json?url=${encodeURIComponent(e)}`
 	}
-], vn = (e) => {
-	for (let t of Q) if (t.matches(e)) return t;
+], En = (e) => {
+	for (let t of Tn) if (t.matches(e)) return t;
 	return null;
-}, yn = (e) => Q.find((t) => t.name === e) ?? null, bn = Q.map((e) => e.name), xn = /* @__PURE__ */ new Map(), Sn = /* @__PURE__ */ new Map(), Cn = async (e, t) => {
-	let n = vn(e);
+}, Dn = (e) => Tn.find((t) => t.name === e) ?? null, On = Tn.map((e) => e.name), kn = /* @__PURE__ */ new Map(), An = /* @__PURE__ */ new Map(), jn = async (e, t) => {
+	let n = En(e);
 	if (!n) throw Error(`Unsupported video URL: ${e}`);
 	let r = n.parseId(e);
 	if (!r) throw Error(`Could not parse video ID from URL: ${e}`);
@@ -4384,13 +4457,13 @@ var Q = [
 		author: a.author_name,
 		duration: a.duration
 	};
-}, wn = (e, t) => {
+}, Mn = (e, t) => {
 	if (!e) return {
 		data: null,
 		loading: !1,
 		error: null
 	};
-	let n = xn.get(e);
+	let n = kn.get(e);
 	return n ? {
 		data: n,
 		loading: !1,
@@ -4400,13 +4473,13 @@ var Q = [
 		loading: !t,
 		error: null
 	};
-}, Tn = (e, t) => {
-	let i = !!t?.skipNetwork, [a, o] = r(() => wn(e, i)), [s, c] = r(e), [l, u] = r(i);
-	return (e !== s || i !== l) && (c(e), u(i), o(wn(e, i))), n(() => {
-		if (!e || xn.has(e) || i) return;
-		let t = new AbortController(), n = Sn.get(e);
-		return n || (n = Cn(e, t.signal), Sn.set(e, n), n.finally(() => Sn.delete(e))), n.then((n) => {
-			t.signal.aborted || (xn.set(e, n), o({
+}, Nn = (e, t) => {
+	let i = !!t?.skipNetwork, [a, o] = r(() => Mn(e, i)), [s, c] = r(e), [l, u] = r(i);
+	return (e !== s || i !== l) && (c(e), u(i), o(Mn(e, i))), n(() => {
+		if (!e || kn.has(e) || i) return;
+		let t = new AbortController(), n = An.get(e);
+		return n || (n = jn(e, t.signal), An.set(e, n), n.finally(() => An.delete(e)).catch(() => {})), n.then((n) => {
+			t.signal.aborted || (kn.set(e, n), o({
 				data: n,
 				loading: !1,
 				error: null
@@ -4421,23 +4494,23 @@ var Q = [
 			t.abort();
 		};
 	}, [e, i]), a;
-}, En = [
+}, Pn = [
 	"maxresdefault",
 	"sddefault",
 	"hqdefault",
 	"default"
-], Dn = (e, t) => `https://i.ytimg.com/vi/${e}/${t}.jpg`, On = ({ url: e, thumbnail: t, title: n, provider: i, skipNetwork: s, onPlay: c }) => {
-	let [l, u] = r(!1), [d, f] = r(0), p = vn(e), m = i ?? p?.name, h = p?.parseId(e) ?? null, g = p && h ? p.buildEmbedUrl(h) : null, _ = m === "youtube", v = Tn(!t && !_ ? e : void 0, { skipNetwork: s }), ee = _ && h ? Dn(h, En[d] ?? "default") : null, y = t ?? ee ?? v.data?.thumbnail ?? void 0, te = _ && h && !t ? En.slice(1).map((e) => Dn(h, e)).join(",") : void 0, ne = () => {
-		!_ || t || d < En.length - 1 && f((e) => e + 1);
-	}, b = (e) => {
+], Fn = (e, t) => `https://i.ytimg.com/vi/${e}/${t}.jpg`, In = ({ url: e, thumbnail: t, title: n, provider: i, skipNetwork: s, onPlay: c }) => {
+	let [l, u] = r(!1), [d, f] = r(0), p = En(e), m = i ?? p?.name, h = p?.parseId(e) ?? null, g = p && h ? p.buildEmbedUrl(h) : null, _ = m === "youtube", v = Nn(!t && !_ ? e : void 0, { skipNetwork: s }), ee = _ && h ? Fn(h, Pn[d] ?? "default") : null, te = t ?? ee ?? v.data?.thumbnail ?? void 0, ne = _ && h && !t ? Pn.slice(1).map((e) => Fn(h, e)).join(",") : void 0, re = () => {
+		!_ || t || d < Pn.length - 1 && f((e) => e + 1);
+	}, y = (e) => {
 		g && (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1 || (e.preventDefault(), u(!0), c?.()));
-	}, x = [
+	}, b = [
 		"cu-card__figure",
 		"cu-card__figure--video",
 		l && "cu-card__figure--playing"
-	].filter(Boolean).join(" "), S = n ? `Play video: ${n}` : "Play video";
+	].filter(Boolean).join(" "), ie = n ? `Play video: ${n}` : "Play video";
 	return /* @__PURE__ */ a("figure", {
-		className: x,
+		className: b,
 		"data-rds-video-card": !0,
 		"data-embed-url": g ?? void 0,
 		"data-provider": m,
@@ -4452,15 +4525,15 @@ var Q = [
 			href: e,
 			target: "_blank",
 			rel: "noopener noreferrer",
-			"aria-label": S,
-			onClick: b,
-			children: [y ? /* @__PURE__ */ a("img", {
+			"aria-label": ie,
+			onClick: y,
+			children: [te ? /* @__PURE__ */ a("img", {
 				className: "cu-card__figure-poster",
-				src: y,
+				src: te,
 				alt: "",
 				loading: "lazy",
-				"data-fallbacks": te,
-				onError: ne
+				"data-fallbacks": ne,
+				onError: re
 			}) : v.loading ? /* @__PURE__ */ a("span", {
 				className: "cu-card__figure-skeleton",
 				"aria-hidden": "true"
@@ -4485,17 +4558,17 @@ var Q = [
 		})
 	});
 };
-On.displayName = "Card.VideoFigure";
+In.displayName = "Card.VideoFigure";
 //#endregion
 //#region src/components/Card/Card.tsx
-var kn = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i, noHover: s, leftBorder: c }) => /* @__PURE__ */ o("div", {
+var Ln = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i, noHover: s, leftBorder: c }) => /* @__PURE__ */ o("div", {
 	className: [
 		"cu-card",
 		t && "cu-card--grey",
 		r && "cu-card--center",
 		i && "cu-card--center-desktop",
 		s && "cu-card--no-hover",
-		c && "cu-card--left-border",
+		c && "cu-card--border-left",
 		n && t && "cu-card--has-wave"
 	].filter(Boolean).join(" "),
 	children: [e, n && t && /* @__PURE__ */ o("svg", {
@@ -4512,37 +4585,37 @@ var kn = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i,
 			d: "M-3.066 295.067 32.06 304.1v9.033H-3.066v-18.066Z"
 		})]
 	})]
-}), An = Object.assign(kn, {
-	Figure: un,
-	VideoFigure: On,
-	DateThumb: rn,
-	IconThumb: pn,
-	ImageThumb: mn,
-	Initials: hn,
-	Header: fn,
-	Body: re,
-	Content: ie,
-	Footer: dn,
-	Excerpt: an,
-	EventMeta: ln,
-	PeopleMeta: gn,
-	Stats: _n
+}), Rn = Object.assign(Ln, {
+	Figure: gn,
+	VideoFigure: In,
+	DateThumb: un,
+	ImageThumb: yn,
+	Initials: bn,
+	Header: vn,
+	Body: ae,
+	Content: oe,
+	Footer: _n,
+	Excerpt: dn,
+	EventMeta: hn,
+	PeopleMeta: xn,
+	Stats: Sn,
+	Status: wn
 });
-kn.displayName = "Card";
+Ln.displayName = "Card";
 //#endregion
 //#region src/components/CookieBanner/cookies.ts
-var jn = (e) => {
+var zn = (e) => {
 	if (typeof document > "u") return !1;
 	let t = document.cookie.split(";").find((t) => t.trim().startsWith(`${e}=`));
 	if (!t) return !0;
 	let n = t.split("=")[1];
 	return new Date(n).getTime() <= Date.now();
-}, Mn = (e, t = 365) => {
+}, Bn = (e, t = 365) => {
 	if (typeof document > "u") return;
 	let n = /* @__PURE__ */ new Date();
 	n.setTime(n.getTime() + t * 24 * 60 * 60 * 1e3), document.cookie = `${e}=true; expires=${n.toUTCString()}; path=/`;
-}, Nn = ({ cookieName: e = "cookieConsent", message: t = "This site uses cookies to offer you a better browsing experience. Find out more on", policyHref: n = "https://carleton.ca/privacy/privacy-notices/website-privacy-notice/", policyLabel: i = "how we use cookies and how you can change your settings.", buttonLabel: s = "Ok, got it!" }) => {
-	let c = v(), [l, u] = r(() => jn(e));
+}, Vn = ({ cookieName: e = "cookieConsent", message: t = "This site uses cookies to offer you a better browsing experience. Find out more on", policyHref: n = "https://carleton.ca/privacy/privacy-notices/website-privacy-notice/", policyLabel: i = "how we use cookies and how you can change your settings.", buttonLabel: s = "Ok, got it!" }) => {
+	let c = v(), [l, u] = r(() => zn(e));
 	return l ? /* @__PURE__ */ a("div", {
 		className: "cu-cookie-banner",
 		role: "dialog",
@@ -4563,16 +4636,16 @@ var jn = (e) => {
 				]
 			}), /* @__PURE__ */ a("div", {
 				className: "cu-cookie-banner__action",
-				children: /* @__PURE__ */ a(x, {
+				children: /* @__PURE__ */ a(b, {
 					onClick: () => {
-						Mn(e), u(!1);
+						Bn(e), u(!1);
 					},
 					title: s
 				})
 			})]
 		})
 	}) : null;
-}, Pn = ({ deptName: e, buildingName: t, officeNumber: n, phone: r, email: i, buttons: s }) => {
+}, Hn = ({ deptName: e, buildingName: t, officeNumber: n, phone: r, email: i, buttons: s }) => {
 	let c = v();
 	return /* @__PURE__ */ a("aside", {
 		className: "cu-department-bar",
@@ -4606,9 +4679,9 @@ var jn = (e) => {
 				})]
 			}), s && s.length > 0 && /* @__PURE__ */ a("div", {
 				className: "cu-department-bar__actions",
-				children: /* @__PURE__ */ a(S, {
+				children: /* @__PURE__ */ a(ie, {
 					align: "end",
-					children: s.map((e, t) => /* @__PURE__ */ a(x, {
+					children: s.map((e, t) => /* @__PURE__ */ a(b, {
 						title: e.title,
 						color: t === 0 ? "red" : "dark-grey"
 					}, e.id))
@@ -4616,76 +4689,76 @@ var jn = (e) => {
 			})]
 		})
 	});
-}, Fn = "https://cdn.carleton.ca/rds/assets", In = "/_assets", Ln = !1, Rn = globalThis.process?.env?.NODE_ENV === "development", $ = Ln || Rn ? In : Fn, zn = {
-	bgArise1: `${$}/bg-images/arise-1.jpg`,
-	bgArise2: `${$}/bg-images/arise-2.jpg`,
-	bgLeeds: `${$}/bg-images/leeds.jpg`,
-	bgLibrary: `${$}/bg-images/library.jpg`,
-	bgNicol: `${$}/bg-images/nicol.jpg`,
-	bgSoutham: `${$}/bg-images/southam.jpg`,
-	bgSplashAthletics: `${$}/bg-images/splash-athletics.png`,
-	bgTory: `${$}/bg-images/tory.jpg`,
-	campusAerial01: `${$}/banners/campus-aerial-01.jpg`,
-	campusRiver01: `${$}/banners/campus-river-01.jpg`,
-	cuLogoBlackLeftHorizontal: `${$}/cu-logos/cu-logo-black-left-horizontal.svg`,
-	cuLogoBlackLeftHorizontalOutlined: `${$}/cu-logos/cu-logo-black-left-horizontal-outlined.svg`,
-	cuLogoBlackRightHorizontal: `${$}/cu-logos/cu-logo-black-right-horizontal.svg`,
-	cuLogoBlackRightHorizontalOutlined: `${$}/cu-logos/cu-logo-black-right-horizontal-outlined.svg`,
-	cuLogoBlackVertical: `${$}/cu-logos/cu-logo-black-vertical.svg`,
-	cuLogoBlackVerticalOutlined: `${$}/cu-logos/cu-logo-black-vertical-outlined.svg`,
-	cuLogoCarleton360: `${$}/cu-logos/cu-logo-carleton360.svg`,
-	cuLogoColorLeftHorizontal: `${$}/cu-logos/cu-logo-color-left-horiztonal.svg`,
-	cuLogoColorLeftHorizontalOutlined: `${$}/cu-logos/cu-logo-color-left-horizontal-outlined.svg`,
-	cuLogoColorRightHorizontal: `${$}/cu-logos/cu-logo-color-right-horiztonal.svg`,
-	cuLogoColorRightHorizontalOutlined: `${$}/cu-logos/cu-logo-color-right-horizontal-outlined.svg`,
-	cuLogoColorVertical: `${$}/cu-logos/cu-logo-color-vertical.svg`,
-	cuLogoColorVerticalOutlined: `${$}/cu-logos/cu-logo-color-vertical-outlined.svg`,
-	cuRavensLogoWhite: `${$}/graphics/cu-ravens-logo-white.svg`,
-	cuShieldBlack: `${$}/cu-logos/cu-shield-black.svg`,
-	cuShieldBlackOutlined: `${$}/cu-logos/cu-shield-black-outlined.svg`,
-	cuShieldColor: `${$}/cu-logos/cu-shield-color.svg`,
-	cuShieldColorOutlined: `${$}/cu-logos/cu-shield-color-outlined.svg`,
-	cuWavesFooterRed: `${$}/graphics/cu-waves-footer-red.svg`,
-	cuWavesHardEdgeBlack: `${$}/graphics/cu-waves-hard-edge-black.svg`,
-	cuWavesHardEdgeRed: `${$}/graphics/cu-waves-hard-edge-red.svg`,
-	cuWavesRepeatingBottomRed: `${$}/graphics/cu-waves-repeating-bottom-red.svg`,
-	favicon16: `${$}/favicons/favicon-16x16.png`,
-	favicon32: `${$}/favicons/favicon-32x32.png`,
-	favicon48: `${$}/favicons/favicon-48x48.png`,
-	faviconAndroidChrome192: `${$}/favicons/android-chrome-192x192.png`,
-	faviconAndroidChrome512: `${$}/favicons/android-chrome-512x512.png`,
-	faviconAppleTouch: `${$}/favicons/apple-touch-icon.png`,
-	faviconIco: `${$}/favicons/favicon.ico`,
-	faviconMstile150: `${$}/favicons/mstile-150x150.png`,
-	faviconSafariPinnedTab: `${$}/favicons/safari-pinned-tab.svg`,
-	fontawesomeLight: `${$}/graphics/fontawesome-light.svg`,
-	greyBg: `${$}/graphics/grey-bg.jpg`,
-	iconXSolid: `${$}/icons/x-solid.svg`,
-	lexicalAlignCenter: `${$}/lexical-icons/align-center-light.svg`,
-	lexicalAlignJustify: `${$}/lexical-icons/align-justify-light.svg`,
-	lexicalAlignLeft: `${$}/lexical-icons/align-left-light.svg`,
-	lexicalAlignRight: `${$}/lexical-icons/align-right-light.svg`,
-	lexicalBold: `${$}/lexical-icons/bold-light.svg`,
-	lexicalChevronDown: `${$}/lexical-icons/chevron-down-light.svg`,
-	lexicalH2: `${$}/lexical-icons/h2-light.svg`,
-	lexicalH3: `${$}/lexical-icons/h3-light.svg`,
-	lexicalH4: `${$}/lexical-icons/h4-light.svg`,
-	lexicalImage: `${$}/lexical-icons/image-regular.svg`,
-	lexicalItalic: `${$}/lexical-icons/italic-light.svg`,
-	lexicalLink: `${$}/lexical-icons/link-light.svg`,
-	lexicalListOl: `${$}/lexical-icons/list-ol-light.svg`,
-	lexicalListUl: `${$}/lexical-icons/list-ul-light.svg`,
-	lexicalMessageQuote: `${$}/lexical-icons/message-quote-light.svg`,
-	lexicalParagraph: `${$}/lexical-icons/paragraph-light.svg`,
-	lexicalPencil: `${$}/lexical-icons/pencil-light.svg`,
-	lexicalRotateLeft: `${$}/lexical-icons/rotate-left-light.svg`,
-	lexicalRotateRight: `${$}/lexical-icons/rotate-right-light.svg`,
-	lexicalUnderline: `${$}/lexical-icons/underline-light.svg`,
-	quoteRed10: `${$}/graphics/quote-red-10.svg`,
-	quoteWhite: `${$}/graphics/quote-white.svg`,
-	ravensLogo: `${$}/ravens-logos/ravens-logo.svg`,
-	ravensLogoWordmark: `${$}/ravens-logos/ravens-logo-wordmark.svg`
-}, Bn = ({ logoSrc: e = zn.cuLogoColorVerticalOutlined, logoAlt: t = "Logo of Carleton University", privacyHref: n = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: r = "https://carleton.ca/accessibility/", copyrightHref: i = "https://library.carleton.ca/copyright-carleton" }) => {
+}, Un = "https://cdn.carleton.ca/rds/assets", Wn = "/_assets", Gn = !1, Kn = globalThis.process?.env?.NODE_ENV === "development", Q = Gn || Kn ? Wn : Un, qn = {
+	bgArise1: `${Q}/bg-images/arise-1.jpg`,
+	bgArise2: `${Q}/bg-images/arise-2.jpg`,
+	bgLeeds: `${Q}/bg-images/leeds.jpg`,
+	bgLibrary: `${Q}/bg-images/library.jpg`,
+	bgNicol: `${Q}/bg-images/nicol.jpg`,
+	bgSoutham: `${Q}/bg-images/southam.jpg`,
+	bgSplashAthletics: `${Q}/bg-images/splash-athletics.png`,
+	bgTory: `${Q}/bg-images/tory.jpg`,
+	campusAerial01: `${Q}/banners/campus-aerial-01.jpg`,
+	campusRiver01: `${Q}/banners/campus-river-01.jpg`,
+	cuLogoBlackLeftHorizontal: `${Q}/cu-logos/cu-logo-black-left-horizontal.svg`,
+	cuLogoBlackLeftHorizontalOutlined: `${Q}/cu-logos/cu-logo-black-left-horizontal-outlined.svg`,
+	cuLogoBlackRightHorizontal: `${Q}/cu-logos/cu-logo-black-right-horizontal.svg`,
+	cuLogoBlackRightHorizontalOutlined: `${Q}/cu-logos/cu-logo-black-right-horizontal-outlined.svg`,
+	cuLogoBlackVertical: `${Q}/cu-logos/cu-logo-black-vertical.svg`,
+	cuLogoBlackVerticalOutlined: `${Q}/cu-logos/cu-logo-black-vertical-outlined.svg`,
+	cuLogoCarleton360: `${Q}/cu-logos/cu-logo-carleton360.svg`,
+	cuLogoColorLeftHorizontal: `${Q}/cu-logos/cu-logo-color-left-horiztonal.svg`,
+	cuLogoColorLeftHorizontalOutlined: `${Q}/cu-logos/cu-logo-color-left-horizontal-outlined.svg`,
+	cuLogoColorRightHorizontal: `${Q}/cu-logos/cu-logo-color-right-horiztonal.svg`,
+	cuLogoColorRightHorizontalOutlined: `${Q}/cu-logos/cu-logo-color-right-horizontal-outlined.svg`,
+	cuLogoColorVertical: `${Q}/cu-logos/cu-logo-color-vertical.svg`,
+	cuLogoColorVerticalOutlined: `${Q}/cu-logos/cu-logo-color-vertical-outlined.svg`,
+	cuRavensLogoWhite: `${Q}/graphics/cu-ravens-logo-white.svg`,
+	cuShieldBlack: `${Q}/cu-logos/cu-shield-black.svg`,
+	cuShieldBlackOutlined: `${Q}/cu-logos/cu-shield-black-outlined.svg`,
+	cuShieldColor: `${Q}/cu-logos/cu-shield-color.svg`,
+	cuShieldColorOutlined: `${Q}/cu-logos/cu-shield-color-outlined.svg`,
+	cuWavesFooterRed: `${Q}/graphics/cu-waves-footer-red.svg`,
+	cuWavesHardEdgeBlack: `${Q}/graphics/cu-waves-hard-edge-black.svg`,
+	cuWavesHardEdgeRed: `${Q}/graphics/cu-waves-hard-edge-red.svg`,
+	cuWavesRepeatingBottomRed: `${Q}/graphics/cu-waves-repeating-bottom-red.svg`,
+	favicon16: `${Q}/favicons/favicon-16x16.png`,
+	favicon32: `${Q}/favicons/favicon-32x32.png`,
+	favicon48: `${Q}/favicons/favicon-48x48.png`,
+	faviconAndroidChrome192: `${Q}/favicons/android-chrome-192x192.png`,
+	faviconAndroidChrome512: `${Q}/favicons/android-chrome-512x512.png`,
+	faviconAppleTouch: `${Q}/favicons/apple-touch-icon.png`,
+	faviconIco: `${Q}/favicons/favicon.ico`,
+	faviconMstile150: `${Q}/favicons/mstile-150x150.png`,
+	faviconSafariPinnedTab: `${Q}/favicons/safari-pinned-tab.svg`,
+	fontawesomeLight: `${Q}/graphics/fontawesome-light.svg`,
+	greyBg: `${Q}/graphics/grey-bg.jpg`,
+	iconXSolid: `${Q}/icons/x-solid.svg`,
+	lexicalAlignCenter: `${Q}/lexical-icons/align-center-light.svg`,
+	lexicalAlignJustify: `${Q}/lexical-icons/align-justify-light.svg`,
+	lexicalAlignLeft: `${Q}/lexical-icons/align-left-light.svg`,
+	lexicalAlignRight: `${Q}/lexical-icons/align-right-light.svg`,
+	lexicalBold: `${Q}/lexical-icons/bold-light.svg`,
+	lexicalChevronDown: `${Q}/lexical-icons/chevron-down-light.svg`,
+	lexicalH2: `${Q}/lexical-icons/h2-light.svg`,
+	lexicalH3: `${Q}/lexical-icons/h3-light.svg`,
+	lexicalH4: `${Q}/lexical-icons/h4-light.svg`,
+	lexicalImage: `${Q}/lexical-icons/image-regular.svg`,
+	lexicalItalic: `${Q}/lexical-icons/italic-light.svg`,
+	lexicalLink: `${Q}/lexical-icons/link-light.svg`,
+	lexicalListOl: `${Q}/lexical-icons/list-ol-light.svg`,
+	lexicalListUl: `${Q}/lexical-icons/list-ul-light.svg`,
+	lexicalMessageQuote: `${Q}/lexical-icons/message-quote-light.svg`,
+	lexicalParagraph: `${Q}/lexical-icons/paragraph-light.svg`,
+	lexicalPencil: `${Q}/lexical-icons/pencil-light.svg`,
+	lexicalRotateLeft: `${Q}/lexical-icons/rotate-left-light.svg`,
+	lexicalRotateRight: `${Q}/lexical-icons/rotate-right-light.svg`,
+	lexicalUnderline: `${Q}/lexical-icons/underline-light.svg`,
+	quoteRed10: `${Q}/graphics/quote-red-10.svg`,
+	quoteWhite: `${Q}/graphics/quote-white.svg`,
+	ravensLogo: `${Q}/ravens-logos/ravens-logo.svg`,
+	ravensLogoWordmark: `${Q}/ravens-logos/ravens-logo-wordmark.svg`
+}, Jn = ({ logoSrc: e = qn.cuLogoColorVerticalOutlined, logoAlt: t = "Logo of Carleton University", privacyHref: n = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: r = "https://carleton.ca/accessibility/", copyrightHref: i = "https://library.carleton.ca/copyright-carleton" }) => {
 	let s = v(), c = (/* @__PURE__ */ new Date()).getFullYear();
 	return /* @__PURE__ */ o("footer", {
 		className: "cu-footer cu-footer--basic",
@@ -4731,12 +4804,12 @@ var jn = (e) => {
 			})]
 		})]
 	});
-}, Vn = "Carleton University acknowledges the location of its campus on the traditional, unceded territories of the Algonquin Anishinàbeg nation", Hn = {
+}, Yn = "Carleton University acknowledges the location of its campus on the traditional, unceded territories of the Algonquin Anishinàbeg nation", Xn = {
 	phone: "613-520-2600",
 	phoneHref: "tel:+1-613-520-2600",
 	contactHref: "https://carleton.ca/about/contact/",
 	address: "1125 Colonel By Drive, Ottawa, ON, K1S 5B6, Canada"
-}, Un = [
+}, Zn = [
 	{
 		name: "Facebook",
 		href: "https://www.facebook.com/carletonuniversity",
@@ -4762,7 +4835,7 @@ var jn = (e) => {
 		href: "https://www.linkedin.com/school/carleton-university",
 		icon: "linkedin"
 	}
-], Wn = [
+], Qn = [
 	[{
 		heading: "Admissions",
 		links: [
@@ -4912,14 +4985,14 @@ var jn = (e) => {
 			}
 		],
 		media: {
-			src: zn.ravensLogo,
+			src: qn.ravensLogo,
 			alt: "Carleton Ravens",
 			href: "https://goravens.carleton.ca",
 			width: 64
 		}
 	}]
-], Gn = {
-	standard: Wn,
+], $n = {
+	standard: Qn,
 	athletics: [
 		[{
 			heading: "Fitness",
@@ -5081,9 +5154,9 @@ var jn = (e) => {
 			]
 		}]
 	],
-	futureFunder: Wn
-}, Kn = ({ type: e = "standard", acknowledgment: t = Vn, contact: n = Hn, social: r = Un, logoSrc: i = zn.cuLogoColorVerticalOutlined, logoAlt: s = "Logo of Carleton University", privacyHref: c = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: l = "https://carleton.ca/accessibility/", copyrightHref: u = "https://library.carleton.ca/copyright-carleton" }) => {
-	let d = v(), f = Gn[e], p = (/* @__PURE__ */ new Date()).getFullYear();
+	futureFunder: Qn
+}, er = ({ type: e = "standard", acknowledgment: t = Yn, contact: n = Xn, social: r = Zn, logoSrc: i = qn.cuLogoColorVerticalOutlined, logoAlt: s = "Logo of Carleton University", privacyHref: c = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: l = "https://carleton.ca/accessibility/", copyrightHref: u = "https://library.carleton.ca/copyright-carleton" }) => {
+	let d = v(), f = $n[e], p = (/* @__PURE__ */ new Date()).getFullYear();
 	return /* @__PURE__ */ o("footer", {
 		className: `cu-footer cu-footer--${e}`,
 		"aria-labelledby": "cu-footer-heading",
@@ -5173,7 +5246,7 @@ var jn = (e) => {
 									children: [/* @__PURE__ */ a("span", {
 										className: "sr-only",
 										children: e.name
-									}), /* @__PURE__ */ a(b, {
+									}), /* @__PURE__ */ a(y, {
 										name: e.icon,
 										size: 24
 									})]
@@ -5221,9 +5294,26 @@ var jn = (e) => {
 			]
 		})]
 	});
-}, qn = ({ component: e, children: t }) => /* @__PURE__ */ a(_.Provider, {
+}, tr = ({ component: e, children: t }) => /* @__PURE__ */ a(_.Provider, {
 	value: e,
 	children: t
-});
+}), $ = (e) => z(e, "h:mm a"), nr = (e, t, n = /* @__PURE__ */ new Date()) => {
+	let r = new Date(n);
+	r.setHours(0, 0, 0, 0);
+	let i = Y(e, "HH:mm", r), a = Y(t, "HH:mm", r);
+	return ct(n, i) ? {
+		variant: "error",
+		label: `Opens at ${$(i)}`
+	} : st(n, a) || n.getTime() === a.getTime() ? {
+		variant: "error",
+		label: `Opens tomorrow at ${$(C(i, 1))}`
+	} : Te(a, n) <= 60 ? {
+		variant: "warning",
+		label: `Closes at ${$(a)}`
+	} : {
+		variant: "success",
+		label: `Open until ${$(a)}`
+	};
+};
 //#endregion
-export { s as Article, c as Aside, ee as Badge, te as BadgeGroup, l as Body, x as Button, S as ButtonGroup, An as Card, m as Column, Nn as CookieBanner, Pn as DepartmentBar, Bn as Footer, Kn as FooterStandard, b as Icon, qn as LinkProvider, h as Main, bn as PROVIDER_NAMES, g as Section, vn as detectProvider, yn as getProvider, Tn as useOEmbed };
+export { s as Article, c as Aside, ee as Badge, ne as BadgeGroup, l as Body, b as Button, ie as ButtonGroup, Rn as Card, m as Column, Vn as CookieBanner, Hn as DepartmentBar, Jn as Footer, er as FooterStandard, y as Icon, tr as LinkProvider, h as Main, On as PROVIDER_NAMES, g as Section, Z as Status, Cn as defaultStatusTypes, En as detectProvider, nr as formatHoursStatus, Dn as getProvider, Nn as useOEmbed };

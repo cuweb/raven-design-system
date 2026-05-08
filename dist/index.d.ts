@@ -96,7 +96,7 @@ export declare const Card: {
     displayName: string;
 } & {
     Figure: {
-        ({ children, isRound }: CardFigureProps): JSX_2.Element;
+        ({ children, isRound, isSmall, isSquare, isIcon }: CardFigureProps): JSX_2.Element;
         displayName: string;
     };
     VideoFigure: {
@@ -105,10 +105,6 @@ export declare const Card: {
     };
     DateThumb: {
         ({ startDate, endDate }: CardDateThumbProps): JSX_2.Element;
-        displayName: string;
-    };
-    IconThumb: {
-        ({ icon }: CardIconThumbProps): JSX_2.Element;
         displayName: string;
     };
     ImageThumb: {
@@ -151,6 +147,10 @@ export declare const Card: {
         ({ stat, desc, reverse }: CardStatsProps): JSX_2.Element;
         displayName: string;
     };
+    Status: {
+        (props: CardStatusProps): JSX_2.Element;
+        displayName: string;
+    };
 };
 
 declare interface CardBodyProps {
@@ -182,8 +182,11 @@ declare interface CardExcerptProps {
 }
 
 declare interface CardFigureProps {
-    children: default_2.ReactNode;
+    children: React.ReactNode;
     isRound?: boolean;
+    isSmall?: boolean;
+    isSquare?: boolean;
+    isIcon?: boolean;
 }
 
 declare interface CardFooterProps {
@@ -199,10 +202,6 @@ declare interface CardHeaderProps {
     datePrefix?: string;
     readTime?: string;
     position?: 'top' | 'bottom';
-}
-
-declare interface CardIconThumbProps {
-    icon?: IconName;
 }
 
 declare interface CardImageThumbProps {
@@ -235,6 +234,8 @@ declare interface CardStatsProps {
     desc: string;
     reverse?: boolean;
 }
+
+export declare type CardStatusProps = StatusProps;
 
 export declare interface CardVideoFigureProps {
     url: string;
@@ -274,6 +275,37 @@ export declare interface CookieBannerProps {
     policyLabel?: string;
     buttonLabel?: string;
 }
+
+declare const _default: {
+    "hours": {
+        "ariaPrefix": "Hours",
+        "labels": {
+            "success": "Open",
+            "warning": "Closing soon",
+            "error": "Closed"
+        }
+    },
+    "availability": {
+        "ariaPrefix": "Availability",
+        "labels": {
+            "success": "Available",
+            "warning": "Limited availability",
+            "error": "Unavailable"
+        }
+    },
+    "system": {
+        "ariaPrefix": "System status",
+        "labels": {
+            "success": "Operational",
+            "warning": "Degraded",
+            "error": "Outage",
+            "info": "Maintenance"
+        }
+    }
+};
+
+/** Built-in registry, exported for inspection / merging with project-level types. */
+export declare const defaultStatusTypes: StatusTypeRegistry;
 
 export declare const DepartmentBar: ({ deptName, buildingName, officeNumber, phone, email, buttons, }: DepartmentBarProps) => JSX_2.Element;
 
@@ -333,6 +365,20 @@ export declare interface FooterStandardProps {
 
 export declare type FooterType = 'standard' | 'athletics' | 'futureFunder';
 
+/**
+ * Compute a Status-ready `{ variant, label }` from operating hours.
+ *
+ * Variant rules:
+ *   - error   — current time is before open or after close
+ *   - warning — within 60 minutes of close
+ *   - success — open with more than 60 minutes remaining
+ *
+ * `open` and `close` are 24h strings like `'07:00'` and `'20:00'`. Assumes
+ * close is later than open on the same day; venues that wrap past midnight
+ * aren't modelled here yet.
+ */
+export declare const formatHoursStatus: (open: string, close: string, now?: Date) => HoursStatus;
+
 export declare const getProvider: (name: ProviderName) => ProviderDefinition | null;
 
 declare const gridColumnClasses: {
@@ -345,6 +391,11 @@ declare const gridColumnClasses: {
 };
 
 declare type gridColumnKeys = keyof typeof gridColumnClasses;
+
+export declare interface HoursStatus {
+    variant: 'success' | 'warning' | 'error';
+    label: string;
+}
 
 export declare const Icon: ({ name, size, title, ...rest }: IconProps) => JSX_2.Element | null;
 
@@ -415,6 +466,45 @@ declare interface SectionProps {
     isGrey?: boolean;
     maxWidth?: maxWidthKeys;
 }
+
+export declare const Status: {
+    ({ children, variant, type, label, context, }: StatusProps): JSX_2.Element | null;
+    displayName: string;
+};
+
+export declare interface StatusProps {
+    children?: default_2.ReactNode;
+    variant?: StatusVariant;
+    /**
+     * Opt into the registry: when set, the component looks up a default label and
+     * aria-prefix for the (type, variant) pair. Built-in types are `'hours'`,
+     * `'availability'`, `'system'`. Consumers may pass other strings — they'll
+     * resolve to no label unless a future Provider supplies a matching entry.
+     */
+    type?: StatusType | (string & {});
+    /** Explicit text override. Used when no `children` are provided. Wins over the registry default. */
+    label?: string;
+    /* Excluded from this release type: context */
+}
+
+/**
+ * Built-in type names. The string literal type comes from the JSON keys, but
+ * `Status`'s `type` prop is intentionally a wider `string` so consumers can
+ * inject project-specific types (eventually via a Provider) without this
+ * package needing to know about them.
+ */
+export declare type StatusType = keyof typeof _default;
+
+export declare interface StatusTypeDefinition {
+    /** Used as a prefix in the rendered aria-label, e.g. "Hours: Open until 8:00 PM". */
+    ariaPrefix: string;
+    /** Default visible text per variant. Variants may be omitted; an unresolved (type, variant) pair renders nothing. */
+    labels: Partial<Record<StatusVariant, string>>;
+}
+
+export declare type StatusTypeRegistry = Record<string, StatusTypeDefinition>;
+
+export declare type StatusVariant = 'success' | 'error' | 'warning' | 'info';
 
 export declare const useOEmbed: (url: string | undefined, options?: UseOEmbedOptions) => UseOEmbedResult;
 
