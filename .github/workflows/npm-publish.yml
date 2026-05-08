@@ -34,6 +34,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: pnpm build
+      - run: pnpm exec playwright install chromium --with-deps
       - run: pnpm test --run
 
       - run: pnpm publish --access public --provenance --no-git-checks
