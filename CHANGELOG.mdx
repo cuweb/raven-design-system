@@ -17,9 +17,13 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Changed_: Switched npm authentication from a long-lived `NPM_TOKEN` secret to npm Trusted Publishing via OIDC (configured at https://www.npmjs.com/package/@carletonuniversity/rds2/access) — releases are now signed with provenance and require no stored token.
+
 ## [0.5.1] - 2026-05-08
 
-- _Changed_: Updated NPM publishing action
+- _Added_: `release` script in [package.json](package.json) so `pnpm run release <version>` runs the local release flow (bumps version, rewrites CHANGELOG, refreshes lockfile, tests, builds, commits, and tags) without touching the remote.
+- _Fixed_: NPM publishing workflow at [.github/workflows/npm-publish.yml](.github/workflows/npm-publish.yml) — removed the conflicting pnpm `version` input (now sourced from the `packageManager` field in [package.json](package.json)), added `pnpm exec playwright install chromium --with-deps` so Storybook browser tests can run, and switched the publish step from `pnpm publish` to `npm publish` (with `npm install -g npm@latest`) so the GitHub → npm OIDC exchange used by Trusted Publishing actually runs.
+- _Fixed_: [release.mjs](release.mjs) — corrected `ROOT` resolution (was looking one level above the project root), pointed the changelog logic at `CHANGELOG.mdx` instead of the non-existent `CHANGELOG.md`, renumbered duplicate step comments, and simplified the test invocation.
 
 ## [0.5.0] - 2026-05-08
 

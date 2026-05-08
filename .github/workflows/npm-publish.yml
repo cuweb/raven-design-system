@@ -40,4 +40,7 @@ jobs:
       - run: pnpm exec playwright install chromium --with-deps
       - run: pnpm test --run
 
-      - run: pnpm publish --access public --provenance --no-git-checks
+      # npm 11.5.1+ implements the GitHub → npm OIDC exchange used by
+      # Trusted Publishing. pnpm publish does not, so we use npm here.
+      - run: npm install -g npm@latest
+      - run: npm publish --access public --provenance
