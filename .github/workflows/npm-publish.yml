@@ -23,10 +23,14 @@ jobs:
           node-version-file: .nvmrc
           cache: 'pnpm'
 
-      # Auth for installing @cuweb/rds-icons from GitHub Packages.
-      # The publish itself uses npm Trusted Publishing via OIDC — no NPM token needed.
-      - name: Add GitHub Packages auth
-        run: echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> ~/.npmrc
+      # Each registry line reads ${NODE_AUTH_TOKEN} at request time, so the
+      # install step (NODE_AUTH_TOKEN = GITHUB_TOKEN) authenticates to GitHub
+      # Packages, and the publish step (NODE_AUTH_TOKEN = NPM_TOKEN) authenticates
+      # to npmjs.org. The unused registry per step is harmless.
+      - name: Configure registry auth
+        run: |
+          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> ~/.npmrc
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
