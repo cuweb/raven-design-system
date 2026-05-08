@@ -56,7 +56,8 @@
     "typecheck": "tsc --noEmit",
     "size": "size-limit",
     "size:check": "size-limit --limit",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "node release.mjs"
   },
   "size-limit": [
     {
