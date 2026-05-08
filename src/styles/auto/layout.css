@@ -25,6 +25,10 @@ body {
   gap: var(--rds--root-block-gap);
 }
 
+:where(.entry-content) > * + * {
+  margin-block-start: var(--rds--spacing-medium);
+}
+
 .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
   max-width: var(--rds--layout-content-size);
   margin-left: auto !important;
