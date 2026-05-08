@@ -29,7 +29,6 @@ jobs:
       # to npmjs.org. The unused registry per step is harmless.
       - name: Configure registry auth
         run: |
-          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> ~/.npmrc
 
       - name: Install dependencies
@@ -42,5 +41,3 @@ jobs:
       - run: pnpm test --run
 
       - run: pnpm publish --access public --provenance --no-git-checks
-        env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
