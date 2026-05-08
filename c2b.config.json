@@ -146,6 +146,7 @@
         "spacing": {
             "blockGap": "0",
             "afterHeading": "small",
+            "entryContent": "medium",
             "listItem": "x-small",
             "padding": {
                 "top": "0",

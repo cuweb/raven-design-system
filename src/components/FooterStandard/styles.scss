@@ -50,12 +50,8 @@
   p {
     margin: 0;
     color: var(--rds--color-white);
-    font-size: var(--rds--font-size-small);
-    font-weight: var(--rds--font-weight-medium);
-
-    @media (min-width: $rds-media-query-md) {
-      font-size: var(--rds--font-size-medium);
-    }
+    font-size: var(--rds--font-size-medium);
+    font-weight: var(--rds--font-weight-bold);
   }
 }
 

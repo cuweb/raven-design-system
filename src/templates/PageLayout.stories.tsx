@@ -58,6 +58,7 @@ export const BasicPage: Story = {
       <Main>
         <h1>Heading One: Page Title</h1>
 
+        <SinglePara />
         <p>
           This is an example page. It is different from a blog post because it will stay in one
           place and will show up in your site navigation (in most themes). Most people start with an
