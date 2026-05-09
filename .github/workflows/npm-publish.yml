@@ -2,8 +2,12 @@ name: Publish Package to NPM
 
 on:
   push:
-    tags:
-      - '*'
+    branches: [develop]
+
+# on:
+#   push:
+#     tags:
+#       - '*'
 
 permissions:
   id-token: write
