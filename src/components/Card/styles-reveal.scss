@@ -1,0 +1,40 @@
+// Scroll-reveal entrance for cards opted in via [data-cu-reveal].
+//
+// Each card animates when its trigger fires (the JS extends the trigger zone
+// 200px below the viewport so the animation finishes near the time the card
+// reaches the user's eyes). Cards in the same observation batch — typically
+// one row scrolling in together — receive a 120ms-stepped delay via the
+// `--cu-card-stagger` CSS variable that JS sets at reveal time. A new
+// row entering the trigger zone starts a fresh batch at 0ms, so the stagger
+// never accumulates across rows.
+//
+// The hidden state is gated on the attribute so plain `<div class="cu-card">`
+// (no attribute) renders visibly even if the JS trigger never runs — the
+// no-JS / script-load-failure fallback.
+
+.cu-card {
+  transition: box-shadow var(--rds--duration-base) var(--rds--ease-standard);
+}
+
+.cu-card[data-cu-reveal] {
+  --cu-card-stagger: 0ms;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-card-stagger),
+    transform var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-card-stagger),
+    box-shadow var(--rds--duration-base) var(--rds--ease-standard);
+}
+
+.cu-card[data-cu-reveal][data-revealed='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-card[data-cu-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: box-shadow var(--rds--duration-base) var(--rds--ease-standard);
+  }
+}
