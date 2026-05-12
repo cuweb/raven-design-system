@@ -13,6 +13,7 @@ import { CardPeopleMeta } from './CardPeopleMeta';
 import { CardStats } from './CardStats';
 import { CardStatus } from './CardStatus';
 import { CardVideoFigure } from './CardVideoFigure';
+import { useScrollReveal } from '../../utils/motion/useScrollReveal';
 import './styles.scss';
 
 export interface CardProps {
@@ -23,6 +24,7 @@ export interface CardProps {
   isCenterDesktop?: boolean;
   noHover?: boolean;
   leftBorder?: boolean;
+  revealOnScroll?: boolean;
 }
 
 export const CardWrapper = ({
@@ -33,7 +35,10 @@ export const CardWrapper = ({
   isCenterDesktop,
   noHover,
   leftBorder,
+  revealOnScroll = true,
 }: CardProps) => {
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ disabled: !revealOnScroll });
+
   const classes = [
     'cu-card',
     isGrey && 'cu-card--grey',
@@ -47,7 +52,12 @@ export const CardWrapper = ({
     .join(' ');
 
   return (
-    <div className={classes}>
+    <div
+      ref={ref}
+      className={classes}
+      data-cu-reveal={revealOnScroll ? '' : undefined}
+      data-revealed={isVisible ? 'true' : 'false'}
+    >
       {children}
 
       {hasWave && isGrey && (
