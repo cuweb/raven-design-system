@@ -1,0 +1,17 @@
+// Motion design tokens.
+//
+// Hand-authored for v1 — slated to move into c2b once the tool grows a
+// motion section so they land in `auto/tokens.css` alongside colour/spacing.
+// Until then, keep the same `--rds--` prefix so component CSS reads naturally.
+
+:root {
+  --rds--duration-instant: 100ms;
+  --rds--duration-fast: 150ms;
+  --rds--duration-base: 250ms;
+  --rds--duration-slow: 400ms;
+  --rds--duration-slower: 600ms;
+
+  --rds--ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --rds--ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+  --rds--ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+}

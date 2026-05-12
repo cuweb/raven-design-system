@@ -28,6 +28,11 @@
       "default": "./dist/vanilla-js/videoCard.js"
     },
     "./vanilla-js/videoCard.js": "./dist/vanilla-js/videoCard.js",
+    "./vanilla-js/cuMotion": {
+      "import": "./dist/vanilla-js/cuMotion.mjs",
+      "default": "./dist/vanilla-js/cuMotion.js"
+    },
+    "./vanilla-js/cuMotion.js": "./dist/vanilla-js/cuMotion.js",
     "./*": {
       "types": "./dist/components/*/index.d.ts",
       "import": "./dist/components/*/index.mjs",
@@ -41,7 +46,7 @@
   ],
   "scripts": {
     "dev": "npm run assets && npm run c2b && storybook dev -p 6006",
-    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && node scripts/build-components-scss.mjs && npm run c2b",
+    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && npm run c2b",
     "build-storybook": "npm run assets && storybook build",
     "assets": "node scripts/build-assets.mjs",
     "c2b": "c2b generate",

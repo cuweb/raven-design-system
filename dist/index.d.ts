@@ -5,6 +5,7 @@ import { FC } from 'react';
 import { IconName } from '@cuweb/rds-icons';
 import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { ReactNode } from 'react';
+import { RefObject } from 'react';
 import { SVGProps } from 'react';
 
 export declare const Article: ({ children, content }: ArticleProps) => JSX_2.Element;
@@ -92,7 +93,7 @@ declare interface ButtonTitleProps extends ButtonProps {
 }
 
 export declare const Card: {
-    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, leftBorder, }: CardProps): JSX_2.Element;
+    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, leftBorder, revealOnScroll, }: CardProps): JSX_2.Element;
     displayName: string;
 } & {
     Figure: {
@@ -227,6 +228,7 @@ export declare interface CardProps {
     isCenterDesktop?: boolean;
     noHover?: boolean;
     leftBorder?: boolean;
+    revealOnScroll?: boolean;
 }
 
 declare interface CardStatsProps {
@@ -458,6 +460,13 @@ export declare interface ProviderDefinition {
 
 export declare type ProviderName = 'youtube' | 'vimeo' | 'ted';
 
+export declare interface ScrollRevealOptions {
+    threshold?: number;
+    rootMargin?: string;
+    once?: boolean;
+    disabled?: boolean;
+}
+
 export declare const Section: ({ children, as, isGrey, maxWidth, }: SectionProps) => JSX_2.Element;
 
 declare interface SectionProps {
@@ -518,5 +527,12 @@ export declare interface UseOEmbedResult {
     loading: boolean;
     error: Error | null;
 }
+
+export declare const useReducedMotion: () => boolean;
+
+export declare const useScrollReveal: <T extends HTMLElement = HTMLDivElement>(options?: ScrollRevealOptions) => {
+    ref: RefObject<T>;
+    isVisible: boolean;
+};
 
 export { }

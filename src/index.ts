@@ -59,3 +59,10 @@ export type {
   OEmbedData,
   UseOEmbedResult,
 } from './utils/video/types';
+
+// Motion utilities — hooks consumed by components that opt into scroll-reveal
+// or need to branch on prefers-reduced-motion. Pairs with the vanilla
+// dist/vanilla-js/cuMotion.js bundle for WordPress / non-React contexts.
+export { useReducedMotion } from './utils/motion/useReducedMotion';
+export { useScrollReveal } from './utils/motion/useScrollReveal';
+export type { ScrollRevealOptions } from './utils/motion/useScrollReveal';
