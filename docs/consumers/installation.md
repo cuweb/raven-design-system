@@ -27,7 +27,7 @@ Commit this file. It tells pnpm/npm to look for `@cuweb/*` packages on GitHub Pa
 pnpm add @carletonuniversity/rds2 @cuweb/rds-icons
 ```
 
-`rds-icons` is a peer dependency of `rds-2.0` — your package manager will warn if only one is installed.
+`rds-icons` is a peer dependency of `rds2` — your package manager will warn if only one is installed.
 
 ## 3. Import styles
 

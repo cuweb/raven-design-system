@@ -38,7 +38,7 @@ echo "//npm.pkg.github.com/:_authToken=ghp_your_token_here" >> ~/.npmrc
 
 ```sh
 git clone git@github.com:cuweb/rds2.git
-cd rds-2.0
+cd rds2
 nvm use
 pnpm install
 ```
@@ -65,7 +65,7 @@ pnpm install
 pnpm generate                   # regenerate components from SVGs
 ```
 
-To use the local checkout in rds-2.0, switch the dep in [`package.json`](../../package.json) from a version range to a `file:` link:
+To use the local checkout in rds2, switch the dep in [`package.json`](../../package.json) from a version range to a `file:` link:
 
 ```jsonc
 "devDependencies": {
@@ -73,7 +73,7 @@ To use the local checkout in rds-2.0, switch the dep in [`package.json`](../../p
 }
 ```
 
-Then `pnpm install` in rds-2.0 to pick up the symlink. **Don't commit the `file:` change** — switch back to the version range before opening a PR.
+Then `pnpm install` in rds2 to pick up the symlink. **Don't commit the `file:` change** — switch back to the version range before opening a PR.
 
 `rds-icons` points its `main`/`module`/`types`/`exports` at `src/` during local dev (no build step needed). Re-run `pnpm generate` in rds-icons after editing SVGs and reload Storybook to see changes.
 

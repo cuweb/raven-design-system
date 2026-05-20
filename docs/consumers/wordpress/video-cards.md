@@ -28,7 +28,7 @@ If your theme already loads the full RDS stylesheet, you only need the script. O
 
 ```php
 add_action( 'wp_enqueue_scripts', function () {
-    $rds = get_template_directory_uri() . '/vendor/cuweb/rds-2.0/dist';
+    $rds = get_template_directory_uri() . '/vendor/cuweb/rds2/dist';
 
     wp_enqueue_style(
         'rds-card',

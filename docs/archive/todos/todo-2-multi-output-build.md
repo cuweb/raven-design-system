@@ -10,8 +10,8 @@ shapes:
 
 1. **Modern frameworks (Next.js, Vite apps, etc.)**
    - Want tree-shakable JS and a single global stylesheet import.
-   - `import { Button } from '@carletonuniversity/rds-2.0'`
-   - `import '@carletonuniversity/rds-2.0/styles'`
+   - `import { Button } from '@carletonuniversity/rds2'`
+   - `import '@carletonuniversity/rds2/styles'`
 
 2. **WordPress block plugins and block themes**
    - Want **global class names** (no CSS-module hashes) so they can be
@@ -19,7 +19,7 @@ shapes:
    - Need to import just one component's CSS from a block's
      `editor.scss`:
      ```scss
-     @import '@carletonuniversity/rds-2.0/components/Button/style.css';
+     @import '@carletonuniversity/rds2/components/Button/style.css';
      ```
    - Accept that CSS will be duplicated across blocks that use the same
      component — that's an explicit trade-off, not a bug.
@@ -52,7 +52,7 @@ dist/
 
 ```jsonc
 {
-  "name": "@carletonuniversity/rds-2.0",
+  "name": "@carletonuniversity/rds2",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -181,13 +181,13 @@ Run `pnpm build` and verify each item:
 Consumer smoke test (scratch directory or `pnpm pack` + local install):
 
 - [ ] Create a scratch Vite React app, install the packed tarball,
-      import `{ Button }` from `@carletonuniversity/rds-2.0` and
-      `import '@carletonuniversity/rds-2.0/styles'`. Button
+      import `{ Button }` from `@carletonuniversity/rds2` and
+      `import '@carletonuniversity/rds2/styles'`. Button
       renders with styles.
 - [ ] Same scratch app, replace with
-      `import { Button } from '@carletonuniversity/rds-2.0/components/Button'`
+      `import { Button } from '@carletonuniversity/rds2/components/Button'`
       and
-      `import '@carletonuniversity/rds-2.0/components/Button/style.css'`.
+      `import '@carletonuniversity/rds2/components/Button/style.css'`.
       Button still renders with styles. Bundle analysis shows only
       Button code was pulled in.
 - [ ] TypeScript autocomplete resolves `ButtonProps` from both
@@ -199,7 +199,7 @@ block):
 - [ ] Confirm the following import in a block's `editor.scss` is a
       valid syntactic path:
       ```scss
-      @import '@carletonuniversity/rds-2.0/components/Button/style.css';
+      @import '@carletonuniversity/rds2/components/Button/style.css';
       ```
 - [ ] Document in TODO 4 where to place this import in a block's
       `src/editor.scss` and `src/style.scss`.

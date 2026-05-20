@@ -12,7 +12,7 @@ This doc is for maintainers publishing new versions of `@carletonuniversity/rds2
 Consumer project
 ```
 
-You release each package independently. `rds-2.0` declares a version range for `rds-icons` in its `peerDependencies`; consumers install both.
+You release each package independently. `rds2` declares a version range for `rds-icons` in its `peerDependencies`; consumers install both.
 
 ## When to release which
 
@@ -20,9 +20,9 @@ You release each package independently. `rds-2.0` declares a version range for `
 |---|---|
 | Add/remove/update an icon SVG | `rds-icons` patch or minor |
 | Change the generator's output shape | `rds-icons` minor or major |
-| Change the `<Icon>` component behavior | `rds-2.0` patch/minor/major |
-| Add/change a component in rds-2.0 | `rds-2.0` patch/minor |
-| Add new icons that new rds-2.0 features rely on | Coordinated — bump `rds-icons` first, then update rds-2.0's peer dep range, then release rds-2.0 |
+| Change the `<Icon>` component behavior | `rds2` patch/minor/major |
+| Add/change a component in rds2 | `rds2` patch/minor |
+| Add new icons that new rds2 features rely on | Coordinated — bump `rds-icons` first, then update rds2's peer dep range, then release rds2 |
 
 ## Semver discipline
 
@@ -99,7 +99,7 @@ Then release a fixed version. Do not reuse the yanked version number.
 Similar shape:
 
 ```sh
-cd ~/Develop/personal/rds-2.0
+cd ~/Develop/personal/rds2
 
 # Make your changes
 pnpm build          # run the full library build — verifies everything compiles
@@ -138,10 +138,10 @@ open https://www.npmjs.com/package/@carletonuniversity/rds2
 
 ### Updating the `rds-icons` peer dep range
 
-When you release a new `rds-icons` version that adds new icon names the rds-2.0 stories or examples use:
+When you release a new `rds-icons` version that adds new icon names the rds2 stories or examples use:
 
 ```json
-// rds-2.0/package.json
+// rds2/package.json
 "peerDependencies": {
   "@cuweb/rds-icons": "^0.2.0",
   ...
@@ -157,17 +157,17 @@ When a change spans both repos (common example: you added icons + a component th
 1. **Land the icon change in rds-icons first**
    - Merge SVGs + tag `rds-icons@v0.x.0`
    - Wait for publish workflow to finish
-2. **Update rds-2.0**
+2. **Update rds2**
    - Bump the peer dep range in `package.json`
    - Use the new icon(s) in the new component
    - `pnpm install` (with auth) to pull the published version and verify
-   - Merge + tag `rds-2.0@v0.y.0`
+   - Merge + tag `rds2@v0.y.0`
 
-Don't try to publish both simultaneously — rds-2.0's CI needs the published rds-icons to be available when it installs.
+Don't try to publish both simultaneously — rds2's CI needs the published rds-icons to be available when it installs.
 
 ### Local development during coordinated work
 
-Working on a change that touches both? Keep the `file:../rds-icons` local link in rds-2.0's devDependencies during development so changes are live immediately. Switch to a versioned range only before the coordinated release.
+Working on a change that touches both? Keep the `file:../rds-icons` local link in rds2's devDependencies during development so changes are live immediately. Switch to a versioned range only before the coordinated release.
 
 ```json
 // During dev (what we have now)
@@ -213,7 +213,7 @@ Before tagging either repo:
 - [ ] All tests pass (`pnpm typecheck`, `pnpm lint`, `pnpm test:storybook` if applicable)
 - [ ] CHANGELOG entries are under the new version heading, not `[Unreleased]`
 - [ ] Version in `package.json` matches the tag you're about to push
-- [ ] If coordinated: the peer dep range in rds-2.0 matches the rds-icons version you want consumers to use
+- [ ] If coordinated: the peer dep range in rds2 matches the rds-icons version you want consumers to use
 - [ ] FA Pro license compliance (for rds-icons): no new team members added without updating the seat count
 
 ## FAQ
@@ -226,6 +226,6 @@ Yes. `pnpm publish` after `pnpm build`, provided your `~/.npmrc` has the GitHub 
 
 Most common cause: the version tag was pushed but the workflow errored before `pnpm publish` completed. Safe to re-run the failed workflow from the Actions UI. If the version was partially published, you'll get an error — delete the broken version from GitHub Packages and re-run.
 
-**Do I need to bump `rds-2.0` every time I bump `rds-icons`?**
+**Do I need to bump `rds2` every time I bump `rds-icons`?**
 
-No. Consumers can update `rds-icons` independently within the peer range. Only bump `rds-2.0` when its own code changes or the peer range needs to widen.
+No. Consumers can update `rds-icons` independently within the peer range. Only bump `rds2` when its own code changes or the peer range needs to widen.

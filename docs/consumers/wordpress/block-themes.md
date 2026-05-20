@@ -39,7 +39,7 @@ add_action('wp_enqueue_scripts', function () {
         return;
     }
     wp_enqueue_style(
-        'rds-2.0',
+        'rds2',
         get_theme_file_uri('/node_modules/@carletonuniversity/rds2/dist/style.css'),
         [],
         filemtime($rds_style)
@@ -62,7 +62,7 @@ Or, more robust for production — copy the stylesheet into `assets/` at build t
 // functions.php
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style(
-        'rds-2.0',
+        'rds2',
         get_theme_file_uri('/assets/rds-style.css'),
         [],
         filemtime(get_theme_file_path('/assets/rds-style.css'))
@@ -74,7 +74,7 @@ add_action('wp_enqueue_scripts', function () {
 
 If you also want the WordPress Site Editor to expose RDS design tokens as presets (so authors pick from `var(--rds--color-primary)` in the color palette), `@troychaplin/component2block` generates a compatible `theme.json`. The cuweb setup exports it to `dist/cutheme/theme.json` — merge that into your theme's `theme.json` at build time, or require it via PHP.
 
-See `dist/cutheme/integrate.php` in the `rds-2.0` package for a drop-in integration helper.
+See `dist/cutheme/integrate.php` in the `rds2` package for a drop-in integration helper.
 
 ## Inline SVG in a template part
 

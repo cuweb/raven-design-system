@@ -6,7 +6,7 @@ Docs are organized by audience. Pick the section that matches what you're trying
 
 → [**consumers/**](consumers/) — installation, Next.js integration, icons, per-component CSS, WordPress (block plugins, block themes, hybrid themes, Timber/Twig)
 
-The Storybook site at https://cuweb.github.io/rds-2.0/ is the primary consumer reference; this folder is the deeper-dive companion.
+The Storybook site at https://cuweb.github.io/rds2/ is the primary consumer reference; this folder is the deeper-dive companion.
 
 ## I want to **contribute** to RDS
 

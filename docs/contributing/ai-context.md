@@ -1,6 +1,6 @@
 # AI session starting context
 
-Paste the snippet below into a new AI session (Claude, ChatGPT, etc.) when working on rds-2.0 outside of a Copilot Chat inside this repo.
+Paste the snippet below into a new AI session (Claude, ChatGPT, etc.) when working on rds2 outside of a Copilot Chat inside this repo.
 
 Copilot Chat in VS Code / JetBrains gets this context automatically via [`.github/copilot-instructions.md`](../../.github/copilot-instructions.md) — use this doc only for sessions that don't.
 
@@ -13,7 +13,7 @@ You are working on @carletonuniversity/rds2 — Carleton University's React comp
 library and design system. Two packages are involved:
 
 - @carletonuniversity/rds2 (this repo, public): components + tokens + styles
-  Location: ~/Develop/personal/rds-2.0
+  Location: ~/Develop/personal/rds2
 - @cuweb/rds-icons (peer dep, private GitHub Packages): FA Pro icon
   components. Location: ~/Develop/personal/rds-icons
 

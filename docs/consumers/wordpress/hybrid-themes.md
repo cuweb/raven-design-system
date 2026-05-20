@@ -181,7 +181,7 @@ Enqueue the full RDS stylesheet in `functions.php`:
 ```php
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style(
-        'rds-2.0',
+        'rds2',
         get_theme_file_uri('/node_modules/@carletonuniversity/rds2/dist/style.css'),
         [],
         filemtime(get_theme_file_path('/node_modules/@carletonuniversity/rds2/dist/style.css'))
