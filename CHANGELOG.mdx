@@ -17,6 +17,17 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `./tokens.css` export path — exposes CSS custom properties only (no `modern-normalize`); intended for Ellucian Experience and other platforms that inject CSS globally where the full `dist/style.css` would conflict with the host design system.
+- _Added_: `scripts/build-components-dts.mjs` — standalone TypeScript declaration bundler for per-component builds. Runs `tsc` to emit declarations then uses `rollup-plugin-dts` to bundle each component's declaration chain into a self-contained `index.d.ts`. Replaces `vite-plugin-dts` in the per-component build, which was producing empty `export {}` stubs due to a path resolution conflict between `outDir` and TypeScript's inferred `rootDir`.
+- _Added_: `rollup` and `rollup-plugin-dts` as direct `devDependencies` — Vite 8 uses rolldown internally so `rollup` is no longer a transitive dependency and must be declared explicitly.
+- _Changed_: `@cuweb/rds-icons` is now externalized across all build targets — it was previously compiled inline. Declared in `peerDependencies` with `optional: true` in `peerDependenciesMeta`. Root bundle reduced from ~316 kB to ~103 kB.
+- _Changed_: Per-component JS build (`vite.config.components.ts`) now auto-discovers components from `src/components/` via `readdirSync` — no hardcoded name list. `Card`, `Status`, and `Icon` were previously absent from `dist/components/`.
+- _Changed_: Updated `c2b.config.json` — renamed config key `themeDir` to `outputDir` to match `@troychaplin/component2block` v0.5.6.
+- _Fixed_: Per-component `index.d.ts` files were empty stubs (`export {}`) — caused by `vite-plugin-dts` discarding compiled declarations whose output paths fell outside the configured `outDir`. Resolved by replacing the plugin with `scripts/build-components-dts.mjs`.
+- _Fixed_: `dropRootCss` Vite plugin was silently failing — it was attempting to delete `dist/components/rds-2.0.css` but the actual generated file is `rds2.css`.
+- _Removed_: Top-level `main`, `module`, and `types` fields from `package.json` — these are superseded by the `exports` map and were redundant.
+- _Removed_: `./*.scss` entry from the `exports` map — per-component SCSS source files are not published artifacts.
+
 ## [0.5.2] - 2026-05-08
 
 - _Changed_: Switched npm authentication from a long-lived `NPM_TOKEN` secret to npm Trusted Publishing via OIDC (configured at https://www.npmjs.com/package/@carletonuniversity/rds2/access) — releases are now signed with provenance and require no stored token.

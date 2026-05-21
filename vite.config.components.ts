@@ -1,35 +1,26 @@
 import { defineConfig } from 'vite';
 import { resolve, dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { readdirSync, existsSync } from 'node:fs';
 import { unlink } from 'node:fs/promises';
 import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const componentNames = [
-  'Article',
-  'Aside',
-  'Badge',
-  'BadgeGroup',
-  'Body',
-  'Button',
-  'ButtonGroup',
-  'Column',
-  'CookieBanner',
-  'DepartmentBar',
-  'Footer',
-  'FooterStandard',
-  'LinkProvider',
-  'Main',
-  'Section',
-];
+const srcComponentsDir = resolve(__dirname, 'src/components');
 
+// Auto-discover every src/components/<Name>/ directory that has an index.ts or
+// index.tsx. Adding a new component directory is enough — no config update needed.
 const entry = Object.fromEntries(
-  componentNames.map((name) => {
-    const ext = name === 'LinkProvider' ? 'tsx' : 'ts';
-    return [`${name}/index`, resolve(__dirname, `src/components/${name}/index.${ext}`)];
-  }),
+  readdirSync(srcComponentsDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .flatMap((d) => {
+      const tsxPath = resolve(srcComponentsDir, d.name, 'index.tsx');
+      const tsPath = resolve(srcComponentsDir, d.name, 'index.ts');
+      const filePath = existsSync(tsxPath) ? tsxPath : existsSync(tsPath) ? tsPath : null;
+      if (!filePath) return [];
+      return [[`${d.name}/index`, filePath]];
+    }),
 );
 
 const assetFileNames = (assetInfo: { names?: string[] }) => {
@@ -39,7 +30,7 @@ const assetFileNames = (assetInfo: { names?: string[] }) => {
   return 'assets/[name]-[hash][extname]';
 };
 
-// Vite's per-component lib build emits a combined `rds-2.0.css` at the dist root
+// Vite's per-component lib build emits a combined stylesheet at the dist root
 // as a side effect of the CSS imports inside each component. We don't expose it
 // in package.json's exports map — consumers get either the full library stylesheet
 // (dist/style.css) or per-component CSS (dist/components/<Name>/styles.css, built
@@ -51,7 +42,7 @@ const dropRootCss = {
   name: 'rds:drop-root-css',
   closeBundle: async () => {
     try {
-      await unlink(join(__dirname, 'dist/components/rds-2.0.css'));
+      await unlink(join(__dirname, 'dist/components/rds2.css'));
     } catch (err: unknown) {
       if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
     }
@@ -61,17 +52,7 @@ const dropRootCss = {
 export default defineConfig({
   // Don't copy public/ assets into dist/components — they already live in dist/.
   publicDir: false,
-  plugins: [
-    react(),
-    dts({
-      include: ['src/components/**/*'],
-      exclude: ['**/*.stories.tsx', '**/*.test.tsx'],
-      tsconfigPath: './tsconfig.build.json',
-      outDir: 'dist/components',
-      entryRoot: 'src/components',
-    }),
-    dropRootCss,
-  ],
+  plugins: [react(), dropRootCss],
   build: {
     emptyOutDir: false,
     outDir: 'dist/components',
@@ -82,7 +63,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: ['react', 'react-dom', 'react/jsx-runtime', '@cuweb/rds-icons'],
       // Output array gives one config per format. Shared chunks land in
       // dist/components/_shared/ instead of cluttering the root.
       output: [

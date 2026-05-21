@@ -1,5 +1,5 @@
 import { t as e } from "../_shared/useLinkContext-C5AE1VVc.mjs";
-import { t } from "../_shared/Button-BTYPiMcp.mjs";
+import { t } from "../_shared/Button-bgx-T4TL.mjs";
 import { t as n } from "../_shared/ButtonGroup-BSqAewdB.mjs";
 import { jsx as r, jsxs as i } from "react/jsx-runtime";
 //#region src/components/DepartmentBar/DepartmentBar.tsx

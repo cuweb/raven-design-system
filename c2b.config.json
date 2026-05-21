@@ -3,7 +3,7 @@
 
     "output": {
         "srcDir": "src/styles/auto",
-        "themeDir": "dist/cutheme",
+        "outputDir": "dist/cutheme",
         "fontsDir": "public/fonts",
         "themeable": false,
         "scssVars": ["mediaQuery", "spacing"]

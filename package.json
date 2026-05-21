@@ -8,9 +8,6 @@
   },
   "type": "module",
   "private": false,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "sideEffects": [
     "**/*.css",
     "**/*.scss"
@@ -23,6 +20,7 @@
     },
     "./styles": "./dist/style.css",
     "./styles.css": "./dist/style.css",
+    "./tokens.css": "./dist/cutheme/tokens.css",
     "./vanilla-js/videoCard": {
       "import": "./dist/vanilla-js/videoCard.mjs",
       "default": "./dist/vanilla-js/videoCard.js"
@@ -38,15 +36,14 @@
       "import": "./dist/components/*/index.mjs",
       "require": "./dist/components/*/index.cjs"
     },
-    "./*.css": "./dist/components/*/styles.css",
-    "./*.scss": "./dist/components/*/styles.scss"
+    "./*.css": "./dist/components/*/styles.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "npm run assets && npm run c2b && storybook dev -p 6006",
-    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && npm run c2b",
+    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b",
     "build-storybook": "npm run assets && storybook build",
     "assets": "node scripts/build-assets.mjs",
     "c2b": "c2b generate",
@@ -79,6 +76,11 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
+  "peerDependenciesMeta": {
+    "@cuweb/rds-icons": {
+      "optional": true
+    }
+  },
   "keywords": [
     "react",
     "component-library",
@@ -101,7 +103,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@troychaplin/component2block": "^0.5.1",
+    "@troychaplin/component2block": "^0.5.6",
     "@types/react": "^18.3.29",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^6.0.2",
@@ -119,6 +121,8 @@
     "prettier": "^3.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rollup": "^4.60.4",
+    "rollup-plugin-dts": "^6.4.1",
     "sass": "^1.99.0",
     "size-limit": "^12.1.0",
     "storybook": "^10.4.0",

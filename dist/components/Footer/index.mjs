@@ -1,5 +1,5 @@
 import { t as e } from "../_shared/useLinkContext-C5AE1VVc.mjs";
-import { t } from "../_shared/styles-CgdEW3wH.mjs";
+import { t } from "../_shared/styles-DgjzOhJg.mjs";
 import { jsx as n, jsxs as r } from "react/jsx-runtime";
 //#region src/components/Footer/Footer.tsx
 var i = ({ logoSrc: i = t.cuLogoColorVerticalOutlined, logoAlt: a = "Logo of Carleton University", privacyHref: o = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: s = "https://carleton.ca/accessibility/", copyrightHref: c = "https://library.carleton.ca/copyright-carleton" }) => {
