@@ -21,7 +21,10 @@
     "./styles": "./dist/style.css",
     "./styles.css": "./dist/style.css",
     "./tokens.css": "./dist/cutheme/tokens.css",
-    "./tokens": "./dist/cutheme/tokens.js",
+    "./tokens": {
+      "import": "./dist/cutheme/tokens.js",
+      "require": "./dist/cutheme/tokens.js"
+    },
     "./fonts.css": "./dist/fonts.css",
     "./vanilla-js/videoCard": {
       "import": "./dist/vanilla-js/videoCard.mjs",
