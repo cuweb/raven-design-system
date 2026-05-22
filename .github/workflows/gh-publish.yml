@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - 'change/build-output'
-    tags:
-      - '*'
   workflow_dispatch:
     inputs:
       dist_tag:
