@@ -35,7 +35,14 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@cuweb'
+          scope: '@carletonuniversity'
+
+      - name: Configure GitHub Packages scopes
+        run: |
+          cat <<'EOF' >> "$HOME/.npmrc"
+          @carletonuniversity:registry=https://npm.pkg.github.com
+          @cuweb:registry=https://npm.pkg.github.com
+          EOF
 
       - run: pnpm install --frozen-lockfile
         env:
@@ -49,13 +56,13 @@ jobs:
 
           if [ -n "$DIST_TAG" ]; then
             echo "Publishing with custom dist-tag: $DIST_TAG"
-            pnpm publish --access restricted --no-git-checks --tag "$DIST_TAG"
+            pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com --tag "$DIST_TAG"
           elif [ "${{ github.ref_type }}" = 'branch' ]; then
             echo 'Publishing branch build with dist-tag: beta'
-            pnpm publish --access restricted --no-git-checks --tag beta
+            pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com --tag beta
           else
             echo 'Publishing tag build with default dist-tag: latest'
-            pnpm publish --access restricted --no-git-checks
+            pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
