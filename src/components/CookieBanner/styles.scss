@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  font-family: var(--rds--font-family-inter);
   text-align: center;
 
   @media (min-width: $rds-media-query-md) {
