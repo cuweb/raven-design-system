@@ -127,9 +127,10 @@ interface CardProps {
     noHover?: boolean;
     leftBorder?: boolean;
     revealOnScroll?: boolean;
+    className?: string;
 }
 declare const Card: {
-    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, leftBorder, revealOnScroll, }: CardProps): react_jsx_runtime.JSX.Element;
+    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, leftBorder, revealOnScroll, className, }: CardProps): react_jsx_runtime.JSX.Element;
     displayName: string;
 } & {
     Figure: {

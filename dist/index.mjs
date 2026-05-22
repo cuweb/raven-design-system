@@ -3125,11 +3125,11 @@ var Rn = "(prefers-reduced-motion: reduce)", zn = () => typeof window > "u" || t
 		ref: l,
 		isVisible: f
 	};
-}, Jn = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i, noHover: a, leftBorder: c, revealOnScroll: l = !0 }) => {
-	let { ref: u, isVisible: d } = qn({ disabled: !l });
+}, Jn = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i, noHover: a, leftBorder: c, revealOnScroll: l = !0, className: u }) => {
+	let { ref: d, isVisible: f } = qn({ disabled: !l });
 	return /* @__PURE__ */ s("div", {
-		ref: u,
-		className: [
+		ref: d,
+		className: `${[
 			"cu-card",
 			t && "cu-card--grey",
 			r && "cu-card--center",
@@ -3137,9 +3137,9 @@ var Rn = "(prefers-reduced-motion: reduce)", zn = () => typeof window > "u" || t
 			a && "cu-card--no-hover",
 			c && "cu-card--border-left",
 			n && t && "cu-card--has-wave"
-		].filter(Boolean).join(" "),
+		].filter(Boolean).join(" ")} ${u || ""}`,
 		"data-cu-reveal": l ? "" : void 0,
-		"data-revealed": d ? "true" : "false",
+		"data-revealed": f ? "true" : "false",
 		children: [e, n && t && /* @__PURE__ */ s("svg", {
 			xmlns: "http://www.w3.org/2000/svg",
 			className: "cu-card__wave",

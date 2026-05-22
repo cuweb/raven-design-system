@@ -11,11 +11,11 @@
   border-radius: var(--rds--radius-md);
   box-shadow: var(--rds--shadow-natural);
 }
-.cu-card a {
+.cu-card a:not(.cu-button) {
   color: var(--rds--color-primary);
   text-decoration: none;
 }
-.cu-card a:hover {
+.cu-card a:not(.cu-button):hover {
   text-decoration: underline;
 }
 .cu-card > * {

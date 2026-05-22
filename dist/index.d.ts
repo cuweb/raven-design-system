@@ -93,7 +93,7 @@ declare interface ButtonTitleProps extends ButtonProps {
 }
 
 export declare const Card: {
-    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, leftBorder, revealOnScroll, }: CardProps): JSX_2.Element;
+    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, leftBorder, revealOnScroll, className, }: CardProps): JSX_2.Element;
     displayName: string;
 } & {
     Figure: {
@@ -229,6 +229,7 @@ export declare interface CardProps {
     noHover?: boolean;
     leftBorder?: boolean;
     revealOnScroll?: boolean;
+    className?: string;
 }
 
 declare interface CardStatsProps {
