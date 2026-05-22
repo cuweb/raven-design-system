@@ -44,9 +44,9 @@ jobs:
         run: |
           DIST_TAG="${{ github.event.inputs.dist_tag }}"
           if [ -n "$DIST_TAG" ]; then
-            pnpm publish --access public --no-git-checks --tag "$DIST_TAG"
+            pnpm publish --access restricted --no-git-checks --tag "$DIST_TAG"
           else
-            pnpm publish --access public --no-git-checks
+            pnpm publish --access restricted --no-git-checks
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
