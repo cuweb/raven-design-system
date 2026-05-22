@@ -71,6 +71,7 @@
 .cu-footer__column {
   display: flex;
   flex-direction: column;
+  font-family: var(--rds--font-family-inter);
 }
 
 .cu-footer__column-group + .cu-footer__column-group {
