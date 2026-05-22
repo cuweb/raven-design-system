@@ -77,4 +77,4 @@ var e = {
 	}
 };
 //#endregion
-export { e as default, e as rdsTokens };
+export { e as rdsTokens };

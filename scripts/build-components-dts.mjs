@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process';
-import { readdirSync, existsSync, rmSync } from 'node:fs';
+import { readdirSync, existsSync, rmSync, mkdirSync, copyFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
@@ -19,6 +19,16 @@ execSync(
   `node_modules/.bin/tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --noEmit false --outDir ${tempDir}`,
   { cwd: root },
 );
+
+// The generated tokens source lives in src/styles/auto as JS plus a sibling
+// .d.ts file. tsc does not copy that declaration into outDir, so stage it
+// manually for rollup-plugin-dts to resolve src/components/tokens/index.d.ts.
+const tokensDeclSource = resolve(root, 'src/styles/auto/tokens.d.ts');
+const tokensDeclDest = resolve(tempDir, 'src/styles/auto/tokens.d.ts');
+if (existsSync(tokensDeclSource)) {
+  mkdirSync(dirname(tokensDeclDest), { recursive: true });
+  copyFileSync(tokensDeclSource, tokensDeclDest);
+}
 
 // Step 2: bundle each component's declaration chain into a single index.d.ts.
 // rollup-plugin-dts follows all import/re-export references and inlines
