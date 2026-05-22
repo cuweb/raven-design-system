@@ -36,7 +36,7 @@ jobs:
       - name: Configure dual registry auth
         run: |
           echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${RDS_RDS_NPM_TOKEN}" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${RDS_NPM_TOKEN}" >> ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RDS_NPM_TOKEN: ${{ secrets.RDS_NPM_TOKEN }}
