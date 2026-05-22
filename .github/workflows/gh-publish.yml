@@ -65,4 +65,4 @@ jobs:
             pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com
           fi
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.CARLETONUNIVERSITY_PACKAGES_TOKEN || secrets.CUWEB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
