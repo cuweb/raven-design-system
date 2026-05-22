@@ -13,7 +13,7 @@
     border-radius: var(--rds--radius-md);
     box-shadow: var(--rds--shadow-natural);
     
-    a {
+    a:not(.cu-button) {
         color: var(--rds--color-primary);
         text-decoration: none;
         

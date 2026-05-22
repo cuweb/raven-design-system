@@ -25,6 +25,7 @@ export interface CardProps {
   noHover?: boolean;
   leftBorder?: boolean;
   revealOnScroll?: boolean;
+  className?: string;
 }
 
 export const CardWrapper = ({
@@ -36,6 +37,7 @@ export const CardWrapper = ({
   noHover,
   leftBorder,
   revealOnScroll = true,
+  className,
 }: CardProps) => {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ disabled: !revealOnScroll });
 
@@ -54,7 +56,7 @@ export const CardWrapper = ({
   return (
     <div
       ref={ref}
-      className={classes}
+      className={`${classes} ${className || ''}`}
       data-cu-reveal={revealOnScroll ? '' : undefined}
       data-revealed={isVisible ? 'true' : 'false'}
     >
