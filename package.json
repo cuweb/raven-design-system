@@ -1,5 +1,5 @@
 {
-  "name": "@carletonuniversity/rds2",
+  "name": "@cuweb/rds2",
   "version": "0.5.2",
   "description": "React component library and design system for Carleton University",
   "repository": {
@@ -8,6 +8,10 @@
   },
   "type": "module",
   "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "sideEffects": [
     "**/*.css",
     "**/*.scss"

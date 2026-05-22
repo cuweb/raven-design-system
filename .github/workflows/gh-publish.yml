@@ -1,68 +1,54 @@
-# name: Publish as Github Package
+name: Publish to GitHub Packages
 
-# on:
-#   push:
-#     branches:
-#       - 'change/build-output'
-#   workflow_dispatch:
-#     inputs:
-#       dist_tag:
-#         description: 'npm dist-tag to publish with (for example: beta1, beta2)'
-#         required: false
-#         default: ''
-#         type: string
+on:
+  push:
+    # tags:
+    #   - '*'
+    branches:
+      - 'add/gh-publishing'
+  workflow_dispatch:
+    inputs:
+      dist_tag:
+        description: 'npm dist-tag (e.g. beta, beta1). Leave blank to publish as latest.'
+        required: false
+        default: ''
+        type: string
 
-# # on:
-# #   push:
-# #     tags:
-# #       - '*'
-# #   workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
 
-# jobs:
-#   publish:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: read
-#       packages: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-#     steps:
-#       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
 
-#       - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@cuweb'
 
-#       - uses: actions/setup-node@v4
-#         with:
-#           node-version-file: '.nvmrc'
-#           cache: 'pnpm'
-#           registry-url: 'https://npm.pkg.github.com'
-#           scope: '@carletonuniversity'
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#       - name: Configure GitHub Packages scopes
-#         run: |
-#           cat <<'EOF' >> "$HOME/.npmrc"
-#           @carletonuniversity:registry=https://npm.pkg.github.com
-#           @cuweb:registry=https://npm.pkg.github.com
-#           EOF
+      - run: pnpm build
 
-#       - run: pnpm install --frozen-lockfile
-#         env:
-#           NODE_AUTH_TOKEN: ${{ secrets.CUWEB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
+      - run: pnpm exec playwright install chromium --with-deps
+      - run: pnpm test --run
 
-#       - run: pnpm build
-
-#       - name: Publish package
-#         run: |
-#           DIST_TAG="${{ github.event.inputs.dist_tag }}"
-
-#           if [ -n "$DIST_TAG" ]; then
-#             echo "Publishing with custom dist-tag: $DIST_TAG"
-#             pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com --tag "$DIST_TAG"
-#           elif [ "${{ github.ref_type }}" = 'branch' ]; then
-#             echo 'Publishing branch build with dist-tag: beta'
-#             pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com --tag beta
-#           else
-#             echo 'Publishing tag build with default dist-tag: latest'
-#             pnpm publish --access restricted --no-git-checks --registry https://npm.pkg.github.com
-#           fi
-#         env:
-#           NODE_AUTH_TOKEN: ${{ secrets.CARLETONUNIVERSITY_PACKAGES_TOKEN || secrets.CUWEB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: Publish package
+        run: |
+          DIST_TAG="${{ github.event.inputs.dist_tag }}"
+          if [ -n "$DIST_TAG" ]; then
+            pnpm publish --access public --no-git-checks --tag "$DIST_TAG"
+          else
+            pnpm publish --access public --no-git-checks
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

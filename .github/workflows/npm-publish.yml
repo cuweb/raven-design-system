@@ -1,15 +1,10 @@
+# Superseded by gh-publish.yml — publishing now goes to GitHub Packages.
+# Kept for reference only; workflow_dispatch allows manual runs if needed.
+
 name: Publish as NPM Package
 
 on:
-  push:
-    # branches: [develop]
-    branches:
-      - 'change/build-output'
-
-# on:
-#   push:
-#     tags:
-#       - '*'
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -29,8 +24,6 @@ jobs:
           node-version-file: .nvmrc
           cache: 'pnpm'
 
-      # Install needs GitHub Packages auth for private @cuweb dependencies.
-      # Do not set an npmjs auth token here; publish should use OIDC Trusted Publishing.
       - name: Configure GitHub Packages auth
         run: |
           echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
@@ -46,7 +39,5 @@ jobs:
       - run: pnpm exec playwright install chromium --with-deps
       - run: pnpm test --run
 
-      # npm 11.5.1+ implements the GitHub → npm OIDC exchange used by
-      # Trusted Publishing. pnpm publish does not, so we use npm here.
       - run: npm install -g npm@latest
       - run: npm publish --access public --provenance
