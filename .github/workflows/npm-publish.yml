@@ -1,8 +1,10 @@
-name: Publish Package to NPM
+name: Publish as NPM Package
 
 on:
   push:
-    branches: [develop]
+    # branches: [develop]
+    branches:
+      - 'change/build-output'
 
 # on:
 #   push:
@@ -31,9 +33,13 @@ jobs:
       # install step (NODE_AUTH_TOKEN = GITHUB_TOKEN) authenticates to GitHub
       # Packages, and the publish step (NODE_AUTH_TOKEN = NPM_TOKEN) authenticates
       # to npmjs.org. The unused registry per step is harmless.
-      - name: Configure registry auth
+      - name: Configure dual registry auth
         run: |
-          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
