@@ -2,10 +2,8 @@ name: Publish to GitHub Packages
 
 on:
   push:
-    # tags:
-    #   - '*'
-    branches:
-      - 'add/gh-publishing'
+    tags:
+      - '*'
   workflow_dispatch:
     inputs:
       dist_tag:
