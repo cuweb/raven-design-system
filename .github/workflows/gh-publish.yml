@@ -40,6 +40,8 @@ jobs:
           scope: '@cuweb'
 
       - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.CUWEB_PACKAGES_TOKEN || secrets.GITHUB_TOKEN }}
 
       - run: pnpm build
 
