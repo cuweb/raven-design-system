@@ -65,33 +65,29 @@ export const WithBottomNav: Story = {
   ),
 };
 
-export const LargeMenu: Story = {
-  name: 'Large menu (stress test)',
+export const LargeTopMenu: Story = {
   render: () => (
-    <>
-      {/* Menu composed into the top row */}
-      <Nav>
+    <Nav>
         <Nav.Top>
-          <Nav.Logo title="Faculty of Science" link="/science" />
-          <Nav.Menu menu={largeNavData} />
-          <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+            <Nav.Logo title="Faculty of Science" link="/science" />
+            <Nav.Menu menu={largeNavData} />
+            <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
         </Nav.Top>
-      </Nav>
+    </Nav>
+  ),
+};
 
-        <br />
-        <br />
-
-      {/* Same menu composed into the bottom strip */}
-      <Nav>
+export const LargeBottomMenu: Story = {
+  render: () => (
+    <Nav>
         <Nav.Top>
-          <Nav.Logo title="Faculty of Science" link="/science" />
-          <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+            <Nav.Logo title="Faculty of Science" link="/science" />
+            <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
         </Nav.Top>
         <Nav.Bottom>
-          <Nav.Menu menu={largeNavData} />
+            <Nav.Menu menu={largeNavData} />
         </Nav.Bottom>
-      </Nav>
-    </>
+    </Nav>
   ),
 };
 
