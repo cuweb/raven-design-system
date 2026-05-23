@@ -16,8 +16,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(storybook@10.4.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@testing-library/dom@10.4.1)(@types/react@18.3.29)(prettier@3.8.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@cuweb/rds-icons':
-        specifier: ^0.1.6
-        version: 0.1.6(react@18.3.1)
+        specifier: ^0.1.7
+        version: 0.1.7(react@18.3.1)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.4.0)
@@ -219,8 +219,8 @@ packages:
     peerDependencies:
       storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
 
-  '@cuweb/rds-icons@0.1.6':
-    resolution: {integrity: sha512-om/FWpGZ3xD4Fje9ebl+40eYm95oQVcy1eteiCwf5PUy7KP49wxzDUP/hvIRNL/VnuPcLcRTGWaM6hZ4dQJS1g==, tarball: https://npm.pkg.github.com/download/@cuweb/rds-icons/0.1.6/5326bfa4816e1db2a4271496b21406184ffcc61f}
+  '@cuweb/rds-icons@0.1.7':
+    resolution: {integrity: sha512-6eP2FwKRA72TkTTr5RiiihGngK9dOa4PlCGZaUIEk6P8CB7nkzyU5peVTu/iwZ/rXsutIcgvf1v9M09tQCpGsA==, tarball: https://npm.pkg.github.com/download/@cuweb/rds-icons/0.1.7/5851177c1651744c3f3a88b5955ad587afa29794}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
@@ -3275,7 +3275,7 @@ snapshots:
       - '@chromatic-com/playwright'
       - '@chromatic-com/vitest'
 
-  '@cuweb/rds-icons@0.1.6(react@18.3.1)':
+  '@cuweb/rds-icons@0.1.7(react@18.3.1)':
     dependencies:
       react: 18.3.1
 

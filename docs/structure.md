@@ -35,7 +35,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 | Button Group | done |
 | Icon | done |
 | Progress Bar | done |
-| Social Icons | port |
+| Social Icons | done |
 | Status | done |
 
 ---

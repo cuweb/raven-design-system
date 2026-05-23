@@ -45,6 +45,11 @@ export { LinkProvider } from './components/LinkProvider/index';
 export { ProgressBar } from './components/ProgressBar/ProgressBar';
 export type { ProgressBarProps } from './components/ProgressBar/ProgressBar';
 
+// SocialIcons
+export { SocialIcons } from './components/SocialIcons/SocialIcons';
+export type { SocialIconsProps } from './components/SocialIcons/SocialIcons';
+export type { SocialIconsItemProps } from './components/SocialIcons/SocialIconsItem';
+
 // Status
 export { Status, defaultStatusTypes } from './components/Status/Status';
 export type { StatusProps, StatusVariant, StatusType } from './components/Status/Status';
