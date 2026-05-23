@@ -151,6 +151,21 @@
   min-width: 0;
 }
 
+// Hidden clone holding every item, used only to measure natural widths.
+// Off-flow so it has no layout impact; nowrap so items keep full width;
+// overflow:hidden so an overwide clone never extends the page scroll area.
+// getBoundingClientRect still reports true geometry for clipped children.
+.cu-nav__list--measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 // ---------------------------------------------------------------------------
 // Nav item (li)
 // ---------------------------------------------------------------------------

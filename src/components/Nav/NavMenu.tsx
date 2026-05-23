@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback } from 'react';
 import { flushSync } from 'react-dom';
 import { NavMenuItem } from './NavMenuItem';
 import type { NavItem } from './Nav';
@@ -7,69 +7,69 @@ export interface NavMenuProps {
   menu: NavItem[];
 }
 
-// Matches the gap: 0.125rem between flex items in cu-nav__list
-const ITEM_GAP_PX = 2;
+const noop = () => {};
 
 export const NavMenu = ({ menu }: NavMenuProps) => {
-  // null = measuring phase (all items in DOM); number = items to show in primary nav
+  // null = not yet measured (show all); number = items to show in the primary nav
   const [visibleCount, setVisibleCount] = useState<number | null>(null);
   const [browseOpen, setBrowseOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+  const measureRef = useRef<HTMLUListElement>(null);
   const browseButtonRef = useRef<HTMLButtonElement>(null);
-  const itemWidthsRef = useRef<number[]>([]);
-  const browseButtonWidthRef = useRef<number>(0);
 
+  // Stable signature so the measuring effect only re-runs when items change,
+  // not when a caller passes a fresh array identity on every render.
+  const menuKey = useMemo(() => menu.map((i) => i.title).join(''), [menu]);
+
+  // Measure against a hidden clone that always holds every item, then commit
+  // how many fit. Reading each item's real laid-out edge lets the browser's
+  // layout engine do the measuring — no width sums, no gap constant, no
+  // subpixel drift, no stale cached widths. Edges are taken relative to the
+  // clone's own left, so the clone's absolute position is irrelevant.
   const recalculate = useCallback(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    const clone = measureRef.current;
+    const browse = browseButtonRef.current;
+    if (!container || !clone || !browse) return;
 
-    const available = containerRef.current.getBoundingClientRect().width;
-    const widths = itemWidthsRef.current;
-    const browseW = browseButtonWidthRef.current;
+    const items = Array.from(clone.children) as HTMLElement[];
+    if (items.length !== menu.length) return;
 
-    let usedWidth = 0;
-    let count = 0;
+    const available = container.getBoundingClientRect().width;
+    const cloneLeft = clone.getBoundingClientRect().left;
+    const cumulativeRight = (el: HTMLElement) => el.getBoundingClientRect().right - cloneLeft;
 
-    for (let i = 0; i < widths.length; i++) {
-      const withGap = widths[i] + (i > 0 ? ITEM_GAP_PX : 0);
-      // On the last item: no Browse button needed if everything fits
-      const isLast = i === widths.length - 1;
-      const browseSpace = isLast ? 0 : browseW + ITEM_GAP_PX;
-
-      if (usedWidth + withGap + browseSpace <= available) {
-        usedWidth += withGap;
-        count++;
-      } else {
-        break;
-      }
+    // Everything fits — no Browse button required.
+    const last = items[items.length - 1];
+    if (last && cumulativeRight(last) <= available) {
+      setVisibleCount(menu.length);
+      setBrowseOpen(false);
+      return;
     }
 
+    // Reserve room for the Browse button: its live width plus the menu's gap.
+    const browseWidth = browse.getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(container).columnGap) || 0;
+    const limit = available - browseWidth - gap;
+
+    let count = 0;
+    for (const item of items) {
+      if (cumulativeRight(item) <= limit) count++;
+      else break;
+    }
     setVisibleCount(count);
-    if (count === menu.length) setBrowseOpen(false);
   }, [menu.length]);
 
-  // Measure all items and the Browse button before the first paint.
-  // visibleCount === null on first render guarantees all items are in the DOM.
-  // NOTE: only fires when menu identity changes, not on resize — resize uses
-  // the ResizeObserver below with cached widths.
+  // Measure before paint on mount and whenever the items change.
   useLayoutEffect(() => {
-    if (!listRef.current || !browseButtonRef.current) return;
-
-    const items = Array.from(listRef.current.querySelectorAll<HTMLElement>(':scope > li'));
-    // ceil() rounds subpixel widths up so the calculation never allows items that
-    // would overflow by even a fraction of a pixel.
-    itemWidthsRef.current = items.map((el) => Math.ceil(el.getBoundingClientRect().width));
-    browseButtonWidthRef.current = Math.ceil(browseButtonRef.current.getBoundingClientRect().width);
-
     recalculate();
-  }, [menu, recalculate]);
+  }, [menuKey, recalculate]);
 
-  // Recalculate on container resize using cached widths.
-  // flushSync forces a synchronous React re-render inside the ResizeObserver
-  // callback so the DOM is updated before the browser paints, preventing a
-  // single-frame flash where items visually overflow into adjacent elements.
+  // Recalculate on container resize. flushSync forces the re-render to commit
+  // inside the ResizeObserver callback, before the browser paints, so items
+  // never visibly overflow into adjacent elements for a frame.
   useEffect(() => {
     if (!containerRef.current) return;
     const ro = new ResizeObserver(() => flushSync(() => recalculate()));
@@ -102,15 +102,25 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
   const handleToggle = (title: string) =>
     setOpenDropdown((prev) => (prev === title ? null : title));
 
-  const primaryItems = visibleCount === null ? menu : menu.slice(0, visibleCount);
-  const overflowItems = visibleCount !== null ? menu.slice(visibleCount) : [];
+  const count = visibleCount ?? menu.length;
+  const primaryItems = menu.slice(0, count);
+  const overflowItems = menu.slice(count);
   const hasOverflow = overflowItems.length > 0;
   // Ghost = off-flow but still measurable (position:absolute + visibility:hidden)
   const isGhost = !hasOverflow;
 
   return (
     <div className="cu-nav__menu" ref={containerRef}>
-      <ul className="cu-nav__list" ref={listRef}>
+      {/* Hidden clone of the full menu, always in the DOM, used only for
+          measuring. position:absolute keeps it out of flow; overflow:hidden
+          stops a wide clone from extending the page's scroll area. */}
+      <ul className="cu-nav__list cu-nav__list--measure" ref={measureRef} aria-hidden="true">
+        {menu.map((item) => (
+          <NavMenuItem key={item.title} item={item} isOpen={false} onToggle={noop} />
+        ))}
+      </ul>
+
+      <ul className="cu-nav__list">
         {primaryItems.map((item) => (
           <NavMenuItem
             key={item.title}
