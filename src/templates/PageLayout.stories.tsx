@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Main } from '../components/Main/Main';
 import { Section } from '../components/Section/Section';
+import { Nav } from '../components/Nav/Nav';
 import { FooterStandard } from '../components/FooterStandard';
 import { CookieBanner } from '../components/CookieBanner';
+import { largeNavData } from '../data/NavigationData';
 
 const meta: Meta = {
   title: 'Overview/Templates/Page Layouts',
@@ -38,22 +40,15 @@ export const BasicPage: Story = {
   },
   render: () => (
     <>
-      <header>
-        <nav aria-label="Primary">
-          <a href="/">Raven Design System 2.0</a>
-          {/* <ul>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/docs">Docs</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul> */}
-        </nav>
-      </header>
+      <Nav>
+            <Nav.Top>
+              <Nav.Logo title="Faculty of Science" link="/science" />
+              <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+            </Nav.Top>
+            <Nav.Bottom>
+              <Nav.Menu menu={largeNavData} />
+            </Nav.Bottom>
+          </Nav>
 
       <Main>
         <h1>Heading One: Page Title</h1>

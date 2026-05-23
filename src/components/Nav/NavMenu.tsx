@@ -1,6 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback } from 'react';
 import { flushSync } from 'react-dom';
 import { NavMenuItem } from './NavMenuItem';
+import { useIsMobile } from './useIsMobile';
 import type { NavItem } from './Nav';
 
 export interface NavMenuProps {
@@ -14,8 +15,8 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
   const [visibleCount, setVisibleCount] = useState<number | null>(null);
   const [browseOpen, setBrowseOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  // Below md the menu is a single Browse trigger — no priority-plus inline items.
-  const [isMobile, setIsMobile] = useState(false);
+  // Below the sm breakpoint the menu is a single Browse trigger — no inline items.
+  const isMobile = useIsMobile();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLUListElement>(null);
@@ -79,16 +80,6 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
     ro.observe(containerRef.current);
     return () => ro.disconnect();
   }, [recalculate]);
-
-  // Track the md breakpoint (784px = $rds-media-query-md). Below it, the menu
-  // collapses to a single Browse trigger instead of the priority-plus row.
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 783.98px)');
-    const update = () => setIsMobile(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
 
   // Close on outside click or Escape
   useEffect(() => {
