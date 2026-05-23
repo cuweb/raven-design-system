@@ -14,6 +14,8 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
   const [visibleCount, setVisibleCount] = useState<number | null>(null);
   const [browseOpen, setBrowseOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // Below md the menu is a single Browse trigger — no priority-plus inline items.
+  const [isMobile, setIsMobile] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLUListElement>(null);
@@ -29,6 +31,7 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
   // subpixel drift, no stale cached widths. Edges are taken relative to the
   // clone's own left, so the clone's absolute position is irrelevant.
   const recalculate = useCallback(() => {
+    if (isMobile) return; // mobile shows a single Browse trigger; no measuring needed
     const container = containerRef.current;
     const clone = measureRef.current;
     const browse = browseButtonRef.current;
@@ -60,7 +63,7 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
       else break;
     }
     setVisibleCount(count);
-  }, [menu.length]);
+  }, [menu.length, isMobile]);
 
   // Measure before paint on mount and whenever the items change.
   useLayoutEffect(() => {
@@ -76,6 +79,16 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
     ro.observe(containerRef.current);
     return () => ro.disconnect();
   }, [recalculate]);
+
+  // Track the md breakpoint (784px = $rds-media-query-md). Below it, the menu
+  // collapses to a single Browse trigger instead of the priority-plus row.
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 783.98px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   // Close on outside click or Escape
   useEffect(() => {
@@ -102,7 +115,7 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
   const handleToggle = (title: string) =>
     setOpenDropdown((prev) => (prev === title ? null : title));
 
-  const count = visibleCount ?? menu.length;
+  const count = isMobile ? 0 : (visibleCount ?? menu.length);
   const primaryItems = menu.slice(0, count);
   const overflowItems = menu.slice(count);
   const hasOverflow = overflowItems.length > 0;

@@ -112,7 +112,7 @@ export const WithButtons: Story = {
       <Nav.Top>
         <Nav.Logo />
         <Nav.Menu menu={primaryMenu} />
-        <Nav.Buttons isSearch buttons={[{ title: 'Apply Now', href: '/apply' }]} />
+        <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
       </Nav.Top>
     </Nav>
   ),
@@ -123,7 +123,7 @@ export const WithBottomNav: Story = {
     <Nav>
       <Nav.Top>
         <Nav.Logo title="Faculty of Science" link="/science" />
-        <Nav.Buttons buttons={[{ title: 'Apply Now', href: '/apply' }]} />
+        <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
       </Nav.Top>
       <Nav.Bottom>
         <Nav.Menu menu={secondaryMenu} />
@@ -135,13 +135,30 @@ export const WithBottomNav: Story = {
 export const LargeMenu: Story = {
   name: 'Large menu (stress test)',
   render: () => (
-    <Nav>
-      <Nav.Top>
-        <Nav.Logo title="Faculty of Science" link="/science" />
-        <Nav.Menu menu={largeMenu} />
-        <Nav.Buttons isSearch buttons={[{ title: 'Apply Now', href: '/apply' }]} />
-      </Nav.Top>
-    </Nav>
+    <>
+      {/* Menu composed into the top row */}
+      <Nav>
+        <Nav.Top>
+          <Nav.Logo title="Faculty of Science" link="/science" />
+          <Nav.Menu menu={largeMenu} />
+          <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+        </Nav.Top>
+      </Nav>
+
+        <br />
+        <br />
+
+      {/* Same menu composed into the bottom strip */}
+      <Nav>
+        <Nav.Top>
+          <Nav.Logo title="Faculty of Science" link="/science" />
+          <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+        </Nav.Top>
+        <Nav.Bottom>
+          <Nav.Menu menu={largeMenu} />
+        </Nav.Bottom>
+      </Nav>
+    </>
   ),
 };
 

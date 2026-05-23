@@ -31,9 +31,10 @@
 
 // ---------------------------------------------------------------------------
 // Top row
-//   Mobile: 2-col grid — logo + buttons share row 1; a menu composed into the
-//   top drops to a full-width strip on row 2 (see .cu-nav__top > .cu-nav__menu)
-//   so it can't collide with the buttons in a cramped single row.
+//   Mobile: 2-col grid. Logo + buttons share row 1 by default; when a menu is
+//   composed into the top it takes over row 2 as a grey bar (Browse + buttons)
+//   and the logo gets row 1 to itself (see the .cu-nav__top > .cu-nav__menu and
+//   :has() rules below). This keeps everything off one cramped nowrap row.
 //   Desktop (≥md): single nowrap flex row so priority-plus overflows into the
 //   Browse button rather than wrapping.
 // ---------------------------------------------------------------------------
@@ -152,28 +153,56 @@
   }
 }
 
-// Mobile: a menu composed into the top row drops to a full-width strip below
-// the logo/buttons row, mirroring Nav.Bottom. The negative inline margin +
-// matching padding bleed the strip background to the header edges while keeping
-// the menu content aligned to the page gutter. Above md it sits inline in the
-// nowrap top row again. Scoped to a direct child so a Nav.Bottom menu (already
-// inside .cu-nav__bottom) is untouched.
+// Mobile: when the menu is composed into the top, the top becomes two rows —
+// the logo on row 1, and a grey bar on row 2 holding the Browse trigger (left)
+// and the CTA buttons (right). The bar background is painted by ::before so it
+// can bleed full-width to the header edges without consuming a grid track.
+// Above md everything reverts to the inline flex row.
+//
+// (A Nav.Bottom menu lives in .cu-nav__bottom instead, so these `> .cu-nav__menu`
+// rules don't match it; that composition keeps its buttons in the top row and
+// renders the menu in the .cu-nav__bottom bar.)
 .cu-nav__top > .cu-nav__menu {
-  grid-column: 1 / -1;
+  grid-column: 1;
   grid-row: 2;
-  margin-inline: calc(-1 * var(--rds--spacing-medium));
+  justify-self: start;
   padding-block: 0.625rem;
-  padding-inline: var(--rds--spacing-medium);
-  background-color: var(--rds--color-grey-pale);
-  border-top: 1px solid var(--rds--color-grey-lighter);
 
   @media (min-width: $rds-media-query-md) {
     grid-column: auto;
     grid-row: auto;
-    margin-inline: 0;
-    padding: 0;
-    background-color: transparent;
-    border-top: none;
+    padding-block: 0;
+  }
+}
+
+// Logo takes the full first row when the menu sits in the top.
+.cu-nav__top:has(> .cu-nav__menu) > .cu-nav__logo {
+  grid-column: 1 / -1;
+}
+
+// CTA buttons join the Browse trigger on the grey bar (row 2, right side).
+.cu-nav__top:has(> .cu-nav__menu) > .cu-nav__buttons {
+  grid-row: 2;
+  padding-block: 0.625rem;
+
+  @media (min-width: $rds-media-query-md) {
+    grid-row: auto;
+    padding-block: 0;
+  }
+}
+
+// Full-bleed grey background behind the row-2 bar (Browse + buttons).
+.cu-nav__top:has(> .cu-nav__menu)::before {
+  content: '';
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: stretch;
+  margin-inline: calc(-1 * var(--rds--spacing-medium));
+  background-color: var(--rds--color-grey-pale);
+  border-top: 1px solid var(--rds--color-grey-lighter);
+
+  @media (min-width: $rds-media-query-md) {
+    display: none;
   }
 }
 
@@ -419,7 +448,8 @@
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0; // never squeeze buttons out of the row
-  grid-column: 2; // mobile grid: row 1, right (beside the logo)
+  margin-left: auto; // push buttons to the right edge of the top row
+  grid-column: 2; // mobile grid: row 1 by default (Nav.Bottom composition)
   grid-row: 1;
   justify-self: end;
 }
@@ -457,5 +487,14 @@
   &:hover {
     background-color: var(--rds--color-primary-dark);
     color: var(--rds--color-white);
+  }
+
+  // Black CTA (e.g. Donate) — set via NavButton `variant: 'dark'`
+  &--dark {
+    background-color: var(--rds--color-black);
+
+    &:hover {
+      background-color: var(--rds--color-grey-dark);
+    }
   }
 }

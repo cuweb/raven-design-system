@@ -4,6 +4,8 @@ import { Icon } from '../Icon/Icon';
 export interface NavButton {
   title: string;
   href: string;
+  /** Visual style. 'primary' (default) is the red CTA; 'dark' is the black CTA (e.g. Donate). */
+  variant?: 'primary' | 'dark';
 }
 
 export interface NavButtonsProps {
@@ -25,7 +27,11 @@ export const NavButtons = ({ buttons, isSearch, onClickSearch }: NavButtonsProps
         </button>
       )}
       {buttons?.map((btn) => (
-        <LinkComponent key={btn.title} href={btn.href} className="cu-nav__cta-link">
+        <LinkComponent
+          key={btn.title}
+          href={btn.href}
+          className={`cu-nav__cta-link${btn.variant === 'dark' ? ' cu-nav__cta-link--dark' : ''}`}
+        >
           {btn.title}
         </LinkComponent>
       ))}
