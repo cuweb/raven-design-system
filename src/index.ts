@@ -13,6 +13,7 @@ export { Section } from './components/Section/Section';
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar';
 export { Badge } from './components/Badge/Badge';
+export type { BadgeProps } from './components/Badge/Badge';
 export { BadgeGroup } from './components/BadgeGroup/BadgeGroup';
 export { Button } from './components/Button/Button';
 export { ButtonGroup } from './components/ButtonGroup/ButtonGroup';
@@ -39,6 +40,10 @@ export type { IconName } from '@cuweb/rds-icons';
 
 // LinkProvider
 export { LinkProvider } from './components/LinkProvider/index';
+
+// ProgressBar
+export { ProgressBar } from './components/ProgressBar/ProgressBar';
+export type { ProgressBarProps } from './components/ProgressBar/ProgressBar';
 
 // Status
 export { Status, defaultStatusTypes } from './components/Status/Status';

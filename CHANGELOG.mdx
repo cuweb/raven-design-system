@@ -18,6 +18,7 @@ Prefix the change with one of these keywords:
 ## [Unreleased]
 
 - _Added_: `Avatar` component — displays a user photo or initials fallback in `sm`, `md`, and `lg` sizes with square or circle shape. Renders as a `<button>` when `onClick` is provided for accessible interactive use.
+- _Added_: `ProgressBar` component — accessible progress bar with required `label` prop for `aria-label`, `value`/`max` props with internal percentage clamping. Fill uses `position: absolute` to avoid percentage height resolution issues. Storybook stories use a fixed-width decorator so args-based stories render correctly in Storybook's flex canvas.
 
 ## [0.5.6] - 2026-05-22
 
