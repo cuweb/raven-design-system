@@ -1,0 +1,1 @@
+{"version":3,"file":"LinkContext.d.ts","sourceRoot":"","sources":["../../../../src/components/LinkProvider/LinkContext.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAiB,aAAa,EAAE,cAAc,EAAE,MAAM,OAAO,CAAC;AAErE,MAAM,MAAM,aAAa,GAAG,aAAa,CAAC,cAAc,CAAC,GAAG,CAAC,CAAC,CAAC;AAK/D,eAAO,MAAM,WAAW,wCAA4C,CAAC"}

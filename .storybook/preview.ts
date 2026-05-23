@@ -56,7 +56,7 @@ const preview: Preview = {
                     'Stylebook',
                 ],
                 'Components',
-                    ['Elements', 'Layout', 'Utilities', 'Template Parts'],
+                    ['Elements', 'Content', 'Media & Banners', 'Navigation', 'Forms', 'Feedback', 'Layout', 'Utilities', 'Template Parts'],
                 '*',
                 ],
             },

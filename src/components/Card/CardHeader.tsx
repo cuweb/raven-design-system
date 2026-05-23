@@ -20,7 +20,7 @@ export const CardHeader = ({
   date,
   datePrefix,
   readTime,
-  position = 'top',
+  position = 'bottom',
 }: CardHeaderProps) => {
   const LinkComponent = useLinkContext();
   const HeaderComponent = as;

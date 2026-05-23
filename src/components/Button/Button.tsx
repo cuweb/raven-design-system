@@ -41,7 +41,7 @@ export const Button = ({
   return (
     <button
       type={type}
-      aria-label={ariaLabel ?? title}
+      aria-label={ariaLabel}
       className={`cu-button ${variantClass} ${sizeClass} ${widthClass}`.trim()}
       disabled={isDisabled}
       {...rest}

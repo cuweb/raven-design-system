@@ -34,7 +34,7 @@ const badges = (
   </>
 );
 
-export const Primary: Story = {
+export const Default: Story = {
   render: (args) => <BadgeGroup {...args}>{badges}</BadgeGroup>,
 };
 
@@ -48,9 +48,7 @@ export const AbsolutePositioning: Story = {
     <div
       style={{
         position: 'relative',
-        height: 200,
-        padding: '1rem',
-        background: 'var(--rds--color-grey-pale)',
+        height: 265,
       }}
     >
       <BadgeGroup {...args}>{badges}</BadgeGroup>

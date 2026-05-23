@@ -39,11 +39,16 @@ src/components/Foo/
 
 ## Story patterns
 
-- **Title taxonomy:**
-  - `Components/Elements/*` — atomic UI (Badge, Button, Icon, BadgeGroup, ButtonGroup)
-  - `Components/Layout/*` — structural (Article, Aside, Body, Column, Main, Section)
-  - `Components/Utilities/*` — context providers and non-visual helpers (LinkProvider)
-  - `Overview/Templates/*` — full-page compositions
+- **Title taxonomy** — see [`docs/structure.md`](../structure.md) for the full component inventory and rationale. The prefix for each category:
+  - `Components/Elements/*` — atomic primitives (Badge, Button, Icon, …)
+  - `Components/Content/*` — content display patterns (Card, Quote, Table, …)
+  - `Components/Media/*` — image/video-heavy and promotional (FullBanner, ImageGrid, …)
+  - `Components/Navigation/*` — wayfinding (Nav, PageHeader, Footer, Pagination, …)
+  - `Components/Forms/*` — data entry and filtering (Form, Input, Select, FilterPanel, …)
+  - `Components/Feedback/*` — overlays, loading states, errors (Alert, Modal, Loaders, …)
+  - `Components/Layout/*` — structural wrappers (Section, Column, StackedList, …)
+  - `Components/Template Parts/*` — WordPress template part wrappers (Article, Aside, Body, Main)
+  - `Components/Utilities/*` — behavioral / non-visual (LinkProvider, CookieBanner, …)
 - Always `tags: ['autodocs']` and `parameters.controls.sort: 'requiredFirst'`
 - Define `argTypes` for union-type props so Storybook renders a dropdown:
   - `'inline-radio'` for 2–4 options

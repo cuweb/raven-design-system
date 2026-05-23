@@ -15,7 +15,7 @@ import { HoursData } from '../../data/HoursData';
 import { LanguageData } from '../../data/LanguageData';
 
 const meta: Meta = {
-  title: 'Components/Elements/Card',
+  title: 'Components/Content/Card',
   parameters: {
     layout: 'fullscreen',
     controls: { disable: true },

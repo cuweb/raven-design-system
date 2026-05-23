@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../src/components/Status/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,kBAAkB,EAAE,MAAM,UAAU,CAAC;AACtD,YAAY,EAAE,WAAW,EAAE,aAAa,EAAE,UAAU,EAAE,MAAM,UAAU,CAAC;AACvE,YAAY,EAAE,oBAAoB,EAAE,kBAAkB,EAAE,MAAM,SAAS,CAAC;AACxE,OAAO,EAAE,iBAAiB,EAAE,MAAM,eAAe,CAAC;AAClD,YAAY,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC"}

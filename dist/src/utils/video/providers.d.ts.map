@@ -1,0 +1,1 @@
+{"version":3,"file":"providers.d.ts","sourceRoot":"","sources":["../../../../src/utils/video/providers.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,kBAAkB,EAAE,YAAY,EAAE,MAAM,SAAS,CAAC;AAgDhE,eAAO,MAAM,cAAc,GAAI,KAAK,MAAM,KAAG,kBAAkB,GAAG,IAKjE,CAAC;AAEF,eAAO,MAAM,WAAW,GAAI,MAAM,YAAY,KAAG,kBAAkB,GAAG,IACtB,CAAC;AAEjD,eAAO,MAAM,cAAc,EAAE,YAAY,EAAiC,CAAC"}

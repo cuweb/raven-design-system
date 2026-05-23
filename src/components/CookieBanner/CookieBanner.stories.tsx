@@ -15,9 +15,9 @@ const meta: Meta<typeof CookieBanner> = {
 export default meta;
 type Story = StoryObj<typeof CookieBanner>;
 
-export const Primary: Story = {
+export const Default: Story = {
+  args: {
+    cookieName: 'storybook-preview-consent',
+  },
   render: (args) => <CookieBanner {...args} />,
-};
-Primary.args = {
-  cookieName: 'storybook-preview-consent',
 };

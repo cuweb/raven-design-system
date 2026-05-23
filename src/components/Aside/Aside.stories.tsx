@@ -24,7 +24,7 @@ const meta: Meta<typeof Aside> = {
 export default meta;
 type Story = StoryObj<typeof Aside>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: 'Aside HTML5 tag as component',
   },
