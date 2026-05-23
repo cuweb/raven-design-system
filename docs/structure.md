@@ -28,7 +28,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 | Component | Status |
 |---|---|
-| Avatar | port |
+| Avatar | done |
 | Badge | done |
 | Badge Group | done |
 | Button | done |
