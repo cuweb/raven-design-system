@@ -11,6 +11,11 @@ const meta: Meta<typeof Status> = {
       options: ['success', 'error', 'warning', 'info'],
     },
   },
+  parameters: {
+    controls: {
+      sort: 'requiredFirst',
+    },
+  },
 };
 
 export default meta;

@@ -25,7 +25,7 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<typeof Icon>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     name: 'circle-check',
     size: 32,
@@ -35,8 +35,8 @@ export const Primary: Story = {
 export const InheritsTextColor: Story = {
   name: 'Inherits text color',
   render: () => (
-    <span style={{ color: 'var(--rds--color-primary)', fontSize: '2rem' }}>
-      <Icon name="circle-check" /> color inherits from parent
+    <span style={{ color: 'var(--rds--color-primary)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <Icon name="circle-check" size={32} /> color inherits from parent
     </span>
   ),
 };
@@ -66,7 +66,7 @@ export const AllIcons: Story = {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
         gap: '0.75rem',
         padding: '1.5rem',
         width: '100%',
@@ -81,16 +81,14 @@ export const AllIcons: Story = {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '0.75rem',
-            padding: '1.25rem 1rem',
-            border: '1px solid var(--rds--color-grey-lighter)',
-            borderRadius: 'var(--rds--radius-md)',
+            gap: '1rem',
+            padding: '2.25rem 1rem',
             fontSize: '0.75rem',
             textAlign: 'center',
             wordBreak: 'break-word',
           }}
         >
-          <Icon name={entry.value as IconName} size={24} />
+          <Icon name={entry.value as IconName} size={36} />
           <span>{entry.value}</span>
         </div>
       ))}

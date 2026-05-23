@@ -43,12 +43,20 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof Badge>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    text: 'Badge Example',
-    href: 'https://github.com/cuweb/rds2',
-    rounded: 'full',
+    text: 'Badge',
     color: 'grey',
+    rounded: 'md',
+  },
+};
+
+export const WithLink: Story = {
+  args: {
+    text: 'Badge',
+    href: 'https://github.com/cuweb/rds2',
+    color: 'grey',
+    rounded: 'full',
   },
 };
 

@@ -28,7 +28,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     title: 'Primary Red',
     color: 'red',
@@ -43,12 +43,35 @@ export const WithIcon: Story = {
   },
 };
 
+export const IconOnly: Story = {
+  args: {
+    icon: 'circle-down',
+    ariaLabel: 'Download file',
+    color: 'dark-grey',
+  },
+};
+
 export const Small: Story = {
   args: {
     title: 'Download',
     color: 'dark-grey',
     icon: 'circle-down',
     isSmall: true,
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    title: 'Submit',
+    color: 'red',
+    isFull: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    title: 'Unavailable',
+    isDisabled: true,
   },
 };
 

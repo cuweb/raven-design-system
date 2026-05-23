@@ -23,7 +23,7 @@ const meta: Meta<typeof Column> = {
 export default meta;
 type Story = StoryObj<typeof Column>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     cols: '2',
   },

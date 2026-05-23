@@ -16,7 +16,7 @@ const meta: Meta<typeof Main> = {
 export default meta;
 type Story = StoryObj<typeof Main>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: <MultiParagraph count={2} />,
   },
