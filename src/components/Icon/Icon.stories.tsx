@@ -25,7 +25,7 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<typeof Icon>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     name: 'circle-check',
     size: 32,
@@ -35,8 +35,8 @@ export const Primary: Story = {
 export const InheritsTextColor: Story = {
   name: 'Inherits text color',
   render: () => (
-    <span style={{ color: 'var(--rds--color-primary)', fontSize: '2rem' }}>
-      <Icon name="circle-check" /> color inherits from parent
+    <span style={{ color: 'var(--rds--color-primary)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <Icon name="circle-check" size={32} /> color inherits from parent
     </span>
   ),
 };

@@ -16,14 +16,14 @@ const meta: Meta<typeof DepartmentBar> = {
 export default meta;
 type Story = StoryObj<typeof DepartmentBar>;
 
-export const Primary: Story = {
+export const Default: Story = {
+  args: {
+    deptName: 'Information Technology Services',
+    officeNumber: '400',
+    buildingName: 'Pigiarvik (ᐱᒋᐊᕐᕕᒃ)',
+    phone: '613-520-2600',
+    email: 'noreply@carleton.ca',
+    buttons: defaultFooterButtons,
+  },
   render: (args) => <DepartmentBar {...args} />,
-};
-Primary.args = {
-  deptName: 'Information Technology Services',
-  officeNumber: '400',
-  buildingName: 'Pigiarvik (ᐱᒋᐊᕐᕕᒃ)',
-  phone: '613-520-2600',
-  email: 'noreply@carleton.ca',
-  buttons: defaultFooterButtons,
 };

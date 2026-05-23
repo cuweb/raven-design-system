@@ -11,6 +11,11 @@ const meta: Meta<typeof Avatar> = {
       options: ['sm', 'md', 'lg'],
     },
   },
+  parameters: {
+    controls: {
+      sort: 'requiredFirst',
+    },
+  },
 };
 
 export default meta;

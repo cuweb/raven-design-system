@@ -16,6 +16,11 @@ const meta: Meta<typeof ProgressBar> = {
     value: { control: { type: 'number', min: 0 } },
     max: { control: { type: 'number', min: 1 } },
   },
+  parameters: {
+    controls: {
+      sort: 'requiredFirst',
+    },
+  },
 };
 
 export default meta;

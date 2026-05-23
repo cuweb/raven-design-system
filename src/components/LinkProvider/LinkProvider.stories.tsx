@@ -8,6 +8,9 @@ const meta: Meta<typeof LinkProvider> = {
   component: LinkProvider,
   tags: ['autodocs'],
   parameters: {
+    controls: {
+      sort: 'requiredFirst',
+    },
     docs: {
       description: {
         component:

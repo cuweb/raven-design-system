@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ButtonGroup } from './ButtonGroup';
 import { Button } from '../Button/Button';
 
-const gapOptions = ['sm', 'md', 'lg'] as const;
 const alignOptions = ['start', 'center', 'end'] as const;
 
 const meta: Meta<typeof ButtonGroup> = {
@@ -33,7 +32,7 @@ const buttons = (
   </>
 );
 
-export const Primary: Story = {
+export const Default: Story = {
   render: (args) => <ButtonGroup {...args}>{buttons}</ButtonGroup>,
 };
 
@@ -42,16 +41,4 @@ export const Centered: Story = {
     align: 'center',
   },
   render: (args) => <ButtonGroup {...args}>{buttons}</ButtonGroup>,
-};
-
-export const AllGaps: Story = {
-  render: () => (
-    <div style={{ display: 'flex' }}>
-      {gapOptions.map((gap) => (
-        <ButtonGroup key={gap}>
-          {buttons}
-        </ButtonGroup>
-      ))}
-    </div>
-  ),
 };

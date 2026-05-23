@@ -5,6 +5,11 @@ const meta: Meta<typeof SocialIcons> = {
   title: 'Components/Elements/Social Icons',
   component: SocialIcons,
   tags: ['autodocs'],
+  parameters: {
+    controls: {
+      sort: 'requiredFirst',
+    },
+  },
 };
 
 export default meta;

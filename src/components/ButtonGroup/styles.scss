@@ -9,18 +9,6 @@
     flex: 1 1 0%;
   }
 
-  &--gap-sm {
-    gap: var(--rds--spacing-x-small);
-  }
-
-  &--gap-md {
-    gap: var(--rds--spacing-small);
-  }
-
-  &--gap-lg {
-    gap: var(--rds--spacing-medium);
-  }
-
   &--justify-start {
     justify-content: flex-start;
   }
