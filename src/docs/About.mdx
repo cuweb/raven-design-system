@@ -29,11 +29,13 @@ Browse the live token reference in the **Stylebook** sidebar entries.
 
 ### Components
 
-Sixteen components today, grouped to match the sidebar:
+Twenty-one components today, grouped to match the sidebar:
 
-- **Elements** — `Badge`, `BadgeGroup`, `Button`, `ButtonGroup`, `Icon`, `DepartmentBar`
-- **Layout** — `Article`, `Aside`, `Body`, `Column`, `Main`, `Section`, `Footer`, `FooterStandard`
-- **Utilities** — `LinkProvider` (context for swapping in framework-specific Link components), `CookieBanner`
+- **Elements** — `Avatar`, `Badge`, `BadgeGroup`, `Button`, `ButtonGroup`, `Icon`, `ProgressBar`, `SocialIcons`, `Status`
+- **Content** — `Card`
+- **Navigation** — `DepartmentBar`, `Footer`, `FooterStandard`
+- **Layout** — `Article`, `Aside`, `Body`, `Column`, `Main`, `Section`
+- **Utilities** — `CookieBanner`, `LinkProvider` (context for swapping in framework-specific Link components)
 
 Each component lives in its own folder under [`src/components/`](https://github.com/cuweb/rds2/tree/main/src/components) with co-located stories, styles, and types. The catalogue grows steadily — see [the changelog](?path=/docs/overview-changelog--docs) for what's been added.
 
@@ -65,7 +67,7 @@ Every Storybook story runs through [axe](https://github.com/dequelabs/axe-core) 
 - SCSS + CSS custom properties (no Tailwind, no CSS-in-JS)
 - Storybook 10 with `@storybook/react-vite`
 - Vitest + Playwright for unit and a11y testing
-- Distributed as `@carletonuniversity/rds2` on GitHub Packages, paired with the private `@cuweb/rds-icons` peer dependency for Font Awesome Pro icons
+- Distributed as `@cuweb/rds2` on GitHub Packages (private — install requires `@cuweb` registry auth), paired with the private `@cuweb/rds-icons` peer dependency for Font Awesome Pro icons
 
 ## Explore
 
