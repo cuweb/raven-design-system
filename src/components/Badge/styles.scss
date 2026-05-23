@@ -20,6 +20,7 @@ a.cu-badge {
   border-radius: var(--rds--radius-lg);
   border-width: 1px;
   border-style: solid;
+  white-space: nowrap;
 
   &--radius-sm {
     border-radius: var(--rds--radius-sm);

@@ -3,6 +3,7 @@ import { Column } from '../Column/Column';
 import { Main } from '../Main/Main';
 import { Card } from './Card';
 import { Icon } from '../Icon/Icon';
+import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { formatHoursStatus } from '../Status/hoursStatus';
 
 import { NewsData } from '../../data/NewsData';
@@ -18,7 +19,7 @@ import { SystemData } from '../../data/SystemData';
 import { LanguageData } from '../../data/LanguageData';
 
 const meta: Meta = {
-  title: 'Components/Elements/Card',
+  title: 'Components/Content/Card',
   parameters: {
     layout: 'fullscreen',
     controls: { disable: true },
@@ -198,6 +199,34 @@ export const StatCards: Story = {
   ),
 };
 
+export const ProgressCards: Story = {
+  render: () => (
+    <Main>
+      <Column cols="3">
+        {NewsData.slice(0, 24).map((item) => (
+            <Card key={`news-${item.id}`}>
+                <Card.Figure>
+                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                </Card.Figure>
+                <Card.Header
+                    title={item.title}
+                    link={item.link}
+                />
+                <Card.Body>
+                    <Card.Excerpt text={item.excerpt} />
+                    <ProgressBar
+                        label="Fundraising progress"
+                        max={100}
+                        value={65}
+                    />
+                </Card.Body>
+            </Card>
+        ))}
+      </Column>
+    </Main>
+  ),
+};
+
 export const HoursCards: Story = {
   render: () => (
     <Main>
@@ -233,9 +262,6 @@ export const AvailabilityCards: Story = {
       <Column cols="3">
         {AvailabilityData.map((item) => (
           <Card key={`availability-${item.id}`}>
-            <Card.Figure>
-              <img src={item.image} alt={item.alt} width="600" height="400" />
-            </Card.Figure>
             <Card.Header title={item.title} link={item.link} />
             <Card.Body>
               <Card.Content>
@@ -256,9 +282,6 @@ export const SystemCards: Story = {
       <Column cols="3">
         {SystemData.map((item) => (
           <Card key={`system-${item.id}`}>
-            <Card.Figure>
-              <img src={item.image} alt={item.alt} width="600" height="400" />
-            </Card.Figure>
             <Card.Header title={item.title} link={item.link} />
             <Card.Body>
               <Card.Content>

@@ -17,6 +17,10 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `Avatar` component — displays a user photo or initials fallback in `sm`, `md`, and `lg` sizes with square or circle shape. Renders as a `<button>` when `onClick` is provided for accessible interactive use.
+- _Added_: `SocialIcons` compound component (`SocialIcons` + `SocialIcons.Item`) — icon-only links using `IconName` from `@cuweb/rds-icons`, open to any icon rather than a hardcoded service registry. Icons size responsively via `font-size` on the link. `orcid` icon pending addition to `@cuweb/rds-icons`.
+- _Added_: `ProgressBar` component — accessible progress bar with required `label` prop for `aria-label`, `value`/`max` props with internal percentage clamping. Fill uses `position: absolute` to avoid percentage height resolution issues. Storybook stories use a fixed-width decorator so args-based stories render correctly in Storybook's flex canvas.
+
 ## [0.5.7] - 2026-05-22
 
 - _Added_: `className` prop to Cards
@@ -29,7 +33,7 @@ Prefix the change with one of these keywords:
 
 ## [0.5.5] - 2026-05-22
 
-_Changed_: `font-family` property (`var(--rds--font-family-inter)`) added to high-level components for consistent typography
+- _Changed_: `font-family` property (`var(--rds--font-family-inter)`) added to high-level components for consistent typography
 
 ## [0.5.4] - 2026-05-22
 

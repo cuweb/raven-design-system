@@ -26,7 +26,7 @@ const meta: Meta<typeof Section> = {
 export default meta;
 type Story = StoryObj<typeof Section>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: <MultiParagraph count={2} />,
   },

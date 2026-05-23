@@ -19,7 +19,7 @@ const meta: Meta<typeof Article> = {
 export default meta;
 type Story = StoryObj<typeof Article>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: 'Article HTML5 tag as component',
   },

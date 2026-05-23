@@ -2,7 +2,6 @@ import React from 'react';
 import { justifyClasses } from '../../utils/propClasses';
 import './styles.scss';
 
-export type ButtonGroupGap = 'sm' | 'md' | 'lg';
 type ButtonGroupAlign = keyof typeof justifyClasses;
 
 export interface ButtonGroupProps {

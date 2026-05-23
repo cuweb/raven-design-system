@@ -16,6 +16,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: var(--rds--font-size-small);
 
   &__dot {
     flex-shrink: 0;
@@ -41,16 +42,4 @@
   &--info {
     --cu-status-color: var(--rds--color-info);
   }
-}
-
-// Standalone-only styles. Targeted directly at <Status /> usage.
-.cu-status--standalone {
-  // (intentionally empty for now — add standalone-specific styles here)
-}
-
-// Card-context-only styles. Targeted at <Card.Status /> usage.
-// The wrapper element (.cu-card__status) handles its own spacing in
-// src/components/Card/styles-status.scss.
-.cu-status--in-card {
-  // (intentionally empty for now — add card-context tweaks here)
 }
