@@ -30,14 +30,24 @@
 }
 
 // ---------------------------------------------------------------------------
-// Top row — nowrap so priority-plus controls overflow, not flex wrapping
+// Top row
+//   Mobile: 2-col grid — logo + buttons share row 1; a menu composed into the
+//   top drops to a full-width strip on row 2 (see .cu-nav__top > .cu-nav__menu)
+//   so it can't collide with the buttons in a cramped single row.
+//   Desktop (≥md): single nowrap flex row so priority-plus overflows into the
+//   Browse button rather than wrapping.
 // ---------------------------------------------------------------------------
 
 .cu-nav__top {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 0.75rem;
+  column-gap: 0.75rem;
+
+  @media (min-width: $rds-media-query-md) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -76,7 +86,9 @@
   align-items: center;
   gap: 1.25rem;
   padding-block: 0.875rem;
-  flex-shrink: 0; // never let the logo shrink
+  flex-shrink: 0; // never let the logo shrink (desktop flex row)
+  grid-column: 1; // mobile grid: row 1, left
+  grid-row: 1;
 }
 
 .cu-nav__logomark {
@@ -137,6 +149,31 @@
   // static on mobile: .cu-nav__browse-dropdown is positioned relative to <header>
   @media (min-width: $rds-media-query-md) {
     position: relative; // on desktop: dropdown positioned relative to this container
+  }
+}
+
+// Mobile: a menu composed into the top row drops to a full-width strip below
+// the logo/buttons row, mirroring Nav.Bottom. The negative inline margin +
+// matching padding bleed the strip background to the header edges while keeping
+// the menu content aligned to the page gutter. Above md it sits inline in the
+// nowrap top row again. Scoped to a direct child so a Nav.Bottom menu (already
+// inside .cu-nav__bottom) is untouched.
+.cu-nav__top > .cu-nav__menu {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-inline: calc(-1 * var(--rds--spacing-medium));
+  padding-block: 0.625rem;
+  padding-inline: var(--rds--spacing-medium);
+  background-color: var(--rds--color-grey-pale);
+  border-top: 1px solid var(--rds--color-grey-lighter);
+
+  @media (min-width: $rds-media-query-md) {
+    grid-column: auto;
+    grid-row: auto;
+    margin-inline: 0;
+    padding: 0;
+    background-color: transparent;
+    border-top: none;
   }
 }
 
@@ -382,6 +419,9 @@
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0; // never squeeze buttons out of the row
+  grid-column: 2; // mobile grid: row 1, right (beside the logo)
+  grid-row: 1;
+  justify-self: end;
 }
 
 .cu-nav__search-btn {
