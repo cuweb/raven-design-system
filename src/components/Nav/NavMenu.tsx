@@ -81,6 +81,15 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
     return () => ro.disconnect();
   }, [recalculate]);
 
+  // Lock body scroll on mobile when browse menu is open
+  useEffect(() => {
+    if (!isMobile || !browseOpen) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobile, browseOpen]);
+
   // Close on outside click or Escape
   useEffect(() => {
     const onDown = (e: MouseEvent) => {

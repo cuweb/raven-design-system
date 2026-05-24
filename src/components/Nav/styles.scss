@@ -55,6 +55,10 @@
     display: flex;
     flex-wrap: nowrap;
   }
+
+  .cu-nav__menu {
+    margin-left: var(--rds--spacing-medium);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -338,7 +342,7 @@
 
 .cu-nav__browse {
     @media (min-width: $rds-media-query-sm) {
-      margin-left: 0.5rem; // small gap from preceding item; matches ITEM_GAP_PX in NavMenu.tsx
+      margin-left: min(1rem, 2vw);
     }
 
     // Off-flow but measurable — used when all items fit in the primary nav
@@ -412,6 +416,48 @@
     border-radius: 0;
     background-color: var(--rds--color-grey-faint);
     padding: 0;
+  }
+}
+
+.cu-nav__submenu-row {
+  display: flex;
+  align-items: center;
+
+  .cu-nav__submenu-link {
+    flex-grow: 1;
+  }
+}
+
+.cu-nav__submenu-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: var(--rds--spacing-x-small) 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--rds--color-grey-dark);
+
+  &:hover {
+    color: var(--rds--color-primary);
+  }
+}
+
+.cu-nav__submenu--nested {
+  position: static;
+  box-shadow: none;
+  border: none;
+  border-top: 1px solid var(--rds--color-grey-lighter);
+  border-radius: 0;
+  background-color: var(--rds--color-grey-faint);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: auto;
+
+  .cu-nav__submenu-link {
+    padding-inline-start: 1.5rem;
   }
 }
 
