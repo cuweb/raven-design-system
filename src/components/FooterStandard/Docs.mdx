@@ -1,0 +1,159 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FooterStandardStories from './FooterStandard.stories';
+
+<Meta of={FooterStandardStories} />
+
+# Footer Standard
+
+A full-featured site footer with four regions: an Indigenous land acknowledgment, a multi-column link directory, a contact and social links row, and a logo with meta links. Three pre-configured link sets are available via the `type` prop — `standard`, `athletics`, and `futureFunder`.
+
+## When to use
+
+Use `FooterStandard` on all full-site pages. For lightweight contexts (microsites, campaign pages) use [`Footer`](?path=/docs/components-navigation-footer--docs) instead.
+
+## Import
+
+```tsx
+import { FooterStandard } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Standard Carleton footer — all defaults
+<FooterStandard />
+
+// Athletics site footer
+<FooterStandard type="athletics" />
+
+// Custom acknowledgment text
+<FooterStandard acknowledgment="Custom land acknowledgment text here." />
+```
+
+## Examples
+
+### Standard
+
+The default footer type — five link columns covering Admissions, Academics, Students, Campus, and Ravens.
+
+<Canvas of={FooterStandardStories.Standard} />
+<Controls of={FooterStandardStories.Standard} />
+
+### Athletics
+
+Five columns of Athletics & Recreation links — Fitness, Aquatics, Facilities/About, Camps/Leagues, Students/Carleton.
+
+<Canvas of={FooterStandardStories.Athletics} />
+
+### Future Funder
+
+`futureFunder` is currently a placeholder and uses the same link set as `standard`. The link columns will be updated when FutureFunder content is finalised.
+
+<Canvas of={FooterStandardStories.FutureFunder} />
+
+## Footer regions
+
+### Acknowledgment
+
+Full-width centred text above the link columns. Defaults to Carleton's institutional land acknowledgment. Pass `acknowledgment` to override.
+
+### Link columns
+
+Driven entirely by data — the `type` prop selects a pre-built set of `FooterLinkColumn[]` from `FooterData.ts`. Each column contains one or more `FooterLinkGroup` objects with a heading, a list of links, and an optional media item (image, optionally linked).
+
+The columns region is hidden on mobile and visible on `md+` screens.
+
+### Contact and social
+
+Phone and email links render conditionally — if `phoneHref` or `contactHref` is absent from the `contact` object the corresponding text fragment is suppressed. The address line is always shown.
+
+Social icons are rendered using the `Icon` component and pull from the `social` array. Defaults include Facebook, Instagram, X (Twitter), YouTube, and LinkedIn.
+
+### Logo and meta links
+
+Identical to the [`Footer`](?path=/docs/components-navigation-footer--docs) component — Carleton logo above Privacy Policy, Accessibility, and © Copyright links. The copyright year is generated dynamically.
+
+## Customising contact info
+
+```tsx
+<FooterStandard
+  contact={{
+    phone: '613-555-0100',
+    phoneHref: 'tel:+1-613-555-0100',
+    contactHref: '/contact',
+    address: '1 Example Street, Ottawa, ON, K1A 0A0',
+  }}
+/>
+```
+
+## Customising social links
+
+```tsx
+import type { FooterSocialLink } from '@cuweb/rds2/data/FooterData';
+
+const social: FooterSocialLink[] = [
+  { name: 'Facebook', href: 'https://facebook.com/mypage', icon: 'facebook' },
+  { name: 'Instagram', href: 'https://instagram.com/mypage', icon: 'instagram' },
+];
+
+<FooterStandard social={social} />
+```
+
+## Links via LinkProvider
+
+All links in `FooterStandard` — column links, contact links, social links, and meta links — render through the `LinkProvider` context. Wrap the app root with `LinkProvider` once and every link adopts the injected component automatically.
+
+## CSS classes
+
+| Class | Element | Notes |
+|---|---|---|
+| `cu-footer` | `<footer>` | Black background, CU waves decorative image |
+| `cu-footer--standard` | `<footer>` | Modifier; `background-size: 100.5%` |
+| `cu-footer--athletics` | `<footer>` | Athletics variant modifier |
+| `cu-footer--futureFunder` | `<footer>` | FutureFunder variant modifier |
+| `cu-footer__inner` | Flex column `<div>` | Max-width `--rds--layout-wide-size`, centred |
+| `cu-footer__acknowledgment` | `<div>` | Centred text; bottom border on `md+` |
+| `cu-footer__columns` | `<div>` | Hidden on mobile; flex row on `md+` |
+| `cu-footer__column` | `<div>` | Flex column within the columns grid |
+| `cu-footer__column-group` | `<div>` | Groups heading + links; top margin between sibling groups |
+| `cu-footer__column-heading` | `<h3>` | White, bold |
+| `cu-footer__column-list` | `<ul>` | No list style, no padding |
+| `cu-footer__column-item` | `<li>` | Top margin `0.625rem`; small font size |
+| `cu-footer__column-link` | `<a>` | Grey-light; white on hover |
+| `cu-footer__column-media` | `<a>` or `<img>` | Media item (e.g. Ravens logo) below the link list |
+| `cu-footer__contact` | `<div>` | Reverse column on mobile; row on `lg+` |
+| `cu-footer__contact-lead` | `<p>` | "Contact us by phone or email" |
+| `cu-footer__contact-address` | `<p>` | Mailing address; centred on mobile |
+| `cu-footer__contact-link` | `<a>` | White, bold, underline; primary colour on hover |
+| `cu-footer__social` | `<ul>` | Flex row; centred on mobile, trailing on `lg+` |
+| `cu-footer__social-link` | `<a>` | Grey-light; primary colour on hover |
+| `cu-footer__logo-links` | `<div>` | Centred grid; bottom padding for waves |
+| `cu-footer__logo` | `<img>` | `8rem` / `11rem` tall; centred |
+| `cu-footer__meta` | `<ul>` | Flex row, centred, wraps |
+| `cu-footer__meta-item` | `<li>` | Gap `1rem` / `1.5rem` |
+| `cu-footer__meta-link` | `<a>` | Grey-light, no underline; white on hover |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-light` | Default text and link colour |
+| `--rds--color-white` | Headings, bold link colour |
+| `--rds--color-black` | Footer background |
+| `--rds--color-grey-dark` | Section divider borders |
+| `--rds--color-primary` | Link hover colour (social, contact) |
+| `--rds--asset-cu-waves-footer-red` | Decorative waves background image |
+| `--rds--layout-wide-size` | Inner max-width |
+| `--rds--font-family-inter` | Column font family |
+| `--rds--font-size-small` | Column link font size; meta link size on `sm+` |
+| `--rds--font-size-medium` | Column heading, acknowledgment, contact font size |
+| `--rds--font-size-x-small` | Meta link font size on mobile |
+| `--rds--font-weight-bold` | Column headings, acknowledgment, contact link weight |
+
+## Accessibility
+
+- `<footer>` is a contentinfo landmark, announced as such when it is a top-level descendant of `<body>`.
+- A visually hidden `<h2>Footer</h2>` is referenced by `aria-labelledby` on `<footer>` — it gives the landmark an accessible name across all browsers.
+- Column headings are `<h3>` elements — ensure the page heading hierarchy above `FooterStandard` does not skip from `<h1>` to `<h3>`.
+- Social icon links are visually icon-only; each has a `<span class="sr-only">` with the platform name to provide an accessible label.
+- All links render through `LinkProvider` and remain keyboard accessible regardless of which link component is injected.
