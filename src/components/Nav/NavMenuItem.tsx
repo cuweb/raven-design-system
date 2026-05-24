@@ -12,17 +12,17 @@ export interface NavMenuItemProps {
 export const NavMenuItem = ({ item, isOpen, onToggle, variant = 'desktop' }: NavMenuItemProps) => {
   const LinkComponent = useLinkContext();
   const hasSubmenu = Boolean(item.submenu?.length);
+  const isMobile = variant === 'mobile';
 
-  const linkClass = [
-    'cu-nav__link',
-    variant === 'mobile' && 'cu-nav__link--mobile',
-    hasSubmenu && isOpen && 'cu-nav__link--open',
-  ]
-    .filter(Boolean)
-    .join(' ');
+  // Desktop: primary nav link/button styles.
+  // Mobile (browse dropdown): submenu-link styles so all dropdown items — both
+  // the primary submenu and browse overflow items — share identical look and feel.
+  const linkClass = isMobile
+    ? ['cu-nav__submenu-link', hasSubmenu && isOpen && 'cu-nav__submenu-link--open'].filter(Boolean).join(' ')
+    : ['cu-nav__link', hasSubmenu && isOpen && 'cu-nav__link--open'].filter(Boolean).join(' ');
 
   return (
-    <li className={`cu-nav__item${variant === 'mobile' ? ' cu-nav__item--mobile' : ''}`}>
+    <li className={isMobile ? 'cu-nav__submenu-item' : 'cu-nav__item'}>
       {hasSubmenu ? (
         <button className={linkClass} onClick={onToggle} aria-expanded={isOpen}>
           {item.title}

@@ -249,14 +249,6 @@
 
 .cu-nav__item {
   position: relative;
-
-  &--mobile {
-    border-bottom: 1px solid var(--rds--color-grey-lighter);
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -293,17 +285,6 @@
   &--open {
     color: var(--rds--color-primary);
     background-color: var(--rds--color-grey-pale);
-  }
-
-  // Used inside .cu-nav__browse-dropdown (overflow items render vertically)
-  &--mobile {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.875rem 1rem;
-    font-size: var(--rds--font-size-medium);
-    border-radius: 0;
-    white-space: normal;
   }
 }
 
@@ -364,15 +345,15 @@
 // ---------------------------------------------------------------------------
 
 
-.cu-nav__browse-dropdown,
-.cu-nav__submenu {
+.cu-nav__submenu,
+.cu-nav__browse-dropdown {
     position: absolute;
     min-width: 14rem;
     top: calc(100% + 0.25rem);
     left: 0;
     right: 0;
     margin: 0;
-    padding: 0.375rem 0;
+    padding: 0;
     list-style: none;
     z-index: 30;
     box-shadow: var(--rds--shadow-natural);
@@ -397,10 +378,6 @@
     }
 }
 
-.cu-nav__submenu-link,
-.cu-nav__link {
-
-}
 
 // ---------------------------------------------------------------------------
 // Desktop dropdown submenu (primary nav items)
@@ -458,18 +435,39 @@
   }
 }
 
-.cu-nav__submenu-link,
-.cu-nav__browse-dropdown .cu-nav__link {
-  display: block;
+// Shared style for all dropdown items — used in both the primary submenu and
+// the browse overflow dropdown. Applied to <a> (leaf links) and <button>
+// (toggle items with submenus), so includes button resets and flex layout
+// to keep the expand arrow right-aligned without a wrapper element.
+
+.cu-nav__submenu-item:not(:last-child) {
+border-bottom: 1px solid var(--rds--color-grey-lighter);
+}
+
+.cu-nav__submenu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   padding: var(--rds--spacing-x-small) 1rem;
-  font-size: var(--rds--font-size-medium);
+  font-size: var(--rds--font-size-small);
+  font-family: inherit;
   color: var(--rds--color-grey-dark);
   text-decoration: none;
+  background: none;
+//   border: none;
+  cursor: pointer;
+  white-space: normal;
   transition:
     color 0.15s ease,
     background-color 0.15s ease;
 
   &:hover {
+    color: var(--rds--color-primary);
+    background-color: var(--rds--color-grey-pale);
+  }
+
+  &--open {
     color: var(--rds--color-primary);
     background-color: var(--rds--color-grey-pale);
   }
