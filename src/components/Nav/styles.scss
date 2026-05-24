@@ -363,52 +363,50 @@
 //   cu-nav__menu is position:relative on desktop.
 // ---------------------------------------------------------------------------
 
-.cu-nav__browse-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background-color: var(--rds--color-white);
-  border-bottom: 1px solid var(--rds--color-grey-lighter);
-  border-top: 1px solid var(--rds--color-grey-lighter);
-  box-shadow: var(--rds--shadow-natural);
-  max-height: calc(100svh - 4rem);
-  overflow-y: auto;
-  z-index: 30;
 
-  @media (min-width: $rds-media-query-sm) {
-    left: auto;
+.cu-nav__browse-dropdown,
+.cu-nav__submenu {
+    position: absolute;
+    min-width: 14rem;
+    top: calc(100% + 0.25rem);
+    left: 0;
     right: 0;
-    width: 16rem;
-    max-height: 80vh;
-    border: 1px solid var(--rds--color-grey-lighter);
-    border-radius: var(--rds--radius-md);
-  }
+    margin: 0;
+    padding: 0.375rem 0;
+    list-style: none;
+    z-index: 30;
+    box-shadow: var(--rds--shadow-natural);
+    background-color: var(--rds--color-white);
+
+    @media (min-width: $rds-media-query-sm) {
+        border: 1px solid var(--rds--color-grey-lighter);
+        border-radius: var(--rds--radius-md);
+    }
+}
+
+.cu-nav__browse-dropdown {
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
+    border-top: 1px solid var(--rds--color-grey-lighter);
+    max-height: calc(100svh - 4rem);
+    overflow-y: auto;
+
+    @media (min-width: $rds-media-query-sm) {
+        left: auto;
+        width: 16rem;
+        max-height: 80vh;
+    }
+}
+
+.cu-nav__submenu-link,
+.cu-nav__link {
+
 }
 
 // ---------------------------------------------------------------------------
 // Desktop dropdown submenu (primary nav items)
 // ---------------------------------------------------------------------------
 
-.cu-nav__submenu {
-  position: absolute;
-  top: calc(100% + 0.25rem);
-  left: 0;
-  min-width: 14rem;
-  background-color: var(--rds--color-white);
-  border: 1px solid var(--rds--color-grey-lighter);
-  border-radius: var(--rds--radius-md);
-  box-shadow: var(--rds--shadow-natural);
-  list-style: none;
-  margin: 0;
-  padding: 0.375rem 0;
-  z-index: 10;
-
-  // Inline accordion variant used inside the Browse overflow dropdown
-  &--mobile {
+.cu-nav__submenu--mobile {
     position: static;
     box-shadow: none;
     border: none;
@@ -416,7 +414,6 @@
     border-radius: 0;
     background-color: var(--rds--color-grey-faint);
     padding: 0;
-  }
 }
 
 .cu-nav__submenu-row {
@@ -461,7 +458,8 @@
   }
 }
 
-.cu-nav__submenu-link {
+.cu-nav__submenu-link,
+.cu-nav__browse-dropdown .cu-nav__link {
   display: block;
   padding: var(--rds--spacing-x-small) 1rem;
   font-size: var(--rds--font-size-medium);
