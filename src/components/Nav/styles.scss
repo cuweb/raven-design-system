@@ -173,7 +173,7 @@
   grid-column: 1;
   grid-row: 2;
   justify-self: start;
-  padding-block: 0.625rem;
+  padding-block: var(--rds--spacing-x-small);
 
   @media (min-width: $rds-media-query-sm) {
     grid-column: auto;
@@ -190,7 +190,7 @@
 // CTA buttons join the Browse trigger on the grey bar (row 2, right side).
 .cu-nav__top:has(> .cu-nav__menu) > .cu-nav__buttons {
   grid-row: 2;
-  padding-block: 0.625rem;
+  padding-block: var(--rds--spacing-x-small);
 
   @media (min-width: $rds-media-query-sm) {
     grid-row: auto;
@@ -217,7 +217,7 @@
 .cu-nav__list {
   display: flex;
   align-items: center;
-  gap: 0.125rem;
+  gap: var(--rds--spacing-small);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -263,12 +263,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.5rem 0.625rem;
-  font-size: var(--rds--font-size-medium);
+//   padding: 0.5rem var(--rds--spacing-x-small);
+  font-size: var(--rds--font-size-small);
   font-weight: var(--rds--font-weight-medium);
   color: var(--rds--color-grey-dark);
   text-decoration: none;
   background: none;
+//   background-color: var(--rds--color-grey-dark);
   border: none;
   cursor: pointer;
   border-radius: var(--rds--radius-md);
@@ -281,7 +282,6 @@
 
   &:hover {
     color: var(--rds--color-primary);
-    background-color: var(--rds--color-grey-pale);
   }
 
   &--open {
@@ -308,13 +308,13 @@
 .cu-nav__arrow {
   display: inline-block;
   flex-shrink: 0;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-top: 2px solid currentColor;
-  border-right: 2px solid currentColor;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
   transform: rotate(135deg); // points down
   transition: transform 0.2s ease;
-  margin-top: -0.125rem;
+//   margin-top: -0.125rem;
 
   &--open {
     transform: rotate(-45deg); // points up
@@ -353,7 +353,7 @@
 
 .cu-nav__submenu-link {
   display: block;
-  padding: 0.625rem 1rem;
+  padding: var(--rds--spacing-x-small) 1rem;
   font-size: var(--rds--font-size-medium);
   color: var(--rds--color-grey-dark);
   text-decoration: none;
@@ -383,7 +383,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.5rem 0.625rem;
+  padding: 0.5rem var(--rds--spacing-x-small);
   font-size: var(--rds--font-size-medium);
   font-weight: var(--rds--font-weight-medium);
   color: var(--rds--color-grey-dark);
