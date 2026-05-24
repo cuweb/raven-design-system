@@ -7,7 +7,7 @@ import { CookieBanner } from '../components/CookieBanner';
 import { largeNavData } from '../data/NavigationData';
 
 const meta: Meta = {
-  title: 'Overview/Templates/Page Layout',
+  title: 'Overview/Templates/Homepage',
   parameters: {
     layout: 'fullscreen',
   },
@@ -27,7 +27,7 @@ const SinglePara = () => (
   </p>
 );
 
-export const PageLayout: Story = {
+export const Homepage: Story = {
   parameters: {
     a11y: {
       config: {
@@ -40,15 +40,20 @@ export const PageLayout: Story = {
   },
   render: () => (
     <>
-      <Nav>
+        <Nav>
             <Nav.Top>
-              <Nav.Logo title="Faculty of Science" link="/science" />
-              <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+                <Nav.Logo />
+                <Nav.Menu menu={largeNavData} />
+                <Nav.Buttons isSearch buttons={[{
+                title: 'Apply',
+                href: '/apply'
+            }, {
+                title: 'Donate',
+                href: '/donate',
+                variant: 'dark'
+            }]} />
             </Nav.Top>
-            <Nav.Bottom>
-              <Nav.Menu menu={largeNavData} />
-            </Nav.Bottom>
-          </Nav>
+        </Nav>
 
       <Main>
         <h1>Heading One: Page Title</h1>

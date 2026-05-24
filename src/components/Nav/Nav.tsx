@@ -1,6 +1,6 @@
 import {
-  useState,
   useEffect,
+  useRef,
   Children,
   isValidElement,
   cloneElement,
@@ -50,18 +50,36 @@ const moveButtonsIntoBottom = (children: ReactNode): ReactNode => {
 };
 
 const NavWrapper = ({ children }: NavProps) => {
-  const [scrolledDown, setScrolledDown] = useState(false);
   // Below the sm breakpoint, relocate the CTA buttons into the bottom bar.
   const isMobile = useIsMobile();
+  const headerRef = useRef<HTMLElement>(null);
 
+  // On scroll down, slide the white top row (logo + site title) fully up out of
+  // view so the secondary Nav.Bottom strip pins flush to the top (the fixed red
+  // accent line stays put above it). The header stays sticky; we shift its `top`
+  // by the strip's offset so the top row slides off with no gap. With no bottom
+  // strip, the whole header slides up instead. Shifting `top` (not display) keeps
+  // the header's footprint, so page content below never jumps. Scrolling up
+  // restores the top row.
   useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
     let lastY = window.scrollY;
+    let hidden = false;
     const handleScroll = () => {
       const currentY = window.scrollY;
-      if (currentY > lastY && currentY > 80) {
-        setScrolledDown(true);
-      } else if (currentY < lastY) {
-        setScrolledDown(false);
+      if (currentY > lastY && !hidden) {
+        const bottom = header.querySelector<HTMLElement>('.cu-nav__bottom');
+        const shift = bottom
+          ? bottom.getBoundingClientRect().top - header.getBoundingClientRect().top
+          : header.offsetHeight;
+        if (currentY > shift) {
+          hidden = true;
+          header.style.top = `-${shift}px`;
+        }
+      } else if (currentY < lastY && hidden) {
+        hidden = false;
+        header.style.top = '0px';
       }
       lastY = currentY;
     };
@@ -72,7 +90,7 @@ const NavWrapper = ({ children }: NavProps) => {
   const content = isMobile ? moveButtonsIntoBottom(children) : children;
 
   return (
-    <header className={`cu-nav${scrolledDown ? ' cu-nav--hidden' : ''}`}>
+    <header ref={headerRef} className="cu-nav">
       <nav className="cu-nav__inner" aria-label="Site navigation">
         {content}
       </nav>

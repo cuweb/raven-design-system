@@ -9,14 +9,24 @@
   top: 0;
   z-index: 40;
   background-color: var(--rds--color-white);
-  border-top: 2px solid var(--rds--color-primary);
   border-bottom: 1px solid var(--rds--color-grey-lighter);
-  will-change: transform;
-  transition: transform 0.3s ease-in-out;
+  // On scroll the wrapper sets `top` (in Nav.tsx): the header stays pinned but
+  // shifts up so a Nav.Bottom strip stays visible while the white logo row
+  // scrolls away. Animate that shift.
+  transition: top 0.3s ease-in-out;
+}
 
-  &--hidden {
-    transform: translateY(-100%);
-  }
+// Brand accent: a 2px red line fixed to the very top of the viewport. It stays
+// put while the header slides beneath it (the bottom strip pins flush under it),
+// so the accent is always at the top and never moves. Replaces the header's own
+// border-top, which would scroll off with the white top row.
+.cu-nav::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background-color: var(--rds--color-primary);
+  z-index: 41;
 }
 
 .cu-nav__inner {
