@@ -65,7 +65,7 @@
   background-color: var(--rds--color-grey-pale);
   border-top: 1px solid var(--rds--color-grey-lighter);
   // break out of cu-nav__inner padding to span full header width
-  margin-inline: calc(-1 * var(--rds--spacing-medium));
+  margin-inline: calc(-1 * var(--rds--spacing-large));
 
   @media (min-width: $rds-media-query-sm) {
     margin-inline: calc(-1 * var(--rds--spacing-large));
@@ -263,7 +263,7 @@
 .cu-nav__browse {
   display: block;
   align-items: center;
-  font-size: var(--rds--font-size-small);
+  font-size: var(--rds--font-size-medium);
   font-weight: var(--rds--font-weight-medium);
   color: var(--rds--color-grey-dark);
   text-decoration: none;
@@ -277,6 +277,10 @@
   transition:
     color 0.15s ease,
     background-color 0.15s ease;
+
+    @media (min-width: $rds-media-query-sm) {
+      font-size: var(--rds--font-size-small);
+    }
 
   &:hover {
     color: var(--rds--color-primary);
@@ -293,7 +297,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 0.875rem 1rem;
-    font-size: var(--rds--font-size-large);
+    font-size: var(--rds--font-size-medium);
     border-radius: 0;
     white-space: normal;
   }
@@ -333,7 +337,9 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__browse {
-    margin-left: 0.5rem; // small gap from preceding item; matches ITEM_GAP_PX in NavMenu.tsx
+    @media (min-width: $rds-media-query-sm) {
+      margin-left: 0.5rem; // small gap from preceding item; matches ITEM_GAP_PX in NavMenu.tsx
+    }
 
     // Off-flow but measurable — used when all items fit in the primary nav
     &--ghost {
@@ -363,6 +369,7 @@
   padding: 0;
   background-color: var(--rds--color-white);
   border-bottom: 1px solid var(--rds--color-grey-lighter);
+  border-top: 1px solid var(--rds--color-grey-lighter);
   box-shadow: var(--rds--shadow-natural);
   max-height: calc(100svh - 4rem);
   overflow-y: auto;
