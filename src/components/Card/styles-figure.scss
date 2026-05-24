@@ -49,3 +49,10 @@
 .cu-card__figure--icon {
     padding: 1.25rem 1.25rem 0 1.25rem;
 }
+
+.cu-card__badge {
+    position: absolute;
+    z-index: 3;
+    top: var(--rds--spacing-x-small);
+    left: var(--rds--spacing-x-small);
+}

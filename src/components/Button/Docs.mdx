@@ -1,0 +1,111 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A flexible action trigger that renders a native `<button>` element. Supports five color variants, optional Font Awesome icons, size and width modifiers, and a disabled state.
+
+## When to use
+
+Use `Button` when you need an interactive control that triggers an in-page action — submitting a form, opening a dialog, or kicking off a process. For links that navigate to a URL, prefer a semantic `<a>` element or your framework's `Link` component instead. When placing two or more buttons side by side, wrap them in a [`ButtonGroup`](?path=/docs/components-elements-button-group--docs) rather than managing spacing manually.
+
+## Import
+
+```tsx
+import { Button } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<Button title="Get started" color="red" />
+<Button title="Download" color="dark-grey" icon="circle-down" />
+<Button icon="circle-down" ariaLabel="Download file" color="dark-grey" />
+```
+
+## Examples
+
+### Default
+
+The default color is `red`, matching Carleton's primary brand color.
+
+<Canvas of={ButtonStories.Default} />
+<Controls of={ButtonStories.Default} />
+
+### With icon
+
+Icons are pulled from `@cuweb/rds-icons` (Font Awesome Pro). Pass any valid `IconName` to the `icon` prop. The icon renders to the left of the label at 20px (16px when `isSmall`).
+
+<Canvas of={ButtonStories.WithIcon} />
+
+### Icon only
+
+When `title` is omitted, `icon` and `ariaLabel` are both required — enforced by the TypeScript union type. The `ariaLabel` provides the accessible name for screen readers and assistive technology.
+
+<Canvas of={ButtonStories.IconOnly} />
+
+### Small
+
+`isSmall` reduces the padding and locks font size to `--rds--font-size-small` regardless of viewport width.
+
+<Canvas of={ButtonStories.Small} />
+
+### Full width
+
+`isFull` stretches the button to 100% of its container.
+
+<Canvas of={ButtonStories.FullWidth} />
+
+### Disabled
+
+`isDisabled` sets both the visual disabled style and the native `disabled` attribute, preventing interaction and click events.
+
+<Canvas of={ButtonStories.Disabled} />
+
+### All color variants
+
+<Canvas of={ButtonStories.AllColors} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-button` | Always — base class |
+| `cu-button--red` | `color="red"` (default) |
+| `cu-button--grey` | `color="grey"` |
+| `cu-button--dark-grey` | `color="dark-grey"` |
+| `cu-button--black` | `color="black"` |
+| `cu-button--white` | `color="white"` |
+| `cu-button--disabled` | `isDisabled={true}` |
+| `cu-button--small` | `isSmall={true}` |
+| `cu-button--full` | `isFull={true}` |
+
+A top margin (`2rem` mobile, `2.5rem` desktop) is automatically applied when a `Button` or `ButtonGroup` directly follows a `Column` or `StackedList` element — no extra spacing class needed.
+
+## Design tokens
+
+These `--rds--*` custom properties drive the Button's appearance. Overriding them at a higher scope will change every Button on the page.
+
+| Token | Used for |
+|---|---|
+| `--rds--font-family-inter` | Font family |
+| `--rds--font-size-small` | Font size on mobile and when `isSmall` |
+| `--rds--font-size-medium` | Font size on desktop (≥ md breakpoint) |
+| `--rds--font-weight-medium` | Font weight |
+| `--rds--line-height-tight` | Line height |
+| `--rds--radius-md` | Border radius |
+| `--rds--color-primary` | `red` variant background; hover state for `grey`, `dark-grey`, `black`, `white` |
+| `--rds--color-grey-dark` | `dark-grey` variant background; `grey` variant text |
+| `--rds--color-grey-pale` | `grey` variant background |
+| `--rds--color-grey-light` | Disabled state background |
+| `--rds--color-white` | `white` variant background; text on dark variants |
+| `--rds--color-black` | `black` variant background; `white` variant text |
+
+## Accessibility
+
+- `Button` renders a native `<button>` element — keyboard focus, `Enter`/`Space` activation, and screen reader announcement are built in.
+- **Icon-only buttons require `ariaLabel`.** Without it, screen readers announce only the icon name (or nothing), which is not meaningful. The TypeScript union type enforces this at compile time.
+- The native `disabled` attribute prevents the button from receiving focus or firing events. Do not use CSS-only disabled styling, as it leaves the button keyboard-reachable.
+- Avoid using `Button` for navigation — screen readers expose `role="button"` to users, who expect it to perform an action rather than navigate.

@@ -19,7 +19,7 @@ const radiusOptions = ['sm', 'md', 'lg', 'full', 'none'] as const;
 const meta: Meta<typeof Badge> = {
   title: 'Components/Elements/Badge',
   component: Badge,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     color: {
       control: 'select',
