@@ -86,7 +86,7 @@
             "x-small": { "value": "0.75rem", "fluid": { "min": "0.65rem", "max": "0.75rem" }, "cssOnly": true },
             "small":   { "value": "0.9rem", "fluid": { "min": "0.725rem", "max": "0.9rem" } },
             "medium":  { "value": "1rem", "fluid": { "min": "0.825rem", "max": "1rem" } },
-            "large":   { "value": "1.125rem", "fluid": { "min": "0.9rem", "max": "1.125rem" } },
+            "large":   { "value": "1.125rem", "fluid": { "min": "0.95rem", "max": "1.125rem" } },
             "x-large": { "value": "1.25rem", "fluid": { "min": "1.125rem", "max": "1.25rem" } },
             "2x-large": { "value": "1.5rem", "fluid": { "min": "1.25rem", "max": "1.5rem" } },
             "heading-small":   { "value": "1.5rem", "fluid": { "min": "1.25rem", "max": "1.5rem" } },

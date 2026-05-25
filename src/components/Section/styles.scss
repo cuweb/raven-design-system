@@ -10,3 +10,8 @@
 .cu-main .cu-section--grey.alignfull:last-child {
   margin-bottom: calc(-1 * var(--rds--spacing-large));
 }
+
+// If grey section is the first block, remove top margin
+.cu-main .alignfull:first-child {
+  margin-top: calc(-1 * var(--rds--spacing-large));
+}
