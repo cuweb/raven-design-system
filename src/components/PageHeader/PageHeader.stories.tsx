@@ -99,23 +99,6 @@ export const Centered: Story = {
   ),
 };
 
-export const White: Story = {
-  args: {
-    as: 'h1',
-    size: 'lg',
-    header: 'White Page Header',
-    content: 'Used on dark or coloured backgrounds.',
-    isWhite: true,
-  },
-  render: (args) => (
-    <Main>
-      <Section isGrey>
-        <PageHeader {...args} />
-      </Section>
-    </Main>
-  ),
-};
-
 export const NoUnderline: Story = {
   args: {
     as: 'h1',
