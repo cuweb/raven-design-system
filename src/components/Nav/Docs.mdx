@@ -1,0 +1,241 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as NavStories from './Nav.stories';
+
+<Meta of={NavStories} />
+
+# Nav
+
+A sticky site header built from composable sub-components. Six named pieces — `Nav.Top`, `Nav.Bottom`, `Nav.Logo`, `Nav.Menu`, `Nav.Buttons` — assemble into two distinct layouts depending on whether the site has a department identity. The menu implements priority-plus overflow so items are never truncated or wrapped; any that do not fit are collected into a "Browse" dropdown automatically.
+
+## Import
+
+```tsx
+import { Nav } from '@cuweb/rds2';
+```
+
+## Compositions
+
+`Nav` supports two layout patterns. Choose based on whether the site needs a department identity row separate from the main navigation.
+
+### Top-only
+
+Logo, menu, and buttons share one row. Use this for the main Carleton site or any site without a secondary row.
+
+```tsx
+<Nav>
+  <Nav.Top>
+    <Nav.Logo />
+    <Nav.Menu menu={navData} />
+    <Nav.Buttons
+      isSearch
+      buttons={[
+        { title: 'Apply', href: '/apply' },
+        { title: 'Donate', href: '/donate', variant: 'dark' },
+      ]}
+    />
+  </Nav.Top>
+</Nav>
+```
+
+### Top + Bottom
+
+Logo and CTA buttons sit in the top row; the menu moves to a grey accent strip below. Use this for faculty and department sites where the site title and CTAs should stay visible while the nav scrolls.
+
+```tsx
+<Nav>
+  <Nav.Top>
+    <Nav.Logo title="Faculty of Arts and Social Sciences" link="/arts" />
+    <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }]} />
+  </Nav.Top>
+  <Nav.Bottom>
+    <Nav.Menu menu={navData} />
+  </Nav.Bottom>
+</Nav>
+```
+
+## Examples
+
+### Default
+
+Logo only with a primary nav menu in the top row. Resize the viewport to see the Browse trigger appear as items overflow.
+
+<Canvas of={NavStories.Default} />
+
+### With site title
+
+`Nav.Logo` with `title` and `link` adds a department name beside the shield logo. On mobile the full wordmark is replaced by the shield so the title has room.
+
+<Canvas of={NavStories.WithSiteTitle} />
+
+### With buttons
+
+CTA buttons and a search icon in the top row. The first button uses `variant: 'primary'` (red) and subsequent buttons use `variant: 'dark'` (black).
+
+<Canvas of={NavStories.WithButtons} />
+
+### With Bottom Nav
+
+Two-row composition — site title and buttons in the top row, nav menu in the grey bottom strip. On mobile the CTA buttons relocate from the top row into the bottom strip beside the Browse trigger.
+
+<Canvas of={NavStories.WithBottomNav} />
+
+### Large top menu
+
+Eight nav items with nested sub-menus. Priority-plus overflow is most visible here — narrow the viewport to watch items collapse into Browse.
+
+<Canvas of={NavStories.LargeTopMenu} />
+
+### Large bottom menu
+
+Same eight items placed in `Nav.Bottom`. The bottom strip scrolls under the top row as the user scrolls down.
+
+<Canvas of={NavStories.LargeBottomMenu} />
+
+### Search only
+
+`isSearch` without any `buttons` renders just the search icon button.
+
+<Canvas of={NavStories.WithSearchOnly} />
+
+## Sub-components
+
+### Nav.Logo
+
+| Prop | Type | Default | Notes |
+|---|---|---|---|
+| `title` | `string` | — | Department or site name; renders as a linked text label |
+| `link` | `string` | — | `href` for the site title link (requires `title`) |
+
+When `title` is provided the horizontal CU wordmark is hidden on mobile and replaced with the CU shield so the site title has room. Both images are always in the DOM — the swap is CSS-driven.
+
+The Carleton University logomark always links to `https://carleton.ca`. The site title link uses `LinkProvider` context and adopts any injected router component.
+
+### Nav.Menu
+
+| Prop | Type | Notes |
+|---|---|---|
+| `menu` | `NavItem[]` | The full navigation tree |
+
+**Priority-plus overflow:** On mount and on every container resize, `Nav.Menu` measures a hidden off-flow clone of all items to find how many fit within the available width. Items that fit are shown inline; the remainder are collected under a "Browse" button. The Browse button is always in the DOM (ghost state) so its width is always measurable — it becomes interactive only when there is overflow.
+
+**Submenus:** Items with a `submenu` array render as toggle buttons rather than links. Clicking opens a dropdown panel. Submenus support one level of nesting inside the dropdown (two levels total: top-level → submenu → nested submenu).
+
+**Mobile (`< 600px`):** All inline items are hidden; only the Browse trigger is shown. The entire menu tree is accessible via Browse. Scrolling the browse panel is capped at the viewport height.
+
+### Nav.Buttons
+
+| Prop | Type | Default | Notes |
+|---|---|---|---|
+| `buttons` | `NavButton[]` | — | Array of CTA links |
+| `isSearch` | `boolean` | `false` | Shows a search icon button |
+| `onClickSearch` | `() => void` | — | Handler called when the search button is clicked |
+
+CTA links render through `LinkProvider` and adopt any injected router component. The `variant` on each `NavButton` controls colour — `'primary'` (default) is red, `'dark'` is black.
+
+```ts
+interface NavButton {
+  title: string;
+  href: string;
+  variant?: 'primary' | 'dark';
+}
+```
+
+Returns `null` if neither `isSearch` nor any `buttons` are provided.
+
+## NavItem type
+
+```ts
+interface NavItem {
+  title: string;
+  href?: string;       // leaf items need an href; parent items can omit it
+  submenu?: NavItem[]; // one level of nesting is supported inside dropdowns
+}
+```
+
+## Scroll behaviour
+
+`Nav` is `position: sticky; top: 0` — it stays pinned as the user scrolls. On scroll **down**, the top row (white logo strip) slides smoothly off-screen, leaving only the bottom strip (or the grey bar on mobile) pinned at the top. On scroll **up**, the logo row returns. A fixed 2 px red accent line sits above the header at all times and never moves.
+
+The shift amount is calculated from the DOM rather than hardcoded — it measures the bottom row's position relative to the header so the pin point is always exact, regardless of logo height or padding changes.
+
+## Mobile layout
+
+Below the `sm` breakpoint (600 px):
+
+- **Top-only composition:** The menu row drops to a grey bar below the logo. The logo spans the full width. CTA buttons sit to the right of the Browse trigger on the grey bar.
+- **Top + Bottom composition:** The menu stays in `Nav.Bottom`. The `Nav` wrapper detects this pattern and moves any CTA buttons from `Nav.Top` into `Nav.Bottom` at runtime so they sit beside Browse, matching the top-only mobile layout.
+
+## CSS classes
+
+| Class | Element | Notes |
+|---|---|---|
+| `cu-nav` | `<header>` | Sticky wrapper; transitions `top` for scroll hide/reveal |
+| `cu-nav::before` | Pseudo-element | Fixed 2 px red accent line at top of viewport |
+| `cu-nav__inner` | `<nav>` | Flex column; horizontal padding via `--rds--spacing-large` |
+| `cu-nav__top` | `<div>` | 2-col grid on mobile; flex row on `sm+` |
+| `cu-nav__bottom` | `<div>` | Grey accent strip; full-width bleed via negative `margin-inline` |
+| `cu-nav__bottom-inner` | `<div>` | Flex row inside the bottom strip; re-applies padding |
+| `cu-nav__logo` | `<div>` | Logo + site title; never shrinks; grid row 1 on mobile |
+| `cu-nav__logomark` | `<a>` | Wraps the CU logo image(s) |
+| `cu-nav__logomark-full` | `<img>` | Full horizontal wordmark; hidden on mobile when title is set |
+| `cu-nav__logomark-full--sm-hidden` | Modifier | Applied when `title` is provided; hides full logo below `sm` |
+| `cu-nav__logomark-shield` | `<img>` | Shield logo; visible only on mobile when title is set |
+| `cu-nav__site-title` | `<a>` | Department/site title link; two-line clamp |
+| `cu-nav__menu` | `<div>` | Priority-plus container; `flex-grow: 1`; `position: relative` on `sm+` |
+| `cu-nav__list` | `<ul>` | Visible primary nav items; flex row |
+| `cu-nav__list--measure` | Modifier | Off-flow hidden clone used only for width measurement |
+| `cu-nav__item` | `<li>` | Primary nav item; `position: relative` for dropdown anchor |
+| `cu-nav__link` | `<a>` or `<button>` | Primary nav link / toggle |
+| `cu-nav__link--open` | Modifier | Active/open state; primary colour + pale background |
+| `cu-nav__browse` | `<button>` | Priority-plus overflow trigger |
+| `cu-nav__browse--ghost` | Modifier | Off-flow but measurable; no items overflow |
+| `cu-nav__browse-dropdown` | `<ul>` | Overflow items panel; scrollable; full-width on mobile |
+| `cu-nav__submenu` | `<ul>` | Desktop dropdown submenu |
+| `cu-nav__submenu--mobile` | Modifier | Static submenu inside the Browse dropdown |
+| `cu-nav__submenu--nested` | Modifier | Third-level nested submenu |
+| `cu-nav__submenu-item` | `<li>` | Item inside a dropdown; bottom border except last |
+| `cu-nav__submenu-link` | `<a>` or `<button>` | Dropdown item link / toggle |
+| `cu-nav__submenu-link--open` | Modifier | Active state inside dropdown |
+| `cu-nav__submenu-row` | `<div>` | Flex row for link + expand chevron in nested items |
+| `cu-nav__submenu-expand` | `<button>` | Expand/collapse button for nested submenu |
+| `cu-nav__arrow` | `<span>` | CSS chevron indicator |
+| `cu-nav__arrow--open` | Modifier | Rotates chevron to point up |
+| `cu-nav__buttons` | `<div>` | Right-aligned CTA area; flex row |
+| `cu-nav__search-btn` | `<button>` | Search icon button |
+| `cu-nav__cta-link` | `<a>` | Red CTA pill link |
+| `cu-nav__cta-link--dark` | Modifier | Black CTA pill (`variant: 'dark'`) |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-white` | Header background |
+| `--rds--color-grey-lighter` | Header border, dropdown borders, item dividers |
+| `--rds--color-grey-pale` | Bottom strip background; open item background |
+| `--rds--color-grey-faint` | Nested submenu background |
+| `--rds--color-grey` | Search icon colour |
+| `--rds--color-grey-dark` | Nav link and dropdown item colour |
+| `--rds--color-black` | Site title colour; dark CTA button background |
+| `--rds--color-primary` | Red accent line; link hover colour; primary CTA background |
+| `--rds--color-primary-dark` | Primary CTA hover; site title hover |
+| `--rds--font-size-small` | Nav link size on `sm+`; CTA and dropdown text |
+| `--rds--font-size-medium` | Nav link size on mobile; site title |
+| `--rds--font-weight-medium` | Nav link weight |
+| `--rds--font-weight-bold` | Site title weight |
+| `--rds--radius-md` | Nav link, Browse button, CTA pill border radius |
+| `--rds--shadow-natural` | Dropdown box-shadow |
+| `--rds--spacing-large` | Horizontal padding on the nav inner and bottom strip |
+| `--rds--spacing-small` | Gap in the bottom-inner flex row |
+| `--rds--spacing-x-small` | Padding on menu in the mobile grey bar; submenu item padding |
+| `--rds--spacing-medium` | Left margin on the menu in the top row on `sm+` |
+
+## Accessibility
+
+- The outer `<header>` is a banner landmark. The inner `<nav aria-label="Site navigation">` is a navigation landmark — screen reader users can jump to it directly.
+- All toggle buttons (`Nav.Menu` items with submenus, Browse) carry `aria-expanded` so screen readers report open/closed state. The Browse button's `aria-expanded` and `aria-haspopup` are omitted in ghost state (when no overflow exists) to avoid announcing a non-functional control.
+- The ghost Browse button uses `aria-hidden` and `tabIndex={-1}` when there is no overflow so it is not reachable by keyboard.
+- Dropdowns close on `Escape` and on outside `mousedown` — keyboard users can always dismiss with Escape.
+- The search button has `aria-label="Search"` and its icon is `aria-hidden`.
+- Social and CTA links rendered through `LinkProvider` are native anchors and fully keyboard accessible.
+- The measurement clone list is `aria-hidden="true"` and `pointer-events: none` so it is invisible to assistive technology and mouse.
+- Mobile body scroll lock (`overflow: hidden` on `<body>`) is applied only while the Browse panel is open on mobile, preventing background scroll while the panel is in view.

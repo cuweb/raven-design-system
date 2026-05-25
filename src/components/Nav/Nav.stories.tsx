@@ -6,7 +6,7 @@ import { primaryNavData, largeNavData } from '../../data/NavigationData';
 const meta: Meta<typeof Nav> = {
   title: 'Components/Navigation/Nav',
   component: Nav,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   parameters: {
     layout: 'fullscreen',
     controls: {
