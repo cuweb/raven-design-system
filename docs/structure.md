@@ -47,7 +47,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Component | Status |
 |---|---|
 | Calendar | port |
-| Call Out | port |
+| Call Out | done |
 | Card | done |
 | Carleton360 | port |
 | Description | port |
@@ -77,7 +77,7 @@ Full-width or image/video-heavy promotional components.
 | Image Caption Overlay | port |
 | Image Grid | port |
 | Image Slider | port |
-| Page Header | port |
+| Page Header | done |
 | Splash | port |
 | Wide Banner | port |
 | Wide Image | port |
