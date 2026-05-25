@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as PageHeaderStories from './PageHeader.stories';
+
+<Meta of={PageHeaderStories} />
+
+# Page Header
+
+The primary heading block for content pages. Renders a semantic `<header>` element with a heading, optional pre-header label, and an optional description.
+
+## When to use
+
+- Top of any content page to establish the page title
+- Profile pages with a name and pronoun
+- Section headers where a secondary h2 heading is needed
+
+## Import
+
+```tsx
+import { PageHeader } from '@carletonuniversity/rds2';
+```
+
+## Basic usage
+
+<Canvas of={PageHeaderStories.Default} />
+<Controls of={PageHeaderStories.Default} />
+
+## With pre-header
+
+Use `preHeader` to add a category or parent label above the heading.
+
+<Canvas of={PageHeaderStories.WithPreHeader} />
+
+## With pronoun
+
+Appends a pronoun in parentheses after the heading in a lighter style.
+
+<Canvas of={PageHeaderStories.WithPronoun} />
+
+## Centered
+
+<Canvas of={PageHeaderStories.Centered} />
+
+## No underline
+
+<Canvas of={PageHeaderStories.NoUnderline} />
+
+## All sizes
+
+<Canvas of={PageHeaderStories.AllSizes} />

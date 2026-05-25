@@ -8,7 +8,7 @@
     import { largeNavData } from '../data/NavigationData';
 
     const meta: Meta = {
-        title: 'Overview/Templates/Page Layout',
+        title: 'Overview/Templates/Post Layout',
         parameters: {
             layout: 'fullscreen',
         },
@@ -28,7 +28,7 @@
         </p>
     );
 
-    export const PageLayout: Story = {
+    export const PostLayout: Story = {
     parameters: {
         a11y: {
             config: {
@@ -59,12 +59,14 @@
             </Nav>
 
             <Main>
-                <PageHeader
-                    as="h1"
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-                    header="Page Template"
-                    size="primary"
-                />
+                <Section as="section" maxWidth="alignfull" isGrey>
+                    <PageHeader
+                        as="h1"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Post Template"
+                        size="primary"
+                    />
+                </Section>
 
                 <SinglePara />
                 <p>
