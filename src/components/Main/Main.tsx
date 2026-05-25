@@ -3,13 +3,16 @@ import './styles.scss';
 
 export interface MainProps {
   children: React.ReactNode;
+  as?: 'main' | 'div';
   hasPadding?: boolean;
 }
 
-export const Main = ({ children, hasPadding = true }: MainProps) => {
-  return (
-    <main className={`${hasPadding ? 'cu-main cu-main--padding' : 'cu-main'}`}>
-      <div className="alignfull has-global-padding is-layout-constrained entry-content">{children}</div>
-    </main>
-  );
+export const Main = ({ children, as = 'main', hasPadding = true }: MainProps) => {
+    const MainWrapper = as;
+
+    return (
+        <MainWrapper className={`${hasPadding ? 'cu-main cu-main--padding' : 'cu-main'}`}>
+            <div className="alignfull has-global-padding is-layout-constrained entry-content">{children}</div>
+        </MainWrapper>
+    );
 };
