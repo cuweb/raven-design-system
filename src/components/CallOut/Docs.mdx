@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CallOutStories from './CallOut.stories';
+
+<Meta of={CallOutStories} />
+
+# Call Out
+
+A bordered content block used to draw attention to a key message, CTA, or event. Renders a heading via `PageHeader` followed by arbitrary content — typically a paragraph and a `ButtonGroup`.
+
+## When to use
+
+- Highlighting an important action (apply, register, donate)
+- Promoting an upcoming event inline within a page
+- Breaking up long content pages with a focused CTA block
+
+## Import
+
+```tsx
+import { CallOut } from '@carletonuniversity/rds2';
+```
+
+## Basic usage
+
+<Canvas of={CallOutStories.Default} />
+<Controls of={CallOutStories.Default} />
+
+## Justify: start
+
+Left-aligned heading, text, and buttons.
+
+<Canvas of={CallOutStories.JustifyStart} />
+
+## Justify: end
+
+Right-aligned heading, text, and buttons. The accent underline follows the text to the right edge.
+
+<Canvas of={CallOutStories.JustifyEnd} />
+
+## Max width: alignwide
+
+Expands to the wide layout breakpoint (1280px). Use inside a matching `Section maxWidth="alignwide"`.
+
+<Canvas of={CallOutStories.MaxWidthWide} />
+
+## Max width: alignfull
+
+Full-width. Use inside a matching `Section maxWidth="alignfull"`.
+
+<Canvas of={CallOutStories.MaxWidthFull} />

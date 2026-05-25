@@ -17,6 +17,11 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `CallOut` component — a bordered content block for drawing attention to key messages and CTAs. Wraps a `PageHeader` (`size="md"`, underline on by default) followed by arbitrary children (typically a paragraph and `ButtonGroup`). Supports `justify` (`start`, `center`, `end`) which aligns text, the accent underline, and any nested `ButtonGroup` in one prop; and `maxWidth` (`aligncontent`, `alignwide`, `alignfull`) to constrain the box width within the layout grid. Centered layout is handled via `isCenter` on the inner `PageHeader`; end-justified underline repositioning is done via scoped SCSS override.
+- _Added_: `SectionsLayout` Storybook template (`Overview/Templates/Sections Layout`) — fullscreen reference story composing `Nav`, `Main`, `PageHeader`, `CallOut`, `Section` (white, grey, alignwide, alignfull variants), typography samples, `FooterStandard`, and `CookieBanner` to validate real-page layout and component interaction.
+- _Added_: Granular CSS export paths `./base-styles.css`, `./layouts.css`, and `./typography.css` to `package.json` exports map — exposes individual style partials from `dist/cutheme/` for consumers that need a subset of design system styles without importing the full `dist/style.css`.
+- _Fixed_: `Section` first-child margin removal selector scoped from `.cu-main .alignfull:first-child` to `.cu-main .cu-section--grey.alignfull:first-child` — prevents inadvertently stripping top margin from other full-width elements that are not grey sections.
+
 ## [0.5.8] - 2026-05-25
 
 - _Added_: `Nav` compound component (`Nav` with `Nav.Top`, `Nav.Bottom`, `Nav.Logo`, `Nav.Menu`, `Nav.Buttons`) — a sticky site header whose primary menu uses a priority-plus pattern: it measures the available width and overflows items into a "Browse" dropdown instead of wrapping. On scroll down the white top row (logo + site title) slides up out of view while a `Nav.Bottom` strip stays pinned to the top; scrolling up brings the top row back. (With no bottom strip, the whole header hides/reveals.)

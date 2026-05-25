@@ -12,7 +12,8 @@
     "tokens": {
         "layout": {
             "contentSize": "1024px",
-            "wideSize": "1280px"
+            "wideSize": "1280px",
+            "maxSize": { "value": "1536px", "cssOnly": true }
         },
 
         "mediaQuery": {
@@ -137,7 +138,8 @@
         },
         "heading": {
             "fontFamily": "inter",
-            "color": "grey-dark"
+            "color": "grey-dark",
+            "lineHeight": "1.1"
         },
         "h1": { "fontSize": "heading-primary", "fontWeight": "600", "marginBlockStart": "x-large" },
         "h2": { "fontSize": "heading-x-large", "fontWeight": "600", "marginBlockStart": "large" },

@@ -11,6 +11,7 @@ body {
 
 :where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--rds--font-family-inter);
+  line-height: 1.1;
   color: var(--rds--color-grey-dark);
 }
 

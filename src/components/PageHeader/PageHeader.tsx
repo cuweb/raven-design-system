@@ -25,7 +25,7 @@ export const PageHeader = ({
   size = 'lg',
   isWhite = false,
   isCenter = false,
-  noUnderline = true,
+  noUnderline = false,
   pronoun,
 }: PageHeaderProps) => {
   const truncatedContent =
