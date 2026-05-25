@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 const meta: Meta<typeof Icon> = {
   title: 'Components/Elements/Icon',
   component: Icon,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     name: {
       control: 'select',

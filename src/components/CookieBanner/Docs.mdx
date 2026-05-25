@@ -1,0 +1,100 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CookieBannerStories from './CookieBanner.stories';
+
+<Meta of={CookieBannerStories} />
+
+# Cookie Banner
+
+A fixed-position consent notice that appears at the bottom of the viewport until the user accepts. Visibility is controlled by a browser cookie — once accepted the banner stays hidden for 365 days. All text content is customisable; the defaults are pre-filled with Carleton's privacy policy URL.
+
+## When to use
+
+Place `CookieBanner` once at the application root, outside of any scrollable content. It renders nothing until the consent cookie is absent or expired, so it is safe to include unconditionally on every page.
+
+## Import
+
+```tsx
+import { CookieBanner } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Default — Carleton privacy policy text and URL
+<CookieBanner />
+
+// Custom text and policy link
+<CookieBanner
+  message="We use cookies to improve your experience. Learn more about"
+  policyHref="/privacy"
+  policyLabel="our privacy policy."
+  buttonLabel="Accept"
+/>
+```
+
+## Examples
+
+### Default
+
+> **Storybook note:** Each story uses a unique `cookieName` so accepting in one story does not hide the other. If the banner has already been dismissed and you want to see it again, clear the `storybook-preview-consent` cookie for `localhost` in your browser's developer tools.
+
+<Canvas of={CookieBannerStories.Default} />
+<Controls of={CookieBannerStories.Default} />
+
+### Custom text
+
+<Canvas of={CookieBannerStories.CustomText} />
+
+## How visibility works
+
+On mount, the component reads `document.cookie` for an entry matching `cookieName`. If no entry exists — or if the browser has already expired it — the banner is shown. Clicking the accept button calls `setCookie`, which writes a cookie that expires in 365 days via the browser's native `expires` attribute, and immediately hides the banner via local state.
+
+The component is SSR-safe: both `isCookieExpired` and `setCookie` guard against `typeof document === 'undefined'` and return safe defaults on the server.
+
+## Cookie utilities
+
+Two helpers from `cookies.ts` are used internally and can be imported directly if needed:
+
+```ts
+import { isCookieExpired, setCookie } from '@cuweb/rds2/CookieBanner';
+
+// Returns true if the cookie is absent (banner should show)
+isCookieExpired('cookieConsent');
+
+// Writes the cookie for the given number of days (default 365)
+setCookie('cookieConsent', 365);
+```
+
+## CSS classes
+
+| Class | Element | Notes |
+|---|---|---|
+| `cu-cookie-banner` | Outer `<div>` | Fixed position, `z-index: 50`, max-width capped at `--rds--layout-wide-size` |
+| `cu-cookie-banner__content` | Inner flex container | Column on mobile, row on desktop |
+| `cu-cookie-banner__message` | `<p>` | Message text |
+| `cu-cookie-banner__link` | Policy link | Bold, `--rds--color-primary-dark`, underline on hover |
+| `cu-cookie-banner__action` | Button wrapper | Pushes to trailing edge on desktop via `margin-left: auto` |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--layout-wide-size` | Maximum width of the banner |
+| `--rds--color-grey-faint` | Banner background |
+| `--rds--color-white` | Border colour |
+| `--rds--color-grey-dark` | Message text colour |
+| `--rds--color-primary-dark` | Policy link colour |
+| `--rds--font-family-inter` | Message font |
+| `--rds--font-size-small` | Message font size on mobile |
+| `--rds--font-size-medium` | Message font size on desktop |
+| `--rds--font-weight-bold` | Policy link weight |
+| `--rds--radius-md` | Banner border radius |
+| `--rds--shadow-natural` | Banner drop shadow |
+
+## Accessibility
+
+- The banner renders with `role="dialog"` and `aria-label="Cookie notice"` — screen readers announce it as a modal dialog when it appears.
+- `aria-live="polite"` ensures the notice is announced without interrupting content already being read.
+- The policy link renders through the `LinkProvider` context, so it adopts any framework-specific `<Link>` component injected at the app root.
+- The accept button uses the native `<Button>` component — keyboard accessible and announced as a button.
+- When the banner is dismissed (`isVisible` becomes `false`) the component returns `null`, removing it from the DOM entirely rather than hiding it with CSS — the dialog disappears cleanly for both sighted and assistive technology users.

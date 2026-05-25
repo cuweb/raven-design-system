@@ -4,7 +4,7 @@ import { ProgressBar } from './ProgressBar';
 const meta: Meta<typeof ProgressBar> = {
   title: 'Components/Elements/Progress Bar',
   component: ProgressBar,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   decorators: [
     (Story) => (
       <div style={{ width: '480px' }}>
@@ -25,6 +25,14 @@ const meta: Meta<typeof ProgressBar> = {
 
 export default meta;
 type Story = StoryObj<typeof ProgressBar>;
+
+export const Empty: Story = {
+  args: {
+    value: 0,
+    max: 100,
+    label: 'Fundraising progress',
+  },
+};
 
 export const Default: Story = {
   args: {

@@ -1,0 +1,169 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as StatusStories from './Status.stories';
+
+<Meta of={StatusStories} />
+
+# Status
+
+A coloured dot + text label used to communicate a real-time state. Supports freeform text via `children`, a `label` prop, or automatic label lookup through a built-in type registry. Designed to be used standalone or embedded inside a `Card` via `Card.Status`.
+
+## When to use
+
+Use `Status` to surface a live or frequently changing state — whether a venue is open, a service is operational, or a resource is available. It is intentionally small and inline; pair it with a heading or surrounding context so the meaning is never conveyed by colour alone.
+
+## Import
+
+```tsx
+import { Status } from '@cuweb/rds2';
+
+// Type registry helpers — for hours-based status
+import { formatHoursStatus } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Freeform text
+<Status variant="success">Open today until 8:00 PM</Status>
+
+// Registry label — text resolved automatically from type + variant
+<Status type="hours" variant="success" />
+
+// Registry label with a formatted time override
+const { variant, label } = formatHoursStatus('07:00', '20:00');
+<Status type="hours" variant={variant}>{label}</Status>
+```
+
+## Examples
+
+### Variants
+
+The four variants drive the dot colour. Use the controls to switch variants and update the text.
+
+<Canvas of={StatusStories.Success} />
+<Controls of={StatusStories.Success} />
+
+### Warning
+
+<Canvas of={StatusStories.Warning} />
+
+### Error
+
+<Canvas of={StatusStories.Error} />
+
+### Info
+
+<Canvas of={StatusStories.Info} />
+
+## Type registry
+
+Passing `type` opts into a built-in label registry defined in `statusTypes.json`. When a matching `(type, variant)` pair exists, the label is resolved automatically — no `children` or `label` prop needed. If the pair has no entry, the component renders nothing rather than showing a label-less dot.
+
+### Hours
+
+Maps to `'hours'` in the registry. The `info` variant has no entry and renders nothing.
+
+<Canvas of={StatusStories.Hours} />
+
+### Availability
+
+<Canvas of={StatusStories.Availability} />
+
+### System
+
+The only built-in type that includes an `info` variant (`"Maintenance"`).
+
+<Canvas of={StatusStories.System} />
+
+## Registry labels reference
+
+| Type | Variant | Label |
+|---|---|---|
+| `hours` | `success` | Open |
+| `hours` | `warning` | Closing soon |
+| `hours` | `error` | Closed |
+| `availability` | `success` | Available |
+| `availability` | `warning` | Limited availability |
+| `availability` | `error` | Unavailable |
+| `system` | `success` | Operational |
+| `system` | `warning` | Degraded |
+| `system` | `error` | Outage |
+| `system` | `info` | Maintenance |
+
+## Text resolution order
+
+When multiple text sources are present, the component resolves in this priority:
+
+1. **`children`** — always wins
+2. **`label` prop** — used when no children
+3. **Registry default** — looked up from `(type, variant)` when no children or label
+4. **Nothing** — if `type` is set but the pair has no registry entry, renders `null`
+
+## `formatHoursStatus` utility
+
+A helper that converts a venue's opening and closing times into a `{ variant, label }` pair ready to pass directly to `Status`. Import it alongside the component.
+
+```ts
+import { formatHoursStatus } from '@cuweb/rds2';
+
+const { variant, label } = formatHoursStatus(openTime, closeTime);
+// variant: 'success' | 'warning' | 'error'
+// label:   e.g. 'Open until 8:00 PM' | 'Closes at 7:30 PM' | 'Opens tomorrow at 7:00 AM'
+```
+
+| Condition | Variant | Label |
+|---|---|---|
+| Current time is before `open` | `error` | Opens at `{time}` |
+| Current time is after `close` | `error` | Opens tomorrow at `{time}` |
+| Within 60 minutes of `close` | `warning` | Closes at `{time}` |
+| More than 60 minutes until `close` | `success` | Open until `{time}` |
+
+`open` and `close` are 24-hour strings (`'07:00'`, `'20:00'`). An optional third argument accepts a `Date` to use instead of `new Date()` — useful for testing and server rendering.
+
+<Canvas of={StatusStories.FormatHoursStatus} />
+
+```tsx
+const open      = formatHoursStatus('07:00', '20:00', new Date('2024-01-15T14:00:00'));
+const closingSoon = formatHoursStatus('07:00', '20:00', new Date('2024-01-15T19:30:00'));
+const closed    = formatHoursStatus('07:00', '20:00', new Date('2024-01-15T21:00:00'));
+const beforeOpen = formatHoursStatus('07:00', '20:00', new Date('2024-01-15T06:00:00'));
+
+<Status type="hours" variant={open.variant}>{open.label}</Status>
+<Status type="hours" variant={closingSoon.variant}>{closingSoon.label}</Status>
+<Status type="hours" variant={closed.variant}>{closed.label}</Status>
+<Status type="hours" variant={beforeOpen.variant}>{beforeOpen.label}</Status>
+```
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-status` | Always — outer `<span>` |
+| `cu-status--success` | `variant="success"` |
+| `cu-status--warning` | `variant="warning"` |
+| `cu-status--error` | `variant="error"` |
+| `cu-status--info` | `variant="info"` |
+| `cu-status--standalone` | Default context — direct `<Status>` use |
+| `cu-status--in-card` | Set internally by `Card.Status` — do not set manually |
+| `cu-status__dot` | The coloured dot `<span>` inside |
+
+The `--standalone` and `--in-card` context modifiers allow the same component to have fully independent styles in each context without descendant selector conflicts.
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-success` | Dot colour for `success` variant |
+| `--rds--color-warning` | Dot colour for `warning` variant |
+| `--rds--color-error` | Dot colour for `error` variant |
+| `--rds--color-info` | Dot colour for `info` variant |
+| `--rds--font-size-small` | Label text size |
+
+Dot colour is driven by a local `--cu-status-color` custom property set per variant, which is then consumed by the `__dot` element — making it straightforward to override the colour for a specific variant without touching the dot's selector directly.
+
+## Accessibility
+
+- When `type` is provided and text is resolved, `aria-label` is automatically prefixed with the type's context string — e.g. `"Hours: Open until 8:00 PM"` or `"System status: Operational"`. This gives screen reader users the full picture without needing to infer it from surrounding context.
+- When using freeform `children` without a `type`, no `aria-label` is added — the rendered text is read as-is. Ensure the surrounding context makes the meaning clear.
+- The coloured dot is `aria-hidden="true"` — colour is supplementary, never the sole carrier of information. Always include meaningful text.
+- `formatHoursStatus` accepts an explicit `now` date argument. Pass a fixed date during server rendering to avoid hydration mismatches between server and client time.
