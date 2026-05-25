@@ -1,0 +1,109 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as IconStories from './Icon.stories';
+
+<Meta of={IconStories} />
+
+# Icon
+
+A thin wrapper around the `@cuweb/rds-icons` SVG map. Renders any icon from the library at an arbitrary size, inherits colour from its parent by default, and toggles between decorative and meaningful ARIA behaviour based on whether a `title` is provided.
+
+## When to use
+
+Use `Icon` whenever you need a standalone icon — inside a `Button`, a nav item, a status indicator, or as an inline label supplement. Icons are sourced from Font Awesome Pro via `@cuweb/rds-icons`; the full set is browsable in the [All Icons](#all-icons) story below.
+
+## Import
+
+```tsx
+import { Icon } from '@cuweb/rds2';
+
+// If you need to reference icon names as a type
+import type { IconName } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Inherits size from parent font-size (default)
+<Icon name="circle-check" />
+
+// Fixed pixel size
+<Icon name="circle-check" size={24} />
+
+// Inherits parent colour (default)
+<span style={{ color: 'var(--rds--color-primary)' }}>
+  <Icon name="circle-check" size={20} />
+</span>
+
+// Explicit fill colour
+<Icon name="circle-check" size={20} fill="var(--rds--color-success)" />
+
+// Standalone icon that needs an accessible label
+<Icon name="circle-check" size={20} title="Operation succeeded" />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={IconStories.Default} />
+<Controls of={IconStories.Default} />
+
+### Inherits text colour
+
+With no `fill` or `color` set, the SVG uses `currentColor` — it inherits whatever `color` CSS property is on its parent. This means you rarely need to touch the icon directly when changing colour.
+
+<Canvas of={IconStories.InheritsTextColor} />
+
+### Explicit fill
+
+Pass any valid CSS colour value or design token to the `fill` prop when you need a colour independent of the surrounding text colour.
+
+<Canvas of={IconStories.ExplicitFill} />
+
+### With accessible label
+
+When `title` is provided, the icon switches from decorative to meaningful — see [Accessibility](#accessibility) for when each mode is appropriate.
+
+<Canvas of={IconStories.AccessibleLabel} />
+
+### All icons
+
+<Canvas of={IconStories.AllIcons} />
+
+## Size
+
+`size` sets both `width` and `height` on the SVG and accepts any CSS length or a unitless number (treated as pixels).
+
+| Value | Result |
+|---|---|
+| `size={24}` | `24px × 24px` |
+| `size="1.5rem"` | `1.5rem × 1.5rem` |
+| *(omitted)* | `1em × 1em` — scales with the parent's `font-size` |
+
+The `1em` default is intentional — icons placed inside text or buttons automatically match the surrounding type size without any explicit `size` prop.
+
+## Colour
+
+`Icon` has no CSS of its own. Colour comes from two sources:
+
+- **Inherited** — the SVG uses `currentColor` by default, so setting `color` on any ancestor element changes the icon colour.
+- **Explicit** — pass a `fill` prop directly on `Icon` to override `currentColor` for that specific icon.
+
+Both approaches accept design tokens (`var(--rds--color-primary)`) or any valid CSS colour value.
+
+## SVG prop passthrough
+
+`IconProps` extends `SVGProps<SVGSVGElement>` (minus `name`), so any standard SVG attribute is valid — `className`, `style`, `fill`, `stroke`, `opacity`, and so on. Avoid `width` and `height` directly; use `size` instead so both dimensions stay in sync.
+
+## Accessibility
+
+Icon's ARIA behaviour is controlled entirely by the `title` prop:
+
+| Scenario | What to do | What renders |
+|---|---|---|
+| Icon accompanies visible text (button label, link text) | Omit `title` | `aria-hidden="true"` — screen readers skip it |
+| Icon stands alone with no visible label | Provide `title` | `role="img"` + `aria-label={title}` + `<title>` inside the SVG |
+
+A title-less icon inside a `<Button title="Download">` needs no `title` — the button's own label covers it. An icon used as the only content in a link or button must have `title` (or the parent must have `aria-label`).
+
+`focusable="false"` is always set to prevent legacy browsers from placing SVGs in the tab order.

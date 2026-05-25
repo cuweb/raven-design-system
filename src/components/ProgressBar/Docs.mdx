@@ -1,0 +1,91 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ProgressBarStories from './ProgressBar.stories';
+
+<Meta of={ProgressBarStories} />
+
+# Progress Bar
+
+A horizontal bar that communicates how far along a measurable process is. Accepts raw values at any scale and computes the percentage internally. Built on the native `role="progressbar"` ARIA pattern.
+
+## When to use
+
+Use `ProgressBar` to represent a known, measurable value against a target — a fundraising total, a course completion percentage, an upload progress, or a form step count. Do not use it for indeterminate loading states where the end point is unknown; a spinner or skeleton is more appropriate there.
+
+## Import
+
+```tsx
+import { ProgressBar } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Percentage-based
+<ProgressBar label="Course completion" value={72} />
+
+// Raw values — percentage is calculated automatically
+<ProgressBar label="Fundraising progress" value={34500} max={50000} />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={ProgressBarStories.Default} />
+<Controls of={ProgressBarStories.Default} />
+
+### Empty
+
+The starting state — `value` of `0` renders a full-width track with no fill.
+
+<Canvas of={ProgressBarStories.Empty} />
+
+### Quarter
+
+<Canvas of={ProgressBarStories.Quarter} />
+
+### Complete
+
+When `value` equals or exceeds `max` the fill reaches 100%. The component caps the percentage at `100` — passing an over-limit value will not break the layout or the ARIA attributes.
+
+<Canvas of={ProgressBarStories.Complete} />
+
+### Raw values
+
+`value` and `max` can be any positive number. The component converts them to a rounded percentage internally — `34500 / 50000` becomes `69%`.
+
+<Canvas of={ProgressBarStories.RawValues} />
+
+## How the percentage is calculated
+
+```ts
+const percentage = max > 0 ? Math.min(Math.round((value / max) * 100), 100) : 0;
+```
+
+- Result is always rounded to the nearest integer.
+- Result is capped at `100` regardless of how far `value` exceeds `max`.
+- If `max` is `0` or negative, percentage safely returns `0`.
+- The calculated percentage is what gets passed to `aria-valuenow` and used for the fill width.
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-progressbar` | Always — the outer track element |
+| `cu-progressbar__fill` | Always — the inner fill bar, width driven by inline `style` |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-pale` | Track background |
+| `--rds--color-primary` | Fill gradient start (left) |
+| `--rds--color-primary-dark` | Fill gradient end (right) |
+| `--rds--radius-sm` | Border radius on the track |
+
+## Accessibility
+
+- The outer element carries `role="progressbar"` with `aria-label`, `aria-valuenow`, `aria-valuemin={0}`, and `aria-valuemax={100}`. Screen readers announce the label and current percentage — e.g. *"Fundraising progress, 69%"*.
+- `aria-valuenow` always reflects the computed percentage, not the raw `value` — so a bar at `34500 / 50000` is announced as `69`, not `34500`.
+- `label` is required and must describe what is being measured. Do not use generic text like `"Progress"` — give users enough context to understand the value without seeing the bar.
+- The fill width is controlled by an inline `style` attribute. It is decorative; the ARIA attributes carry the semantic meaning for assistive technology.

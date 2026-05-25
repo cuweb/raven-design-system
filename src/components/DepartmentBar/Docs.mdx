@@ -1,0 +1,115 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DepartmentBarStories from './DepartmentBar.stories';
+
+<Meta of={DepartmentBarStories} />
+
+# Department Bar
+
+A compact contact strip placed directly above the site footer. Displays a department name, location, phone, and email — with optional call-to-action buttons that push to the trailing edge on desktop.
+
+## When to use
+
+Place `DepartmentBar` once per page, between the main content and the `Footer`. It is most useful on department and unit pages where users need quick access to contact information without scrolling to the footer.
+
+## Import
+
+```tsx
+import { DepartmentBar } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Full department contact bar with CTA buttons
+<DepartmentBar
+  deptName="Information Technology Services"
+  officeNumber="400"
+  buildingName="Pigiarvik (ᐱᒋᐊᕐᕕᒃ)"
+  phone="613-520-2600"
+  email="noreply@carleton.ca"
+  buttons={[
+    { id: 1, title: 'Contact Us', url: 'https://carleton.ca/about/contact/' },
+    { id: 2, title: 'Hours', url: '#' },
+  ]}
+/>
+
+// Contact info only — no buttons
+<DepartmentBar
+  deptName="Information Technology Services"
+  phone="613-520-2600"
+  email="noreply@carleton.ca"
+/>
+```
+
+## Examples
+
+### Default
+
+Full contact bar with department name, location, phone, email, and CTA buttons.
+
+<Canvas of={DepartmentBarStories.Default} />
+<Controls of={DepartmentBarStories.Default} />
+
+### Without buttons
+
+Contact information without CTA buttons. The info column spans full width.
+
+<Canvas of={DepartmentBarStories.WithoutButtons} />
+
+### Contact only
+
+Minimal bar — phone and email only, no department name or building.
+
+<Canvas of={DepartmentBarStories.ContactOnly} />
+
+## Button behaviour
+
+When `buttons` is provided, the first button renders with `color="red"` and all subsequent buttons with `color="dark-grey"`. Buttons are wrapped in a `ButtonGroup align="end"` and push to the trailing edge of the bar on desktop (`md` and above).
+
+```tsx
+import { defaultFooterButtons } from '@cuweb/rds2/data/FooterData';
+
+<DepartmentBar buttons={defaultFooterButtons} />
+```
+
+## Email link
+
+The `email` prop is automatically rendered as a `mailto:` link via the `LinkProvider` context. If your application uses a framework-specific `<Link>` component, wrap the app root with `LinkProvider` and the email link will adopt it automatically.
+
+## Meta item separators
+
+On desktop (`lg` breakpoint and above), the contact meta items (location, phone, email) are displayed inline with a left-border pipe separator between them. On smaller screens they stack vertically, centred.
+
+## CSS classes
+
+| Class | Element | Notes |
+|---|---|---|
+| `cu-department-bar` | `<aside>` | Outer wrapper; grey background, Inter font |
+| `cu-department-bar__inner` | Inner `<div>` | Max-width `--rds--layout-wide-size`; row on `md+` |
+| `cu-department-bar__info` | Info column | Flex column, `gap: 0.5rem` |
+| `cu-department-bar__name` | `<h2>` | Centred on mobile, left-aligned on `md+`; large on `lg+` |
+| `cu-department-bar__meta` | `<ul>` | Centred on mobile; inline flex with gaps on `lg+` |
+| `cu-department-bar__meta-item` | `<li>` | Gets left-border separator on `lg+` (first child excluded) |
+| `cu-department-bar__email` | `<a>` inside email item | Primary-dark colour, bold, underline on hover |
+| `cu-department-bar__actions` | Button wrapper `<div>` | Top margin on mobile; `margin-left: auto` on `md+` |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--font-family-inter` | Bar font family |
+| `--rds--color-grey-pale` | Bar background |
+| `--rds--color-black` | Department name colour |
+| `--rds--font-weight-bold` | Department name weight |
+| `--rds--font-size-large` | Department name size on `lg+` |
+| `--rds--font-size-medium` | Meta item font size |
+| `--rds--color-primary-dark` | Email link colour |
+| `--rds--layout-wide-size` | Max-width of the inner container |
+| `--rds--color-grey-light` | Pipe separator colour between meta items |
+
+## Accessibility
+
+- `DepartmentBar` renders as `<aside>`, an ARIA landmark. Screen reader users can navigate to it directly via landmark navigation.
+- The department name is rendered as an `<h2>`. Ensure this fits the page heading hierarchy — if the page already has section headings at `<h2>`, consider whether a visual label rather than a heading is more appropriate.
+- The email link is a native `<a href="mailto:...">` and is fully keyboard accessible.
+- CTA buttons inherit all accessibility behaviour from the `Button` component.
