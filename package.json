@@ -25,6 +25,9 @@
     "./styles": "./dist/style.css",
     "./styles.css": "./dist/style.css",
     "./tokens.css": "./dist/cutheme/tokens.css",
+    "./base-styles.css": "./dist/cutheme/base-styles.css",
+    "./layouts.css": "./dist/cutheme/layouts.css",
+    "./typography.css": "./dist/cutheme/typography.css",
     "./fonts.css": "./dist/fonts.css",
     "./vanilla-js/videoCard": {
       "import": "./dist/vanilla-js/videoCard.mjs",
