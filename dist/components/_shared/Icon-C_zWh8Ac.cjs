@@ -1,1 +1,0 @@
-let e=require("react/jsx-runtime"),t=require("@cuweb/rds-icons");var n=({name:n,size:r=`1em`,title:i,...a})=>{let o=t.iconMap[n];return o?(0,e.jsx)(o,{width:r,height:r,focusable:!1,...i?{role:`img`,"aria-label":i}:{"aria-hidden":!0},...a,children:i?(0,e.jsx)(`title`,{children:i}):null}):null};Object.defineProperty(exports,"t",{enumerable:!0,get:function(){return n}});
