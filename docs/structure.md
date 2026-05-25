@@ -93,7 +93,7 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 | Department Bar | done |
 | Footer | done |
 | Footer Standard | done |
-| Nav | port |
+| Nav | done |
 | Pagination | port |
 | Search Input | port |
 
