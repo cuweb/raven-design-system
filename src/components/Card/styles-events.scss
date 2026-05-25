@@ -8,7 +8,7 @@
     height: 70px;
     margin-top: calc(var(--rds--spacing-x-large) * -1);
     margin-bottom: var(--rds--spacing-medium);
-    background: var(--rds--color-white);
+    background-color: var(--rds--color-white);
     border-radius: var(--rds--radius-sm);
     box-shadow: var(--rds--shadow-natural);
 }
@@ -27,4 +27,10 @@
     font-weight: 700;
     text-transform: uppercase;
     color: var(--rds--color-black);
+}
+
+.cu-card--no-image .cu-card__date-thumb {
+    background-color: var(--rds--color-grey-pale);
+    margin-top: 0;
+    box-shadow: none;
 }

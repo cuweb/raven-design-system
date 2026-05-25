@@ -23,6 +23,7 @@ export interface CardProps {
   isCenter?: boolean;
   isCenterDesktop?: boolean;
   noHover?: boolean;
+  noImage?: boolean;
   leftBorder?: boolean;
   revealOnScroll?: boolean;
   className?: string;
@@ -35,6 +36,7 @@ export const CardWrapper = ({
   isCenter,
   isCenterDesktop,
   noHover,
+  noImage,
   leftBorder,
   revealOnScroll = true,
   className,
@@ -47,6 +49,7 @@ export const CardWrapper = ({
     isCenter && 'cu-card--center',
     isCenterDesktop && 'cu-card--center-desktop',
     noHover && 'cu-card--no-hover',
+    noImage && 'cu-card--no-image',
     leftBorder && 'cu-card--border-left',
     hasWave && isGrey && 'cu-card--has-wave',
   ]
