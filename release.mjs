@@ -11,7 +11,7 @@
  *   4. Moves CHANGELOG.mdx [Unreleased] content into a new [<version>] - YYYY-MM-DD section
  *   5. Bumps package.json version
  *   6. Runs pnpm install (refreshes pnpm-lock.yaml), pnpm test, pnpm build
- *   7. Stages CHANGELOG.mdx, package.json, pnpm-lock.yaml, and dist/
+ *   7. Stages CHANGELOG.mdx, package.json, and pnpm-lock.yaml
  *   8. Creates a "release: <version>" commit and a <version> tag
  *   9. Prints push instructions — pushing the tag triggers the publish workflow
  *
@@ -138,7 +138,7 @@ console.log('release: Building...');
 run('pnpm run build');
 
 // --- 10. Commit and tag ------------------------------------------------------
-run('git add CHANGELOG.mdx package.json pnpm-lock.yaml dist');
+run('git add CHANGELOG.mdx package.json pnpm-lock.yaml');
 run(`git commit -m "release: ${version}"`);
 run(`git tag ${version}`);
 
