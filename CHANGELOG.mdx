@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+## [0.5.9] - 2026-05-25
+
 - _Added_: `CallOut` component — a bordered content block for drawing attention to key messages and CTAs. Wraps a `PageHeader` (`size="md"`, underline on by default) followed by arbitrary children (typically a paragraph and `ButtonGroup`). Supports `justify` (`start`, `center`, `end`) which aligns text, the accent underline, and any nested `ButtonGroup` in one prop; and `maxWidth` (`aligncontent`, `alignwide`, `alignfull`) to constrain the box width within the layout grid. Centered layout is handled via `isCenter` on the inner `PageHeader`; end-justified underline repositioning is done via scoped SCSS override.
 - _Added_: `SectionsLayout` Storybook template (`Overview/Templates/Sections Layout`) — fullscreen reference story composing `Nav`, `Main`, `PageHeader`, `CallOut`, `Section` (white, grey, alignwide, alignfull variants), typography samples, `FooterStandard`, and `CookieBanner` to validate real-page layout and component interaction.
 - _Added_: Granular CSS export paths `./base-styles.css`, `./layouts.css`, and `./typography.css` to `package.json` exports map — exposes individual style partials from `dist/cutheme/` for consumers that need a subset of design system styles without importing the full `dist/style.css`.
