@@ -8,7 +8,7 @@ import { MultiParagraph } from '../../data/storyContent';
 const meta: Meta<typeof Article> = {
   title: 'Components/Template Parts/Article',
   component: Article,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   parameters: {
     controls: {
       sort: 'requiredFirst',

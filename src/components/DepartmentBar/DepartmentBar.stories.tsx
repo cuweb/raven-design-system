@@ -5,7 +5,7 @@ import { defaultFooterButtons } from '../../data/FooterData';
 const meta: Meta<typeof DepartmentBar> = {
   title: 'Components/Navigation/Department Bar',
   component: DepartmentBar,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   parameters: {
     layout: 'fullscreen',
     controls: {
@@ -24,6 +24,25 @@ export const Default: Story = {
     phone: '613-520-2600',
     email: 'noreply@carleton.ca',
     buttons: defaultFooterButtons,
+  },
+  render: (args) => <DepartmentBar {...args} />,
+};
+
+export const WithoutButtons: Story = {
+  args: {
+    deptName: 'Information Technology Services',
+    officeNumber: '400',
+    buildingName: 'Pigiarvik (ᐱᒋᐊᕐᕕᒃ)',
+    phone: '613-520-2600',
+    email: 'noreply@carleton.ca',
+  },
+  render: (args) => <DepartmentBar {...args} />,
+};
+
+export const ContactOnly: Story = {
+  args: {
+    phone: '613-520-2600',
+    email: 'noreply@carleton.ca',
   },
   render: (args) => <DepartmentBar {...args} />,
 };

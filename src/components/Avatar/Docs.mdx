@@ -1,0 +1,115 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+A user identity element that displays either a photo or auto-generated initials as a fallback. Renders as a static `<div>` by default, or as an interactive `<button>` when an `onClick` handler is provided.
+
+## When to use
+
+Use `Avatar` to represent a person in navigation headers, comment threads, people cards, or any UI where a compact identity marker is needed. Pair with `Card.Figure` using `isRound` when a larger profile image is required inside a card layout.
+
+## Import
+
+```tsx
+import { Avatar } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Photo — static
+<Avatar firstName="Jane" lastName="Smith" src="/path/to/photo.jpg" />
+
+// Initials fallback — static
+<Avatar firstName="Jane" lastName="Smith" />
+
+// Interactive — renders as a <button>
+<Avatar
+  firstName="Jane"
+  lastName="Smith"
+  src="/path/to/photo.jpg"
+  isCircle
+  onClick={() => openProfile()}
+/>
+```
+
+## Examples
+
+### With photo
+
+When `src` is provided the image fills the avatar container. The image itself is decorative (`aria-hidden`) — the accessible name comes from the outer element.
+
+<Canvas of={AvatarStories.WithPhoto} />
+<Controls of={AvatarStories.WithPhoto} />
+
+### Initials
+
+When `src` is omitted, the component derives initials from `firstName` and `lastName`. With both names, you get two characters (`JD`). With only `firstName`, you get the first character only.
+
+<Canvas of={AvatarStories.Initials} />
+
+### Circle
+
+`isCircle` applies a full border radius — typically used for profile photos in headers and nav.
+
+<Canvas of={AvatarStories.Circle} />
+
+### Interactive
+
+When `onClick` is provided the avatar renders as a native `<button>` with a visible focus ring. Use this for avatars that open a profile drawer, switch accounts, or trigger any in-page action. For navigating to a profile page, prefer a wrapping `<a>` instead.
+
+<Canvas of={AvatarStories.Interactive} />
+
+### Sizes
+
+Three sizes are available. `sm` suits compact contexts like comment threads; `md` is the general-purpose default; `lg` is appropriate for profile headers or people cards.
+
+<Canvas of={AvatarStories.Sizes} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-avatar` | Always — base class |
+| `cu-avatar--sm` | `size="sm"` |
+| `cu-avatar--md` | `size="md"` (default) |
+| `cu-avatar--lg` | `size="lg"` |
+| `cu-avatar--square` | `isCircle` is false (default) |
+| `cu-avatar--circle` | `isCircle={true}` |
+| `cu-avatar__image` | The inner `<img>` when `src` is provided |
+| `cu-avatar__initials` | The inner `<span>` when no `src` |
+
+When `onClick` is provided, the root element is a `<button>` — a `button.cu-avatar` selector in the styles resets `border`, `padding`, and `cursor`, and adds a `focus-visible` outline using `--rds--color-primary`.
+
+## Accessible name
+
+The component always provides an accessible name on the outer element:
+
+- If `alt` is supplied it is used as the `aria-label` — use this when the person's full name alone is not a sufficient label (e.g. `alt="Open Jane Smith's profile"`).
+- Otherwise `aria-label` is set to the full name derived from `firstName` and `lastName`.
+- The inner `<img>` or initials `<span>` are both `aria-hidden="true"` — they are decorative because the outer element already provides the name.
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-pale` | Background (initials variant) |
+| `--rds--color-grey-dark` | Initials text color |
+| `--rds--font-family-inter` | Initials font family |
+| `--rds--font-weight-medium` | Initials font weight |
+| `--rds--font-size-small` | Initials font size at `sm` |
+| `--rds--font-size-x-large` | Initials font size at `md` |
+| `--rds--font-size-heading-medium` | Initials font size at `lg` |
+| `--rds--radius-md` | Border radius for square shape |
+| `--rds--radius-full` | Border radius for circle shape |
+| `--rds--color-primary` | Focus ring on interactive avatar |
+
+## Accessibility
+
+- Static avatars use `role="img"` on the outer `<div>` — they are announced as images, not interactive elements.
+- Interactive avatars use a native `<button>` — keyboard focus, `Enter`/`Space` activation, and screen reader role are all built in. Do not replicate this with a click handler on a `<div>`.
+- Always provide meaningful `firstName` (and `lastName` when available) or an explicit `alt` so the accessible label describes the person, not just their initials.
+- The focus ring on interactive avatars is only visible on `:focus-visible`, keeping the UI clean for pointer users while remaining clear for keyboard users.

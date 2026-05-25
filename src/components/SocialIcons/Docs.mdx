@@ -1,0 +1,84 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as SocialIconsStories from './SocialIcons.stories';
+
+<Meta of={SocialIconsStories} />
+
+# Social Icons
+
+A compound component that renders a horizontal list of icon links to social media profiles. Built with semantic list markup and the `LinkProvider` context, so links adopt whatever link component your framework injects.
+
+## When to use
+
+Use `SocialIcons` in footers, profile headers, department bars, or anywhere a compact set of social media links is needed. Each item is an accessible icon-only link — the visible icon is decorative and the `label` prop carries the accessible name.
+
+## Import
+
+```tsx
+import { SocialIcons } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<SocialIcons>
+  <SocialIcons.Item icon="linkedin" href="https://linkedin.com/..." label="Connect on LinkedIn" />
+  <SocialIcons.Item icon="x-twitter" href="https://x.com/..." label="Follow on X" />
+  <SocialIcons.Item icon="instagram" href="https://instagram.com/..." label="Follow on Instagram" />
+</SocialIcons>
+
+// With a prefix label
+<SocialIcons prefix="Follow us:">
+  <SocialIcons.Item icon="linkedin" href="https://linkedin.com/..." label="Connect on LinkedIn" />
+</SocialIcons>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={SocialIconsStories.Default} />
+<Controls of={SocialIconsStories.Default} />
+
+### With prefix
+
+The optional `prefix` prop renders a short label above the icon list — useful in footers where the icon row needs a heading without adding a full `<h>` element.
+
+<Canvas of={SocialIconsStories.WithPrefix} />
+
+## Sub-component — SocialIcons.Item
+
+Each icon link is a `SocialIcons.Item`. All three props are required.
+
+| Prop | Type | Description |
+|---|---|---|
+| `icon` | `IconName` | Icon name from `@cuweb/rds-icons` — use the brand icon variants (e.g. `linkedin`, `x-twitter`, `bluesky`) |
+| `href` | `string` | URL for the social profile |
+| `label` | `string` | Accessible name for the link — see accessibility notes below |
+
+## CSS classes
+
+| Class | Element | Notes |
+|---|---|---|
+| `cu-social` | Outer `<div>` | Always |
+| `cu-social__prefix` | `<p>` | Only rendered when `prefix` is provided |
+| `cu-social__list` | `<ul>` | Flex row, wraps on overflow |
+| `cu-social__item` | `<li>` | One per `SocialIcons.Item` |
+| `cu-social__link` | `<a>` / link | Carries the icon and hover colour |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--font-family-inter` | Prefix text font |
+| `--rds--font-size-small` | Prefix text size |
+| `--rds--color-grey-dark` | Prefix text colour; default icon colour |
+| `--rds--color-primary` | Icon colour on hover |
+
+Icon size is set via `font-size` on the link (`1.5rem` mobile, `2rem` desktop) rather than a direct size prop — the `Icon` component inherits this through `em`-relative sizing.
+
+## Accessibility
+
+- Each `SocialIcons.Item` renders an icon-only link. The icon is decorative — the `label` prop becomes the `aria-label` on the anchor and is the only accessible name the link has. Always provide it.
+- Write labels that describe both the action and the platform: `"Connect on LinkedIn"` is better than `"LinkedIn"` because it communicates intent, not just destination.
+- The list renders as a semantic `<ul>` / `<li>` structure — screen readers announce the number of items in the list, giving users a sense of scope before navigating through them.
+- Links resolve through `LinkProvider`, so they can be swapped for framework-specific components (e.g. Next.js `<Link>`) without changing the `SocialIcons` markup. See the [`LinkProvider`](?path=/docs/components-utilities-link-provider--docs) docs for setup.

@@ -4,7 +4,7 @@ import { Body } from './Body';
 const meta: Meta<typeof Body> = {
   title: 'Components/Template Parts/Body',
   component: Body,
-  tags: ['autodocs', '!test'],
+  tags: ['!autodocs', '!test'],
   parameters: {
     controls: {
       sort: 'requiredFirst',

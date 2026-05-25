@@ -6,7 +6,7 @@ import { Badge } from '../Badge/Badge';
 const meta: Meta<typeof LinkProvider> = {
   title: 'Components/Utilities/LinkProvider',
   component: LinkProvider,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   parameters: {
     controls: {
       sort: 'requiredFirst',
