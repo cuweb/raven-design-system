@@ -1,0 +1,92 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as BadgeGroupStories from './BadgeGroup.stories';
+
+<Meta of={BadgeGroupStories} />
+
+# Badge Group
+
+A flex container that wraps one or more `Badge` components into a horizontal, wrapping row. Its primary use is overlaying a set of badges on a card image using the `cu-card__badge` positioning class.
+
+## When to use
+
+Use `BadgeGroup` whenever you need more than one badge to appear together — as a tag list below a heading, or as an overlay cluster on a card figure. For a single badge, `BadgeGroup` is optional but harmless.
+
+## Import
+
+```tsx
+import { Badge } from '@cuweb/rds2';
+import { BadgeGroup } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Inline tag list
+<BadgeGroup>
+  <Badge text="Research" color="grey" />
+  <Badge text="Open Access" color="green" />
+</BadgeGroup>
+
+// Overlay on a card image — use cu-card__badge for positioning
+<div className="cu-card__badge">
+  <BadgeGroup>
+    <Badge text="Featured" color="black80" rounded="full" />
+    <Badge text="New" color="teal" rounded="full" />
+  </BadgeGroup>
+</div>
+```
+
+## Examples
+
+### Default
+
+An inline, wrapping row of badges. Use the controls to explore the `isAbsolute` positioning props — though for card overlays the `cu-card__badge` pattern below is preferred.
+
+<Canvas of={BadgeGroupStories.Default} />
+<Controls of={BadgeGroupStories.Default} />
+
+### On card
+
+The recommended pattern for badge overlays. Wrap `BadgeGroup` in a `<div className="cu-card__badge">` inside any `Card` — the class handles absolute positioning (`top` and `left`) using the `--rds--spacing-x-small` token, so the offset stays in sync with the design system spacing scale.
+
+<Canvas of={BadgeGroupStories.OnCard} />
+
+```tsx
+<Card>
+  <Card.Figure>
+    <img src={image} alt={alt} width="600" height="400" />
+  </Card.Figure>
+  <div className="cu-card__badge">
+    <BadgeGroup>
+      <Badge text="Featured" color="black80" rounded="full" />
+      <Badge text="New" color="teal" rounded="full" />
+    </BadgeGroup>
+  </div>
+  <Card.Header title={title} link={link} />
+  <Card.Body>
+    <Card.Excerpt text={excerpt} />
+  </Card.Body>
+</Card>
+```
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-badge-group` | Always — base class on the `BadgeGroup` element |
+| `cu-card__badge` | Applied to a wrapping `<div>` in the Card — not on `BadgeGroup` itself |
+
+`cu-card__badge` is defined in the Card component's styles and sets `position: absolute`, `z-index: 3`, and `top`/`left` offsets via `--rds--spacing-x-small`.
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--spacing-2-x-small` | Gap between badges in the group |
+| `--rds--spacing-x-small` | `top` and `left` offset when using `cu-card__badge` |
+
+## Accessibility
+
+- `BadgeGroup` renders a plain `<div>` with no ARIA role — it is a visual layout wrapper only.
+- Individual `Badge` components within the group retain their own semantics (inline text or link).
+- When using `cu-card__badge` for overlay positioning, ensure the badges are placed in a logical reading order relative to the surrounding card content in the DOM.

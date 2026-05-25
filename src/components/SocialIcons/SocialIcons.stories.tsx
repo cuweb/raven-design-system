@@ -4,7 +4,7 @@ import { SocialIcons } from './SocialIcons';
 const meta: Meta<typeof SocialIcons> = {
   title: 'Components/Elements/Social Icons',
   component: SocialIcons,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   parameters: {
     controls: {
       sort: 'requiredFirst',
@@ -25,7 +25,6 @@ export const Default: Story = {
       <SocialIcons.Item icon="instagram" href="#" label="Follow on Instagram" />
       <SocialIcons.Item icon="youtube" href="#" label="Watch on YouTube" />
       <SocialIcons.Item icon="orcid" href="#" label="View on ORCID" />
-      {/* orcid — add once icon is available in @cuweb/rds-icons */}
     </SocialIcons>
   ),
 };

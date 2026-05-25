@@ -1,1 +1,0 @@
-{"version":3,"file":"useScrollReveal.d.ts","sourceRoot":"","sources":["../../../../src/utils/motion/useScrollReveal.ts"],"names":[],"mappings":"AAGA,MAAM,WAAW,mBAAmB;IAClC,SAAS,CAAC,EAAE,MAAM,CAAC;IACnB,UAAU,CAAC,EAAE,MAAM,CAAC;IACpB,IAAI,CAAC,EAAE,OAAO,CAAC;IACf,QAAQ,CAAC,EAAE,OAAO,CAAC;CACpB;AA8CD,eAAO,MAAM,eAAe,GAAI,CAAC,SAAS,WAAW,GAAG,cAAc,EACpE,UAAS,mBAAwB;;;CAsClC,CAAC"}

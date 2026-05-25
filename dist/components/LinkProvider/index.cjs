@@ -1,1 +1,0 @@
-Object.defineProperty(exports,Symbol.toStringTag,{value:`Module`});const e=require("../_shared/useLinkContext-DkOecP3T.cjs");let t=require("react/jsx-runtime");var n=({component:n,children:r})=>(0,t.jsx)(e.n.Provider,{value:n,children:r});exports.LinkContext=e.n,exports.LinkProvider=n,exports.useLinkContext=e.t;

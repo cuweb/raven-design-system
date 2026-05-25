@@ -1,6 +1,0 @@
-export declare const StatData: {
-    id: number;
-    stat: string;
-    desc: string;
-}[];
-//# sourceMappingURL=StatData.d.ts.map

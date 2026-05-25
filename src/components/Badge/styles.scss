@@ -30,6 +30,10 @@ a.cu-badge {
     border-radius: var(--rds--radius-md);
   }
 
+  &--radius-lg {
+    border-radius: var(--rds--radius-lg);
+  }
+
   &--radius-full {
     border-radius: var(--rds--radius-full);
   }
