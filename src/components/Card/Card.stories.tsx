@@ -59,7 +59,7 @@ export const EventCards: Story = {
     <Main>
       <Column cols="3">
         {EventData.slice(0, 24).map((item) => (
-            <Card key={`event-${item.id}`}>
+            <Card key={`event-${item.id}`} noImage={!item.image}>
                 <Card.Figure>
                     <img src={item.image} alt={item.alt} width="600" height="400" />
                 </Card.Figure>
