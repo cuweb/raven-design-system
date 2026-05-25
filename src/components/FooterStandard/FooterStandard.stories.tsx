@@ -4,7 +4,7 @@ import { FooterStandard } from './FooterStandard';
 const meta: Meta<typeof FooterStandard> = {
   title: 'Components/Navigation/Footer Standard',
   component: FooterStandard,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     type: {
       control: 'inline-radio',
@@ -22,16 +22,16 @@ export default meta;
 type Story = StoryObj<typeof FooterStandard>;
 
 export const Standard: Story = {
+  args: { type: 'standard' },
   render: (args) => <FooterStandard {...args} />,
 };
-Standard.args = { type: 'standard' };
 
 export const Athletics: Story = {
+  args: { type: 'athletics' },
   render: (args) => <FooterStandard {...args} />,
 };
-Athletics.args = { type: 'athletics' };
 
 export const FutureFunder: Story = {
+  args: { type: 'futureFunder' },
   render: (args) => <FooterStandard {...args} />,
 };
-FutureFunder.args = { type: 'futureFunder' };

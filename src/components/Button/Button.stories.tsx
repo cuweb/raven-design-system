@@ -6,7 +6,7 @@ const colorOptions = ['red', 'grey', 'dark-grey', 'black', 'white'] as const;
 const meta: Meta<typeof Button> = {
   title: 'Components/Elements/Button',
   component: Button,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     color: {
       control: 'select',

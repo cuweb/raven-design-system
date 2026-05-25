@@ -132,7 +132,7 @@
         },
         "heading": {
             "fontFamily": "inter",
-            "color": "black"
+            "color": "grey-dark"
         },
         "h1": { "fontSize": "heading-primary", "fontWeight": "600", "marginBlockStart": "x-large" },
         "h2": { "fontSize": "heading-x-large", "fontWeight": "600", "marginBlockStart": "large" },

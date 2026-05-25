@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from '../Badge/Badge';
 import { BadgeGroup } from './BadgeGroup';
+import { Card } from '../Card/Card';
+import { NewsData } from '../../data/NewsData';
 
 const meta: Meta<typeof BadgeGroup> = {
   title: 'Components/Elements/Badge Group',
   component: BadgeGroup,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     top: { control: { type: 'number', min: 0 } },
     right: { control: { type: 'number', min: 0 } },
@@ -22,36 +24,38 @@ const meta: Meta<typeof BadgeGroup> = {
 export default meta;
 type Story = StoryObj<typeof BadgeGroup>;
 
-const badges = (
-  <>
-    <Badge text="Grey Badge" color="grey" />
-    <Badge text="Green Badge" color="green" />
-    <Badge text="Red Badge" color="red" />
-    <Badge text="Yellow Badge" color="yellow" />
-    <Badge text="Blue Badge" color="blue" />
-    <Badge text="Purple Badge" color="purple" />
-    <Badge text="Teal Badge" color="teal" />
-  </>
-);
-
 export const Default: Story = {
-  render: (args) => <BadgeGroup {...args}>{badges}</BadgeGroup>,
+  render: (args) => (
+    <BadgeGroup {...args}>
+      <Badge text="Grey" color="grey" />
+      <Badge text="Green" color="green" />
+      <Badge text="Red" color="red" />
+      <Badge text="Yellow" color="yellow" />
+      <Badge text="Blue" color="blue" />
+      <Badge text="Purple" color="purple" />
+      <Badge text="Teal" color="teal" />
+    </BadgeGroup>
+  ),
 };
 
-export const AbsolutePositioning: Story = {
-  args: {
-    isAbsolute: true,
-    top: 16,
-    right: 16,
-  },
-  render: (args) => (
-    <div
-      style={{
-        position: 'relative',
-        height: 265,
-      }}
-    >
-      <BadgeGroup {...args}>{badges}</BadgeGroup>
+export const OnCard: Story = {
+  render: () => (
+    <div style={{ maxWidth: 360 }}>
+      <Card>
+        <Card.Figure>
+          <img src={NewsData[0].image} alt={NewsData[0].alt} width="600" height="400" />
+        </Card.Figure>
+        <div className="cu-card__badge">
+          <BadgeGroup>
+            <Badge text="Featured" color="black80" rounded="full" />
+            <Badge text="New" color="teal" rounded="full" />
+          </BadgeGroup>
+        </div>
+        <Card.Header title={NewsData[0].title} link={NewsData[0].link} />
+        <Card.Body>
+          <Card.Excerpt text={NewsData[0].excerpt} />
+        </Card.Body>
+      </Card>
     </div>
   ),
 };

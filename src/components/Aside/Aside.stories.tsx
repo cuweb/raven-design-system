@@ -8,7 +8,7 @@ import { MultiParagraph, SampleList } from '../../data/storyContent';
 const meta: Meta<typeof Aside> = {
   title: 'Components/Template Parts/Aside',
   component: Aside,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     topSpace: {
       control: { type: 'number', min: 0 },

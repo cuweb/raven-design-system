@@ -30,6 +30,11 @@ export type { FooterProps } from './components/Footer/Footer';
 export { FooterStandard } from './components/FooterStandard/FooterStandard';
 export type { FooterStandardProps } from './components/FooterStandard/FooterStandard';
 export type { FooterType } from './data/FooterData';
+export { Nav } from './components/Nav/Nav';
+export type { NavProps, NavItem } from './components/Nav/Nav';
+export type { NavLogoProps } from './components/Nav/NavLogo';
+export type { NavMenuProps } from './components/Nav/NavMenu';
+export type { NavButtonsProps, NavButton } from './components/Nav/NavButtons';
 
 // Icon — the Icon component lives here; icon names, map, and list come from the
 // private @cuweb/rds-icons peer dependency. Consumers import named

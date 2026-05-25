@@ -4,12 +4,13 @@ import { Avatar } from './Avatar';
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Elements/Avatar',
   component: Avatar,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     size: {
       control: 'inline-radio',
       options: ['sm', 'md', 'lg'],
     },
+    onClick: { action: 'clicked' },
   },
   parameters: {
     controls: {
