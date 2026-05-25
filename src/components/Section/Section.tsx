@@ -18,12 +18,12 @@ export const Section = ({
   maxWidth = 'aligncontent',
 }: SectionProps) => {
   const SectionWrapper = as;
-  const sectionBackground = isGrey ? 'grey' : 'white';
+  const sectionBackground = isGrey ? 'grey has-global-padding' : 'white';
   const sectionWidth = maxWidth ? maxWidthClasses[maxWidth] : '';
 
   return (
     <SectionWrapper
-      className={`cu-section cu-section--${sectionBackground} ${sectionWidth} has-global-padding is-layout-constrained`}
+      className={`cu-section cu-section--${sectionBackground} ${sectionWidth} is-layout-constrained`}
     >
       {children}
     </SectionWrapper>

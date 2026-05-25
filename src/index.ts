@@ -30,6 +30,8 @@ export type { FooterProps } from './components/Footer/Footer';
 export { FooterStandard } from './components/FooterStandard/FooterStandard';
 export type { FooterStandardProps } from './components/FooterStandard/FooterStandard';
 export type { FooterType } from './data/FooterData';
+export { PageHeader } from './components/PageHeader/PageHeader';
+export type { PageHeaderProps } from './components/PageHeader/PageHeader';
 export { Nav } from './components/Nav/Nav';
 export type { NavProps, NavItem } from './components/Nav/Nav';
 export type { NavLogoProps } from './components/Nav/NavLogo';
