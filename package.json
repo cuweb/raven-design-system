@@ -25,6 +25,9 @@
     "./styles": "./dist/style.css",
     "./styles.css": "./dist/style.css",
     "./tokens.css": "./dist/cutheme/tokens.css",
+    "./base-styles.css": "./dist/cutheme/base-styles.css",
+    "./layouts.css": "./dist/cutheme/layouts.css",
+    "./typography.css": "./dist/cutheme/typography.css",
     "./fonts.css": "./dist/fonts.css",
     "./vanilla-js/videoCard": {
       "import": "./dist/vanilla-js/videoCard.mjs",
@@ -108,7 +111,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@troychaplin/component2block": "^0.5.6",
+    "@troychaplin/component2block": "^0.5.7",
     "@types/react": "^18.3.29",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^6.0.2",

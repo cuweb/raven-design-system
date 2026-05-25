@@ -10,6 +10,8 @@ export { Main } from './components/Main/Main';
 export { Section } from './components/Section/Section';
 
 // Components
+export { CallOut } from './components/CallOut/CallOut';
+export type { CallOutProps } from './components/CallOut/CallOut';
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar';
 export { Badge } from './components/Badge/Badge';

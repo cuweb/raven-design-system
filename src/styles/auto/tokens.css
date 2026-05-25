@@ -78,4 +78,5 @@
   /* Layout */
   --rds--layout-content-size: 1024px;
   --rds--layout-wide-size: 1280px;
+  --rds--layout-max-size: 1536px;
 }
