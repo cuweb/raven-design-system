@@ -43,7 +43,7 @@ export const rdsTokens = {
         xSmall: 'clamp(0.65rem, 0.65rem + ((1vw - 0.2rem) * 0.167), 0.75rem)',
         small: 'clamp(0.725rem, 0.725rem + ((1vw - 0.2rem) * 0.292), 0.9rem)',
         medium: 'clamp(0.825rem, 0.825rem + ((1vw - 0.2rem) * 0.292), 1rem)',
-        large: 'clamp(0.9rem, 0.9rem + ((1vw - 0.2rem) * 0.375), 1.125rem)',
+        large: 'clamp(0.95rem, 0.95rem + ((1vw - 0.2rem) * 0.292), 1.125rem)',
         xLarge: 'clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.208), 1.25rem)',
         x2Large: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem)',
         headingSmall: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem)',
