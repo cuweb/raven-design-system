@@ -52,7 +52,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Carleton360 | port |
 | Description | port |
 | Details | port |
-| Figure | port |
+| Figure | done |
 | Funding Details | port |
 | Listing | port |
 | Location | port |
