@@ -1,0 +1,11 @@
+import * as react_jsx_runtime from 'react/jsx-runtime';
+import React from 'react';
+
+interface MainProps {
+    children: React.ReactNode;
+    as?: 'main' | 'div';
+    hasPadding?: boolean;
+}
+declare const Main: ({ children, as, hasPadding }: MainProps) => react_jsx_runtime.JSX.Element;
+
+export { Main };

@@ -1,0 +1,1 @@
+{"version":3,"file":"Article.d.ts","sourceRoot":"","sources":["../../../../src/components/Article/Article.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAE1B,MAAM,WAAW,YAAY;IAC3B,QAAQ,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;IAC3B,OAAO,CAAC,EAAE,MAAM,CAAC;CAClB;AAED,eAAO,MAAM,OAAO,GAAI,uBAAuB,YAAY,4CAM1D,CAAC"}

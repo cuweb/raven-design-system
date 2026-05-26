@@ -1,0 +1,28 @@
+.cu-callout {
+  margin-inline: auto;
+  padding: var(--rds--spacing-large) var(--rds--spacing-x-large);
+  border: 0.5rem solid var(--rds--color-grey-light);
+  border-radius: var(--rds--radius-lg);
+}
+.cu-callout .cu-pageheader {
+  margin-bottom: var(--rds--spacing-medium);
+}
+.cu-callout .cu-buttongroup {
+  margin-bottom: 0;
+}
+.cu-callout--center {
+  text-align: center;
+}
+.cu-callout--center .cu-buttongroup {
+  justify-content: center;
+}
+.cu-callout--end {
+  text-align: right;
+}
+.cu-callout--end .cu-pageheader__heading--underline::after {
+  left: auto;
+  right: 0;
+}
+.cu-callout--end .cu-buttongroup {
+  justify-content: flex-end;
+}
