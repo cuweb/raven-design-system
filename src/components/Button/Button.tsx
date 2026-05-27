@@ -4,7 +4,7 @@ import type { IconName } from '../Icon';
 import './styles.scss';
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  color?: 'red' | 'grey' | 'dark-grey' | 'black' | 'white';
+  color?: 'red' | 'grey' | 'dark-grey' | 'blue' | 'black' | 'white';
   type?: 'button' | 'submit' | 'reset';
   isSmall?: boolean;
   isFull?: boolean;
