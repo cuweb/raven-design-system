@@ -3,10 +3,12 @@
 
     "output": {
         "srcDir": "src/styles/auto",
-        "outputDir": "dist/cutheme",
+        "outputDir": "dist/styles",
+        "wpTheme": "dist/wordpress",
         "fontsDir": "public/fonts",
         "themeable": false,
         "emitScssAlongside": true,
+        "emitAggregate": true,
         "scssVars": ["mediaQuery", "spacing"]
     },
 
