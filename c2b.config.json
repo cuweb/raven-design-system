@@ -6,6 +6,7 @@
         "outputDir": "dist/cutheme",
         "fontsDir": "public/fonts",
         "themeable": false,
+        "emitScssAlongside": true,
         "scssVars": ["mediaQuery", "spacing"]
     },
 
