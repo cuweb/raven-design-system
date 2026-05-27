@@ -4,11 +4,12 @@ import type { IconName } from '../Icon';
 import './styles.scss';
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  color?: 'red' | 'grey' | 'dark-grey' | 'black' | 'white';
+  color?: 'red' | 'grey' | 'dark-grey' | 'blue' | 'black' | 'white';
   type?: 'button' | 'submit' | 'reset';
   isSmall?: boolean;
   isFull?: boolean;
   isDisabled?: boolean;
+  isOutline?: boolean;
 }
 
 export interface ButtonTitleProps extends ButtonProps {
@@ -31,10 +32,12 @@ export const Button = ({
   isSmall,
   isFull,
   isDisabled,
+  isOutline,
   ariaLabel,
   ...rest
 }: ButtonNoTitleProps | ButtonTitleProps) => {
   const variantClass = isDisabled ? 'cu-button--disabled' : `cu-button--${color}`;
+  const outlineClass = isOutline && !isDisabled ? 'cu-button--outline' : '';
   const sizeClass = isSmall ? 'cu-button--small' : '';
   const widthClass = isFull ? 'cu-button--full' : '';
 
@@ -42,7 +45,7 @@ export const Button = ({
     <button
       type={type}
       aria-label={ariaLabel}
-      className={`cu-button ${variantClass} ${sizeClass} ${widthClass}`.trim()}
+      className={`cu-button ${variantClass} ${outlineClass} ${sizeClass} ${widthClass}`.trim()}
       disabled={isDisabled}
       {...rest}
     >
