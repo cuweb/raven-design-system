@@ -31,7 +31,7 @@ Component CSS reads them via `var(--rds--duration-base)` etc. To add a new value
 ## React usage
 
 ```tsx
-import { Card } from '@carletonuniversity/rds2';
+import { Card } from '@cuweb/rds2';
 
 // Default — reveals on scroll
 <Card>…</Card>
@@ -43,7 +43,7 @@ import { Card } from '@carletonuniversity/rds2';
 `useScrollReveal` is available directly for custom components:
 
 ```tsx
-import { useScrollReveal } from '@carletonuniversity/rds2';
+import { useScrollReveal } from '@cuweb/rds2';
 
 const MyBlock = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>();

@@ -22,36 +22,35 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./styles": "./dist/style.css",
     "./styles.css": "./dist/style.css",
-    "./tokens.css": "./dist/cutheme/tokens.css",
-    "./base-styles.css": "./dist/cutheme/base-styles.css",
-    "./layout.css": "./dist/cutheme/layout.css",
-    "./typography.css": "./dist/cutheme/typography.css",
+    "./design-system.css": "./dist/wordpress/styles.css",
+    "./tokens.css": "./dist/styles/tokens.css",
+    "./base-styles.css": "./dist/styles/base-styles.css",
+    "./layout.css": "./dist/styles/layout.css",
+    "./typography.css": "./dist/styles/typography.css",
     "./fonts.css": "./dist/fonts.css",
     "./vanilla-js/videoCard": {
       "import": "./dist/vanilla-js/videoCard.mjs",
       "default": "./dist/vanilla-js/videoCard.js"
     },
-    "./vanilla-js/videoCard.js": "./dist/vanilla-js/videoCard.js",
     "./vanilla-js/cuMotion": {
       "import": "./dist/vanilla-js/cuMotion.mjs",
       "default": "./dist/vanilla-js/cuMotion.js"
     },
-    "./vanilla-js/cuMotion.js": "./dist/vanilla-js/cuMotion.js",
     "./*": {
       "types": "./dist/components/*/index.d.ts",
       "import": "./dist/components/*/index.mjs",
       "require": "./dist/components/*/index.cjs"
     },
-    "./*.css": "./dist/components/*/styles.css"
+    "./*.css": "./dist/components/*/styles.css",
+    "./*.scss": "./dist/components/*/styles.scss"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "npm run assets && npm run c2b && storybook dev -p 6006",
-    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs",
+    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-cleanup.mjs",
     "build-storybook": "npm run assets && storybook build",
     "assets": "node scripts/build-assets.mjs",
     "c2b": "c2b generate",
@@ -111,7 +110,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@troychaplin/component2block": "^0.5.9",
+    "@troychaplin/component2block": "^0.5.11",
     "@types/react": "^18.3.29",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^6.0.2",
@@ -136,7 +135,7 @@
     "size-limit": "^12.1.0",
     "storybook": "^10.4.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.4",
+    "typescript-eslint": "^8.60.0",
     "vite": "^8.0.14",
     "vite-plugin-dts": "^5.0.1",
     "vitest": "^4.1.7"

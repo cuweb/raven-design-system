@@ -9,10 +9,10 @@ Copilot Chat in VS Code / JetBrains gets this context automatically via [`.githu
 ## Snippet to paste
 
 ```text
-You are working on @carletonuniversity/rds2 — Carleton University's React component
+You are working on @cuweb/rds2 — Carleton University's React component
 library and design system. Two packages are involved:
 
-- @carletonuniversity/rds2 (this repo, public): components + tokens + styles
+- @cuweb/rds2 (this repo, public): components + tokens + styles
   Location: ~/Develop/personal/rds2
 - @cuweb/rds-icons (peer dep, private GitHub Packages): FA Pro icon
   components. Location: ~/Develop/personal/rds-icons

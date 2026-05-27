@@ -12,7 +12,7 @@ theme files.
 ## Package
 
 ```
-@carletonuniversity/rds2
+@cuweb/rds2
 ```
 
 ## Quick start
@@ -20,9 +20,21 @@ theme files.
 ```bash
 # Requires Node 22+ (see .nvmrc)
 nvm use
+
+# First time on a new machine: authenticate to GitHub Packages
+# @cuweb/rds-icons is a private package — pnpm install fails with 401 without this
+gh auth refresh --scopes read:packages
+echo "//npm.pkg.github.com/:_authToken=$(gh auth token)" >> ~/.npmrc
+
 pnpm install
+
+# First time only: download Playwright browser binaries (used by pnpm test:storybook)
+pnpm exec playwright install chromium
+
 pnpm dev          # Storybook at http://localhost:6006
 ```
+
+For full onboarding details (PAT alternative, troubleshooting) see [docs/contributing/local-setup.md](docs/contributing/local-setup.md).
 
 ## Scripts
 
@@ -34,7 +46,14 @@ pnpm dev          # Storybook at http://localhost:6006
 | `pnpm c2b` | Regenerate tokens, base styles, and WP theme files |
 | `pnpm typecheck` | TypeScript type checking (no emit) |
 | `pnpm lint` | ESLint across `src/` |
-| `pnpm test` | Vitest run |
+| `pnpm lint:fix` | ESLint with auto-fix |
+| `pnpm format` | Prettier write |
+| `pnpm format:check` | Prettier check (no write) |
+| `pnpm test` | Vitest unit tests |
+| `pnpm test:watch` | Vitest in watch mode |
+| `pnpm test:storybook` | Vitest + axe a11y checks across all stories (requires Playwright) |
+| `pnpm test:coverage` | Vitest with coverage report |
+| `pnpm size` | Bundle size check against limits |
 
 ## Project structure
 
@@ -63,10 +82,10 @@ dist/
 
 ```tsx
 // Import the full stylesheet once (tokens + globals + components)
-import '@carletonuniversity/rds2/styles';
+import '@cuweb/rds2/styles';
 
 // Import components
-import { Button } from '@carletonuniversity/rds2';
+import { Button } from '@cuweb/rds2';
 ```
 
 ### WordPress block themes
@@ -81,7 +100,7 @@ Import per-component CSS in a block's stylesheets:
 
 ```scss
 // block-name/src/editor.scss
-@import '@carletonuniversity/rds2/components/Button/style.css';
+@import '@cuweb/rds2/components/Button/style.css';
 ```
 
 ## Design tokens

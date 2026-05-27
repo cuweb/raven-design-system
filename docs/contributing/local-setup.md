@@ -1,6 +1,6 @@
 # Local setup
 
-How to get a working dev environment for contributing to `@carletonuniversity/rds2`.
+How to get a working dev environment for contributing to `@cuweb/rds2`.
 
 ## Prerequisites
 
@@ -45,7 +45,19 @@ pnpm install
 
 The repo's [`.npmrc`](../../.npmrc) (committed) tells pnpm to look for `@cuweb/*` packages on GitHub Packages — it pairs with your `~/.npmrc` token.
 
-## 3. Run Storybook
+## 3. Install Playwright browsers
+
+`pnpm test:storybook` runs stories in headless Playwright. The npm package installs the runner, but the browser binaries are downloaded separately:
+
+```sh
+pnpm exec playwright install chromium
+```
+
+This is a one-time step per machine. If you skip it, `pnpm test:storybook` will fail with a "Executable doesn't exist" error pointing at a missing Chromium binary.
+
+If you need cross-browser coverage (not typical for this project), run `pnpm exec playwright install` without arguments to install all browsers.
+
+## 4. Run Storybook
 
 ```sh
 pnpm dev
@@ -103,6 +115,7 @@ If a hook fails, fix the underlying issue rather than skipping with `--no-verify
 |---|---|
 | `ERR_PNPM_FETCH_401 Unauthorized` | Step 1 wasn't completed, or the token expired. Regenerate. |
 | `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/rds-icons` | Project's `.npmrc` is missing the scope config — restore `@cuweb:registry=https://npm.pkg.github.com` |
+| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 3) |
 | `pnpm test:storybook` hangs or fails on Node < 22 | Install Node 22.14 (`nvm install 22.14.0 && nvm use`) |
 | `pnpm c2b` errors about missing `c2b.config.json` | You're not in the repo root, or the file was deleted — restore from git |
 

@@ -1,7 +1,7 @@
 /**
  * cu-motion — vanilla scroll-reveal runtime for WordPress / non-React contexts.
  *
- * Pairs with the [data-cu-reveal] CSS shipped in @carletonuniversity/rds2.
+ * Pairs with the [data-cu-reveal] CSS shipped in @cuweb/rds2.
  * On DOMContentLoaded, observes every [data-cu-reveal] element and sets
  * data-revealed="true" as each scrolls into view, which is what the CSS
  * keys off to fade and translate the element in.
