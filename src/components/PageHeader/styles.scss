@@ -1,11 +1,7 @@
 @use '../../styles/auto/variables' as *;
 
 // Size variants — governs both heading and content font sizes
-.cu-pageheader {
-    .cu-pageheader__content {
-        font-style: italic;
-    }
-    
+.cu-pageheader {    
     &--sm {
         .cu-pageheader__heading { font-size: var(--rds--font-size-heading-small); }
         .cu-pageheader__content { font-size: var(--rds--font-size-medium); }
