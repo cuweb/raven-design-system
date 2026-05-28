@@ -38,8 +38,8 @@ var b = {
 S.displayName = "Column";
 //#endregion
 //#region src/components/Main/Main.tsx
-var C = ({ children: e, as: t = "main", hasPadding: n = !0 }) => /* @__PURE__ */ f(t, {
-	className: `${n ? "cu-main cu-main--padding" : "cu-main"}`,
+var C = ({ children: e, as: t = "main", hasPadding: n = !0, className: r = "" }) => /* @__PURE__ */ f(t, {
+	className: `${n ? "cu-main cu-main--padding" : "cu-main"} ${r}`,
 	children: /* @__PURE__ */ f("div", {
 		className: "alignfull has-global-padding is-layout-constrained entry-content",
 		children: e
@@ -174,12 +174,12 @@ var C = ({ children: e, as: t = "main", hasPadding: n = !0 }) => /* @__PURE__ */
 		...r,
 		children: n ? /* @__PURE__ */ f("title", { children: n }) : null
 	}) : null;
-}, le = ({ color: e = "red", title: t, icon: n, type: r = "button", isSmall: i, isFull: a, isDisabled: o, ariaLabel: s, ...c }) => /* @__PURE__ */ p("button", {
+}, le = ({ color: e = "red", title: t, icon: n, type: r = "button", isSmall: i, isFull: a, isDisabled: o, isOutline: s, ariaLabel: c, ...l }) => /* @__PURE__ */ p("button", {
 	type: r,
-	"aria-label": s,
-	className: `cu-button ${o ? "cu-button--disabled" : `cu-button--${e}`} ${i ? "cu-button--small" : ""} ${a ? "cu-button--full" : ""}`.trim(),
+	"aria-label": c,
+	className: `cu-button ${o ? "cu-button--disabled" : `cu-button--${e}`} ${s && !o ? "cu-button--outline" : ""} ${i ? "cu-button--small" : ""} ${a ? "cu-button--full" : ""}`.trim(),
 	disabled: o,
-	...c,
+	...l,
 	children: [n && /* @__PURE__ */ f(D, {
 		className: "cu-icon",
 		name: n,

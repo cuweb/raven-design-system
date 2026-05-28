@@ -5,7 +5,8 @@ interface MainProps {
     children: React.ReactNode;
     as?: 'main' | 'div';
     hasPadding?: boolean;
+    className?: string;
 }
-declare const Main: ({ children, as, hasPadding }: MainProps) => react_jsx_runtime.JSX.Element;
+declare const Main: ({ children, as, hasPadding, className }: MainProps) => react_jsx_runtime.JSX.Element;
 
 export { Main };

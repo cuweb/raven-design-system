@@ -17,6 +17,18 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+## [0.5.14] - 2026-05-27
+
+- _Added_: `isOutline` boolean prop on `Button`. When set, the button renders with a white background and uses the `color` value for the border and text instead of the background. Each colour has a matching outline hover state that fills in with the same colour used in the solid variant's hover.
+
+## [0.5.13] - 2026-05-27
+
+- _Changed_: removed italic font styles on `PageHeader` content.
+
+## [0.5.12] - 2026-05-27
+
+- _Mistake_: ran release incorrectly
+
 ## [0.5.11] - 2026-05-27
 
 - _Added_: `Figure` component — semantic `<figure>` wrapper for images and media with an optional `caption` (rendered in `<figcaption>` with a grey-pale background band). `size` prop (`xs` 320px · `sm` 440px · `md` 512px · `lg` 48rem · `full` 100%) sets an explicit width on the root so the inner wrapper and caption are always bounded to the same width as the image. `align` prop (`none` · `left` · `right` · `center`) enables float-based text-wrapping layouts; floats activate at the `md` breakpoint (784px) and the figure collapses to full width below it. Images are always `width: 100%; height: auto` so they scale with the container at every viewport width. When `align="left"` or `align="right"`, the component adds `alignleft`/`alignright` to the root element to opt out of the `is-layout-constrained` `margin: auto !important` rule in `layout.css` — without this the float margins would be suppressed. Border radius (`--rds--radius-md`) and `overflow: hidden` are applied to the inner wrapper so the image corners are clipped correctly.

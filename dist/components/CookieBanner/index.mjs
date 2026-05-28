@@ -1,5 +1,5 @@
 import { t as e } from "../_shared/useLinkContext-C6Tt2S8U.mjs";
-import { t } from "../_shared/Button-DtHAuoMI.mjs";
+import { t } from "../_shared/Button-BDzzWhqG.mjs";
 import { useState as n } from "react";
 import { jsx as r, jsxs as i } from "react/jsx-runtime";
 //#region src/components/CookieBanner/cookies.ts

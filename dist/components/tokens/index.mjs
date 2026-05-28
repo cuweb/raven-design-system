@@ -17,6 +17,7 @@ var e = {
 		purpleLight: "#D3DAE9",
 		teal: "#3A8082",
 		tealLight: "#C8DAD7",
+		blue: "#026BC8",
 		success: "#007c24",
 		warning: "#f4c83c",
 		error: "#d31820",
