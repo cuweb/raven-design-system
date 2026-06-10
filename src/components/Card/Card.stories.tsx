@@ -60,9 +60,11 @@ export const EventCards: Story = {
       <Column cols="3">
         {EventData.slice(0, 24).map((item) => (
             <Card key={`event-${item.id}`} noImage={!item.image}>
-                <Card.Figure>
-                    <img src={item.image} alt={item.alt} width="600" height="400" />
-                </Card.Figure>
+                {item.image && (
+                    <Card.Figure>
+                        <img src={item.image} alt={item.alt} width="600" height="400" />
+                    </Card.Figure>
+                )}
                 <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
                 <Card.Header title={item.title} link={item.link} />
                 <Card.Body>

@@ -21,7 +21,7 @@ export const NewsData = [
     id: 3,
     link: '#',
     title: 'The Future of Component Libraries',
-    image: 'https://picsum.photos/seed/news3/600/600',
+    image: 'https://picsum.photos/seed/news3/600/400',
     alt: 'News article thumbnail',
     excerpt: 'Modern design systems thrive when tokens, docs, and testing pipelines evolve together instead of in silos.',
     date: '2026-02-22 09:15:00',
