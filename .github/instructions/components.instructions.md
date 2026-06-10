@@ -12,9 +12,34 @@ Each component lives in its own folder under `src/components/`:
 src/components/ComponentName/
 ├── ComponentName.tsx          # Component implementation
 ├── ComponentName.stories.tsx  # Storybook stories
+├── Docs.mdx                   # Manual documentation page
 ├── index.ts                   # Barrel export
 └── styles.scss                # Component styles (optional)
 ```
+
+## Documentation
+
+Every component requires a `Docs.mdx` file. When a `Docs.mdx` is present, set `tags: ['!autodocs']` in the stories file to suppress the auto-generated docs page.
+
+The `Docs.mdx` file must open with the MDX front matter block and story import:
+
+```mdx
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ComponentStories from './Component.stories';
+
+<Meta of={ComponentStories} />
+```
+
+Required sections, in order:
+
+1. **`# ComponentName`** — one-sentence description of what the component is and what it renders
+2. **`## When to use`** — 2–4 bullet points covering appropriate use cases
+3. **`## Import`** — the package import statement in a `tsx` code block
+4. **`## Basic usage`** — representative code snippets (no Canvas; just code blocks)
+5. **`## Examples`** — one `<Canvas>` + `<Controls>` for the primary story, then `<Canvas>` for each additional story with a short prose intro
+6. **`## CSS classes`** — table of every BEM class the component applies, with the condition that triggers it
+7. **`## Design tokens`** — table of every `--rds--*` token used in `styles.scss`, with what it controls
+8. **`## Accessibility`** — bullet points covering semantic element choice, keyboard/screen reader behavior, and any color-only-meaning caveats
 
 ## Component Patterns
 

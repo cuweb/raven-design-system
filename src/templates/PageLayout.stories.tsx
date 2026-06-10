@@ -5,6 +5,7 @@
     import { FooterStandard } from '../components/FooterStandard';
     import { CookieBanner } from '../components/CookieBanner';
     import { PageHeader } from '../components/PageHeader';
+    import { Quote } from '../components/Quote';
     import { largeNavData } from '../data/NavigationData';
 
     const meta: Meta = {
@@ -76,6 +77,29 @@
 
                 <h2>Heading Two</h2>
                 <SinglePara />
+                <SinglePara />
+                <Quote
+                    cite="John Doe"
+                    graphic="border"
+                >
+                    <SinglePara />
+                </Quote>
+                <SinglePara />
+                <SinglePara />
+
+                <Section as="section" maxWidth="alignwide" isGrey>
+                    <h2>Heading Two</h2>
+                    <SinglePara />
+                    <SinglePara />
+                    <Quote
+                        cite="John Doe"
+                        graphic="border"
+                    >
+                        <SinglePara />
+                    </Quote>
+                    <SinglePara />
+                    <SinglePara />
+                </Section>
 
                 <h3>Heading Three</h3>
                 <SinglePara />

@@ -6,7 +6,7 @@ import { Quote } from './Quote';
 const meta: Meta<typeof Quote> = {
   title: 'Components/Content/Quote',
   component: Quote,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {
     graphic: {
       control: 'inline-radio',
@@ -52,8 +52,10 @@ export const WithinSection: Story = {
   render: (args) => (
     <Section>
       <SingleParagraph />
+      <SingleParagraph />
       <Quote {...args} />
       <SingleParagraph index={1} />
+      <SingleParagraph />
     </Section>
   ),
   args: {
