@@ -12,8 +12,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(storybook@10.4.3(@testing-library/dom@10.4.1)(@types/react@19.2.17)(prettier@3.8.4)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@cuweb/rds-icons':
-        specifier: ^0.1.7
-        version: 0.1.7(react@19.2.7)
+        specifier: ^0.1.8
+        version: 0.1.8(react@19.2.7)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.4.1)
@@ -221,8 +221,8 @@ packages:
     peerDependencies:
       storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
 
-  '@cuweb/rds-icons@0.1.7':
-    resolution: {integrity: sha512-6eP2FwKRA72TkTTr5RiiihGngK9dOa4PlCGZaUIEk6P8CB7nkzyU5peVTu/iwZ/rXsutIcgvf1v9M09tQCpGsA==, tarball: https://npm.pkg.github.com/download/@cuweb/rds-icons/0.1.7/5851177c1651744c3f3a88b5955ad587afa29794}
+  '@cuweb/rds-icons@0.1.8':
+    resolution: {integrity: sha512-2IkRAUs+X/u3ThZZgQT/NO+MbpAYZr47wrvl90DhvkrpMgQUinaIviFmHEWcbHAbxy9eERuU6/RQ/cZ8RK7Myw==, tarball: https://npm.pkg.github.com/download/@cuweb/rds-icons/0.1.8/dbb66bf08d2b07bdade018acfe9d10ceaab10d71}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
@@ -1598,8 +1598,8 @@ packages:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
 
-  ast-v8-to-istanbul@1.0.3:
-    resolution: {integrity: sha512-jCMQ6ZylLPudp0CDfBmQBZUsrh1/8psbmu9ibeVWKuHWD0YrH9YABwlKu5kVEFoT0GCQQW9Z/SxfuEbbkGQCRg==}
+  ast-v8-to-istanbul@1.0.4:
+    resolution: {integrity: sha512-0bC0/4bTSrnwdhU3IsZDwEdojvuPrSg59OYZfKsLRtJZ0u8VBx9DebfqqG8bRdCC0I7vjgxmPi41P0lpkhJHtA==}
 
   async-function@1.0.0:
     resolution: {integrity: sha512-hsU18Ae8CDTR6Kgu9DYf0EbCr/a5iGL0rytQDobUcdpYOKokk8LEjVphnXkDkgpi0wYVsqrXuP0bZxJaTqdgoA==}
@@ -3527,7 +3527,7 @@ snapshots:
       - '@chromatic-com/playwright'
       - '@chromatic-com/vitest'
 
-  '@cuweb/rds-icons@0.1.7(react@19.2.7)':
+  '@cuweb/rds-icons@0.1.8(react@19.2.7)':
     dependencies:
       react: 19.2.7
 
@@ -4541,7 +4541,7 @@ snapshots:
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.1.8
-      ast-v8-to-istanbul: 1.0.3
+      ast-v8-to-istanbul: 1.0.4
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
       istanbul-reports: 3.2.0
@@ -4743,7 +4743,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  ast-v8-to-istanbul@1.0.3:
+  ast-v8-to-istanbul@1.0.4:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       estree-walker: 3.0.3
