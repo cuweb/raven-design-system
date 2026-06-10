@@ -1,6 +1,5 @@
 import * as react from 'react';
 import { ReactNode } from 'react';
-import * as react_jsx_runtime from 'react/jsx-runtime';
 
 interface NavButton {
     title: string;
@@ -32,27 +31,27 @@ interface NavProps {
     children: ReactNode;
 }
 declare const Nav: {
-    ({ children }: NavProps): react_jsx_runtime.JSX.Element;
+    ({ children }: NavProps): react.JSX.Element;
     displayName: string;
 } & {
     Top: {
-        ({ children }: react.PropsWithChildren): react_jsx_runtime.JSX.Element;
+        ({ children }: react.PropsWithChildren): react.JSX.Element;
         displayName: string;
     };
     Bottom: {
-        ({ children }: react.PropsWithChildren): react_jsx_runtime.JSX.Element;
+        ({ children }: react.PropsWithChildren): react.JSX.Element;
         displayName: string;
     };
     Logo: {
-        ({ title, link }: NavLogoProps): react_jsx_runtime.JSX.Element;
+        ({ title, link }: NavLogoProps): react.JSX.Element;
         displayName: string;
     };
     Menu: {
-        ({ menu }: NavMenuProps): react_jsx_runtime.JSX.Element;
+        ({ menu }: NavMenuProps): react.JSX.Element;
         displayName: string;
     };
     Buttons: {
-        ({ buttons, isSearch, onClickSearch }: NavButtonsProps): react_jsx_runtime.JSX.Element | null;
+        ({ buttons, isSearch, onClickSearch }: NavButtonsProps): react.JSX.Element | null;
         displayName: string;
     };
 };

@@ -1,4 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 
 interface FooterButton {
     id: number;
@@ -14,7 +14,7 @@ interface DepartmentBarProps {
     email?: string;
     buttons?: FooterButton[];
 }
-declare const DepartmentBar: ({ deptName, buildingName, officeNumber, phone, email, buttons, }: DepartmentBarProps) => react_jsx_runtime.JSX.Element;
+declare const DepartmentBar: ({ deptName, buildingName, officeNumber, phone, email, buttons, }: DepartmentBarProps) => react.JSX.Element;
 
 export { DepartmentBar };
 export type { DepartmentBarProps };

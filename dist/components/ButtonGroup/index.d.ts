@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 
 declare const justifyClasses: {
@@ -12,7 +11,7 @@ interface ButtonGroupProps {
     children: React.ReactNode;
     align?: ButtonGroupAlign;
 }
-declare const ButtonGroup: ({ children, align }: ButtonGroupProps) => react_jsx_runtime.JSX.Element;
+declare const ButtonGroup: ({ children, align }: ButtonGroupProps) => React.JSX.Element;
 
 export { ButtonGroup };
 export type { ButtonGroupProps };

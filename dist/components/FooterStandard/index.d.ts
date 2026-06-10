@@ -1,4 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 import { IconName } from '@cuweb/rds-icons';
 
 interface FooterSocialLink {
@@ -25,7 +25,7 @@ interface FooterStandardProps {
     accessibilityHref?: string;
     copyrightHref?: string;
 }
-declare const FooterStandard: ({ type, acknowledgment, contact, social, logoSrc, logoAlt, privacyHref, accessibilityHref, copyrightHref, }: FooterStandardProps) => react_jsx_runtime.JSX.Element;
+declare const FooterStandard: ({ type, acknowledgment, contact, social, logoSrc, logoAlt, privacyHref, accessibilityHref, copyrightHref, }: FooterStandardProps) => react.JSX.Element;
 
 export { FooterStandard };
 export type { FooterStandardProps };

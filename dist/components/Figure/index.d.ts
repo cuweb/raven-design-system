@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 
 type FigureSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'full';
@@ -9,7 +8,7 @@ interface FigureProps {
     size?: FigureSizeType;
     align?: FigureAlignType;
 }
-declare const Figure: ({ children, caption, size, align, }: FigureProps) => react_jsx_runtime.JSX.Element;
+declare const Figure: ({ children, caption, size, align, }: FigureProps) => React.JSX.Element;
 
 export { Figure };
 export type { FigureProps };

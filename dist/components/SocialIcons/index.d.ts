@@ -1,5 +1,5 @@
 import { IconName } from '@cuweb/rds-icons';
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 
 interface SocialIconsItemProps {
     icon: IconName;
@@ -12,11 +12,11 @@ interface SocialIconsProps {
     prefix?: string;
 }
 declare const SocialIcons: {
-    ({ children, prefix }: SocialIconsProps): react_jsx_runtime.JSX.Element;
+    ({ children, prefix }: SocialIconsProps): react.JSX.Element;
     displayName: string;
 } & {
     Item: {
-        ({ icon, href, label }: SocialIconsItemProps): react_jsx_runtime.JSX.Element;
+        ({ icon, href, label }: SocialIconsItemProps): react.JSX.Element;
         displayName: string;
     };
 };

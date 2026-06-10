@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 
 interface BadgeGroupProps {
@@ -9,7 +8,7 @@ interface BadgeGroupProps {
     bottom?: number;
     left?: number;
 }
-declare const BadgeGroup: ({ children, isAbsolute, top, right, bottom, left, }: BadgeGroupProps) => react_jsx_runtime.JSX.Element;
+declare const BadgeGroup: ({ children, isAbsolute, top, right, bottom, left, }: BadgeGroupProps) => React.JSX.Element;
 
 export { BadgeGroup };
 export type { BadgeGroupProps };

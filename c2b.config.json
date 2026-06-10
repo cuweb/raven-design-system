@@ -47,7 +47,15 @@
             "success": { "value": "#007c24", "cssOnly": true },
             "warning": { "value": "#f4c83c", "cssOnly": true },
             "error": { "value": "#d31820", "cssOnly": true },
-            "info": { "value": "#b8d9f2", "cssOnly": true }
+            "info": { "value": "#b8d9f2", "cssOnly": true },
+            "linkedin": { "value": "#0A66C2", "cssOnly": true },
+            "facebook": { "value": "#1877F2", "cssOnly": true },
+            "bluesky": { "value": "#1185FE", "cssOnly": true },
+            "twitter": { "value": "#000000", "cssOnly": true },
+            "instagram": { "value": "#E4405F", "cssOnly": true },
+            "youtube": { "value": "#FF0000", "cssOnly": true },
+            "tiktok": { "value": "#010101", "cssOnly": true },
+            "orcid": { "value": "#A6CE39", "cssOnly": true }
         },
 
         "gradient": {

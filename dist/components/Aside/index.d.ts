@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 
 interface AsideProps {
@@ -6,6 +5,6 @@ interface AsideProps {
     isSticky?: boolean;
     topSpace?: number;
 }
-declare const Aside: ({ children, isSticky, topSpace }: AsideProps) => react_jsx_runtime.JSX.Element;
+declare const Aside: ({ children, isSticky, topSpace }: AsideProps) => React.JSX.Element;
 
 export { Aside };

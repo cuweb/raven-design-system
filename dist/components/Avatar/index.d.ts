@@ -1,4 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 
 interface AvatarProps {
     firstName: string;
@@ -9,7 +9,7 @@ interface AvatarProps {
     isCircle?: boolean;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-declare const Avatar: ({ firstName, lastName, src, alt, size, isCircle, onClick, }: AvatarProps) => react_jsx_runtime.JSX.Element;
+declare const Avatar: ({ firstName, lastName, src, alt, size, isCircle, onClick, }: AvatarProps) => react.JSX.Element;
 
 export { Avatar };
 export type { AvatarProps };

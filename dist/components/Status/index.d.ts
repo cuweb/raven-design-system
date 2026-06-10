@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 import statusTypes from './statusTypes.json';
 
@@ -42,7 +41,7 @@ interface StatusProps {
     context?: 'standalone' | 'in-card';
 }
 declare const Status: {
-    ({ children, variant, type, label, context, }: StatusProps): react_jsx_runtime.JSX.Element | null;
+    ({ children, variant, type, label, context, }: StatusProps): React.JSX.Element | null;
     displayName: string;
 };
 

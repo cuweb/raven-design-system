@@ -21,7 +21,15 @@ var e = {
 		success: "#007c24",
 		warning: "#f4c83c",
 		error: "#d31820",
-		info: "#b8d9f2"
+		info: "#b8d9f2",
+		linkedin: "#0A66C2",
+		facebook: "#1877F2",
+		bluesky: "#1185FE",
+		twitter: "#000000",
+		instagram: "#E4405F",
+		youtube: "#FF0000",
+		tiktok: "#010101",
+		orcid: "#A6CE39"
 	},
 	gradient: {
 		redToDarkRed: "linear-gradient(135deg,rgb(233,28,36) 0%,rgb(25,25,25) 100%)",

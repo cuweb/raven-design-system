@@ -1,5 +1,4 @@
 import React from 'react';
-import * as react_jsx_runtime from 'react/jsx-runtime';
 
 interface ColumnContentProps {
     children: React.ReactNode;
@@ -21,11 +20,11 @@ interface ColumnProps {
     cols?: gridColumnKeys;
 }
 declare const Column: {
-    ({ children, cols }: ColumnProps): react_jsx_runtime.JSX.Element;
+    ({ children, cols }: ColumnProps): React.JSX.Element;
     displayName: string;
 } & {
     Content: {
-        ({ children, isFirst }: ColumnContentProps): react_jsx_runtime.JSX.Element;
+        ({ children, isFirst }: ColumnContentProps): React.JSX.Element;
         displayName: string;
     };
 };

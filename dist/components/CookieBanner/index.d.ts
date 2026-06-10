@@ -1,4 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 
 interface CookieBannerProps {
     cookieName?: string;
@@ -7,7 +7,7 @@ interface CookieBannerProps {
     policyLabel?: string;
     buttonLabel?: string;
 }
-declare const CookieBanner: ({ cookieName, message, policyHref, policyLabel, buttonLabel, }: CookieBannerProps) => react_jsx_runtime.JSX.Element | null;
+declare const CookieBanner: ({ cookieName, message, policyHref, policyLabel, buttonLabel, }: CookieBannerProps) => react.JSX.Element | null;
 
 export { CookieBanner };
 export type { CookieBannerProps };

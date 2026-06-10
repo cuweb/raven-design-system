@@ -1,11 +1,11 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 
 interface ProgressBarProps {
     value: number;
     max?: number;
     label: string;
 }
-declare const ProgressBar: ({ value, max, label }: ProgressBarProps) => react_jsx_runtime.JSX.Element;
+declare const ProgressBar: ({ value, max, label }: ProgressBarProps) => react.JSX.Element;
 
 export { ProgressBar };
 export type { ProgressBarProps };

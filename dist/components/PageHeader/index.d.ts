@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 
 interface PageHeaderProps {
@@ -14,7 +13,7 @@ interface PageHeaderProps {
     noUnderline?: boolean;
     pronoun?: string;
 }
-declare const PageHeader: ({ children, as: As, preHeader, header, content, metaData, size, isWhite, isCenter, noUnderline, pronoun, }: PageHeaderProps) => react_jsx_runtime.JSX.Element;
+declare const PageHeader: ({ children, as: As, preHeader, header, content, metaData, size, isWhite, isCenter, noUnderline, pronoun, }: PageHeaderProps) => React.JSX.Element;
 
 export { PageHeader };
 export type { PageHeaderProps };

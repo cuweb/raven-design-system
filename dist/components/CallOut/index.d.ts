@@ -1,4 +1,3 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
 
 declare const maxWidthClasses: {
@@ -21,7 +20,7 @@ interface CallOutProps {
     justify?: JustifyKeys;
     maxWidth?: MaxWidthKeys;
 }
-declare const CallOut: ({ children, title, as, justify, maxWidth, }: CallOutProps) => react_jsx_runtime.JSX.Element;
+declare const CallOut: ({ children, title, as, justify, maxWidth, }: CallOutProps) => React.JSX.Element;
 
 export { CallOut };
 export type { CallOutProps };

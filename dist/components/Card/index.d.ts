@@ -1,6 +1,5 @@
 import React$1, { ReactNode } from 'react';
 import statusTypes from '../Status/statusTypes.json';
-import * as react_jsx_runtime from 'react/jsx-runtime';
 
 type StatusVariant = 'success' | 'error' | 'warning' | 'info';
 /**
@@ -131,63 +130,63 @@ interface CardProps {
     className?: string;
 }
 declare const Card: {
-    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, noImage, leftBorder, revealOnScroll, className, }: CardProps): react_jsx_runtime.JSX.Element;
+    ({ children, isGrey, hasWave, isCenter, isCenterDesktop, noHover, noImage, leftBorder, revealOnScroll, className, }: CardProps): React$1.JSX.Element;
     displayName: string;
 } & {
     Figure: {
-        ({ children, isRound, isSmall, isSquare, isIcon }: CardFigureProps): react_jsx_runtime.JSX.Element;
+        ({ children, isRound, isSmall, isSquare, isIcon }: CardFigureProps): React$1.JSX.Element;
         displayName: string;
     };
     VideoFigure: {
-        ({ url, thumbnail: thumbnailProp, title, provider: providerOverride, skipNetwork, onPlay, }: CardVideoFigureProps): react_jsx_runtime.JSX.Element;
+        ({ url, thumbnail: thumbnailProp, title, provider: providerOverride, skipNetwork, onPlay, }: CardVideoFigureProps): React$1.JSX.Element;
         displayName: string;
     };
     DateThumb: {
-        ({ startDate, endDate }: CardDateThumbProps): react_jsx_runtime.JSX.Element;
+        ({ startDate, endDate }: CardDateThumbProps): React$1.JSX.Element;
         displayName: string;
     };
     ImageThumb: {
-        ({ children, isSquare }: CardImageThumbProps): react_jsx_runtime.JSX.Element;
+        ({ children, isSquare }: CardImageThumbProps): React$1.JSX.Element;
         displayName: string;
     };
     Initials: {
-        ({ initials }: CardInitialsProps): react_jsx_runtime.JSX.Element;
+        ({ initials }: CardInitialsProps): React$1.JSX.Element;
         displayName: string;
     };
     Header: {
-        ({ title, link, extraText, as, date, datePrefix, readTime, position, }: CardHeaderProps): react_jsx_runtime.JSX.Element;
+        ({ title, link, extraText, as, date, datePrefix, readTime, position, }: CardHeaderProps): React$1.JSX.Element;
         displayName: string;
     };
     Body: {
-        ({ children }: CardBodyProps): react_jsx_runtime.JSX.Element;
+        ({ children }: CardBodyProps): React$1.JSX.Element;
         displayName: string;
     };
     Content: {
-        ({ children }: CardContentProps): react_jsx_runtime.JSX.Element;
+        ({ children }: CardContentProps): React$1.JSX.Element;
         displayName: string;
     };
     Footer: {
-        ({ children }: CardFooterProps): react_jsx_runtime.JSX.Element;
+        ({ children }: CardFooterProps): React$1.JSX.Element;
         displayName: string;
     };
     Excerpt: {
-        ({ text, hasMore, truncateOnMobile }: CardExcerptProps): react_jsx_runtime.JSX.Element;
+        ({ text, hasMore, truncateOnMobile }: CardExcerptProps): React$1.JSX.Element;
         displayName: string;
     };
     EventMeta: {
-        ({ startDateTime, endDateTime, onCampus, onCampusBuilding, onCampusRoomNumber, eventAddress, }: CardEventMetaProps): react_jsx_runtime.JSX.Element;
+        ({ startDateTime, endDateTime, onCampus, onCampusBuilding, onCampusRoomNumber, eventAddress, }: CardEventMetaProps): React$1.JSX.Element;
         displayName: string;
     };
     PeopleMeta: {
-        ({ jobTitle, children, phone }: CardPeopleMetaProps): react_jsx_runtime.JSX.Element;
+        ({ jobTitle, children, phone }: CardPeopleMetaProps): React$1.JSX.Element;
         displayName: string;
     };
     Stats: {
-        ({ stat, desc, reverse }: CardStatsProps): react_jsx_runtime.JSX.Element;
+        ({ stat, desc, reverse }: CardStatsProps): React$1.JSX.Element;
         displayName: string;
     };
     Status: {
-        (props: CardStatusProps): react_jsx_runtime.JSX.Element;
+        (props: CardStatusProps): React$1.JSX.Element;
         displayName: string;
     };
 };

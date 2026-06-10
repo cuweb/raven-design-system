@@ -28,6 +28,18 @@
   padding-bottom: 1rem;
 }
 
+.cu-card .cu-badge-group {
+  margin-bottom: var(--rds--spacing-2-x-large);
+}
+
+.cu-card__figure + .cu-badge-group,
+.cu-badge-group + .cu-card__figure {
+  position: absolute;
+  z-index: 3;
+  top: var(--rds--spacing-x-small);
+  left: var(--rds--spacing-x-small);
+}
+
 .cu-card__header h2,
 .cu-card__header h3 {
   font-size: var(--rds--font-size-x-large);
@@ -157,13 +169,6 @@
 .cu-card__figure--icon {
   aspect-ratio: auto;
   padding: 1.25rem 1.25rem 0 1.25rem;
-}
-
-.cu-card__badge {
-  position: absolute;
-  z-index: 3;
-  top: var(--rds--spacing-x-small);
-  left: var(--rds--spacing-x-small);
 }
 
 .cu-card__figure--video {
