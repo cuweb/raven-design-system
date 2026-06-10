@@ -17,6 +17,13 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `iconColor` prop on `SocialIcons` (`'black' | 'white' | 'brand'`) — sets a colour modifier class (`cu-social--{color}`) on the wrapper and drives per-icon brand colours via a new `SocialIconsContext`. Each `SocialIconsItem` receives a `data-social` attribute when a colour mode is active, and per-platform CSS custom properties (`--cu-social-brand`) are defined for LinkedIn, Facebook, Bluesky, X, Instagram, YouTube, TikTok, and ORCID.
+- _Changed_: Increased icon gap in `Button` from `0.25rem` to `0.5rem` for better visual spacing between icon and label.
+- _Changed_: Updated `Card` styles — `BadgeGroup` inside a card now uses absolute positioning to overlay the figure; `cu-card__body` uses flex column layout with consistent gap between child elements.
+- _Fixed_: Consolidated `margin-top`/`margin-bottom` into shorthand `margin` for `Figure` float alignment variants (`--left`, `--right`, `--center`).
+- _Changed_: Updated dependencies.
+- _Added_: Added MCP server configuration in `.github/copilot/mcp.json` for Copilot tooling support.
+
 ## [0.5.14] - 2026-05-27
 
 - _Added_: `isOutline` boolean prop on `Button`. When set, the button renders with a white background and uses the `color` value for the border and text instead of the background. Each colour has a matching outline hover state that fills in with the same colour used in the solid variant's hover.
