@@ -1,7 +1,7 @@
 
-# Create Release (Automated Merge)
+# Create Release
 
-Automate the release process: create a release branch, update version and changelog, commit, merge to main, tag, and push.
+Prepare a release branch with updated version and changelog. Committing, merging, tagging, and pushing are always done manually by the user.
 
 ## Steps
 
@@ -25,22 +25,17 @@ Automate the release process: create a release branch, update version and change
 
 7. Update `CHANGELOG.mdx`:
    - Read the current entries under `## [Unreleased]`
-   - Insert a new heading `## [{version}]` between `## [Unreleased]` and the existing entries
+   - Insert a new heading `## [{version}] - {today's date}` between `## [Unreleased]` and the existing entries
    - Move all unreleased entries under the new version heading
    - Leave `## [Unreleased]` empty (ready for future work)
 
-8. Commit the changes: `git add --all && git commit -m "release: {version}"`
+8. Tell the user the files are ready and show them the commands to finish the release manually:
 
-9. Checkout main: `git checkout main`
-
-10. Pull latest main: `git pull`
-
-11. Merge the release branch: `git merge --no-ff release/{version}`
-
-12. Tag the release: `git tag v{version}`
-
-13. Push main and tags: `git push origin main && git push origin v{version}`
-
-14. Delete the release branch locally: `git branch -d release/{version}`
-
-15. Tell the user the release is complete and main is up to date with the new tag.
+   ```sh
+   git add --all && git commit -m "release: {version}"
+   git checkout main && git pull
+   git merge --no-ff release/{version}
+   git tag v{version}
+   git push origin main && git push origin v{version}
+   git branch -d release/{version}
+   ```
