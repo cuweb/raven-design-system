@@ -23,6 +23,14 @@
   --rds--color-warning: #f4c83c;
   --rds--color-error: #d31820;
   --rds--color-info: #b8d9f2;
+  --rds--color-linkedin: #0A66C2;
+  --rds--color-facebook: #1877F2;
+  --rds--color-bluesky: #1185FE;
+  --rds--color-twitter: #000000;
+  --rds--color-instagram: #E4405F;
+  --rds--color-youtube: #FF0000;
+  --rds--color-tiktok: #010101;
+  --rds--color-orcid: #A6CE39;
 
   /* Gradients */
   --rds--gradient-red-to-dark-red: linear-gradient(135deg,rgb(233,28,36) 0%,rgb(25,25,25) 100%);
