@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+## [0.5.15] - 2026-06-10
+
 - _Added_: `iconColor` prop on `SocialIcons` (`'black' | 'white' | 'brand'`) — sets a colour modifier class (`cu-social--{color}`) on the wrapper and drives per-icon brand colours via a new `SocialIconsContext`. Each `SocialIconsItem` receives a `data-social` attribute when a colour mode is active, and per-platform CSS custom properties (`--cu-social-brand`) are defined for LinkedIn, Facebook, Bluesky, X, Instagram, YouTube, TikTok, and ORCID.
 - _Changed_: Increased icon gap in `Button` from `0.25rem` to `0.5rem` for better visual spacing between icon and label.
 - _Changed_: Updated `Card` styles — `BadgeGroup` inside a card now uses absolute positioning to overlay the figure; `cu-card__body` uses flex column layout with consistent gap between child elements.
