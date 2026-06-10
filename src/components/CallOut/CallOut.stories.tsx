@@ -16,7 +16,7 @@ const meta: Meta<typeof CallOut> = {
     },
     justify: {
       control: 'inline-radio',
-      options: ['start', 'center', 'end'],
+      options: ['start', 'center'],
     },
     maxWidth: {
       control: 'inline-radio',
@@ -69,23 +69,6 @@ export const JustifyStart: Story = {
   args: {
     title: 'Open House',
     justify: 'start',
-    maxWidth: 'aligncontent',
-  },
-  render: (args) => (
-    <Main>
-      <Section>
-        <CallOut {...args}>
-          <BodyContent />
-        </CallOut>
-      </Section>
-    </Main>
-  ),
-};
-
-export const JustifyEnd: Story = {
-  args: {
-    title: 'Open House',
-    justify: 'end',
     maxWidth: 'aligncontent',
   },
   render: (args) => (

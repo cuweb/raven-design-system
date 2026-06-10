@@ -26,8 +26,7 @@
 
   // Float alignment — activates at md+
   &--left {
-    margin-top: var(--rds--spacing-medium);
-    margin-bottom: var(--rds--spacing-medium);
+    margin: var(--rds--spacing-medium) 0;
 
     @media (min-width: $rds-media-query-md) {
       float: left;
@@ -38,8 +37,7 @@
   }
 
   &--right {
-    margin-top: var(--rds--spacing-medium);
-    margin-bottom: var(--rds--spacing-medium);
+    margin: var(--rds--spacing-medium) 0;
 
     @media (min-width: $rds-media-query-md) {
       float: right;
@@ -50,7 +48,7 @@
   }
 
   &--center {
-    margin-inline: auto;
+    margin: var(--rds--spacing-medium) 0;
   }
 }
 
