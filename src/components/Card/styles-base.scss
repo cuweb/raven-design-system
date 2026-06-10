@@ -33,6 +33,13 @@
     padding-bottom: 1rem;
 }
 
+.cu-card .cu-badge-group {
+    position: absolute;
+    z-index: 3;
+    top: var(--rds--spacing-x-small);
+    left: var(--rds--spacing-x-small);
+}
+
 // Content
 
 .cu-card__header h2,
