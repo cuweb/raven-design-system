@@ -33,7 +33,13 @@
     padding-bottom: 1rem;
 }
 
+// With badges
 .cu-card .cu-badge-group {
+    margin-bottom: var(--rds--spacing-2-x-large);
+}
+
+.cu-card__figure + .cu-badge-group,
+.cu-badge-group + .cu-card__figure {
     position: absolute;
     z-index: 3;
     top: var(--rds--spacing-x-small);
