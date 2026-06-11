@@ -1,11 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Section } from '../Section/Section';
+import { Main } from '../Main/Main';
 import { Testimonial } from './Testimonial';
 
 const meta: Meta<typeof Testimonial> = {
   title: 'Components/Content/Testimonial',
   component: Testimonial,
   tags: ['!autodocs'],
+  decorators: [
+    (Story) => (
+      <Main>
+        <Story />
+      </Main>
+    ),
+  ],
   argTypes: {
     reverse: {
       control: 'inline-radio',
@@ -22,6 +29,7 @@ const meta: Meta<typeof Testimonial> = {
     },
   },
   parameters: {
+    layout: 'fullscreen',
     controls: {
       sort: 'requiredFirst',
     },
@@ -32,11 +40,6 @@ export default meta;
 type Story = StoryObj<typeof Testimonial>;
 
 export const Default: Story = {
-  render: (args) => (
-    <Section>
-      <Testimonial {...args} />
-    </Section>
-  ),
   args: {
     quote:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae.',
@@ -50,11 +53,6 @@ export const Default: Story = {
 };
 
 export const Reversed: Story = {
-  render: (args) => (
-    <Section>
-      <Testimonial {...args} />
-    </Section>
-  ),
   args: {
     quote:
       'Nobis voluptatem dolorum et eum doloremque cupiditate velit. Praesentium architecto a distinctio aut reprehenderit ducimus. Perferendis excepturi delectus nihil voluptatem non.',

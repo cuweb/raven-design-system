@@ -12,6 +12,9 @@ export { Section } from './components/Section/Section';
 // Components
 export { Quote } from './components/Quote/Quote';
 export type { QuoteProps } from './components/Quote/Quote';
+export { WideImage } from './components/WideImage/WideImage';
+export type { WideImageProps } from './components/WideImage/WideImage';
+export type { WideImageSignupProps } from './components/WideImage/WideImageSignup';
 export { Testimonial } from './components/Testimonial/Testimonial';
 export type { TestimonialProps } from './components/Testimonial/Testimonial';
 export { CallOut } from './components/CallOut/CallOut';

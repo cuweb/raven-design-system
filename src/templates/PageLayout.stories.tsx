@@ -1,35 +1,37 @@
-    import type { Meta, StoryObj } from '@storybook/react-vite';
-    import { Main } from '../components/Main/Main';
-    import { Section } from '../components/Section/Section';
-    import { Nav } from '../components/Nav/Nav';
-    import { FooterStandard } from '../components/FooterStandard';
-    import { CookieBanner } from '../components/CookieBanner';
-    import { PageHeader } from '../components/PageHeader';
-    import { Quote } from '../components/Quote';
-    import { largeNavData } from '../data/NavigationData';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Main } from '../components/Main/Main';
+import { Section } from '../components/Section/Section';
+import { Nav } from '../components/Nav/Nav';
+import { FooterStandard } from '../components/FooterStandard';
+import { CookieBanner } from '../components/CookieBanner';
+import { PageHeader } from '../components/PageHeader';
+import { Quote } from '../components/Quote';
+import { CallOut } from '../components/CallOut';
+import { WideImage } from '../components/WideImage';
+import { largeNavData } from '../data/NavigationData';
 
-    const meta: Meta = {
-        title: 'Overview/Templates/Page Layout',
-        parameters: {
-            layout: 'fullscreen',
-        },
-        tags: ['!autodocs'],
-    };
+const meta: Meta = {
+    title: 'Overview/Templates/Page Layout',
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['!autodocs'],
+};
 
-    export default meta;
-    type Story = StoryObj;
+export default meta;
+type Story = StoryObj;
 
-    const SinglePara = () => (
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
-            posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
-            <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
-            orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
-            tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
-        </p>
-    );
+const SinglePara = () => (
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
+        posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
+        <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
+        orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
+        tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
+    </p>
+);
 
-    export const PageLayout: Story = {
+export const PageLayout: Story = {
     parameters: {
         a11y: {
             config: {
@@ -67,6 +69,26 @@
                     size="primary"
                 />
 
+                <SinglePara />
+                <WideImage
+                    focalPointX={50}
+                    focalPointY={50}
+                    headerType="h1"
+                    image="https://picsum.photos/id/381/1200/600"
+                    isType="image"
+                    maxWidth="alignwide"
+                    opacity={70}
+                    title="Wide Image with Photo"
+                />
+                <SinglePara />
+                <CallOut
+                    justify="start"
+                    maxWidth="aligncontent"
+                    title="Open House"
+                >
+                    {/* <SinglePara /> */}
+                </CallOut>
+                <SinglePara />
                 <SinglePara />
                 <p>
                 This is an example page. It is different from a blog post because it will stay in one

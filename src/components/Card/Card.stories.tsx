@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Column } from '../Column/Column';
 import { Main } from '../Main/Main';
+import { Section } from '../Section/Section';
 import { Card } from './Card';
 import { Icon } from '../Icon/Icon';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
@@ -18,20 +19,29 @@ import { AvailabilityData } from '../../data/AvailabilityData';
 import { SystemData } from '../../data/SystemData';
 import { LanguageData } from '../../data/LanguageData';
 
-const meta: Meta = {
-  title: 'Components/Content/Card',
-  parameters: {
-    layout: 'fullscreen',
-    controls: { disable: true },
-  },
+const meta: Meta<typeof Card> = {
+    title: 'Components/Content/Card',
+    component: Card,
+    decorators: [
+      (Story) => (
+        <Main>
+            <Section>
+                <Story />
+            </Section>
+        </Main>
+      ),
+    ],
+    parameters: {
+        layout: 'fullscreen',
+        controls: { disable: true },
+    },
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<typeof Card>;
 
 export const NewsCards: Story = {
   render: () => (
-    <Main>
       <Column cols="3">
         {NewsData.slice(0, 24).map((item) => (
             <Card key={`news-${item.id}`}>
@@ -50,13 +60,11 @@ export const NewsCards: Story = {
             </Card>
         ))}
       </Column>
-    </Main>
   ),
 };
 
 export const EventCards: Story = {
   render: () => (
-    <Main>
       <Column cols="3">
         {EventData.slice(0, 24).map((item) => (
             <Card key={`event-${item.id}`} noImage={!item.image}>
@@ -80,7 +88,6 @@ export const EventCards: Story = {
             </Card>
         ))}
       </Column>
-    </Main>
   ),
 };
 
