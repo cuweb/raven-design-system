@@ -62,7 +62,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Testimonial | done |
 | Text & Image | port |
 | Text & Media | port |
-| Timeline | port |
+| Timeline | done |
 
 ---
 
