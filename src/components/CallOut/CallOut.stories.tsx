@@ -6,9 +6,18 @@ import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { Button } from '../Button/Button';
 
 const meta: Meta<typeof CallOut> = {
-  title: 'Components/Content/Call Out',
+  title: 'Components/Content/Callout',
   component: CallOut,
   tags: ['!autodocs'],
+  decorators: [
+    (Story) => (
+      <Main>
+        <Section>
+          <Story />
+        </Section>
+      </Main>
+    ),
+  ],
   argTypes: {
     as: {
       control: 'inline-radio',
@@ -24,6 +33,7 @@ const meta: Meta<typeof CallOut> = {
     },
   },
   parameters: {
+    layout: 'fullscreen',
     controls: {
       sort: 'requiredFirst',
     },
@@ -55,13 +65,9 @@ export const Default: Story = {
     maxWidth: 'aligncontent',
   },
   render: (args) => (
-    <Main>
-      <Section>
-        <CallOut {...args}>
-          <BodyContent />
-        </CallOut>
-      </Section>
-    </Main>
+    <CallOut {...args}>
+      <BodyContent />
+    </CallOut>
   ),
 };
 
@@ -72,13 +78,9 @@ export const JustifyStart: Story = {
     maxWidth: 'aligncontent',
   },
   render: (args) => (
-    <Main>
-      <Section>
-        <CallOut {...args}>
-          <BodyContent />
-        </CallOut>
-      </Section>
-    </Main>
+    <CallOut {...args}>
+      <BodyContent />
+    </CallOut>
   ),
 };
 
@@ -89,13 +91,9 @@ export const MaxWidthWide: Story = {
     maxWidth: 'alignwide',
   },
   render: (args) => (
-    <Main>
-      <Section maxWidth="alignwide">
-        <CallOut {...args}>
-          <BodyContent />
-        </CallOut>
-      </Section>
-    </Main>
+    <CallOut {...args}>
+      <BodyContent />
+    </CallOut>
   ),
 };
 
@@ -106,12 +104,8 @@ export const MaxWidthFull: Story = {
     maxWidth: 'alignfull',
   },
   render: (args) => (
-    <Main>
-      <Section maxWidth="alignfull">
-        <CallOut {...args}>
-          <BodyContent />
-        </CallOut>
-      </Section>
-    </Main>
+    <CallOut {...args}>
+      <BodyContent />
+    </CallOut>
   ),
 };

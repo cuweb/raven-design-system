@@ -1,0 +1,121 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as WideImageStories from './WideImage.stories';
+
+<Meta of={WideImageStories} />
+
+# Wide Image
+
+A full-width banner component with a centred heading and optional call-to-action content. Supports three visual variants — light (grey background), dark (black background), and image (background photo with opacity overlay). Layout width is controlled with the same `maxWidth` prop used by `Section`, giving it the same alignment flexibility within the page layout.
+
+## When to use
+
+- Page hero areas and section introductions that need visual weight
+- Calls-to-action with a strong visual background
+- Email sign-up or newsletter opt-in blocks
+
+## Import
+
+```tsx
+import { WideImage } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Light variant
+<WideImage title="Join Us" />
+
+// Dark variant with buttons
+<WideImage title="Study at Carleton" isType="dark">
+  <ButtonGroup>
+    <Button title="Apply Now" />
+    <Button title="Learn More" color="dark-grey" />
+  </ButtonGroup>
+</WideImage>
+
+// Image variant
+<WideImage
+  title="Welcome to Carleton"
+  isType="image"
+  image="https://example.com/photo.jpg"
+  opacity={70}
+  headerType="h1"
+  maxWidth="alignwide"
+/>
+
+// With signup form
+<WideImage title="Stay Connected" isType="dark">
+  <WideImage.Signup buttonText="Subscribe" />
+</WideImage>
+```
+
+## Examples
+
+### Light (default)
+
+<Canvas of={WideImageStories.Default} />
+<Controls of={WideImageStories.Default} />
+
+### Dark
+
+<Canvas of={WideImageStories.Dark} />
+
+### With image
+
+Background image with configurable opacity overlay. Use `focalPointX` and `focalPointY` to control the background-position.
+
+<Canvas of={WideImageStories.WithImage} />
+
+### With signup form
+
+The `WideImage.Signup` subcomponent renders an email input, submit button, and opt-in checkbox. Input styles adapt automatically to the parent `isType` variant.
+
+<Canvas of={WideImageStories.WithSignup} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-wideimage` | Always — root block |
+| `cu-wideimage--light` | `isType="light"` |
+| `cu-wideimage--dark` | `isType="dark"` |
+| `cu-wideimage--image` | `isType="image"` |
+| `aligncontent` / `alignwide` / `alignfull` | The active `maxWidth` value |
+| `cu-wideimage__content` | Always — inner flex column, centred |
+| `cu-wideimage__signup` | `WideImage.Signup` root |
+| `cu-wideimage__signup-row` | Input + button row |
+| `cu-wideimage__signup-input` | Email `<input>` |
+| `cu-wideimage__signup-optin` | Checkbox + label row |
+| `cu-wideimage__signup-label` | Opt-in label text |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-pale` | `light` background |
+| `--rds--color-black` | `dark` background |
+| `--rds--radius-xl` | Component border radius |
+| `--rds--spacing-x-large` | `padding-block` for `light` and `dark` variants |
+| `--rds--spacing-2-x-large` | Base `padding-block` for `image` variant (scales up at md/lg) |
+| `--rds--spacing-small` | Gap between `__content` children; gap between signup stacked rows |
+| `--rds--spacing-x-small` | Gap within signup row and opt-in row |
+| `--rds--color-grey-light` | Light variant input border |
+| `--rds--color-grey-dark` | Light variant input text and placeholder |
+| `--rds--color-white` | Dark/image input focus ring; dark/image label and link |
+| `--rds--color-grey-lighter` | Dark/image input placeholder |
+| `--rds--font-size-medium` | Input font size |
+| `--rds--font-size-small` | Opt-in label font size |
+| `--rds--font-weight-light` | Opt-in label weight |
+| `--rds--font-weight-bold` | Opt-in link weight |
+| `--cu-wideimage-overlay` | CSS custom property set inline for image overlay (`rgba(0,0,0,X)`) |
+
+## Image overlay
+
+For `isType="image"`, a `::before` pseudo-element is positioned over the background image using the CSS custom property `--cu-wideimage-overlay`. The `opacity` prop (60–80) maps directly to this value: `opacity={70}` → `rgba(0, 0, 0, 0.70)`.
+
+## Accessibility
+
+- `PageHeader` renders an `<h1>` or `<h2>` based on `headerType`. Ensure only one `<h1>` exists per page.
+- The `::before` overlay is a CSS pseudo-element with no content — it is invisible to assistive technology.
+- `WideImage.Signup` uses a visually-hidden `<label>` (`.sr-only`) associated with the email input via `for`/`id`. The opt-in checkbox has a visible `<label>`.
+- The Privacy Statement link in `WideImage.Signup` opens in a new tab — users of screen readers will hear "opens in new tab" from the `target="_blank"` / `rel="noreferrer"` combination (browser-announced).

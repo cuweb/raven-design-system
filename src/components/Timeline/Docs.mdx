@@ -1,0 +1,82 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TimelineStories from './Timeline.stories';
+
+<Meta of={TimelineStories} />
+
+# Timeline
+
+A vertically-stacked list of events or milestones, each with a label (such as a date or time range) on the left and rich content on the right. Renders a left-border timeline on mobile that shifts to a two-column layout on wider screens.
+
+## When to use
+
+- Displaying a chronological sequence of events (e.g. career history, project milestones)
+- Presenting a list of accomplishments or phases with associated time labels
+- Any ordered content where the label context and body content benefit from visual separation
+
+## Import
+
+```tsx
+import { Timeline } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<Timeline>
+  <Timeline.Item aside="2022 – Present" title="Senior Developer">
+    <p>Led front-end architecture for the Carleton design system.</p>
+  </Timeline.Item>
+  <Timeline.Item aside="2019 – 2022" title="Developer">
+    <p>Built accessible React components for the university web platform.</p>
+  </Timeline.Item>
+</Timeline>
+```
+
+Use `as="h3"` when the Timeline appears inside a section that already has an `<h2>`:
+
+```tsx
+<Timeline>
+  <Timeline.Item as="h3" aside="Phase 1" title="Discovery">
+    <p>...</p>
+  </Timeline.Item>
+</Timeline>
+```
+
+## Examples
+
+<Canvas of={TimelineStories.Primary} />
+<Controls of={TimelineStories.Primary} />
+
+### With H3 headings
+
+Use `as="h3"` when the component is nested inside a section with an existing `<h2>` to maintain correct document outline.
+
+<Canvas of={TimelineStories.WithH3Headings} />
+
+## CSS classes
+
+| Class | Applied when |
+|---|---|
+| `cu-timeline` | Always — the wrapper `<div>` |
+| `cu-timeline__item` | Always — each `<Timeline.Item>` wrapper |
+| `cu-timeline__aside` | Always — the label column |
+| `cu-timeline__content` | Always — the content column |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--color-primary` | Red dot marker colour |
+| `--rds--color-grey-light` | Vertical border line colour |
+| `--rds--color-grey` | Aside label text colour |
+| `--rds--font-size-medium` | Aside label font size |
+| `--rds--radius-full` | Dot marker border radius |
+| `--rds--spacing-x-large` | Item indent from the vertical line; bottom padding between items |
+| `--rds--spacing-x-small` | Gap between aside label and heading |
+
+## Accessibility
+
+- Heading level is controlled via the `as` prop (`h2` by default, `h3` when nested under an existing `<h2>`). Always choose the level that maintains a logical document outline.
+- The red dot marker is decorative (`::after` pseudo-element) and carries no semantic meaning — screen readers ignore it.
+- The aside label is wrapped in a `<p>` element so it participates in normal document flow and is announced by screen readers as part of each timeline entry.
+- There is no color-only meaning — the dot provides visual rhythm but the aside text supplies the actual context.

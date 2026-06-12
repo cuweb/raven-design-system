@@ -83,11 +83,9 @@ argTypes: {
 ```tsx
 // Correct — expression body
 render: (args) => (
-  <Main>
-    <Section>
-      <Component {...args} />
-    </Section>
-  </Main>
+  <Section>
+    <Component {...args} />
+  </Section>
 )
 
 // Wrong — block body
@@ -100,6 +98,32 @@ render: (args) => {
 If you need derived values, compute them inline in the JSX (conditional expressions, ternaries) or hoist them outside the render function.
 
 Only add `render` when you need custom layout wrapping or conditional composition. If the story is just `<Component {...args} />` with args, omit `render` — Storybook generates it.
+
+## Decorators
+
+Use meta-level `decorators` when a component requires a layout wrapper (e.g., `Main`) to render correctly, but that wrapper shouldn't appear in the docs code examples.
+
+```tsx
+const meta: Meta<typeof Component> = {
+  // ...
+  decorators: [
+    (Story) => (
+      <Main>
+        <Story />
+      </Main>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    controls: { sort: 'requiredFirst' },
+  },
+};
+```
+
+- **Pair with `layout: 'fullscreen'`** — components that need `Main` are typically full-width; the default Storybook padding conflicts with `is-layout-constrained` sizing
+- **Use a decorator instead of wrapping in render** — `render` output appears in the code example panel; decorator output does not
+- **Keep `render` for story-specific composition** — if individual stories need different surrounding elements (e.g., sibling paragraphs for float demos), use `render` for those stories and let the decorator handle the shared outer wrapper
+- Components like `WideImage`, `CallOut`, `Testimonial`, and `Figure` all use this pattern
 
 ## Shared Story Content
 

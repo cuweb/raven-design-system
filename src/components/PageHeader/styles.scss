@@ -64,8 +64,11 @@
   font-weight: var(--rds--font-weight-semibold);
   line-height: var(--rds--line-height-tight);
   color: var(--rds--color-black);
-  margin-top: 0;
-  margin-bottom: var(--rds--spacing-medium);
+  margin: 0;
+
+    & + p {
+        margin-top: var(--rds--spacing-medium);
+    }
 
   &--underline {
     position: relative;
