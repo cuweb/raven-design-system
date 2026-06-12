@@ -10,6 +10,9 @@ export { Main } from './components/Main/Main';
 export { Section } from './components/Section/Section';
 
 // Components
+export { FullBanner } from './components/FullBanner/FullBanner';
+export type { FullBannerProps } from './components/FullBanner/FullBanner';
+export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVideo';
 export { Quote } from './components/Quote/Quote';
 export type { QuoteProps } from './components/Quote/Quote';
 export { WideImage } from './components/WideImage/WideImage';

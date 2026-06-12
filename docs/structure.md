@@ -73,13 +73,13 @@ Full-width or image/video-heavy promotional components.
 | Component | Status |
 |---|---|
 | Embed | port |
-| Full Banner | port |
+| Full Banner | done |
 | Image Caption Overlay | port |
 | Image Grid | port |
 | Image Slider | port |
 | Page Header | done |
 | Splash | port |
-| Wide Banner | port |
+| Wide Banner | done |
 | Wide Image | done |
 
 ---
