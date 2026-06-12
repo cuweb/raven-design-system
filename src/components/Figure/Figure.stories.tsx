@@ -7,6 +7,13 @@ const meta: Meta<typeof Figure> = {
   title: 'Components/Content/Figure',
   component: Figure,
   tags: ['!autodocs'],
+  decorators: [
+    (Story) => (
+      <Main>
+        <Story />
+      </Main>
+    ),
+  ],
   argTypes: {
     size: {
       control: 'inline-radio',
@@ -18,6 +25,7 @@ const meta: Meta<typeof Figure> = {
     },
   },
   parameters: {
+    layout: 'fullscreen',
     controls: {
       sort: 'requiredFirst',
     },
@@ -43,18 +51,14 @@ export const Default: Story = {
         align: 'none',
     },
     render: (args) => (
-        <Main>
-        <Section>
-            <Figure {...args}>
-                <img
-                    src="https://picsum.photos/id/15/1200/600"
-                    alt="Landscape with trees and mountains"
-                    width="1200"
-                    height="600"
-                />
-            </Figure>
-        </Section>
-        </Main>
+        <Figure {...args}>
+            <img
+                src="https://picsum.photos/id/15/1200/600"
+                alt="Landscape with trees and mountains"
+                width="1200"
+                height="600"
+            />
+        </Figure>
     ),
 };
 
@@ -66,18 +70,14 @@ export const WithCaption: Story = {
         'A scenic landscape. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at aliquet lorem, id lobortis eros.',
     },
     render: (args) => (
-        <Main>
-            <Section>
-                <Figure {...args}>
-                    <img
-                        src="https://picsum.photos/id/15/1200/600"
-                        alt="Landscape with trees and mountains"
-                        width="1200"
-                        height="600"
-                    />
-                </Figure>
-            </Section>
-        </Main>
+        <Figure {...args}>
+            <img
+                src="https://picsum.photos/id/15/1200/600"
+                alt="Landscape with trees and mountains"
+                width="1200"
+                height="600"
+            />
+        </Figure>
     ),
 };
 
@@ -88,21 +88,19 @@ export const FloatLeft: Story = {
         caption: 'A scenic landscape with a caption.',
     },
     render: (args) => (
-        <Main>
-            <Section>
-                <Figure {...args}>
-                    <img
-                        src="https://picsum.photos/id/15/400/300"
-                        alt="Landscape with trees and mountains"
-                        width="400"
-                        height="300"
-                    />
-                </Figure>
-                <LoremPara />
-                <LoremPara />
-                <LoremPara />
-            </Section>
-        </Main>
+        <Section>
+            <Figure {...args}>
+                <img
+                    src="https://picsum.photos/id/15/400/300"
+                    alt="Landscape with trees and mountains"
+                    width="400"
+                    height="300"
+                />
+            </Figure>
+            <LoremPara />
+            <LoremPara />
+            <LoremPara />
+        </Section>
     ),
 };
 
@@ -113,21 +111,19 @@ export const FloatRight: Story = {
         caption: 'A scenic landscape with a caption.',
     },
     render: (args) => (
-        <Main>
-            <Section>
-                <Figure {...args}>
-                    <img
-                        src="https://picsum.photos/id/15/400/300"
-                        alt="Landscape with trees and mountains"
-                        width="400"
-                        height="300"
-                    />
-                </Figure>
-                <LoremPara />
-                <LoremPara />
-                <LoremPara />
-            </Section>
-        </Main>
+        <Section>
+            <Figure {...args}>
+                <img
+                    src="https://picsum.photos/id/15/400/300"
+                    alt="Landscape with trees and mountains"
+                    width="400"
+                    height="300"
+                />
+            </Figure>
+            <LoremPara />
+            <LoremPara />
+            <LoremPara />
+        </Section>
     ),
 };
 
@@ -137,20 +133,18 @@ export const Centered: Story = {
         align: 'center',
     },
     render: (args) => (
-        <Main>
-            <Section>
-                <Figure {...args}>
-                    <img
-                        src="https://picsum.photos/id/15/400/300"
-                        alt="Landscape with trees and mountains"
-                        width="400"
-                        height="300"
-                    />
-                </Figure>
-                <LoremPara />
-                <LoremPara />
-                <LoremPara />
-            </Section>
-        </Main>
+        <Section>
+            <Figure {...args}>
+                <img
+                    src="https://picsum.photos/id/15/400/300"
+                    alt="Landscape with trees and mountains"
+                    width="400"
+                    height="300"
+                />
+            </Figure>
+            <LoremPara />
+            <LoremPara />
+            <LoremPara />
+        </Section>
     ),
 };

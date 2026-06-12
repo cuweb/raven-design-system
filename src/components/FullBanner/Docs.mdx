@@ -1,0 +1,118 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FullBannerStories from './FullBanner.stories';
+
+<Meta of={FullBannerStories} />
+
+# FullBanner
+
+A full-width or constrained-width banner component that displays a background image or video with a content box anchored at the bottom of the media area.
+
+## When to use
+
+- As a hero or feature banner at the top of a page or section
+- To highlight a key message with supporting imagery or video
+- When you need flexible alignment control (full-width, wide, or content-constrained)
+- To replace the legacy `FullBanner` or `WideBanner` — this component covers both use cases via the `maxWidth` prop
+
+## Import
+
+```tsx
+import { FullBanner } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// With image background
+<FullBanner
+  title="The nostalgia is real."
+  content="The launch of the iPod revolutionized how the world consumes music on the move."
+  image="https://example.com/banner.jpg"
+  maxWidth="alignwide"
+  contentBox="xl"
+>
+  <ButtonGroup>
+    <Button title="Apply Now" />
+    <Button title="Request Information" color="dark-grey" />
+  </ButtonGroup>
+</FullBanner>
+
+// With video background
+<FullBanner
+  title="Discover What Awaits"
+  media={<FullBanner.Video src="https://example.com/campus.mp4" />}
+  maxWidth="alignfull"
+  opacity={60}
+>
+  <ButtonGroup>
+    <Button title="Explore Programs" />
+  </ButtonGroup>
+</FullBanner>
+```
+
+## Examples
+
+<Canvas of={FullBannerStories.Default} />
+<Controls of={FullBannerStories.Default} />
+
+### Full width (alignfull)
+
+<Canvas of={FullBannerStories.AlignFull} />
+
+### With video background
+
+<Canvas of={FullBannerStories.WithVideo} />
+
+### Content box at 1024px (lg)
+
+<Canvas of={FullBannerStories.ContentBoxLg} />
+
+### Centered content box
+
+<Canvas of={FullBannerStories.JustifyCenter} />
+
+### Right-aligned content box
+
+<Canvas of={FullBannerStories.JustifyEnd} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-fullbanner` | Always applied to the root element |
+| `aligncontent` | When `maxWidth="aligncontent"` — constrains to 1024px |
+| `alignwide` | When `maxWidth="alignwide"` — constrains to 1280px |
+| `alignfull` | When `maxWidth="alignfull"` — removes border-radius for edge-to-edge display |
+| `cu-fullbanner__media` | Wraps the image or video background |
+| `cu-fullbanner__img` | Applied to the `<img>` element when `image` prop is set |
+| `cu-fullbanner__video` | Applied to the `<video>` element rendered by `FullBanner.Video` |
+| `cu-fullbanner__overlay` | Semi-transparent overlay div over the media layer |
+| `cu-fullbanner__wrap` | Positions the content box area; becomes `position: absolute` at `lg` breakpoint |
+| `cu-fullbanner__inner` | Max-width and flex container for the content box |
+| `cu-fullbanner__inner--lg` | When `contentBox="lg"` — inner max-width 1024px |
+| `cu-fullbanner__inner--xl` | When `contentBox="xl"` — inner max-width 1280px |
+| `cu-fullbanner__inner--start` | When `justify="start"` — aligns content box to the left |
+| `cu-fullbanner__inner--end` | When `justify="end"` — aligns content box to the right |
+| `cu-fullbanner__inner--center` | When `justify="center"` — centers the content box |
+| `cu-fullbanner__box` | The dark translucent content box, max-width 48rem |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--radius-xl` | Border radius on the root element |
+| `--rds--radius-lg` | Border radius on the content box |
+| `--rds--color-black` | Content box background (80% opacity via `color-mix`) |
+| `--rds--color-white` | Text color inside the content box (via PageHeader `isWhite`) |
+| `--rds--spacing-large` | Padding on `__wrap` and `__box` at mobile sizes |
+| `--rds--spacing-x-large` | Padding on `__wrap` and `__box` at `lg+` |
+| `--rds--layout-content-size` | Max-width for `contentBox="lg"` (1024px) |
+| `--rds--layout-wide-size` | Max-width for `contentBox="xl"` (1280px) |
+| `--cu-fullbanner-overlay` | Overlay color/opacity, set via inline style from the `opacity` prop |
+
+## Accessibility
+
+- Background images use a real `<img>` element — provide a meaningful `imageAlt` string when the image conveys information, or leave it empty (`imageAlt=""`) for decorative images
+- Background videos are `aria-hidden="true"` and use `muted` + `autoPlay` + `loop` — they are treated as decorative; all meaningful content must be in the text or children
+- The overlay `<div>` carries `aria-hidden="true"` to prevent screen reader exposure
+- Heading level is controlled via `headerType` — use `h1` for page-level heroes and `h2` for in-page sections to maintain a logical heading hierarchy

@@ -1,34 +1,35 @@
-    import type { Meta, StoryObj } from '@storybook/react-vite';
-    import { Main } from '../components/Main/Main';
-    import { Section } from '../components/Section/Section';
-    import { Nav } from '../components/Nav/Nav';
-    import { FooterStandard } from '../components/FooterStandard';
-    import { CookieBanner } from '../components/CookieBanner';
-    import { PageHeader } from '../components/PageHeader';
-    import { largeNavData } from '../data/NavigationData';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Main } from '../components/Main/Main';
+import { Section } from '../components/Section/Section';
+import { Nav } from '../components/Nav/Nav';
+import { FooterStandard } from '../components/FooterStandard';
+import { CookieBanner } from '../components/CookieBanner';
+import { PageHeader } from '../components/PageHeader';
+import { Quote } from '../components/Quote';
+import { largeNavData } from '../data/NavigationData';
 
-    const meta: Meta = {
-        title: 'Overview/Templates/Page Layout',
-        parameters: {
-            layout: 'fullscreen',
-        },
-        tags: ['!autodocs'],
-    };
+const meta: Meta = {
+    title: 'Overview/Templates/Page Layout',
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['!autodocs'],
+};
 
-    export default meta;
-    type Story = StoryObj;
+export default meta;
+type Story = StoryObj;
 
-    const SinglePara = () => (
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
-            posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
-            <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
-            orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
-            tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
-        </p>
-    );
+const SinglePara = () => (
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
+        posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
+        <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
+        orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
+        tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
+    </p>
+);
 
-    export const PageLayout: Story = {
+export const PageLayout: Story = {
     parameters: {
         a11y: {
             config: {
@@ -66,16 +67,39 @@
                     size="primary"
                 />
 
-                <SinglePara />
                 <p>
                 This is an example page. It is different from a blog post because it will stay in one
                 place and will show up in your site navigation (in most themes). Most people start with an
                 About page that introduces them to potential site visitors. It might say something like
                 this:
                 </p>
+                <SinglePara />
 
                 <h2>Heading Two</h2>
                 <SinglePara />
+                <SinglePara />
+                <Quote
+                    cite="John Doe"
+                    graphic="border"
+                >
+                    <SinglePara />
+                </Quote>
+                <SinglePara />
+                <SinglePara />
+
+                <Section as="section" maxWidth="alignwide" isGrey>
+                    <h2>Heading Two</h2>
+                    <SinglePara />
+                    <SinglePara />
+                    <Quote
+                        cite="John Doe"
+                        graphic="border"
+                    >
+                        <SinglePara />
+                    </Quote>
+                    <SinglePara />
+                    <SinglePara />
+                </Section>
 
                 <h3>Heading Three</h3>
                 <SinglePara />

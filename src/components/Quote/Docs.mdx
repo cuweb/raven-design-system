@@ -1,0 +1,95 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as QuoteStories from './Quote.stories';
+
+<Meta of={QuoteStories} />
+
+# Quote
+
+A blockquote component for pull quotes, testimonials, and highlighted excerpts. Renders a semantic `<blockquote>` with an optional `<cite>` attribution. Two graphic variants are available: a left border rule (`border`) and a large opening quotation mark (`quote`).
+
+## When to use
+
+- Pull quotes within long-form article or page content
+- Testimonials and attributed statements
+- Breaking up dense prose with a visually distinct highlighted passage
+
+## Import
+
+```tsx
+import { Quote } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Border variant (default)
+<Quote cite="John Doe" graphic="border">
+  <p>Nobis voluptatem dolorum et eum doloremque cupiditate velit.</p>
+</Quote>
+
+// Quote mark variant
+<Quote cite="Jane Smith" graphic="quote">
+  <p>Nobis voluptatem dolorum et eum doloremque cupiditate velit.</p>
+</Quote>
+
+// Centered
+<Quote cite="John Doe" isCenter>
+  <p>Nobis voluptatem dolorum et eum doloremque cupiditate velit.</p>
+</Quote>
+```
+
+## Examples
+
+### Default (border)
+
+Left border rule in the primary brand colour. The default variant for use within article body content.
+
+<Canvas of={QuoteStories.Default} />
+<Controls of={QuoteStories.Default} />
+
+### Quote graphic
+
+Large opening quotation mark rendered via a CSS pseudo-element. Use when you want a more decorative pull quote treatment.
+
+<Canvas of={QuoteStories.QuoteGraphic} />
+
+### Centered
+
+Adds `margin-inline: auto` to center the quote within its container. Works with both graphic variants.
+
+<Canvas of={QuoteStories.Centered} />
+
+### Within a section
+
+<Canvas of={QuoteStories.WithinSection} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-quote` | Always — base class |
+| `cu-quote--border` | `graphic="border"` (default) |
+| `cu-quote--quote` | `graphic="quote"` |
+| `cu-quote--center` | `isCenter={true}` |
+| `cu-quote__cite` | Present when `cite` prop is provided |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-primary` | Border color (`border` variant); quotation mark color (`quote` variant) |
+| `--rds--radius-md` | Border radius on the `border` variant |
+| `--rds--spacing-x-small` | Vertical padding (`border` variant); top margin on `__cite` |
+| `--rds--spacing-medium` | Horizontal padding (`border` variant) |
+| `--rds--spacing-large` | Top padding (`quote` variant, to clear the pseudo-element) |
+| `--rds--font-family-inter` | Font family for the quotation mark pseudo-element |
+| `--rds--font-size-small` | `cite` font size |
+| `--rds--font-weight-semibold` | `cite` font weight |
+| `--rds--color-grey-dark` | `cite` text color |
+
+## Accessibility
+
+- The component renders a native `<blockquote>`, which is the semantically correct element for quoted content. Screen readers announce it as a block quote.
+- When `cite` is provided it renders as a `<cite>` element, which is the correct HTML element for attribution. Note that `<cite>` refers to the *title of a work or person* — it is distinct from the `cite` attribute on `<blockquote>`, which takes a URL.
+- The decorative quotation mark in the `quote` variant is a CSS `::before` pseudo-element with no text content, so it is invisible to assistive technology.
+- Do not rely on the visual border or quotation mark alone to convey meaning — the `<blockquote>` element itself carries the semantic signal.

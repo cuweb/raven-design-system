@@ -10,6 +10,19 @@ export { Main } from './components/Main/Main';
 export { Section } from './components/Section/Section';
 
 // Components
+export { FullBanner } from './components/FullBanner/FullBanner';
+export type { FullBannerProps } from './components/FullBanner/FullBanner';
+export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVideo';
+export { Quote } from './components/Quote/Quote';
+export type { QuoteProps } from './components/Quote/Quote';
+export { WideImage } from './components/WideImage/WideImage';
+export type { WideImageProps } from './components/WideImage/WideImage';
+export type { WideImageSignupProps } from './components/WideImage/WideImageSignup';
+export { Testimonial } from './components/Testimonial/Testimonial';
+export type { TestimonialProps } from './components/Testimonial/Testimonial';
+export { Timeline } from './components/Timeline/Timeline';
+export type { TimelineProps } from './components/Timeline/Timeline';
+export type { TimelineItemProps } from './components/Timeline/TimelineItem';
 export { CallOut } from './components/CallOut/CallOut';
 export type { CallOutProps } from './components/CallOut/CallOut';
 export { Figure } from './components/Figure/Figure';

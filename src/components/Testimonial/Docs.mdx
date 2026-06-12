@@ -1,0 +1,95 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TestimonialStories from './Testimonial.stories';
+
+<Meta of={TestimonialStories} />
+
+# Testimonial
+
+A self-contained featured quote block that pairs an attributed pull quote with a portrait or contextual image. The image panel is hidden on mobile and sits flush against three sides of the card on larger screens, clipped by the card's border radius. The quote and attribution are rendered directly by the component — no child components required.
+
+## When to use
+
+- Highlighting a student, alumni, or faculty testimonial alongside their photo
+- Adding a credible voice or human element to a section of a page
+- Breaking up a long page with a visually rich, attributed statement
+
+## Import
+
+```tsx
+import { Testimonial } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Image left (default)
+<Testimonial
+  quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  cite="Jane Doe"
+  imageUrl="https://example.com/photo.jpg"
+/>
+
+// Image right
+<Testimonial
+  quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  cite="John Smith"
+  imageUrl="https://example.com/photo.jpg"
+  reverse
+/>
+```
+
+## Examples
+
+### Default (image left)
+
+The image panel appears on the left at the `sm` breakpoint and above. On mobile, only the quote content is shown.
+
+<Canvas of={TestimonialStories.Default} />
+<Controls of={TestimonialStories.Default} />
+
+### Reversed (image right)
+
+Pass `reverse` to flip the image to the right side.
+
+<Canvas of={TestimonialStories.Reversed} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-testimonial` | Always — root block; grey card, flex container, rounded corners, overflow clip |
+| `cu-testimonial--reverse` | `reverse={true}` — flips image to right |
+| `cu-testimonial__image` | Always — background-image panel (hidden on mobile) |
+| `cu-testimonial__content` | Always — padding wrapper; resets `Quote` border and spacing within this context |
+
+The `__content` wrapper overrides `cu-quote--border` styles (border, padding, border-radius) so the `Quote` component's typography tokens are reused but its visual decorations are suppressed.
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-pale` | Card background color |
+| `--rds--color-grey-faint` | Image panel placeholder background |
+| `--rds--radius-xl` | Card border radius (clips image corners via `overflow: hidden`) |
+| `--rds--spacing-medium` | Content padding on mobile |
+| `--rds--spacing-x-large` | Content padding on all sides at sm+ |
+
+Quote typography and cite styling are inherited from the `Quote` component — see its design tokens for the full list.
+
+## Image props
+
+| Prop | Default | Description |
+|---|---|---|
+| `imageUrl` | — | URL of the background image |
+| `imageZoom` | `0` | Zoom level (0–9); maps to `scale(1.0)–scale(1.9)`. Use small values (1–3) for subtle zoom. |
+| `focalPointX` | `50` | Horizontal focal point as a percentage (0–100) |
+| `focalPointY` | `50` | Vertical focal point as a percentage (0–100) |
+
+These props are applied as inline styles on the image panel div. `backgroundImage` and `backgroundPosition` control placement; `transform: scale(...)` zooms the image in place.
+
+## Accessibility
+
+- The component renders a native `<blockquote>` with an optional `<cite>` element, which is the semantically correct HTML for an attributed quotation.
+- The image panel is a CSS background on a `<div>` with `aria-hidden="true"`. Background images are inherently presentational. The author's identity is conveyed through the `cite` prop.
+- The component does not render an `<img>` element, so no `alt` text is needed or applicable. If the image has critical informational content, consider using `Figure` instead.
+- On mobile viewports the image panel is hidden via `display: none`. All content remains accessible.

@@ -17,6 +17,12 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `Timeline` component with `Timeline.Item` subcomponent; vertical timeline layout with aside label column and red dot marker; responsive two-column layout on desktop; `as` prop for heading level control.
+- _Added_: `Quote` component with `border` and `quote` graphic variants, optional `cite`, and `isCenter` centering support.
+- _Added_: `Testimonial` component with image bleed layout, focal point / zoom controls, and `reverse` variant for right-side image placement.
+- _Added_: `WideImage` component with `light`, `dark`, and `image` variants; `maxWidth` alignment (same options as `Section`); optional `WideImage.Signup` subcomponent for email opt-in.
+- _Added_: `FullBanner` component merging the legacy `FullBanner` and `WideBanner` into one; supports image and video (`FullBanner.Video`) backgrounds with a bottom-anchored content box; `maxWidth` alignment, `contentBox` inner-wrapper size (`lg`=1024px / `xl`=1280px), and `justify` for start/end/center positioning.
+
 ## [0.5.15] - 2026-06-10
 
 - _Added_: `iconColor` prop on `SocialIcons` (`'black' | 'white' | 'brand'`) — sets a colour modifier class (`cu-social--{color}`) on the wrapper and drives per-icon brand colours via a new `SocialIconsContext`. Each `SocialIconsItem` receives a `data-social` attribute when a colour mode is active, and per-platform CSS custom properties (`--cu-social-brand`) are defined for LinkedIn, Facebook, Bluesky, X, Instagram, YouTube, TikTok, and ORCID.

@@ -3,6 +3,11 @@
   padding: var(--rds--spacing-large);
 }
 
+.cu-section > * + * {
+  margin-block-start: var(--rds--spacing-medium);
+  margin-block-end: 0;
+}
+
 .cu-section--grey:not(.alignfull) {
   border-radius: var(--rds--radius-xl);
 }
