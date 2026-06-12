@@ -39,27 +39,27 @@ export const rdsTokens = {
     spacing: {
         x2Small: '0.44rem',
         xSmall: '0.67rem',
-        small: 'min(1rem, 1vw)',
-        medium: 'min(1.5rem, 2vw)',
-        large: 'min(2.25rem, 3vw)',
-        xLarge: 'min(3.38rem, 4vw)',
-        x2Large: 'min(5.06rem, 6vw)'
+        small: 'clamp(0.625rem, 1vw, 1rem)',
+        medium: 'clamp(1rem, 2vw, 1.5rem)',
+        large: 'clamp(1.5rem, 3vw, 2.25rem)',
+        xLarge: 'clamp(2.5rem, 4vw, 3.38rem)',
+        x2Large: 'clamp(3.75rem, 6vw, 5.06rem)'
     },
     fontFamily: {
         inter: 'Inter, sans-serif'
     },
     fontSize: {
-        xSmall: 'clamp(0.65rem, 0.65rem + ((1vw - 0.2rem) * 0.167), 0.75rem)',
-        small: 'clamp(0.725rem, 0.725rem + ((1vw - 0.2rem) * 0.292), 0.9rem)',
-        medium: 'clamp(0.825rem, 0.825rem + ((1vw - 0.2rem) * 0.292), 1rem)',
-        large: 'clamp(0.95rem, 0.95rem + ((1vw - 0.2rem) * 0.292), 1.125rem)',
-        xLarge: 'clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.208), 1.25rem)',
+        xSmall: 'clamp(0.7rem, 0.7rem + ((1vw - 0.2rem) * 0.083), 0.75rem)',
+        small: 'clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.167), 0.9rem)',
+        medium: 'clamp(0.85rem, 0.85rem + ((1vw - 0.2rem) * 0.25), 1rem)',
+        large: 'clamp(0.9rem, 0.9rem + ((1vw - 0.2rem) * 0.375), 1.125rem)',
+        xLarge: 'clamp(1.05rem, 1.05rem + ((1vw - 0.2rem) * 0.333), 1.25rem)',
         x2Large: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem)',
         headingSmall: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem)',
         headingMedium: 'clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.833), 2rem)',
         headingLarge: 'clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem)',
-        headingXLarge: 'clamp(2rem, 2rem + ((1vw - 0.2rem) * 1.667), 3rem)',
-        headingPrimary: 'clamp(2.25rem, 2.25rem + ((1vw - 0.2rem) * 2.083), 3.5rem)'
+        headingXLarge: 'clamp(1.875rem, 1.875rem + ((1vw - 0.2rem) * 1.875), 3rem)',
+        headingPrimary: 'clamp(2rem, 2rem + ((1vw - 0.2rem) * 2.5), 3.5rem)'
     },
     shadow: {
         natural: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',

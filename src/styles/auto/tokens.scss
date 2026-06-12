@@ -39,27 +39,27 @@
   /* Spacing */
   --rds--spacing-2-x-small: 0.44rem;
   --rds--spacing-x-small: 0.67rem;
-  --rds--spacing-small: min(1rem, 1vw);
-  --rds--spacing-medium: min(1.5rem, 2vw);
-  --rds--spacing-large: min(2.25rem, 3vw);
-  --rds--spacing-x-large: min(3.38rem, 4vw);
-  --rds--spacing-2-x-large: min(5.06rem, 6vw);
+  --rds--spacing-small: clamp(0.625rem, 1vw, 1rem);
+  --rds--spacing-medium: clamp(1rem, 2vw, 1.5rem);
+  --rds--spacing-large: clamp(1.5rem, 3vw, 2.25rem);
+  --rds--spacing-x-large: clamp(2.5rem, 4vw, 3.38rem);
+  --rds--spacing-2-x-large: clamp(3.75rem, 6vw, 5.06rem);
 
   /* Font Families */
   --rds--font-family-inter: Inter, sans-serif;
 
   /* Font Sizes */
-  --rds--font-size-x-small: clamp(0.65rem, 0.65rem + ((1vw - 0.2rem) * 0.167), 0.75rem);
-  --rds--font-size-small: clamp(0.725rem, 0.725rem + ((1vw - 0.2rem) * 0.292), 0.9rem);
-  --rds--font-size-medium: clamp(0.825rem, 0.825rem + ((1vw - 0.2rem) * 0.292), 1rem);
-  --rds--font-size-large: clamp(0.95rem, 0.95rem + ((1vw - 0.2rem) * 0.292), 1.125rem);
-  --rds--font-size-x-large: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.208), 1.25rem);
+  --rds--font-size-x-small: clamp(0.7rem, 0.7rem + ((1vw - 0.2rem) * 0.083), 0.75rem);
+  --rds--font-size-small: clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.167), 0.9rem);
+  --rds--font-size-medium: clamp(0.85rem, 0.85rem + ((1vw - 0.2rem) * 0.25), 1rem);
+  --rds--font-size-large: clamp(0.9rem, 0.9rem + ((1vw - 0.2rem) * 0.375), 1.125rem);
+  --rds--font-size-x-large: clamp(1.05rem, 1.05rem + ((1vw - 0.2rem) * 0.333), 1.25rem);
   --rds--font-size-2x-large: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem);
   --rds--font-size-heading-small: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem);
   --rds--font-size-heading-medium: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.833), 2rem);
   --rds--font-size-heading-large: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem);
-  --rds--font-size-heading-x-large: clamp(2rem, 2rem + ((1vw - 0.2rem) * 1.667), 3rem);
-  --rds--font-size-heading-primary: clamp(2.25rem, 2.25rem + ((1vw - 0.2rem) * 2.083), 3.5rem);
+  --rds--font-size-heading-x-large: clamp(1.875rem, 1.875rem + ((1vw - 0.2rem) * 1.875), 3rem);
+  --rds--font-size-heading-primary: clamp(2rem, 2rem + ((1vw - 0.2rem) * 2.5), 3.5rem);
 
   /* Shadows */
   --rds--shadow-natural: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);

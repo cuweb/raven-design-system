@@ -90,27 +90,27 @@
         },
         {
           "slug": "40",
-          "size": "min(1rem, 1vw)",
+          "size": "clamp(0.625rem, 1vw, 1rem)",
           "name": "Small"
         },
         {
           "slug": "50",
-          "size": "min(1.5rem, 2vw)",
+          "size": "clamp(1rem, 2vw, 1.5rem)",
           "name": "Medium"
         },
         {
           "slug": "60",
-          "size": "min(2.25rem, 3vw)",
+          "size": "clamp(1.5rem, 3vw, 2.25rem)",
           "name": "Large"
         },
         {
           "slug": "70",
-          "size": "min(3.38rem, 4vw)",
+          "size": "clamp(2.5rem, 4vw, 3.38rem)",
           "name": "X Large"
         },
         {
           "slug": "80",
-          "size": "min(5.06rem, 6vw)",
+          "size": "clamp(3.75rem, 6vw, 5.06rem)",
           "name": "2 X Large"
         }
       ],
@@ -213,7 +213,7 @@
           "size": "0.9rem",
           "name": "Small",
           "fluid": {
-            "min": "0.725rem",
+            "min": "0.8rem",
             "max": "0.9rem"
           }
         },
@@ -222,7 +222,7 @@
           "size": "1rem",
           "name": "Medium",
           "fluid": {
-            "min": "0.825rem",
+            "min": "0.85rem",
             "max": "1rem"
           }
         },
@@ -231,7 +231,7 @@
           "size": "1.125rem",
           "name": "Large",
           "fluid": {
-            "min": "0.95rem",
+            "min": "0.9rem",
             "max": "1.125rem"
           }
         },
@@ -240,7 +240,7 @@
           "size": "1.25rem",
           "name": "X Large",
           "fluid": {
-            "min": "1.125rem",
+            "min": "1.05rem",
             "max": "1.25rem"
           }
         },
@@ -285,7 +285,7 @@
           "size": "3rem",
           "name": "Heading X Large",
           "fluid": {
-            "min": "2rem",
+            "min": "1.875rem",
             "max": "3rem"
           }
         },
@@ -294,7 +294,7 @@
           "size": "3.5rem",
           "name": "Heading Primary",
           "fluid": {
-            "min": "2.25rem",
+            "min": "2rem",
             "max": "3.5rem"
           }
         }
@@ -360,9 +360,9 @@
       "blockGap": "0",
       "padding": {
         "top": "0",
-        "right": "var(--wp--preset--spacing--60)",
+        "right": "var(--wp--preset--spacing--50)",
         "bottom": "0",
-        "left": "var(--wp--preset--spacing--60)"
+        "left": "var(--wp--preset--spacing--50)"
       }
     },
     "elements": {

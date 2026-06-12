@@ -3,11 +3,11 @@
 // Spacing
 $rds-spacing-2-x-small: 0.44rem;
 $rds-spacing-x-small: 0.67rem;
-$rds-spacing-small: min(1rem, 1vw);
-$rds-spacing-medium: min(1.5rem, 2vw);
-$rds-spacing-large: min(2.25rem, 3vw);
-$rds-spacing-x-large: min(3.38rem, 4vw);
-$rds-spacing-2-x-large: min(5.06rem, 6vw);
+$rds-spacing-small: clamp(0.625rem, 1vw, 1rem);
+$rds-spacing-medium: clamp(1rem, 2vw, 1.5rem);
+$rds-spacing-large: clamp(1.5rem, 3vw, 2.25rem);
+$rds-spacing-x-large: clamp(2.5rem, 4vw, 3.38rem);
+$rds-spacing-2-x-large: clamp(3.75rem, 6vw, 5.06rem);
 
 // Media Queries
 $rds-media-query-sm: 600px;
