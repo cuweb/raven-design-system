@@ -8,6 +8,7 @@ type maxWidthKeys = keyof typeof maxWidthClasses;
 export interface WideImageProps {
   children?: React.ReactNode;
   title: string;
+  content?: string;
   image?: string;
   headerType?: 'h1' | 'h2';
   opacity?: number;
@@ -20,6 +21,7 @@ export interface WideImageProps {
 const WideImageWrapper = ({
   children,
   title,
+  content,
   image,
   headerType = 'h2',
   opacity = 70,
@@ -52,6 +54,7 @@ const WideImageWrapper = ({
           header={title}
           as={headerType}
           size={headerType === 'h1' ? 'lg' : 'md'}
+          content={content}
           isWhite={isType !== 'light'}
           isCenter
           noUnderline

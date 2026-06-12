@@ -1,4 +1,5 @@
 import { Button } from '../Button/Button';
+import './WideImageSignup.scss';
 
 export interface WideImageSignupProps {
   buttonText?: string;

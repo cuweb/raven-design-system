@@ -12,24 +12,11 @@
 
   &--light {
     background-color: var(--rds--color-grey-pale);
+    padding-block: var(--rds--spacing-x-large);
   }
 
   &--dark {
     background-color: var(--rds--color-black);
-  }
-
-  &--image {
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: var(--cu-wideimage-overlay, rgba(0, 0, 0, 0.7));
-      z-index: 1;
-    }
-  }
-
-  &--light,
-  &--dark {
     padding-block: var(--rds--spacing-x-large);
   }
 
@@ -43,6 +30,14 @@
     @media (min-width: $rds-media-query-lg) {
       padding-block: calc(var(--rds--spacing-2-x-large) * 1.5);
     }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: var(--cu-wideimage-overlay, rgba(0, 0, 0, 0.7));
+      z-index: 1;
+    }
   }
 
   &__content {
@@ -52,97 +47,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--rds--spacing-small);
-  }
+    // gap: var(--rds--spacing-large);
+    padding: 0 var(--rds--spacing-x-large);
 
-  // Signup subcomponent
-  &__signup {
-    width: 100%;
-    max-width: 36rem;
-    display: flex;
-    flex-direction: column;
-    gap: var(--rds--spacing-small);
-  }
-
-  &__signup-row {
-    display: flex;
-    gap: var(--rds--spacing-x-small);
-  }
-
-  &__signup-input {
-    flex: 1 1 auto;
-    border-radius: var(--rds--radius-md);
-    border: 1px solid;
-    padding: 0.5rem 0.875rem;
-    font-size: var(--rds--font-size-medium);
-    font-family: var(--rds--font-family-inter);
-
-    &:focus {
-      outline: 2px solid;
-      outline-offset: 0;
+    > * + * {
+        margin-top: var(--rds--spacing-large);
     }
   }
 
-  &__signup-optin {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--rds--spacing-x-small);
-    text-align: left;
-  }
-
-  &__signup-checkbox {
-    margin-top: 0.125rem;
-    flex-shrink: 0;
-  }
-
-  &__signup-label {
-    font-size: var(--rds--font-size-small);
-    font-weight: var(--rds--font-weight-light);
-
-    a {
-      font-weight: var(--rds--font-weight-bold);
-    }
-  }
-
-  // Input styles per variant
-  &--light &__signup-input {
+  &--light &__content p {
     color: var(--rds--color-grey-dark);
-    background-color: rgba(255, 255, 255, 0.4);
-    border-color: var(--rds--color-grey-light);
-
-    &::placeholder {
-      color: var(--rds--color-grey-dark);
-    }
-
-    &:focus {
-      background-color: var(--rds--color-white);
-      outline-color: var(--rds--color-grey-dark);
-    }
+    margin: 0;
   }
 
-  &--dark &__signup-input,
-  &--image &__signup-input {
+  &--dark &__content p,
+  &--image &__content p {
     color: var(--rds--color-white);
-    background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.4);
-
-    &::placeholder {
-      color: var(--rds--color-grey-lighter);
-    }
-
-    &:focus {
-      background-color: rgba(255, 255, 255, 0.1);
-      outline-color: var(--rds--color-white);
-    }
-  }
-
-  &--dark &__signup-label,
-  &--image &__signup-label {
-    color: var(--rds--color-white);
-
-    a {
-      color: var(--rds--color-white);
-      border-bottom: 1px solid var(--rds--color-white);
-    }
+    margin: 0;
   }
 }
