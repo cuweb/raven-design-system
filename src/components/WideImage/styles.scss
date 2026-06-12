@@ -47,7 +47,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // gap: var(--rds--spacing-large);
     padding: 0 var(--rds--spacing-x-large);
 
     > * + * {
@@ -57,12 +56,10 @@
 
   &--light &__content p {
     color: var(--rds--color-grey-dark);
-    margin: 0;
   }
 
   &--dark &__content p,
   &--image &__content p {
     color: var(--rds--color-white);
-    margin: 0;
   }
 }

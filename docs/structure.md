@@ -80,7 +80,7 @@ Full-width or image/video-heavy promotional components.
 | Page Header | done |
 | Splash | port |
 | Wide Banner | port |
-| Wide Image | port |
+| Wide Image | done |
 
 ---
 

@@ -6,8 +6,6 @@ import { FooterStandard } from '../components/FooterStandard';
 import { CookieBanner } from '../components/CookieBanner';
 import { PageHeader } from '../components/PageHeader';
 import { Quote } from '../components/Quote';
-import { CallOut } from '../components/CallOut';
-import { WideImage } from '../components/WideImage';
 import { largeNavData } from '../data/NavigationData';
 
 const meta: Meta = {
@@ -69,33 +67,13 @@ export const PageLayout: Story = {
                     size="primary"
                 />
 
-                <SinglePara />
-                <WideImage
-                    focalPointX={50}
-                    focalPointY={50}
-                    headerType="h1"
-                    image="https://picsum.photos/id/381/1200/600"
-                    isType="image"
-                    maxWidth="alignwide"
-                    opacity={70}
-                    title="Wide Image with Photo"
-                />
-                <SinglePara />
-                <CallOut
-                    justify="start"
-                    maxWidth="aligncontent"
-                    title="Open House"
-                >
-                    {/* <SinglePara /> */}
-                </CallOut>
-                <SinglePara />
-                <SinglePara />
                 <p>
                 This is an example page. It is different from a blog post because it will stay in one
                 place and will show up in your site navigation (in most themes). Most people start with an
                 About page that introduces them to potential site visitors. It might say something like
                 this:
                 </p>
+                <SinglePara />
 
                 <h2>Heading Two</h2>
                 <SinglePara />
