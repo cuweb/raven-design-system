@@ -30,6 +30,37 @@
   }
 }
 
+.cu-fullbanner__video-wrap {
+  position: relative;
+}
+
+.cu-fullbanner__video-toggle {
+  position: absolute;
+  top: var(--rds--spacing-small);
+  right: var(--rds--spacing-small);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: var(--rds--radius-full);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--rds--color-white);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--rds--color-white);
+    outline-offset: 2px;
+  }
+}
+
 .cu-fullbanner__overlay {
   position: absolute;
   inset: 0;
@@ -43,7 +74,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        padding: var(--rds--spacing-x-large);
+        padding: var(--rds--spacing-medium);
     }
 }
 
