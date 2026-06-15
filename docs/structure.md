@@ -26,17 +26,17 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 Atomic, composable primitives. Used as building blocks inside larger components.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Avatar | done |
-| Badge | done |
-| Badge Group | done |
-| Button | done |
-| Button Group | done |
-| Icon | done |
-| Progress Bar | done |
-| Social Icons | done |
-| Status | done |
+| Avatar | done | No | No
+| Badge | done | No | No
+| Badge Group | done | No | No
+| Button | done | No | No
+| Button Group | done | No | No
+| Icon | done | No | No
+| Progress Bar | done | No | No
+| Social Icons | done | No | No
+| Status | done | No | No
 
 ---
 
@@ -44,25 +44,25 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Calendar | port |
-| Call Out | done |
-| Card | done |
-| Carleton360 | port |
-| Description | port |
-| Details | port |
-| Figure | done |
-| Funding Details | port |
-| Listing | port |
-| Location | port |
-| Multi-day Calendar | port |
-| Quote | done |
-| Table | port |
-| Testimonial | done |
-| Text & Image | port |
-| Text & Media | port |
-| Timeline | done |
+| Calendar | port | No | No
+| Call Out | done | No | No
+| Card | done | No | No
+| Carleton360 | port | No | No
+| Description | port | No | No
+| Details | port | No | No
+| Figure | done | No | No
+| Funding Details | port | No | No
+| Listing | port | No | No
+| Location | port | No | No
+| Multi-day Calendar | port | No | No
+| Quote | done | No | No
+| Table | port | No | No
+| Testimonial | done | No | No
+| Text & Image | port | No | No
+| Text & Media | port | No | No
+| Timeline | done | No | No
 
 ---
 
@@ -70,17 +70,17 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 Full-width or image/video-heavy promotional components.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Embed | port |
-| Full Banner | done |
-| Image Caption Overlay | port |
-| Image Grid | port |
-| Image Slider | port |
-| Page Header | done |
-| Splash | port |
-| Wide Banner | done |
-| Wide Image | done |
+| Embed | port | No | No
+| Full Banner | done | No | No
+| Image Caption Overlay | port | No | No
+| Image Grid | port | No | No
+| Image Slider | port | No | No
+| Page Header | done | No | No
+| Splash | port | No | No
+| Wide Banner | done | No | No
+| Wide Image | done | No | No
 
 ---
 
@@ -88,14 +88,14 @@ Full-width or image/video-heavy promotional components.
 
 Wayfinding components — site chrome, page-level navigation, search, and pagination.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Department Bar | done |
-| Footer | done |
-| Footer Standard | done |
-| Nav | done |
-| Pagination | port |
-| Search Input | port |
+| Department Bar | done | No | No
+| Footer | done | No | No
+| Footer Standard | done | No | No
+| Nav | done | No | No
+| Pagination | port | No | No
+| Search Input | port | No | No
 
 ---
 
@@ -103,30 +103,30 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 Data entry and filtering. Form is a sub-system with its own set of primitive inputs — each sub-component lives under `Components/Forms/` and is built independently.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Filter Panel | port |
-| Location Picker | port |
-| **Form** | port |
-| → Auto Suggest | port |
-| → Checkbox | port |
-| → Date Time | port |
-| → Error | port |
-| → Field Array Container | port |
-| → Field Control | port |
-| → Field Group | port |
-| → Field Wrapper | port |
-| → File Upload | port |
-| → Form Button | port |
-| → Form Field | port |
-| → Form Field Set | port |
-| → Helper Text | port |
-| → Input | port |
-| → Input Addon | port |
-| → Places Auto Complete | port |
-| → Radio | port |
-| → Select | port |
-| → Text Area | port |
+| Filter Panel | port | No | No
+| Location Picker | port | No | No
+| **Form** | port | No | No
+| → Auto Suggest | port | No | No
+| → Checkbox | port | No | No
+| → Date Time | port | No | No
+| → Error | port | No | No
+| → Field Array Container | port | No | No
+| → Field Control | port | No | No
+| → Field Group | port | No | No
+| → Field Wrapper | port | No | No
+| → File Upload | port | No | No
+| → Form Button | port | No | No
+| → Form Field | port | No | No
+| → Form Field Set | port | No | No
+| → Helper Text | port | No | No
+| → Input | port | No | No
+| → Input Addon | port | No | No
+| → Places Auto Complete | port | No | No
+| → Radio | port | No | No
+| → Select | port | No | No
+| → Text Area | port | No | No
 
 ---
 
@@ -136,28 +136,28 @@ Transient overlays, loading skeletons, error states, and empty states.
 
 Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but are grouped here rather than alongside each component — they share a common skeleton pattern and are typically used together.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Alert | port |
-| Dialog | port |
-| Error Messages | port |
-| **Loaders** | port |
-| → Block Loader | port |
-| → Button Loader | port |
-| → Calendar Loader | port |
-| → Card Loader | port |
-| → Description Loader | port |
-| → Event Loader | port |
-| → Form Loader | port |
-| → Listing Loader | port |
-| → Page Header Loader | port |
-| → Page Loader | port |
-| → Pagination Loader | port |
-| → Table Loader | port |
-| → Top Nav Loader | port |
-| Modal | port |
-| Placeholder | port |
-| Toast | port |
+| Alert | port | No | No
+| Dialog | port | No | No
+| Error Messages | port | No | No
+| **Loaders** | port | No | No
+| → Block Loader | port | No | No
+| → Button Loader | port | No | No
+| → Calendar Loader | port | No | No
+| → Card Loader | port | No | No
+| → Description Loader | port | No | No
+| → Event Loader | port | No | No
+| → Form Loader | port | No | No
+| → Listing Loader | port | No | No
+| → Page Header Loader | port | No | No
+| → Page Loader | port | No | No
+| → Pagination Loader | port | No | No
+| → Table Loader | port | No | No
+| → Top Nav Loader | port | No | No
+| Modal | port | No | No
+| Placeholder | port | No | No
+| Toast | port | No | No
 
 ---
 
@@ -165,14 +165,14 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Column | done |
-| Float Box | port |
-| Image Cover | port |
-| Section | done |
-| Stacked List | port |
-| Wide Wave | port |
+| Column | done | No | No
+| Float Box | port | No | No
+| Image Cover | port | No | No
+| Section | done | No | No
+| Stacked List | port | No | No
+| Wide Wave | port | No | No
 
 ---
 
@@ -180,12 +180,12 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Article | done |
-| Aside | done |
-| Body | done |
-| Main | done |
+| Article | done | No | No
+| Aside | done | No | No
+| Body | done | No | No
+| Main | done | No | No
 
 ---
 
@@ -193,9 +193,9 @@ WordPress block editor template part wrappers. These map directly to the templat
 
 Behavioral or non-visual components. These don't render meaningful UI on their own.
 
-| Component | Status |
+| Component | Status | Primary Review | Secondary Review
 |---|---|
-| Cookie Banner | done |
-| Link Provider | done |
-| Login | port |
-| Meta | port |
+| Cookie Banner | done | No | No
+| Link Provider | done | No | No
+| Login | port | No | No
+| Meta | port | No | No
