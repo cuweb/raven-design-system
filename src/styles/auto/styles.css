@@ -167,9 +167,9 @@ body {
 
 body {
   --rds--root-padding-top: 0;
-  --rds--root-padding-right: var(--rds--spacing-medium);
+  --rds--root-padding-right: var(--rds--spacing-large);
   --rds--root-padding-bottom: 0;
-  --rds--root-padding-left: var(--rds--spacing-medium);
+  --rds--root-padding-left: var(--rds--spacing-large);
   --rds--root-block-gap: 0;
 }
 

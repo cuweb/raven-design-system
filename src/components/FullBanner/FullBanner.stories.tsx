@@ -101,7 +101,7 @@ export const WithVideo: Story = {
   render: (args) => (
     <FullBanner
       {...args}
-      media={<FullBanner.Video src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />}
+      media={<FullBanner.Video src="https://cdn.carleton.ca/truth/videos/aerial-view-20260513134411.mp4" />}
     >
       <ButtonGroup>
         <Button title="Explore Programs" />
