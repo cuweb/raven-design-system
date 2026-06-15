@@ -26,7 +26,7 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 Atomic, composable primitives. Used as building blocks inside larger components.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Avatar | done | No | No
 | Badge | done | No | No
@@ -36,7 +36,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 | Icon | done | No | No
 | Progress Bar | done | No | No
 | Social Icons | done | No | No
-| Status | done | No | No
+| Refactor Status | done | No | No
 
 ---
 
@@ -44,7 +44,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Calendar | port | No | No
 | Call Out | done | No | No
@@ -70,7 +70,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 Full-width or image/video-heavy promotional components.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Embed | port | No | No
 | Full Banner | done | No | No
@@ -88,7 +88,7 @@ Full-width or image/video-heavy promotional components.
 
 Wayfinding components — site chrome, page-level navigation, search, and pagination.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Department Bar | done | No | No
 | Footer | done | No | No
@@ -103,7 +103,7 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 Data entry and filtering. Form is a sub-system with its own set of primitive inputs — each sub-component lives under `Components/Forms/` and is built independently.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Filter Panel | port | No | No
 | Location Picker | port | No | No
@@ -136,7 +136,7 @@ Transient overlays, loading skeletons, error states, and empty states.
 
 Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but are grouped here rather than alongside each component — they share a common skeleton pattern and are typically used together.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Alert | port | No | No
 | Dialog | port | No | No
@@ -165,7 +165,7 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Column | done | No | No
 | Float Box | port | No | No
@@ -180,7 +180,7 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Article | done | No | No
 | Aside | done | No | No
@@ -193,7 +193,7 @@ WordPress block editor template part wrappers. These map directly to the templat
 
 Behavioral or non-visual components. These don't render meaningful UI on their own.
 
-| Component | Status | Primary Review | Secondary Review
+| Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Cookie Banner | done | No | No
 | Link Provider | done | No | No
