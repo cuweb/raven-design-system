@@ -95,8 +95,8 @@
 
   &--blue {
     color: var(--rds--color-white);
-    background-color: var(--rds--color-blue);
-    border-color: var(--rds--color-blue);
+    background-color: var(--rds--color-experience-blue);
+    border-color: var(--rds--color-experience-blue);
 
     &:hover {
       background-color: var(--rds--color-grey-dark);
@@ -104,14 +104,14 @@
     }
 
     &.cu-button--outline {
-      color: var(--rds--color-blue);
+      color: var(--rds--color-experience-blue);
       background-color: var(--rds--color-white);
-      border-color: var(--rds--color-blue);
+      border-color: var(--rds--color-experience-blue);
 
       &:hover {
         color: var(--rds--color-white);
-        background-color: var(--rds--color-blue);
-        border-color: var(--rds--color-blue);
+        background-color: var(--rds--color-experience-blue);
+        border-color: var(--rds--color-experience-blue);
       }
     }
   }

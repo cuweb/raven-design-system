@@ -1,0 +1,85 @@
+@use '../../styles/auto/variables' as *;
+
+.cu-stackedlist {
+  overflow: hidden;
+  border-radius: var(--rds--radius-lg);
+  background-color: var(--rds--color-white);
+  width: 100%;
+  box-shadow: var(--rds--shadow-natural);
+
+  &--no-shadow {
+    box-shadow: none;
+  }
+
+  &__header {
+    padding: var(--rds--spacing-medium);
+    font-size: var(--rds--font-size-large);
+    font-weight: var(--rds--font-weight-semibold);
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
+    border-radius: var(--rds--radius-lg) var(--rds--radius-lg) 0 0;
+    background-color: var(--rds--color-grey-faint);
+    color: var(--rds--color-black);
+    margin: 0;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--cols-1 > li,
+  &--cols-1 > div {
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &--cols-2 {
+    @media (min-width: $rds-media-query-md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    > li,
+    > div {
+      border-bottom: 1px solid var(--rds--color-grey-lighter);
+
+      @media (min-width: $rds-media-query-md) {
+        &:last-child {
+          border-bottom: none;
+        }
+
+        /* Right border on all odd items to create column divider */
+        &:nth-child(odd) {
+          border-right: 1px solid var(--rds--color-grey-lighter);
+        }
+
+        /* Remove bottom border from items in the last row */
+        &:nth-last-child(-n + 2):nth-child(odd),
+        &:nth-last-child(-n + 2):nth-child(even) {
+          border-bottom: none;
+        }
+
+        /* If odd item is the only item in its row (last child is odd), remove its bottom border */
+        &:nth-child(odd):last-child {
+          border-bottom: none;
+        }
+
+        /* Second-to-last item when it's odd and the last is even */
+        &:nth-child(odd):nth-last-child(2) {
+          border-bottom: none;
+        }
+      }
+    }
+
+    /* Single-column fallback (mobile) — only bottom borders */
+    > li:last-child,
+    > div:last-child {
+      border-bottom: none;
+    }
+  }
+}

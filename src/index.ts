@@ -23,6 +23,8 @@ export type { TestimonialProps } from './components/Testimonial/Testimonial';
 export { Timeline } from './components/Timeline/Timeline';
 export type { TimelineProps } from './components/Timeline/Timeline';
 export type { TimelineItemProps } from './components/Timeline/TimelineItem';
+export { StackedList } from './components/StackedList';
+export type { StackedListProps } from './components/StackedList';
 export { CallOut } from './components/CallOut/CallOut';
 export type { CallOutProps } from './components/CallOut/CallOut';
 export { Figure } from './components/Figure/Figure';

@@ -1,0 +1,97 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as StackedListStories from './StackedList.stories';
+
+<Meta of={StackedListStories} />
+
+# StackedList
+
+A bordered card-style container that arranges list items in a one- or two-column responsive grid. Renders an outer wrapper `<div>` with an inner `<ul>` (or `<div>`) grid and an optional section heading.
+
+## When to use
+
+- Displaying a scannable set of content items — news posts, events, people, or any short-form repeating content.
+- Grouping related items under a labelled section with an optional header.
+- Showing items side-by-side on larger screens with a clean column divider.
+- Embedding within a `Section` or `Column` layout wrapper where the container width is already constrained.
+
+## Import
+
+```tsx
+import { StackedList } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Two-column grid (default)
+<StackedList>
+  <li>Item one</li>
+  <li>Item two</li>
+  <li>Item three</li>
+  <li>Item four</li>
+</StackedList>
+
+// Single-column list with a header
+<StackedList cols="1" header="Latest News">
+  <li>Item one</li>
+  <li>Item two</li>
+</StackedList>
+
+// No shadow, using a div container
+<StackedList as="div" noShadow>
+  <div>Item one</div>
+  <div>Item two</div>
+</StackedList>
+```
+
+## Examples
+
+### Primary (two-column)
+
+<Canvas of={StackedListStories.Primary} />
+<Controls of={StackedListStories.Primary} />
+
+### Single column
+
+<Canvas of={StackedListStories.SingleColumn} />
+
+### With header
+
+<Canvas of={StackedListStories.WithHeader} />
+
+### No shadow
+
+<Canvas of={StackedListStories.NoShadow} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-stackedlist` | Always — base wrapper |
+| `cu-stackedlist--no-shadow` | `noShadow={true}` |
+| `cu-stackedlist__header` | When `header` prop is provided |
+| `cu-stackedlist__list` | Always — inner grid container |
+| `cu-stackedlist--cols-1` | `cols="1"` |
+| `cu-stackedlist--cols-2` | `cols="2"` (default) |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-white` | Wrapper background |
+| `--rds--color-black` | Header text color |
+| `--rds--color-grey-faint` | Header background |
+| `--rds--color-grey-lighter` | Item border and header bottom border |
+| `--rds--font-size-large` | Header font size |
+| `--rds--font-weight-semibold` | Header font weight |
+| `--rds--radius-lg` | Wrapper and header border radius |
+| `--rds--shadow-natural` | Default box shadow |
+| `--rds--spacing-small` | Header vertical padding |
+| `--rds--spacing-medium` | Header horizontal padding |
+
+## Accessibility
+
+- The inner container renders as a semantic `<ul>` by default — use `as="div"` only when children are not `<li>` elements.
+- The optional `header` renders as an `<h2>`; ensure the heading level fits the surrounding document outline.
+- List items rely solely on border color to indicate the column separation — this is a structural cue, not a meaning-bearing color, so it does not introduce a color-only information concern.
+- `StackedList` itself carries no interactive behavior; keyboard and screen-reader behavior is determined entirely by the children passed in.

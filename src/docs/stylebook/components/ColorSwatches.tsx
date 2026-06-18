@@ -5,11 +5,6 @@ const prefix = config.prefix;
 const colors = config.tokens.color;
 const gradients = config.tokens.gradient;
 
-type SwatchFilter = 'primary' | 'secondary' | 'semantic' | 'neutral' | 'gradient';
-
-// Semantic colors have no natural name prefix, so they must be listed explicitly.
-const SEMANTIC_NAMES = ['success', 'warning', 'error', 'info'] as const;
-
 type SwatchEntry = {
   name: string;
   preview: string; // hex value or gradient string — set as the swatch background
@@ -17,25 +12,24 @@ type SwatchEntry = {
   displayValue?: string; // hex to show below; undefined for gradients
 };
 
-function categoryOf(name: string): Exclude<SwatchFilter, 'gradient'> {
-  if (name === 'primary' || name.startsWith('primary-')) return 'primary';
-  if (name === 'secondary' || name.startsWith('secondary-')) return 'secondary';
-  if ((SEMANTIC_NAMES as readonly string[]).includes(name)) return 'semantic';
-  return 'neutral';
-}
+function parseColors(names?: string[]): SwatchEntry[] {
+  const entries = Object.entries(colors).map(([name, value]) => {
+    const hex = typeof value === 'string' ? value : value.value;
+    return {
+      name,
+      preview: hex,
+      cssVar: `--${prefix}--color-${name}`,
+      displayValue: hex,
+    };
+  });
 
-function parseColors(filter?: SwatchFilter): SwatchEntry[] {
-  return Object.entries(colors)
-    .map(([name, value]) => {
-      const hex = typeof value === 'string' ? value : value.value;
-      return {
-        name,
-        preview: hex,
-        cssVar: `--${prefix}--color-${name}`,
-        displayValue: hex,
-      };
-    })
-    .filter((e) => !filter || filter === 'gradient' || categoryOf(e.name) === filter);
+  if (!names) return entries;
+
+  return names.reduce<SwatchEntry[]>((acc, n) => {
+    const entry = entries.find((e) => e.name === n);
+    if (entry) acc.push(entry);
+    return acc;
+  }, []);
 }
 
 function parseGradients(): SwatchEntry[] {
@@ -47,13 +41,14 @@ function parseGradients(): SwatchEntry[] {
 }
 
 type ColorSwatchesProps = {
-  filter?: SwatchFilter;
+  gradient?: boolean;
+  names?: string[];
   title?: string;
   description?: string;
 };
 
-export function ColorSwatches({ filter, title, description }: ColorSwatchesProps) {
-  const entries = filter === 'gradient' ? parseGradients() : parseColors(filter);
+export function ColorSwatches({ gradient, names, title, description }: ColorSwatchesProps) {
+  const entries = gradient ? parseGradients() : parseColors(names);
 
   return (
     <section className="sb-section">
@@ -68,7 +63,7 @@ export function ColorSwatches({ filter, title, description }: ColorSwatchesProps
           <div key={entry.name} className="sb-swatch">
             <div className="sb-swatch__color" style={{ background: entry.preview }} />
             <strong className="sb-swatch__name">{entry.name}</strong>
-            <code className="sb-swatch__var">var({entry.cssVar})</code>
+            <code className="sb-swatch__var">{entry.cssVar}</code>
             {entry.displayValue && <span className="sb-swatch__value">{entry.displayValue}</span>}
           </div>
         ))}
