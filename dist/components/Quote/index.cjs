@@ -1,0 +1,1 @@
+Object.defineProperty(exports,Symbol.toStringTag,{value:`Module`});const e=require("../_shared/Quote-Rt-072vZ.cjs");exports.Quote=e.t;

@@ -7,12 +7,15 @@ interface SocialIconsItemProps {
     label: string;
 }
 
+type SocialIconsColor = 'black' | 'white' | 'brand';
+
 interface SocialIconsProps {
     children: React.ReactNode;
     prefix?: string;
+    iconColor?: SocialIconsColor;
 }
 declare const SocialIcons: {
-    ({ children, prefix }: SocialIconsProps): react.JSX.Element;
+    ({ children, prefix, iconColor }: SocialIconsProps): react.JSX.Element;
     displayName: string;
 } & {
     Item: {

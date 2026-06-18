@@ -1,0 +1,119 @@
+.cu-fullbanner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--rds--radius-xl);
+}
+.cu-fullbanner.alignfull {
+  border-radius: 0;
+}
+
+.cu-fullbanner__media {
+  position: relative;
+}
+
+.cu-fullbanner__img,
+.cu-fullbanner__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 784px) {
+  .cu-fullbanner__img,
+  .cu-fullbanner__video {
+    max-height: 480px;
+  }
+}
+@media (min-width: 1024px) {
+  .cu-fullbanner__img,
+  .cu-fullbanner__video {
+    max-height: 580px;
+  }
+}
+
+.cu-fullbanner__video-wrap {
+  position: relative;
+}
+
+.cu-fullbanner__video-toggle {
+  position: absolute;
+  top: var(--rds--spacing-small);
+  right: var(--rds--spacing-small);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: var(--rds--radius-full);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--rds--color-white);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.cu-fullbanner__video-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.cu-fullbanner__video-toggle:focus-visible {
+  outline: 2px solid var(--rds--color-white);
+  outline-offset: 2px;
+}
+
+.cu-fullbanner__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--cu-fullbanner-overlay, rgba(0, 0, 0, 0.7));
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .cu-fullbanner__wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--rds--spacing-medium);
+  }
+}
+.cu-fullbanner__inner {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1024px) {
+  .cu-fullbanner__inner--lg {
+    max-width: var(--rds--layout-content-size);
+  }
+  .cu-fullbanner__inner--xl {
+    max-width: var(--rds--layout-wide-size);
+  }
+}
+.cu-fullbanner__inner--start {
+  justify-content: flex-start;
+}
+.cu-fullbanner__inner--end {
+  justify-content: flex-end;
+}
+.cu-fullbanner__inner--center {
+  justify-content: center;
+}
+
+.cu-fullbanner__box {
+  background-color: var(--rds--color-black);
+  padding: var(--rds--spacing-large);
+  width: 100%;
+}
+.cu-fullbanner__box > * + * {
+  margin-top: var(--rds--spacing-large);
+}
+.cu-fullbanner__box p {
+  color: var(--rds--color-white);
+}
+@media (min-width: 1024px) {
+  .cu-fullbanner__box {
+    max-width: 48rem;
+    background-color: color-mix(in srgb, var(--rds--color-black) 80%, transparent);
+    border-radius: var(--rds--radius-lg);
+  }
+}

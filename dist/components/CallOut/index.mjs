@@ -1,5 +1,5 @@
 import { t as e } from "../_shared/PageHeader-B4JoWbfe.mjs";
-import { n as t } from "../_shared/propClasses-CvHMppSh.mjs";
+import { r as t } from "../_shared/propClasses-BbEv--Kn.mjs";
 import "react";
 import { jsx as n, jsxs as r } from "react/jsx-runtime";
 //#region src/components/CallOut/CallOut.tsx

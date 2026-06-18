@@ -10,6 +10,10 @@ var e = {
 	4: "four",
 	"1/3": "one-third",
 	"2/3": "two-thirds"
+}, n = {
+	start: "start",
+	end: "end",
+	center: "center"
 };
 //#endregion
-export { e as n, t };
+export { n, e as r, t };

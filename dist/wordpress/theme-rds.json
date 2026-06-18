@@ -18,11 +18,6 @@
           "name": "Primary Dark"
         },
         {
-          "slug": "secondary",
-          "color": "#426587",
-          "name": "Secondary"
-        },
-        {
           "slug": "black",
           "color": "#191919",
           "name": "Black"

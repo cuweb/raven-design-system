@@ -4,8 +4,6 @@ export const rdsTokens = {
     color: {
         primary: '#e91c24',
         primaryDark: '#a21218',
-        secondary: '#426587',
-        secondaryDark: '#2c3c4e',
         black: '#191919',
         greyDark: '#434343',
         grey: '#767676',
@@ -18,7 +16,8 @@ export const rdsTokens = {
         purpleLight: '#D3DAE9',
         teal: '#3A8082',
         tealLight: '#C8DAD7',
-        experienceBlue: '#026BC8',
+        expBlue: '#026BC8',
+        expBlueLight: '#E0EEFE',
         success: '#007c24',
         warning: '#f4c83c',
         error: '#d31820',

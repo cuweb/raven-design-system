@@ -1,0 +1,1 @@
+let e=require("react/jsx-runtime");var t=({children:t,cite:n,graphic:r=`border`,isCenter:i})=>(0,e.jsxs)(`blockquote`,{className:[`cu-quote`,`cu-quote--${r}`,i?`cu-quote--center`:void 0].filter(Boolean).join(` `),children:[t,n&&(0,e.jsx)(`cite`,{className:`cu-quote__cite`,children:n})]});Object.defineProperty(exports,"t",{enumerable:!0,get:function(){return t}});

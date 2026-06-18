@@ -4,8 +4,6 @@
   /* Colors */
   --rds--color-primary: #e91c24;
   --rds--color-primary-dark: #a21218;
-  --rds--color-secondary: #426587;
-  --rds--color-secondary-dark: #2c3c4e;
   --rds--color-black: #191919;
   --rds--color-grey-dark: #434343;
   --rds--color-grey: #767676;
@@ -18,7 +16,8 @@
   --rds--color-purple-light: #D3DAE9;
   --rds--color-teal: #3A8082;
   --rds--color-teal-light: #C8DAD7;
-  --rds--color-experience-blue: #026BC8;
+  --rds--color-exp-blue: #026BC8;
+  --rds--color-exp-blue-light: #E0EEFE;
   --rds--color-success: #007c24;
   --rds--color-warning: #f4c83c;
   --rds--color-error: #d31820;

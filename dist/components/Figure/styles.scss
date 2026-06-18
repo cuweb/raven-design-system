@@ -27,8 +27,7 @@
   }
 }
 .cu-figure--left {
-  margin-top: var(--rds--spacing-medium);
-  margin-bottom: var(--rds--spacing-medium);
+  margin: var(--rds--spacing-medium) 0;
 }
 @media (min-width: 784px) {
   .cu-figure--left {
@@ -39,8 +38,7 @@
   }
 }
 .cu-figure--right {
-  margin-top: var(--rds--spacing-medium);
-  margin-bottom: var(--rds--spacing-medium);
+  margin: var(--rds--spacing-medium) 0;
 }
 @media (min-width: 784px) {
   .cu-figure--right {
@@ -51,7 +49,7 @@
   }
 }
 .cu-figure--center {
-  margin-inline: auto;
+  margin: var(--rds--spacing-medium) 0;
 }
 
 .cu-figure__inner {

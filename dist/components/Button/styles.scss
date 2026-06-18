@@ -81,22 +81,22 @@
 }
 .cu-button--blue {
   color: var(--rds--color-white);
-  background-color: var(--rds--color-blue);
-  border-color: var(--rds--color-blue);
+  background-color: var(--rds--color-experience-blue);
+  border-color: var(--rds--color-experience-blue);
 }
 .cu-button--blue:hover {
   background-color: var(--rds--color-grey-dark);
   border-color: var(--rds--color-grey-dark);
 }
 .cu-button--blue.cu-button--outline {
-  color: var(--rds--color-blue);
+  color: var(--rds--color-experience-blue);
   background-color: var(--rds--color-white);
-  border-color: var(--rds--color-blue);
+  border-color: var(--rds--color-experience-blue);
 }
 .cu-button--blue.cu-button--outline:hover {
   color: var(--rds--color-white);
-  background-color: var(--rds--color-blue);
-  border-color: var(--rds--color-blue);
+  background-color: var(--rds--color-experience-blue);
+  border-color: var(--rds--color-experience-blue);
 }
 .cu-button--black {
   color: var(--rds--color-white);

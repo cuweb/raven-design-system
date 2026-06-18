@@ -1,30 +1,41 @@
 import { t as e } from "../_shared/useLinkContext-C6Tt2S8U.mjs";
 import { t } from "../_shared/Icon-BxlTg0gG.mjs";
-import { jsx as n, jsxs as r } from "react/jsx-runtime";
-//#region src/components/SocialIcons/SocialIconsItem.tsx
-var i = ({ icon: r, href: i, label: a }) => /* @__PURE__ */ n("li", {
-	className: "cu-social__item",
-	children: /* @__PURE__ */ n(e(), {
-		className: "cu-social__link",
-		href: i,
-		"aria-label": a,
-		children: /* @__PURE__ */ n(t, { name: r })
-	})
-});
-i.displayName = "SocialIcons.Item";
+import { createContext as n, useContext as r } from "react";
+import { jsx as i, jsxs as a } from "react/jsx-runtime";
+//#region src/components/SocialIcons/SocialIconsContext.ts
+var o = n({}), s = () => r(o), c = ({ icon: n, href: r, label: a }) => {
+	let o = e(), { iconColor: c } = s();
+	return /* @__PURE__ */ i("li", {
+		className: "cu-social__item",
+		"data-social": c ? n : void 0,
+		children: /* @__PURE__ */ i(o, {
+			className: "cu-social__link",
+			href: r,
+			"aria-label": a,
+			children: /* @__PURE__ */ i(t, { name: n })
+		})
+	});
+};
+c.displayName = "SocialIcons.Item";
 //#endregion
 //#region src/components/SocialIcons/SocialIcons.tsx
-var a = ({ children: e, prefix: t }) => /* @__PURE__ */ r("div", {
-	className: "cu-social",
-	children: [t && /* @__PURE__ */ n("p", {
-		className: "cu-social__prefix",
-		children: t
-	}), /* @__PURE__ */ n("ul", {
-		className: "cu-social__list",
-		children: e
-	})]
-});
-a.displayName = "SocialIcons";
-var o = Object.assign(a, { Item: i });
+var l = ({ children: e, prefix: t, iconColor: n }) => {
+	let r = n ? `cu-social--${n}` : void 0;
+	return /* @__PURE__ */ i(o.Provider, {
+		value: { iconColor: n },
+		children: /* @__PURE__ */ a("div", {
+			className: ["cu-social", r].filter(Boolean).join(" "),
+			children: [t && /* @__PURE__ */ i("p", {
+				className: "cu-social__prefix",
+				children: t
+			}), /* @__PURE__ */ i("ul", {
+				className: "cu-social__list",
+				children: e
+			})]
+		})
+	});
+};
+l.displayName = "SocialIcons";
+var u = Object.assign(l, { Item: c });
 //#endregion
-export { o as SocialIcons };
+export { u as SocialIcons };

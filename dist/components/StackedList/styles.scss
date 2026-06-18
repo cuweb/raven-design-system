@@ -1,0 +1,89 @@
+@charset "UTF-8";
+.cu-stackedlist {
+  overflow: hidden;
+  border-radius: var(--rds--radius-lg);
+  background-color: var(--rds--color-white);
+  width: 100%;
+  box-shadow: var(--rds--shadow-natural);
+}
+.cu-stackedlist--no-shadow {
+  box-shadow: none;
+}
+.cu-stackedlist__header {
+  padding: var(--rds--spacing-medium);
+  font-size: var(--rds--font-size-large);
+  font-weight: var(--rds--font-weight-semibold);
+  border-bottom: 1px solid var(--rds--color-grey-lighter);
+  border-radius: var(--rds--radius-lg) var(--rds--radius-lg) 0 0;
+  background-color: var(--rds--color-grey-faint);
+  color: var(--rds--color-black);
+  margin: 0;
+}
+.cu-stackedlist__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cu-stackedlist--cols-1 > li, .cu-stackedlist--cols-1 > div {
+  border-bottom: 1px solid var(--rds--color-grey-lighter);
+}
+.cu-stackedlist--cols-1 > li:last-child, .cu-stackedlist--cols-1 > div:last-child {
+  border-bottom: none;
+}
+@media (min-width: 784px) {
+  .cu-stackedlist--cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.cu-stackedlist--cols-2 > li,
+.cu-stackedlist--cols-2 > div {
+  border-bottom: 1px solid var(--rds--color-grey-lighter);
+}
+@media (min-width: 784px) {
+  .cu-stackedlist--cols-2 > li:last-child,
+  .cu-stackedlist--cols-2 > div:last-child {
+    border-bottom: none;
+  }
+  .cu-stackedlist--cols-2 > li,
+  .cu-stackedlist--cols-2 > div {
+    /* Right border on all odd items to create column divider */
+  }
+  .cu-stackedlist--cols-2 > li:nth-child(odd),
+  .cu-stackedlist--cols-2 > div:nth-child(odd) {
+    border-right: 1px solid var(--rds--color-grey-lighter);
+  }
+  .cu-stackedlist--cols-2 > li,
+  .cu-stackedlist--cols-2 > div {
+    /* Remove bottom border from items in the last row */
+  }
+  .cu-stackedlist--cols-2 > li:nth-last-child(-n+2):nth-child(odd), .cu-stackedlist--cols-2 > li:nth-last-child(-n+2):nth-child(even),
+  .cu-stackedlist--cols-2 > div:nth-last-child(-n+2):nth-child(odd),
+  .cu-stackedlist--cols-2 > div:nth-last-child(-n+2):nth-child(even) {
+    border-bottom: none;
+  }
+  .cu-stackedlist--cols-2 > li,
+  .cu-stackedlist--cols-2 > div {
+    /* If odd item is the only item in its row (last child is odd), remove its bottom border */
+  }
+  .cu-stackedlist--cols-2 > li:nth-child(odd):last-child,
+  .cu-stackedlist--cols-2 > div:nth-child(odd):last-child {
+    border-bottom: none;
+  }
+  .cu-stackedlist--cols-2 > li,
+  .cu-stackedlist--cols-2 > div {
+    /* Second-to-last item when it's odd and the last is even */
+  }
+  .cu-stackedlist--cols-2 > li:nth-child(odd):nth-last-child(2),
+  .cu-stackedlist--cols-2 > div:nth-child(odd):nth-last-child(2) {
+    border-bottom: none;
+  }
+}
+.cu-stackedlist--cols-2 {
+  /* Single-column fallback (mobile) — only bottom borders */
+}
+.cu-stackedlist--cols-2 > li:last-child,
+.cu-stackedlist--cols-2 > div:last-child {
+  border-bottom: none;
+}

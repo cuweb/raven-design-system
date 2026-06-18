@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.cu-quote {
+  position: relative;
+  max-width: 48rem;
+}
+.cu-quote p {
+  margin: 0;
+}
+.cu-quote--border {
+  border-left: 4px solid var(--rds--color-primary);
+  border-radius: var(--rds--radius-md);
+  padding: var(--rds--spacing-x-small) var(--rds--spacing-medium);
+}
+.cu-quote--quote {
+  padding-top: var(--rds--spacing-large);
+  padding-left: var(--rds--spacing-x-small);
+}
+.cu-quote--quote::before {
+  content: "“";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--rds--color-primary);
+  font-family: var(--rds--font-family-inter);
+}
+.cu-quote--center {
+  margin-inline: auto;
+}
+.cu-quote__cite {
+  display: block;
+  font-size: var(--rds--font-size-small);
+  font-weight: var(--rds--font-weight-light);
+  font-style: normal;
+  margin-top: var(--rds--spacing-x-small);
+}
