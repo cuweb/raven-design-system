@@ -13,6 +13,8 @@ export { Section } from './components/Section/Section';
 export { FullBanner } from './components/FullBanner/FullBanner';
 export type { FullBannerProps } from './components/FullBanner/FullBanner';
 export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVideo';
+export { ImageCover } from './components/ImageCover';
+export type { ImageCoverProps } from './components/ImageCover';
 export { Quote } from './components/Quote/Quote';
 export type { QuoteProps } from './components/Quote/Quote';
 export { WideImage } from './components/WideImage/WideImage';

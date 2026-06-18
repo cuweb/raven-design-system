@@ -1,0 +1,113 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ImageCoverStories from './ImageCover.stories';
+
+<Meta of={ImageCoverStories} />
+
+# ImageCover
+
+A full-bleed `<section>` that layers a background image, a white semi-transparent overlay, and a decorative red wave along the bottom edge — providing a branded visual backdrop for arbitrary child content.
+
+## When to use
+
+- Inserting branded visual breaks between content sections of a page.
+- Giving a page hero or editorial section a photographic background while keeping body text legible with the white overlay.
+- Wrapping `PageHeader`, `Column`, or other layout components inside a richly styled background area.
+- Full-width (`alignfull`) for edge-to-edge impact, or constrained (`aligncontent` / `alignwide`) to match the page layout.
+
+## Import
+
+```tsx
+import { ImageCover } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Default constrained width with a background image
+<ImageCover image="https://example.com/photo.jpg" opacity={85}>
+  <h2>Section Heading</h2>
+  <p>Body copy sits over the white overlay on top of the background image.</p>
+</ImageCover>
+
+// Full-bleed with custom focal point
+<ImageCover
+  image="https://example.com/photo.jpg"
+  maxWidth="alignfull"
+  opacity={80}
+  focalPointX={30}
+  focalPointY={60}
+>
+  <PageHeader header="Page Title" />
+</ImageCover>
+
+// No image — renders a plain grey background
+<ImageCover opacity={100}>
+  <p>Content on a plain background.</p>
+</ImageCover>
+```
+
+## Examples
+
+### Primary
+
+<Canvas of={ImageCoverStories.Primary} />
+<Controls of={ImageCoverStories.Primary} />
+
+### Align full
+
+When `maxWidth="alignfull"` the section spans the full viewport width with no border radius.
+
+<Canvas of={ImageCoverStories.AlignFull} />
+
+### With focal point
+
+Adjust `focalPointX` and `focalPointY` (0–100) to reposition the background image within its container.
+
+<Canvas of={ImageCoverStories.WithFocalPoint} />
+
+### Custom opacity
+
+Lower `opacity` values reveal more of the background image through the white overlay.
+
+<Canvas of={ImageCoverStories.CustomOpacity} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-imagecover` | Always — root `<section>` |
+| `aligncontent` | `maxWidth="aligncontent"` (default) |
+| `alignwide` | `maxWidth="alignwide"` |
+| `alignfull` | `maxWidth="alignfull"` |
+| `cu-imagecover__wave` | Always — decorative wave layer |
+| `cu-imagecover__overlay` | Always — white opacity layer |
+| `cu-imagecover__content` | Always — content container |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-pale` | Fallback background when no image is provided |
+| `--rds--radius-xl` | Border radius on `aligncontent` variant |
+| `--rds--asset-cu-waves-repeating-bottom-red` | Decorative wave pattern |
+| `--rds--spacing-medium` | Content horizontal padding (mobile) |
+| `--rds--spacing-large` | Content padding (mobile vertical / tablet horizontal) |
+| `--rds--spacing-x-large` | Content padding (tablet vertical / desktop horizontal) |
+| `--rds--spacing-2-x-large` | Content bottom padding — creates space above the wave |
+
+### CSS custom properties (set inline per instance)
+
+| Property | Default | Controls |
+|---|---|---|
+| `--cu-imagecover-bg` | `none` | Background image URL |
+| `--cu-imagecover-focal-x` | `50%` | Horizontal focal point |
+| `--cu-imagecover-focal-y` | `50%` | Vertical focal point |
+| `--cu-imagecover-overlay` | `rgba(255,255,255,0.85)` | White overlay colour/opacity |
+
+## Accessibility
+
+- The component renders as a `<section>` landmark; give it an accessible name with `aria-label` or an in-content heading so screen readers can identify the region.
+- The background image is applied via CSS and conveys no information independently — all meaningful content must be expressed through children.
+- The wave and overlay divs carry `aria-hidden="true"` so they are invisible to assistive technology.
+- Ensure sufficient contrast between child text and the computed overlay color. A higher `opacity` value (closer to 100) increases the white coverage and improves contrast for dark text.
+- Interactive elements inside `children` (links, buttons) receive standard keyboard focus and are unaffected by the decorative layers.
