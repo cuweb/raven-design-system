@@ -3,16 +3,13 @@ import * as ImageCoverStories from './ImageCover.stories';
 
 <Meta of={ImageCoverStories} />
 
-# ImageCover
+# Image Cover
 
-A page-level content container with a decorative background image, white overlay, and red wave along the bottom edge. Structurally identical to `Section` — same `maxWidth`, `isGrey`, and `contentWidth` props — with `image` and `opacity` added to control the background layer.
+A page-level content container that controls width, background, and vertical rhythm. Nests inside `Main` and wraps layout components like `Column`, `Article`, and `Aside`. Three max-width presets align with the WordPress block editor's alignment system.
 
 ## When to use
 
-- Adding branded visual impact to a page section without sacrificing content readability.
-- Full-bleed (`alignfull`) hero or accent bands where the image spans edge-to-edge.
-- Constrained variants (`aligncontent` / `alignwide`) for mid-page visual breaks that respect the layout grid.
-- Use `contentWidth` alongside `maxWidth="alignfull"` to keep the background full-bleed while constraining child content to a readable column.
+Use `ImageCover` to group related content into a distinct visual band — a card grid, an article body, a call-to-action strip. Stack multiple `ImageCover` components inside `Main` to build alternating white and grey content rows. Use `maxWidth="alignfull"` with `isGrey` for full-bleed accent sections. Add `contentWidth` when you want the section background to span one width while the children are constrained to a narrower readable column.
 
 ## Import
 
@@ -23,37 +20,30 @@ import { ImageCover } from '@cuweb/rds2';
 ## Basic usage
 
 ```tsx
-// Default — content width, image background with grey tint
+// Default — content width, white background
 <Main>
-  <ImageCover image="https://example.com/photo.jpg" isGrey>
-    <Column cols="2">...</Column>
-  </ImageCover>
-</Main>
-
-// Full-bleed image band
-<Main>
-  <ImageCover image="https://example.com/photo.jpg" isGrey maxWidth="alignfull">
+  <ImageCover>
     <Column cols="3">...</Column>
   </ImageCover>
 </Main>
 
-// Full-bleed image, content constrained to 1024px
+// Full-bleed grey band
 <Main>
-  <ImageCover image="https://example.com/photo.jpg" isGrey maxWidth="alignfull" contentWidth={false}>
+  <ImageCover maxWidth="alignfull">
+    <Column cols="3">...</Column>
+  </ImageCover>
+</Main>
+
+// Full-bleed grey band with content constrained to 1024px
+<Main>
+  <ImageCover maxWidth="alignfull" contentWidth={false}>
     <Column cols="2">...</Column>
   </ImageCover>
 </Main>
 
-// Full-bleed image, content constrained to 1280px
+// Full-bleed grey band with content constrained to 1280px
 <Main>
-  <ImageCover image="https://example.com/photo.jpg" isGrey maxWidth="alignfull" contentWidth>
-    <Column cols="2">...</Column>
-  </ImageCover>
-</Main>
-
-// Reduced opacity — more of the image shows through
-<Main>
-  <ImageCover image="https://example.com/photo.jpg" isGrey opacity={60}>
+  <ImageCover maxWidth="alignfull" contentWidth>
     <Column cols="2">...</Column>
   </ImageCover>
 </Main>
@@ -63,26 +53,26 @@ import { ImageCover } from '@cuweb/rds2';
 
 ### Default
 
-Content width (`aligncontent`), no image. Use the controls to explore `as`, `isGrey`, `maxWidth`, `contentWidth`, `image`, and `opacity`.
+Content width (`aligncontent`), white background. Use the controls to explore `as`, `isGrey`, `maxWidth`, and `contentWidth`.
 
 <Canvas of={ImageCoverStories.Default} />
 <Controls of={ImageCoverStories.Default} />
 
-### With image
+### Wide
 
-`isGrey` adds the grey background, padding, and border radius. The `image` prop layers a background photo behind the white overlay.
+`maxWidth="alignwide"` expands the section to the wide layout width (`--rds--layout-wide-size`).
 
-<Canvas of={ImageCoverStories.WithImage} />
+<Canvas of={ImageCoverStories.Wide} />
 
 ### Full width
 
-`maxWidth="alignfull"` runs edge to edge. The border radius is removed automatically.
+`maxWidth="alignfull"` runs edge to edge. Combined with `isGrey` this is the standard full-bleed accent band. When a full-width grey section is the last child of `Main`, a negative bottom margin is applied automatically to eliminate the double-spacing gap at the page foot.
 
 <Canvas of={ImageCoverStories.FullWidth} />
 
 ### Full width with constrained content (1024px)
 
-`contentWidth={false}` wraps children in an inner div constrained to 1024px — the background image stays full-bleed.
+`contentWidth={false}` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
 
 <Canvas of={ImageCoverStories.FullWidthConstrained} />
 
@@ -92,12 +82,6 @@ Content width (`aligncontent`), no image. Use the controls to explore `as`, `isG
 
 <Canvas of={ImageCoverStories.FullWidthConstrainedWide} />
 
-### Custom opacity
-
-Lower `opacity` values reveal more of the background image through the white overlay.
-
-<Canvas of={ImageCoverStories.CustomOpacity} />
-
 ## Max-width presets
 
 | `maxWidth` | Token | Description |
@@ -106,60 +90,50 @@ Lower `opacity` values reveal more of the background image through the white ove
 | `"alignwide"` | `--rds--layout-wide-size` | Wider — for card grids and media-rich sections |
 | `"alignfull"` | `--rds--layout-full-size` | Full viewport width — hero and accent bands |
 
+These names and tokens mirror the WordPress block editor's alignment system so that React templates and WordPress block themes share the same layout vocabulary.
+
 ## The `as` prop
 
-By default `ImageCover` renders a `<section>` element. Pass `as="div"` when a section landmark is semantically inappropriate.
+By default `ImageCover` renders a `<section>` element. Pass `as="div"` when a section landmark is semantically inappropriate — for example, a purely decorative spacer row or a wrapper that forms part of a larger landmark region.
 
 ## The `contentWidth` prop
 
-When set, `contentWidth` wraps all children in an inner `has-global-padding` div constrained within the outer layout:
+When set, `contentWidth` wraps all children in a `cu-section__content` div independently constrained within the outer layout:
 
 | Value | Inner content width |
 |---|---|
 | `false` | 1024px (`aligncontent`) |
 | `true` / `contentWidth` (no value) | 1280px (`alignwide`) |
 
-Omitting `contentWidth` leaves children as direct descendants of the root.
+Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 
 ## CSS classes
 
 | Class | When applied |
 |---|---|
-| `cu-imagecover` | Always |
-| `cu-imagecover--white` | `isGrey` is false (default) |
-| `cu-imagecover--grey` | `isGrey={true}` |
+| `cu-section` | Always |
+| `cu-section--white` | `isGrey` is false (default) |
+| `cu-section--grey` | `isGrey={true}` |
 | `aligncontent` | `maxWidth="aligncontent"` (default) |
 | `alignwide` | `maxWidth="alignwide"` |
 | `alignfull` | `maxWidth="alignfull"` |
-| `has-global-padding` | When `isGrey={true}` — horizontal gutter |
+| `has-global-padding` | When `isGrey={true}` — horizontal gutter from `--rds--layout-gutter` |
 | `is-layout-constrained` | Always — constrains children to content / wide widths |
-| `cu-imagecover__wave` | Always — decorative wave (`alignfull` to opt out of layout constraint) |
-| `cu-imagecover__overlay` | Always — white opacity layer (`alignfull` to opt out of layout constraint) |
+| `cu-section__content` | When `contentWidth` is set — inner wrapper div |
 
 ## Design tokens
 
 | Token | Used for |
 |---|---|
-| `--rds--color-grey-pale` | Grey background when `isGrey={true}` |
-| `--rds--spacing-large` | Padding on grey variant |
-| `--rds--spacing-2-x-large` | Bottom padding — creates space above the wave |
-| `--rds--radius-xl` | Border radius on non-full-width grey variant |
-| `--rds--asset-cu-waves-repeating-bottom-red` | Decorative wave pattern |
+| `--rds--color-grey-pale` | Grey section background |
+| `--rds--spacing-large` | Internal padding on grey sections |
+| `--rds--radius-xl` | Border radius on non-full-width grey sections |
 | `--rds--layout-content-size` | `aligncontent` max-width |
 | `--rds--layout-wide-size` | `alignwide` max-width |
 | `--rds--layout-full-size` | `alignfull` max-width (100%) |
 
-### CSS custom properties (set inline per instance)
-
-| Property | Default | Controls |
-|---|---|---|
-| `--cu-imagecover-bg` | `none` | Background image URL (set via `image` prop) |
-| `--cu-imagecover-overlay` | `rgba(255,255,255,0.85)` | White overlay colour/opacity (set via `opacity` prop) |
-
 ## Accessibility
 
-- The component renders as a `<section>` landmark; give it an accessible name with `aria-label` or an in-content heading so screen readers can identify the region.
-- The background image is purely decorative and applied via CSS — all meaningful content must be expressed through children.
-- The wave and overlay carry `aria-hidden="true"` so they are invisible to assistive technology.
-- Use `isGrey` together with `image` to ensure the grey tint is present; lower `opacity` values reduce the white overlay and may decrease text contrast.
-- Interactive elements inside `children` receive standard keyboard focus and are unaffected by the decorative layers.
+- `<section>` is a landmark element when it has an accessible name — add `aria-label` or `aria-labelledby` via the standard HTML prop when the section's purpose should be surfaced to screen reader navigation.
+- Without an accessible name, `<section>` is not exposed as a landmark, which is acceptable for generic layout sections. Use `as="div"` if you actively want to suppress any landmark semantics.
+- When stacking many sections on a single page, ensure each meaningful `<section>` landmark has a distinct label so screen reader users can distinguish between them in landmark navigation.

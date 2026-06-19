@@ -4,7 +4,7 @@ import { Section } from '../Section/Section';
 import { StackedList } from './StackedList';
 
 const meta: Meta<typeof StackedList> = {
-  title: 'Components/Layout/StackedList',
+  title: 'Components/Layout/Stacked List',
   component: StackedList,
   tags: ['!autodocs'],
   decorators: [
