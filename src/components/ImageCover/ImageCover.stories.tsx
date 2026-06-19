@@ -2,6 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Main } from '../Main/Main';
 import { ImageCover } from './ImageCover';
 import { MultiParagraph } from '../../data/storyContent';
+import bgImages from '../../data/BgImagesData.json';
+
+const imageOptions = bgImages.map((img) => img.value);
 
 const meta: Meta<typeof ImageCover> = {
   title: 'Components/Layout/Image Cover',
@@ -23,6 +26,13 @@ const meta: Meta<typeof ImageCover> = {
       control: 'inline-radio',
       options: [false, true],
       description: 'false = 1024px (content), true = 1280px (wide)',
+    },
+    image: {
+      control: 'select',
+      options: [undefined, ...imageOptions],
+    },
+    opacity: {
+      control: { type: 'range', min: 0, max: 100, step: 5 },
     },
   },
   parameters: {
@@ -54,8 +64,8 @@ export const Wide: Story = {
 
 export const FullWidth: Story = {
   render: () => (
-      <ImageCover maxWidth="alignfull">
-        <MultiParagraph count={2} />
+      <ImageCover maxWidth="alignfull" image="tory">
+        <MultiParagraph count={6} />
       </ImageCover>
   ),
 };

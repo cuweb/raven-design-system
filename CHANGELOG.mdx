@@ -18,7 +18,7 @@ Prefix the change with one of these keywords:
 ## [Unreleased]
 
 - _Added_: `contentWidth` prop to `Section` — wraps children in a constrained inner `has-global-padding` div so the background width (`maxWidth`) and content column width can be set independently; `false` = 1024px, `true` = 1280px.
-- _Changed_: `ImageCover` rebuilt as a structural clone of `Section` — same `as`, `isGrey`, `maxWidth`, `contentWidth` props, layout CSS classes, and SCSS patterns — with `image` and `opacity` added for the background layer. Removed `focalPointX`/`focalPointY` props; background position defaults to `50% 50%`. Wave and overlay are now negative z-index within an `isolation: isolate` stacking context so content is always above them without explicit z-index.
+- _Changed_: `ImageCover` rebuilt — `maxWidth` and `contentWidth` props align with `Section`; `image` prop accepts a name key (e.g. `"tory"`) and constructs the CDN URL internally (`https://cdn.carleton.ca/rds/assets/bg-images/{name}.jpg`); `opacity` (0–100, default 85) controls the white overlay via `::after`. Background image styles are scoped to a `cu-imagecover--image` modifier so the grey background always shows when no image is provided. Removed `focalPointX`/`focalPointY`; background defaults to `50% 50%`. Wave and overlay use `isolation: isolate` + negative z-index so content is always above them without explicit z-index. Added `BgImagesData.json` as the image name source.
 - _Added_: `StackedList` component; bordered card-style container for arranging list items in a one- or two-column responsive grid with optional section heading and shadow control.
 
 ## [0.6.0] - 2026-06-12
