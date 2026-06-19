@@ -19,6 +19,11 @@ const meta: Meta<typeof ImageCover> = {
       control: 'select',
       options: ['aligncontent', 'alignwide', 'alignfull'],
     },
+    contentWidth: {
+      control: 'inline-radio',
+      options: [false, true],
+      description: 'false = 1024px (content), true = 1280px (wide)',
+    },
     opacity: {
       control: { type: 'range', min: 50, max: 100, step: 5 },
     },
@@ -48,7 +53,7 @@ export const Primary: Story = {
   },
   render: (args) => (
     <ImageCover {...args}>
-      <MultiParagraph count={2} />
+      <MultiParagraph count={5} />
     </ImageCover>
   ),
 };
@@ -63,7 +68,39 @@ export const AlignFull: Story = {
   },
   render: (args) => (
     <ImageCover {...args}>
-      <MultiParagraph count={2} />
+      <MultiParagraph count={5} />
+    </ImageCover>
+  ),
+};
+
+export const AlignFullConstrainedContent: Story = {
+  args: {
+    image: 'https://picsum.photos/id/338/1920/840',
+    opacity: 85,
+    focalPointX: 50,
+    focalPointY: 50,
+    maxWidth: 'alignfull',
+    contentWidth: false,
+  },
+  render: (args) => (
+    <ImageCover {...args}>
+      <MultiParagraph count={5} />
+    </ImageCover>
+  ),
+};
+
+export const AlignFullWideContent: Story = {
+  args: {
+    image: 'https://picsum.photos/id/338/1920/840',
+    opacity: 85,
+    focalPointX: 50,
+    focalPointY: 50,
+    maxWidth: 'alignfull',
+    contentWidth: true,
+  },
+  render: (args) => (
+    <ImageCover {...args}>
+      <MultiParagraph count={5} />
     </ImageCover>
   ),
 };
@@ -78,7 +115,7 @@ export const WithFocalPoint: Story = {
   },
   render: (args) => (
     <ImageCover {...args}>
-      <MultiParagraph count={2} />
+      <MultiParagraph count={5} />
     </ImageCover>
   ),
 };
@@ -93,7 +130,7 @@ export const CustomOpacity: Story = {
   },
   render: (args) => (
     <ImageCover {...args}>
-      <MultiParagraph count={2} />
+      <MultiParagraph count={5} />
     </ImageCover>
   ),
 };

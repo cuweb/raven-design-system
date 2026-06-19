@@ -9,7 +9,7 @@ A page-level content container that controls width, background, and vertical rhy
 
 ## When to use
 
-Use `Section` to group related content into a distinct visual band — a card grid, an article body, a call-to-action strip. Stack multiple `Section` components inside `Main` to build alternating white and grey content rows. Use `maxWidth="alignfull"` with `isGrey` for full-bleed accent sections.
+Use `Section` to group related content into a distinct visual band — a card grid, an article body, a call-to-action strip. Stack multiple `Section` components inside `Main` to build alternating white and grey content rows. Use `maxWidth="alignfull"` with `isGrey` for full-bleed accent sections. Add `contentWidth` when you want the section background to span one width while the children are constrained to a narrower readable column.
 
 ## Import
 
@@ -40,13 +40,27 @@ import { Section } from '@cuweb/rds2';
     <Column cols="3">...</Column>
   </Section>
 </Main>
+
+// Full-bleed grey band with content constrained to 1024px
+<Main>
+  <Section maxWidth="alignfull" isGrey contentWidth={false}>
+    <Column cols="2">...</Column>
+  </Section>
+</Main>
+
+// Full-bleed grey band with content constrained to 1280px
+<Main>
+  <Section maxWidth="alignfull" isGrey contentWidth>
+    <Column cols="2">...</Column>
+  </Section>
+</Main>
 ```
 
 ## Examples
 
 ### Default
 
-Content width (`aligncontent`), white background. Use the controls to explore `as`, `isGrey`, and `maxWidth`.
+Content width (`aligncontent`), white background. Use the controls to explore `as`, `isGrey`, `maxWidth`, and `contentWidth`.
 
 <Canvas of={SectionStories.Default} />
 <Controls of={SectionStories.Default} />
@@ -69,6 +83,18 @@ Content width (`aligncontent`), white background. Use the controls to explore `a
 
 <Canvas of={SectionStories.FullWidth} />
 
+### Full width with constrained content (1024px)
+
+`contentWidth={false}` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
+
+<Canvas of={SectionStories.FullWidthConstrained} />
+
+### Full width with constrained content (1280px)
+
+`contentWidth` (or `contentWidth={true}`) uses the wider 1280px column.
+
+<Canvas of={SectionStories.FullWidthConstrainedWide} />
+
 ### Alternating sections
 
 The most common page pattern — alternating white and grey bands, ending with a full-bleed grey footer band.
@@ -89,6 +115,17 @@ These names and tokens mirror the WordPress block editor's alignment system so t
 
 By default `Section` renders a `<section>` element. Pass `as="div"` when a section landmark is semantically inappropriate — for example, a purely decorative spacer row or a wrapper that forms part of a larger landmark region.
 
+## The `contentWidth` prop
+
+When set, `contentWidth` wraps all children in a `cu-section__content` div independently constrained within the outer layout:
+
+| Value | Inner content width |
+|---|---|
+| `false` | 1024px (`aligncontent`) |
+| `true` / `contentWidth` (no value) | 1280px (`alignwide`) |
+
+Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
+
 ## CSS classes
 
 | Class | When applied |
@@ -99,8 +136,9 @@ By default `Section` renders a `<section>` element. Pass `as="div"` when a secti
 | `aligncontent` | `maxWidth="aligncontent"` (default) |
 | `alignwide` | `maxWidth="alignwide"` |
 | `alignfull` | `maxWidth="alignfull"` |
-| `has-global-padding` | Always — horizontal gutter from `--rds--layout-gutter` |
+| `has-global-padding` | When `isGrey={true}` — horizontal gutter from `--rds--layout-gutter` |
 | `is-layout-constrained` | Always — constrains children to content / wide widths |
+| `cu-section__content` | When `contentWidth` is set — inner wrapper div |
 
 ## Design tokens
 

@@ -1,14 +1,12 @@
 import React from 'react';
 import './styles.scss';
 
-import { maxWidthClasses } from '../../utils/propClasses';
-type maxWidthKeys = keyof typeof maxWidthClasses;
-
 export interface SectionProps {
   children?: React.ReactNode;
   as?: 'section' | 'div';
   isGrey?: boolean;
-  maxWidth?: maxWidthKeys;
+  maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
+  contentWidth?: boolean;
 }
 
 export const Section = ({
@@ -16,16 +14,22 @@ export const Section = ({
   as = 'section',
   isGrey,
   maxWidth = 'aligncontent',
+  contentWidth,
 }: SectionProps) => {
   const SectionWrapper = as;
   const sectionBackground = isGrey ? 'grey has-global-padding' : 'white';
-  const sectionWidth = maxWidth ? maxWidthClasses[maxWidth] : '';
 
   return (
     <SectionWrapper
-      className={`cu-section cu-section--${sectionBackground} ${sectionWidth} is-layout-constrained`}
+      className={`cu-section cu-section--${sectionBackground} ${maxWidth} is-layout-constrained`}
     >
-      {children}
+      {contentWidth !== undefined ? (
+        <div className={`has-global-padding ${contentWidth ? 'alignwide' : 'aligncontent'}`}>
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </SectionWrapper>
   );
 };

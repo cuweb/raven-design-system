@@ -1,18 +1,12 @@
 import React from 'react';
 
-declare const maxWidthClasses: {
-    aligncontent: string;
-    alignwide: string;
-    alignfull: string;
-};
-
-type maxWidthKeys = keyof typeof maxWidthClasses;
 interface SectionProps {
     children?: React.ReactNode;
     as?: 'section' | 'div';
     isGrey?: boolean;
-    maxWidth?: maxWidthKeys;
+    maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
+    contentWidth?: boolean;
 }
-declare const Section: ({ children, as, isGrey, maxWidth, }: SectionProps) => React.JSX.Element;
+declare const Section: ({ children, as, isGrey, maxWidth, contentWidth, }: SectionProps) => React.JSX.Element;
 
 export { Section };

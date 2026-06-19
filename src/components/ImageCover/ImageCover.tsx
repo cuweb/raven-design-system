@@ -1,7 +1,4 @@
-import { maxWidthClasses } from '../../utils/propClasses';
 import './styles.scss';
-
-type MaxWidthKeys = keyof typeof maxWidthClasses;
 
 export interface ImageCoverProps {
   children?: React.ReactNode;
@@ -9,7 +6,8 @@ export interface ImageCoverProps {
   opacity?: number;
   focalPointX?: number;
   focalPointY?: number;
-  maxWidth?: MaxWidthKeys;
+  maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
+  contentWidth?: boolean;
 }
 
 export const ImageCover = ({
@@ -19,8 +17,9 @@ export const ImageCover = ({
   focalPointX = 50,
   focalPointY = 50,
   maxWidth = 'aligncontent',
+  contentWidth,
 }: ImageCoverProps) => {
-  const rootClasses = ['cu-imagecover', maxWidthClasses[maxWidth]].filter(Boolean).join(' ');
+  const rootClasses = ['cu-imagecover', maxWidth].filter(Boolean).join(' ');
 
   const rootStyle = {
     ...(image && { '--cu-imagecover-bg': `url(${image})` }),
@@ -33,7 +32,15 @@ export const ImageCover = ({
     <section className={rootClasses} style={rootStyle}>
       <div className="cu-imagecover__wave" aria-hidden="true" />
       <div className="cu-imagecover__overlay" aria-hidden="true" />
-      <div className="cu-imagecover__content">{children}</div>
+      <div className="cu-imagecover__content is-layout-constrained has-global-padding">
+        {contentWidth !== undefined ? (
+          <div className={`cu-imagecover__inner ${contentWidth ? 'alignwide' : 'aligncontent'}`}>
+            {children}
+          </div>
+        ) : (
+          children
+        )}
+      </div>
     </section>
   );
 };

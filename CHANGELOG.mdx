@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `contentWidth` prop to `Section` — wraps children in a constrained inner div so the background width (`maxWidth`) and content column width can be set independently; `false` = 1024px, `true` = 1280px.
+- _Added_: `contentWidth` prop to `ImageCover` — same independent inner content width control (`false` = 1024px, `true` = 1280px); `cu-imagecover__content` now uses `is-layout-constrained has-global-padding` for layout-system-aware horizontal gutters.
 - _Added_: `StackedList` component; bordered card-style container for arranging list items in a one- or two-column responsive grid with optional section heading and shadow control.
 - _Added_: `ImageCover` component; full-bleed `<section>` with a CSS background image, white semi-transparent overlay, and decorative Carleton wave — provides a branded visual backdrop for arbitrary child content.
 

@@ -8,6 +8,20 @@
   margin-block-end: 0;
 }
 
+.cu-section > .has-global-padding,
+.has-global-padding > .cu-section.alignfull > .has-global-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+.cu-section > .has-global-padding > *:first-child,
+.has-global-padding > .cu-section.alignfull > .has-global-padding > *:first-child {
+  margin-top: 0;
+}
+.cu-section > .has-global-padding > *:last-child,
+.has-global-padding > .cu-section.alignfull > .has-global-padding > *:last-child {
+  margin-bottom: 0;
+}
+
 .cu-section--grey:not(.alignfull) {
   border-radius: var(--rds--radius-xl);
 }

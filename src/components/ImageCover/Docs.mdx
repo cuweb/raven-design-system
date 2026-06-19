@@ -13,6 +13,7 @@ A full-bleed `<section>` that layers a background image, a white semi-transparen
 - Giving a page hero or editorial section a photographic background while keeping body text legible with the white overlay.
 - Wrapping `PageHeader`, `Column`, or other layout components inside a richly styled background area.
 - Full-width (`alignfull`) for edge-to-edge impact, or constrained (`aligncontent` / `alignwide`) to match the page layout.
+- Use `contentWidth` alongside `maxWidth="alignfull"` to keep the background full-bleed while constraining child content to a readable column.
 
 ## Import
 
@@ -40,6 +41,24 @@ import { ImageCover } from '@cuweb/rds2';
   <PageHeader header="Page Title" />
 </ImageCover>
 
+// Full-bleed background, children constrained to 1024px
+<ImageCover
+  image="https://example.com/photo.jpg"
+  maxWidth="alignfull"
+  contentWidth={false}
+>
+  <PageHeader header="Page Title" />
+</ImageCover>
+
+// Full-bleed background, children constrained to 1280px
+<ImageCover
+  image="https://example.com/photo.jpg"
+  maxWidth="alignfull"
+  contentWidth
+>
+  <PageHeader header="Page Title" />
+</ImageCover>
+
 // No image — renders a plain grey background
 <ImageCover opacity={100}>
   <p>Content on a plain background.</p>
@@ -58,6 +77,18 @@ import { ImageCover } from '@cuweb/rds2';
 When `maxWidth="alignfull"` the section spans the full viewport width with no border radius.
 
 <Canvas of={ImageCoverStories.AlignFull} />
+
+### Align full with constrained content (1024px)
+
+`contentWidth={false}` wraps children in a `cu-imagecover__inner` div constrained to 1024px — the background image stays full-bleed.
+
+<Canvas of={ImageCoverStories.AlignFullConstrainedContent} />
+
+### Align full with wide content (1280px)
+
+`contentWidth` (or `contentWidth={true}`) uses the wider 1280px column.
+
+<Canvas of={ImageCoverStories.AlignFullWideContent} />
 
 ### With focal point
 
@@ -81,7 +112,9 @@ Lower `opacity` values reveal more of the background image through the white ove
 | `alignfull` | `maxWidth="alignfull"` |
 | `cu-imagecover__wave` | Always — decorative wave layer |
 | `cu-imagecover__overlay` | Always — white opacity layer |
-| `cu-imagecover__content` | Always — content container |
+| `cu-imagecover__content` | Always — layout container (`is-layout-constrained has-global-padding`) |
+| `cu-imagecover__inner aligncontent` | `contentWidth={false}` — inner wrapper at 1024px |
+| `cu-imagecover__inner alignwide` | `contentWidth={true}` — inner wrapper at 1280px |
 
 ## Design tokens
 
@@ -90,10 +123,10 @@ Lower `opacity` values reveal more of the background image through the white ove
 | `--rds--color-grey-pale` | Fallback background when no image is provided |
 | `--rds--radius-xl` | Border radius on `aligncontent` variant |
 | `--rds--asset-cu-waves-repeating-bottom-red` | Decorative wave pattern |
-| `--rds--spacing-medium` | Content horizontal padding (mobile) |
-| `--rds--spacing-large` | Content padding (mobile vertical / tablet horizontal) |
-| `--rds--spacing-x-large` | Content padding (tablet vertical / desktop horizontal) |
+| `--rds--spacing-large` | Content vertical padding (mobile) |
+| `--rds--spacing-x-large` | Content vertical padding (tablet) |
 | `--rds--spacing-2-x-large` | Content bottom padding — creates space above the wave |
+| `--rds--root-padding-right` / `--rds--root-padding-left` | Horizontal gutters via `has-global-padding` |
 
 ### CSS custom properties (set inline per instance)
 
