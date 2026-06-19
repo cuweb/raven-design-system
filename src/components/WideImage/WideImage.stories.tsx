@@ -5,7 +5,7 @@ import { Main } from '../Main/Main';
 import { WideImage } from './WideImage';
 
 const meta: Meta<typeof WideImage> = {
-  title: 'Components/Content/Wide Image',
+  title: 'Components/Media & Banners/Wide Image',
   component: WideImage,
   tags: ['!autodocs'],
   decorators: [
