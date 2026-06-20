@@ -72,7 +72,8 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__bottom {
-  background-color: var(--rds--color-grey-pale);
+//   background-color: var(--rds--color-grey-pale);
+  background-color: var(--rds--color-white);
   border-top: 1px solid var(--rds--color-grey-lighter);
   // break out of cu-nav__inner padding to span full header width
   margin-inline: calc(-1 * var(--rds--spacing-large));

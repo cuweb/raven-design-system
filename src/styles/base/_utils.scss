@@ -1,13 +1,4 @@
-// Global width classes for Gutenberg alignments, to be used in Section component
-.aligncontent {
-  max-width: var(--rds--layout-content-size);
-}
-.alignwide {
-  max-width: var(--rds--layout-wide-size);
-}
-.alignfull {
-  max-width: var(--rds--layout-full-size);
-}
+@use '../auto/variables' as *;
 
 // Visually hidden, available to assistive tech
 .sr-only {
@@ -21,5 +12,3 @@
   white-space: nowrap;
   border-width: 0;
 }
-
-// Is Stuff

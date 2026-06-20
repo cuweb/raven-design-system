@@ -12,9 +12,18 @@ const meta: Meta<typeof Section> = {
       control: 'inline-radio',
       options: ['section', 'div'],
     },
+    bgType: {
+      control: 'select',
+      options: ['grey', 'black', 'light-gradient'],
+    },
     maxWidth: {
       control: 'select',
       options: ['aligncontent', 'alignwide', 'alignfull'],
+    },
+    contentWidth: {
+      control: 'inline-radio',
+      options: [false, true],
+      description: 'false = 1024px (content), true = 1280px (wide)',
     },
   },
   parameters: {
@@ -41,7 +50,27 @@ export const Default: Story = {
 export const Grey: Story = {
   render: () => (
     <Main>
-      <Section isGrey>
+      <Section bgType="grey">
+        <MultiParagraph count={2} />
+      </Section>
+    </Main>
+  ),
+};
+
+export const Black: Story = {
+  render: () => (
+    <Main>
+      <Section bgType="black">
+        <MultiParagraph count={2} />
+      </Section>
+    </Main>
+  ),
+};
+
+export const LightGradient: Story = {
+  render: () => (
+    <Main>
+      <Section bgType="light-gradient">
         <MultiParagraph count={2} />
       </Section>
     </Main>
@@ -61,7 +90,27 @@ export const Wide: Story = {
 export const FullWidth: Story = {
   render: () => (
     <Main>
-      <Section maxWidth="alignfull" isGrey>
+      <Section maxWidth="alignfull" bgType="grey">
+        <MultiParagraph count={2} />
+      </Section>
+    </Main>
+  ),
+};
+
+export const FullWidthConstrained: Story = {
+  render: () => (
+    <Main>
+      <Section maxWidth="alignfull" bgType="grey" contentWidth={false}>
+        <MultiParagraph count={2} />
+      </Section>
+    </Main>
+  ),
+};
+
+export const FullWidthConstrainedWide: Story = {
+  render: () => (
+    <Main>
+      <Section maxWidth="alignfull" bgType="grey" contentWidth>
         <MultiParagraph count={2} />
       </Section>
     </Main>
@@ -74,13 +123,13 @@ export const AlternatingGreySections: Story = {
       <Section>
         <MultiParagraph count={2} />
       </Section>
-      <Section isGrey>
+      <Section bgType="grey">
         <MultiParagraph count={2} />
       </Section>
       <Section>
         <MultiParagraph count={2} />
       </Section>
-      <Section isGrey maxWidth="alignfull">
+      <Section bgType="grey" maxWidth="alignfull">
         <MultiParagraph count={2} />
       </Section>
     </Main>

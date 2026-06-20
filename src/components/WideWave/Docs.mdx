@@ -1,0 +1,150 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as WideWaveStories from './WideWave.stories';
+
+<Meta of={WideWaveStories} />
+
+# Wide Wave
+
+A page-level content container with an optional full-bleed background image and decorative wave element. Always renders a `<section>` with a grey background. Nests inside `Main` and wraps layout components like `Column`, `Article`, and `Aside`. Three max-width presets align with the WordPress block editor's alignment system.
+
+## When to use
+
+Use `WideWave` when you want a visually distinct section with a background image and a white opacity overlay. Without an image it falls back to the standard grey background — making it a drop-in replacement for a grey `Section` band when image support is needed. Add `contentWidth` when you want the background to span one width while keeping children in a narrower readable column.
+
+## Import
+
+```tsx
+import { WideWave } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Default — content width, grey background, no image
+<Main>
+  <WideWave>
+    <Column cols="3">...</Column>
+  </WideWave>
+</Main>
+
+// Full-bleed with a background image
+<Main>
+  <WideWave maxWidth="alignfull" image="tory">
+    <Column cols="3">...</Column>
+  </WideWave>
+</Main>
+
+// Full-bleed image with content constrained to 1024px
+<Main>
+  <WideWave maxWidth="alignfull" image="tory" contentWidth={false}>
+    <Column cols="2">...</Column>
+  </WideWave>
+</Main>
+
+// Full-bleed image with content constrained to 1280px
+<Main>
+  <WideWave maxWidth="alignfull" image="tory" contentWidth>
+    <Column cols="2">...</Column>
+  </WideWave>
+</Main>
+```
+
+## Examples
+
+### Default
+
+Content width (`aligncontent`), grey background. Use the controls to explore `maxWidth`, `contentWidth`, `image`, and `opacity`.
+
+<Canvas of={WideWaveStories.Default} />
+<Controls of={WideWaveStories.Default} />
+
+### Wide
+
+`maxWidth="alignwide"` expands the section to the wide layout width (`--rds--layout-wide-size`).
+
+<Canvas of={WideWaveStories.Wide} />
+
+### Full width with image
+
+`maxWidth="alignfull"` with `image` runs edge to edge with a background image and white overlay.
+
+<Canvas of={WideWaveStories.FullWidth} />
+
+### Full width with constrained content (1024px)
+
+`contentWidth={false}` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
+
+<Canvas of={WideWaveStories.FullWidthConstrained} />
+
+### Full width with constrained content (1280px)
+
+`contentWidth` (or `contentWidth={true}`) uses the wider 1280px column.
+
+<Canvas of={WideWaveStories.FullWidthConstrainedWide} />
+
+## Max-width presets
+
+| `maxWidth` | Token | Description |
+|---|---|---|
+| `"aligncontent"` | `--rds--layout-content-size` | Default — standard readable content width |
+| `"alignwide"` | `--rds--layout-wide-size` | Wider — for card grids and media-rich sections |
+| `"alignfull"` | `--rds--layout-full-size` | Full viewport width — hero and accent bands |
+
+These names and tokens mirror the WordPress block editor's alignment system so that React templates and WordPress block themes share the same layout vocabulary.
+
+## The `image` prop
+
+Pass an image name key (e.g. `"tory"`) — the component constructs the full CDN URL automatically:
+
+```
+https://cdn.carleton.ca/rds/assets/bg-images/{name}.jpg
+```
+
+Available image keys come from `BgImagesData.json`. When no image is provided, the component falls back to the grey background with no overlay.
+
+## The `opacity` prop
+
+Controls the white overlay applied on top of the background image — higher values increase the overlay opacity, making the image more subtle. Accepts `0–100` (default `85`). Has no effect when no `image` is set.
+
+## The `contentWidth` prop
+
+When set, `contentWidth` wraps all children in an inner div constrained within the outer layout:
+
+| Value | Inner content width |
+|---|---|
+| `false` | 1024px (`aligncontent`) |
+| `true` / `contentWidth` (no value) | 1280px (`alignwide`) |
+
+Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-imagecover` | Always |
+| `cu-imagecover--image` | When `image` is set |
+| `has-global-padding` | Always — horizontal gutter from `--rds--layout-gutter` |
+| `aligncontent` | `maxWidth="aligncontent"` (default) |
+| `alignwide` | `maxWidth="alignwide"` |
+| `alignfull` | `maxWidth="alignfull"` |
+| `is-layout-constrained` | Always — constrains children to content / wide widths |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-grey-pale` | Background colour (always applied) |
+| `--rds--spacing-large` | Internal padding |
+| `--rds--layout-content-size` | `aligncontent` max-width |
+| `--rds--layout-wide-size` | `alignwide` max-width |
+| `--rds--layout-full-size` | `alignfull` max-width (100%) |
+| `--cu-imagecover-bg` | CSS custom property set via `style` when image is provided |
+| `--cu-imagecover-overlay` | CSS custom property set via `style` to control overlay opacity |
+
+## Accessibility
+
+- `WideWave` always renders a `<section>` element. Add `aria-label` or `aria-labelledby` when the section's purpose should be surfaced to screen reader landmark navigation.
+- Without an accessible name, `<section>` is not exposed as a landmark, which is acceptable for generic layout sections.
+- When stacking multiple `WideWave` sections on a page, ensure each meaningful one has a distinct label so screen reader users can distinguish between them.
+- The decorative wave element (`cu-imagecover__wave`) has no accessible meaning and is hidden from assistive technology.
+

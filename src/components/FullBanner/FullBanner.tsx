@@ -44,7 +44,7 @@ const FullBannerWrapper = ({
   contentBox = 'xl',
   justify = 'start',
 }: FullBannerProps) => {
-  const rootClasses = ['cu-fullbanner', maxWidthClasses[maxWidth]].filter(Boolean).join(' ');
+  const rootClasses = ['cu-layout cu-fullbanner', maxWidthClasses[maxWidth]].filter(Boolean).join(' ');
 
   const overlayStyle = {
     '--cu-fullbanner-overlay': `rgba(0, 0, 0, ${opacity / 100})`,
@@ -75,7 +75,7 @@ const FullBannerWrapper = ({
             <PageHeader
               header={title}
               as={headerType}
-              size={headerType === 'h1' ? 'lg' : 'md'}
+              size="md"
               content={content}
               isWhite
               noUnderline

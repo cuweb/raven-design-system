@@ -67,12 +67,13 @@
   margin: 0;
 
     & + p {
-        margin-top: var(--rds--spacing-medium);
+        margin-top: var(--rds--spacing-small);
     }
 
   &--underline {
     position: relative;
     padding-bottom: var(--rds--spacing-medium);
+    margin-bottom: var(--rds--spacing-medium);
 
     &::after {
       content: '';
@@ -92,6 +93,15 @@
   font-weight: var(--rds--font-weight-normal);
   color: var(--rds--color-grey-dark);
   margin-bottom: var(--rds--spacing-x-small);
+}
+
+.cu-pageheader__post {
+  display: block;
+  font-size: var(--rds--font-size-large);
+  font-weight: var(--rds--font-weight-light);
+  font-style: italic;
+  color: var(--rds--color-grey-dark);
+  margin-top: var(--rds--spacing-small);
 }
 
 .cu-pageheader__pronoun {

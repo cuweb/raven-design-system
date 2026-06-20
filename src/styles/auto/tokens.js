@@ -4,8 +4,6 @@ export const rdsTokens = {
     color: {
         primary: '#e91c24',
         primaryDark: '#a21218',
-        secondary: '#426587',
-        secondaryDark: '#2c3c4e',
         black: '#191919',
         greyDark: '#434343',
         grey: '#767676',
@@ -18,7 +16,8 @@ export const rdsTokens = {
         purpleLight: '#D3DAE9',
         teal: '#3A8082',
         tealLight: '#C8DAD7',
-        blue: '#026BC8',
+        expBlue: '#026BC8',
+        expBlueLight: '#E0EEFE',
         success: '#007c24',
         warning: '#f4c83c',
         error: '#d31820',
@@ -34,7 +33,8 @@ export const rdsTokens = {
     },
     gradient: {
         redToDarkRed: 'linear-gradient(135deg,rgb(233,28,36) 0%,rgb(25,25,25) 100%)',
-        darkGreyToBlack: 'linear-gradient(135deg,rgb(118,118,118) 0%,rgb(25,25,25) 100%)'
+        darkGreyToBlack: 'linear-gradient(135deg,rgb(118,118,118) 0%,rgb(25,25,25) 100%)',
+        whiteToPaleGrey: 'linear-gradient(135deg,rgb(250,250,250) 0%,rgb(240,240,240) 100%)'
     },
     spacing: {
         x2Small: '0.44rem',
@@ -85,7 +85,7 @@ export const rdsTokens = {
         full: '9999px'
     },
     layout: {
-        contentSize: '1024px',
+        contentSize: '896px',
         wideSize: '1280px',
         maxSize: '1536px'
     }

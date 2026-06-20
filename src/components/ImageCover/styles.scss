@@ -1,0 +1,69 @@
+@use '../../styles/auto/variables' as *;
+
+.cu-imagecover {
+    position: relative;
+    isolation: isolate;
+    padding: var(--rds--spacing-large);
+    background-color: var(--rds--color-grey-pale);
+}
+
+.cu-imagecover--image {
+    background-image: var(--cu-imagecover-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: var(--cu-imagecover-overlay, rgba(255, 255, 255, 0.85));
+    }
+}
+
+.cu-imagecover > .has-global-padding,
+.has-global-padding > .cu-imagecover.alignfull > .has-global-padding {
+  padding-left: 0;
+  padding-right: 0;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cu-imagecover:not(.alignfull) {
+  border-radius: var(--rds--radius-md);
+}
+
+.cu-main .cu-imagecover.alignfull:last-child {
+  margin-bottom: calc(-1 * var(--rds--spacing-large));
+}
+
+// If image cover is the first block, remove top margin
+.cu-main .cu-imagecover.alignfull:first-child {
+  margin-top: calc(-1 * var(--rds--spacing-large));
+}
+
+.cu-imagecover__wave {
+    height: 50px;
+    background-image: url('https://cdn.carleton.ca/rds/assets/graphics/cu-waves-repeating-bottom-red.svg');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: 120px;
+    margin-top: var(--rds--spacing-large);
+    margin-bottom: calc(-1.2 * var(--rds--spacing-large));
+    
+    @media (min-width: $rds-media-query-md) {
+        height: 80px;
+        background-size: 200px;
+        margin-top: var(--rds--spacing-x-large);
+    }
+}

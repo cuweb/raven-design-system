@@ -1,0 +1,11 @@
+export { Embed, EmbedWrapper } from './Embed';
+export type { EmbedProps } from './Embed';
+export { EmbedHubSpot } from './EmbedHubSpot';
+export type { EmbedHubSpotProps } from './EmbedHubSpot';
+export type { EmbedYouTubeProps } from './Embed.YouTube';
+export type { EmbedVimeoProps } from './Embed.Vimeo';
+export type { EmbedKalturaProps } from './Embed.Kaltura';
+export type { EmbedPowerBiProps } from './Embed.PowerBi';
+export type { EmbedTEDProps } from './Embed.TED';
+export type { EmbedSoundCloudProps } from './Embed.SoundCloud';
+export type { EmbedAudioboomProps } from './Embed.Audioboom';

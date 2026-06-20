@@ -1,104 +1,73 @@
-// Import base styles so Vite extracts them to dist/style.css
 import './styles/main.scss';
 
-// Layouts
+// Template Parts
 export { Article } from './components/Article/Article';
 export { Aside } from './components/Aside/Aside';
 export { Body } from './components/Body/Body';
-export { Column } from './components/Column/Column';
 export { Main } from './components/Main/Main';
+
+// Layout
+export { Column } from './components/Column/Column';
 export { Section } from './components/Section/Section';
 
-// Components
-export { FullBanner } from './components/FullBanner/FullBanner';
-export type { FullBannerProps } from './components/FullBanner/FullBanner';
-export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVideo';
-export { Quote } from './components/Quote/Quote';
-export type { QuoteProps } from './components/Quote/Quote';
-export { WideImage } from './components/WideImage/WideImage';
-export type { WideImageProps } from './components/WideImage/WideImage';
-export type { WideImageSignupProps } from './components/WideImage/WideImageSignup';
-export { Testimonial } from './components/Testimonial/Testimonial';
-export type { TestimonialProps } from './components/Testimonial/Testimonial';
-export { Timeline } from './components/Timeline/Timeline';
-export type { TimelineProps } from './components/Timeline/Timeline';
-export type { TimelineItemProps } from './components/Timeline/TimelineItem';
-export { CallOut } from './components/CallOut/CallOut';
-export type { CallOutProps } from './components/CallOut/CallOut';
-export { Figure } from './components/Figure/Figure';
-export type { FigureProps } from './components/Figure/Figure';
-export { Avatar } from './components/Avatar/Avatar';
-export type { AvatarProps } from './components/Avatar/Avatar';
-export { Badge } from './components/Badge/Badge';
-export type { BadgeProps } from './components/Badge/Badge';
+// Elements
+export { Avatar, type AvatarProps } from './components/Avatar/Avatar';
+export { Badge, type BadgeProps } from './components/Badge/Badge';
 export { BadgeGroup } from './components/BadgeGroup/BadgeGroup';
 export { Button } from './components/Button/Button';
 export { ButtonGroup } from './components/ButtonGroup/ButtonGroup';
-export { Card } from './components/Card/Card';
-export type { CardProps } from './components/Card/Card';
-export type { CardVideoFigureProps } from './components/Card/CardVideoFigure';
-export type { CardStatusProps } from './components/Card/CardStatus';
-export { CookieBanner } from './components/CookieBanner/CookieBanner';
-export type { CookieBannerProps } from './components/CookieBanner/CookieBanner';
-export { DepartmentBar } from './components/DepartmentBar/DepartmentBar';
-export type { DepartmentBarProps } from './components/DepartmentBar/DepartmentBar';
-export { Footer } from './components/Footer/Footer';
-export type { FooterProps } from './components/Footer/Footer';
-export { FooterStandard } from './components/FooterStandard/FooterStandard';
-export type { FooterStandardProps } from './components/FooterStandard/FooterStandard';
-export type { FooterType } from './data/FooterData';
-export { PageHeader } from './components/PageHeader/PageHeader';
-export type { PageHeaderProps } from './components/PageHeader/PageHeader';
-export { Nav } from './components/Nav/Nav';
-export type { NavProps, NavItem } from './components/Nav/Nav';
-export type { NavLogoProps } from './components/Nav/NavLogo';
-export type { NavMenuProps } from './components/Nav/NavMenu';
-export type { NavButtonsProps, NavButton } from './components/Nav/NavButtons';
-
-// Icon — the Icon component lives here; icon names, map, and list come from the
-// private @cuweb/rds-icons peer dependency. Consumers import named
-// icons directly from that package.
 export { Icon } from './components/Icon/Icon';
 export type { IconProps } from './components/Icon';
 export type { IconName } from '@cuweb/rds-icons';
 
-// LinkProvider
+// Content
+export { CallOut, type CallOutProps } from './components/CallOut/CallOut';
+export { Card, type CardProps } from './components/Card/Card';
+export type { CardStatusProps } from './components/Card/CardStatus';
+export type { CardVideoFigureProps } from './components/Card/CardVideoFigure';
+export { Figure, type FigureProps } from './components/Figure/Figure';
+export { Quote, type QuoteProps } from './components/Quote/Quote';
+export { StackedList, type StackedListProps } from './components/StackedList';
+export { Testimonial, type TestimonialProps } from './components/Testimonial/Testimonial';
+export { Timeline, type TimelineProps } from './components/Timeline/Timeline';
+export type { TimelineItemProps } from './components/Timeline/TimelineItem';
+
+// Media
+export { Embed, EmbedWrapper, type EmbedProps } from './components/Embed/Embed';
+export { EmbedHubSpot, type EmbedHubSpotProps } from './components/Embed/EmbedHubSpot';
+export { FullBanner, type FullBannerProps } from './components/FullBanner/FullBanner';
+export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVideo';
+export { ImageCover } from './components/ImageCover';
+export { WideImage, type WideImageProps } from './components/WideImage/WideImage';
+export type { WideImageSignupProps } from './components/WideImage/WideImageSignup';
+export { WideWave } from './components/WideWave/WideWave';
+
+// Navigation
+export { DepartmentBar, type DepartmentBarProps } from './components/DepartmentBar/DepartmentBar';
+export { Footer, type FooterProps } from './components/Footer/Footer';
+export { FooterStandard, type FooterStandardProps } from './components/FooterStandard/FooterStandard';
+export type { FooterType } from './data/FooterData';
+export { Nav, type NavProps, type NavItem } from './components/Nav/Nav';
+export type { NavButtonsProps, NavButton } from './components/Nav/NavButtons';
+export type { NavLogoProps } from './components/Nav/NavLogo';
+export type { NavMenuProps } from './components/Nav/NavMenu';
+export { PageHeader, type PageHeaderProps } from './components/PageHeader/PageHeader';
+
+// Feedback
+export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/ProgressBar';
+export { Status, defaultStatusTypes, type StatusProps, type StatusVariant, type StatusType } from './components/Status/Status';
+export type { StatusTypeDefinition, StatusTypeRegistry } from './components/Status/types';
+export { formatHoursStatus, type HoursStatus } from './components/Status/hoursStatus';
+
+// Utilities
+export { CookieBanner, type CookieBannerProps } from './components/CookieBanner/CookieBanner';
 export { LinkProvider } from './components/LinkProvider/index';
-
-// ProgressBar
-export { ProgressBar } from './components/ProgressBar/ProgressBar';
-export type { ProgressBarProps } from './components/ProgressBar/ProgressBar';
-
-// SocialIcons
-export { SocialIcons } from './components/SocialIcons/SocialIcons';
-export type { SocialIconsProps } from './components/SocialIcons/SocialIcons';
+export { SocialIcons, type SocialIconsProps } from './components/SocialIcons/SocialIcons';
 export type { SocialIconsItemProps } from './components/SocialIcons/SocialIconsItem';
 
-// Status
-export { Status, defaultStatusTypes } from './components/Status/Status';
-export type { StatusProps, StatusVariant, StatusType } from './components/Status/Status';
-export type {
-  StatusTypeDefinition,
-  StatusTypeRegistry,
-} from './components/Status/types';
-export { formatHoursStatus } from './components/Status/hoursStatus';
-export type { HoursStatus } from './components/Status/hoursStatus';
-
-// Video utilities — used internally by Card.VideoFigure, re-exported for advanced consumers
-// (e.g. building a custom video UI on top of the same provider registry / oEmbed cache).
-export { useOEmbed } from './utils/video/useOEmbed';
-export type { UseOEmbedOptions } from './utils/video/useOEmbed';
+// Hooks
+export { useOEmbed, type UseOEmbedOptions } from './utils/video/useOEmbed';
 export { detectProvider, getProvider, PROVIDER_NAMES } from './utils/video/providers';
-export type {
-  ProviderName,
-  ProviderDefinition,
-  OEmbedData,
-  UseOEmbedResult,
-} from './utils/video/types';
-
-// Motion utilities — hooks consumed by components that opt into scroll-reveal
-// or need to branch on prefers-reduced-motion. Pairs with the vanilla
-// dist/vanilla-js/cuMotion.js bundle for WordPress / non-React contexts.
+export type { OEmbedData, ProviderDefinition, ProviderName, UseOEmbedResult } from './utils/video/types';
 export { useReducedMotion } from './utils/motion/useReducedMotion';
-export { useScrollReveal } from './utils/motion/useScrollReveal';
-export type { ScrollRevealOptions } from './utils/motion/useScrollReveal';
+export { useScrollReveal, type ScrollRevealOptions } from './utils/motion/useScrollReveal';

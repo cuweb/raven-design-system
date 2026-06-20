@@ -1,31 +1,47 @@
-import React from 'react';
 import './styles.scss';
-
-import { maxWidthClasses } from '../../utils/propClasses';
-type maxWidthKeys = keyof typeof maxWidthClasses;
 
 export interface SectionProps {
   children?: React.ReactNode;
   as?: 'section' | 'div';
-  isGrey?: boolean;
-  maxWidth?: maxWidthKeys;
+  bgType?: 'grey' | 'black' | 'light-gradient';
+  maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
+  contentWidth?: boolean;
+  isHero?: boolean;
 }
 
 export const Section = ({
   children,
   as = 'section',
-  isGrey,
+  bgType,
   maxWidth = 'aligncontent',
+  contentWidth,
+  isHero,
 }: SectionProps) => {
   const SectionWrapper = as;
-  const sectionBackground = isGrey ? 'grey has-global-padding' : 'white';
-  const sectionWidth = maxWidth ? maxWidthClasses[maxWidth] : '';
+
+  const rootClasses = [
+    'cu-layout cu-section',
+    isHero && 'cu-section--hero',
+    bgType && `cu-section--${bgType}`,
+    bgType && 'has-global-padding',
+    maxWidth,
+    'is-layout-constrained',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <SectionWrapper
-      className={`cu-section cu-section--${sectionBackground} ${sectionWidth} is-layout-constrained`}
+      className={rootClasses}
+      data-color-scheme={bgType === 'black' ? 'dark' : undefined}
     >
-      {children}
+      {contentWidth !== undefined ? (
+        <div className={`has-global-padding ${contentWidth ? 'alignwide' : 'aligncontent'}`}>
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </SectionWrapper>
   );
 };

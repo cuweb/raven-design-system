@@ -17,10 +17,58 @@ export const MultiParagraph = ({ count = 2 }: { count?: number }) => (
   </>
 );
 
-export const SampleList = () => (
-  <ul>
-    <li>Item One</li>
-    <li>Item Two</li>
-    <li>Item Three</li>
-  </ul>
+export const UnorderedList = () => (
+    <ul>
+        <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor
+            pellentesque, posuere tellus vitae, sagittis justo.
+        </li>
+        <li>
+            Suspendisse <a href="https://carleton.ca">velit eget suscipit tincidunt</a> vel orci
+            vulputate, eget vulputate neque porttitor.
+        </li>
+        <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <ul>
+            <li>Aenean sit amet tortor pellentesque, posuere tellus vitae, sagittis justo.</li>
+            <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
+            <li>
+                Nested deeper
+                <ul>
+                <li>Third level item one.</li>
+                <li>Third level item two.</li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+        <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
+    </ul>
+);
+
+export const OrderedList = () => (
+    <ol>
+        <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor
+            pellentesque, posuere tellus vitae, sagittis justo.
+        </li>
+        <li>
+            Suspendisse <a href="https://carleton.ca">velit eget suscipit tincidunt</a> vel orci
+            vulputate, eget vulputate neque porttitor.
+        </li>
+        <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <ul>
+            <li>Aenean sit amet tortor pellentesque, posuere tellus vitae, sagittis justo.</li>
+            <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
+            <li>
+                Nested deeper
+                <ul>
+                <li>Third level item one.</li>
+                <li>Third level item two.</li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+        <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
+    </ol>
 );
