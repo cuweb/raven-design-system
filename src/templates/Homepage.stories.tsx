@@ -16,10 +16,13 @@ import { Badge } from '../components/Badge';
 import { Figure } from '../components/Figure';
 import { ImageCover } from '../components/ImageCover';
 import { Embed } from '../components/Embed';
+import { Testimonial } from '../components/Testimonial';
+import { ImageGrid } from '../components/ImageGrid';
 
 import { largeNavData } from '../data/NavigationData';
 import { NewsData } from '../data/NewsData';
 import { EventData } from '../data/EventData';
+import { ImageData } from '../data/ImageData';
 import { MultiParagraph } from '../data/storyContent';
 
 const meta: Meta = {
@@ -174,9 +177,36 @@ export const Homepage: Story = {
                     </Embed>
                 </ImageCover>
 
-                <MultiParagraph count={2} />
+                <Section maxWidth="alignfull" contentWidth>
+                    <PageHeader
+                        as="h2"
+                        header="Campus Life"
+                        size="lg"
+                    />
 
-                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth>
+                    <ImageGrid cols="3" gap="sm" maxWidth="alignwide">
+                        <ImageGrid.Image imageUrl={ImageData[2].image} colSpan="2" rowSpan="2" title="Overlay Image Title" content="Lorem ipsum odor amet, consectetuer adipiscing elit. Porta pulvinar consectetur faucibus fusce scelerisque nulla!" link="https://carleton.ca" />
+                        {ImageData.slice(3, 5).map(({
+                            id,
+                            image
+                        }: {
+                            id: number;
+                            image: string;
+                        }) => <ImageGrid.Image key={id} imageUrl={image} />)}
+                    </ImageGrid>
+
+                    <Testimonial
+                        cite="Jane Doe"
+                        focalPointX={50}
+                        focalPointY={50}
+                        imageUrl="https://picsum.photos/id/342/600/400"
+                        imageZoom={0}
+                        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    />
+                </Section>
+                
+
+                <Section bgType="grey" maxWidth="alignfull" contentWidth>
                     <PageHeader
                         as="h2"
                         header="Upcoming Events"
