@@ -16,7 +16,7 @@ export const ImageCover = ({
   maxWidth = 'alignfull',
   contentWidth,
   image,
-  opacity = 85,
+  opacity = 90,
 }: ImageCoverProps) => {
   const imageUrl = image ? `${BG_IMAGE_BASE_URL}/${image}.jpg` : undefined;
 
