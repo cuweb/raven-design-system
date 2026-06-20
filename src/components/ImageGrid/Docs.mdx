@@ -1,0 +1,136 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ImageGridStories from './ImageGrid.stories';
+
+<Meta of={ImageGridStories} />
+
+# ImageGrid
+
+A responsive CSS grid for displaying images in multi-column layouts, with support for col and row spanning, caption overlays, and the same alignment system as `Section` and `Column`.
+
+## When to use
+
+- Displaying a gallery or collection of images in a structured grid
+- Creating mosaic-style layouts with featured images using `colSpan` and `rowSpan`
+- Full-bleed or wide photo galleries using `maxWidth="alignfull"` or `maxWidth="alignwide"`
+- Pairing images with optional title/content overlays and links
+
+## Import
+
+```tsx
+import { ImageGrid } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<ImageGrid cols="3" gap="sm">
+  <ImageGrid.Image imageUrl="https://picsum.photos/seed/a/600/400" />
+  <ImageGrid.Image imageUrl="https://picsum.photos/seed/b/600/400" />
+  <ImageGrid.Image imageUrl="https://picsum.photos/seed/c/600/400" />
+</ImageGrid>
+
+{/* Featured image with caption overlay */}
+<ImageGrid cols="4" gap="sm">
+  <ImageGrid.Image imageUrl="https://picsum.photos/seed/a/600/400" />
+  <ImageGrid.Image
+    imageUrl="https://picsum.photos/seed/b/600/400"
+    colSpan="2"
+    rowSpan="2"
+    title="Featured image"
+    content="A description of what's in this image."
+    link="https://carleton.ca"
+  />
+</ImageGrid>
+```
+
+## Examples
+
+<Canvas of={ImageGridStories.ThreeColumns} />
+<Controls of={ImageGridStories.ThreeColumns} />
+
+### Four columns
+
+<Canvas of={ImageGridStories.FourColumns} />
+
+### Two columns
+
+<Canvas of={ImageGridStories.TwoColumns} />
+
+### Col span 2 with overlay
+
+<Canvas of={ImageGridStories.ColSpan2} />
+
+### Col span 3 with overlay
+
+<Canvas of={ImageGridStories.ColSpan3} />
+
+### Stacked 2×2 feature images
+
+<Canvas of={ImageGridStories.StackedTwoFour} />
+
+### With captions
+
+<Canvas of={ImageGridStories.WithCaptions} />
+
+### Align wide
+
+<Canvas of={ImageGridStories.AlignWide} />
+
+### Align full — no gap
+
+<Canvas of={ImageGridStories.AlignFull} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-imagegrid` | Always on the grid wrapper |
+| `cu-imagegrid--two` | `cols="2"` |
+| `cu-imagegrid--three` | `cols="3"` (default) |
+| `cu-imagegrid--four` | `cols="4"` |
+| `cu-imagegrid--one-third` | `cols="1/3"` |
+| `cu-imagegrid--two-thirds` | `cols="2/3"` |
+| `cu-imagegrid--gap-none` | `gap="none"` |
+| `cu-imagegrid--gap-sm` | `gap="sm"` (default) |
+| `cu-imagegrid--gap-md` | `gap="md"` |
+| `cu-imagegrid--gap-lg` | `gap="lg"` |
+| `aligncontent` | `maxWidth="aligncontent"` (default) |
+| `alignwide` | `maxWidth="alignwide"` |
+| `alignfull` | `maxWidth="alignfull"` |
+| `cu-imagegrid__item` | Always on each image item |
+| `cu-imagegrid__item--landscape` | `aspectRatio="landscape"` (default) |
+| `cu-imagegrid__item--portrait` | `aspectRatio="portrait"` |
+| `cu-imagegrid__item--square` | `aspectRatio="square"` |
+| `cu-imagegrid__item--wide` | `aspectRatio="wide"` |
+| `cu-imagegrid__item--col-2` | `colSpan="2"` |
+| `cu-imagegrid__item--col-3` | `colSpan="3"` |
+| `cu-imagegrid__item--col-4` | `colSpan="4"` |
+| `cu-imagegrid__item--row-2` | `rowSpan="2"` |
+| `cu-imagegrid__item--row-3` | `rowSpan="3"` |
+| `cu-imagegrid__item--row-4` | `rowSpan="4"` |
+| `cu-imagegrid__overlay` | When `title` or `content` is set |
+| `cu-imagegrid__overlay--linked` | When `link` is also set |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--radius-md` | Border radius of each image cell |
+| `--rds--color-black` | Base colour for image placeholder and overlay background |
+| `--rds--color-white` | Overlay text colour |
+| `--rds--color-primary-dark` | Overlay background on hover (when `link` is set) |
+| `--rds--spacing-x-small` | Gap between cells for `gap="sm"` |
+| `--rds--spacing-medium` | Gap between cells for `gap="md"` |
+| `--rds--spacing-large` | Gap between cells for `gap="lg"` |
+| `--rds--spacing-small` | Overlay vertical padding |
+| `--rds--spacing-medium` | Overlay horizontal padding |
+| `--rds--font-size-small` | Overlay title and content text size |
+| `--rds--font-weight-bold` | Overlay title font weight |
+| `--rds--font-weight-normal` | Overlay content font weight |
+
+## Accessibility
+
+- Grid image cells are CSS background images and carry no inherent accessible name — cells with `title`/`content` overlay provide sufficient text context
+- Cells without an overlay have `aria-hidden="true"` since they are decorative in the context of a gallery
+- When `link` is provided, the entire overlay becomes a block-level link via `useLinkContext`; the `title` text acts as the accessible label for that link
+- For meaningful images that have no overlay, use `<ImageGrid.Image title="..." content="...">` with at least a `title` to ensure screen readers can understand the image's purpose
