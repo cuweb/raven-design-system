@@ -172,7 +172,7 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 | Image Cover | done | No | No
 | Section | done | No | No
 | Stacked List | done | No | No
-| Wide Wave | port | No | No
+| Wide Wave | done | No | No
 
 ---
 

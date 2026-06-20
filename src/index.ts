@@ -38,6 +38,7 @@ export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVid
 export { ImageCover } from './components/ImageCover';
 export { WideImage, type WideImageProps } from './components/WideImage/WideImage';
 export type { WideImageSignupProps } from './components/WideImage/WideImageSignup';
+export { WideWave } from './components/WideWave/WideWave';
 
 // Navigation
 export { DepartmentBar, type DepartmentBarProps } from './components/DepartmentBar/DepartmentBar';
