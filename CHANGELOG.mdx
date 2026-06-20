@@ -30,6 +30,7 @@ Prefix the change with one of these keywords:
 - _Changed_: `PageHeader` heading-to-content gap reduced (`margin-top` on `& + p` changed from `spacing-medium` to `spacing-small`); underline variant gains a bottom margin to create breathing room between the underline and following content.
 - _Added_: `StackedList` component; bordered card-style container for arranging list items in a one- or two-column responsive grid with optional section heading and shadow control.
 - _Fixed_: `WideWave` red variant background changed from `--rds--color-primary` to `--rds--color-primary-dark` to meet WCAG AA color contrast with white text.
+- _Added_: `Embed` component — responsive 16:9 wrapper for YouTube, Vimeo, Kaltura, TED, SoundCloud, Audioboom, and Power BI iframes, plus standalone `EmbedHubSpot` for HubSpot forms. Replaces Tailwind-based `isRounded` with `maxWidth: aligncontent | alignwide | alignfull` (same alignment system as `Section`). Border-radius always applied via `--rds--radius-md`; aspect-ratio via CSS `aspect-ratio: 16 / 9`.
 
 ## [0.6.0] - 2026-06-12
 

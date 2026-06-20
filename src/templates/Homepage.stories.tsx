@@ -14,6 +14,7 @@ import { BadgeGroup } from '../components/BadgeGroup';
 import { Badge } from '../components/Badge';
 import { Figure } from '../components/Figure';
 import { ImageCover } from '../components/ImageCover';
+import { Embed } from '../components/Embed';
 
 import { largeNavData } from '../data/NavigationData';
 import { NewsData } from '../data/NewsData';
@@ -161,8 +162,15 @@ export const Homepage: Story = {
                             </Card.Body>
                         </Card>)}
                     </Column>
+                    <MultiParagraph count={2} />
+                    <Embed maxWidth="alignwide">
+                        <Embed.YouTube
+                            title="YouTube embed demo"
+                            url="https://www.youtube.com/watch?v=Fbb1gdTcH-A"
+                        />
+                    </Embed>
                 </ImageCover>
-                    
+
                 <MultiParagraph count={2} />
             </Main>
 

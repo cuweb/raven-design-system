@@ -1,0 +1,40 @@
+@use '../auto/variables' as *;
+
+// Global width classes for Gutenberg alignments, to be used in Section component
+.aligncontent {
+  max-width: var(--rds--layout-content-size);
+}
+.alignwide {
+  max-width: var(--rds--layout-wide-size);
+}
+.alignfull {
+  max-width: var(--rds--layout-full-size);
+}
+
+// .cu-layout + .cu-layout,
+// .cu-layout + :not(.cu-layout),
+// :not(.cu-layout) + .cu-layout {
+//     margin-top: var(--rds--spacing-large);
+    
+//     @media (min-width: $rds-media-query-md) {
+//         margin-top: var(--rds--spacing-x-large);
+//     }
+// }
+
+.cu-main > * > .cu-layout + .cu-layout,
+.cu-main > * > .cu-layout + :not(.cu-layout),
+.cu-main > * > :not(.cu-layout) + .cu-layout {
+    margin-top: var(--rds--spacing-large);
+    
+    @media (min-width: $rds-media-query-md) {
+        margin-top: var(--rds--spacing-x-large);
+    }
+}
+
+.cu-main > * > .cu-layout.alignfull + .cu-layout.alignfull {
+    margin-top: 0;
+}
+
+.cu-main--padding .cu-layout.alignfull:first-child {
+    margin-top: calc(-1 * var(--rds--spacing-large));
+}

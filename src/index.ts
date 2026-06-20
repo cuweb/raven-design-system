@@ -33,6 +33,8 @@ export { Timeline, type TimelineProps } from './components/Timeline/Timeline';
 export type { TimelineItemProps } from './components/Timeline/TimelineItem';
 
 // Media
+export { Embed, EmbedWrapper, type EmbedProps } from './components/Embed/Embed';
+export { EmbedHubSpot, type EmbedHubSpotProps } from './components/Embed/EmbedHubSpot';
 export { FullBanner, type FullBannerProps } from './components/FullBanner/FullBanner';
 export type { FullBannerVideoProps } from './components/FullBanner/FullBannerVideo';
 export { ImageCover } from './components/ImageCover';

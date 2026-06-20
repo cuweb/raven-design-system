@@ -9,6 +9,7 @@
 
 // Hand-written global styles (browser resets, focus, selection)
 @use './base/globals';
+@use './base/spacing';
 @use './base/utils';
 @use './base/motion';
 @use './base/color-scheme';

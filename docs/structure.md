@@ -72,7 +72,7 @@ Full-width or image/video-heavy promotional components.
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Embed | port | No | No
+| Embed | done | No | No
 | Full Banner | done | No | No
 | Image Caption Overlay | port | No | No
 | Image Grid | port | No | No
