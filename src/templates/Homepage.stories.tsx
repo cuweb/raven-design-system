@@ -137,7 +137,7 @@
 
                 <SinglePara />
 
-                <Section as="section" isGrey>
+                <Section as="section" bgType="grey">
                 <h2>Inline Elements</h2>
                 <p>
                     A paragraph can contain <strong>bold text</strong>, <em>italic text</em>,{' '}
@@ -150,7 +150,7 @@
 
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignwide" isGrey>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
                 <h2>Inline Elements</h2>
                 <p>
                     A paragraph can contain <strong>bold text</strong>, <em>italic text</em>,{' '}
@@ -163,7 +163,7 @@
 
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignfull" isGrey>
+                <Section as="section" maxWidth="alignfull" bgType="grey">
                 <h2>Inline Elements</h2>
                 <p>
                     A paragraph can contain <strong>bold text</strong>, <em>italic text</em>,{' '}

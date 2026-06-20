@@ -59,7 +59,7 @@
             </Nav>
 
             <Main>
-                <Section as="section" maxWidth="alignfull" isGrey>
+                <Section as="section" maxWidth="alignfull" bgType="grey">
                     <PageHeader
                         as="h1"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
@@ -147,7 +147,7 @@
 
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignwide" isGrey>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
@@ -183,7 +183,7 @@
 
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignfull" isGrey>
+                <Section as="section" maxWidth="alignfull" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."

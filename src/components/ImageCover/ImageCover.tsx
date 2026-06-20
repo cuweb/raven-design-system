@@ -13,7 +13,7 @@ export interface ImageCoverProps {
 
 export const ImageCover = ({
   children,
-  maxWidth = 'aligncontent',
+  maxWidth = 'alignfull',
   contentWidth,
   image,
   opacity = 85,
@@ -21,7 +21,7 @@ export const ImageCover = ({
   const imageUrl = image ? `${BG_IMAGE_BASE_URL}/${image}.jpg` : undefined;
 
   const rootClasses = [
-    'cu-imagecover',
+    'cu-layout cu-imagecover',
     imageUrl && 'cu-imagecover--image',
     'has-global-padding',
     maxWidth,

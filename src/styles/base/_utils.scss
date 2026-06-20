@@ -1,3 +1,5 @@
+@use '../auto/variables' as *;
+
 // Global width classes for Gutenberg alignments, to be used in Section component
 .aligncontent {
   max-width: var(--rds--layout-content-size);
@@ -22,4 +24,13 @@
   border-width: 0;
 }
 
-// Is Stuff
+//
+
+.cu-layout + :not(.cu-layout),
+:not(.cu-layout) + .cu-layout {
+    margin-top: var(--rds--spacing-large);
+    
+    @media (min-width: $rds-media-query-md) {
+        margin-top: var(--rds--spacing-x-large);
+    }
+}

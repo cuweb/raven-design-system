@@ -16,7 +16,7 @@ export const StackedList = ({
   noShadow = false,
 }: StackedListProps) => {
   const wrapperClasses = [
-    'cu-stackedlist',
+    'cu-layout cu-stackedlist',
     noShadow ? 'cu-stackedlist--no-shadow' : undefined,
   ]
     .filter(Boolean)

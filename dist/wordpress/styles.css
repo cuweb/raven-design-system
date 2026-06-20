@@ -85,7 +85,7 @@
   --rds--radius-full: 9999px;
 
   /* Layout */
-  --rds--layout-content-size: 1024px;
+  --rds--layout-content-size: 896px;
   --rds--layout-wide-size: 1280px;
   --rds--layout-max-size: 1536px;
 }
@@ -104,7 +104,7 @@ body {
 :where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--rds--font-family-inter);
   line-height: 1.1;
-  color: var(--rds--color-grey-dark);
+  color: var(--rds--color-black);
 }
 
 :where(h1) {

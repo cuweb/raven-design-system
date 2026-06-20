@@ -7,8 +7,8 @@ export interface WideWaveProps {
   color?: 'red' | 'black'
 }
 
-export const WideWave = ({ children, maxWidth = 'aligncontent', contentWidth, color = 'black' }: WideWaveProps) => {
-  const rootClasses = ['cu-widewave', 'cu-widewave--' + color, 'has-global-padding', maxWidth, 'is-layout-constrained']
+export const WideWave = ({ children, maxWidth = 'alignfull', contentWidth, color = 'black' }: WideWaveProps) => {
+  const rootClasses = ['cu-layout cu-widewave', 'cu-widewave--' + color, 'has-global-padding', maxWidth, 'is-layout-constrained']
     .filter(Boolean)
     .join(' ');
 

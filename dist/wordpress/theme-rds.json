@@ -319,7 +319,7 @@
       ]
     },
     "layout": {
-      "contentSize": "1024px",
+      "contentSize": "896px",
       "wideSize": "1280px"
     },
     "custom": {
@@ -372,7 +372,7 @@
           "lineHeight": "1.1"
         },
         "color": {
-          "text": "var(--wp--preset--color--grey-dark)"
+          "text": "var(--wp--preset--color--black)"
         }
       },
       "h1": {

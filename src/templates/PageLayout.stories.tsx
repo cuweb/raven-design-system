@@ -6,6 +6,7 @@ import { FooterStandard } from '../components/FooterStandard';
 import { CookieBanner } from '../components/CookieBanner';
 import { PageHeader } from '../components/PageHeader';
 import { Quote } from '../components/Quote';
+import { WideWave } from '../components/WideWave';
 import { largeNavData } from '../data/NavigationData';
 
 const meta: Meta = {
@@ -60,7 +61,7 @@ export const PageLayout: Story = {
             </Nav>
 
             <Main>
-                <Section maxWidth='alignfull' isGrey>
+                <Section maxWidth='alignfull' bgType="light-gradient" isHero>
                     <PageHeader
                         as="h1"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
@@ -90,7 +91,15 @@ export const PageLayout: Story = {
                 <SinglePara />
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignwide" isGrey>
+                <WideWave>
+                    <SinglePara />
+                    <SinglePara />
+                </WideWave>
+
+                <SinglePara />
+                <SinglePara />
+
+                <Section as="section" maxWidth="alignwide" bgType="grey">
                     <h2>Heading Two</h2>
                     <SinglePara />
                     <SinglePara />
@@ -172,7 +181,7 @@ export const PageLayout: Story = {
 
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignwide" isGrey>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
@@ -208,7 +217,7 @@ export const PageLayout: Story = {
 
                 <SinglePara />
 
-                <Section as="section" maxWidth="alignfull" isGrey>
+                <Section as="section" maxWidth="alignfull" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."

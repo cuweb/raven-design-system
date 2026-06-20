@@ -19,8 +19,11 @@ Prefix the change with one of these keywords:
 
 - _Added_: Dark color scheme pattern via `data-color-scheme="dark"` attribute (`src/styles/base/_color-scheme.scss`). Apply to any element — including `<html>` for full-page dark mode — to flip descendant text, headings, and bare links to light colours. `WideWave` now applies this automatically since both its `black` and `red` backgrounds are always dark.
 - _Added_: `contentWidth` prop to `Section` — wraps children in a constrained inner `has-global-padding` div so the background width (`maxWidth`) and content column width can be set independently; `false` = 1024px, `true` = 1280px.
+- _Added_: `--rds--gradient-white-to-pale-grey` design token — subtle light gradient for use as a section background.
 - _Changed_: `ImageCover` rebuilt — `maxWidth` and `contentWidth` props align with `Section`; `image` prop accepts a name key (e.g. `"tory"`) and constructs the CDN URL internally (`https://cdn.carleton.ca/rds/assets/bg-images/{name}.jpg`); `opacity` (0–100, default 85) controls the white overlay via `::after`. Background image styles are scoped to a `cu-imagecover--image` modifier so the grey background always shows when no image is provided. Removed `focalPointX`/`focalPointY`; background defaults to `50% 50%`. Wave and overlay use `isolation: isolate` + negative z-index so content is always above them without explicit z-index. Added `BgImagesData.json` as the image name source.
+- _Changed_: `Section` — `isGrey?: boolean` replaced by `bgType?: 'grey' | 'black' | 'light-gradient'`. Update all usages: `isGrey` → `bgType="grey"`. `bgType="black"` automatically adds `data-color-scheme="dark"` for accessible text inversion.
 - _Added_: `StackedList` component; bordered card-style container for arranging list items in a one- or two-column responsive grid with optional section heading and shadow control.
+- _Fixed_: `WideWave` red variant background changed from `--rds--color-primary` to `--rds--color-primary-dark` to meet WCAG AA color contrast with white text.
 
 ## [0.6.0] - 2026-06-12
 
