@@ -53,16 +53,16 @@
   }
 }
 
-// .cu-column > * :first-child {
-//   margin-top: 0;
-// }
+.cu-column > .cu-column__content *:first-child {
+  margin-top: 0;
+}
 
-// .cu-column > * :last-child {
-//   margin-bottom: 0;
-// }
+.cu-column > .cu-column__content *:last-child {
+  margin-bottom: 0;
+}
 
 /* Ordering */
-.cu-column > div {
+.cu-column > .cu-column__content {
   order: 1;
 }
 
