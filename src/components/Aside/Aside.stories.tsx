@@ -3,7 +3,7 @@ import { Main } from '../Main/Main';
 import { Section } from '../Section/Section';
 import { Column } from '../Column/Column';
 import { Aside } from './Aside';
-import { MultiParagraph, SampleList } from '../../data/storyContent';
+import { MultiParagraph, UnorderedList } from '../../data/storyContent';
 
 const meta: Meta<typeof Aside> = {
   title: 'Components/Template Parts/Aside',
@@ -47,7 +47,7 @@ export const RightSidebar: Story = {
           </Column.Content>
           <Aside>
             <MultiParagraph count={1} />
-            <SampleList />
+            <UnorderedList />
           </Aside>
         </Column>
       </Section>
@@ -73,7 +73,7 @@ export const LeftSidebarSticky: Story = {
         <Column cols="1/3">
           <Aside {...args}>
             <MultiParagraph count={1} />
-            <SampleList />
+            <UnorderedList />
           </Aside>
           <Column.Content>
             <MultiParagraph count={4} />

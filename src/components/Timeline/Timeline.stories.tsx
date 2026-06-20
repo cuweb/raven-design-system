@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Main } from '../Main/Main';
 import { Timeline } from './Timeline';
-import { SingleParagraph, SampleList } from '../../data/storyContent';
+import { SingleParagraph, UnorderedList } from '../../data/storyContent';
 
 const meta: Meta<typeof Timeline> = {
   title: 'Components/Content/Timeline',
@@ -28,11 +28,11 @@ export const Primary: Story = {
     <Timeline>
       <Timeline.Item date="2022 — Present" title="Senior Developer">
         <SingleParagraph />
-        <SampleList />
+        <UnorderedList />
       </Timeline.Item>
       <Timeline.Item date="2019 — 2022" title="Developer">
         <SingleParagraph index={1} />
-        <SampleList />
+        <UnorderedList />
       </Timeline.Item>
       <Timeline.Item date="2016 — 2019" title="Junior Developer">
         <SingleParagraph index={2} />

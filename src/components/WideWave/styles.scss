@@ -5,6 +5,10 @@
     isolation: isolate;
     padding: var(--rds--spacing-large);
     background-color: var(--rds--color-black);
+    
+    @media (min-width: $rds-media-query-md) {
+        padding-bottom: var(--rds--spacing-x-large);
+    }
 }
 
 .cu-widewave > .has-global-padding,

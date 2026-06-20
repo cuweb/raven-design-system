@@ -8,6 +8,7 @@ import { PageHeader } from '../components/PageHeader';
 import { Quote } from '../components/Quote';
 import { WideWave } from '../components/WideWave';
 import { largeNavData } from '../data/NavigationData';
+import { MultiParagraph } from '../data/storyContent';
 
 const meta: Meta = {
     title: 'Overview/Templates/Page Layout',
@@ -19,16 +20,6 @@ const meta: Meta = {
 
 export default meta;
 type Story = StoryObj;
-
-const SinglePara = () => (
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
-        posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
-        <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
-        orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
-        tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
-    </p>
-);
 
 export const PageLayout: Story = {
     parameters: {
@@ -77,53 +68,47 @@ export const PageLayout: Story = {
                 About page that introduces them to potential site visitors. It might say something like
                 this:
                 </p>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h2>Heading Two</h2>
-                <SinglePara />
-                <SinglePara />
+                <MultiParagraph count={2} />
                 <Quote
                     cite="John Doe"
                     graphic="border"
                 >
-                    <SinglePara />
+                    <MultiParagraph count={1} />
                 </Quote>
-                <SinglePara />
-                <SinglePara />
+                <MultiParagraph count={2} />
 
                 <WideWave>
-                    <SinglePara />
-                    <SinglePara />
+                    <MultiParagraph count={2} />
                 </WideWave>
 
-                <SinglePara />
-                <SinglePara />
+                <MultiParagraph count={2} />
 
                 <Section as="section" maxWidth="alignwide" bgType="grey">
                     <h2>Heading Two</h2>
-                    <SinglePara />
-                    <SinglePara />
+                    <MultiParagraph count={2} />
                     <Quote
                         cite="John Doe"
                         graphic="border"
                     >
-                        <SinglePara />
+                        <MultiParagraph count={1} />
                     </Quote>
-                    <SinglePara />
-                    <SinglePara />
+                    <MultiParagraph count={2} />
                 </Section>
 
                 <h3>Heading Three</h3>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h4>Heading Four</h4>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h5>Heading Five</h5>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h6>Heading Six</h6>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h2>Unordered List</h2>
                 <ul>
@@ -152,7 +137,7 @@ export const PageLayout: Story = {
                 <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
                 </ul>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h2>Ordered List</h2>
                 <ol>
@@ -171,7 +156,7 @@ export const PageLayout: Story = {
                 <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
                 </ol>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <p>
                 Hi there! I am a bike messenger by day, aspiring actor by night, and this is my website. I
@@ -179,7 +164,7 @@ export const PageLayout: Story = {
                 caught in the rain.)
                 </p>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <Section as="section" maxWidth="alignwide" bgType="grey">
                     <PageHeader
@@ -197,7 +182,7 @@ export const PageLayout: Story = {
                     </p>
                 </Section>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <Section as="section">
                     <PageHeader
@@ -215,7 +200,7 @@ export const PageLayout: Story = {
                     </p>
                 </Section>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <Section as="section" maxWidth="alignfull" bgType="grey">
                     <PageHeader
