@@ -16,7 +16,6 @@ import { Badge } from '../components/Badge';
 import { Figure } from '../components/Figure';
 import { ImageCover } from '../components/ImageCover';
 import { Embed } from '../components/Embed';
-import { Testimonial } from '../components/Testimonial';
 
 import { largeNavData } from '../data/NavigationData';
 import { NewsData } from '../data/NewsData';
@@ -175,27 +174,9 @@ export const Homepage: Story = {
                     </Embed>
                 </ImageCover>
 
-                <Section maxWidth="alignfull" contentWidth>
-                    <PageHeader
-                        as="h2"
-                        header="Campus Life"
-                        size="lg"
-                    />
+                <MultiParagraph count={2} />
 
-                    <p>Add image grid</p>
-
-                    <Testimonial
-                        cite="Jane Doe"
-                        focalPointX={50}
-                        focalPointY={50}
-                        imageUrl="https://picsum.photos/id/342/600/400"
-                        imageZoom={0}
-                        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
-                    />
-                </Section>
-                
-
-                <Section bgType="grey" maxWidth="alignfull" contentWidth>
+                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth>
                     <PageHeader
                         as="h2"
                         header="Upcoming Events"
