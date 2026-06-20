@@ -11,28 +11,33 @@
   max-width: var(--rds--layout-full-size);
 }
 
-// .cu-layout + .cu-layout,
-// .cu-layout + :not(.cu-layout),
-// :not(.cu-layout) + .cu-layout {
-//     margin-top: var(--rds--spacing-large);
-    
-//     @media (min-width: $rds-media-query-md) {
-//         margin-top: var(--rds--spacing-x-large);
-//     }
-// }
-
 .cu-main > * > .cu-layout + .cu-layout,
 .cu-main > * > .cu-layout + :not(.cu-layout),
 .cu-main > * > :not(.cu-layout) + .cu-layout {
-    margin-top: var(--rds--spacing-large);
+    margin-top: var(--rds--spacing-medium);
     
     @media (min-width: $rds-media-query-md) {
-        margin-top: var(--rds--spacing-x-large);
+        margin-top: var(--rds--spacing-large);
     }
 }
 
 .cu-main > * > .cu-layout.alignfull + .cu-layout.alignfull {
     margin-top: 0;
+}
+
+.cu-layout > .has-global-padding {
+    > * + * {
+        margin-block-start: var(--rds--spacing-medium);
+    }
+
+    > .cu-layout + *,
+    > * + .cu-layout {
+        margin-block-start: var(--rds--spacing-medium);
+
+        @media (min-width: $rds-media-query-md) {
+            margin-block-start: var(--rds--spacing-large);
+        }
+    }
 }
 
 .cu-main--padding .cu-layout.alignfull:first-child {

@@ -1,8 +1,6 @@
 @use '../../styles/auto/variables' as *;
 
-.cu-section--grey,
-.cu-section--black,
-.cu-section--light-gradient {
+.cu-section {
   padding: var(--rds--spacing-large);
   
   @media (min-width: $rds-media-query-md) {
