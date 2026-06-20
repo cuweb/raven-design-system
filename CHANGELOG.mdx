@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Fixed_: Spacing between child elements inside layout components (WideWave, ImageCover, Section with `contentWidth`) — items nested inside the inner `.has-global-padding` wrapper now receive `spacing-medium` between consecutive elements, and `spacing-large` / `spacing-x-large` (responsive) when a `.cu-layout` element (Column, Embed, etc.) is adjacent.
+
 - _Added_: Dark color scheme pattern via `data-color-scheme="dark"` attribute (`src/styles/base/_color-scheme.scss`). Apply to any element — including `<html>` for full-page dark mode — to flip descendant text, headings, and bare links to light colours. `WideWave` now applies this automatically since both its `black` and `red` backgrounds are always dark.
 - _Added_: `contentWidth` prop to `Section` — wraps children in a constrained inner `has-global-padding` div so the background width (`maxWidth`) and content column width can be set independently; `false` = 1024px, `true` = 1280px.
 - _Added_: `--rds--gradient-white-to-pale-grey` design token — subtle light gradient for use as a section background.

@@ -3,6 +3,7 @@ import { Main } from '../components/Main/Main';
 import { Nav } from '../components/Nav/Nav';
 import { FooterStandard } from '../components/FooterStandard';
 import { CookieBanner } from '../components/CookieBanner';
+import { Section } from '../components/Section';
 import { PageHeader } from '../components/PageHeader';
 import { FullBanner } from '../components/FullBanner';
 import { WideWave } from '../components/WideWave';
@@ -18,6 +19,7 @@ import { Embed } from '../components/Embed';
 
 import { largeNavData } from '../data/NavigationData';
 import { NewsData } from '../data/NewsData';
+import { EventData } from '../data/EventData';
 import { MultiParagraph } from '../data/storyContent';
 
 const meta: Meta = {
@@ -145,7 +147,7 @@ export const Homepage: Story = {
                     </Column>
                 </WideWave>
 
-                <ImageCover contentWidth>
+                <ImageCover image="tory" contentWidth>
                     <PageHeader
                         as="h2"
                         header="Attend Carleton"
@@ -162,7 +164,6 @@ export const Homepage: Story = {
                             </Card.Body>
                         </Card>)}
                     </Column>
-                    <MultiParagraph count={2} />
                     <Embed maxWidth="alignwide">
                         <Embed.YouTube
                             title="YouTube embed demo"
@@ -172,6 +173,26 @@ export const Homepage: Story = {
                 </ImageCover>
 
                 <MultiParagraph count={2} />
+
+                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth>
+                    <PageHeader
+                        as="h2"
+                        header="Upcoming Events"
+                        size="lg"
+                    />
+                    <Column cols="4" maxWidth="alignwide">
+                        {EventData.slice(0, 4).map(item => <Card key={`event-${item.id}`} noImage={!item.image}>
+                            {item.image && <Card.Figure>
+                                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                                </Card.Figure>}
+                            <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
+                            <Card.Header title={item.title} link={item.link} />
+                            <Card.Body>
+                                <Card.EventMeta startDateTime={item.startDate} endDateTime={item.endDate} onCampus={item.on_campus} onCampusBuilding={item.on_campus_building} onCampusRoomNumber={item.on_campus_room_number} eventAddress={item.event_address} />
+                            </Card.Body>
+                        </Card>)}
+                    </Column>
+                </Section>
             </Main>
 
             <FooterStandard type="standard" />
