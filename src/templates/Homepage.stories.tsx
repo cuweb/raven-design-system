@@ -1,33 +1,37 @@
-    import type { Meta, StoryObj } from '@storybook/react-vite';
-    import { Main } from '../components/Main/Main';
-    import { Section } from '../components/Section/Section';
-    import { Nav } from '../components/Nav/Nav';
-    import { FooterStandard } from '../components/FooterStandard';
-    import { CookieBanner } from '../components/CookieBanner';
-    import { largeNavData } from '../data/NavigationData';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Main } from '../components/Main/Main';
+import { Nav } from '../components/Nav/Nav';
+import { FooterStandard } from '../components/FooterStandard';
+import { CookieBanner } from '../components/CookieBanner';
+import { PageHeader } from '../components/PageHeader';
+import { FullBanner } from '../components/FullBanner';
+import { WideWave } from '../components/WideWave';
+import { ButtonGroup } from '../components/ButtonGroup';
+import { Button } from '../components/Button';
+import { Column } from '../components/Column';
+import { Card } from '../components/Card';
+import { BadgeGroup } from '../components/BadgeGroup';
+import { Badge } from '../components/Badge';
+import { Figure } from '../components/Figure';
+import { ImageCover } from '../components/ImageCover';
+import { Embed } from '../components/Embed';
 
-    const meta: Meta = {
-        title: 'Overview/Templates/Homepage',
-        parameters: {
-            layout: 'fullscreen',
-        },
-        tags: ['!autodocs'],
-    };
+import { largeNavData } from '../data/NavigationData';
+import { NewsData } from '../data/NewsData';
+import { MultiParagraph } from '../data/storyContent';
 
-    export default meta;
-    type Story = StoryObj;
+const meta: Meta = {
+    title: 'Overview/Templates/Homepage',
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['!autodocs'],
+};
 
-    const SinglePara = () => (
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
-        posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
-        <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
-        orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
-        tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
-    </p>
-    );
+export default meta;
+type Story = StoryObj;
 
-    export const Homepage: Story = {
+export const Homepage: Story = {
     parameters: {
         a11y: {
             config: {
@@ -45,134 +49,129 @@
                     <Nav.Logo />
                     <Nav.Menu menu={largeNavData} />
                     <Nav.Buttons isSearch buttons={[{
-                        title: 'Apply',
-                        href: '/apply'
-                    }, {
-                        title: 'Donate',
-                        href: '/donate',
-                        variant: 'dark'
-                    }]} />
+                            title: 'Apply',
+                            href: '/apply'
+                        }, {
+                            title: 'Donate',
+                            href: '/donate',
+                            variant: 'dark'
+                        }]}
+                    />
                 </Nav.Top>
             </Nav>
 
             <Main>
-                <h1>Heading One: Page Title</h1>
+                <FullBanner
+                    title="Join a Smart, Caring Community"
+                    content="Find your people and your purpose with our new programs and award-winning student support."
+                    contentBox="xl"
+                    headerType="h1"
+                    justify="start"
+                    maxWidth="alignfull"
+                    media={<FullBanner.Video src="https://cdn.carleton.ca/truth/videos/discover-20260513140912.webm" />}
+                    opacity={0}
+                >
+                    <ButtonGroup>
+                        <Button title="Explore Our Programs" />
+                        <Button
+                        color="white"
+                        title="Virtual Tour"
+                        />
+                    </ButtonGroup>
+                </FullBanner>
 
-                <SinglePara />
-                <p>
-                This is an example page. It is different from a blog post because it will stay in one
-                place and will show up in your site navigation (in most themes). Most people start with an
-                About page that introduces them to potential site visitors. It might say something like
-                this:
-                </p>
+                <Column cols="4" maxWidth="alignwide">
+                    <Card leftBorder>
+                        <Card.Stats stat="30,600+" desc="Student Population " />
+                    </Card>
+                    <Card leftBorder>
+                        <Card.Stats stat="170+" desc="Clubs & Societies" />
+                    </Card>
+                    <Card leftBorder>
+                        <Card.Stats stat="$87 M" desc="Scholarships & Bursaries" />
+                    </Card>
+                    <Card leftBorder>
+                        <Card.Stats stat="$155.4 M" desc="Research Funding" />
+                    </Card>
+                </Column>
 
-                <h2>Heading Two</h2>
-                <SinglePara />
+                <Column cols="4" maxWidth="alignwide">
+                    {NewsData.slice(0, 4).map(item => <Card key={`news-${item.id}`}>
+                        <Card.Figure>
+                            <img src={item.image} alt={item.alt} width="600" height="400" />
+                        </Card.Figure>
+                        <BadgeGroup>
+                            <Badge text="Featured" color="black80" rounded="full" />
+                            <Badge text="New" color="teal" rounded="full" />
+                        </BadgeGroup>
+                        <Card.Header title={item.title} link={item.link} date={item.date} readTime="7" />
+                        <Card.Body>
+                            <Card.Excerpt text={item.excerpt} />
+                        </Card.Body>
+                    </Card>)}
+                </Column>
 
-                <h3>Heading Three</h3>
-                <SinglePara />
+                <WideWave>
+                    <PageHeader
+                        as="h2"
+                        header="Protecting Canadians from Mosquito-Borne Diseases"
+                        size="lg"
+                        isWhite
+                        noUnderline
+                    />
+                    <Column cols="2" maxWidth="alignwide">
+                        <Column.Content>
+                            <MultiParagraph count={1} />
+                            <ButtonGroup>
+                                <Button
+                                    color="red"
+                                    title="Read more"
+                                />
+                            </ButtonGroup>
+                        </Column.Content>
+                        <Column.Content>
+                            <Figure
+                                align="none"
+                                size="full"
+                            >
+                                <img
+                                    alt="Landscape with trees and mountains"
+                                    height="600"
+                                    src="https://picsum.photos/id/15/1200/600"
+                                    width="1200"
+                                />
+                            </Figure>
+                        </Column.Content>
+                    </Column>
+                </WideWave>
 
-                <h4>Heading Four</h4>
-                <SinglePara />
+                <ImageCover contentWidth>
+                    <PageHeader
+                        as="h2"
+                        header="Attend Carleton"
+                        size="lg"
+                    />
+                    <Column cols="4" maxWidth="alignwide">
+                        {NewsData.slice(0, 4).map(item => <Card key={`news-${item.id}`}>
+                            <Card.Figure isSmall>
+                                <img src={item.image} alt={item.alt} width="600" height="400" />
+                            </Card.Figure>
+                            <Card.Header title={item.title} link={item.link} date={item.date} readTime="7" />
+                            <Card.Body>
+                                <Card.Excerpt text={item.excerpt} />
+                            </Card.Body>
+                        </Card>)}
+                    </Column>
+                    <MultiParagraph count={2} />
+                    <Embed maxWidth="alignwide">
+                        <Embed.YouTube
+                            title="YouTube embed demo"
+                            url="https://www.youtube.com/watch?v=Fbb1gdTcH-A"
+                        />
+                    </Embed>
+                </ImageCover>
 
-                <h5>Heading Five</h5>
-                <SinglePara />
-
-                <h6>Heading Six</h6>
-                <SinglePara />
-
-                <h2>Unordered List</h2>
-                <ul>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor
-                    pellentesque, posuere tellus vitae, sagittis justo.
-                </li>
-                <li>
-                    Suspendisse <a href="https://carleton.ca">velit eget suscipit tincidunt</a> vel orci
-                    vulputate, eget vulputate neque porttitor.
-                </li>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <ul>
-                    <li>Aenean sit amet tortor pellentesque, posuere tellus vitae, sagittis justo.</li>
-                    <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
-                    <li>
-                        Nested deeper
-                        <ul>
-                        <li>Third level item one.</li>
-                        <li>Third level item two.</li>
-                        </ul>
-                    </li>
-                    </ul>
-                </li>
-                <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
-                </ul>
-
-                <SinglePara />
-
-                <h2>Ordered List</h2>
-                <ol>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor
-                    pellentesque.
-                </li>
-                <li>Suspendisse condimentum magna vel orci vulputate, eget vulputate neque porttitor.</li>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <ol>
-                    <li>Aenean sit amet tortor pellentesque, posuere tellus vitae, sagittis justo.</li>
-                    <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
-                    </ol>
-                </li>
-                <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
-                </ol>
-
-                <SinglePara />
-
-                <p>
-                Hi there! I am a bike messenger by day, aspiring actor by night, and this is my website. I
-                live in Los Angeles, have a great dog named Jack, and I like piña coladas. (And getting
-                caught in the rain.)
-                </p>
-
-                <SinglePara />
-
-                <Section as="section" isGrey>
-                <h2>Inline Elements</h2>
-                <p>
-                    A paragraph can contain <strong>bold text</strong>, <em>italic text</em>,{' '}
-                    <code>inline code</code>, <a href="https://carleton.ca">a link</a>, and{' '}
-                    <mark>highlighted text</mark>. Keyboard shortcuts look like <kbd>Cmd</kbd> +{' '}
-                    <kbd>K</kbd>, and abbreviations like <abbr title="Raven Design System">RDS</abbr> should
-                    render with dotted underlines.
-                </p>
-                </Section>
-
-                <SinglePara />
-
-                <Section as="section" maxWidth="alignwide" isGrey>
-                <h2>Inline Elements</h2>
-                <p>
-                    A paragraph can contain <strong>bold text</strong>, <em>italic text</em>,{' '}
-                    <code>inline code</code>, <a href="https://carleton.ca">a link</a>, and{' '}
-                    <mark>highlighted text</mark>. Keyboard shortcuts look like <kbd>Cmd</kbd> +{' '}
-                    <kbd>K</kbd>, and abbreviations like <abbr title="Raven Design System">RDS</abbr> should
-                    render with dotted underlines.
-                </p>
-                </Section>
-
-                <SinglePara />
-
-                <Section as="section" maxWidth="alignfull" isGrey>
-                <h2>Inline Elements</h2>
-                <p>
-                    A paragraph can contain <strong>bold text</strong>, <em>italic text</em>,{' '}
-                    <code>inline code</code>, <a href="https://carleton.ca">a link</a>, and{' '}
-                    <mark>highlighted text</mark>. Keyboard shortcuts look like <kbd>Cmd</kbd> +{' '}
-                    <kbd>K</kbd>, and abbreviations like <abbr title="Raven Design System">RDS</abbr> should
-                    render with dotted underlines.
-                </p>
-                </Section>
+                <MultiParagraph count={2} />
             </Main>
 
             <FooterStandard type="standard" />

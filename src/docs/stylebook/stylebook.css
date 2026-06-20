@@ -139,6 +139,33 @@
   padding: var(--rds--spacing-x-large) var(--rds--spacing-x-small);
 }
 
+.sb-section .sb-token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--rds--font-size-small);
+}
+
+.sb-section .sb-token-table th,
+.sb-section .sb-token-table td {
+  padding: var(--rds--spacing-x-small) var(--rds--spacing-small);
+  text-align: left;
+  border-bottom: 1px solid var(--rds--color-grey-lighter);
+}
+
+.sb-section .sb-token-table th {
+  font-weight: var(--rds--font-weight-semibold);
+  color: var(--rds--color-grey-dark);
+  background-color: var(--rds--color-grey-pale);
+}
+
+.sb-section .sb-token-table td:last-child {
+  color: var(--rds--color-grey);
+}
+
+.sb-section .sb-token-table code {
+  font-size: var(--rds--font-size-x-small);
+}
+
 /* ---------- Welcome page ---------- */
 
 .welcome-hero {

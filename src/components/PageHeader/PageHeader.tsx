@@ -5,6 +5,7 @@ export interface PageHeaderProps {
   children?: React.ReactNode;
   as?: 'h1' | 'h2' | 'h3';
   preHeader?: string;
+  postHeader?: string;
   header: string;
   content?: string;
   metaData?: React.ReactNode;
@@ -20,6 +21,7 @@ export const PageHeader = ({
   as: As = 'h1',
   preHeader,
   header,
+  postHeader,
   content,
   metaData,
   size = 'lg',
@@ -53,6 +55,7 @@ export const PageHeader = ({
         {preHeader && <span className="cu-pageheader__pre">{preHeader}</span>}
         {header}
         {pronoun && <span className="cu-pageheader__pronoun">({pronoun})</span>}
+        {postHeader && <span className="cu-pageheader__post">{postHeader}</span>}
       </As>
       {metaData && <div className="cu-pageheader__meta">{metaData}</div>}
       {truncatedContent && <p className="cu-pageheader__content">{truncatedContent}</p>}

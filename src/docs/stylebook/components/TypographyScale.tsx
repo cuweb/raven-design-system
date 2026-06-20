@@ -8,8 +8,6 @@ const fontFamilies = config.tokens.fontFamily;
 const SAMPLE_PARAGRAPH =
   'The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump! Sphinx of black quartz, judge my vow.';
 
-const SAMPLE_HEADING = 'The quick brown fox jumps over the lazy dog';
-
 type SectionProps = {
   title?: string;
   description?: string;
@@ -99,25 +97,19 @@ export function FontSizes({
 
   return (
     <SectionWrapper title={title} description={description}>
-      {entries.map(([name, size]) => {
-        const { min, max } = getFluidRange(size);
-        return (
-          <div key={name} className="sb-stack__item">
-            <p
-              className="sb-stack__sample"
-              style={{
-                fontSize: `var(--${prefix}--font-size-${name})`,
-                lineHeight: `var(--${prefix}--line-height-${lineHeight})`,
-              }}
-            >
-              {isHeadingView ? formatTokenName(name) + ' — ' + SAMPLE_HEADING : SAMPLE_PARAGRAPH}
-            </p>
-            <code className="sb-stack__meta">
-              var(--{prefix}--font-size-{name}) · {min} → {max}
-            </code>
-          </div>
-        );
-      })}
+      {entries.map(([name]) => (
+        <div key={name} className="sb-stack__item">
+          <p
+            className="sb-stack__sample"
+            style={{
+              fontSize: `var(--${prefix}--font-size-${name})`,
+              lineHeight: `var(--${prefix}--line-height-${lineHeight})`,
+            }}
+          >
+            {isHeadingView ? formatTokenName(name) : SAMPLE_PARAGRAPH}
+          </p>
+        </div>
+      ))}
     </SectionWrapper>
   );
 }
@@ -136,6 +128,55 @@ export function HeadingScale(props: Omit<FontSizesProps, 'filter'> & { filter?: 
  */
 export function BodySizes(props: Omit<FontSizesProps, 'filter'> & { filter?: FontSizeFilter }) {
   return <FontSizes {...props} filter={props.filter ?? 'body'} />;
+}
+
+export function FontSizeTokens({
+  filter = 'all',
+  include,
+  exclude,
+  title,
+  description,
+}: FontSizesProps) {
+  const entries = (Object.entries(fontSizes) as [string, FontSizeValue][])
+    .filter(([name]) => {
+      if (include) return include.includes(name);
+      if (!matchesFilter(name, filter)) return false;
+      if (exclude?.includes(name)) return false;
+      return true;
+    })
+    .sort(([, a], [, b]) => sizeToNumber(b) - sizeToNumber(a));
+
+  return (
+    <section className="sb-section">
+      {(title || description) && (
+        <header className="sb-header">
+          {title && <h2>{title}</h2>}
+          {description && <p>{description}</p>}
+        </header>
+      )}
+      <table className="sb-token-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Variable</th>
+            <th>Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          {entries.map(([name, size]) => {
+            const { min, max } = getFluidRange(size);
+            return (
+              <tr key={name}>
+                <td>{formatTokenName(name)}</td>
+                <td><code>--{prefix}--font-size-{name}</code></td>
+                <td>{min} → {max}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </section>
+  );
 }
 
 export function FontFamilies({ title, description }: SectionProps) {

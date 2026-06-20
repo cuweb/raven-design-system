@@ -4,8 +4,6 @@
   /* Colors */
   --rds--color-primary: #e91c24;
   --rds--color-primary-dark: #a21218;
-  --rds--color-secondary: #426587;
-  --rds--color-secondary-dark: #2c3c4e;
   --rds--color-black: #191919;
   --rds--color-grey-dark: #434343;
   --rds--color-grey: #767676;
@@ -18,7 +16,8 @@
   --rds--color-purple-light: #D3DAE9;
   --rds--color-teal: #3A8082;
   --rds--color-teal-light: #C8DAD7;
-  --rds--color-blue: #026BC8;
+  --rds--color-exp-blue: #026BC8;
+  --rds--color-exp-blue-light: #E0EEFE;
   --rds--color-success: #007c24;
   --rds--color-warning: #f4c83c;
   --rds--color-error: #d31820;
@@ -35,6 +34,7 @@
   /* Gradients */
   --rds--gradient-red-to-dark-red: linear-gradient(135deg,rgb(233,28,36) 0%,rgb(25,25,25) 100%);
   --rds--gradient-dark-grey-to-black: linear-gradient(135deg,rgb(118,118,118) 0%,rgb(25,25,25) 100%);
+  --rds--gradient-white-to-pale-grey: linear-gradient(135deg,rgb(250,250,250) 0%,rgb(240,240,240) 100%);
 
   /* Spacing */
   --rds--spacing-2-x-small: 0.44rem;
@@ -85,7 +85,7 @@
   --rds--radius-full: 9999px;
 
   /* Layout */
-  --rds--layout-content-size: 1024px;
+  --rds--layout-content-size: 896px;
   --rds--layout-wide-size: 1280px;
   --rds--layout-max-size: 1536px;
 }
@@ -104,7 +104,7 @@ body {
 :where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--rds--font-family-inter);
   line-height: 1.1;
-  color: var(--rds--color-grey-dark);
+  color: var(--rds--color-black);
 }
 
 :where(h1) {

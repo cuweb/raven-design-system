@@ -1,0 +1,102 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as EmbedStories from './Embed.stories';
+
+<Meta of={EmbedStories} />
+
+# Embed
+
+A responsive 16:9 wrapper for embedding third-party media — video, audio, and forms — from YouTube, Vimeo, Kaltura, TED, SoundCloud, Audioboom, Power BI, and HubSpot.
+
+## When to use
+
+- Embedding a video from a supported platform (YouTube, Vimeo, Kaltura, TED)
+- Embedding an audio player (SoundCloud, Audioboom)
+- Displaying a Power BI dashboard or HubSpot form inline in a page
+- When you need to control the width of an embedded media element using the same alignment system as `Section`
+
+## Import
+
+```tsx
+import { Embed, EmbedHubSpot } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<Embed>
+  <Embed.YouTube title="Video title" url="https://www.youtube.com/watch?v=XXXXXXXXXXX" />
+</Embed>
+
+<Embed maxWidth="alignwide">
+  <Embed.Vimeo title="Video title" url="https://vimeo.com/XXXXXXXXX" />
+</Embed>
+
+<EmbedHubSpot formId="form-id" portalId="portal-id" />
+```
+
+## Examples
+
+<Canvas of={EmbedStories.YouTube} />
+<Controls of={EmbedStories.YouTube} />
+
+### Vimeo
+
+<Canvas of={EmbedStories.Vimeo} />
+
+### Kaltura
+
+<Canvas of={EmbedStories.Kaltura} />
+
+### Power BI
+
+<Canvas of={EmbedStories.PowerBi} />
+
+### TED
+
+<Canvas of={EmbedStories.TED} />
+
+### SoundCloud
+
+<Canvas of={EmbedStories.SoundCloud} />
+
+### Audioboom
+
+<Canvas of={EmbedStories.Audioboom} />
+
+### HubSpot
+
+<Canvas of={EmbedStories.HubSpot} />
+
+### Align wide
+
+<Canvas of={EmbedStories.AlignWide} />
+
+### Align full
+
+<Canvas of={EmbedStories.AlignFull} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-embed` | Always applied to the root element |
+| `aligncontent` | Default — constrains to content width (~1024px) |
+| `alignwide` | `maxWidth="alignwide"` — expands to wide width (~1280px) |
+| `alignfull` | `maxWidth="alignfull"` — stretches to full viewport width |
+| `is-layout-constrained` | Always applied; works with WordPress block layout system |
+| `cu-embed__container` | Aspect-ratio box that wraps the iframe |
+| `cu-embed-iframe` | Applied to every iframe subcomponent |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--radius-md` | Border radius of the embed container |
+| `--rds--color-grey-light` | Border color of the embed container |
+
+## Accessibility
+
+- Each subcomponent requires a `title` prop — it is passed directly to the `<iframe title>` attribute, which is required for screen readers to identify the embedded frame
+- The `<iframe>` elements have no focus trap; keyboard users can tab into and out of the embed naturally
+- `allowFullScreen` is set on all video iframes so keyboard-accessible full-screen controls are available within the player
+- HubSpot forms are rendered by a third-party script; ensure the HubSpot form itself has appropriate labelling configured in your HubSpot portal

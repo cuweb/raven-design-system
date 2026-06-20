@@ -72,7 +72,7 @@ Full-width or image/video-heavy promotional components.
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Embed | port | No | No
+| Embed | done | No | No
 | Full Banner | done | No | No
 | Image Caption Overlay | port | No | No
 | Image Grid | port | No | No
@@ -169,10 +169,10 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 |---|---|---|---|
 | Column | done | No | No
 | Float Box | port | No | No
-| Image Cover | port | No | No
+| Image Cover | done | No | No
 | Section | done | No | No
-| Stacked List | port | No | No
-| Wide Wave | port | No | No
+| Stacked List | done | No | No
+| Wide Wave | done | No | No
 
 ---
 

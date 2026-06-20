@@ -1,11 +1,14 @@
-    import type { Meta, StoryObj } from '@storybook/react-vite';
-    import { Main } from '../components/Main/Main';
-    import { Section } from '../components/Section/Section';
-    import { Nav } from '../components/Nav/Nav';
-    import { FooterStandard } from '../components/FooterStandard';
-    import { CookieBanner } from '../components/CookieBanner';
-    import { PageHeader } from '../components/PageHeader';
-    import { largeNavData } from '../data/NavigationData';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Main } from '../components/Main/Main';
+import { Section } from '../components/Section/Section';
+import { Nav } from '../components/Nav/Nav';
+import { FooterStandard } from '../components/FooterStandard';
+import { CookieBanner } from '../components/CookieBanner';
+import { PageHeader } from '../components/PageHeader';
+import { Quote } from '../components/Quote';
+import { WideWave } from '../components/WideWave';
+import { largeNavData } from '../data/NavigationData';
+import { MultiParagraph } from '../data/storyContent';
 
     const meta: Meta = {
         title: 'Overview/Templates/Post Layout',
@@ -17,16 +20,6 @@
 
     export default meta;
     type Story = StoryObj;
-
-    const SinglePara = () => (
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
-            posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit ultricies,{' '}
-            <a href="https://carleton.ca">sed tempus diam dignissim</a>. Suspendisse condimentum magna vel
-            orci vulputate, eget vulputate neque porttitor. Suspendisse euismod, urna et gravida volutpat,
-            tortor risus vehicula nisl, in vulputate lectus dolor viverra est.
-        </p>
-    );
 
     export const PostLayout: Story = {
     parameters: {
@@ -59,37 +52,64 @@
             </Nav>
 
             <Main>
-                <Section as="section" maxWidth="alignfull" isGrey>
+                <Section maxWidth='alignfull' bgType="light-gradient" isHero>
                     <PageHeader
                         as="h1"
-                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
                         header="Post Template"
+                        postHeader="Published on January 1, 2024 by John Doe"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
                         size="primary"
+                        // noUnderline
                     />
                 </Section>
 
-                <SinglePara />
                 <p>
                 This is an example page. It is different from a blog post because it will stay in one
                 place and will show up in your site navigation (in most themes). Most people start with an
                 About page that introduces them to potential site visitors. It might say something like
                 this:
                 </p>
+                <MultiParagraph count={1} />
 
                 <h2>Heading Two</h2>
-                <SinglePara />
+                <MultiParagraph count={2} />
+                <Quote
+                    cite="John Doe"
+                    graphic="border"
+                >
+                    <MultiParagraph count={1} />
+                </Quote>
+                <MultiParagraph count={2} />
+
+                <WideWave>
+                    <MultiParagraph count={2} />
+                </WideWave>
+
+                <MultiParagraph count={2} />
+
+                <Section as="section" maxWidth="alignwide" bgType="grey">
+                    <h2>Heading Two</h2>
+                    <MultiParagraph count={2} />
+                    <Quote
+                        cite="John Doe"
+                        graphic="border"
+                    >
+                        <MultiParagraph count={1} />
+                    </Quote>
+                    <MultiParagraph count={2} />
+                </Section>
 
                 <h3>Heading Three</h3>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h4>Heading Four</h4>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h5>Heading Five</h5>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h6>Heading Six</h6>
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h2>Unordered List</h2>
                 <ul>
@@ -118,7 +138,7 @@
                 <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
                 </ul>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <h2>Ordered List</h2>
                 <ol>
@@ -137,7 +157,7 @@
                 <li>Vivamus imperdiet turpis nec elit ultricies, sed tempus diam dignissim.</li>
                 </ol>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <p>
                 Hi there! I am a bike messenger by day, aspiring actor by night, and this is my website. I
@@ -145,9 +165,9 @@
                 caught in the rain.)
                 </p>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
-                <Section as="section" maxWidth="alignwide" isGrey>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
@@ -163,7 +183,7 @@
                     </p>
                 </Section>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
                 <Section as="section">
                     <PageHeader
@@ -181,9 +201,9 @@
                     </p>
                 </Section>
 
-                <SinglePara />
+                <MultiParagraph count={1} />
 
-                <Section as="section" maxWidth="alignfull" isGrey>
+                <Section as="section" maxWidth="alignfull" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."

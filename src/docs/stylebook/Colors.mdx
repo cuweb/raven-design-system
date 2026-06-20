@@ -10,21 +10,33 @@ prefixed with `--rds-color-*`. Use these tokens for all color references to
 maintain consistency across the design system.
 
 <ColorSwatches
-  filter="primary"
+  names={['primary', 'primary-dark']}
   title="Primary Colors"
   description="The primary palette and its variants."
 />
 
 <ColorSwatches
-  filter="neutral"
+  names={['black', 'grey-dark', 'grey', 'grey-light', 'grey-lighter', 'grey-pale', 'grey-faint', 'white']}
   title="Neutrals"
   description="Background and text colors."
 />
 
 <ColorSwatches
-  filter="semantic"
+  names={['purple', 'purple-light', 'teal', 'teal-light', 'exp-blue', 'exp-blue-light']}
+  title="Extended Palette"
+  description="Secondary and supporting brand colors."
+/>
+
+<ColorSwatches
+  names={['success', 'warning', 'error', 'info']}
   title="Semantic Colors"
   description="Used for feedback states — success, warning, error, and info."
+/>
+
+<ColorSwatches
+  names={['linkedin', 'facebook', 'bluesky', 'twitter', 'instagram', 'youtube', 'tiktok', 'orcid']}
+  title="Social Brands"
+  description="Official brand colors for social media platforms."
 />
 
 ## Usage

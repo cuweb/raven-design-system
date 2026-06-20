@@ -1,0 +1,64 @@
+@use '../../styles/auto/variables' as *;
+
+.cu-widewave {
+    position: relative;
+    isolation: isolate;
+    padding: var(--rds--spacing-large);
+    background-color: var(--rds--color-black);
+    
+    @media (min-width: $rds-media-query-md) {
+        padding-bottom: var(--rds--spacing-x-large);
+    }
+}
+
+.cu-widewave > .has-global-padding,
+.has-global-padding > .cu-widewave.alignfull > .has-global-padding {
+  padding-left: 0;
+  padding-right: 0;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cu-widewave:not(.alignfull) {
+  border-radius: var(--rds--radius-md);
+}
+
+.cu-main .cu-widewave.alignfull:last-child {
+  margin-bottom: calc(-1 * var(--rds--spacing-large));
+}
+
+// If image cover is the first block, remove top margin
+.cu-main .cu-widewave.alignfull:first-child {
+  margin-top: calc(-1 * var(--rds--spacing-large));
+}
+
+.cu-widewave__wave {
+    height: 45px;
+    background-image: url('https://cdn.carleton.ca/rds/assets/graphics/cu-waves-hard-edge-black.svg');
+    background-repeat: repeat-x;
+    background-position: top;
+    background-size: 400px;
+    margin-top: calc(-1.05 * var(--rds--spacing-large));
+    margin-bottom: var(--rds--spacing-large);
+    
+    @media (min-width: $rds-media-query-md) {
+        height: 85px;
+        background-size: 820px;
+        margin-bottom: var(--rds--spacing-x-large);
+    }
+}
+
+
+.cu-widewave--red {
+    background-color: var(--rds--color-primary-dark);
+
+    .cu-widewave__wave {
+        background-image: url('https://cdn.carleton.ca/rds/assets/graphics/cu-waves-hard-edge-red.svg');
+    }
+}
