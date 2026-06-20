@@ -10,7 +10,7 @@
 // conditionally based on a prop.
 
 [data-color-scheme="dark"] {
-  color: var(--rds--color-grey-pale);
+  color: var(--rds--color-white);
   background-color: var(--rds--color-black);
 
   :where(h1, h2, h3, h4, h5, h6) {
