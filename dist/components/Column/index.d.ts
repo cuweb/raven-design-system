@@ -18,9 +18,10 @@ type gridColumnKeys = keyof typeof gridColumnClasses;
 interface ColumnProps {
     children: React.ReactNode;
     cols?: gridColumnKeys;
+    maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
 }
 declare const Column: {
-    ({ children, cols }: ColumnProps): React.JSX.Element;
+    ({ children, cols, maxWidth }: ColumnProps): React.JSX.Element;
     displayName: string;
 } & {
     Content: {

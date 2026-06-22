@@ -4,6 +4,7 @@ interface PageHeaderProps {
     children?: React.ReactNode;
     as?: 'h1' | 'h2' | 'h3';
     preHeader?: string;
+    postHeader?: string;
     header: string;
     content?: string;
     metaData?: React.ReactNode;
@@ -13,7 +14,7 @@ interface PageHeaderProps {
     noUnderline?: boolean;
     pronoun?: string;
 }
-declare const PageHeader: ({ children, as: As, preHeader, header, content, metaData, size, isWhite, isCenter, noUnderline, pronoun, }: PageHeaderProps) => React.JSX.Element;
+declare const PageHeader: ({ children, as: As, preHeader, header, postHeader, content, metaData, size, isWhite, isCenter, noUnderline, pronoun, }: PageHeaderProps) => React.JSX.Element;
 
 export { PageHeader };
 export type { PageHeaderProps };

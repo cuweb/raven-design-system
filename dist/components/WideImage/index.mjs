@@ -1,5 +1,5 @@
 import { t as e } from "../_shared/Button-BDzzWhqG.mjs";
-import { t } from "../_shared/PageHeader-B4JoWbfe.mjs";
+import { t } from "../_shared/PageHeader-DDxy5Br9.mjs";
 import { r as n } from "../_shared/propClasses-BbEv--Kn.mjs";
 import { jsx as r, jsxs as i } from "react/jsx-runtime";
 //#region src/components/WideImage/WideImageSignup.tsx

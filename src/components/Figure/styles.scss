@@ -2,6 +2,7 @@
 
 .cu-figure {
   max-width: 100%; // safety net — never overflow container
+  margin: 0;
 
   img {
     display: block;

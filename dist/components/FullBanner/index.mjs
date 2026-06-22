@@ -1,4 +1,4 @@
-import { t as e } from "../_shared/PageHeader-B4JoWbfe.mjs";
+import { t as e } from "../_shared/PageHeader-DDxy5Br9.mjs";
 import { n as t, r as n } from "../_shared/propClasses-BbEv--Kn.mjs";
 import { useRef as r, useState as i } from "react";
 import { jsx as a, jsxs as o } from "react/jsx-runtime";
@@ -63,7 +63,7 @@ var u = {
 	lg: "cu-fullbanner__inner--lg",
 	xl: "cu-fullbanner__inner--xl"
 }, d = ({ children: r, title: i, content: s, headerType: c = "h2", image: l, imageAlt: d = "", media: f, opacity: p = 70, focalPointX: m = 50, focalPointY: h = 50, maxWidth: g = "alignwide", contentBox: _ = "xl", justify: v = "start" }) => {
-	let y = ["cu-fullbanner", n[g]].filter(Boolean).join(" "), b = { "--cu-fullbanner-overlay": `rgba(0, 0, 0, ${p / 100})` }, x = { objectPosition: `${m}% ${h}%` };
+	let y = ["cu-layout cu-fullbanner", n[g]].filter(Boolean).join(" "), b = { "--cu-fullbanner-overlay": `rgba(0, 0, 0, ${p / 100})` }, x = { objectPosition: `${m}% ${h}%` };
 	return /* @__PURE__ */ o("div", {
 		className: y,
 		children: [!!(l || f) && /* @__PURE__ */ o("div", {
@@ -91,7 +91,7 @@ var u = {
 					children: [/* @__PURE__ */ a(e, {
 						header: i,
 						as: c,
-						size: c === "h1" ? "lg" : "md",
+						size: "md",
 						content: s,
 						isWhite: !0,
 						noUnderline: !0

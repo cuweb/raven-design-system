@@ -1,6 +1,22 @@
+.cu-section {
+  padding: var(--rds--spacing-large);
+}
+@media (min-width: 784px) {
+  .cu-section {
+    padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
+  }
+}
+
 .cu-section--grey {
   background-color: var(--rds--color-grey-pale);
-  padding: var(--rds--spacing-large);
+}
+
+.cu-section--black {
+  background-color: var(--rds--color-black);
+}
+
+.cu-section--light-gradient {
+  background-image: var(--rds--gradient-white-to-pale-grey);
 }
 
 .cu-section > * + * {
@@ -22,14 +38,20 @@
   margin-bottom: 0;
 }
 
-.cu-section--grey:not(.alignfull) {
-  border-radius: var(--rds--radius-xl);
+.cu-section--grey:not(.alignfull),
+.cu-section--black:not(.alignfull),
+.cu-section--light-gradient:not(.alignfull) {
+  border-radius: var(--rds--radius-md);
 }
 
-.cu-main .cu-section--grey.alignfull:last-child {
+.cu-main .cu-section--grey.alignfull:last-child,
+.cu-main .cu-section--black.alignfull:last-child,
+.cu-main .cu-section--light-gradient.alignfull:last-child {
   margin-bottom: calc(-1 * var(--rds--spacing-large));
 }
 
-.cu-main .cu-section--grey.alignfull:first-child {
+.cu-main .cu-section--grey.alignfull:first-child,
+.cu-main .cu-section--black.alignfull:first-child,
+.cu-main .cu-section--light-gradient.alignfull:first-child {
   margin-top: calc(-1 * var(--rds--spacing-large));
 }

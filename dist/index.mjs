@@ -13,18 +13,24 @@ var g = ({ children: e, content: t }) => t ? /* @__PURE__ */ f("article", { dang
 }), v = ({ children: e, className: t }) => /* @__PURE__ */ f("body", {
 	className: t || "",
 	children: e
-}), y = ({ children: e, isFirst: t = !1 }) => /* @__PURE__ */ f("div", {
-	className: t ? "is-first" : void 0,
+}), y = ({ children: e, as: t = "main", hasPadding: n = !0, className: r = "" }) => /* @__PURE__ */ f(t, {
+	className: `${n ? "cu-main cu-main--padding" : "cu-main"} ${r}`,
+	children: /* @__PURE__ */ f("div", {
+		className: "alignfull has-global-padding is-layout-constrained entry-content",
+		children: e
+	})
+}), b = ({ children: e, isFirst: t = !1 }) => /* @__PURE__ */ f("div", {
+	className: `cu-column__content ${t ? "is-first" : ""}`,
 	children: e
 });
-y.displayName = "Column.Content";
+b.displayName = "Column.Content";
 //#endregion
 //#region src/utils/propClasses.tsx
-var b = {
+var x = {
 	aligncontent: "aligncontent",
 	alignwide: "alignwide",
 	alignfull: "alignfull"
-}, x = {
+}, S = {
 	1: "one",
 	2: "two",
 	3: "three",
@@ -35,198 +41,72 @@ var b = {
 	start: "start",
 	end: "end",
 	center: "center"
-}, S = ({ children: e, cols: t = "1" }) => /* @__PURE__ */ f("div", {
-	className: `cu-column cu-column--${x[t]}`,
+}, C = ({ children: e, cols: t = "2", maxWidth: n = "aligncontent" }) => /* @__PURE__ */ f("div", {
+	className: [`cu-layout cu-column cu-column--${S[t]}`, n].filter(Boolean).join(" "),
 	children: e
-}), C = Object.assign(S, { Content: y });
-S.displayName = "Column";
+}), te = Object.assign(C, { Content: b });
+C.displayName = "Column";
 //#endregion
-//#region src/components/Main/Main.tsx
-var te = ({ children: e, as: t = "main", hasPadding: n = !0, className: r = "" }) => /* @__PURE__ */ f(t, {
-	className: `${n ? "cu-main cu-main--padding" : "cu-main"} ${r}`,
-	children: /* @__PURE__ */ f("div", {
-		className: "alignfull has-global-padding is-layout-constrained entry-content",
-		children: e
-	})
-}), ne = ({ children: e, as: t = "section", isGrey: n, maxWidth: r = "aligncontent", contentWidth: i }) => /* @__PURE__ */ f(t, {
-	className: `cu-section cu-section--${n ? "grey has-global-padding" : "white"} ${r} is-layout-constrained`,
+//#region src/components/Section/Section.tsx
+var ne = ({ children: e, as: t = "section", bgType: n, maxWidth: r = "aligncontent", contentWidth: i, isHero: a }) => /* @__PURE__ */ f(t, {
+	className: [
+		"cu-layout cu-section",
+		a && "cu-section--hero",
+		n && `cu-section--${n}`,
+		n && "has-global-padding",
+		r,
+		"is-layout-constrained"
+	].filter(Boolean).join(" "),
+	"data-color-scheme": n === "black" ? "dark" : void 0,
 	children: i === void 0 ? e : /* @__PURE__ */ f("div", {
 		className: `has-global-padding ${i ? "alignwide" : "aligncontent"}`,
 		children: e
 	})
-}), w = ({ children: e, as: t = "h1", preHeader: n, header: r, content: i, metaData: a, size: o = "lg", isWhite: s = !1, isCenter: c = !1, noUnderline: l = !1, pronoun: u }) => {
-	let d = i && i.length > 320 ? `${i.substring(0, 320)}...` : i;
-	return /* @__PURE__ */ p("header", {
-		className: [
-			"cu-pageheader",
-			`cu-pageheader--${o}`,
-			s ? "cu-pageheader--white" : "",
-			c ? "cu-pageheader--center" : ""
-		].filter(Boolean).join(" "),
-		children: [
-			/* @__PURE__ */ p(t, {
-				className: ["cu-pageheader__heading", l ? "" : "cu-pageheader__heading--underline"].filter(Boolean).join(" "),
-				children: [
-					n && /* @__PURE__ */ f("span", {
-						className: "cu-pageheader__pre",
-						children: n
-					}),
-					r,
-					u && /* @__PURE__ */ p("span", {
-						className: "cu-pageheader__pronoun",
-						children: [
-							"(",
-							u,
-							")"
-						]
-					})
-				]
-			}),
-			a && /* @__PURE__ */ f("div", {
-				className: "cu-pageheader__meta",
-				children: a
-			}),
-			d && /* @__PURE__ */ f("p", {
-				className: "cu-pageheader__content",
-				children: d
-			}),
-			e
-		]
+}), re = (e, t) => e && t ? `${e[0]}${t[0]}` : e ? e[0] : t ? t[0] : "CU", w = ({ firstName: e, lastName: t, src: n, alt: r, size: i = "md", isCircle: a = !1, onClick: o }) => {
+	let s = t ? `${e} ${t}` : e, c = `cu-avatar cu-avatar--${i} ${a ? "cu-avatar--circle" : "cu-avatar--square"}`, l = n ? /* @__PURE__ */ f("img", {
+		className: "cu-avatar__image",
+		src: n,
+		alt: "",
+		"aria-hidden": "true"
+	}) : /* @__PURE__ */ f("span", {
+		className: "cu-avatar__initials",
+		"aria-hidden": "true",
+		children: re(e, t)
 	});
-}, T = () => /* @__PURE__ */ p("svg", {
-	width: "14",
-	height: "14",
-	viewBox: "0 0 14 14",
-	fill: "currentColor",
-	"aria-hidden": "true",
-	focusable: "false",
-	children: [/* @__PURE__ */ f("rect", {
-		x: "2",
-		y: "1",
-		width: "3.5",
-		height: "12",
-		rx: "1"
-	}), /* @__PURE__ */ f("rect", {
-		x: "8.5",
-		y: "1",
-		width: "3.5",
-		height: "12",
-		rx: "1"
-	})]
-}), re = () => /* @__PURE__ */ f("svg", {
-	width: "14",
-	height: "14",
-	viewBox: "0 0 14 14",
-	fill: "currentColor",
-	"aria-hidden": "true",
-	focusable: "false",
-	children: /* @__PURE__ */ f("path", { d: "M2.5 1.5 L12.5 7 L2.5 12.5 Z" })
-}), ie = ({ src: e }) => {
-	let t = l(null), [n, r] = u(!0);
-	return /* @__PURE__ */ p("div", {
-		className: "cu-fullbanner__video-wrap",
-		children: [/* @__PURE__ */ f("video", {
-			ref: t,
-			className: "cu-fullbanner__video",
-			autoPlay: !0,
-			muted: !0,
-			loop: !0,
-			playsInline: !0,
-			"aria-hidden": "true",
-			children: /* @__PURE__ */ f("source", { src: e })
-		}), /* @__PURE__ */ f("button", {
-			type: "button",
-			className: "cu-fullbanner__video-toggle",
-			onClick: () => {
-				let e = t.current;
-				e && (n ? e.pause() : e.play(), r(!n));
-			},
-			"aria-label": n ? "Pause background video" : "Play background video",
-			children: f(n ? T : re, {})
-		})]
+	return o ? /* @__PURE__ */ f("button", {
+		type: "button",
+		className: c,
+		onClick: o,
+		"aria-label": r ?? s,
+		children: l
+	}) : /* @__PURE__ */ f("div", {
+		className: c,
+		role: "img",
+		"aria-label": r ?? s,
+		children: l
 	});
-};
-ie.displayName = "FullBanner.Video";
-//#endregion
-//#region src/components/FullBanner/FullBanner.tsx
-var ae = {
-	lg: "cu-fullbanner__inner--lg",
-	xl: "cu-fullbanner__inner--xl"
-}, oe = ({ children: e, title: t, content: n, headerType: r = "h2", image: i, imageAlt: a = "", media: o, opacity: s = 70, focalPointX: c = 50, focalPointY: l = 50, maxWidth: u = "alignwide", contentBox: d = "xl", justify: m = "start" }) => {
-	let h = ["cu-fullbanner", b[u]].filter(Boolean).join(" "), g = { "--cu-fullbanner-overlay": `rgba(0, 0, 0, ${s / 100})` }, _ = { objectPosition: `${c}% ${l}%` };
-	return /* @__PURE__ */ p("div", {
-		className: h,
-		children: [!!(i || o) && /* @__PURE__ */ p("div", {
-			className: "cu-fullbanner__media",
-			children: [
-				i && /* @__PURE__ */ f("img", {
-					src: i,
-					alt: a,
-					className: "cu-fullbanner__img",
-					style: _
-				}),
-				o,
-				/* @__PURE__ */ f("div", {
-					className: "cu-fullbanner__overlay",
-					style: g,
-					"aria-hidden": "true"
-				})
-			]
-		}), /* @__PURE__ */ f("div", {
-			className: "cu-fullbanner__wrap",
-			children: /* @__PURE__ */ f("div", {
-				className: `cu-fullbanner__inner ${ae[d]} cu-fullbanner__inner--${ee[m]}`,
-				children: /* @__PURE__ */ p("div", {
-					className: "cu-fullbanner__box",
-					children: [/* @__PURE__ */ f(w, {
-						header: t,
-						as: r,
-						size: r === "h1" ? "lg" : "md",
-						content: n,
-						isWhite: !0,
-						noUnderline: !0
-					}), e]
-				})
-			})
-		})]
+}, ie = n((e) => /* @__PURE__ */ f("a", { ...e })), T = () => a(ie), ae = ({ text: e, href: t, rounded: n = "md", color: r = "grey", ...i }) => {
+	let a = T(), o = `cu-badge cu-badge--${r} cu-badge--radius-${n}`;
+	return t ? /* @__PURE__ */ f(a, {
+		href: t,
+		className: o,
+		...i,
+		children: e
+	}) : /* @__PURE__ */ f("span", {
+		className: o,
+		...i,
+		children: e
 	});
-};
-oe.displayName = "FullBanner";
-var se = Object.assign(oe, { Video: ie }), ce = ({ children: e, image: t, opacity: n = 85, focalPointX: r = 50, focalPointY: i = 50, maxWidth: a = "aligncontent", contentWidth: o }) => /* @__PURE__ */ p("section", {
-	className: ["cu-imagecover", a].filter(Boolean).join(" "),
-	style: {
-		...t && { "--cu-imagecover-bg": `url(${t})` },
-		"--cu-imagecover-focal-x": `${r}%`,
-		"--cu-imagecover-focal-y": `${i}%`,
-		"--cu-imagecover-overlay": `rgba(255, 255, 255, ${n / 100})`
-	},
-	children: [
-		/* @__PURE__ */ f("div", {
-			className: "cu-imagecover__wave",
-			"aria-hidden": "true"
-		}),
-		/* @__PURE__ */ f("div", {
-			className: "cu-imagecover__overlay",
-			"aria-hidden": "true"
-		}),
-		/* @__PURE__ */ f("div", {
-			className: "cu-imagecover__content is-layout-constrained has-global-padding",
-			children: o === void 0 ? e : /* @__PURE__ */ f("div", {
-				className: `cu-imagecover__inner ${o ? "alignwide" : "aligncontent"}`,
-				children: e
-			})
-		})
-	]
-}), le = ({ children: e, cite: t, graphic: n = "border", isCenter: r }) => /* @__PURE__ */ p("blockquote", {
-	className: [
-		"cu-quote",
-		`cu-quote--${n}`,
-		r ? "cu-quote--center" : void 0
-	].filter(Boolean).join(" "),
-	children: [e, t && /* @__PURE__ */ f("cite", {
-		className: "cu-quote__cite",
-		children: t
-	})]
+}, oe = (e, t, n, r) => {
+	let i = {};
+	return e !== void 0 && (i.top = `${e}px`), t !== void 0 && (i.right = `${t}px`), n !== void 0 && (i.bottom = `${n}px`), r !== void 0 && (i.left = `${r}px`), i;
+}, se = ({ children: e, isAbsolute: t = !1, top: n = 0, right: r, bottom: i, left: a = 0 }) => /* @__PURE__ */ f("div", {
+	className: "cu-badge-group",
+	style: t ? {
+		position: "absolute",
+		...oe(n, r, i, a)
+	} : {},
+	children: e
 }), E = ({ name: e, size: t = "1em", title: n, ...r }) => {
 	let i = m[e];
 	return i ? /* @__PURE__ */ f(i, {
@@ -251,225 +131,86 @@ var se = Object.assign(oe, { Video: ie }), ce = ({ children: e, image: t, opacit
 		name: n,
 		size: i ? 16 : 20
 	}), t]
-}), ue = ({ buttonText: e = "Subscribe" }) => /* @__PURE__ */ p("div", {
-	className: "cu-wideimage__signup",
-	children: [/* @__PURE__ */ p("div", {
-		className: "cu-wideimage__signup-row",
-		children: [
-			/* @__PURE__ */ f("label", {
-				htmlFor: "cu-wideimage-email",
-				className: "sr-only",
-				children: "Enter your email address"
-			}),
-			/* @__PURE__ */ f("input", {
-				type: "email",
-				id: "cu-wideimage-email",
-				name: "email",
-				required: !0,
-				placeholder: "Enter your email address",
-				className: "cu-wideimage__signup-input"
-			}),
-			/* @__PURE__ */ f(D, { title: e })
-		]
-	}), /* @__PURE__ */ p("div", {
-		className: "cu-wideimage__signup-optin",
-		children: [/* @__PURE__ */ f("input", {
-			type: "checkbox",
-			id: "cu-wideimage-optin",
-			name: "optin",
-			value: "yes",
-			className: "cu-wideimage__signup-checkbox"
-		}), /* @__PURE__ */ p("label", {
-			htmlFor: "cu-wideimage-optin",
-			className: "cu-wideimage__signup-label",
-			children: [
-				"I agree to receive email from Carleton University. Read our",
-				" ",
-				/* @__PURE__ */ f("a", {
-					href: "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/",
-					target: "_blank",
-					rel: "noreferrer",
-					children: "Privacy Statement"
-				}),
-				"."
-			]
-		})]
-	})]
-});
-ue.displayName = "WideImage.Signup";
-//#endregion
-//#region src/components/WideImage/WideImage.tsx
-var de = ({ children: e, title: t, content: n, image: r, headerType: i = "h2", opacity: a = 70, focalPointX: o = 50, focalPointY: s = 50, isType: c = "light", maxWidth: l = "aligncontent" }) => /* @__PURE__ */ f("div", {
-	className: [
-		"cu-wideimage",
-		`cu-wideimage--${c}`,
-		b[l]
-	].filter(Boolean).join(" "),
-	style: c === "image" && r ? {
-		backgroundImage: `url(${r})`,
-		backgroundPosition: `${o}% ${s}%`,
-		"--cu-wideimage-overlay": `rgba(0, 0, 0, ${a / 100})`
-	} : {},
-	children: /* @__PURE__ */ p("div", {
-		className: "cu-wideimage__content",
-		children: [/* @__PURE__ */ f(w, {
-			header: t,
-			as: i,
-			size: i === "h1" ? "lg" : "md",
-			content: n,
-			isWhite: c !== "light",
-			isCenter: !0,
-			noUnderline: !0
-		}), e]
-	})
-});
-de.displayName = "WideImage";
-var fe = Object.assign(de, { Signup: ue }), pe = ({ quote: e, cite: t, imageUrl: n, imageZoom: r = 0, focalPointX: i = 50, focalPointY: a = 50, reverse: o = !1 }) => /* @__PURE__ */ p("div", {
-	className: ["cu-testimonial", o ? "cu-testimonial--reverse" : void 0].filter(Boolean).join(" "),
-	children: [/* @__PURE__ */ f("div", {
-		className: "cu-testimonial__image",
-		style: {
-			backgroundImage: `url(${n})`,
-			backgroundPosition: `${i}% ${a}%`,
-			transform: `scale(${1 + r * .1})`
-		},
-		"aria-hidden": "true"
-	}), /* @__PURE__ */ f("div", {
-		className: "cu-testimonial__content",
-		children: /* @__PURE__ */ f(le, {
-			cite: t,
-			children: /* @__PURE__ */ f("p", { children: e })
-		})
-	})]
-}), me = ({ title: e, as: t = "h2", children: n, date: r }) => /* @__PURE__ */ p("div", {
-	className: "cu-timeline__item",
-	children: [/* @__PURE__ */ f("div", {
-		className: "cu-timeline__date",
-		children: /* @__PURE__ */ f("p", { children: r })
-	}), /* @__PURE__ */ p("div", {
-		className: "cu-timeline__content",
-		children: [/* @__PURE__ */ f(w, {
-			as: t,
-			header: e,
-			size: "sm",
-			noUnderline: !0
-		}), n]
-	})]
-}), he = ({ children: e }) => /* @__PURE__ */ f("div", {
-	className: "cu-timeline",
+}), ce = ({ children: e, align: t = "start" }) => /* @__PURE__ */ f("div", {
+	className: `cu-buttongroup cu-buttongroup--justify-${t}`,
 	children: e
-}), ge = Object.assign(he, { Item: me });
-he.displayName = "Timeline";
-//#endregion
-//#region src/components/StackedList/StackedList.tsx
-var _e = ({ children: e, as: t = "ul", cols: n = "2", header: r, noShadow: i = !1 }) => /* @__PURE__ */ p("div", {
-	className: ["cu-stackedlist", i ? "cu-stackedlist--no-shadow" : void 0].filter(Boolean).join(" "),
-	children: [r && /* @__PURE__ */ f("h2", {
-		className: "cu-stackedlist__header",
-		children: r
-	}), /* @__PURE__ */ f(t, {
-		className: `cu-stackedlist__list cu-stackedlist--cols-${n}`,
-		children: e
-	})]
-}), ve = ({ children: e, title: t, as: n = "h2", justify: r = "center", maxWidth: i = "aligncontent" }) => /* @__PURE__ */ p("div", {
+}), O = ({ children: e, as: t = "h1", preHeader: n, header: r, postHeader: i, content: a, metaData: o, size: s = "lg", isWhite: c = !1, isCenter: l = !1, noUnderline: u = !1, pronoun: d }) => {
+	let m = a && a.length > 320 ? `${a.substring(0, 320)}...` : a;
+	return /* @__PURE__ */ p("header", {
+		className: [
+			"cu-pageheader",
+			`cu-pageheader--${s}`,
+			c ? "cu-pageheader--white" : "",
+			l ? "cu-pageheader--center" : ""
+		].filter(Boolean).join(" "),
+		children: [
+			/* @__PURE__ */ p(t, {
+				className: ["cu-pageheader__heading", u ? "" : "cu-pageheader__heading--underline"].filter(Boolean).join(" "),
+				children: [
+					n && /* @__PURE__ */ f("span", {
+						className: "cu-pageheader__pre",
+						children: n
+					}),
+					r,
+					d && /* @__PURE__ */ p("span", {
+						className: "cu-pageheader__pronoun",
+						children: [
+							"(",
+							d,
+							")"
+						]
+					}),
+					i && /* @__PURE__ */ f("span", {
+						className: "cu-pageheader__post",
+						children: i
+					})
+				]
+			}),
+			o && /* @__PURE__ */ f("div", {
+				className: "cu-pageheader__meta",
+				children: o
+			}),
+			m && /* @__PURE__ */ f("p", {
+				className: "cu-pageheader__content",
+				children: m
+			}),
+			e
+		]
+	});
+}, le = ({ children: e, title: t, as: n = "h2", justify: r = "center", maxWidth: i = "aligncontent" }) => /* @__PURE__ */ p("div", {
 	className: [
 		"cu-callout",
 		`cu-callout--${r}`,
-		i ? b[i] : ""
+		i ? x[i] : ""
 	].filter(Boolean).join(" "),
-	children: [/* @__PURE__ */ f(w, {
+	children: [/* @__PURE__ */ f(O, {
 		as: n,
 		header: t,
 		size: "md",
 		isCenter: r === "center",
 		noUnderline: !1
 	}), e]
-}), ye = ({ children: e, caption: t, size: n = "full", align: r = "none" }) => {
-	let i = r === "left" ? "alignleft" : r === "right" ? "alignright" : "";
-	return /* @__PURE__ */ f("figure", {
-		className: [
-			"cu-figure",
-			`cu-figure--${n}`,
-			r === "none" ? "" : `cu-figure--${r}`,
-			i
-		].filter(Boolean).join(" "),
-		children: /* @__PURE__ */ p("div", {
-			className: "cu-figure__inner",
-			children: [e, t && /* @__PURE__ */ f("figcaption", {
-				className: "cu-figure__caption",
-				children: t
-			})]
-		})
-	});
-}, be = (e, t) => e && t ? `${e[0]}${t[0]}` : e ? e[0] : t ? t[0] : "CU", xe = ({ firstName: e, lastName: t, src: n, alt: r, size: i = "md", isCircle: a = !1, onClick: o }) => {
-	let s = t ? `${e} ${t}` : e, c = `cu-avatar cu-avatar--${i} ${a ? "cu-avatar--circle" : "cu-avatar--square"}`, l = n ? /* @__PURE__ */ f("img", {
-		className: "cu-avatar__image",
-		src: n,
-		alt: "",
-		"aria-hidden": "true"
-	}) : /* @__PURE__ */ f("span", {
-		className: "cu-avatar__initials",
-		"aria-hidden": "true",
-		children: be(e, t)
-	});
-	return o ? /* @__PURE__ */ f("button", {
-		type: "button",
-		className: c,
-		onClick: o,
-		"aria-label": r ?? s,
-		children: l
-	}) : /* @__PURE__ */ f("div", {
-		className: c,
-		role: "img",
-		"aria-label": r ?? s,
-		children: l
-	});
-}, Se = n((e) => /* @__PURE__ */ f("a", { ...e })), O = () => a(Se), Ce = ({ text: e, href: t, rounded: n = "md", color: r = "grey", ...i }) => {
-	let a = O(), o = `cu-badge cu-badge--${r} cu-badge--radius-${n}`;
-	return t ? /* @__PURE__ */ f(a, {
-		href: t,
-		className: o,
-		...i,
-		children: e
-	}) : /* @__PURE__ */ f("span", {
-		className: o,
-		...i,
-		children: e
-	});
-}, we = (e, t, n, r) => {
-	let i = {};
-	return e !== void 0 && (i.top = `${e}px`), t !== void 0 && (i.right = `${t}px`), n !== void 0 && (i.bottom = `${n}px`), r !== void 0 && (i.left = `${r}px`), i;
-}, Te = ({ children: e, isAbsolute: t = !1, top: n = 0, right: r, bottom: i, left: a = 0 }) => /* @__PURE__ */ f("div", {
-	className: "cu-badge-group",
-	style: t ? {
-		position: "absolute",
-		...we(n, r, i, a)
-	} : {},
-	children: e
-}), Ee = ({ children: e, align: t = "start" }) => /* @__PURE__ */ f("div", {
-	className: `cu-buttongroup cu-buttongroup--justify-${t}`,
-	children: e
-}), De = ({ children: e }) => /* @__PURE__ */ f("div", {
+}), ue = ({ children: e }) => /* @__PURE__ */ f("div", {
 	className: "cu-card__body",
 	children: e
 });
-De.displayName = "Card.Body";
+ue.displayName = "Card.Body";
 //#endregion
 //#region src/components/Card/CardContent.tsx
-var Oe = ({ children: e }) => /* @__PURE__ */ f("div", {
+var de = ({ children: e }) => /* @__PURE__ */ f("div", {
 	className: "cu-card__content",
 	children: e
 });
-Oe.displayName = "Card.Content";
+de.displayName = "Card.Content";
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/constants.js
-var ke = 365.2425, Ae = 6048e5, je = 864e5, Me = 6e4, Ne = 36e5, Pe = 1e3, Fe = 3600 * 24;
-Fe * 7, Fe * ke / 12 * 3;
-var Ie = Symbol.for("constructDateFrom");
+var fe = 365.2425, pe = 6048e5, me = 864e5, he = 6e4, ge = 36e5, _e = 1e3, ve = 3600 * 24;
+ve * 7, ve * fe / 12 * 3;
+var ye = Symbol.for("constructDateFrom");
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/constructFrom.js
 function k(e, t) {
-	return typeof e == "function" ? e(t) : e && typeof e == "object" && Ie in e ? e[Ie](t) : e instanceof Date ? new e.constructor(t) : new Date(t);
+	return typeof e == "function" ? e(t) : e && typeof e == "object" && ye in e ? e[ye](t) : e instanceof Date ? new e.constructor(t) : new Date(t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/toDate.js
@@ -478,15 +219,15 @@ function A(e, t) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/addDays.js
-function Le(e, t, n) {
+function be(e, t, n) {
 	let r = A(e, n?.in);
 	return isNaN(t) ? k(n?.in || e, NaN) : (t && r.setDate(r.getDate() + t), r);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/_lib/defaultOptions.js
-var Re = {};
+var xe = {};
 function j() {
-	return Re;
+	return xe;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/startOfWeek.js
@@ -504,7 +245,7 @@ function N(e, t) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getISOWeekYear.js
-function ze(e, t) {
+function Se(e, t) {
 	let n = A(e, t?.in), r = n.getFullYear(), i = k(n, 0);
 	i.setFullYear(r + 1, 0, 4), i.setHours(0, 0, 0, 0);
 	let a = N(i), o = k(n, 0);
@@ -520,7 +261,7 @@ function P(e) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/_lib/normalizeDates.js
-function Be(e, ...t) {
+function Ce(e, ...t) {
 	let n = k.bind(null, e || t.find((e) => typeof e == "object"));
 	return t.map(n);
 }
@@ -532,35 +273,35 @@ function F(e, t) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/differenceInCalendarDays.js
-function Ve(e, t, n) {
-	let [r, i] = Be(n?.in, e, t), a = F(r), o = F(i), s = +a - P(a), c = +o - P(o);
-	return Math.round((s - c) / je);
+function we(e, t, n) {
+	let [r, i] = Ce(n?.in, e, t), a = F(r), o = F(i), s = +a - P(a), c = +o - P(o);
+	return Math.round((s - c) / me);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/startOfISOWeekYear.js
-function He(e, t) {
-	let n = ze(e, t), r = k(t?.in || e, 0);
+function Te(e, t) {
+	let n = Se(e, t), r = k(t?.in || e, 0);
 	return r.setFullYear(n, 0, 4), r.setHours(0, 0, 0, 0), N(r);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/isSameDay.js
-function Ue(e, t, n) {
-	let [r, i] = Be(n?.in, e, t);
+function Ee(e, t, n) {
+	let [r, i] = Ce(n?.in, e, t);
 	return +F(r) == +F(i);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/isDate.js
-function We(e) {
+function De(e) {
 	return e instanceof Date || typeof e == "object" && Object.prototype.toString.call(e) === "[object Date]";
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/isValid.js
-function Ge(e) {
-	return !(!We(e) && typeof e != "number" || isNaN(+A(e)));
+function Oe(e) {
+	return !(!De(e) && typeof e != "number" || isNaN(+A(e)));
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/_lib/getRoundingMethod.js
-function Ke(e) {
+function ke(e) {
 	return (t) => {
 		let n = (e ? Math[e] : Math.trunc)(t);
 		return n === 0 ? 0 : n;
@@ -568,24 +309,24 @@ function Ke(e) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/differenceInMilliseconds.js
-function qe(e, t) {
+function Ae(e, t) {
 	return A(e) - +A(t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/differenceInMinutes.js
-function Je(e, t, n) {
-	let r = qe(e, t) / Me;
-	return Ke(n?.roundingMethod)(r);
+function je(e, t, n) {
+	let r = Ae(e, t) / he;
+	return ke(n?.roundingMethod)(r);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/startOfYear.js
-function Ye(e, t) {
+function Me(e, t) {
 	let n = A(e, t?.in);
 	return n.setFullYear(n.getFullYear(), 0, 1), n.setHours(0, 0, 0, 0), n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/locale/en-US/_lib/formatDistance.js
-var Xe = {
+var Ne = {
 	lessThanXSeconds: {
 		one: "less than a second",
 		other: "less than {{count}} seconds"
@@ -647,20 +388,20 @@ var Xe = {
 		one: "almost 1 year",
 		other: "almost {{count}} years"
 	}
-}, Ze = (e, t, n) => {
-	let r, i = Xe[e];
+}, Pe = (e, t, n) => {
+	let r, i = Ne[e];
 	return r = typeof i == "string" ? i : t === 1 ? i.one : i.other.replace("{{count}}", t.toString()), n?.addSuffix ? n.comparison && n.comparison > 0 ? "in " + r : r + " ago" : r;
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/locale/_lib/buildFormatLongFn.js
-function Qe(e) {
+function Fe(e) {
 	return (t = {}) => {
 		let n = t.width ? String(t.width) : e.defaultWidth;
 		return e.formats[n] || e.formats[e.defaultWidth];
 	};
 }
-var $e = {
-	date: Qe({
+var Ie = {
+	date: Fe({
 		formats: {
 			full: "EEEE, MMMM do, y",
 			long: "MMMM do, y",
@@ -669,7 +410,7 @@ var $e = {
 		},
 		defaultWidth: "full"
 	}),
-	time: Qe({
+	time: Fe({
 		formats: {
 			full: "h:mm:ss a zzzz",
 			long: "h:mm:ss a z",
@@ -678,7 +419,7 @@ var $e = {
 		},
 		defaultWidth: "full"
 	}),
-	dateTime: Qe({
+	dateTime: Fe({
 		formats: {
 			full: "{{date}} 'at' {{time}}",
 			long: "{{date}} 'at' {{time}}",
@@ -687,14 +428,14 @@ var $e = {
 		},
 		defaultWidth: "full"
 	})
-}, et = {
+}, Le = {
 	lastWeek: "'last' eeee 'at' p",
 	yesterday: "'yesterday at' p",
 	today: "'today at' p",
 	tomorrow: "'tomorrow at' p",
 	nextWeek: "eeee 'at' p",
 	other: "P"
-}, tt = (e, t, n, r) => et[e];
+}, Re = (e, t, n, r) => Le[e];
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/locale/_lib/buildLocalizeFn.js
 function I(e) {
@@ -711,7 +452,7 @@ function I(e) {
 		return i[a];
 	};
 }
-var nt = {
+var ze = {
 	ordinalNumber: (e, t) => {
 		let n = Number(e), r = n % 100;
 		if (r > 20 || r < 10) switch (r % 10) {
@@ -916,7 +657,7 @@ function L(e) {
 	return (t, n = {}) => {
 		let r = n.width, i = r && e.matchPatterns[r] || e.matchPatterns[e.defaultMatchWidth], a = t.match(i);
 		if (!a) return null;
-		let o = a[0], s = r && e.parsePatterns[r] || e.parsePatterns[e.defaultParseWidth], c = Array.isArray(s) ? it(s, (e) => e.test(o)) : rt(s, (e) => e.test(o)), l;
+		let o = a[0], s = r && e.parsePatterns[r] || e.parsePatterns[e.defaultParseWidth], c = Array.isArray(s) ? Ve(s, (e) => e.test(o)) : Be(s, (e) => e.test(o)), l;
 		l = e.valueCallback ? e.valueCallback(c) : c, l = n.valueCallback ? n.valueCallback(l) : l;
 		let u = t.slice(o.length);
 		return {
@@ -925,15 +666,15 @@ function L(e) {
 		};
 	};
 }
-function rt(e, t) {
+function Be(e, t) {
 	for (let n in e) if (Object.prototype.hasOwnProperty.call(e, n) && t(e[n])) return n;
 }
-function it(e, t) {
+function Ve(e, t) {
 	for (let n = 0; n < e.length; n++) if (t(e[n])) return n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/locale/_lib/buildMatchPatternFn.js
-function at(e) {
+function He(e) {
 	return (t, n = {}) => {
 		let r = t.match(e.matchPattern);
 		if (!r) return null;
@@ -950,14 +691,14 @@ function at(e) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/locale/en-US.js
-var ot = {
+var Ue = {
 	code: "en-US",
-	formatDistance: Ze,
-	formatLong: $e,
-	formatRelative: tt,
-	localize: nt,
+	formatDistance: Pe,
+	formatLong: Ie,
+	formatRelative: Re,
+	localize: ze,
 	match: {
-		ordinalNumber: at({
+		ordinalNumber: He({
 			matchPattern: /^(\d+)(th|st|nd|rd)?/i,
 			parsePattern: /\d+/i,
 			valueCallback: (e) => parseInt(e, 10)
@@ -1083,19 +824,19 @@ var ot = {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getDayOfYear.js
-function st(e, t) {
+function We(e, t) {
 	let n = A(e, t?.in);
-	return Ve(n, Ye(n)) + 1;
+	return we(n, Me(n)) + 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getISOWeek.js
-function ct(e, t) {
-	let n = A(e, t?.in), r = N(n) - +He(n);
-	return Math.round(r / Ae) + 1;
+function Ge(e, t) {
+	let n = A(e, t?.in), r = N(n) - +Te(n);
+	return Math.round(r / pe) + 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getWeekYear.js
-function lt(e, t) {
+function Ke(e, t) {
 	let n = A(e, t?.in), r = n.getFullYear(), i = j(), a = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? i.firstWeekContainsDate ?? i.locale?.options?.firstWeekContainsDate ?? 1, o = k(t?.in || e, 0);
 	o.setFullYear(r + 1, 0, a), o.setHours(0, 0, 0, 0);
 	let s = M(o, t), c = k(t?.in || e, 0);
@@ -1105,15 +846,15 @@ function lt(e, t) {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/startOfWeekYear.js
-function ut(e, t) {
-	let n = j(), r = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? n.firstWeekContainsDate ?? n.locale?.options?.firstWeekContainsDate ?? 1, i = lt(e, t), a = k(t?.in || e, 0);
+function qe(e, t) {
+	let n = j(), r = t?.firstWeekContainsDate ?? t?.locale?.options?.firstWeekContainsDate ?? n.firstWeekContainsDate ?? n.locale?.options?.firstWeekContainsDate ?? 1, i = Ke(e, t), a = k(t?.in || e, 0);
 	return a.setFullYear(i, 0, r), a.setHours(0, 0, 0, 0), M(a, t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getWeek.js
-function dt(e, t) {
-	let n = A(e, t?.in), r = M(n, t) - +ut(n, t);
-	return Math.round(r / Ae) + 1;
+function Je(e, t) {
+	let n = A(e, t?.in), r = M(n, t) - +qe(n, t);
+	return Math.round(r / pe) + 1;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/_lib/addLeadingZeros.js
@@ -1169,7 +910,7 @@ var z = {
 	afternoon: "afternoon",
 	evening: "evening",
 	night: "night"
-}, ft = {
+}, Ye = {
 	G: function(e, t, n) {
 		let r = +(e.getFullYear() > 0);
 		switch (t) {
@@ -1188,11 +929,11 @@ var z = {
 		return z.y(e, t);
 	},
 	Y: function(e, t, n, r) {
-		let i = lt(e, r), a = i > 0 ? i : 1 - i;
+		let i = Ke(e, r), a = i > 0 ? i : 1 - i;
 		return t === "YY" ? R(a % 100, 2) : t === "Yo" ? n.ordinalNumber(a, { unit: "year" }) : R(a, t.length);
 	},
 	R: function(e, t) {
-		return R(ze(e), t.length);
+		return R(Se(e), t.length);
 	},
 	u: function(e, t) {
 		return R(e.getFullYear(), t.length);
@@ -1278,18 +1019,18 @@ var z = {
 		}
 	},
 	w: function(e, t, n, r) {
-		let i = dt(e, r);
+		let i = Je(e, r);
 		return t === "wo" ? n.ordinalNumber(i, { unit: "week" }) : R(i, t.length);
 	},
 	I: function(e, t, n) {
-		let r = ct(e);
+		let r = Ge(e);
 		return t === "Io" ? n.ordinalNumber(r, { unit: "week" }) : R(r, t.length);
 	},
 	d: function(e, t, n) {
 		return t === "do" ? n.ordinalNumber(e.getDate(), { unit: "date" }) : z.d(e, t);
 	},
 	D: function(e, t, n) {
-		let r = st(e);
+		let r = We(e);
 		return t === "Do" ? n.ordinalNumber(r, { unit: "dayOfYear" }) : R(r, t.length);
 	},
 	E: function(e, t, n) {
@@ -1481,7 +1222,7 @@ var z = {
 		let r = e.getTimezoneOffset();
 		if (r === 0) return "Z";
 		switch (t) {
-			case "X": return mt(r);
+			case "X": return Ze(r);
 			case "XXXX":
 			case "XX": return V(r);
 			default: return V(r, ":");
@@ -1490,7 +1231,7 @@ var z = {
 	x: function(e, t, n) {
 		let r = e.getTimezoneOffset();
 		switch (t) {
-			case "x": return mt(r);
+			case "x": return Ze(r);
 			case "xxxx":
 			case "xx": return V(r);
 			default: return V(r, ":");
@@ -1501,7 +1242,7 @@ var z = {
 		switch (t) {
 			case "O":
 			case "OO":
-			case "OOO": return "GMT" + pt(r, ":");
+			case "OOO": return "GMT" + Xe(r, ":");
 			default: return "GMT" + V(r, ":");
 		}
 	},
@@ -1510,7 +1251,7 @@ var z = {
 		switch (t) {
 			case "z":
 			case "zz":
-			case "zzz": return "GMT" + pt(r, ":");
+			case "zzz": return "GMT" + Xe(r, ":");
 			default: return "GMT" + V(r, ":");
 		}
 	},
@@ -1521,11 +1262,11 @@ var z = {
 		return R(+e, t.length);
 	}
 };
-function pt(e, t = "") {
+function Xe(e, t = "") {
 	let n = e > 0 ? "-" : "+", r = Math.abs(e), i = Math.trunc(r / 60), a = r % 60;
 	return a === 0 ? n + String(i) : n + String(i) + t + R(a, 2);
 }
-function mt(e, t) {
+function Ze(e, t) {
 	return e % 60 == 0 ? (e > 0 ? "-" : "+") + R(Math.abs(e) / 60, 2) : V(e, t);
 }
 function V(e, t = "") {
@@ -1534,25 +1275,25 @@ function V(e, t = "") {
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/_lib/format/longFormatters.js
-var ht = (e, t) => {
+var Qe = (e, t) => {
 	switch (e) {
 		case "P": return t.date({ width: "short" });
 		case "PP": return t.date({ width: "medium" });
 		case "PPP": return t.date({ width: "long" });
 		default: return t.date({ width: "full" });
 	}
-}, gt = (e, t) => {
+}, $e = (e, t) => {
 	switch (e) {
 		case "p": return t.time({ width: "short" });
 		case "pp": return t.time({ width: "medium" });
 		case "ppp": return t.time({ width: "long" });
 		default: return t.time({ width: "full" });
 	}
-}, _t = {
-	p: gt,
+}, et = {
+	p: $e,
 	P: (e, t) => {
 		let n = e.match(/(P+)(p+)?/) || [], r = n[1], i = n[2];
-		if (!i) return ht(e, t);
+		if (!i) return Qe(e, t);
 		let a;
 		switch (r) {
 			case "P":
@@ -1568,42 +1309,42 @@ var ht = (e, t) => {
 				a = t.dateTime({ width: "full" });
 				break;
 		}
-		return a.replace("{{date}}", ht(r, t)).replace("{{time}}", gt(i, t));
+		return a.replace("{{date}}", Qe(r, t)).replace("{{time}}", $e(i, t));
 	}
-}, vt = /^D+$/, yt = /^Y+$/, bt = [
+}, tt = /^D+$/, nt = /^Y+$/, rt = [
 	"D",
 	"DD",
 	"YY",
 	"YYYY"
 ];
-function xt(e) {
-	return vt.test(e);
+function it(e) {
+	return tt.test(e);
 }
-function St(e) {
-	return yt.test(e);
+function at(e) {
+	return nt.test(e);
 }
-function Ct(e, t, n) {
-	let r = wt(e, t, n);
-	if (console.warn(r), bt.includes(e)) throw RangeError(r);
+function ot(e, t, n) {
+	let r = st(e, t, n);
+	if (console.warn(r), rt.includes(e)) throw RangeError(r);
 }
-function wt(e, t, n) {
+function st(e, t, n) {
 	let r = e[0] === "Y" ? "years" : "days of the month";
 	return `Use \`${e.toLowerCase()}\` instead of \`${e}\` (in \`${t}\`) for formatting ${r} to the input \`${n}\`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md`;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/format.js
-var Tt = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, Et = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, Dt = /^'([^]*?)'?$/, Ot = /''/g, kt = /[a-zA-Z]/;
+var ct = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, lt = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, ut = /^'([^]*?)'?$/, dt = /''/g, ft = /[a-zA-Z]/;
 function H(e, t, n) {
-	let r = j(), i = n?.locale ?? r.locale ?? ot, a = n?.firstWeekContainsDate ?? n?.locale?.options?.firstWeekContainsDate ?? r.firstWeekContainsDate ?? r.locale?.options?.firstWeekContainsDate ?? 1, o = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, s = A(e, n?.in);
-	if (!Ge(s)) throw RangeError("Invalid time value");
-	let c = t.match(Et).map((e) => {
+	let r = j(), i = n?.locale ?? r.locale ?? Ue, a = n?.firstWeekContainsDate ?? n?.locale?.options?.firstWeekContainsDate ?? r.firstWeekContainsDate ?? r.locale?.options?.firstWeekContainsDate ?? 1, o = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, s = A(e, n?.in);
+	if (!Oe(s)) throw RangeError("Invalid time value");
+	let c = t.match(lt).map((e) => {
 		let t = e[0];
 		if (t === "p" || t === "P") {
-			let n = _t[t];
+			let n = et[t];
 			return n(e, i.formatLong);
 		}
 		return e;
-	}).join("").match(Tt).map((e) => {
+	}).join("").match(ct).map((e) => {
 		if (e === "''") return {
 			isToken: !1,
 			value: "'"
@@ -1611,13 +1352,13 @@ function H(e, t, n) {
 		let t = e[0];
 		if (t === "'") return {
 			isToken: !1,
-			value: At(e)
+			value: pt(e)
 		};
-		if (ft[t]) return {
+		if (Ye[t]) return {
 			isToken: !0,
 			value: e
 		};
-		if (t.match(kt)) throw RangeError("Format string contains an unescaped latin alphabet character `" + t + "`");
+		if (t.match(ft)) throw RangeError("Format string contains an unescaped latin alphabet character `" + t + "`");
 		return {
 			isToken: !1,
 			value: e
@@ -1632,58 +1373,58 @@ function H(e, t, n) {
 	return c.map((r) => {
 		if (!r.isToken) return r.value;
 		let a = r.value;
-		(!n?.useAdditionalWeekYearTokens && St(a) || !n?.useAdditionalDayOfYearTokens && xt(a)) && Ct(a, t, String(e));
-		let o = ft[a[0]];
+		(!n?.useAdditionalWeekYearTokens && at(a) || !n?.useAdditionalDayOfYearTokens && it(a)) && ot(a, t, String(e));
+		let o = Ye[a[0]];
 		return o(s, a, i.localize, l);
 	}).join("");
 }
-function At(e) {
-	let t = e.match(Dt);
-	return t ? t[1].replace(Ot, "'") : e;
+function pt(e) {
+	let t = e.match(ut);
+	return t ? t[1].replace(dt, "'") : e;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getDate.js
-function jt(e, t) {
+function mt(e, t) {
 	return A(e, t?.in).getDate();
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getDefaultOptions.js
-function Mt() {
+function ht() {
 	return Object.assign({}, j());
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/getISODay.js
-function Nt(e, t) {
+function gt(e, t) {
 	let n = A(e, t?.in).getDay();
 	return n === 0 ? 7 : n;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/isAfter.js
-function Pt(e, t) {
+function _t(e, t) {
 	return +A(e) > +A(t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/isBefore.js
-function Ft(e, t) {
+function vt(e, t) {
 	return +A(e) < +A(t);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/transpose.js
-function It(e, t) {
-	let n = Lt(t) ? new t(0) : k(t, 0);
+function yt(e, t) {
+	let n = bt(t) ? new t(0) : k(t, 0);
 	return n.setFullYear(e.getFullYear(), e.getMonth(), e.getDate()), n.setHours(e.getHours(), e.getMinutes(), e.getSeconds(), e.getMilliseconds()), n;
 }
-function Lt(e) {
+function bt(e) {
 	return typeof e == "function" && e.prototype?.constructor === e;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/parse/_lib/Setter.js
-var Rt = 10, zt = class {
+var xt = 10, St = class {
 	subPriority = 0;
 	validate(e, t) {
 		return !0;
 	}
-}, Bt = class extends zt {
+}, Ct = class extends St {
 	constructor(e, t, n, r, i) {
 		super(), this.value = e, this.validateValue = t, this.setValue = n, this.priority = r, i && (this.subPriority = i);
 	}
@@ -1693,27 +1434,27 @@ var Rt = 10, zt = class {
 	set(e, t, n) {
 		return this.setValue(e, t, this.value, n);
 	}
-}, Vt = class extends zt {
-	priority = Rt;
+}, wt = class extends St {
+	priority = xt;
 	subPriority = -1;
 	constructor(e, t) {
 		super(), this.context = e || ((e) => k(t, e));
 	}
 	set(e, t) {
-		return t.timestampIsSet ? e : k(e, It(e, this.context));
+		return t.timestampIsSet ? e : k(e, yt(e, this.context));
 	}
 }, U = class {
 	run(e, t, n, r) {
 		let i = this.parse(e, t, n, r);
 		return i ? {
-			setter: new Bt(i.value, this.validate, this.set, this.priority, this.subPriority),
+			setter: new Ct(i.value, this.validate, this.set, this.priority, this.subPriority),
 			rest: i.rest
 		} : null;
 	}
 	validate(e, t, n) {
 		return !0;
 	}
-}, Ht = class extends U {
+}, Tt = class extends U {
 	priority = 140;
 	parse(e, t, n) {
 		switch (t) {
@@ -1784,11 +1525,11 @@ function J(e, t) {
 	};
 	let r = n[1] === "+" ? 1 : -1, i = n[2] ? parseInt(n[2], 10) : 0, a = n[3] ? parseInt(n[3], 10) : 0, o = n[5] ? parseInt(n[5], 10) : 0;
 	return {
-		value: r * (i * Ne + a * Me + o * Pe),
+		value: r * (i * ge + a * he + o * _e),
 		rest: t.slice(n[0].length)
 	};
 }
-function Ut(e) {
+function Et(e) {
 	return q(W.anyDigitsSigned, e);
 }
 function Y(e, t) {
@@ -1800,7 +1541,7 @@ function Y(e, t) {
 		default: return q(RegExp("^\\d{1," + e + "}"), t);
 	}
 }
-function Wt(e, t) {
+function Dt(e, t) {
 	switch (e) {
 		case 1: return q(W.singleDigitSigned, t);
 		case 2: return q(W.twoDigitsSigned, t);
@@ -1809,7 +1550,7 @@ function Wt(e, t) {
 		default: return q(RegExp("^-?\\d{1," + e + "}"), t);
 	}
 }
-function Gt(e) {
+function X(e) {
 	switch (e) {
 		case "morning": return 4;
 		case "evening": return 17;
@@ -1819,7 +1560,7 @@ function Gt(e) {
 		default: return 0;
 	}
 }
-function Kt(e, t) {
+function Ot(e, t) {
 	let n = t > 0, r = n ? t : 1 - t, i;
 	if (r <= 50) i = e || 100;
 	else {
@@ -1828,12 +1569,12 @@ function Kt(e, t) {
 	}
 	return n ? i : 1 - i;
 }
-function qt(e) {
+function kt(e) {
 	return e % 400 == 0 || e % 4 == 0 && e % 100 != 0;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/parse/_lib/parsers/YearParser.js
-var Jt = class extends U {
+var At = class extends U {
 	priority = 130;
 	incompatibleTokens = [
 		"Y",
@@ -1864,13 +1605,13 @@ var Jt = class extends U {
 	set(e, t, n) {
 		let r = e.getFullYear();
 		if (n.isTwoDigitYear) {
-			let t = Kt(n.year, r);
+			let t = Ot(n.year, r);
 			return e.setFullYear(t, 0, 1), e.setHours(0, 0, 0, 0), e;
 		}
 		let i = !("era" in t) || t.era === 1 ? n.year : 1 - n.year;
 		return e.setFullYear(i, 0, 1), e.setHours(0, 0, 0, 0), e;
 	}
-}, Yt = class extends U {
+}, jt = class extends U {
 	priority = 130;
 	parse(e, t, n) {
 		let r = (e) => ({
@@ -1887,9 +1628,9 @@ var Jt = class extends U {
 		return t.isTwoDigitYear || t.year > 0;
 	}
 	set(e, t, n, r) {
-		let i = lt(e, r);
+		let i = Ke(e, r);
 		if (n.isTwoDigitYear) {
-			let t = Kt(n.year, i);
+			let t = Ot(n.year, i);
 			return e.setFullYear(t, 0, r.firstWeekContainsDate), e.setHours(0, 0, 0, 0), M(e, r);
 		}
 		let a = !("era" in t) || t.era === 1 ? n.year : 1 - n.year;
@@ -1910,10 +1651,10 @@ var Jt = class extends U {
 		"t",
 		"T"
 	];
-}, Xt = class extends U {
+}, Mt = class extends U {
 	priority = 130;
 	parse(e, t) {
-		return Wt(t === "R" ? 4 : t.length, e);
+		return Dt(t === "R" ? 4 : t.length, e);
 	}
 	set(e, t, n) {
 		let r = k(e, 0);
@@ -1936,10 +1677,10 @@ var Jt = class extends U {
 		"t",
 		"T"
 	];
-}, Zt = class extends U {
+}, Nt = class extends U {
 	priority = 130;
 	parse(e, t) {
-		return Wt(t === "u" ? 4 : t.length, e);
+		return Dt(t === "u" ? 4 : t.length, e);
 	}
 	set(e, t, n) {
 		return e.setFullYear(n, 0, 1), e.setHours(0, 0, 0, 0), e;
@@ -1957,7 +1698,7 @@ var Jt = class extends U {
 		"t",
 		"T"
 	];
-}, Qt = class extends U {
+}, Pt = class extends U {
 	priority = 120;
 	parse(e, t, n) {
 		switch (t) {
@@ -2009,7 +1750,7 @@ var Jt = class extends U {
 		"t",
 		"T"
 	];
-}, $t = class extends U {
+}, Ft = class extends U {
 	priority = 120;
 	parse(e, t, n) {
 		switch (t) {
@@ -2061,7 +1802,7 @@ var Jt = class extends U {
 		"t",
 		"T"
 	];
-}, en = class extends U {
+}, It = class extends U {
 	incompatibleTokens = [
 		"Y",
 		"R",
@@ -2113,7 +1854,7 @@ var Jt = class extends U {
 	set(e, t, n) {
 		return e.setMonth(n, 1), e.setHours(0, 0, 0, 0), e;
 	}
-}, tn = class extends U {
+}, Lt = class extends U {
 	priority = 110;
 	parse(e, t, n) {
 		let r = (e) => e - 1;
@@ -2168,13 +1909,13 @@ var Jt = class extends U {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/setWeek.js
-function nn(e, t, n) {
-	let r = A(e, n?.in), i = dt(r, n) - t;
+function Rt(e, t, n) {
+	let r = A(e, n?.in), i = Je(r, n) - t;
 	return r.setDate(r.getDate() - i * 7), A(r, n?.in);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/parse/_lib/parsers/LocalWeekParser.js
-var rn = class extends U {
+var zt = class extends U {
 	priority = 100;
 	parse(e, t, n) {
 		switch (t) {
@@ -2187,7 +1928,7 @@ var rn = class extends U {
 		return t >= 1 && t <= 53;
 	}
 	set(e, t, n, r) {
-		return M(nn(e, n, r), r);
+		return M(Rt(e, n, r), r);
 	}
 	incompatibleTokens = [
 		"y",
@@ -2207,13 +1948,13 @@ var rn = class extends U {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/setISOWeek.js
-function an(e, t, n) {
-	let r = A(e, n?.in), i = ct(r, n) - t;
+function Bt(e, t, n) {
+	let r = A(e, n?.in), i = Ge(r, n) - t;
 	return r.setDate(r.getDate() - i * 7), r;
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/parse/_lib/parsers/ISOWeekParser.js
-var on = class extends U {
+var Vt = class extends U {
 	priority = 100;
 	parse(e, t, n) {
 		switch (t) {
@@ -2226,7 +1967,7 @@ var on = class extends U {
 		return t >= 1 && t <= 53;
 	}
 	set(e, t, n) {
-		return N(an(e, n));
+		return N(Bt(e, n));
 	}
 	incompatibleTokens = [
 		"y",
@@ -2244,7 +1985,7 @@ var on = class extends U {
 		"t",
 		"T"
 	];
-}, sn = [
+}, Ht = [
 	31,
 	28,
 	31,
@@ -2257,7 +1998,7 @@ var on = class extends U {
 	31,
 	30,
 	31
-], cn = [
+], Ut = [
 	31,
 	29,
 	31,
@@ -2270,7 +2011,7 @@ var on = class extends U {
 	31,
 	30,
 	31
-], ln = class extends U {
+], Wt = class extends U {
 	priority = 90;
 	subPriority = 1;
 	parse(e, t, n) {
@@ -2281,8 +2022,8 @@ var on = class extends U {
 		}
 	}
 	validate(e, t) {
-		let n = qt(e.getFullYear()), r = e.getMonth();
-		return n ? t >= 1 && t <= cn[r] : t >= 1 && t <= sn[r];
+		let n = kt(e.getFullYear()), r = e.getMonth();
+		return n ? t >= 1 && t <= Ut[r] : t >= 1 && t <= Ht[r];
 	}
 	set(e, t, n) {
 		return e.setDate(n), e.setHours(0, 0, 0, 0), e;
@@ -2301,7 +2042,7 @@ var on = class extends U {
 		"t",
 		"T"
 	];
-}, un = class extends U {
+}, Gt = class extends U {
 	priority = 90;
 	subpriority = 1;
 	parse(e, t, n) {
@@ -2313,7 +2054,7 @@ var on = class extends U {
 		}
 	}
 	validate(e, t) {
-		return qt(e.getFullYear()) ? t >= 1 && t <= 366 : t >= 1 && t <= 365;
+		return kt(e.getFullYear()) ? t >= 1 && t <= 366 : t >= 1 && t <= 365;
 	}
 	set(e, t, n) {
 		return e.setMonth(0, n), e.setHours(0, 0, 0, 0), e;
@@ -2338,13 +2079,13 @@ var on = class extends U {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/setDay.js
-function dn(e, t, n) {
+function Kt(e, t, n) {
 	let r = j(), i = n?.weekStartsOn ?? n?.locale?.options?.weekStartsOn ?? r.weekStartsOn ?? r.locale?.options?.weekStartsOn ?? 0, a = A(e, n?.in), o = a.getDay(), s = (t % 7 + 7) % 7, c = 7 - i;
-	return Le(a, t < 0 || t > 6 ? t - (o + c) % 7 : (s + c) % 7 - (o + c) % 7, n);
+	return be(a, t < 0 || t > 6 ? t - (o + c) % 7 : (s + c) % 7 - (o + c) % 7, n);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/parse/_lib/parsers/DayParser.js
-var fn = class extends U {
+var qt = class extends U {
 	priority = 90;
 	parse(e, t, n) {
 		switch (t) {
@@ -2390,7 +2131,7 @@ var fn = class extends U {
 		return t >= 0 && t <= 6;
 	}
 	set(e, t, n, r) {
-		return e = dn(e, n, r), e.setHours(0, 0, 0, 0), e;
+		return e = Kt(e, n, r), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"D",
@@ -2400,7 +2141,7 @@ var fn = class extends U {
 		"t",
 		"T"
 	];
-}, pn = class extends U {
+}, Jt = class extends U {
 	priority = 90;
 	parse(e, t, n, r) {
 		let i = (e) => {
@@ -2451,7 +2192,7 @@ var fn = class extends U {
 		return t >= 0 && t <= 6;
 	}
 	set(e, t, n, r) {
-		return e = dn(e, n, r), e.setHours(0, 0, 0, 0), e;
+		return e = Kt(e, n, r), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"y",
@@ -2470,7 +2211,7 @@ var fn = class extends U {
 		"t",
 		"T"
 	];
-}, mn = class extends U {
+}, Yt = class extends U {
 	priority = 90;
 	parse(e, t, n, r) {
 		let i = (e) => {
@@ -2521,7 +2262,7 @@ var fn = class extends U {
 		return t >= 0 && t <= 6;
 	}
 	set(e, t, n, r) {
-		return e = dn(e, n, r), e.setHours(0, 0, 0, 0), e;
+		return e = Kt(e, n, r), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"y",
@@ -2543,13 +2284,13 @@ var fn = class extends U {
 };
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/setISODay.js
-function hn(e, t, n) {
+function Xt(e, t, n) {
 	let r = A(e, n?.in);
-	return Le(r, t - Nt(r, n), n);
+	return be(r, t - gt(r, n), n);
 }
 //#endregion
 //#region node_modules/.pnpm/date-fns@4.4.0/node_modules/date-fns/parse/_lib/parsers/ISODayParser.js
-var gn = class extends U {
+var Zt = class extends U {
 	priority = 90;
 	parse(e, t, n) {
 		let r = (e) => e === 0 ? 7 : e;
@@ -2597,7 +2338,7 @@ var gn = class extends U {
 		return t >= 1 && t <= 7;
 	}
 	set(e, t, n) {
-		return e = hn(e, n), e.setHours(0, 0, 0, 0), e;
+		return e = Xt(e, n), e.setHours(0, 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"y",
@@ -2616,7 +2357,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, _n = class extends U {
+}, Qt = class extends U {
 	priority = 80;
 	parse(e, t, n) {
 		switch (t) {
@@ -2646,7 +2387,7 @@ var gn = class extends U {
 		}
 	}
 	set(e, t, n) {
-		return e.setHours(Gt(n), 0, 0, 0), e;
+		return e.setHours(X(n), 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"b",
@@ -2656,7 +2397,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, vn = class extends U {
+}, $t = class extends U {
 	priority = 80;
 	parse(e, t, n) {
 		switch (t) {
@@ -2686,7 +2427,7 @@ var gn = class extends U {
 		}
 	}
 	set(e, t, n) {
-		return e.setHours(Gt(n), 0, 0, 0), e;
+		return e.setHours(X(n), 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"a",
@@ -2696,7 +2437,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, yn = class extends U {
+}, en = class extends U {
 	priority = 80;
 	parse(e, t, n) {
 		switch (t) {
@@ -2726,7 +2467,7 @@ var gn = class extends U {
 		}
 	}
 	set(e, t, n) {
-		return e.setHours(Gt(n), 0, 0, 0), e;
+		return e.setHours(X(n), 0, 0, 0), e;
 	}
 	incompatibleTokens = [
 		"a",
@@ -2734,7 +2475,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, bn = class extends U {
+}, tn = class extends U {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
@@ -2757,7 +2498,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, xn = class extends U {
+}, nn = class extends U {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
@@ -2781,7 +2522,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, Sn = class extends U {
+}, rn = class extends U {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
@@ -2803,7 +2544,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, Cn = class extends U {
+}, an = class extends U {
 	priority = 70;
 	parse(e, t, n) {
 		switch (t) {
@@ -2828,7 +2569,7 @@ var gn = class extends U {
 		"t",
 		"T"
 	];
-}, wn = class extends U {
+}, on = class extends U {
 	priority = 60;
 	parse(e, t, n) {
 		switch (t) {
@@ -2844,7 +2585,7 @@ var gn = class extends U {
 		return e.setMinutes(n, 0, 0), e;
 	}
 	incompatibleTokens = ["t", "T"];
-}, Tn = class extends U {
+}, sn = class extends U {
 	priority = 50;
 	parse(e, t, n) {
 		switch (t) {
@@ -2860,7 +2601,7 @@ var gn = class extends U {
 		return e.setSeconds(n, 0), e;
 	}
 	incompatibleTokens = ["t", "T"];
-}, En = class extends U {
+}, cn = class extends U {
 	priority = 30;
 	parse(e, t) {
 		return K(Y(t.length, e), (e) => Math.trunc(e * 10 ** (-t.length + 3)));
@@ -2869,7 +2610,7 @@ var gn = class extends U {
 		return e.setMilliseconds(n), e;
 	}
 	incompatibleTokens = ["t", "T"];
-}, Dn = class extends U {
+}, ln = class extends U {
 	priority = 10;
 	parse(e, t) {
 		switch (t) {
@@ -2888,7 +2629,7 @@ var gn = class extends U {
 		"T",
 		"x"
 	];
-}, On = class extends U {
+}, un = class extends U {
 	priority = 10;
 	parse(e, t) {
 		switch (t) {
@@ -2907,75 +2648,75 @@ var gn = class extends U {
 		"T",
 		"X"
 	];
-}, kn = class extends U {
+}, dn = class extends U {
 	priority = 40;
 	parse(e) {
-		return Ut(e);
+		return Et(e);
 	}
 	set(e, t, n) {
 		return [k(e, n * 1e3), { timestampIsSet: !0 }];
 	}
 	incompatibleTokens = "*";
-}, An = class extends U {
+}, fn = class extends U {
 	priority = 20;
 	parse(e) {
-		return Ut(e);
+		return Et(e);
 	}
 	set(e, t, n) {
 		return [k(e, n), { timestampIsSet: !0 }];
 	}
 	incompatibleTokens = "*";
-}, jn = {
-	G: new Ht(),
-	y: new Jt(),
-	Y: new Yt(),
-	R: new Xt(),
-	u: new Zt(),
-	Q: new Qt(),
-	q: new $t(),
-	M: new en(),
-	L: new tn(),
-	w: new rn(),
-	I: new on(),
-	d: new ln(),
-	D: new un(),
-	E: new fn(),
-	e: new pn(),
-	c: new mn(),
-	i: new gn(),
-	a: new _n(),
-	b: new vn(),
-	B: new yn(),
-	h: new bn(),
-	H: new xn(),
-	K: new Sn(),
-	k: new Cn(),
-	m: new wn(),
-	s: new Tn(),
-	S: new En(),
-	X: new Dn(),
-	x: new On(),
-	t: new kn(),
-	T: new An()
-}, Mn = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, Nn = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, Pn = /^'([^]*?)'?$/, Fn = /''/g, In = /\S/, Ln = /[a-zA-Z]/;
-function X(e, t, n, r) {
-	let i = () => k(r?.in || n, NaN), a = Mt(), o = r?.locale ?? a.locale ?? ot, s = r?.firstWeekContainsDate ?? r?.locale?.options?.firstWeekContainsDate ?? a.firstWeekContainsDate ?? a.locale?.options?.firstWeekContainsDate ?? 1, c = r?.weekStartsOn ?? r?.locale?.options?.weekStartsOn ?? a.weekStartsOn ?? a.locale?.options?.weekStartsOn ?? 0;
+}, pn = {
+	G: new Tt(),
+	y: new At(),
+	Y: new jt(),
+	R: new Mt(),
+	u: new Nt(),
+	Q: new Pt(),
+	q: new Ft(),
+	M: new It(),
+	L: new Lt(),
+	w: new zt(),
+	I: new Vt(),
+	d: new Wt(),
+	D: new Gt(),
+	E: new qt(),
+	e: new Jt(),
+	c: new Yt(),
+	i: new Zt(),
+	a: new Qt(),
+	b: new $t(),
+	B: new en(),
+	h: new tn(),
+	H: new nn(),
+	K: new rn(),
+	k: new an(),
+	m: new on(),
+	s: new sn(),
+	S: new cn(),
+	X: new ln(),
+	x: new un(),
+	t: new dn(),
+	T: new fn()
+}, mn = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g, hn = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g, gn = /^'([^]*?)'?$/, _n = /''/g, vn = /\S/, yn = /[a-zA-Z]/;
+function Z(e, t, n, r) {
+	let i = () => k(r?.in || n, NaN), a = ht(), o = r?.locale ?? a.locale ?? Ue, s = r?.firstWeekContainsDate ?? r?.locale?.options?.firstWeekContainsDate ?? a.firstWeekContainsDate ?? a.locale?.options?.firstWeekContainsDate ?? 1, c = r?.weekStartsOn ?? r?.locale?.options?.weekStartsOn ?? a.weekStartsOn ?? a.locale?.options?.weekStartsOn ?? 0;
 	if (!t) return e ? i() : A(n, r?.in);
 	let l = {
 		firstWeekContainsDate: s,
 		weekStartsOn: c,
 		locale: o
-	}, u = [new Vt(r?.in, n)], d = t.match(Nn).map((e) => {
+	}, u = [new wt(r?.in, n)], d = t.match(hn).map((e) => {
 		let t = e[0];
-		if (t in _t) {
-			let n = _t[t];
+		if (t in et) {
+			let n = et[t];
 			return n(e, o.formatLong);
 		}
 		return e;
-	}).join("").match(Mn), f = [];
+	}).join("").match(mn), f = [];
 	for (let n of d) {
-		!r?.useAdditionalWeekYearTokens && St(n) && Ct(n, t, e), !r?.useAdditionalDayOfYearTokens && xt(n) && Ct(n, t, e);
-		let a = n[0], s = jn[a];
+		!r?.useAdditionalWeekYearTokens && at(n) && ot(n, t, e), !r?.useAdditionalDayOfYearTokens && it(n) && ot(n, t, e);
+		let a = n[0], s = pn[a];
 		if (s) {
 			let { incompatibleTokens: t } = s;
 			if (Array.isArray(t)) {
@@ -2990,12 +2731,12 @@ function X(e, t, n, r) {
 			if (!r) return i();
 			u.push(r.setter), e = r.rest;
 		} else {
-			if (a.match(Ln)) throw RangeError("Format string contains an unescaped latin alphabet character `" + a + "`");
-			if (n === "''" ? n = "'" : a === "'" && (n = Rn(n)), e.indexOf(n) === 0) e = e.slice(n.length);
+			if (a.match(yn)) throw RangeError("Format string contains an unescaped latin alphabet character `" + a + "`");
+			if (n === "''" ? n = "'" : a === "'" && (n = bn(n)), e.indexOf(n) === 0) e = e.slice(n.length);
 			else return i();
 		}
 	}
-	if (e.length > 0 && In.test(e)) return i();
+	if (e.length > 0 && vn.test(e)) return i();
 	let p = u.map((e) => e.priority).sort((e, t) => t - e).filter((e, t, n) => n.indexOf(e) === t).map((e) => u.filter((t) => t.priority === e).sort((e, t) => t.subPriority - e.subPriority)).map((e) => e[0]), m = A(n, r?.in);
 	if (isNaN(+m)) return i();
 	let h = {};
@@ -3006,17 +2747,17 @@ function X(e, t, n, r) {
 	}
 	return m;
 }
-function Rn(e) {
-	return e.match(Pn)[1].replace(Fn, "'");
+function bn(e) {
+	return e.match(gn)[1].replace(_n, "'");
 }
 //#endregion
 //#region src/components/Card/CardDateThumb.tsx
-var zn = ({ startDate: e, endDate: t }) => {
-	let n = X(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), r = X(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), i = H(n, "MMM"), a = jt(n);
+var xn = ({ startDate: e, endDate: t }) => {
+	let n = Z(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), r = Z(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), i = H(n, "MMM"), a = mt(n);
 	return /* @__PURE__ */ f("div", {
 		className: "cu-card__date-thumb",
 		"aria-hidden": "true",
-		children: Ue(n, r) ? /* @__PURE__ */ p(d, { children: [/* @__PURE__ */ f("span", {
+		children: Ee(n, r) ? /* @__PURE__ */ p(d, { children: [/* @__PURE__ */ f("span", {
 			className: "cu-card__date-thumb-month",
 			children: i
 		}), /* @__PURE__ */ f("span", {
@@ -3031,29 +2772,29 @@ var zn = ({ startDate: e, endDate: t }) => {
 		})] })
 	});
 };
-zn.displayName = "Card.DateThumb";
+xn.displayName = "Card.DateThumb";
 //#endregion
 //#region src/components/Card/CardExcerpt.tsx
-var Bn = ({ text: e, hasMore: t, truncateOnMobile: n }) => /* @__PURE__ */ p("p", {
+var Sn = ({ text: e, hasMore: t, truncateOnMobile: n }) => /* @__PURE__ */ p("p", {
 	className: `cu-card__excerpt${n ? " cu-card__excerpt--truncate-mobile" : ""}`,
 	children: [e && e.length > 170 ? `${e.substring(0, 150)}...` : e, t && /* @__PURE__ */ f("span", {
 		className: "cu-card__excerpt-more",
 		children: " More"
 	})]
 });
-Bn.displayName = "Card.Excerpt";
+Sn.displayName = "Card.Excerpt";
 //#endregion
 //#region src/components/Card/CardEventMeta.tsx
-var Vn = 18, Hn = (e) => e.replace(" ", "T"), Un = (e) => e.split(" ")[0], Wn = (e) => `${e.getHours() % 12 || 12}:${H(e, "mm")} ${H(e, "a")}`, Gn = ({ startDateTime: e, endDateTime: t, onCampus: n, onCampusBuilding: r, onCampusRoomNumber: i, eventAddress: a }) => {
-	let o = X(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), s = X(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), c = Ue(o, s), l = H(o, "MMMM"), u = jt(o), m = H(s, "MMMM"), h = jt(s), g = Wn(o), _ = Wn(s), v = n ? `${i} ${r}` : a;
+var Cn = 18, wn = (e) => e.replace(" ", "T"), Tn = (e) => e.split(" ")[0], En = (e) => `${e.getHours() % 12 || 12}:${H(e, "mm")} ${H(e, "a")}`, Dn = ({ startDateTime: e, endDateTime: t, onCampus: n, onCampusBuilding: r, onCampusRoomNumber: i, eventAddress: a }) => {
+	let o = Z(e, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), s = Z(t, "yyyy-MM-dd HH:mm:ss", /* @__PURE__ */ new Date()), c = Ee(o, s), l = H(o, "MMMM"), u = mt(o), m = H(s, "MMMM"), h = mt(s), g = En(o), _ = En(s), v = n ? `${i} ${r}` : a;
 	return /* @__PURE__ */ p("ul", {
 		className: "cu-card__meta cu-card__meta--has-icons",
 		children: [/* @__PURE__ */ f("li", { children: c ? /* @__PURE__ */ p(d, { children: [/* @__PURE__ */ f(E, {
 			name: "clock",
-			size: Vn,
+			size: Cn,
 			title: "When"
 		}), /* @__PURE__ */ p("time", {
-			dateTime: `${Hn(e)}/${Hn(t)}`,
+			dateTime: `${wn(e)}/${wn(t)}`,
 			children: [
 				g,
 				" — ",
@@ -3062,11 +2803,11 @@ var Vn = 18, Hn = (e) => e.replace(" ", "T"), Un = (e) => e.split(" ")[0], Wn = 
 		})] }) : /* @__PURE__ */ p(d, { children: [
 			/* @__PURE__ */ f(E, {
 				name: "calendar-days",
-				size: Vn,
+				size: Cn,
 				title: "When"
 			}),
 			/* @__PURE__ */ p("time", {
-				dateTime: Un(e),
+				dateTime: Tn(e),
 				children: [
 					l,
 					" ",
@@ -3075,7 +2816,7 @@ var Vn = 18, Hn = (e) => e.replace(" ", "T"), Un = (e) => e.split(" ")[0], Wn = 
 			}),
 			" — ",
 			/* @__PURE__ */ p("time", {
-				dateTime: Un(t),
+				dateTime: Tn(t),
 				children: [
 					m,
 					" ",
@@ -3084,15 +2825,15 @@ var Vn = 18, Hn = (e) => e.replace(" ", "T"), Un = (e) => e.split(" ")[0], Wn = 
 			})
 		] }) }), /* @__PURE__ */ p("li", { children: [/* @__PURE__ */ f(E, {
 			name: "location-dot",
-			size: Vn,
+			size: Cn,
 			title: "Where"
 		}), v] })]
 	});
 };
-Gn.displayName = "Card.EventMeta";
+Dn.displayName = "Card.EventMeta";
 //#endregion
 //#region src/components/Card/CardFigure.tsx
-var Kn = ({ children: e, isRound: t, isSmall: n, isSquare: r, isIcon: i }) => /* @__PURE__ */ f("figure", {
+var On = ({ children: e, isRound: t, isSmall: n, isSquare: r, isIcon: i }) => /* @__PURE__ */ f("figure", {
 	className: [
 		"cu-card__figure",
 		t && "cu-card__figure--round",
@@ -3102,18 +2843,18 @@ var Kn = ({ children: e, isRound: t, isSmall: n, isSquare: r, isIcon: i }) => /*
 	].filter(Boolean).join(" "),
 	children: e
 });
-Kn.displayName = "Card.Figure";
+On.displayName = "Card.Figure";
 //#endregion
 //#region src/components/Card/CardFooter.tsx
-var qn = ({ children: e }) => /* @__PURE__ */ f("footer", {
+var kn = ({ children: e }) => /* @__PURE__ */ f("footer", {
 	className: "cu-card__footer",
 	children: e
 });
-qn.displayName = "Card.Footer";
+kn.displayName = "Card.Footer";
 //#endregion
 //#region src/components/Card/CardHeader.tsx
-var Jn = ({ title: e = "No title available", link: t, extraText: n, as: r = "h2", date: i, datePrefix: a, readTime: o, position: s = "bottom" }) => {
-	let c = O(), l = r, u = i ? new Date(i).toLocaleString("en-US", {
+var An = ({ title: e = "No title available", link: t, extraText: n, as: r = "h2", date: i, datePrefix: a, readTime: o, position: s = "bottom" }) => {
+	let c = T(), l = r, u = i ? new Date(i).toLocaleString("en-US", {
 		month: "long",
 		day: "2-digit",
 		year: "numeric"
@@ -3155,17 +2896,17 @@ var Jn = ({ title: e = "No title available", link: t, extraText: n, as: r = "h2"
 		]
 	});
 };
-Jn.displayName = "Card.Header";
+An.displayName = "Card.Header";
 //#endregion
 //#region src/components/Card/CardImageThumb.tsx
-var Yn = ({ children: e, isSquare: t }) => /* @__PURE__ */ f("figure", {
+var jn = ({ children: e, isSquare: t }) => /* @__PURE__ */ f("figure", {
 	className: `cu-card__image-thumb${t ? " cu-card__image-thumb--square" : ""}`,
 	children: e
 });
-Yn.displayName = "Card.ImageThumb";
+jn.displayName = "Card.ImageThumb";
 //#endregion
 //#region src/components/Card/CardInitials.tsx
-var Xn = ({ initials: e }) => /* @__PURE__ */ p("figure", {
+var Mn = ({ initials: e }) => /* @__PURE__ */ p("figure", {
 	className: "cu-card__initials",
 	children: [/* @__PURE__ */ f("img", {
 		src: "https://cu-production.s3.amazonaws.com/rds/assets/graphics/grey-bg.jpg",
@@ -3177,10 +2918,10 @@ var Xn = ({ initials: e }) => /* @__PURE__ */ p("figure", {
 		children: e
 	})]
 });
-Xn.displayName = "Card.Initials";
+Mn.displayName = "Card.Initials";
 //#endregion
 //#region src/components/Card/CardPeopleMeta.tsx
-var Zn = ({ jobTitle: e, children: t, phone: n }) => /* @__PURE__ */ p("ul", {
+var Nn = ({ jobTitle: e, children: t, phone: n }) => /* @__PURE__ */ p("ul", {
 	className: "cu-card__meta",
 	children: [
 		e && /* @__PURE__ */ f("li", {
@@ -3194,10 +2935,10 @@ var Zn = ({ jobTitle: e, children: t, phone: n }) => /* @__PURE__ */ p("ul", {
 		n && /* @__PURE__ */ f("li", { children: n })
 	]
 });
-Zn.displayName = "Card.PeopleMeta";
+Nn.displayName = "Card.PeopleMeta";
 //#endregion
 //#region src/components/Card/CardStats.tsx
-var Qn = ({ stat: e, desc: t, reverse: n }) => {
+var Pn = ({ stat: e, desc: t, reverse: n }) => {
 	let r = `cu-card__stats${n ? " cu-card__stats--reverse" : ""}`, i = t && t.length > 80 ? `${t.substring(0, 80)}...` : t, a = e && e.length > 60 ? `${e.substring(0, 60)}...` : e;
 	return /* @__PURE__ */ p("div", {
 		className: r,
@@ -3210,10 +2951,10 @@ var Qn = ({ stat: e, desc: t, reverse: n }) => {
 		})]
 	});
 };
-Qn.displayName = "Card.Stats";
+Pn.displayName = "Card.Stats";
 //#endregion
 //#region src/components/Status/types.ts
-var $n = {
+var Fn = {
 	hours: {
 		ariaPrefix: "Hours",
 		labels: {
@@ -3239,8 +2980,8 @@ var $n = {
 			info: "Maintenance"
 		}
 	}
-}, er = ({ children: e, variant: t = "success", type: n, label: r, context: i = "standalone" }) => {
-	let a = n ? $n[n] : void 0, o = a?.labels?.[t], s = e ?? r ?? o ?? void 0;
+}, In = ({ children: e, variant: t = "success", type: n, label: r, context: i = "standalone" }) => {
+	let a = n ? Fn[n] : void 0, o = a?.labels?.[t], s = e ?? r ?? o ?? void 0;
 	if (n !== void 0 && s === void 0) return null;
 	let c = a && s !== void 0 && typeof s != "object" ? `${a.ariaPrefix}: ${s}` : void 0;
 	return /* @__PURE__ */ p("span", {
@@ -3252,20 +2993,20 @@ var $n = {
 		}), s]
 	});
 };
-er.displayName = "Status";
+In.displayName = "Status";
 //#endregion
 //#region src/components/Card/CardStatus.tsx
-var tr = (e) => /* @__PURE__ */ f("div", {
+var Ln = (e) => /* @__PURE__ */ f("div", {
 	className: "cu-card__status",
-	children: /* @__PURE__ */ f(er, {
+	children: /* @__PURE__ */ f(In, {
 		...e,
 		context: "in-card"
 	})
 });
-tr.displayName = "Card.Status";
+Ln.displayName = "Card.Status";
 //#endregion
 //#region src/utils/video/providers.ts
-var nr = [
+var Rn = [
 	{
 		name: "youtube",
 		matches: (e) => /(?:youtube\.com|youtu\.be)/i.test(e),
@@ -3301,11 +3042,11 @@ var nr = [
 		buildEmbedUrl: (e) => `https://embed.ted.com/talks/${e}`,
 		buildOEmbedUrl: (e) => `https://www.ted.com/services/v1/oembed.json?url=${encodeURIComponent(e)}`
 	}
-], rr = (e) => {
-	for (let t of nr) if (t.matches(e)) return t;
+], zn = (e) => {
+	for (let t of Rn) if (t.matches(e)) return t;
 	return null;
-}, ir = (e) => nr.find((t) => t.name === e) ?? null, ar = nr.map((e) => e.name), or = /* @__PURE__ */ new Map(), sr = /* @__PURE__ */ new Map(), cr = async (e, t) => {
-	let n = rr(e);
+}, Bn = (e) => Rn.find((t) => t.name === e) ?? null, Vn = Rn.map((e) => e.name), Hn = /* @__PURE__ */ new Map(), Un = /* @__PURE__ */ new Map(), Wn = async (e, t) => {
+	let n = zn(e);
 	if (!n) throw Error(`Unsupported video URL: ${e}`);
 	let r = n.parseId(e);
 	if (!r) throw Error(`Could not parse video ID from URL: ${e}`);
@@ -3324,13 +3065,13 @@ var nr = [
 		author: a.author_name,
 		duration: a.duration
 	};
-}, lr = (e, t) => {
+}, Gn = (e, t) => {
 	if (!e) return {
 		data: null,
 		loading: !1,
 		error: null
 	};
-	let n = or.get(e);
+	let n = Hn.get(e);
 	return n ? {
 		data: n,
 		loading: !1,
@@ -3340,13 +3081,13 @@ var nr = [
 		loading: !t,
 		error: null
 	};
-}, ur = (e, t) => {
-	let n = !!t?.skipNetwork, [r, i] = u(() => lr(e, n)), [a, s] = u(e), [c, l] = u(n);
-	return (e !== a || n !== c) && (s(e), l(n), i(lr(e, n))), o(() => {
-		if (!e || or.has(e) || n) return;
-		let t = new AbortController(), r = sr.get(e);
-		return r || (r = cr(e, t.signal), sr.set(e, r), r.finally(() => sr.delete(e)).catch(() => {})), r.then((n) => {
-			t.signal.aborted || (or.set(e, n), i({
+}, Kn = (e, t) => {
+	let n = !!t?.skipNetwork, [r, i] = u(() => Gn(e, n)), [a, s] = u(e), [c, l] = u(n);
+	return (e !== a || n !== c) && (s(e), l(n), i(Gn(e, n))), o(() => {
+		if (!e || Hn.has(e) || n) return;
+		let t = new AbortController(), r = Un.get(e);
+		return r || (r = Wn(e, t.signal), Un.set(e, r), r.finally(() => Un.delete(e)).catch(() => {})), r.then((n) => {
+			t.signal.aborted || (Hn.set(e, n), i({
 				data: n,
 				loading: !1,
 				error: null
@@ -3361,15 +3102,15 @@ var nr = [
 			t.abort();
 		};
 	}, [e, n]), r;
-}, dr = [
+}, qn = [
 	"maxresdefault",
 	"sddefault",
 	"hqdefault",
 	"default"
-], fr = (e, t) => `https://i.ytimg.com/vi/${e}/${t}.jpg`, pr = ({ url: e, thumbnail: t, title: n, provider: r, skipNetwork: i, onPlay: a }) => {
-	let [o, s] = u(!1), [c, l] = u(0), d = rr(e), m = r ?? d?.name, h = d?.parseId(e) ?? null, g = d && h ? d.buildEmbedUrl(h) : null, _ = m === "youtube", v = ur(!t && !_ ? e : void 0, { skipNetwork: i }), y = _ && h ? fr(h, dr[c] ?? "default") : null, b = t ?? y ?? v.data?.thumbnail ?? void 0, x = _ && h && !t ? dr.slice(1).map((e) => fr(h, e)).join(",") : void 0, ee = () => {
-		!_ || t || c < dr.length - 1 && l((e) => e + 1);
-	}, S = (e) => {
+], Jn = (e, t) => `https://i.ytimg.com/vi/${e}/${t}.jpg`, Yn = ({ url: e, thumbnail: t, title: n, provider: r, skipNetwork: i, onPlay: a }) => {
+	let [o, s] = u(!1), [c, l] = u(0), d = zn(e), m = r ?? d?.name, h = d?.parseId(e) ?? null, g = d && h ? d.buildEmbedUrl(h) : null, _ = m === "youtube", v = Kn(!t && !_ ? e : void 0, { skipNetwork: i }), y = _ && h ? Jn(h, qn[c] ?? "default") : null, b = t ?? y ?? v.data?.thumbnail ?? void 0, x = _ && h && !t ? qn.slice(1).map((e) => Jn(h, e)).join(",") : void 0, S = () => {
+		!_ || t || c < qn.length - 1 && l((e) => e + 1);
+	}, ee = (e) => {
 		g && (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1 || (e.preventDefault(), s(!0), a?.()));
 	}, C = [
 		"cu-card__figure",
@@ -3393,14 +3134,14 @@ var nr = [
 			target: "_blank",
 			rel: "noopener noreferrer",
 			"aria-label": te,
-			onClick: S,
+			onClick: ee,
 			children: [b ? /* @__PURE__ */ f("img", {
 				className: "cu-card__figure-poster",
 				src: b,
 				alt: "",
 				loading: "lazy",
 				"data-fallbacks": x,
-				onError: ee
+				onError: S
 			}) : v.loading ? /* @__PURE__ */ f("span", {
 				className: "cu-card__figure-skeleton",
 				"aria-hidden": "true"
@@ -3425,46 +3166,46 @@ var nr = [
 		})
 	});
 };
-pr.displayName = "Card.VideoFigure";
+Yn.displayName = "Card.VideoFigure";
 //#endregion
 //#region src/utils/motion/useReducedMotion.ts
-var mr = "(prefers-reduced-motion: reduce)", hr = () => typeof window > "u" || typeof window.matchMedia != "function" ? !1 : window.matchMedia(mr).matches, gr = () => {
-	let [e, t] = u(hr);
+var Xn = "(prefers-reduced-motion: reduce)", Zn = () => typeof window > "u" || typeof window.matchMedia != "function" ? !1 : window.matchMedia(Xn).matches, Qn = () => {
+	let [e, t] = u(Zn);
 	return o(() => {
 		if (typeof window > "u" || typeof window.matchMedia != "function") return;
-		let e = window.matchMedia(mr), n = (e) => t(e.matches);
+		let e = window.matchMedia(Xn), n = (e) => t(e.matches);
 		return e.addEventListener("change", n), () => e.removeEventListener("change", n);
 	}, []), e;
-}, _r = 120, vr = 600, yr = "--cu-card-stagger", br = /* @__PURE__ */ new WeakMap(), xr = /* @__PURE__ */ new Map(), Sr = (e, t) => {
-	let n = `${e}|${t}`, r = xr.get(n);
+}, $n = 120, er = 600, tr = "--cu-card-stagger", nr = /* @__PURE__ */ new WeakMap(), rr = /* @__PURE__ */ new Map(), ir = (e, t) => {
+	let n = `${e}|${t}`, r = rr.get(n);
 	if (r) return r;
 	let i = new IntersectionObserver((e) => {
 		let t = 0;
 		e.forEach((e) => {
-			let n = br.get(e.target);
+			let n = nr.get(e.target);
 			if (n) if (e.isIntersecting) {
-				let r = Math.min(t * _r, vr);
-				e.target.style.setProperty(yr, `${r}ms`), n.onVisible(), n.once && i.unobserve(e.target), t++;
+				let r = Math.min(t * $n, er);
+				e.target.style.setProperty(tr, `${r}ms`), n.onVisible(), n.once && i.unobserve(e.target), t++;
 			} else n.once || n.onHidden();
 		});
 	}, {
 		threshold: e,
 		rootMargin: t
 	});
-	return xr.set(n, i), i;
-}, Cr = (e = {}) => {
-	let { threshold: t = 0, rootMargin: n = "0px 0px 200px 0px", once: r = !0, disabled: i = !1 } = e, a = gr(), s = l(null), [c, d] = u(!1), f = a || i || c;
+	return rr.set(n, i), i;
+}, ar = (e = {}) => {
+	let { threshold: t = 0, rootMargin: n = "0px 0px 200px 0px", once: r = !0, disabled: i = !1 } = e, a = Qn(), s = l(null), [c, d] = u(!1), f = a || i || c;
 	return o(() => {
 		if (a || i) return;
 		let e = s.current;
 		if (!e || typeof IntersectionObserver > "u") return;
-		let o = Sr(t, n);
-		return br.set(e, {
+		let o = ir(t, n);
+		return nr.set(e, {
 			onVisible: () => d(!0),
 			onHidden: () => d(!1),
 			once: r
 		}), o.observe(e), () => {
-			o.unobserve(e), br.delete(e);
+			o.unobserve(e), nr.delete(e);
 		};
 	}, [
 		t,
@@ -3476,8 +3217,8 @@ var mr = "(prefers-reduced-motion: reduce)", hr = () => typeof window > "u" || t
 		ref: s,
 		isVisible: f
 	};
-}, wr = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i, noHover: a, noImage: o, leftBorder: s, revealOnScroll: c = !0, className: l }) => {
-	let { ref: u, isVisible: d } = Cr({ disabled: !c });
+}, or = ({ children: e, isGrey: t, hasWave: n, isCenter: r, isCenterDesktop: i, noHover: a, noImage: o, leftBorder: s, revealOnScroll: c = !0, className: l }) => {
+	let { ref: u, isVisible: d } = ar({ disabled: !c });
 	return /* @__PURE__ */ p("div", {
 		ref: u,
 		className: `${[
@@ -3507,68 +3248,510 @@ var mr = "(prefers-reduced-motion: reduce)", hr = () => typeof window > "u" || t
 			})]
 		})]
 	});
-}, Tr = Object.assign(wr, {
-	Figure: Kn,
-	VideoFigure: pr,
-	DateThumb: zn,
-	ImageThumb: Yn,
-	Initials: Xn,
-	Header: Jn,
-	Body: De,
-	Content: Oe,
-	Footer: qn,
-	Excerpt: Bn,
-	EventMeta: Gn,
-	PeopleMeta: Zn,
-	Stats: Qn,
-	Status: tr
+}, sr = Object.assign(or, {
+	Figure: On,
+	VideoFigure: Yn,
+	DateThumb: xn,
+	ImageThumb: jn,
+	Initials: Mn,
+	Header: An,
+	Body: ue,
+	Content: de,
+	Footer: kn,
+	Excerpt: Sn,
+	EventMeta: Dn,
+	PeopleMeta: Nn,
+	Stats: Pn,
+	Status: Ln
 });
-wr.displayName = "Card";
+or.displayName = "Card";
 //#endregion
-//#region src/components/CookieBanner/cookies.ts
-var Er = (e) => {
-	if (typeof document > "u") return !1;
-	let t = document.cookie.split(";").find((t) => t.trim().startsWith(`${e}=`));
-	if (!t) return !0;
-	let n = t.split("=")[1];
-	return new Date(n).getTime() <= Date.now();
-}, Dr = (e, t = 365) => {
-	if (typeof document > "u") return;
-	let n = /* @__PURE__ */ new Date();
-	n.setTime(n.getTime() + t * 24 * 60 * 60 * 1e3), document.cookie = `${e}=true; expires=${n.toUTCString()}; path=/`;
-}, Or = ({ cookieName: e = "cookieConsent", message: t = "This site uses cookies to offer you a better browsing experience. Find out more on", policyHref: n = "https://carleton.ca/privacy/privacy-notices/website-privacy-notice/", policyLabel: r = "how we use cookies and how you can change your settings.", buttonLabel: i = "Ok, got it!" }) => {
-	let a = O(), [o, s] = u(() => Er(e));
-	return o ? /* @__PURE__ */ f("div", {
-		className: "cu-cookie-banner",
-		role: "dialog",
-		"aria-live": "polite",
-		"aria-label": "Cookie notice",
+//#region src/components/Figure/Figure.tsx
+var cr = ({ children: e, caption: t, size: n = "full", align: r = "none" }) => {
+	let i = r === "left" ? "alignleft" : r === "right" ? "alignright" : "";
+	return /* @__PURE__ */ f("figure", {
+		className: [
+			"cu-figure",
+			`cu-figure--${n}`,
+			r === "none" ? "" : `cu-figure--${r}`,
+			i
+		].filter(Boolean).join(" "),
 		children: /* @__PURE__ */ p("div", {
-			className: "cu-cookie-banner__content",
-			children: [/* @__PURE__ */ p("p", {
-				className: "cu-cookie-banner__message",
-				children: [
-					t,
-					" ",
-					/* @__PURE__ */ f(a, {
-						href: n,
-						className: "cu-cookie-banner__link",
-						children: r
-					})
-				]
-			}), /* @__PURE__ */ f("div", {
-				className: "cu-cookie-banner__action",
-				children: /* @__PURE__ */ f(D, {
-					onClick: () => {
-						Dr(e), s(!1);
-					},
-					title: i
-				})
+			className: "cu-figure__inner",
+			children: [e, t && /* @__PURE__ */ f("figcaption", {
+				className: "cu-figure__caption",
+				children: t
 			})]
 		})
-	}) : null;
-}, kr = ({ deptName: e, buildingName: t, officeNumber: n, phone: r, email: i, buttons: a }) => {
-	let o = O();
+	});
+}, lr = ({ children: e, cite: t, graphic: n = "border", isCenter: r }) => /* @__PURE__ */ p("blockquote", {
+	className: [
+		"cu-quote",
+		`cu-quote--${n}`,
+		r ? "cu-quote--center" : void 0
+	].filter(Boolean).join(" "),
+	children: [e, t && /* @__PURE__ */ f("cite", {
+		className: "cu-quote__cite",
+		children: t
+	})]
+}), ur = ({ children: e, as: t = "ul", cols: n = "2", header: r, noShadow: i = !1 }) => /* @__PURE__ */ p("div", {
+	className: ["cu-layout cu-stackedlist", i ? "cu-stackedlist--no-shadow" : void 0].filter(Boolean).join(" "),
+	children: [r && /* @__PURE__ */ f("h2", {
+		className: "cu-stackedlist__header",
+		children: r
+	}), /* @__PURE__ */ f(t, {
+		className: `cu-stackedlist__list cu-stackedlist--cols-${n}`,
+		children: e
+	})]
+}), dr = ({ quote: e, cite: t, imageUrl: n, imageZoom: r = 0, focalPointX: i = 50, focalPointY: a = 50, reverse: o = !1 }) => /* @__PURE__ */ p("div", {
+	className: ["cu-testimonial", o ? "cu-testimonial--reverse" : void 0].filter(Boolean).join(" "),
+	children: [/* @__PURE__ */ f("div", {
+		className: "cu-testimonial__image",
+		style: {
+			backgroundImage: `url(${n})`,
+			backgroundPosition: `${i}% ${a}%`,
+			transform: `scale(${1 + r * .1})`
+		},
+		"aria-hidden": "true"
+	}), /* @__PURE__ */ f("div", {
+		className: "cu-testimonial__content",
+		children: /* @__PURE__ */ f(lr, {
+			cite: t,
+			children: /* @__PURE__ */ f("p", { children: e })
+		})
+	})]
+}), fr = ({ title: e, as: t = "h2", children: n, date: r }) => /* @__PURE__ */ p("div", {
+	className: "cu-timeline__item",
+	children: [/* @__PURE__ */ f("div", {
+		className: "cu-timeline__date",
+		children: /* @__PURE__ */ f("p", { children: r })
+	}), /* @__PURE__ */ p("div", {
+		className: "cu-timeline__content",
+		children: [/* @__PURE__ */ f(O, {
+			as: t,
+			header: e,
+			size: "sm",
+			noUnderline: !0
+		}), n]
+	})]
+}), pr = ({ children: e }) => /* @__PURE__ */ f("div", {
+	className: "cu-timeline",
+	children: e
+}), mr = Object.assign(pr, { Item: fr });
+pr.displayName = "Timeline";
+//#endregion
+//#region src/components/Embed/Embed.YouTube.tsx
+var hr = ({ title: e, url: t }) => {
+	let n = "";
+	if (t) {
+		let e = t.match(/(?:\/|v=)([a-zA-Z0-9_-]{11})/);
+		n = `https://www.youtube.com/embed/${e ? e[1] : null}`;
+	}
+	return /* @__PURE__ */ f("iframe", {
+		title: e,
+		src: n,
+		className: "cu-embed-iframe",
+		allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+		allowFullScreen: !0
+	});
+};
+hr.displayName = "Embed.YouTube";
+//#endregion
+//#region src/components/Embed/Embed.Vimeo.tsx
+var gr = ({ title: e, url: t }) => {
+	let n = "";
+	if (t) {
+		let e = t.split("/");
+		n = `https://player.vimeo.com/video/${e[e.length - 1]}`;
+	}
+	return /* @__PURE__ */ f("iframe", {
+		title: e,
+		src: n,
+		className: "cu-embed-iframe",
+		allow: "autoplay; fullscreen; picture-in-picture",
+		allowFullScreen: !0
+	});
+};
+gr.displayName = "Embed.Vimeo";
+//#endregion
+//#region src/components/Embed/Embed.Kaltura.tsx
+var _r = ({ title: e, url: t }) => {
+	let n = "", r = "";
+	if (t) {
+		let e = t.split("/");
+		r = e[e.length - 1], n = `https://mediaspace.carleton.ca/embed/secure/iframe/entryId/${r}/uiConfId/36153741/st/0`;
+	}
+	return /* @__PURE__ */ f("iframe", {
+		id: `kmsembed-${r}`,
+		title: e,
+		src: n,
+		className: "cu-embed-iframe",
+		allowFullScreen: !0,
+		allow: "autoplay *; fullscreen *; encrypted-media *",
+		referrerPolicy: "no-referrer-when-downgrade",
+		sandbox: "allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation"
+	});
+};
+_r.displayName = "Embed.Kaltura";
+//#endregion
+//#region src/components/Embed/Embed.PowerBi.tsx
+var vr = ({ title: e, url: t }) => /* @__PURE__ */ f("iframe", {
+	title: e,
+	src: t,
+	className: "cu-embed-iframe",
+	allowFullScreen: !0
+});
+vr.displayName = "Embed.PowerBi";
+//#endregion
+//#region src/components/Embed/Embed.TED.tsx
+var yr = ({ title: e, url: t }) => {
+	let n = "";
+	if (t) {
+		let e = t.split("/");
+		n = `https://embed.ted.com/talks/lang/en/${e[e.length - 1]}`;
+	}
+	return /* @__PURE__ */ f("iframe", {
+		title: e,
+		src: n,
+		className: "cu-embed-iframe",
+		allowFullScreen: !0
+	});
+};
+yr.displayName = "Embed.TED";
+//#endregion
+//#region src/components/Embed/Embed.SoundCloud.tsx
+var br = ({ title: e, url: t }) => /* @__PURE__ */ f("iframe", {
+	title: e,
+	src: `https://w.soundcloud.com/player/?url=${t}&color=ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=true`,
+	className: "cu-embed-iframe",
+	allow: "encrypted-media",
+	allowFullScreen: !0
+});
+br.displayName = "Embed.SoundCloud";
+//#endregion
+//#region src/components/Embed/Embed.Audioboom.tsx
+var xr = ({ title: e, url: t }) => {
+	let n = "";
+	if (t) {
+		let e = t.match(/\/posts\/(\d+)/);
+		n = `https://audioboom.com/posts/${e ? e[1] : null}/embed/v4`;
+	}
+	return /* @__PURE__ */ f("iframe", {
+		title: e,
+		src: n,
+		className: "cu-embed-iframe",
+		allow: "autoplay",
+		allowFullScreen: !0
+	});
+};
+xr.displayName = "Embed.Audioboom";
+//#endregion
+//#region src/components/Embed/Embed.tsx
+var Sr = ({ children: e, maxWidth: t = "aligncontent" }) => /* @__PURE__ */ f("div", {
+	className: ["cu-embed cu-layout", t].filter(Boolean).join(" "),
+	children: /* @__PURE__ */ f("div", {
+		className: `cu-embed__container ${t}`,
+		children: e
+	})
+}), Cr = Object.assign(Sr, {
+	YouTube: hr,
+	Vimeo: gr,
+	Kaltura: _r,
+	PowerBi: vr,
+	TED: yr,
+	SoundCloud: br,
+	Audioboom: xr
+});
+Sr.displayName = "Embed";
+//#endregion
+//#region src/components/Embed/EmbedHubSpot.tsx
+var wr = ({ formId: e, portalId: t }) => {
+	let n = l(null);
+	return o(() => {
+		if (document.querySelector("script[src=\"https://js.hsforms.net/forms/embed/v2.js\"]")) window.hbspt && window.hbspt.forms.create({
+			portalId: t,
+			formId: e,
+			target: `#hs-form-container-${e}`
+		});
+		else {
+			let n = document.createElement("script");
+			return n.src = "https://js.hsforms.net/forms/embed/v2.js", n.async = !0, document.body.appendChild(n), n.onload = () => {
+				window.hbspt && window.hbspt.forms.create({
+					portalId: t,
+					formId: e,
+					target: `#hs-form-container-${e}`
+				});
+			}, n.onerror = () => {
+				console.error("Failed to load HubSpot forms script.");
+			}, () => {
+				document.body.contains(n) && document.body.removeChild(n);
+			};
+		}
+	}, [e, t]), /* @__PURE__ */ f("div", {
+		id: `hs-form-container-${e}`,
+		ref: n
+	});
+};
+wr.displayName = "EmbedHubSpot";
+//#endregion
+//#region src/components/FullBanner/FullBannerVideo.tsx
+var Tr = () => /* @__PURE__ */ p("svg", {
+	width: "14",
+	height: "14",
+	viewBox: "0 0 14 14",
+	fill: "currentColor",
+	"aria-hidden": "true",
+	focusable: "false",
+	children: [/* @__PURE__ */ f("rect", {
+		x: "2",
+		y: "1",
+		width: "3.5",
+		height: "12",
+		rx: "1"
+	}), /* @__PURE__ */ f("rect", {
+		x: "8.5",
+		y: "1",
+		width: "3.5",
+		height: "12",
+		rx: "1"
+	})]
+}), Er = () => /* @__PURE__ */ f("svg", {
+	width: "14",
+	height: "14",
+	viewBox: "0 0 14 14",
+	fill: "currentColor",
+	"aria-hidden": "true",
+	focusable: "false",
+	children: /* @__PURE__ */ f("path", { d: "M2.5 1.5 L12.5 7 L2.5 12.5 Z" })
+}), Dr = ({ src: e }) => {
+	let t = l(null), [n, r] = u(!0);
+	return /* @__PURE__ */ p("div", {
+		className: "cu-fullbanner__video-wrap",
+		children: [/* @__PURE__ */ f("video", {
+			ref: t,
+			className: "cu-fullbanner__video",
+			autoPlay: !0,
+			muted: !0,
+			loop: !0,
+			playsInline: !0,
+			"aria-hidden": "true",
+			children: /* @__PURE__ */ f("source", { src: e })
+		}), /* @__PURE__ */ f("button", {
+			type: "button",
+			className: "cu-fullbanner__video-toggle",
+			onClick: () => {
+				let e = t.current;
+				e && (n ? e.pause() : e.play(), r(!n));
+			},
+			"aria-label": n ? "Pause background video" : "Play background video",
+			children: f(n ? Tr : Er, {})
+		})]
+	});
+};
+Dr.displayName = "FullBanner.Video";
+//#endregion
+//#region src/components/FullBanner/FullBanner.tsx
+var Or = {
+	lg: "cu-fullbanner__inner--lg",
+	xl: "cu-fullbanner__inner--xl"
+}, kr = ({ children: e, title: t, content: n, headerType: r = "h2", image: i, imageAlt: a = "", media: o, opacity: s = 70, focalPointX: c = 50, focalPointY: l = 50, maxWidth: u = "alignwide", contentBox: d = "xl", justify: m = "start" }) => {
+	let h = ["cu-layout cu-fullbanner", x[u]].filter(Boolean).join(" "), g = { "--cu-fullbanner-overlay": `rgba(0, 0, 0, ${s / 100})` }, _ = { objectPosition: `${c}% ${l}%` };
+	return /* @__PURE__ */ p("div", {
+		className: h,
+		children: [!!(i || o) && /* @__PURE__ */ p("div", {
+			className: "cu-fullbanner__media",
+			children: [
+				i && /* @__PURE__ */ f("img", {
+					src: i,
+					alt: a,
+					className: "cu-fullbanner__img",
+					style: _
+				}),
+				o,
+				/* @__PURE__ */ f("div", {
+					className: "cu-fullbanner__overlay",
+					style: g,
+					"aria-hidden": "true"
+				})
+			]
+		}), /* @__PURE__ */ f("div", {
+			className: "cu-fullbanner__wrap",
+			children: /* @__PURE__ */ f("div", {
+				className: `cu-fullbanner__inner ${Or[d]} cu-fullbanner__inner--${ee[m]}`,
+				children: /* @__PURE__ */ p("div", {
+					className: "cu-fullbanner__box",
+					children: [/* @__PURE__ */ f(O, {
+						header: t,
+						as: r,
+						size: "md",
+						content: n,
+						isWhite: !0,
+						noUnderline: !0
+					}), e]
+				})
+			})
+		})]
+	});
+};
+kr.displayName = "FullBanner";
+var Ar = Object.assign(kr, { Video: Dr }), jr = "https://cdn.carleton.ca/rds/assets/bg-images", Mr = ({ children: e, maxWidth: t = "alignfull", contentWidth: n, image: r, opacity: i = 90 }) => {
+	let a = r ? `${jr}/${r}.jpg` : void 0;
+	return /* @__PURE__ */ p("section", {
+		className: [
+			"cu-layout cu-imagecover",
+			a && "cu-imagecover--image",
+			"has-global-padding",
+			t,
+			"is-layout-constrained"
+		].filter(Boolean).join(" "),
+		style: {
+			...a && { "--cu-imagecover-bg": `url(${a})` },
+			"--cu-imagecover-overlay": `rgba(255, 255, 255, ${i / 100})`
+		},
+		children: [/* @__PURE__ */ f("div", {
+			className: `has-global-padding ${n ? "alignwide" : "aligncontent"}`,
+			children: e
+		}), /* @__PURE__ */ f("div", { className: "cu-imagecover__wave alignfull" })]
+	});
+}, Nr = ({ imageUrl: e, focalPointX: t = 50, focalPointY: n = 50, colSpan: r = "1", rowSpan: i = "1", aspectRatio: a = "landscape", title: o, content: s, link: c }) => {
+	let l = T(), u = [
+		"cu-imagegrid__item",
+		`cu-imagegrid__item--${a}`,
+		r !== "1" && `cu-imagegrid__item--col-${r}`,
+		i !== "1" && `cu-imagegrid__item--row-${i}`
+	].filter(Boolean).join(" "), m = {
+		backgroundImage: `url(${e})`,
+		backgroundPosition: `${t}% ${n}%`
+	}, h = o || s;
+	return /* @__PURE__ */ f("div", {
+		className: u,
+		style: m,
+		"aria-hidden": h ? void 0 : "true",
+		children: h && /* @__PURE__ */ f("div", {
+			className: `cu-imagegrid__overlay${c ? " cu-imagegrid__overlay--linked" : ""}`,
+			children: c ? /* @__PURE__ */ p(l, {
+				href: c,
+				className: "cu-imagegrid__overlay-link",
+				children: [o && /* @__PURE__ */ f("p", {
+					className: "cu-imagegrid__overlay-title",
+					children: o
+				}), s && /* @__PURE__ */ f("p", {
+					className: "cu-imagegrid__overlay-content",
+					children: s
+				})]
+			}) : /* @__PURE__ */ p(d, { children: [o && /* @__PURE__ */ f("p", {
+				className: "cu-imagegrid__overlay-title",
+				children: o
+			}), s && /* @__PURE__ */ f("p", {
+				className: "cu-imagegrid__overlay-content",
+				children: s
+			})] })
+		})
+	});
+};
+Nr.displayName = "ImageGrid.Image";
+//#endregion
+//#region src/components/ImageGrid/ImageGrid.tsx
+var Pr = ({ children: e, cols: t = "3", maxWidth: n = "aligncontent", gap: r = "sm" }) => /* @__PURE__ */ f("div", {
+	className: [
+		"cu-layout cu-imagegrid",
+		`cu-imagegrid--${S[t]}`,
+		`cu-imagegrid--gap-${r}`,
+		n
+	].filter(Boolean).join(" "),
+	children: e
+}), Fr = Object.assign(Pr, { Image: Nr });
+Pr.displayName = "ImageGrid";
+//#endregion
+//#region src/components/WideImage/WideImageSignup.tsx
+var Ir = ({ buttonText: e = "Subscribe" }) => /* @__PURE__ */ p("div", {
+	className: "cu-wideimage__signup",
+	children: [/* @__PURE__ */ p("div", {
+		className: "cu-wideimage__signup-row",
+		children: [
+			/* @__PURE__ */ f("label", {
+				htmlFor: "cu-wideimage-email",
+				className: "sr-only",
+				children: "Enter your email address"
+			}),
+			/* @__PURE__ */ f("input", {
+				type: "email",
+				id: "cu-wideimage-email",
+				name: "email",
+				required: !0,
+				placeholder: "Enter your email address",
+				className: "cu-wideimage__signup-input"
+			}),
+			/* @__PURE__ */ f(D, { title: e })
+		]
+	}), /* @__PURE__ */ p("div", {
+		className: "cu-wideimage__signup-optin",
+		children: [/* @__PURE__ */ f("input", {
+			type: "checkbox",
+			id: "cu-wideimage-optin",
+			name: "optin",
+			value: "yes",
+			className: "cu-wideimage__signup-checkbox"
+		}), /* @__PURE__ */ p("label", {
+			htmlFor: "cu-wideimage-optin",
+			className: "cu-wideimage__signup-label",
+			children: [
+				"I agree to receive email from Carleton University. Read our",
+				" ",
+				/* @__PURE__ */ f("a", {
+					href: "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/",
+					target: "_blank",
+					rel: "noreferrer",
+					children: "Privacy Statement"
+				}),
+				"."
+			]
+		})]
+	})]
+});
+Ir.displayName = "WideImage.Signup";
+//#endregion
+//#region src/components/WideImage/WideImage.tsx
+var Lr = ({ children: e, title: t, content: n, image: r, headerType: i = "h2", opacity: a = 70, focalPointX: o = 50, focalPointY: s = 50, isType: c = "light", maxWidth: l = "aligncontent" }) => /* @__PURE__ */ f("div", {
+	className: [
+		"cu-wideimage",
+		`cu-wideimage--${c}`,
+		x[l]
+	].filter(Boolean).join(" "),
+	style: c === "image" && r ? {
+		backgroundImage: `url(${r})`,
+		backgroundPosition: `${o}% ${s}%`,
+		"--cu-wideimage-overlay": `rgba(0, 0, 0, ${a / 100})`
+	} : {},
+	children: /* @__PURE__ */ p("div", {
+		className: "cu-wideimage__content",
+		children: [/* @__PURE__ */ f(O, {
+			header: t,
+			as: i,
+			size: i === "h1" ? "lg" : "md",
+			content: n,
+			isWhite: c !== "light",
+			isCenter: !0,
+			noUnderline: !0
+		}), e]
+	})
+});
+Lr.displayName = "WideImage";
+var Rr = Object.assign(Lr, { Signup: Ir }), zr = ({ children: e, maxWidth: t = "alignfull", contentWidth: n, color: r = "black" }) => /* @__PURE__ */ p("section", {
+	className: [
+		"cu-layout cu-widewave",
+		"cu-widewave--" + r,
+		"has-global-padding",
+		t,
+		"is-layout-constrained"
+	].filter(Boolean).join(" "),
+	"data-color-scheme": "dark",
+	children: [/* @__PURE__ */ f("div", { className: "cu-widewave__wave alignfull" }), /* @__PURE__ */ f("div", {
+		className: `has-global-padding ${n ? "alignwide" : "aligncontent"}`,
+		children: e
+	})]
+}), Br = ({ deptName: e, buildingName: t, officeNumber: n, phone: r, email: i, buttons: a }) => {
+	let o = T();
 	return /* @__PURE__ */ f("aside", {
 		className: "cu-department-bar",
 		children: /* @__PURE__ */ p("div", {
@@ -3601,7 +3784,7 @@ var Er = (e) => {
 				})]
 			}), a && a.length > 0 && /* @__PURE__ */ f("div", {
 				className: "cu-department-bar__actions",
-				children: /* @__PURE__ */ f(Ee, {
+				children: /* @__PURE__ */ f(ce, {
 					align: "end",
 					children: a.map((e, t) => /* @__PURE__ */ f(D, {
 						title: e.title,
@@ -3611,77 +3794,77 @@ var Er = (e) => {
 			})]
 		})
 	});
-}, Ar = "https://cdn.carleton.ca/rds/assets", jr = "/_assets", Mr = !1, Nr = globalThis.process?.env?.NODE_ENV === "development", Z = Mr || Nr ? jr : Ar, Q = {
-	bgArise1: `${Z}/bg-images/arise-1.jpg`,
-	bgArise2: `${Z}/bg-images/arise-2.jpg`,
-	bgLeeds: `${Z}/bg-images/leeds.jpg`,
-	bgLibrary: `${Z}/bg-images/library.jpg`,
-	bgNicol: `${Z}/bg-images/nicol.jpg`,
-	bgSoutham: `${Z}/bg-images/southam.jpg`,
-	bgSplashAthletics: `${Z}/bg-images/splash-athletics.png`,
-	bgTory: `${Z}/bg-images/tory.jpg`,
-	campusAerial01: `${Z}/banners/campus-aerial-01.jpg`,
-	campusRiver01: `${Z}/banners/campus-river-01.jpg`,
-	cuLogoBlackLeftHorizontal: `${Z}/cu-logos/cu-logo-black-left-horizontal.svg`,
-	cuLogoBlackLeftHorizontalOutlined: `${Z}/cu-logos/cu-logo-black-left-horizontal-outlined.svg`,
-	cuLogoBlackRightHorizontal: `${Z}/cu-logos/cu-logo-black-right-horizontal.svg`,
-	cuLogoBlackRightHorizontalOutlined: `${Z}/cu-logos/cu-logo-black-right-horizontal-outlined.svg`,
-	cuLogoBlackVertical: `${Z}/cu-logos/cu-logo-black-vertical.svg`,
-	cuLogoBlackVerticalOutlined: `${Z}/cu-logos/cu-logo-black-vertical-outlined.svg`,
-	cuLogoCarleton360: `${Z}/cu-logos/cu-logo-carleton360.svg`,
-	cuLogoColorLeftHorizontal: `${Z}/cu-logos/cu-logo-color-left-horiztonal.svg`,
-	cuLogoColorLeftHorizontalOutlined: `${Z}/cu-logos/cu-logo-color-left-horizontal-outlined.svg`,
-	cuLogoColorRightHorizontal: `${Z}/cu-logos/cu-logo-color-right-horiztonal.svg`,
-	cuLogoColorRightHorizontalOutlined: `${Z}/cu-logos/cu-logo-color-right-horizontal-outlined.svg`,
-	cuLogoColorVertical: `${Z}/cu-logos/cu-logo-color-vertical.svg`,
-	cuLogoColorVerticalOutlined: `${Z}/cu-logos/cu-logo-color-vertical-outlined.svg`,
-	cuRavensLogoWhite: `${Z}/graphics/cu-ravens-logo-white.svg`,
-	cuShieldBlack: `${Z}/cu-logos/cu-shield-black.svg`,
-	cuShieldBlackOutlined: `${Z}/cu-logos/cu-shield-black-outlined.svg`,
-	cuShieldColor: `${Z}/cu-logos/cu-shield-color.svg`,
-	cuShieldColorOutlined: `${Z}/cu-logos/cu-shield-color-outlined.svg`,
-	cuWavesFooterRed: `${Z}/graphics/cu-waves-footer-red.svg`,
-	cuWavesHardEdgeBlack: `${Z}/graphics/cu-waves-hard-edge-black.svg`,
-	cuWavesHardEdgeRed: `${Z}/graphics/cu-waves-hard-edge-red.svg`,
-	cuWavesRepeatingBottomRed: `${Z}/graphics/cu-waves-repeating-bottom-red.svg`,
-	favicon16: `${Z}/favicons/favicon-16x16.png`,
-	favicon32: `${Z}/favicons/favicon-32x32.png`,
-	favicon48: `${Z}/favicons/favicon-48x48.png`,
-	faviconAndroidChrome192: `${Z}/favicons/android-chrome-192x192.png`,
-	faviconAndroidChrome512: `${Z}/favicons/android-chrome-512x512.png`,
-	faviconAppleTouch: `${Z}/favicons/apple-touch-icon.png`,
-	faviconIco: `${Z}/favicons/favicon.ico`,
-	faviconMstile150: `${Z}/favicons/mstile-150x150.png`,
-	faviconSafariPinnedTab: `${Z}/favicons/safari-pinned-tab.svg`,
-	fontawesomeLight: `${Z}/graphics/fontawesome-light.svg`,
-	greyBg: `${Z}/graphics/grey-bg.jpg`,
-	iconXSolid: `${Z}/icons/x-solid.svg`,
-	lexicalAlignCenter: `${Z}/lexical-icons/align-center-light.svg`,
-	lexicalAlignJustify: `${Z}/lexical-icons/align-justify-light.svg`,
-	lexicalAlignLeft: `${Z}/lexical-icons/align-left-light.svg`,
-	lexicalAlignRight: `${Z}/lexical-icons/align-right-light.svg`,
-	lexicalBold: `${Z}/lexical-icons/bold-light.svg`,
-	lexicalChevronDown: `${Z}/lexical-icons/chevron-down-light.svg`,
-	lexicalH2: `${Z}/lexical-icons/h2-light.svg`,
-	lexicalH3: `${Z}/lexical-icons/h3-light.svg`,
-	lexicalH4: `${Z}/lexical-icons/h4-light.svg`,
-	lexicalImage: `${Z}/lexical-icons/image-regular.svg`,
-	lexicalItalic: `${Z}/lexical-icons/italic-light.svg`,
-	lexicalLink: `${Z}/lexical-icons/link-light.svg`,
-	lexicalListOl: `${Z}/lexical-icons/list-ol-light.svg`,
-	lexicalListUl: `${Z}/lexical-icons/list-ul-light.svg`,
-	lexicalMessageQuote: `${Z}/lexical-icons/message-quote-light.svg`,
-	lexicalParagraph: `${Z}/lexical-icons/paragraph-light.svg`,
-	lexicalPencil: `${Z}/lexical-icons/pencil-light.svg`,
-	lexicalRotateLeft: `${Z}/lexical-icons/rotate-left-light.svg`,
-	lexicalRotateRight: `${Z}/lexical-icons/rotate-right-light.svg`,
-	lexicalUnderline: `${Z}/lexical-icons/underline-light.svg`,
-	quoteRed10: `${Z}/graphics/quote-red-10.svg`,
-	quoteWhite: `${Z}/graphics/quote-white.svg`,
-	ravensLogo: `${Z}/ravens-logos/ravens-logo.svg`,
-	ravensLogoWordmark: `${Z}/ravens-logos/ravens-logo-wordmark.svg`
-}, Pr = ({ logoSrc: e = Q.cuLogoColorVerticalOutlined, logoAlt: t = "Logo of Carleton University", privacyHref: n = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: r = "https://carleton.ca/accessibility/", copyrightHref: i = "https://library.carleton.ca/copyright-carleton" }) => {
-	let a = O(), o = (/* @__PURE__ */ new Date()).getFullYear();
+}, Vr = "https://cdn.carleton.ca/rds/assets", Hr = "/_assets", Ur = !1, Wr = globalThis.process?.env?.NODE_ENV === "development", Q = Ur || Wr ? Hr : Vr, Gr = {
+	bgArise1: `${Q}/bg-images/arise-1.jpg`,
+	bgArise2: `${Q}/bg-images/arise-2.jpg`,
+	bgLeeds: `${Q}/bg-images/leeds.jpg`,
+	bgLibrary: `${Q}/bg-images/library.jpg`,
+	bgNicol: `${Q}/bg-images/nicol.jpg`,
+	bgSoutham: `${Q}/bg-images/southam.jpg`,
+	bgSplashAthletics: `${Q}/bg-images/splash-athletics.png`,
+	bgTory: `${Q}/bg-images/tory.jpg`,
+	campusAerial01: `${Q}/banners/campus-aerial-01.jpg`,
+	campusRiver01: `${Q}/banners/campus-river-01.jpg`,
+	cuLogoBlackLeftHorizontal: `${Q}/cu-logos/cu-logo-black-left-horizontal.svg`,
+	cuLogoBlackLeftHorizontalOutlined: `${Q}/cu-logos/cu-logo-black-left-horizontal-outlined.svg`,
+	cuLogoBlackRightHorizontal: `${Q}/cu-logos/cu-logo-black-right-horizontal.svg`,
+	cuLogoBlackRightHorizontalOutlined: `${Q}/cu-logos/cu-logo-black-right-horizontal-outlined.svg`,
+	cuLogoBlackVertical: `${Q}/cu-logos/cu-logo-black-vertical.svg`,
+	cuLogoBlackVerticalOutlined: `${Q}/cu-logos/cu-logo-black-vertical-outlined.svg`,
+	cuLogoCarleton360: `${Q}/cu-logos/cu-logo-carleton360.svg`,
+	cuLogoColorLeftHorizontal: `${Q}/cu-logos/cu-logo-color-left-horiztonal.svg`,
+	cuLogoColorLeftHorizontalOutlined: `${Q}/cu-logos/cu-logo-color-left-horizontal-outlined.svg`,
+	cuLogoColorRightHorizontal: `${Q}/cu-logos/cu-logo-color-right-horiztonal.svg`,
+	cuLogoColorRightHorizontalOutlined: `${Q}/cu-logos/cu-logo-color-right-horizontal-outlined.svg`,
+	cuLogoColorVertical: `${Q}/cu-logos/cu-logo-color-vertical.svg`,
+	cuLogoColorVerticalOutlined: `${Q}/cu-logos/cu-logo-color-vertical-outlined.svg`,
+	cuRavensLogoWhite: `${Q}/graphics/cu-ravens-logo-white.svg`,
+	cuShieldBlack: `${Q}/cu-logos/cu-shield-black.svg`,
+	cuShieldBlackOutlined: `${Q}/cu-logos/cu-shield-black-outlined.svg`,
+	cuShieldColor: `${Q}/cu-logos/cu-shield-color.svg`,
+	cuShieldColorOutlined: `${Q}/cu-logos/cu-shield-color-outlined.svg`,
+	cuWavesFooterRed: `${Q}/graphics/cu-waves-footer-red.svg`,
+	cuWavesHardEdgeBlack: `${Q}/graphics/cu-waves-hard-edge-black.svg`,
+	cuWavesHardEdgeRed: `${Q}/graphics/cu-waves-hard-edge-red.svg`,
+	cuWavesRepeatingBottomRed: `${Q}/graphics/cu-waves-repeating-bottom-red.svg`,
+	favicon16: `${Q}/favicons/favicon-16x16.png`,
+	favicon32: `${Q}/favicons/favicon-32x32.png`,
+	favicon48: `${Q}/favicons/favicon-48x48.png`,
+	faviconAndroidChrome192: `${Q}/favicons/android-chrome-192x192.png`,
+	faviconAndroidChrome512: `${Q}/favicons/android-chrome-512x512.png`,
+	faviconAppleTouch: `${Q}/favicons/apple-touch-icon.png`,
+	faviconIco: `${Q}/favicons/favicon.ico`,
+	faviconMstile150: `${Q}/favicons/mstile-150x150.png`,
+	faviconSafariPinnedTab: `${Q}/favicons/safari-pinned-tab.svg`,
+	fontawesomeLight: `${Q}/graphics/fontawesome-light.svg`,
+	greyBg: `${Q}/graphics/grey-bg.jpg`,
+	iconXSolid: `${Q}/icons/x-solid.svg`,
+	lexicalAlignCenter: `${Q}/lexical-icons/align-center-light.svg`,
+	lexicalAlignJustify: `${Q}/lexical-icons/align-justify-light.svg`,
+	lexicalAlignLeft: `${Q}/lexical-icons/align-left-light.svg`,
+	lexicalAlignRight: `${Q}/lexical-icons/align-right-light.svg`,
+	lexicalBold: `${Q}/lexical-icons/bold-light.svg`,
+	lexicalChevronDown: `${Q}/lexical-icons/chevron-down-light.svg`,
+	lexicalH2: `${Q}/lexical-icons/h2-light.svg`,
+	lexicalH3: `${Q}/lexical-icons/h3-light.svg`,
+	lexicalH4: `${Q}/lexical-icons/h4-light.svg`,
+	lexicalImage: `${Q}/lexical-icons/image-regular.svg`,
+	lexicalItalic: `${Q}/lexical-icons/italic-light.svg`,
+	lexicalLink: `${Q}/lexical-icons/link-light.svg`,
+	lexicalListOl: `${Q}/lexical-icons/list-ol-light.svg`,
+	lexicalListUl: `${Q}/lexical-icons/list-ul-light.svg`,
+	lexicalMessageQuote: `${Q}/lexical-icons/message-quote-light.svg`,
+	lexicalParagraph: `${Q}/lexical-icons/paragraph-light.svg`,
+	lexicalPencil: `${Q}/lexical-icons/pencil-light.svg`,
+	lexicalRotateLeft: `${Q}/lexical-icons/rotate-left-light.svg`,
+	lexicalRotateRight: `${Q}/lexical-icons/rotate-right-light.svg`,
+	lexicalUnderline: `${Q}/lexical-icons/underline-light.svg`,
+	quoteRed10: `${Q}/graphics/quote-red-10.svg`,
+	quoteWhite: `${Q}/graphics/quote-white.svg`,
+	ravensLogo: `${Q}/ravens-logos/ravens-logo.svg`,
+	ravensLogoWordmark: `${Q}/ravens-logos/ravens-logo-wordmark.svg`
+}, Kr = ({ logoSrc: e = Gr.cuLogoColorVerticalOutlined, logoAlt: t = "Logo of Carleton University", privacyHref: n = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: r = "https://carleton.ca/accessibility/", copyrightHref: i = "https://library.carleton.ca/copyright-carleton" }) => {
+	let a = T(), o = (/* @__PURE__ */ new Date()).getFullYear();
 	return /* @__PURE__ */ p("footer", {
 		className: "cu-footer cu-footer--basic",
 		"aria-labelledby": "cu-footer-heading",
@@ -3726,12 +3909,12 @@ var Er = (e) => {
 			})]
 		})]
 	});
-}, Fr = "Carleton University acknowledges the location of its campus on the traditional, unceded territories of the Algonquin Anishinàbeg nation", Ir = {
+}, qr = "Carleton University acknowledges the location of its campus on the traditional, unceded territories of the Algonquin Anishinàbeg nation", Jr = {
 	phone: "613-520-2600",
 	phoneHref: "tel:+1-613-520-2600",
 	contactHref: "https://carleton.ca/about/contact/",
 	address: "1125 Colonel By Drive, Ottawa, ON, K1S 5B6, Canada"
-}, Lr = [
+}, Yr = [
 	{
 		name: "Facebook",
 		href: "https://www.facebook.com/carletonuniversity",
@@ -3757,7 +3940,7 @@ var Er = (e) => {
 		href: "https://www.linkedin.com/school/carleton-university",
 		icon: "linkedin"
 	}
-], Rr = [
+], Xr = [
 	[{
 		heading: "Admissions",
 		links: [
@@ -3907,14 +4090,14 @@ var Er = (e) => {
 			}
 		],
 		media: {
-			src: Q.ravensLogo,
+			src: Gr.ravensLogo,
 			alt: "Carleton Ravens",
 			href: "https://goravens.carleton.ca",
 			width: 64
 		}
 	}]
-], zr = {
-	standard: Rr,
+], Zr = {
+	standard: Xr,
 	athletics: [
 		[{
 			heading: "Fitness",
@@ -4076,9 +4259,9 @@ var Er = (e) => {
 			]
 		}]
 	],
-	futureFunder: Rr
-}, Br = ({ type: e = "standard", acknowledgment: t = Fr, contact: n = Ir, social: r = Lr, logoSrc: i = Q.cuLogoColorVerticalOutlined, logoAlt: a = "Logo of Carleton University", privacyHref: o = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: s = "https://carleton.ca/accessibility/", copyrightHref: c = "https://library.carleton.ca/copyright-carleton" }) => {
-	let l = O(), u = zr[e], d = (/* @__PURE__ */ new Date()).getFullYear();
+	futureFunder: Xr
+}, Qr = ({ type: e = "standard", acknowledgment: t = qr, contact: n = Jr, social: r = Yr, logoSrc: i = Gr.cuLogoColorVerticalOutlined, logoAlt: a = "Logo of Carleton University", privacyHref: o = "https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/", accessibilityHref: s = "https://carleton.ca/accessibility/", copyrightHref: c = "https://library.carleton.ca/copyright-carleton" }) => {
+	let l = T(), u = Zr[e], d = (/* @__PURE__ */ new Date()).getFullYear();
 	return /* @__PURE__ */ p("footer", {
 		className: `cu-footer cu-footer--${e}`,
 		"aria-labelledby": "cu-footer-heading",
@@ -4216,25 +4399,25 @@ var Er = (e) => {
 			]
 		})]
 	});
-}, Vr = ({ children: e }) => /* @__PURE__ */ f("div", {
+}, $r = ({ children: e }) => /* @__PURE__ */ f("div", {
 	className: "cu-nav__top",
 	children: e
 });
-Vr.displayName = "Nav.Top";
+$r.displayName = "Nav.Top";
 //#endregion
 //#region src/components/Nav/NavBottom.tsx
-var Hr = ({ children: e }) => /* @__PURE__ */ f("div", {
+var ei = ({ children: e }) => /* @__PURE__ */ f("div", {
 	className: "cu-nav__bottom",
 	children: /* @__PURE__ */ f("div", {
 		className: "cu-nav__bottom-inner",
 		children: e
 	})
 });
-Hr.displayName = "Nav.Bottom";
+ei.displayName = "Nav.Bottom";
 //#endregion
 //#region src/components/Nav/NavLogo.tsx
-var Ur = "https://cdn.carleton.ca/rds/assets/cu-logos/cu-logo-color-right-horiztonal.svg", Wr = "https://cdn.carleton.ca/rds/assets/cu-logos/cu-shield-color.svg", Gr = ({ title: e, link: t }) => {
-	let n = O();
+var ti = "https://cdn.carleton.ca/rds/assets/cu-logos/cu-logo-color-right-horiztonal.svg", ni = "https://cdn.carleton.ca/rds/assets/cu-logos/cu-shield-color.svg", ri = ({ title: e, link: t }) => {
+	let n = T();
 	return /* @__PURE__ */ p("div", {
 		className: "cu-nav__logo",
 		children: [/* @__PURE__ */ p("a", {
@@ -4242,13 +4425,13 @@ var Ur = "https://cdn.carleton.ca/rds/assets/cu-logos/cu-logo-color-right-horizt
 			className: "cu-nav__logomark",
 			children: [/* @__PURE__ */ f("img", {
 				className: `cu-nav__logomark-full${e ? " cu-nav__logomark-full--sm-hidden" : ""}`,
-				src: Ur,
+				src: ti,
 				width: 148,
 				height: 40,
 				alt: "Carleton University"
 			}), e && /* @__PURE__ */ f("img", {
 				className: "cu-nav__logomark-shield",
-				src: Wr,
+				src: ni,
 				width: 30,
 				height: 38,
 				alt: "Carleton University"
@@ -4260,11 +4443,11 @@ var Ur = "https://cdn.carleton.ca/rds/assets/cu-logos/cu-logo-color-right-horizt
 		})]
 	});
 };
-Gr.displayName = "Nav.Logo";
+ri.displayName = "Nav.Logo";
 //#endregion
 //#region src/components/Nav/NavSubMenu.tsx
-var Kr = ({ items: e, isOpen: t, variant: n = "desktop" }) => {
-	let [r, i] = u(null), a = O();
+var ii = ({ items: e, isOpen: t, variant: n = "desktop" }) => {
+	let [r, i] = u(null), a = T();
 	return t ? /* @__PURE__ */ f("ul", {
 		className: `cu-nav__submenu${n === "mobile" ? " cu-nav__submenu--mobile" : ""}`,
 		children: e.map((e) => /* @__PURE__ */ f("li", {
@@ -4302,8 +4485,8 @@ var Kr = ({ items: e, isOpen: t, variant: n = "desktop" }) => {
 			})
 		}, e.title))
 	}) : null;
-}, qr = ({ item: e, isOpen: t, onToggle: n, variant: r = "desktop" }) => {
-	let i = O(), a = !!e.submenu?.length, o = r === "mobile", s = o ? ["cu-nav__submenu-link", a && t && "cu-nav__submenu-link--open"].filter(Boolean).join(" ") : ["cu-nav__link", a && t && "cu-nav__link--open"].filter(Boolean).join(" ");
+}, ai = ({ item: e, isOpen: t, onToggle: n, variant: r = "desktop" }) => {
+	let i = T(), a = !!e.submenu?.length, o = r === "mobile", s = o ? ["cu-nav__submenu-link", a && t && "cu-nav__submenu-link--open"].filter(Boolean).join(" ") : ["cu-nav__link", a && t && "cu-nav__link--open"].filter(Boolean).join(" ");
 	return /* @__PURE__ */ p("li", {
 		className: o ? "cu-nav__submenu-item" : "cu-nav__item",
 		children: [a ? /* @__PURE__ */ p("button", {
@@ -4318,20 +4501,20 @@ var Kr = ({ items: e, isOpen: t, variant: n = "desktop" }) => {
 			href: e.href ?? "#",
 			className: s,
 			children: e.title
-		}), a && /* @__PURE__ */ f(Kr, {
+		}), a && /* @__PURE__ */ f(ii, {
 			items: e.submenu ?? [],
 			isOpen: t,
 			variant: r
 		})]
 	});
-}, Jr = "(max-width: 599.98px)", Yr = () => {
+}, oi = "(max-width: 599.98px)", si = () => {
 	let [e, t] = u(!1);
 	return o(() => {
-		let e = window.matchMedia(Jr), n = () => t(e.matches);
+		let e = window.matchMedia(oi), n = () => t(e.matches);
 		return n(), e.addEventListener("change", n), () => e.removeEventListener("change", n);
 	}, []), e;
-}, Xr = () => {}, Zr = ({ menu: e }) => {
-	let [t, n] = u(null), [r, a] = u(!1), [d, m] = u(null), g = Yr(), _ = l(null), v = l(null), y = l(null), b = c(() => e.map((e) => e.title).join(""), [e]), x = i(() => {
+}, ci = () => {}, li = ({ menu: e }) => {
+	let [t, n] = u(null), [r, a] = u(!1), [d, m] = u(null), g = si(), _ = l(null), v = l(null), y = l(null), b = c(() => e.map((e) => e.title).join(""), [e]), x = i(() => {
 		if (g) return;
 		let t = _.current, r = v.current, i = y.current;
 		if (!t || !r || !i) return;
@@ -4367,11 +4550,11 @@ var Kr = ({ items: e, isOpen: t, variant: n = "desktop" }) => {
 			document.removeEventListener("mousedown", e), document.removeEventListener("keydown", t);
 		};
 	}, []);
-	let ee = (e) => {
+	let S = (e) => {
 		a(!1), m((t) => t === e ? null : e);
-	}, S = (e) => {
+	}, ee = (e) => {
 		m((t) => t === e ? null : e);
-	}, C = g ? 0 : t ?? e.length, te = e.slice(0, C), ne = e.slice(C), w = ne.length > 0, T = !w;
+	}, C = g ? 0 : t ?? e.length, te = e.slice(0, C), ne = e.slice(C), re = ne.length > 0, w = !re;
 	return /* @__PURE__ */ p("div", {
 		className: "cu-nav__menu",
 		ref: _,
@@ -4380,55 +4563,55 @@ var Kr = ({ items: e, isOpen: t, variant: n = "desktop" }) => {
 				className: "cu-nav__list cu-nav__list--measure",
 				ref: v,
 				"aria-hidden": "true",
-				children: e.map((e) => /* @__PURE__ */ f(qr, {
+				children: e.map((e) => /* @__PURE__ */ f(ai, {
 					item: e,
 					isOpen: !1,
-					onToggle: Xr
+					onToggle: ci
 				}, e.title))
 			}),
 			/* @__PURE__ */ f("ul", {
 				className: "cu-nav__list",
-				children: te.map((e) => /* @__PURE__ */ f(qr, {
+				children: te.map((e) => /* @__PURE__ */ f(ai, {
 					item: e,
 					isOpen: d === e.title,
-					onToggle: () => ee(e.title)
+					onToggle: () => S(e.title)
 				}, e.title))
 			}),
 			/* @__PURE__ */ p("button", {
 				ref: y,
-				className: `cu-nav__browse${T ? " cu-nav__browse--ghost" : ""}`,
+				className: `cu-nav__browse${w ? " cu-nav__browse--ghost" : ""}`,
 				onClick: () => {
-					T || (m(null), a((e) => !e));
+					w || (m(null), a((e) => !e));
 				},
-				"aria-expanded": T ? void 0 : r,
-				"aria-haspopup": T ? void 0 : "true",
-				"aria-hidden": T || void 0,
-				tabIndex: T ? -1 : void 0,
+				"aria-expanded": w ? void 0 : r,
+				"aria-haspopup": w ? void 0 : "true",
+				"aria-hidden": w || void 0,
+				tabIndex: w ? -1 : void 0,
 				children: [/* @__PURE__ */ f("span", {
 					className: "cu-nav__browse-label",
 					children: "Browse"
 				}), /* @__PURE__ */ f("span", {
-					className: `cu-nav__arrow${r && !T ? " cu-nav__arrow--open" : ""}`,
+					className: `cu-nav__arrow${r && !w ? " cu-nav__arrow--open" : ""}`,
 					"aria-hidden": "true"
 				})]
 			}),
-			r && w && /* @__PURE__ */ f("ul", {
+			r && re && /* @__PURE__ */ f("ul", {
 				className: "cu-nav__browse-dropdown",
-				children: ne.map((e) => /* @__PURE__ */ f(qr, {
+				children: ne.map((e) => /* @__PURE__ */ f(ai, {
 					item: e,
 					isOpen: d === e.title,
-					onToggle: () => S(e.title),
+					onToggle: () => ee(e.title),
 					variant: "mobile"
 				}, e.title))
 			})
 		]
 	});
 };
-Zr.displayName = "Nav.Menu";
+li.displayName = "Nav.Menu";
 //#endregion
 //#region src/components/Nav/NavButtons.tsx
-var Qr = ({ buttons: e, isSearch: t, onClickSearch: n }) => {
-	let r = O();
+var ui = ({ buttons: e, isSearch: t, onClickSearch: n }) => {
+	let r = T();
 	return !t && !e?.length ? null : /* @__PURE__ */ p("div", {
 		className: "cu-nav__buttons",
 		children: [t && /* @__PURE__ */ f("button", {
@@ -4447,18 +4630,18 @@ var Qr = ({ buttons: e, isSearch: t, onClickSearch: n }) => {
 		}, e.title))]
 	});
 };
-Qr.displayName = "Nav.Buttons";
+ui.displayName = "Nav.Buttons";
 //#endregion
 //#region src/components/Nav/Nav.tsx
-var $r = (n) => {
-	let i = e.toArray(n), a = i.findIndex((e) => r(e) && e.type === Vr), o = i.findIndex((e) => r(e) && e.type === Hr);
+var di = (n) => {
+	let i = e.toArray(n), a = i.findIndex((e) => r(e) && e.type === $r), o = i.findIndex((e) => r(e) && e.type === ei);
 	if (a === -1 || o === -1) return n;
-	let s = i[a], c = i[o], l = e.toArray(s.props.children), u = l.findIndex((e) => r(e) && e.type === Qr);
+	let s = i[a], c = i[o], l = e.toArray(s.props.children), u = l.findIndex((e) => r(e) && e.type === ui);
 	if (u === -1) return n;
 	let d = l[u];
 	return i[a] = t(s, void 0, ...l.filter((e, t) => t !== u)), i[o] = t(c, void 0, ...e.toArray(c.props.children), d), i;
-}, ei = ({ children: e }) => {
-	let t = Yr(), n = l(null);
+}, fi = ({ children: e }) => {
+	let t = si(), n = l(null);
 	return o(() => {
 		let e = n.current;
 		if (!e) return;
@@ -4486,21 +4669,18 @@ var $r = (n) => {
 		children: /* @__PURE__ */ f("nav", {
 			className: "cu-nav__inner",
 			"aria-label": "Site navigation",
-			children: t ? $r(e) : e
+			children: t ? di(e) : e
 		})
 	});
 };
-ei.displayName = "Nav";
-var ti = Object.assign(ei, {
-	Top: Vr,
-	Bottom: Hr,
-	Logo: Gr,
-	Menu: Zr,
-	Buttons: Qr
-}), ni = ({ component: e, children: t }) => /* @__PURE__ */ f(Se.Provider, {
-	value: e,
-	children: t
-}), ri = ({ value: e, max: t = 100, label: n }) => {
+fi.displayName = "Nav";
+var pi = Object.assign(fi, {
+	Top: $r,
+	Bottom: ei,
+	Logo: ri,
+	Menu: li,
+	Buttons: ui
+}), mi = ({ value: e, max: t = 100, label: n }) => {
 	let r = t > 0 ? Math.min(Math.round(e / t * 100), 100) : 0;
 	return /* @__PURE__ */ f("div", {
 		className: "cu-progressbar",
@@ -4514,8 +4694,69 @@ var ti = Object.assign(ei, {
 			style: { width: `${r}%` }
 		})
 	});
-}, ii = n({}), ai = () => a(ii), oi = ({ icon: e, href: t, label: n }) => {
-	let r = O(), { iconColor: i } = ai();
+}, $ = (e) => H(e, "h:mm a"), hi = (e, t, n = /* @__PURE__ */ new Date()) => {
+	let r = new Date(n);
+	r.setHours(0, 0, 0, 0);
+	let i = Z(e, "HH:mm", r), a = Z(t, "HH:mm", r);
+	return vt(n, i) ? {
+		variant: "error",
+		label: `Opens at ${$(i)}`
+	} : _t(n, a) || n.getTime() === a.getTime() ? {
+		variant: "error",
+		label: `Opens tomorrow at ${$(be(i, 1))}`
+	} : je(a, n) <= 60 ? {
+		variant: "warning",
+		label: `Closes at ${$(a)}`
+	} : {
+		variant: "success",
+		label: `Open until ${$(a)}`
+	};
+}, gi = (e) => {
+	if (typeof document > "u") return !1;
+	let t = document.cookie.split(";").find((t) => t.trim().startsWith(`${e}=`));
+	if (!t) return !0;
+	let n = t.split("=")[1];
+	return new Date(n).getTime() <= Date.now();
+}, _i = (e, t = 365) => {
+	if (typeof document > "u") return;
+	let n = /* @__PURE__ */ new Date();
+	n.setTime(n.getTime() + t * 24 * 60 * 60 * 1e3), document.cookie = `${e}=true; expires=${n.toUTCString()}; path=/`;
+}, vi = ({ cookieName: e = "cookieConsent", message: t = "This site uses cookies to offer you a better browsing experience. Find out more on", policyHref: n = "https://carleton.ca/privacy/privacy-notices/website-privacy-notice/", policyLabel: r = "how we use cookies and how you can change your settings.", buttonLabel: i = "Ok, got it!" }) => {
+	let a = T(), [o, s] = u(() => gi(e));
+	return o ? /* @__PURE__ */ f("div", {
+		className: "cu-cookie-banner",
+		role: "dialog",
+		"aria-live": "polite",
+		"aria-label": "Cookie notice",
+		children: /* @__PURE__ */ p("div", {
+			className: "cu-cookie-banner__content",
+			children: [/* @__PURE__ */ p("p", {
+				className: "cu-cookie-banner__message",
+				children: [
+					t,
+					" ",
+					/* @__PURE__ */ f(a, {
+						href: n,
+						className: "cu-cookie-banner__link",
+						children: r
+					})
+				]
+			}), /* @__PURE__ */ f("div", {
+				className: "cu-cookie-banner__action",
+				children: /* @__PURE__ */ f(D, {
+					onClick: () => {
+						_i(e), s(!1);
+					},
+					title: i
+				})
+			})]
+		})
+	}) : null;
+}, yi = ({ component: e, children: t }) => /* @__PURE__ */ f(ie.Provider, {
+	value: e,
+	children: t
+}), bi = n({}), xi = () => a(bi), Si = ({ icon: e, href: t, label: n }) => {
+	let r = T(), { iconColor: i } = xi();
 	return /* @__PURE__ */ f("li", {
 		className: "cu-social__item",
 		"data-social": i ? e : void 0,
@@ -4527,12 +4768,12 @@ var ti = Object.assign(ei, {
 		})
 	});
 };
-oi.displayName = "SocialIcons.Item";
+Si.displayName = "SocialIcons.Item";
 //#endregion
 //#region src/components/SocialIcons/SocialIcons.tsx
-var si = ({ children: e, prefix: t, iconColor: n }) => {
+var Ci = ({ children: e, prefix: t, iconColor: n }) => {
 	let r = n ? `cu-social--${n}` : void 0;
-	return /* @__PURE__ */ f(ii.Provider, {
+	return /* @__PURE__ */ f(bi.Provider, {
 		value: { iconColor: n },
 		children: /* @__PURE__ */ p("div", {
 			className: ["cu-social", r].filter(Boolean).join(" "),
@@ -4546,24 +4787,7 @@ var si = ({ children: e, prefix: t, iconColor: n }) => {
 		})
 	});
 };
-si.displayName = "SocialIcons";
-var ci = Object.assign(si, { Item: oi }), $ = (e) => H(e, "h:mm a"), li = (e, t, n = /* @__PURE__ */ new Date()) => {
-	let r = new Date(n);
-	r.setHours(0, 0, 0, 0);
-	let i = X(e, "HH:mm", r), a = X(t, "HH:mm", r);
-	return Ft(n, i) ? {
-		variant: "error",
-		label: `Opens at ${$(i)}`
-	} : Pt(n, a) || n.getTime() === a.getTime() ? {
-		variant: "error",
-		label: `Opens tomorrow at ${$(Le(i, 1))}`
-	} : Je(a, n) <= 60 ? {
-		variant: "warning",
-		label: `Closes at ${$(a)}`
-	} : {
-		variant: "success",
-		label: `Open until ${$(a)}`
-	};
-};
+Ci.displayName = "SocialIcons";
+var wi = Object.assign(Ci, { Item: Si });
 //#endregion
-export { g as Article, _ as Aside, xe as Avatar, Ce as Badge, Te as BadgeGroup, v as Body, D as Button, Ee as ButtonGroup, ve as CallOut, Tr as Card, C as Column, Or as CookieBanner, kr as DepartmentBar, ye as Figure, Pr as Footer, Br as FooterStandard, se as FullBanner, E as Icon, ce as ImageCover, ni as LinkProvider, te as Main, ti as Nav, ar as PROVIDER_NAMES, w as PageHeader, ri as ProgressBar, le as Quote, ne as Section, ci as SocialIcons, _e as StackedList, er as Status, pe as Testimonial, ge as Timeline, fe as WideImage, $n as defaultStatusTypes, rr as detectProvider, li as formatHoursStatus, ir as getProvider, ur as useOEmbed, gr as useReducedMotion, Cr as useScrollReveal };
+export { g as Article, _ as Aside, w as Avatar, ae as Badge, se as BadgeGroup, v as Body, D as Button, ce as ButtonGroup, le as CallOut, sr as Card, te as Column, vi as CookieBanner, Br as DepartmentBar, Cr as Embed, wr as EmbedHubSpot, Sr as EmbedWrapper, cr as Figure, Kr as Footer, Qr as FooterStandard, Ar as FullBanner, E as Icon, Mr as ImageCover, Fr as ImageGrid, Nr as ImageGridImage, Pr as ImageGridWrapper, yi as LinkProvider, y as Main, pi as Nav, Vn as PROVIDER_NAMES, O as PageHeader, mi as ProgressBar, lr as Quote, ne as Section, wi as SocialIcons, ur as StackedList, In as Status, dr as Testimonial, mr as Timeline, Rr as WideImage, zr as WideWave, Fn as defaultStatusTypes, zn as detectProvider, hi as formatHoursStatus, Bn as getProvider, Kn as useOEmbed, Qn as useReducedMotion, ar as useScrollReveal };

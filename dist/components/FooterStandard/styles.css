@@ -125,7 +125,7 @@
   color: var(--rds--color-grey-light);
   font-size: var(--rds--font-size-medium);
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-footer__contact {
     flex-direction: row;
     justify-content: space-between;
@@ -162,7 +162,7 @@
   padding: 0;
   list-style: none;
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-footer__social {
     justify-content: flex-end;
   }
@@ -186,7 +186,7 @@
     padding-bottom: 9rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-footer__logo-links {
     padding-bottom: 11rem;
   }
