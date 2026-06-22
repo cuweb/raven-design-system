@@ -46,7 +46,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Calendar | port | No | No
+| Calendar | done | No | No
 | Call Out | done | No | No
 | Card | done | No | No
 | Carleton360 | port | No | No
