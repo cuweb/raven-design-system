@@ -85,7 +85,7 @@ export const CarletonHomepage: Story = {
                     </ButtonGroup>
                 </FullBanner>
 
-                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth>
+                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth="alignwide">
                     <Column cols="4" maxWidth="alignwide">
                         <Card leftBorder>
                             <Card.Stats stat="30,600+" desc="Student Population " />
@@ -152,7 +152,7 @@ export const CarletonHomepage: Story = {
                     </Column>
                 </WideWave>
 
-                <ImageCover image="tory" contentWidth>
+                <ImageCover image="tory" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         header="Attend Carleton"
@@ -177,7 +177,7 @@ export const CarletonHomepage: Story = {
                     </Embed>
                 </ImageCover>
 
-                <Section maxWidth="alignwide" contentWidth>
+                <Section maxWidth="alignwide" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         header="Campus Life"
@@ -237,7 +237,7 @@ export const CarletonHomepage: Story = {
                     </Column>
                 </WideWave>
 
-                <Section bgType="grey" maxWidth="alignfull" contentWidth>
+                <Section bgType="grey" maxWidth="alignfull" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         header="Upcoming Events"

@@ -21,9 +21,8 @@ const meta: Meta<typeof Section> = {
       options: ['aligncontent', 'alignwide', 'alignfull'],
     },
     contentWidth: {
-      control: 'inline-radio',
-      options: [false, true],
-      description: 'false = 1024px (content), true = 1280px (wide)',
+      control: 'select',
+      options: ['aligncontent', 'alignwide', 'alignfull'],
     },
   },
   parameters: {
@@ -100,7 +99,7 @@ export const FullWidth: Story = {
 export const FullWidthConstrained: Story = {
   render: () => (
     <Main>
-      <Section maxWidth="alignfull" bgType="grey" contentWidth={false}>
+      <Section maxWidth="alignfull" bgType="grey" contentWidth="aligncontent">
         <MultiParagraph count={2} />
       </Section>
     </Main>
@@ -110,7 +109,7 @@ export const FullWidthConstrained: Story = {
 export const FullWidthConstrainedWide: Story = {
   render: () => (
     <Main>
-      <Section maxWidth="alignfull" bgType="grey" contentWidth>
+      <Section maxWidth="alignfull" bgType="grey" contentWidth="alignwide">
         <MultiParagraph count={2} />
       </Section>
     </Main>

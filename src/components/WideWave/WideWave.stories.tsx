@@ -20,9 +20,8 @@ const meta: Meta<typeof WideWave> = {
       options: ['aligncontent', 'alignwide', 'alignfull'],
     },
     contentWidth: {
-      control: 'inline-radio',
-      options: [false, true],
-      description: 'false = 1024px (content), true = 1280px (wide)',
+      control: 'select',
+      options: ['aligncontent', 'alignwide', 'alignfull'],
     },
     color: {
       control: 'inline-radio',
@@ -67,7 +66,7 @@ export const FullWidth: Story = {
 
 export const FullWidthConstrained: Story = {
   render: () => (
-      <WideWave maxWidth="alignfull" contentWidth={false}>
+      <WideWave maxWidth="alignfull" contentWidth="aligncontent">
         <MultiParagraph count={2} />
       </WideWave>
   ),
@@ -75,7 +74,7 @@ export const FullWidthConstrained: Story = {
 
 export const FullWidthConstrainedWide: Story = {
   render: () => (
-      <WideWave maxWidth="alignfull" contentWidth>
+      <WideWave maxWidth="alignfull" contentWidth="alignwide">
         <MultiParagraph count={2} />
       </WideWave>
   ),

@@ -1,4 +1,5 @@
 export const maxWidthClasses = {
+  alignsmall: 'alignsmall',
   aligncontent: 'aligncontent',
   alignwide: 'alignwide',
   alignfull: 'alignfull',

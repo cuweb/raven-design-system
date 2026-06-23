@@ -112,7 +112,7 @@ export const SectionsGroups: Story = {
 
                 <MultiParagraph count={2} />
 
-                <Section bgType="light-gradient" maxWidth="alignwide" contentWidth>
+                <Section bgType="light-gradient" maxWidth="alignwide" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         header="Grey Background, Consecutive Columns"
@@ -171,7 +171,7 @@ export const SectionsGroups: Story = {
                     </Column>
                 </Section>
 
-                <Section bgType="light-gradient" maxWidth="alignwide" contentWidth>
+                <Section bgType="light-gradient" maxWidth="alignwide" contentWidth="alignwide">
                     <Column cols="4" maxWidth="alignwide">
                         <Card leftBorder>
                             <Card.Stats stat="30,600+" desc="Student Population " />
@@ -190,7 +190,7 @@ export const SectionsGroups: Story = {
 
                 <MultiParagraph count={2} />
 
-                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth>
+                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         header="Grey Background, Consecutive Columns"
@@ -249,7 +249,7 @@ export const SectionsGroups: Story = {
                     </Column>
                 </Section>
 
-                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth>
+                <Section bgType="light-gradient" maxWidth="alignfull" contentWidth="alignwide">
                     <Column cols="4" maxWidth="alignwide">
                         <Card leftBorder>
                             <Card.Stats stat="30,600+" desc="Student Population " />

@@ -87,5 +87,6 @@
   /* Layout */
   --rds--layout-content-size: 896px;
   --rds--layout-wide-size: 1280px;
+  --rds--layout-small-size: 600px;
   --rds--layout-max-size: 1536px;
 }

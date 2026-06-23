@@ -57,14 +57,14 @@ import { Section } from '@cuweb/rds2';
 
 // Full-bleed grey band with content constrained to 1024px
 <Main>
-  <Section maxWidth="alignfull" bgType="grey" contentWidth={false}>
+  <Section maxWidth="alignfull" bgType="grey" contentWidth="aligncontent">
     <Column cols="2">...</Column>
   </Section>
 </Main>
 
 // Full-bleed grey band with content constrained to 1280px
 <Main>
-  <Section maxWidth="alignfull" bgType="grey" contentWidth>
+  <Section maxWidth="alignfull" bgType="grey" contentWidth="alignwide">
     <Column cols="2">...</Column>
   </Section>
 </Main>
@@ -111,13 +111,13 @@ Content width (`aligncontent`), white background. Use the controls to explore `a
 
 ### Full width with constrained content (1024px)
 
-`contentWidth={false}` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
+`contentWidth="aligncontent"` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
 
 <Canvas of={SectionStories.FullWidthConstrained} />
 
 ### Full width with constrained content (1280px)
 
-`contentWidth` (or `contentWidth={true}`) uses the wider 1280px column.
+`contentWidth="alignwide"` uses the wider 1280px column.
 
 <Canvas of={SectionStories.FullWidthConstrainedWide} />
 
@@ -147,8 +147,9 @@ When set, `contentWidth` wraps all children in a `cu-section__content` div indep
 
 | Value | Inner content width |
 |---|---|
-| `false` | 1024px (`aligncontent`) |
-| `true` / `contentWidth` (no value) | 1280px (`alignwide`) |
+| `"aligncontent"` | 1024px — standard readable content width |
+| `"alignwide"` | 1280px — wider, for card grids and media-rich layouts |
+| `"alignfull"` | Full viewport width |
 
 Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 

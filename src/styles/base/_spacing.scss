@@ -1,12 +1,18 @@
 @use '../auto/variables' as *;
 
 // Global width classes for Gutenberg alignments, to be used in Section component
+.alignsmall {
+  max-width: var(--rds--layout-small-size) !important;
+}
+
 .aligncontent {
   max-width: var(--rds--layout-content-size);
 }
+
 .alignwide {
   max-width: var(--rds--layout-wide-size);
 }
+
 .alignfull {
   max-width: var(--rds--layout-full-size);
 }
