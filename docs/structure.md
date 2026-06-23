@@ -54,7 +54,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Details | port | No | No
 | Figure | done | No | No
 | Funding Details | port | No | No
-| Listing | port | No | No
+| Listing | done | No | No
 | Location | port | No | No
 | Multi-day Calendar | done | No | No
 | Quote | done | No | No

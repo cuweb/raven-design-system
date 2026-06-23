@@ -1,0 +1,323 @@
+@use '../../styles/auto/variables' as *;
+
+// ─── Listing wrapper ──────────────────────────────────────────────────────────
+
+.cu-listing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rds--spacing-medium);
+  padding: var(--rds--spacing-medium);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--rds--font-family-inter);
+  color: var(--rds--color-black);
+  background: var(--rds--color-white);
+
+  a {
+    color: var(--rds--color-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// In a 1-column StackedList, listings go side-by-side at md+.
+// In a 2-column StackedList, listings always stack vertically.
+@media (min-width: $rds-media-query-md) {
+  .cu-stackedlist--cols-1 > .cu-listing {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--rds--spacing-medium);
+  }
+
+  .cu-stackedlist--cols-1 > .cu-listing .cu-listing__figure {
+    flex-shrink: 0;
+    // width: 30%;
+  }
+
+  .cu-stackedlist--cols-1 > .cu-listing .cu-listing__body {
+    flex: 1 1 100%;
+    min-width: 0;
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+// ─── Figure ───────────────────────────────────────────────────────────────────
+
+.cu-listing__figure {
+  overflow: hidden;
+  border-radius: var(--rds--radius-sm);
+  line-height: 0;
+  max-width: 220px;
+  aspect-ratio: 3 / 2;
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &--square {
+    aspect-ratio: 1 / 1;
+    max-width: 180px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &--small {
+    aspect-ratio: auto;
+    max-width: 200px;
+
+    img {
+      height: auto;
+      object-fit: initial;
+    }
+  }
+
+  &--hide-mobile {
+    display: none;
+
+    @media (min-width: $rds-media-query-md) {
+      display: block;
+    }
+  }
+}
+
+// ─── Date thumb ───────────────────────────────────────────────────────────────
+
+.cu-listing__date-thumb {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--rds--radius-sm);
+  background-color: var(--rds--color-grey-pale);
+  box-shadow: none;
+}
+
+.cu-listing__date-thumb-month {
+  display: block;
+  font-size: var(--rds--font-size-x-small);
+  font-weight: var(--rds--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--rds--color-primary-dark);
+}
+
+.cu-listing__date-thumb-day {
+  display: block;
+  font-size: var(--rds--font-size-x-large);
+  font-weight: var(--rds--font-weight-bold);
+  color: var(--rds--color-black);
+}
+
+// ─── Icon thumb ───────────────────────────────────────────────────────────────
+
+.cu-listing__icon-thumb {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--rds--color-primary);
+    margin: 0;
+}
+
+@media (min-width: $rds-media-query-md) {
+  .cu-stackedlist--cols-1 > .cu-listing .cu-listing__icon-thumb {
+    background-color: var(--rds--color-grey-pale);
+    color: var(--rds--color-primary);
+    padding: var(--rds--spacing-small);
+    border-radius: var(--rds--radius-sm);
+  }
+}
+
+// ─── Initials ─────────────────────────────────────────────────────────────────
+
+.cu-listing__initials {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  border-radius: var(--rds--radius-sm);
+  border: 4px solid var(--rds--color-grey-pale);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.cu-listing__initials-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--rds--font-size-2x-large);
+  font-weight: var(--rds--font-weight-semibold);
+  color: var(--rds--color-grey-dark);
+}
+
+// ─── Body ─────────────────────────────────────────────────────────────────────
+
+.cu-listing__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rds--spacing-x-small);
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+.cu-listing__header h2,
+.cu-listing__header h3 {
+  font-size: var(--rds--font-size-x-large);
+  line-height: var(--rds--line-height-tight);
+  margin: 0 0 var(--rds--spacing-2-x-small) 0;
+
+  a {
+    color: var(--rds--color-black);
+
+    &:hover {
+      color: var(--rds--color-primary);
+      text-decoration: none;
+    }
+  }
+}
+
+.cu-listing__header-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--rds--spacing-x-small);
+  margin-bottom: var(--rds--spacing-2-x-small);
+}
+
+.cu-listing__header-meta time,
+.cu-listing__header-meta p {
+  font-size: var(--rds--font-size-x-small);
+  font-style: italic;
+  margin: 0;
+  color: var(--rds--color-grey-dark);
+}
+
+.cu-listing__header-readtime--with-divider {
+  border-left: 1px solid var(--rds--color-grey-light);
+  padding-left: var(--rds--spacing-x-small);
+}
+
+// ─── Excerpt ──────────────────────────────────────────────────────────────────
+
+.cu-listing__excerpt {
+  font-size: var(--rds--font-size-small);
+  margin: 0;
+  color: var(--rds--color-grey-dark);
+}
+
+.cu-listing__excerpt-more {
+  font-weight: var(--rds--font-weight-semibold);
+}
+
+// ─── Meta (event and people) ──────────────────────────────────────────────────
+
+.cu-listing__meta {
+  font-size: var(--rds--font-size-small);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li:not(:last-child) {
+    margin-bottom: var(--rds--spacing-2-x-small);
+  }
+
+  &--has-icons li {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: var(--rds--spacing-2-x-small);
+    }
+  }
+
+  svg {
+    color: var(--rds--color-primary);
+    margin-right: var(--rds--spacing-2-x-small);
+    flex-shrink: 0;
+  }
+}
+
+.cu-listing__people-meta-job {
+  font-style: italic;
+}
+
+.cu-listing__people-meta-email {
+  font-weight: var(--rds--font-weight-semibold);
+  color: var(--rds--color-primary);
+  word-break: break-all;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+// ─── Content ──────────────────────────────────────────────────────────────────
+
+.cu-listing__content {
+  font-size: var(--rds--font-size-small);
+  color: var(--rds--color-grey-dark);
+
+  p {
+    margin: 0;
+  }
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+
+.cu-listing__footer {
+  margin-top: auto;
+  padding-top: var(--rds--spacing-x-small);
+}
+
+// ─── No-hover modifier ────────────────────────────────────────────────────────
+
+.cu-listing--no-hover {
+  pointer-events: none;
+}
+
+// ─── Scroll reveal ────────────────────────────────────────────────────────────
+//
+// The hidden state is gated on the attribute so plain `.cu-listing` without
+// the attribute renders visibly even if the JS trigger never fires.
+
+.cu-listing[data-cu-reveal] {
+  --cu-listing-stagger: 0ms;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-listing-stagger),
+    transform var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-listing-stagger);
+}
+
+.cu-listing[data-cu-reveal][data-revealed='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-listing[data-cu-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
