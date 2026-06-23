@@ -1,5 +1,8 @@
 import { Quote } from '../Quote/Quote';
+import { maxWidthClasses } from '../../utils/propClasses';
 import './styles.scss';
+
+type MaxWidthKeys = keyof typeof maxWidthClasses;
 
 export interface TestimonialProps {
   quote: string;
@@ -9,6 +12,7 @@ export interface TestimonialProps {
   focalPointX?: number;
   focalPointY?: number;
   reverse?: boolean;
+  maxWidth?: MaxWidthKeys;
 }
 
 export const Testimonial = ({
@@ -19,8 +23,11 @@ export const Testimonial = ({
   focalPointX = 50,
   focalPointY = 50,
   reverse = false,
+  maxWidth = 'aligncontent',
 }: TestimonialProps) => {
-  const rootClasses = ['cu-testimonial', reverse ? 'cu-testimonial--reverse' : undefined]
+  const rootClasses = ['cu-testimonial',
+    maxWidth ? maxWidthClasses[maxWidth] : '',
+    reverse ? 'cu-testimonial--reverse' : undefined]
     .filter(Boolean)
     .join(' ');
 

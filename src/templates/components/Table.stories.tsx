@@ -158,21 +158,24 @@ export const TableComponent: Story = {
                     columns={tableColumns}
                     data={tableData}
                     hasStripes
+                    maxWidth="alignwide"
                 />
 
                 <MultiParagraph count={2} />
 
-                <Section as="section" maxWidth="alignwide" bgType="grey">
+                <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
                         header="Grey Background"
                         size="lg"
+                        isCenter
                     />
                     <Table
                         columns={tableColumns}
                         data={tableData}
                         hasStripes
+                        maxWidth="alignwide"
                     />
                 </Section>
                 

@@ -74,8 +74,6 @@ export const TestimonialComponent: Story = {
 
                 <MultiParagraph count={2} />
 
-                <MultiParagraph count={2} />
-
                 <Section as="section" maxWidth="alignwide" bgType="grey">
                     <PageHeader
                         as="h2"
@@ -97,21 +95,23 @@ export const TestimonialComponent: Story = {
 
                 <Testimonial
                     cite="Jane Doe"
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
                     focalPointX={50}
                     focalPointY={50}
                     imageUrl="https://picsum.photos/id/342/600/400"
                     imageZoom={0}
-                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    maxWidth="alignwide"
                 />
 
                 <MultiParagraph count={2} />
 
-                <Section as="section" maxWidth="alignwide" bgType="grey">
+                <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
                         header="Grey Background"
                         size="lg"
+                        isCenter
                     />
                     <Testimonial
                         cite="Jane Doe"

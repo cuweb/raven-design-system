@@ -2,7 +2,10 @@ import { useEffect, useRef } from 'react';
 import { useSortableTable } from '../../hooks/useSortableTable';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
+import { maxWidthClasses } from '../../utils/propClasses';
 import './styles.scss';
+
+type MaxWidthKeys = keyof typeof maxWidthClasses;
 
 export interface ColumnDefinitionType {
   key: string;
@@ -19,6 +22,7 @@ export interface TableProps {
   hasStripes?: boolean;
   noWordBreak?: boolean;
   enableRowHeader?: boolean;
+  maxWidth?: MaxWidthKeys;
 }
 
 export const Table = ({
@@ -28,6 +32,7 @@ export const Table = ({
   hasStripes = false,
   noWordBreak = false,
   enableRowHeader = false,
+  maxWidth = 'aligncontent',
 }: TableProps) => {
   const [tableData, setTableData] = useSortableTable(data);
 
@@ -42,8 +47,16 @@ export const Table = ({
     }
   }, [columns, setTableData]);
 
+  const rootClasses = [
+      'cu-table',
+      maxWidth ? maxWidthClasses[maxWidth] : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
+
   return (
-    <div className="cu-table">
+    <div className={rootClasses}>
+    {/* <div className="cu-table"> */}
       <table className={colgroup ? 'cu-table__table cu-table__table--fixed' : 'cu-table__table'}>
         {colgroup && (
           <colgroup>

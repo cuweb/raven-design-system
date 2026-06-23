@@ -68,7 +68,24 @@ export const CallOutComponent: Story = {
                 <CallOut
                     as="h2"
                     justify="center"
-                    maxWidth="aligncontent"
+                    title="Open House"
+                >
+                    <MultiParagraph count={1} />
+                    <ButtonGroup>
+                        <Button title="Primary Red" />
+                        <Button
+                            color="dark-grey"
+                            title="Dark Grey"
+                        />
+                    </ButtonGroup>
+                </CallOut>
+
+                <MultiParagraph count={2} />
+
+                <CallOut
+                    as="h2"
+                    justify="center"
+                    maxWidth="alignsmall"
                     title="Open House"
                 >
                     <MultiParagraph count={1} />
@@ -133,12 +150,40 @@ export const CallOutComponent: Story = {
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
                         header="Grey Background"
                         size="lg"
+                        isCenter
                     />
                     <CallOut
                         as="h2"
                         justify="center"
-                        maxWidth="alignwide"
+                        maxWidth="alignsmall"
                         title="Open House"
+                    >
+                        <MultiParagraph count={1} />
+                        <ButtonGroup>
+                            <Button title="Primary Red" />
+                            <Button
+                                color="dark-grey"
+                                title="Dark Grey"
+                            />
+                        </ButtonGroup>
+                    </CallOut>
+                </Section>
+                
+                <MultiParagraph count={2} />
+
+                <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                        isCenter
+                    />
+                    <CallOut
+                        as="h2"
+                        justify="center"
+                        title="Open House"
+                        maxWidth="alignwide"
                     >
                         <MultiParagraph count={1} />
                         <ButtonGroup>

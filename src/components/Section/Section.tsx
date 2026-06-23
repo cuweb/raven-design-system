@@ -5,7 +5,7 @@ export interface SectionProps {
   as?: 'section' | 'div';
   bgType?: 'grey' | 'black' | 'light-gradient';
   maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
-  contentWidth?: boolean;
+  contentWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
   isHero?: boolean;
 }
 
@@ -14,7 +14,7 @@ export const Section = ({
   as = 'section',
   bgType,
   maxWidth = 'aligncontent',
-  contentWidth,
+  contentWidth = 'aligncontent',
   isHero,
 }: SectionProps) => {
   const SectionWrapper = as;
@@ -35,13 +35,9 @@ export const Section = ({
       className={rootClasses}
       data-color-scheme={bgType === 'black' ? 'dark' : undefined}
     >
-      {contentWidth !== undefined ? (
-        <div className={`has-global-padding ${contentWidth ? 'alignwide' : 'aligncontent'}`}>
-          {children}
+        <div className={`has-global-padding ${contentWidth}`}>
+            {children}
         </div>
-      ) : (
-        children
-      )}
     </SectionWrapper>
   );
 };
