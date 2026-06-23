@@ -1,0 +1,132 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TextImageStories from './TextImage.stories';
+
+<Meta of={TextImageStories} />
+
+# TextImage
+
+A side-by-side layout component that pairs a content area (heading, body copy, calls-to-action) with an optional background-image panel.
+
+## When to use
+
+- Introducing a service, team, or topic with a supporting image alongside text
+- Hero-style sections where a heading and call-to-action need visual weight from an image
+- Content pages that alternate text-left / image-right and text-right / image-left rows
+- WordPress block contexts where focal point and zoom are controlled via block inspector
+
+## Import
+
+```tsx
+import { TextImage } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<TextImage>
+  <TextImage.Content
+    title="Website and Application Development"
+    imageUrl="https://example.com/image.jpg"
+  >
+    <p>Supporting copy goes here.</p>
+    <ButtonGroup>
+      <Button title="Primary" />
+      <Button title="Learn more" color="grey" />
+    </ButtonGroup>
+  </TextImage.Content>
+</TextImage>
+```
+
+Image with a fixed 16:9 aspect ratio (instead of stretching to content height):
+
+```tsx
+<TextImage>
+  <TextImage.Content
+    title="Our Services"
+    imageUrl="https://example.com/image.jpg"
+    imageMode="16/9"
+  >
+    <p>Content here.</p>
+  </TextImage.Content>
+</TextImage>
+```
+
+Image on the left (reversed):
+
+```tsx
+<TextImage flipX>
+  <TextImage.Content title="Our Services" imageUrl="https://example.com/image.jpg" showOnMobile>
+    <p>Content here.</p>
+  </TextImage.Content>
+</TextImage>
+```
+
+## Examples
+
+### Primary
+
+<Canvas of={TextImageStories.Primary} />
+<Controls of={TextImageStories.Primary} />
+
+### H1 heading
+
+<Canvas of={TextImageStories.HeaderOne} />
+
+### Image on the left
+
+<Canvas of={TextImageStories.ImageLeft} />
+
+### No image
+
+<Canvas of={TextImageStories.NoImage} />
+
+### With metaData
+
+<Canvas of={TextImageStories.NoUnderline} />
+
+### With preHeader
+
+<Canvas of={TextImageStories.WithPreHeader} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-textimage` | Always applied to the wrapper |
+| `cu-textimage--row-sm` | `flexRow="sm"` |
+| `cu-textimage--row-md` | `flexRow="md"` |
+| `cu-textimage--row-lg` | `flexRow="lg"` (default) |
+| `cu-textimage--reversed` | `flipX={true}` — reverses column order at lg breakpoint |
+| `cu-textimage--flip-mobile` | `flipMobile={true}` — column-reverse on mobile, row from sm up |
+| `alignsmall` / `aligncontent` / `alignwide` / `alignfull` | `maxWidth` prop — WordPress layout alignment class |
+| `cu-textimage__content` | Content area div |
+| `cu-textimage__content--center` | `isCenter={true}` — vertically centers content |
+| `cu-textimage__heading` | Heading element (`h1` or `h2`) |
+| `cu-textimage__meta` | `metaData` wrapper div, only rendered when `metaData` is provided |
+| `cu-textimage__media-wrap` | Image column wrapper, only rendered when `imageUrl` is provided |
+| `cu-textimage__media-wrap--aspect` | `imageMode` is a ratio value — enables `aspect-ratio` sizing, removes `min-height` |
+| `cu-textimage__media-wrap--hide-mobile` | `showOnMobile` is falsy — hides image below lg breakpoint |
+| `cu-textimage__media` | Inner background-image div |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--spacing-large` | Gap between content and image columns; heading underline width |
+| `--rds--spacing-medium` | Heading bottom padding (above underline) |
+| `--rds--font-family-inter` | Heading font family |
+| `--rds--font-weight-semibold` | Heading font weight |
+| `--rds--font-size-heading-large` | `h2` heading size |
+| `--rds--font-size-heading-primary` | `h1` heading size |
+| `--rds--line-height-tight` | Heading line height |
+| `--rds--color-black` | Heading text colour |
+| `--rds--color-primary` | Heading underline colour |
+| `--rds--radius-lg` | Border radius on the image column |
+
+## Accessibility
+
+- The wrapper `div` is presentational; semantic structure comes from the heading and surrounding landmarks
+- Heading level is controlled via `headerType` (`h1` or `h2`) — choose based on the page hierarchy; do not skip heading levels
+- The background-image panel is decorative and carries no semantic meaning; meaningful images should be placed as `<img>` elements inside `children` with appropriate `alt` text instead
+- `metaData` is rendered inside a plain `div` — ensure any interactive or landmark content within it has appropriate roles
+- Colour contrast for heading and body text meets WCAG AA via `--rds--color-black` on white backgrounds

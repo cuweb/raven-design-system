@@ -56,12 +56,12 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Funding Details | port | No | No
 | Listing | port | No | No
 | Location | port | No | No
-| Multi-day Calendar | port | No | No
+| Multi-day Calendar | done | No | No
 | Quote | done | No | No
 | Table | done | No | No
 | Testimonial | done | No | No
-| Text & Image | port | No | No
-| Text & Media | port | No | No
+| Text & Image | done | No | No
+| Text & Media | done | No | No
 | Timeline | done | No | No
 
 ---
@@ -75,7 +75,7 @@ Full-width or image/video-heavy promotional components.
 | Embed | done | No | No
 | Full Banner | done | No | No
 | Image Caption Overlay | port | No | No
-| Image Grid | port | No | No
+| Image Grid | done | No | No
 | Image Slider | port | No | No
 | Page Header | done | No | No
 | Splash | port | No | No
