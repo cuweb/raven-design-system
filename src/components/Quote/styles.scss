@@ -7,9 +7,9 @@
   }
 
   &--border {
-    border-left: 4px solid var(--rds--color-primary);
+    border-left: 3px solid var(--rds--color-primary);
     border-radius: var(--rds--radius-md);
-    padding: var(--rds--spacing-x-small) var(--rds--spacing-medium);
+    padding: var(--rds--spacing-x-small) 0 var(--rds--spacing-x-small) var(--rds--spacing-large);
   }
 
   &--quote {

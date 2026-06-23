@@ -10,7 +10,6 @@ const meta: Meta<typeof Avatar> = {
       control: 'inline-radio',
       options: ['sm', 'md', 'lg'],
     },
-    onClick: { action: 'clicked' },
   },
   parameters: {
     controls: {
@@ -47,6 +46,9 @@ export const Circle: Story = {
 };
 
 export const Interactive: Story = {
+  argTypes: {
+    onClick: { action: 'clicked' },
+  },
   args: {
     firstName: 'Carleton',
     lastName: 'University',

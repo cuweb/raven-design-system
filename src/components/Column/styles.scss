@@ -3,6 +3,8 @@
 .cu-column {
   display: grid;
   gap: var(--rds--spacing-large);
+  margin-left: auto;
+  margin-right: auto;
 
   &--one {
     grid-template-columns: repeat(1, minmax(0, 1fr));

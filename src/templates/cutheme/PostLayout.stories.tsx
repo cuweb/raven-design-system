@@ -1,27 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Main } from '../components/Main/Main';
-import { Section } from '../components/Section/Section';
-import { Nav } from '../components/Nav/Nav';
-import { FooterStandard } from '../components/FooterStandard';
-import { CookieBanner } from '../components/CookieBanner';
-import { PageHeader } from '../components/PageHeader';
-import { Quote } from '../components/Quote';
-import { WideWave } from '../components/WideWave';
-import { largeNavData } from '../data/NavigationData';
-import { MultiParagraph } from '../data/storyContent';
+import { Main } from '../../components/Main/Main';
+import { Section } from '../../components/Section/Section';
+import { Nav } from '../../components/Nav/Nav';
+import { FooterStandard } from '../../components/FooterStandard';
+import { CookieBanner } from '../../components/CookieBanner';
+import { PageHeader } from '../../components/PageHeader';
+import { Quote } from '../../components/Quote';
+import { WideWave } from '../../components/WideWave';
+import { largeNavData } from '../../data/NavigationData';
+import { MultiParagraph } from '../../data/storyContent';
 
-const meta: Meta = {
-    title: 'Overview/Templates/Page Layout',
-    parameters: {
-        layout: 'fullscreen',
-    },
-    tags: ['!autodocs'],
-};
+    const meta: Meta = {
+        title: 'Overview/Templates/cutheme',
+        parameters: {
+            layout: 'fullscreen',
+        },
+        tags: ['!autodocs'],
+    };
 
-export default meta;
-type Story = StoryObj;
+    export default meta;
+    type Story = StoryObj;
 
-export const PageLayout: Story = {
+    export const PostLayout: Story = {
     parameters: {
         a11y: {
             config: {
@@ -55,10 +55,11 @@ export const PageLayout: Story = {
                 <Section maxWidth='alignfull' bgType="light-gradient" isHero>
                     <PageHeader
                         as="h1"
+                        header="Post Template"
+                        postHeader="Published on January 1, 2024 by John Doe"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-                        header="Page Template"
                         size="primary"
-                        noUnderline
+                        // noUnderline
                     />
                 </Section>
 

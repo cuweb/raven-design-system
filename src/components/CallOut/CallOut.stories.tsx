@@ -6,7 +6,7 @@ import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { Button } from '../Button/Button';
 
 const meta: Meta<typeof CallOut> = {
-  title: 'Components/Content/Callout',
+  title: 'Components/Content/Call Out',
   component: CallOut,
   tags: ['!autodocs'],
   decorators: [
