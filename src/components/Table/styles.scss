@@ -3,8 +3,9 @@
 .cu-table {
   overflow-x: auto;
   overflow-y: hidden;
-  border-radius: var(--rds--radius-lg);
-  box-shadow: var(--rds--shadow-natural);
+  background-color: var(--rds--color-white);
+  border-radius: var(--rds--radius-md);
+  border: 1px solid var(--rds--color-grey-lighter);
   width: 100%;
 
   &__table {
@@ -23,7 +24,7 @@
 
   &__head {
     border-bottom: 1px solid var(--rds--color-grey-light);
-    background-color: var(--rds--color-grey-pale);
+    background-image: var(--rds--gradient-white-to-pale-grey);
   }
 
   &__header-cell {

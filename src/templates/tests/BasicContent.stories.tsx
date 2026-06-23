@@ -9,7 +9,7 @@
     import { MultiParagraph } from '../../data/storyContent';
 
     const meta: Meta = {
-        title: 'Overview/Templates/Tests/Basic Content',
+        title: 'Overview/Templates/Tests',
         parameters: {
             layout: 'fullscreen',
         },
@@ -34,7 +34,7 @@
         <>
             <Nav>
                 <Nav.Top>
-                    <Nav.Logo title="Department of English Language and Literature" link="#" />
+                    <Nav.Logo title="Raven Design System" link="#" />
                     <Nav.Buttons isSearch buttons={[{
                         title: 'Apply',
                         href: '/apply'

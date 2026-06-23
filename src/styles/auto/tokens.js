@@ -59,7 +59,7 @@ export const rdsTokens = {
         headingMedium: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.833), 1.75rem)',
         headingLarge: 'clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 1.25), 2.25rem)',
         headingXLarge: 'clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem)',
-        headingPrimary: 'clamp(2rem, 2rem + ((1vw - 0.2rem) * 2.5), 3.5rem)'
+        headingPrimary: 'clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 2.083), 3rem)'
     },
     shadow: {
         natural: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',

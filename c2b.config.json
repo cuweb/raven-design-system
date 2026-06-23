@@ -109,7 +109,7 @@
             "heading-medium":  { "value": "1.75rem",   "fluid": { "min": "1.25rem", "max": "1.75rem" } },
             "heading-large":   { "value": "2.25rem", "fluid": { "min": "1.5rem", "max": "2.25rem" } },
             "heading-x-large": { "value": "2.5rem",   "fluid": { "min": "1.75rem",  "max": "2.5rem" } },
-            "heading-primary": { "value": "3.5rem", "fluid": { "min": "2rem", "max": "3.5rem" } }
+            "heading-primary": { "value": "3rem", "fluid": { "min": "1.75rem", "max": "3rem" } }
         },
 
         "spacing": {
@@ -164,7 +164,7 @@
         "h6": { "fontSize": "heading-small", "fontWeight": "600", "fontStyle": "italic", "marginBlockStart": "large" },
         "caption": { "fontSize": "small", "fontStyle": "italic", "fontWeight": "light", "color": "warning" },
         "button": { "color": "white", "background": "primary" },
-        "link": { "color": "primary", "hoverColor": "error" },
+        "link": { "color": "primary-dark" },
         "spacing": {
             "blockGap": "0",
             "afterHeading": "small",

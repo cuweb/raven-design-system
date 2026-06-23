@@ -126,11 +126,11 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
     <div className="cu-calendar">
       <div className="cu-calendar__header">
         <button type="button" onClick={previousMonth} className="cu-calendar__nav-btn" aria-label="Previous month">
-          <Icon name="chevron-left" size={20} />
+          <Icon name="chevron-left" size={12} />
         </button>
         <h2 className="cu-calendar__month">{format(firstDayCurrentMonth, 'MMMM yyyy')}</h2>
         <button type="button" onClick={nextMonth} className="cu-calendar__nav-btn" aria-label="Next month">
-          <Icon name="chevron-right" size={20} />
+          <Icon name="chevron-right" size={12} />
         </button>
       </div>
 

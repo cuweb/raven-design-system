@@ -11,7 +11,7 @@ import { largeNavData } from '../../data/NavigationData';
 import { MultiParagraph } from '../../data/storyContent';
 
 const meta: Meta = {
-    title: 'Overview/Templates/cutheme/Page Layout',
+    title: 'Overview/Templates/cutheme',
     parameters: {
         layout: 'fullscreen',
     },

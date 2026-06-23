@@ -4,12 +4,11 @@
 
 .cu-calendar__header {
   display: flex;
+  gap: var(--rds--spacing-medium);
   align-items: center;
-  padding: 0.5rem 0;
-  margin-bottom: 1.5rem;
-  background-color: var(--rds--color-white);
-  border: 1px solid var(--rds--color-grey-light);
-  border-radius: var(--rds--radius-lg);
+  justify-content: center;
+  padding: 0;
+  border-radius: var(--rds--radius-md);
 }
 
 .cu-calendar__nav-btn {
@@ -36,7 +35,7 @@
 }
 
 .cu-calendar__month {
-  flex: 1;
+//   flex: 1;
   font-size: var(--rds--font-size-medium);
   font-weight: var(--rds--font-weight-semibold);
   color: var(--rds--color-black);
@@ -50,10 +49,10 @@
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 1px;
-  margin-top: 1rem;
+  margin-top: var(--rds--spacing-medium);
   text-align: center;
   font-size: var(--rds--font-size-x-small);
-  color: var(--rds--color-grey);
+  color: var(--rds--color-grey-dark);
 }
 
 // ─── Day grid ─────────────────────────────────────────────────────────────────
@@ -62,10 +61,10 @@
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 1px;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   overflow: hidden;
   border: 1px solid var(--rds--color-grey-light);
-  border-radius: var(--rds--radius-lg);
+  border-radius: var(--rds--radius-md);
   background-color: var(--rds--color-grey-pale);
   font-size: var(--rds--font-size-small);
 }

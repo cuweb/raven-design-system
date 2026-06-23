@@ -1,28 +1,62 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-section--grey,
-.cu-section--black
+.cu-section--black,
 .cu-section--light-gradient,
 .cu-section--hero {
     padding: var(--rds--spacing-large);
-    margin-left: calc(-1 * var(--rds--spacing-x-large));
-    margin-right: calc(-1 * var(--rds--spacing-x-large));
   
     @media (min-width: $rds-media-query-md) {
-        padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
+        padding: var(--rds--spacing-x-large) var(--rds--spacing-x-large);
     }
+}
+
+.cu-section--grey,
+.cu-section--black,
+.cu-section--light-gradient {
+  &.aligncontent {
+    max-width: calc(var(--rds--layout-content-size) + (var(--rds--spacing-large) * 2)) !important;
+  
+    @media (min-width: $rds-media-query-md) {
+        max-width: calc(var(--rds--layout-content-size) + (var(--rds--spacing-x-large) * 2)) !important;
+    }
+  }
 }
 
 .cu-section--grey {
   background-color: var(--rds--color-grey-pale);
+
+  & + .cu-section--grey {
+    padding-top: 0;
+  }
+
+  & + .cu-section--grey.alignwide {
+    margin-block-start: 0;
+  }
 }
 
 .cu-section--black {
   background-color: var(--rds--color-black);
+
+  & + .cu-section--black {
+    padding-top: 0;
+  }
+
+  & + .cu-section--black.alignwide {
+    margin-block-start: 0;
+  }
 }
 
 .cu-section--light-gradient {
   background-image: var(--rds--gradient-white-to-pale-grey);
+
+  & + .cu-section--light-gradient {
+    padding-top: 0;
+  }
+
+  & + .cu-section--light-gradient.alignwide {
+    margin-block-start: 0;
+  }
 }
 
 .cu-section > * + * {

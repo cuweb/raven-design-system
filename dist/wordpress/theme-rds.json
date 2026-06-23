@@ -291,11 +291,11 @@
         },
         {
           "slug": "heading-primary",
-          "size": "3.5rem",
+          "size": "3rem",
           "name": "Heading Primary",
           "fluid": {
-            "min": "2rem",
-            "max": "3.5rem"
+            "min": "1.75rem",
+            "max": "3rem"
           }
         }
       ],
@@ -465,12 +465,7 @@
       },
       "link": {
         "color": {
-          "text": "var(--wp--preset--color--primary)"
-        },
-        ":hover": {
-          "color": {
-            "text": "#d31820"
-          }
+          "text": "var(--wp--preset--color--primary-dark)"
         }
       }
     }
