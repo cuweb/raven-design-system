@@ -1,0 +1,121 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CalendarStories from './Calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+An interactive month-view calendar for selecting a single date or a date range. Optionally renders event indicator dots on days that have associated events.
+
+## When to use
+
+- Use `mode="single"` to let a user pick one date — for example, filtering an event listing to a specific day.
+- Use `mode="range"` to let a user pick a start and end date — for example, filtering events across a span of days.
+- Pass `events` to surface visual indicators (dots) on days with associated events so users can scan availability at a glance.
+- Pair with an event listing component in a side-by-side column layout for a full event browser pattern.
+
+## Import
+
+```tsx
+import { Calendar } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Single-day picker
+<Calendar
+  mode="single"
+  events={events}
+  onSelect={(value) => console.log(value)}
+/>
+
+// Date-range picker
+<Calendar
+  mode="range"
+  events={events}
+  onSelect={(value) => {
+    if (Array.isArray(value)) {
+      const [start, end] = value;
+    }
+  }}
+/>
+
+// Pre-select a date
+<Calendar
+  mode="single"
+  defaultDate="2025-09-15"
+  onSelect={(value) => console.log(value)}
+/>
+```
+
+## Examples
+
+### Default (single-day)
+
+<Canvas of={CalendarStories.Default} />
+<Controls of={CalendarStories.Default} />
+
+### Range selection
+
+Click a start date, then click an end date to define a range. Clicking a third date replaces the end date while keeping the start. Clicking an already-selected date deselects it.
+
+<Canvas of={CalendarStories.RangeSelection} />
+
+### No events
+
+When `events` is omitted no indicator dots are shown.
+
+<Canvas of={CalendarStories.NoEvents} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-calendar` | Always — root wrapper |
+| `cu-calendar__header` | Navigation bar containing prev/next buttons and month title |
+| `cu-calendar__nav-btn` | Previous and next month arrow buttons |
+| `cu-calendar__month` | Month and year heading inside the header |
+| `cu-calendar__weekdays` | Row of abbreviated weekday labels (S M T W T F S) |
+| `cu-calendar__weekday` | Individual weekday label cell |
+| `cu-calendar__grid` | 7-column grid of day cells |
+| `cu-calendar__day` | Wrapper cell for a single day |
+| `cu-calendar__day--col-start-{2–7}` | CSS grid column offset applied to the first cell when the month does not start on Sunday |
+| `cu-calendar__day-btn` | Clickable button for a day |
+| `cu-calendar__day-btn--today` | Today's date (when not selected) |
+| `cu-calendar__day-btn--selected` | A day that is currently selected |
+| `cu-calendar__day-btn--in-range` | Days between a selected start and end in `range` mode |
+| `cu-calendar__day-btn--outside-month` | Days that belong to a different month |
+| `cu-calendar__day-btn--disabled` | Past dates (non-interactive) |
+| `cu-calendar__event-dot` | Small indicator dot shown below a day that has one or more events |
+| `cu-calendar__clear` | Wrapper for the "Clear selection" button |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-primary` | Selected/in-range day background, today text, event dot, nav button hover, focus ring |
+| `--rds--color-primary-dark` | Nav button active state |
+| `--rds--color-black` | Default day text, month heading |
+| `--rds--color-grey-dark` | Nav button default color |
+| `--rds--color-grey` | Weekday label text, outside-month day text |
+| `--rds--color-grey-light` | Grid border, header border, disabled day text |
+| `--rds--color-grey-pale` | Grid background (gap color), disabled day background |
+| `--rds--color-white` | Day cell background, selected day text, header background |
+| `--rds--font-size-medium` | Month heading size |
+| `--rds--font-size-small` | Day number size |
+| `--rds--font-size-x-small` | Weekday label size |
+| `--rds--font-weight-semibold` | Month heading and selected/today day weight |
+| `--rds--radius-full` | Circular day buttons and event dot |
+| `--rds--radius-lg` | Header and grid container border radius |
+| `--rds--radius-md` | Nav button focus ring radius |
+
+## Accessibility
+
+- The day grid uses `role="grid"` with `aria-label` set to the current month and year so screen readers announce context when entering the grid.
+- Each day cell has `role="gridcell"`. Each day button uses `aria-pressed` to communicate selected state to assistive technology.
+- Weekday labels are wrapped in a container with `aria-hidden="true"` — they are presentational abbreviations; the `<time dateTime="yyyy-MM-dd">` element on each button conveys the full date to screen readers.
+- Prev/next buttons use `aria-label="Previous month"` and `aria-label="Next month"` rather than relying on icon-only content.
+- Past dates are rendered as `disabled` buttons — they are excluded from the tab order and announced as unavailable.
+- Event dots use `aria-hidden="true"` — they are visual cues only. Do not rely on dots alone to communicate event presence; pair the calendar with a visible event listing.
+- Color is not the only signal for selection: `aria-pressed` carries the same state for users who cannot perceive color.

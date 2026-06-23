@@ -43,7 +43,7 @@ type Story = StoryObj<typeof Card>;
 export const NewsCards: Story = {
   render: () => (
       <Column cols="3">
-        {NewsData.slice(0, 24).map((item) => (
+        {NewsData.slice(0, 6).map((item) => (
             <Card key={`news-${item.id}`}>
                 <Card.Figure>
                     <img src={item.image} alt={item.alt} width="600" height="400" />
@@ -66,7 +66,7 @@ export const NewsCards: Story = {
 export const EventCards: Story = {
   render: () => (
       <Column cols="3">
-        {EventData.slice(0, 24).map((item) => (
+        {EventData.slice(0, 6).map((item) => (
             <Card key={`event-${item.id}`} noImage={!item.image}>
                 {item.image && (
                     <Card.Figure>
@@ -94,7 +94,7 @@ export const EventCards: Story = {
 export const PeopleCards: Story = {
   render: () => (
     <Column cols="3">
-      {PeopleData.slice(0, 24).map((item) => (
+      {PeopleData.slice(0, 6).map((item) => (
           <Card key={`people-${item.id}`} isCenter>
               <Card.Figure isRound>
                   <img src={item.image} alt={item.alt} width={280} height={280} />
@@ -114,7 +114,7 @@ export const PeopleCards: Story = {
 export const PageCards: Story = {
   render: () => (
     <Column cols="3">
-      {PageData.slice(0, 24).map((item) => (
+      {PageData.slice(0, 6).map((item) => (
           <Card key={`page-${item.id}`}>
               <Card.Header
                   title={item.title}
@@ -135,7 +135,7 @@ export const PageCards: Story = {
 export const VideoCards: Story = {
   render: () => (
     <Column cols="3">
-      {VideoData.slice(0, 24).map((item) => (
+      {VideoData.slice(0, 6).map((item) => (
         <Card key={`video-${item.id}`}>
           <Card.VideoFigure url={item.source} title={item.title} />
           <Card.Header title={item.title} />
@@ -148,7 +148,7 @@ export const VideoCards: Story = {
 export const FeaturedCards: Story = {
   render: () => (
     <Column cols="3">
-      {NewsData.slice(0, 24).map((item) => (
+      {NewsData.slice(0, 6).map((item) => (
           <Card key={`news-${item.id}`}>
               <Card.Figure isSmall>
                   <img src={item.image} alt={item.alt} width="600" height="400" />
@@ -169,7 +169,7 @@ export const FeaturedCards: Story = {
 export const IconCards: Story = {
   render: () => (
     <Column cols="3">
-      {IconData.slice(0, 24).map((item) => (
+      {IconData.slice(0, 6).map((item) => (
           <Card key={`icon-${item.id}`}>
               <Card.Figure isIcon>
                   <Icon name={item.icon} size={40} color="var(--rds--color-primary)" />
@@ -187,7 +187,7 @@ export const IconCards: Story = {
 export const StatCards: Story = {
   render: () => (
     <Column cols="3">
-      {StatData.slice(0, 24).map((item) => (
+      {StatData.slice(0, 6).map((item) => (
           <Card key={`stat-${item.id}`} leftBorder>
               <Card.Stats stat={item.stat} desc={item.desc} />
           </Card>
@@ -199,7 +199,7 @@ export const StatCards: Story = {
 export const ProgressCards: Story = {
   render: () => (
     <Column cols="3">
-      {NewsData.slice(0, 24).map((item) => (
+      {NewsData.slice(0, 6).map((item) => (
           <Card key={`news-${item.id}`}>
               <Card.Figure>
                   <img src={item.image} alt={item.alt} width="600" height="400" />
@@ -285,7 +285,7 @@ export const SystemCards: Story = {
   ),
 };
 
-export const LanguageCards: Story = {
+export const GreyCards: Story = {
     render: () => (
         <Column cols="3">
             {LanguageData.map((item) => (

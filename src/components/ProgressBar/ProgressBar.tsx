@@ -19,7 +19,6 @@ export const ProgressBar = ({ value, max = 100, label }: ProgressBarProps) => {
       aria-valuemax={100}
     >
       <div className="cu-progressbar__fill" style={{ width: `${percentage}%` }} />
-      {/* Percentage: {percentage}% */}
     </div>
   );
 };

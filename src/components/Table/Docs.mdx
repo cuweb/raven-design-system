@@ -1,0 +1,136 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table
+
+A data table component with optional client-side column sorting, striped rows, row headers, and fixed column widths. Wraps a native `<table>` in a horizontally scrollable container.
+
+## When to use
+
+- Displaying structured datasets where rows represent individual records and columns represent attributes.
+- When users need to sort rows by one or more columns.
+- When the first column in each row serves as a row header (e.g., a name or identifier).
+- When column widths need to be explicitly controlled to prevent layout shifts.
+
+## Import
+
+```tsx
+import { Table, type TableProps, type ColumnDefinitionType } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+const columns: ColumnDefinitionType[] = [
+  { key: 'name', header: 'Name', sort: { sortable: true }, default: true, order: 'ascending' },
+  { key: 'role', header: 'Role', sort: { sortable: false } },
+];
+
+const data = [
+  { name: 'Alice', role: 'Developer' },
+  { name: 'Bob', role: 'Designer' },
+];
+
+<Table columns={columns} data={data} />
+```
+
+With striped rows and row headers:
+
+```tsx
+<Table
+  columns={columns}
+  data={data}
+  hasStripes
+  enableRowHeader
+/>
+```
+
+With fixed column widths using `colgroup` (percentages must sum to 100):
+
+```tsx
+<Table
+  columns={columns}
+  data={data}
+  colgroup={[20, 80]}
+/>
+```
+
+## Examples
+
+### Primary
+
+<Canvas of={TableStories.Primary} />
+<Controls of={TableStories.Primary} />
+
+### With stripes and row header
+
+<Canvas of={TableStories.WithStripes} />
+
+### With row header only
+
+<Canvas of={TableStories.WithRowHeader} />
+
+### Custom column widths
+
+Provide `colgroup` as an array of percentage widths (one per column, summing to 100) to enable fixed-width columns.
+
+<Canvas of={TableStories.CustomColumnWidths} />
+
+### No word break
+
+Use `noWordBreak` to prevent header cells from wrapping. Useful when column headers are short identifiers.
+
+<Canvas of={TableStories.NoWordBreak} />
+
+### React node in header
+
+Column `header` values accept any `React.ReactNode`, allowing checkboxes or other interactive elements in header cells.
+
+<Canvas of={TableStories.ReactNodeInHeader} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-table` | Always — outermost wrapper div |
+| `cu-table__table` | Always — the `<table>` element |
+| `cu-table__table--fixed` | When `colgroup` is provided — switches to `table-layout: fixed` |
+| `cu-table__head` | Always — the `<thead>` element |
+| `cu-table__header-cell` | Always — each `<th scope="col">` in the header row |
+| `cu-table__header-cell--sortable` | When `column.sort.sortable` is `true` |
+| `cu-table__header-cell--no-wrap` | When `noWordBreak` is `true` |
+| `cu-table__header-cell-inner` | When column is sortable — flex wrapper for label + sort button |
+| `cu-table__sort-btn` | When column is sortable — the sort direction `<button>` |
+| `cu-table__row` | Always — each `<tr>` in `<tbody>` |
+| `cu-table__row--striped` | When `hasStripes` is `true` |
+| `cu-table__cell` | Always — each `<td>` or `<th scope="row">` in the body |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--radius-lg` | Border radius of the table wrapper |
+| `--rds--shadow-natural` | Box shadow of the table wrapper |
+| `--rds--color-grey-pale` | `<thead>` background color |
+| `--rds--color-grey-light` | `<thead>` bottom border color |
+| `--rds--color-grey-lighter` | Row bottom border color |
+| `--rds--color-white` | Odd striped row background |
+| `--rds--color-grey-faint` | Even striped row background |
+| `--rds--color-black` | Header cell text color |
+| `--rds--color-grey-dark` | Body cell text color and sort button icon color |
+| `--rds--font-size-small` | Font size for both header and body cells |
+| `--rds--font-weight-semibold` | Font weight of header cells |
+| `--rds--spacing-x-small` | Cell padding (mobile) |
+| `--rds--spacing-small` | Cell block padding (≥ 768px) |
+| `--rds--spacing-2-x-small` | Gap between header label and sort icon |
+
+## Accessibility
+
+- The outer `<table>` is a semantic HTML table; screen readers announce row and column counts automatically.
+- All column header cells use `scope="col"`. When `enableRowHeader` is `true`, the first cell in each body row uses `<th scope="row">`.
+- Sortable columns set `aria-sort` on the `<th>`: `"ascending"` when sorted ascending, `"descending"` when sorted descending, and omit the attribute when not the active sort column.
+- Each sort button has an `aria-label` describing the _next_ sort action (e.g., "Sort title descending"), which updates when the sort direction changes.
+- Sort icon SVGs carry `aria-hidden="true"` so they are ignored by screen readers.
+- Column `header` values accept `React.ReactNode`, but interactive elements (e.g., checkboxes) must include their own accessible labels — the component does not add labels automatically.

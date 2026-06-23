@@ -43,7 +43,7 @@ export const Default: Story = {
 
 export const WithPrefix: Story = {
   render: (args) => (
-    <SocialIcons {...args} prefix="Follow us:">
+    <SocialIcons {...args} prefix="Follow us on socials">
       <SocialIcons.Item icon="linkedin" href="#" label="Connect on LinkedIn" />
       <SocialIcons.Item icon="x-twitter" href="#" label="Follow on X" />
       <SocialIcons.Item icon="instagram" href="#" label="Follow on Instagram" />
