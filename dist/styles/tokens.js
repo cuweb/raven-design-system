@@ -55,11 +55,11 @@ export const rdsTokens = {
         large: 'clamp(0.9rem, 0.9rem + ((1vw - 0.2rem) * 0.375), 1.125rem)',
         xLarge: 'clamp(1.05rem, 1.05rem + ((1vw - 0.2rem) * 0.333), 1.25rem)',
         x2Large: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem)',
-        headingSmall: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem)',
-        headingMedium: 'clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.833), 2rem)',
-        headingLarge: 'clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem)',
-        headingXLarge: 'clamp(1.875rem, 1.875rem + ((1vw - 0.2rem) * 1.875), 3rem)',
-        headingPrimary: 'clamp(2rem, 2rem + ((1vw - 0.2rem) * 2.5), 3.5rem)'
+        headingSmall: 'clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.833), 1.5rem)',
+        headingMedium: 'clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.833), 1.75rem)',
+        headingLarge: 'clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 1.25), 2.25rem)',
+        headingXLarge: 'clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem)',
+        headingPrimary: 'clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 2.083), 3rem)'
     },
     shadow: {
         natural: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',

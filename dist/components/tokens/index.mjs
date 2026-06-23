@@ -32,7 +32,8 @@ var e = {
 	},
 	gradient: {
 		redToDarkRed: "linear-gradient(135deg,rgb(233,28,36) 0%,rgb(25,25,25) 100%)",
-		darkGreyToBlack: "linear-gradient(135deg,rgb(118,118,118) 0%,rgb(25,25,25) 100%)"
+		darkGreyToBlack: "linear-gradient(135deg,rgb(118,118,118) 0%,rgb(25,25,25) 100%)",
+		whiteToPaleGrey: "linear-gradient(135deg,rgb(250,250,250) 0%,rgb(240,240,240) 100%)"
 	},
 	spacing: {
 		x2Small: "0.44rem",
@@ -81,7 +82,7 @@ var e = {
 		full: "9999px"
 	},
 	layout: {
-		contentSize: "1024px",
+		contentSize: "896px",
 		wideSize: "1280px",
 		maxSize: "1536px"
 	}

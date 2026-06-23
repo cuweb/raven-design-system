@@ -73,7 +73,7 @@
   &--underline {
     position: relative;
     padding-bottom: var(--rds--spacing-medium);
-    margin-bottom: var(--rds--spacing-medium);
+    margin-bottom: var(--rds--spacing-large);
 
     &::after {
       content: '';
@@ -81,7 +81,7 @@
       bottom: 0;
       left: 0;
       height: 1px;
-      width: 2.5rem;
+      width: var(--rds--spacing-large);
       background-color: var(--rds--color-primary);
     }
   }

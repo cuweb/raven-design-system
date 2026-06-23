@@ -258,44 +258,44 @@
           "size": "1.5rem",
           "name": "Heading Small",
           "fluid": {
-            "min": "1.25rem",
+            "min": "1rem",
             "max": "1.5rem"
           }
         },
         {
           "slug": "heading-medium",
-          "size": "2rem",
+          "size": "1.75rem",
           "name": "Heading Medium",
           "fluid": {
-            "min": "1.5rem",
-            "max": "2rem"
+            "min": "1.25rem",
+            "max": "1.75rem"
           }
         },
         {
           "slug": "heading-large",
-          "size": "2.5rem",
+          "size": "2.25rem",
           "name": "Heading Large",
+          "fluid": {
+            "min": "1.5rem",
+            "max": "2.25rem"
+          }
+        },
+        {
+          "slug": "heading-x-large",
+          "size": "2.5rem",
+          "name": "Heading X Large",
           "fluid": {
             "min": "1.75rem",
             "max": "2.5rem"
           }
         },
         {
-          "slug": "heading-x-large",
-          "size": "3rem",
-          "name": "Heading X Large",
-          "fluid": {
-            "min": "1.875rem",
-            "max": "3rem"
-          }
-        },
-        {
           "slug": "heading-primary",
-          "size": "3.5rem",
+          "size": "3rem",
           "name": "Heading Primary",
           "fluid": {
-            "min": "2rem",
-            "max": "3.5rem"
+            "min": "1.75rem",
+            "max": "3rem"
           }
         }
       ],
@@ -407,7 +407,7 @@
         },
         "spacing": {
           "margin": {
-            "top": "var(--wp--preset--spacing--50)"
+            "top": "var(--wp--preset--spacing--60)"
           }
         }
       },
@@ -419,7 +419,7 @@
         },
         "spacing": {
           "margin": {
-            "top": "var(--wp--preset--spacing--50)"
+            "top": "var(--wp--preset--spacing--60)"
           }
         }
       },
@@ -431,7 +431,7 @@
         },
         "spacing": {
           "margin": {
-            "top": "var(--wp--preset--spacing--50)"
+            "top": "var(--wp--preset--spacing--60)"
           }
         }
       },
@@ -443,7 +443,7 @@
         },
         "spacing": {
           "margin": {
-            "top": "var(--wp--preset--spacing--50)"
+            "top": "var(--wp--preset--spacing--60)"
           }
         }
       },
@@ -465,12 +465,7 @@
       },
       "link": {
         "color": {
-          "text": "var(--wp--preset--color--primary)"
-        },
-        ":hover": {
-          "color": {
-            "text": "#d31820"
-          }
+          "text": "var(--wp--preset--color--primary-dark)"
         }
       }
     }

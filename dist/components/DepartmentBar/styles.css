@@ -38,7 +38,7 @@
     text-align: left;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-department-bar__name {
     font-size: var(--rds--font-size-large);
   }
@@ -55,7 +55,7 @@
     text-align: left;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-department-bar__meta {
     display: flex;
     gap: 1.25rem;
@@ -65,7 +65,7 @@
 .cu-department-bar__meta-item {
   font-size: var(--rds--font-size-medium);
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-department-bar__meta-item {
     padding-left: 1.25rem;
     border-left: 1px solid var(--rds--color-grey-light);

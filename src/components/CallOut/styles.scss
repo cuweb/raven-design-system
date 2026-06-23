@@ -3,8 +3,9 @@
 .cu-callout {
   margin-inline: auto;
   padding: var(--rds--spacing-large) var(--rds--spacing-x-large);
-  border: 0.5rem solid var(--rds--color-grey-light);
-  border-radius: var(--rds--radius-lg);
+  background-color: var(--rds--color-white);
+  border: 5px solid var(--rds--color-grey-light);
+  border-radius: var(--rds--radius-md);
 
   .cu-pageheader {
     margin-bottom: var(--rds--spacing-medium);

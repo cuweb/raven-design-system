@@ -26,7 +26,7 @@ import { ImageData } from '../data/ImageData';
 import { MultiParagraph } from '../data/storyContent';
 
 const meta: Meta = {
-    title: 'Overview/Templates/Homepage',
+    title: 'Overview/Templates/Carleton Homepage',
     parameters: {
         layout: 'fullscreen',
     },
@@ -36,7 +36,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const Homepage: Story = {
+export const CarletonHomepage: Story = {
     parameters: {
         a11y: {
             config: {
@@ -143,9 +143,9 @@ export const Homepage: Story = {
                             >
                                 <img
                                     alt="Landscape with trees and mountains"
-                                    height="600"
-                                    src="https://picsum.photos/id/15/1200/600"
-                                    width="1200"
+                                    src="https://picsum.photos/id/15/600/300"
+                                    width="600"
+                                    height="300"
                                 />
                             </Figure>
                         </Column.Content>
@@ -183,7 +183,6 @@ export const Homepage: Story = {
                         header="Campus Life"
                         size="lg"
                     />
-
                     <ImageGrid cols="3" gap="sm" maxWidth="alignwide">
                         <ImageGrid.Image imageUrl={ImageData[2].image} colSpan="2" rowSpan="2" title="Overlay Image Title" content="Lorem ipsum odor amet, consectetuer adipiscing elit. Porta pulvinar consectetur faucibus fusce scelerisque nulla!" link="https://carleton.ca" />
                         {ImageData.slice(3, 5).map(({
@@ -194,7 +193,6 @@ export const Homepage: Story = {
                             image: string;
                         }) => <ImageGrid.Image key={id} imageUrl={image} />)}
                     </ImageGrid>
-
                     <Testimonial
                         cite="Jane Doe"
                         focalPointX={50}
@@ -204,7 +202,40 @@ export const Homepage: Story = {
                         quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
                     />
                 </Section>
-                
+
+                <WideWave>
+                    <PageHeader
+                        as="h2"
+                        header="Cheer on the Carleton Ravens "
+                        size="lg"
+                        isWhite
+                        noUnderline
+                    />
+                    <Column cols="2" maxWidth="alignwide">
+                        <Column.Content>
+                            <Figure
+                                align="none"
+                                size="full"
+                            >
+                                <img
+                                    alt="Landscape with trees and mountains"
+                                    src="https://picsum.photos/id/15/600/400"
+                                    width="600"
+                                    height="400"
+                                />
+                            </Figure>
+                        </Column.Content>
+                        <Column.Content>
+                            <MultiParagraph count={1} />
+                            <ButtonGroup>
+                                <Button
+                                    color="red"
+                                    title="Get Tickets"
+                                />
+                            </ButtonGroup>
+                        </Column.Content>
+                    </Column>
+                </WideWave>
 
                 <Section bgType="grey" maxWidth="alignfull" contentWidth>
                     <PageHeader

@@ -104,7 +104,7 @@ export const ColSpan3: Story = {
         title="Overlay Image Title"
         content="Lorem ipsum odor amet, consectetuer adipiscing elit. Porta pulvinar consectetur faucibus fusce scelerisque nulla!"
       />
-      {ImageData.slice(2, 8).map(({ id, image }) => (
+      {ImageData.slice(2, 7).map(({ id, image }) => (
         <ImageGrid.Image key={id} imageUrl={image} />
       ))}
     </ImageGrid>

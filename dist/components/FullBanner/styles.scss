@@ -24,7 +24,7 @@
     max-height: 480px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-fullbanner__img,
   .cu-fullbanner__video {
     max-height: 580px;
@@ -67,7 +67,7 @@
   pointer-events: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-fullbanner__wrap {
     position: absolute;
     bottom: 0;
@@ -81,7 +81,7 @@
   margin-left: auto;
   margin-right: auto;
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-fullbanner__inner--lg {
     max-width: var(--rds--layout-content-size);
   }
@@ -110,7 +110,7 @@
 .cu-fullbanner__box p {
   color: var(--rds--color-white);
 }
-@media (min-width: 1024px) {
+@media (min-width: 896px) {
   .cu-fullbanner__box {
     max-width: 48rem;
     background-color: color-mix(in srgb, var(--rds--color-black) 80%, transparent);
