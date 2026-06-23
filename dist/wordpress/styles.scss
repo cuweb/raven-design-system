@@ -55,10 +55,10 @@
   --rds--font-size-large: clamp(0.9rem, 0.9rem + ((1vw - 0.2rem) * 0.375), 1.125rem);
   --rds--font-size-x-large: clamp(1.05rem, 1.05rem + ((1vw - 0.2rem) * 0.333), 1.25rem);
   --rds--font-size-2x-large: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem);
-  --rds--font-size-heading-small: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem);
-  --rds--font-size-heading-medium: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.833), 2rem);
-  --rds--font-size-heading-large: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem);
-  --rds--font-size-heading-x-large: clamp(1.875rem, 1.875rem + ((1vw - 0.2rem) * 1.875), 3rem);
+  --rds--font-size-heading-small: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.833), 1.5rem);
+  --rds--font-size-heading-medium: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.833), 1.75rem);
+  --rds--font-size-heading-large: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 1.25), 2.25rem);
+  --rds--font-size-heading-x-large: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 1.25), 2.5rem);
   --rds--font-size-heading-primary: clamp(2rem, 2rem + ((1vw - 0.2rem) * 2.5), 3.5rem);
 
   /* Shadows */
@@ -233,19 +233,19 @@ body {
 }
 
 .is-layout-constrained > * + h3 {
-  margin-block-start: var(--rds--spacing-medium);
+  margin-block-start: var(--rds--spacing-large);
 }
 
 .is-layout-constrained > * + h4 {
-  margin-block-start: var(--rds--spacing-medium);
+  margin-block-start: var(--rds--spacing-large);
 }
 
 .is-layout-constrained > * + h5 {
-  margin-block-start: var(--rds--spacing-medium);
+  margin-block-start: var(--rds--spacing-large);
 }
 
 .is-layout-constrained > * + h6 {
-  margin-block-start: var(--rds--spacing-medium);
+  margin-block-start: var(--rds--spacing-large);
 }
 
 .is-layout-constrained > :is(h1, h2, h3, h4, h5, h6) + * {

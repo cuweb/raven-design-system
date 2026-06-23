@@ -1,9 +1,14 @@
 @use '../../styles/auto/variables' as *;
 
-.cu-section {
-  padding: var(--rds--spacing-large);
+.cu-section--grey,
+.cu-section--black
+.cu-section--light-gradient,
+.cu-section--hero {
+    padding: var(--rds--spacing-large);
+    margin-left: calc(-1 * var(--rds--spacing-x-large));
+    margin-right: calc(-1 * var(--rds--spacing-x-large));
   
-  @media (min-width: $rds-media-query-md) {
+    @media (min-width: $rds-media-query-md) {
         padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
     }
 }
