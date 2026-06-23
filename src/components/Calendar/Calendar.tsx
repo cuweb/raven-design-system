@@ -122,6 +122,13 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
     });
   };
 
+  const startDayOfWeek = getDay(firstDayCurrentMonth);
+  const firstWeekSize = 7 - startDayOfWeek;
+  const weeks: Date[][] = [days.slice(0, firstWeekSize)];
+  for (let i = firstWeekSize; i < days.length; i += 7) {
+    weeks.push(days.slice(i, i + 7));
+  }
+
   return (
     <div className="cu-calendar">
       <div className="cu-calendar__header">
@@ -143,22 +150,28 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
       </div>
 
       <div className="cu-calendar__grid" role="grid" aria-label={format(firstDayCurrentMonth, 'MMMM yyyy')}>
-        {days.map((day, dayIdx) => (
-          <div
-            key={day.toString()}
-            className={`cu-calendar__day${dayIdx === 0 ? ` cu-calendar__day--${colStartClasses[getDay(day)]}` : ''}`}
-            role="gridcell"
-          >
-            <button
-              type="button"
-              disabled={isBefore(day, today)}
-              onClick={() => handleDayClick(day)}
-              className={getDayClasses(day)}
-              aria-pressed={selectedDays.some((d) => isSameDay(d, day))}
-            >
-              <time dateTime={format(day, 'yyyy-MM-dd')}>{format(day, 'd')}</time>
-            </button>
-            {hasEventOnDay(day) && <div className="cu-calendar__event-dot" aria-hidden="true" />}
+        {weeks.map((week, weekIdx) => (
+          <div key={weekIdx} role="row" className="cu-calendar__row">
+            {week.map((day, dayIdx) => {
+              const colStartClass =
+                weekIdx === 0 && dayIdx === 0 && colStartClasses[startDayOfWeek]
+                  ? ` cu-calendar__day--${colStartClasses[startDayOfWeek]}`
+                  : '';
+              return (
+                <div key={day.toString()} className={`cu-calendar__day${colStartClass}`} role="gridcell">
+                  <button
+                    type="button"
+                    disabled={isBefore(day, today)}
+                    onClick={() => handleDayClick(day)}
+                    className={getDayClasses(day)}
+                    aria-pressed={selectedDays.some((d) => isSameDay(d, day))}
+                  >
+                    <time dateTime={format(day, 'yyyy-MM-dd')}>{format(day, 'd')}</time>
+                  </button>
+                  {hasEventOnDay(day) && <div className="cu-calendar__event-dot" aria-hidden="true" />}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>

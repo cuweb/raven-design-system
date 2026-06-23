@@ -69,6 +69,10 @@
   font-size: var(--rds--font-size-small);
 }
 
+.cu-calendar__row {
+  display: contents;
+}
+
 .cu-calendar__day {
   background-color: var(--rds--color-white);
   padding: 0.5rem 0;
