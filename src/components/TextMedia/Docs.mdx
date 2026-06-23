@@ -1,0 +1,117 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TextMediaStories from './TextMedia.stories';
+
+<Meta of={TextMediaStories} />
+
+# TextMedia
+
+A two-column layout component for pairing content (heading, body copy, calls-to-action) with a semantic image or video embed. Unlike `TextImage`, both columns are fully composable via `children` — place any content including `<img>`, `<Embed.YouTube>`, or custom media.
+
+## When to use
+
+- Side-by-side layout with a responsive `<img>` that needs a proper `alt` attribute
+- Pairing editorial copy with a YouTube, Vimeo, or Kaltura video embed
+- Any two-column layout where you need full control over both sides
+- Use `TextImage` instead when you need a background-image panel with focal point / zoom control (e.g. WordPress block inspector)
+
+## Import
+
+```tsx
+import { TextMedia } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<TextMedia>
+  <TextMedia.Content width={55}>
+    <PageHeader header="Our Services" as="h2" />
+    <p>Supporting copy.</p>
+    <ButtonGroup>
+      <Button title="Learn more" />
+    </ButtonGroup>
+  </TextMedia.Content>
+  <TextMedia.Media>
+    <img src="/path/to/image.jpg" alt="Descriptive alt text" />
+  </TextMedia.Media>
+</TextMedia>
+```
+
+With a video embed:
+
+```tsx
+<TextMedia maxWidth="alignwide">
+  <TextMedia.Content width={45}>
+    <PageHeader header="Research in Action" as="h2" />
+    <p>Supporting copy.</p>
+  </TextMedia.Content>
+  <TextMedia.Media>
+    <Embed.YouTube title="Video title" url="https://www.youtube.com/watch?v=..." />
+  </TextMedia.Media>
+</TextMedia>
+```
+
+Image on the left:
+
+```tsx
+<TextMedia flipX>
+  <TextMedia.Content>...</TextMedia.Content>
+  <TextMedia.Media>
+    <img src="..." alt="..." />
+  </TextMedia.Media>
+</TextMedia>
+```
+
+## Examples
+
+### Primary
+
+<Canvas of={TextMediaStories.Primary} />
+<Controls of={TextMediaStories.Primary} />
+
+### Image on the left
+
+<Canvas of={TextMediaStories.ImageLeft} />
+
+### With video
+
+<Canvas of={TextMediaStories.WithVideo} />
+
+### Media aligned center
+
+<Canvas of={TextMediaStories.MediaAligned} />
+
+### Equal columns
+
+<Canvas of={TextMediaStories.EqualColumns} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-textmedia` | Always applied to the wrapper |
+| `cu-textmedia--row-sm` | `flexRow="sm"` |
+| `cu-textmedia--row-md` | `flexRow="md"` |
+| `cu-textmedia--row-lg` | `flexRow="lg"` (default) |
+| `cu-textmedia--reversed` | `flipX={true}` — reverses column order at lg breakpoint |
+| `cu-textmedia--flip-mobile` | `flipMobile={true}` — column-reverse on mobile, row from sm up |
+| `alignsmall` / `aligncontent` / `alignwide` / `alignfull` | `maxWidth` prop |
+| `cu-textmedia__content` | Content column div |
+| `cu-textmedia__content--top` | `align="top"` — content aligns to top of column |
+| `cu-textmedia__media` | Media column div |
+| `cu-textmedia__media--center` | `align="center"` on the Media subcomponent |
+| `cu-textmedia__media--bottom` | `align="bottom"` on the Media subcomponent |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--spacing-large` | Gap between content and media columns |
+| `--rds--radius-lg` | Border radius on child `<img>` elements |
+
+## Accessibility
+
+- `<img>` elements inside `TextMedia.Media` must include meaningful `alt` text; decorative images should use `alt=""`
+- Video embeds via `<Embed.YouTube>` require a `title` prop — this becomes the `<iframe>` title for screen readers
+- Column order is visual-only via CSS flexbox; the source order (Content then Media by default) is preserved for keyboard and screen reader navigation
+- `flipX` reverses visual order only — screen readers and keyboard users still encounter Content first, which is generally the preferred reading order
