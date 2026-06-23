@@ -177,7 +177,7 @@ export const CarletonHomepage: Story = {
                     </Embed>
                 </ImageCover>
 
-                <Section maxWidth="alignfull" contentWidth>
+                <Section maxWidth="alignwide" contentWidth>
                     <PageHeader
                         as="h2"
                         header="Campus Life"
