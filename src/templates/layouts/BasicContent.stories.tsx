@@ -9,7 +9,7 @@
     import { MultiParagraph } from '../../data/storyContent';
 
     const meta: Meta = {
-        title: 'Overview/Templates/Tests',
+        title: 'Overview/Templates/Layouts',
         parameters: {
             layout: 'fullscreen',
         },
