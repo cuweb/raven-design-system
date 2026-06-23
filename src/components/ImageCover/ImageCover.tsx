@@ -6,7 +6,7 @@ const BG_IMAGE_BASE_URL = 'https://cdn.carleton.ca/rds/assets/bg-images';
 export interface ImageCoverProps {
   children?: React.ReactNode;
   maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
-  contentWidth?: boolean;
+  contentWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
   image?: string;
   opacity?: number;
 }
@@ -14,7 +14,7 @@ export interface ImageCoverProps {
 export const ImageCover = ({
   children,
   maxWidth = 'alignfull',
-  contentWidth,
+  contentWidth = 'alignfull',
   image,
   opacity = 90,
 }: ImageCoverProps) => {
@@ -37,7 +37,7 @@ export const ImageCover = ({
 
   return (
     <section className={rootClasses} style={bgImageStyles}>
-        <div className={`has-global-padding ${contentWidth ? 'alignwide' : 'aligncontent'}`}>
+        <div className={`has-global-padding ${contentWidth}`}>
           {children}
         </div>
         <div className="cu-imagecover__wave alignfull" />

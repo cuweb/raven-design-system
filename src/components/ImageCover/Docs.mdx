@@ -36,14 +36,14 @@ import { ImageCover } from '@cuweb/rds2';
 
 // Full-bleed image with content constrained to 1024px
 <Main>
-  <ImageCover maxWidth="alignfull" image="tory" contentWidth={false}>
+  <ImageCover maxWidth="alignfull" image="tory" contentWidth="aligncontent">
     <Column cols="2">...</Column>
   </ImageCover>
 </Main>
 
 // Full-bleed image with content constrained to 1280px
 <Main>
-  <ImageCover maxWidth="alignfull" image="tory" contentWidth>
+  <ImageCover maxWidth="alignfull" image="tory" contentWidth="alignwide">
     <Column cols="2">...</Column>
   </ImageCover>
 </Main>
@@ -72,13 +72,13 @@ Content width (`aligncontent`), grey background. Use the controls to explore `ma
 
 ### Full width with constrained content (1024px)
 
-`contentWidth={false}` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
+`contentWidth="aligncontent"` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
 
 <Canvas of={ImageCoverStories.FullWidthConstrained} />
 
 ### Full width with constrained content (1280px)
 
-`contentWidth` (or `contentWidth={true}`) uses the wider 1280px column.
+`contentWidth="alignwide"` uses the wider 1280px column.
 
 <Canvas of={ImageCoverStories.FullWidthConstrainedWide} />
 
@@ -112,8 +112,9 @@ When set, `contentWidth` wraps all children in an inner div constrained within t
 
 | Value | Inner content width |
 |---|---|
-| `false` | 1024px (`aligncontent`) |
-| `true` / `contentWidth` (no value) | 1280px (`alignwide`) |
+| `"aligncontent"` | 1024px — standard readable content width |
+| `"alignwide"` | 1280px — wider, for card grids and media-rich layouts |
+| `"alignfull"` | Full viewport width |
 
 Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 

@@ -16,6 +16,7 @@
         "layout": {
             "contentSize": "896px",
             "wideSize": "1280px",
+            "smallSize": { "value": "600px", "cssOnly": true },
             "maxSize": { "value": "1536px", "cssOnly": true }
         },
 

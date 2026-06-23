@@ -22,10 +22,9 @@ const meta: Meta<typeof ImageCover> = {
       control: 'select',
       options: ['aligncontent', 'alignwide', 'alignfull'],
     },
-    contentWidth: {
-      control: 'inline-radio',
-      options: [false, true],
-      description: 'false = 1024px (content), true = 1280px (wide)',
+    contentWidth:  {
+      control: 'select',
+      options: ['aligncontent', 'alignwide', 'alignfull'],
     },
     image: {
       control: 'select',
@@ -72,7 +71,7 @@ export const FullWidth: Story = {
 
 export const FullWidthConstrained: Story = {
   render: () => (
-      <ImageCover maxWidth="alignfull" contentWidth={false}>
+      <ImageCover maxWidth="alignfull" contentWidth="aligncontent">
         <MultiParagraph count={2} />
       </ImageCover>
   ),
@@ -80,7 +79,7 @@ export const FullWidthConstrained: Story = {
 
 export const FullWidthConstrainedWide: Story = {
   render: () => (
-      <ImageCover maxWidth="alignfull" contentWidth>
+      <ImageCover maxWidth="alignfull" contentWidth="alignwide">
         <MultiParagraph count={2} />
       </ImageCover>
   ),

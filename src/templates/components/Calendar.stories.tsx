@@ -128,6 +128,43 @@ export const CalendarComponent: Story = {
                 </Section>
                 
                 <MultiParagraph count={2} />
+
+                <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                    />
+                    <Calendar
+                        events={[
+                            {
+                            endDatetime: '2026-06-05T16:00:00.000Z',
+                            id: 1,
+                            imageUrl: '',
+                            name: 'Open House',
+                            startDatetime: '2026-06-05T14:00:00.000Z'
+                            },
+                            {
+                            endDatetime: '2026-06-16T21:00:00.000Z',
+                            id: 2,
+                            imageUrl: '',
+                            name: 'Convocation Week',
+                            startDatetime: '2026-06-12T13:00:00.000Z'
+                            },
+                            {
+                            endDatetime: '2026-06-20T21:00:00.000Z',
+                            id: 3,
+                            imageUrl: '',
+                            name: 'Research Symposium',
+                            startDatetime: '2026-06-20T17:00:00.000Z'
+                            }
+                        ]}
+                        mode="single"
+                    />
+                </Section>
+                
+                <MultiParagraph count={2} />
             </Main>
 
             <FooterStandard type="standard" />
