@@ -285,7 +285,7 @@ export const SystemCards: Story = {
   ),
 };
 
-export const GreyCards: Story = {
+export const WaveCards: Story = {
     render: () => (
         <Column cols="3">
             {LanguageData.map((item) => (

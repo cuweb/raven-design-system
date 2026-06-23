@@ -62,4 +62,24 @@ export const HoursData = [
     openTime: '17:00',
     closeTime: '23:30',
   },
+  {
+    id: 7,
+    link: '#',
+    title: 'The Hidden Overflow',
+    image: 'https://picsum.photos/seed/stackoverflow/600/400',
+    alt: 'Dimly lit cocktail lounge with brick walls and leather booths',
+    excerpt: 'A hidden cocktail lounge serving copy-pasted classics and high-volume elixirs, perfect for debugging your social life.',
+    openTime: '18:00',
+    closeTime: '02:00',
+  },
+  {
+    id: 8,
+    link: '#',
+    title: 'Cron Job Donuts',
+    image: 'https://picsum.photos/seed/cronjob/600/400',
+    alt: 'Glazed donuts displayed on trays behind glass with warm bakery lighting',
+    excerpt: 'An automated, late-night bakery dropping freshly glazed intervals into production precisely on schedule.',
+    openTime: '22:00',
+    closeTime: '06:00',
+  }
 ];
