@@ -55,14 +55,14 @@ a.cu-badge {
   }
 
   &--green {
-    background-color: var(--rds--color-success);
-    border-color: var(--rds--color-success);
+    background-color: var(--rds--color-success-dark);
+    border-color: var(--rds--color-success-dark);
     color: var(--rds--color-white);
   }
 
   &--red {
-    background-color: var(--rds--color-error);
-    border-color: var(--rds--color-error);
+    background-color: var(--rds--color-error-dark);
+    border-color: var(--rds--color-error-dark);
     color: var(--rds--color-white);
   }
 
