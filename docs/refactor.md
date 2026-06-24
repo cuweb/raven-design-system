@@ -135,7 +135,7 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Float Box | port | No | No
+| Float Box | deprecated | No | No
 
 ---
 
@@ -208,20 +208,19 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 ---
 
-## Forms
+## DONE: Forms: Part One
 
 Data entry and filtering. Form is a sub-system with its own set of primitive inputs — each sub-component lives under `Components/Forms/` and is built independently.
-
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Filter Panel | port | No | No
 
 ### Completed
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
+| Filter Panel | done | No | No
 | Location Picker | done | No | No
 | Search Input | done | No | No
+
+## Forms: Part Two
 
 ### Form Fields
 
