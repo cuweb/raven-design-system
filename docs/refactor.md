@@ -95,9 +95,9 @@ Full-width or image/video-heavy promotional components.
 
 ### Deprecated
 
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Image Caption Overlay | deprecated | No | No
+| Component | Refactor Status | Reasoning
+|---|---|---|
+| Image Caption Overlay | deprecated | best to have individual control for various reasons
 
 ---
 
@@ -133,9 +133,9 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 ### Deprecated
 
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Float Box | deprecated | No | No
+| Component | Refactor Status | Reasoning
+|---|---|---|
+| Float Box | deprecated | not very useful, we can do better for presenting data
 
 ---
 
@@ -171,9 +171,9 @@ Behavioral or non-visual components. These don't render meaningful UI on their o
 
 ### Deprecated
 
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Meta | deprecated | No | No
+| Component | Refactor Status | Reasoning
+|---|---|---|
+| Meta | deprecated | nextJS handles this and is known to have conflicts when used as a component
 
 ---
 
@@ -185,9 +185,7 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Alert | port | No | No
 | Dialog | port | No | No
-| Error Messages | port | No | No
 | **Loaders** | port | No | No
 | → Block Loader | port | No | No
 | → Button Loader | port | No | No
@@ -203,8 +201,20 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 | → Table Loader | port | No | No
 | → Top Nav Loader | port | No | No
 | Modal | port | No | No
-| Placeholder | port | No | No
-| Toast | port | No | No
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Alert | done | No | No
+| Toast | done | No | No
+
+### Deprecated
+
+| Component | Refactor Status | Reasoning
+|---|---|---|
+| Error Messages | deprecated | can be replicated with text & image
+| Placeholder | deprecated | this is for lazy people, dump a div already
 
 ---
 
