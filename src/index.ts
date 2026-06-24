@@ -71,6 +71,8 @@ export { PageHeader, type PageHeaderProps } from './components/PageHeader/PageHe
 export { Pagination, type PaginationProps } from './components/Pagination/Pagination';
 
 // Feedback
+export { Alert, type AlertProps } from './components/Alert/Alert';
+export { Toast, type ToastProps, type ToasterProps, type ToastTitleProps, type ToastContentProps } from './components/Toast/Toast';
 export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/ProgressBar';
 export { Status, defaultStatusTypes, type StatusProps, type StatusVariant, type StatusType } from './components/Status/Status';
 export type { StatusTypeDefinition, StatusTypeRegistry } from './components/Status/types';
