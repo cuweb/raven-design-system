@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+- _Added_: `Pagination` component — accessible, fully-controlled page navigation with prev/next buttons, numbered page buttons, and smart ellipsis for large page counts. Accepts `currentPage`, `totalPages`, and `onPageChange` props.
+
 - _Added_: `ImageSlider` component — horizontally scrollable image carousel with configurable `slidesPerViewDesktop`, `slidesPerViewTablet`, and `slidesPerViewMobile` props. Includes `ImageSlider.Item` subcomponent supporting `aspectRatio` (`landscape`, `portrait`, `square`, `wide`), focal point controls, and optional caption overlays (`title`, `content`, `link`). Uses a scoped `ResizeObserver` hook to fix the multi-instance and event-listener-leak bugs present in the original `script.ts` implementation.
 - _Added_: `Listing` component family for use as list items inside `StackedList`. Includes `Listing.Figure`, `Listing.DateThumb`, `Listing.IconThumb`, `Listing.Initials`, `Listing.Header`, `Listing.Body`, `Listing.Content`, `Listing.Excerpt`, `Listing.EventMeta`, `Listing.PeopleMeta`, and `Listing.Footer` subcomponents — mirroring the `Card` API adapted for horizontal row layout.
 - _Added_: `TextImage` component — side-by-side layout pairing a content area (heading, body, calls-to-action) with an optional background-image panel; supports `flexRow` breakpoint control, `flipX` column reversal, `flipMobile` stacking, and WordPress focal point/zoom via `focalPointX`, `focalPointY`, and `imageZoom` props. `imageMode` prop supports `stretch` (fill content height) or fixed aspect ratios (`16/9`, `4/3`, `3/2`, `2/3`, `1/1`). `align` prop controls vertical alignment of the content column (`center` default, `top`).

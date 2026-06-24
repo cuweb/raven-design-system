@@ -64,6 +64,7 @@ export type { NavButtonsProps, NavButton } from './components/Nav/NavButtons';
 export type { NavLogoProps } from './components/Nav/NavLogo';
 export type { NavMenuProps } from './components/Nav/NavMenu';
 export { PageHeader, type PageHeaderProps } from './components/PageHeader/PageHeader';
+export { Pagination, type PaginationProps } from './components/Pagination/Pagination';
 
 // Feedback
 export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/ProgressBar';
