@@ -1,0 +1,93 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as AlertStories from './Alert.stories';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+An inline notification banner used to surface important messages within the page flow. Renders as a styled `<div role="alert">` with a semantic icon, title, and optional body text.
+
+## When to use
+
+- Confirm that an action completed successfully (success)
+- Inform the user of a problem that needs attention (error)
+- Warn about a consequence before it occurs (warning)
+- Provide supplementary context or guidance (info)
+
+Keep alerts concise — they are not a replacement for form validation or toast notifications for transient feedback.
+
+## Import
+
+```tsx
+import { Alert } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Info (default)
+<Alert title="Session expiring" content="Your session will expire in 10 minutes." />
+
+// Success
+<Alert type="success" title="Changes saved" content="Your profile has been updated." />
+
+// Error
+<Alert type="error" title="Request failed" content="Unable to save. Please try again." />
+
+// Warning — title only
+<Alert type="warning" title="This action cannot be undone." />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={AlertStories.Default} />
+<Controls of={AlertStories.Default} />
+
+### Without content
+
+When `content` is omitted the alert renders the title alone, suitable for brief self-contained messages.
+
+<Canvas of={AlertStories.WithoutContent} />
+
+### All types
+
+<Canvas of={AlertStories.AllTypes} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-alert` | Always — base class |
+| `cu-alert--success` | `type="success"` |
+| `cu-alert--error` | `type="error"` |
+| `cu-alert--warning` | `type="warning"` |
+| `cu-alert--info` | `type="info"` (default) |
+| `cu-alert__icon` | Icon wrapper element |
+| `cu-alert__body` | Text content wrapper |
+| `cu-alert__title` | Title `<p>` element |
+| `cu-alert__content` | Optional body `<p>` element |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-success` | Success icon and tinted background/border/text |
+| `--rds--color-error` | Error icon and tinted background/border/text |
+| `--rds--color-warning` | Warning icon and tinted background/border/text |
+| `--rds--color-info` | Info icon and tinted background/border/text |
+| `--rds--color-white` | Base for tinted background and border blending |
+| `--rds--color-black` | Base for tinted text blending |
+| `--rds--radius-md` | Border radius |
+| `--rds--spacing-small` | Padding and gap |
+| `--rds--font-size-medium` | Title font size |
+| `--rds--font-size-small` | Content font size |
+| `--rds--font-weight-semibold` | Title font weight |
+
+## Accessibility
+
+- The root element carries `role="alert"` so screen readers announce it immediately when it appears in the DOM.
+- Icon is decorative — `<Icon>` defaults to `aria-hidden="true"` so it is not read aloud.
+- The semantic type (`success`, `error`, etc.) is communicated through the title text and icon, not color alone. Always include a descriptive `title`.
+- All HTML attributes spread via `...rest` so consumers can pass additional ARIA attributes (e.g. `aria-labelledby`, `aria-live`) to override defaults.

@@ -1,0 +1,104 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ToastStories from './Toast.stories';
+
+<Meta of={ToastStories} />
+
+# Toast
+
+A transient notification card that appears in a fixed overlay region. Renders via a compound component: `Toast.Toaster` positions the region, and each `Toast` card displays an icon, title, body, and a dismiss button.
+
+## When to use
+
+- Confirm a background action that completed (file saved, email sent)
+- Report a non-blocking error or warning that the user should acknowledge
+- Surface real-time status updates without interrupting the user's flow
+
+Do not use Toast for critical errors that require user action — use `Alert` inline instead.
+
+## Import
+
+```tsx
+import { Toast } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<Toast.Toaster>
+  <Toast type="success">
+    <Toast.Title>Changes saved</Toast.Title>
+    <Toast.Content>Your profile has been updated successfully.</Toast.Content>
+  </Toast>
+</Toast.Toaster>
+```
+
+## Compound components
+
+| Component | Purpose |
+|---|---|
+| `Toast.Toaster` | Fixed-position `aria-live` region that stacks notifications |
+| `Toast` | Individual notification card with dismiss functionality |
+| `Toast.Title` | Title line (semibold, dark) |
+| `Toast.Content` | Optional body line (regular, muted) |
+
+## Examples
+
+### Default
+
+<Canvas of={ToastStories.Default} />
+<Controls of={ToastStories.Default} />
+
+### All types
+
+<Canvas of={ToastStories.AllTypes} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-toaster` | Toaster region — always |
+| `cu-toaster__stack` | Inner flex stack inside the toaster |
+| `cu-toast` | Individual toast card — always |
+| `cu-toast--success` | `type="success"` |
+| `cu-toast--error` | `type="error"` |
+| `cu-toast--warning` | `type="warning"` |
+| `cu-toast--info` | `type="info"` |
+| `cu-toast--hidden` | Applied on dismiss — triggers fade-out transition |
+| `cu-toast__inner` | Flex row inside the card |
+| `cu-toast__icon` | Icon wrapper |
+| `cu-toast__body` | Title + content wrapper |
+| `cu-toast__title` | Title `<p>` element |
+| `cu-toast__content` | Body `<p>` element |
+| `cu-toast__close` | Dismiss `<button>` |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-white` | Toast card background |
+| `--rds--color-grey-dark` | Title text color |
+| `--rds--color-grey` | Content text and close button color |
+| `--rds--color-primary` | Close button focus ring |
+| `--rds--color-success` | Success icon color and border tint |
+| `--rds--color-error` | Error icon color and border tint |
+| `--rds--color-warning` | Warning icon and border tint |
+| `--rds--color-info` | Info icon and border tint |
+| `--rds--color-black` | Base for dark color blending |
+| `--rds--radius-lg` | Toast card border radius |
+| `--rds--radius-sm` | Close button border radius |
+| `--rds--shadow-natural` | Toast card drop shadow |
+| `--rds--spacing-small` | Card and toaster padding |
+| `--rds--spacing-x-small` | Gap between icon/body/close and between stacked toasts |
+| `--rds--spacing-medium` | Toaster padding on wider viewports |
+| `--rds--font-size-medium` | Title font size |
+| `--rds--font-size-small` | Content font size |
+| `--rds--font-weight-semibold` | Title font weight |
+
+## Accessibility
+
+- `Toast.Toaster` uses `aria-live="assertive"` and `aria-atomic="true"` so screen readers announce new toast content immediately.
+- Each `Toast` carries `role="status"` — a live region role appropriate for transient notifications.
+- The dismiss button has `aria-label="Dismiss notification"` so its purpose is clear without a visible text label.
+- Icon is decorative — `aria-hidden="true"` prevents it from being read aloud.
+- The dismiss button is keyboard-focusable and has a visible `:focus-visible` ring styled with `--rds--color-primary`.
+- Toast type (success, error, etc.) is conveyed through the title text and icon; color is a secondary reinforcement only.
