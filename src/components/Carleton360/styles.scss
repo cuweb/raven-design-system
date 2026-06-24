@@ -1,0 +1,38 @@
+@use '../../styles/auto/variables' as *;
+
+.cu-carleton360 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rds--spacing-x-small);
+  width: 100%;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--rds--color-grey-pale);
+  border-radius: var(--rds--radius-md);
+
+  @media (min-width: $rds-media-query-md) {
+    padding-inline: var(--rds--spacing-x-large);
+  }
+
+  &__logo {
+    display: flex;
+    max-width: 24rem;
+    width: 100%;
+    margin-inline: auto;
+    margin-bottom: var(--rds--spacing-x-small);
+  }
+
+  &__description {
+    margin: 0;
+    color: var(--rds--color-black);
+  }
+
+  .cu-buttongroup {
+    margin-top: var(--rds--spacing-medium);
+  }
+}

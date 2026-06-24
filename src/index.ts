@@ -23,6 +23,7 @@ export type { IconName } from '@cuweb/rds-icons';
 // Content
 export { Calendar, type CalendarProps, type CalendarEvent } from './components/Calendar/Calendar';
 export { CallOut, type CallOutProps } from './components/CallOut/CallOut';
+export { Carleton360, type Carleton360Props } from './components/Carleton360/Carleton360';
 export { Card, type CardProps } from './components/Card/Card';
 export { Listing, type ListingProps } from './components/Listing';
 export type { CardStatusProps } from './components/Card/CardStatus';

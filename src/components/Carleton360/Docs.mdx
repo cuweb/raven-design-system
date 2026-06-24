@@ -1,0 +1,77 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Carleton360Stories from './Carleton360.stories';
+
+<Meta of={Carleton360Stories} />
+
+# Carleton 360
+
+A branded promotional block that displays the Carleton 360 logo alongside a short description and optional call-to-action buttons.
+
+## When to use
+
+- Promoting the Carleton 360 portal on program or admissions pages
+- Encouraging prospective students to sign up or log in to Carleton 360
+- Inline within page content as a standalone CTA block
+
+## Import
+
+```tsx
+import { Carleton360 } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+import { Carleton360, ButtonGroup, Button } from '@cuweb/rds2';
+
+<Carleton360>
+  <ButtonGroup>
+    <Button title="Sign up for 360" />
+    <Button title="Login to 360" color="grey" />
+  </ButtonGroup>
+</Carleton360>
+```
+
+## Examples
+
+<Canvas of={Carleton360Stories.Default} />
+<Controls of={Carleton360Stories.Default} />
+
+## Custom description
+
+Override the default description text using the `description` prop.
+
+<Canvas of={Carleton360Stories.CustomDescription} />
+
+## No buttons
+
+The component renders without `children` when no CTA is needed.
+
+<Canvas of={Carleton360Stories.NoButtons} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-carleton360` | Applied to the root `<div>` always |
+| `cu-carleton360__logo` | Applied to the SVG wrapper `<div>` always |
+| `cu-carleton360__description` | Applied to the description `<p>` always |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--color-grey-pale` | Background colour of the block |
+| `--rds--color-black` | Description text colour |
+| `--rds--spacing-x-large` | Block padding (vertical and horizontal at `md+`) |
+| `--rds--spacing-large` | Block padding inline on mobile |
+| `--rds--spacing-x-small` | Gap between flex children; logo bottom margin |
+| `--rds--spacing-medium` | Top margin of the nested `ButtonGroup` |
+| `--rds--radius-xl` | Border radius of the block |
+
+## Accessibility
+
+- The SVG logo is purely decorative — no `aria-label` or `role` is needed; screen readers skip it
+- The description text is rendered as a `<p>` element for semantic meaning
+- Nested `Button` components include their own accessible labels via the `title` prop
+- Consumers should ensure `ButtonGroup` children have distinct, descriptive `title` values so screen readers can distinguish the actions
