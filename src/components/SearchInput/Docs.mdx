@@ -1,0 +1,84 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as SearchInputStories from './SearchInput.stories';
+
+<Meta of={SearchInputStories} />
+
+# SearchInput
+
+A controlled search field component that calls a callback on every keystroke, with an optional `SearchInput.Results` subcomponent for rendering a filtered auto-suggest list.
+
+## When to use
+
+- To provide a live-filtering search experience within a page or dialog
+- When a list of results should update as the user types
+- As a site-wide search field inside a nav or modal
+- When you need a search input that is framework-agnostic (works with Next.js, WordPress, etc.)
+
+## Import
+
+```tsx
+import { SearchInput } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Simple search input without results
+<SearchInput placeholder="Search..." callback={(value) => console.log(value)} />
+```
+
+```tsx
+// With auto-suggest results
+<SearchInput callback={setSearchString} placeholder="Search...">
+  <SearchInput.Results resultsData={filteredResults} />
+</SearchInput>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={SearchInputStories.Default} />
+<Controls of={SearchInputStories.Default} />
+
+### Auto-suggest
+
+Pair `SearchInput` with `SearchInput.Results` to render a filtered list as the user types. Filter the data in the parent and pass the result array — an empty array hides the list.
+
+<Canvas of={SearchInputStories.AutoSuggest} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-search-input` | Always — root wrapper element |
+| `cu-search-input__icon` | Always — magnifying-glass icon |
+| `cu-search-input__field` | Always — the `<input>` element |
+| `cu-search-input__results` | When `children` is provided |
+| `cu-search-input__results-list` | Always on the `<ul>` in `SearchInput.Results` |
+| `cu-search-input__results-item` | Applied to each `<li>` result row |
+| `cu-search-input__results-link` | Applied to each result link |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--spacing-small` | Icon left offset; field horizontal padding |
+| `--rds--spacing-x-small` | Extra gap between icon and field text |
+| `--rds--spacing-2-x-small` | Results list vertical padding; result item padding |
+| `--rds--font-family-inter` | Input font family |
+| `--rds--font-size-small` | Input and result link font size |
+| `--rds--color-grey` | Icon color; input placeholder color; focus border color |
+| `--rds--color-grey-light` | Input default border color |
+| `--rds--color-grey-dark` | Input text color; result link text color |
+| `--rds--color-grey-pale` | Result link hover background |
+| `--rds--radius-lg` | Input border radius |
+| `--rds--radius-md` | Result link hover border radius |
+
+## Accessibility
+
+- The `<input>` uses `type="search"` which provides native clear button behaviour in supporting browsers
+- The magnifying-glass `<Icon>` is decorative and rendered with `aria-hidden="true"` automatically
+- Pair the input with a visible `<label>` or `aria-label` in your consuming page to meet WCAG 2.1 SC 1.3.1 — the component does not render a label internally to remain layout-agnostic
+- The results `<ul>` list provides semantic structure; screen readers announce the number of items when focus enters the list
+- Result links are standard `<a>` elements and are keyboard-navigable via Tab
