@@ -28,6 +28,8 @@ export { Card, type CardProps } from './components/Card/Card';
 export { Listing, type ListingProps } from './components/Listing';
 export type { CardStatusProps } from './components/Card/CardStatus';
 export type { CardVideoFigureProps } from './components/Card/CardVideoFigure';
+export { FilterPanel, type FilterPanelProps } from './components/FilterPanel';
+export type { SortOption, FilterGroup, FilterOption, ActiveFilters } from './components/FilterPanel';
 export { Figure, type FigureProps } from './components/Figure/Figure';
 export { Location, type LocationProps, type MarkerData } from './components/Location/Location';
 export { Quote, type QuoteProps } from './components/Quote/Quote';

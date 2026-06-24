@@ -7,6 +7,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Readers skim first, so lead with purpose, trim filler, and make every heading earn its click.',
     date: '2026-01-15 10:00:00',
+    category: 'Documentation',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Accessibility starts early: strong contrast, clear focus states, and components that behave with keyboards.',
     date: '2026-02-04 14:30:00',
+    category: 'Accessibility',
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Modern design systems thrive when tokens, docs, and testing pipelines evolve together instead of in silos.',
     date: '2026-02-22 09:15:00',
+    category: 'Design',
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Block-first workflows move faster when patterns are opinionated, reusable, and easy for editors to trust.',
     date: '2026-03-10 16:45:00',
+    category: 'WordPress',
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Container queries let components respond to their own space, reducing brittle page-level breakpoint hacks.',
     date: '2026-03-14 11:20:00',
+    category: 'Development',
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Lean typings, strict unions, and shared utility types can prevent regressions without slowing feature work.',
     date: '2026-03-18 08:40:00',
+    category: 'Development',
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Teams now tokenize spacing, motion, and elevation so themes stay consistent across apps and CMS surfaces.',
     date: '2026-03-21 13:05:00',
+    category: 'Design',
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Responsive sources, smart placeholders, and precise dimensions are still the quickest route to faster pages.',
     date: '2026-03-26 09:50:00',
+    category: 'Development',
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Most interfaces improve when local state stays local and shared state is promoted only when the pain is real.',
     date: '2026-04-01 15:10:00',
+    category: 'Development',
   },
   {
     id: 10,
@@ -88,6 +97,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Automated axe checks catch repeat issues early, but pairing them with manual audits finds the deeper gaps.',
     date: '2026-04-03 10:35:00',
+    category: 'Accessibility',
   },
   {
     id: 11,
@@ -97,6 +107,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Validation, hint text, and error states belong in shared primitives so teams stop reinventing basic UX.',
     date: '2026-04-06 17:00:00',
+    category: 'Development',
   },
   {
     id: 12,
@@ -106,6 +117,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Choose rendering strategy by content freshness, not trend cycles, and measure outcomes before switching.',
     date: '2026-04-08 12:15:00',
+    category: 'Architecture',
   },
   {
     id: 13,
@@ -115,6 +127,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Clear docs, sensible defaults, and predictable APIs usually matter more than one more clever abstraction.',
     date: '2026-04-10 09:25:00',
+    category: 'Documentation',
   },
   {
     id: 14,
@@ -124,6 +137,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Stories become living docs when examples mirror real use cases and controls map directly to prop unions.',
     date: '2026-04-12 14:05:00',
+    category: 'Documentation',
   },
   {
     id: 15,
@@ -133,6 +147,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Motion should confirm user intent and hierarchy, not distract from tasks or trigger accessibility concerns.',
     date: '2026-04-14 11:45:00',
+    category: 'Design',
   },
   {
     id: 16,
@@ -142,6 +157,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Introduce tokens and naming conventions incrementally so teams can modernize styles without full rewrites.',
     date: '2026-04-16 16:30:00',
+    category: 'Development',
   },
   {
     id: 17,
@@ -151,6 +167,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Layered caching, stale-while-revalidate, and selective invalidation can stabilize performance under load.',
     date: '2026-04-19 10:55:00',
+    category: 'Architecture',
   },
   {
     id: 18,
@@ -160,6 +177,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Interop is improving, but wrapper patterns and event typing still determine whether adoption feels smooth.',
     date: '2026-04-21 13:40:00',
+    category: 'Development',
   },
   {
     id: 19,
@@ -169,6 +187,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Start from robust HTML and layer behavior carefully so critical journeys work even under poor conditions.',
     date: '2026-04-23 09:10:00',
+    category: 'Architecture',
   },
   {
     id: 20,
@@ -178,6 +197,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Dependency pre-bundling and targeted code splitting can cut local feedback loops from minutes to seconds.',
     date: '2026-04-24 15:25:00',
+    category: 'Architecture',
   },
   {
     id: 21,
@@ -187,6 +207,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Good boundaries, shared linting, and predictable release flows keep monorepos productive instead of noisy.',
     date: '2026-04-25 11:05:00',
+    category: 'Architecture',
   },
   {
     id: 22,
@@ -196,6 +217,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Menus, skip links, and landmarks work best when keyboard order and screen reader announcements are tested.',
     date: '2026-04-27 14:50:00',
+    category: 'Accessibility',
   },
   {
     id: 23,
@@ -205,6 +227,7 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Strong PR notes explain intent, impact, and verification steps so reviewers can focus on real risks faster.',
     date: '2026-04-29 08:35:00',
+    category: 'Documentation',
   },
   {
     id: 24,
@@ -214,5 +237,6 @@ export const NewsData = [
     alt: 'News article thumbnail',
     excerpt: 'Treat input as untrusted, lock down dependencies, and make CSP part of the default deployment checklist.',
     date: '2026-05-01 10:20:00',
+    category: 'Architecture',
   },
 ];
