@@ -9,6 +9,8 @@ export const PeopleData = [
     jobTitle: 'Director, Web Services',
     email: 'avery.chen@example.ca',
     phone: '613-555-0101',
+    category: 'Administrative',
+    expertise: 'Management',
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ export const PeopleData = [
     jobTitle: 'Senior Designer',
     email: 'jordan.singh@example.ca',
     phone: '613-555-0102',
+    category: 'Creative',
+    expertise: 'Design',
   },
   {
     id: 3,
@@ -27,10 +31,12 @@ export const PeopleData = [
     image: 'https://picsum.photos/seed/person3/280/280',
     alt: 'Profile photo',
     firstName: 'Sam',
-    lastName: 'O’Connor',
+    lastName: "O'Connor",
     jobTitle: 'Front-End Developer',
     email: 'sam.oconnor@example.ca',
     phone: '613-555-0103',
+    category: 'Technical',
+    expertise: 'Web Development',
   },
   {
     id: 4,
@@ -42,6 +48,8 @@ export const PeopleData = [
     jobTitle: 'Content Strategist',
     email: 'taylor.reed@example.ca',
     phone: '613-555-0104',
+    category: 'Creative',
+    expertise: 'Communications',
   },
   {
     id: 5,
@@ -53,6 +61,8 @@ export const PeopleData = [
     jobTitle: 'Systems Analyst',
     email: 'morgan.patel@example.ca',
     phone: '613-555-0105',
+    category: 'Technical',
+    expertise: 'Infrastructure',
   },
   {
     id: 6,
@@ -64,6 +74,8 @@ export const PeopleData = [
     jobTitle: 'UX Researcher',
     email: 'riley.nguyen@example.ca',
     phone: '613-555-0106',
+    category: 'Creative',
+    expertise: 'Design',
   },
   {
     id: 7,
@@ -75,6 +87,8 @@ export const PeopleData = [
     jobTitle: 'Project Manager',
     email: 'casey.tremblay@example.ca',
     phone: '613-555-0107',
+    category: 'Administrative',
+    expertise: 'Management',
   },
   {
     id: 8,
@@ -86,6 +100,8 @@ export const PeopleData = [
     jobTitle: 'Accessibility Specialist',
     email: 'drew.kowalski@example.ca',
     phone: '613-555-0108',
+    category: 'Technical',
+    expertise: 'Design',
   },
   {
     id: 9,
@@ -97,6 +113,8 @@ export const PeopleData = [
     jobTitle: 'DevOps Engineer',
     email: 'peyton.okafor@example.ca',
     phone: '613-555-0109',
+    category: 'Technical',
+    expertise: 'Infrastructure',
   },
   {
     id: 10,
@@ -108,6 +126,8 @@ export const PeopleData = [
     jobTitle: 'Digital Marketing Coordinator',
     email: 'quinn.leblanc@example.ca',
     phone: '613-555-0110',
+    category: 'Administrative',
+    expertise: 'Communications',
   },
   {
     id: 11,
@@ -119,6 +139,8 @@ export const PeopleData = [
     jobTitle: 'Software Developer',
     email: 'reese.yamamoto@example.ca',
     phone: '613-555-0111',
+    category: 'Technical',
+    expertise: 'Web Development',
   },
   {
     id: 12,
@@ -130,6 +152,8 @@ export const PeopleData = [
     jobTitle: 'Communications Officer',
     email: 'skyler.dubois@example.ca',
     phone: '613-555-0112',
+    category: 'Administrative',
+    expertise: 'Communications',
   },
   {
     id: 13,
@@ -141,6 +165,8 @@ export const PeopleData = [
     jobTitle: 'Data Analyst',
     email: 'alex.fernandez@example.ca',
     phone: '613-555-0113',
+    category: 'Technical',
+    expertise: 'Data & Analytics',
   },
   {
     id: 14,
@@ -152,6 +178,8 @@ export const PeopleData = [
     jobTitle: 'IT Security Analyst',
     email: 'blake.morrison@example.ca',
     phone: '613-555-0114',
+    category: 'Technical',
+    expertise: 'Security',
   },
   {
     id: 15,
@@ -163,6 +191,8 @@ export const PeopleData = [
     jobTitle: 'Web Developer',
     email: 'cameron.bouchard@example.ca',
     phone: '613-555-0115',
+    category: 'Technical',
+    expertise: 'Web Development',
   },
   {
     id: 16,
@@ -174,6 +204,8 @@ export const PeopleData = [
     jobTitle: 'Graphic Designer',
     email: 'dakota.malik@example.ca',
     phone: '613-555-0116',
+    category: 'Creative',
+    expertise: 'Design',
   },
   {
     id: 17,
@@ -185,6 +217,8 @@ export const PeopleData = [
     jobTitle: 'Database Administrator',
     email: 'emery.johansson@example.ca',
     phone: '613-555-0117',
+    category: 'Technical',
+    expertise: 'Data & Analytics',
   },
   {
     id: 18,
@@ -196,6 +230,8 @@ export const PeopleData = [
     jobTitle: 'Product Owner',
     email: 'finley.osei@example.ca',
     phone: '613-555-0118',
+    category: 'Administrative',
+    expertise: 'Management',
   },
   {
     id: 19,
@@ -207,6 +243,8 @@ export const PeopleData = [
     jobTitle: 'Network Administrator',
     email: 'gray.bergeron@example.ca',
     phone: '613-555-0119',
+    category: 'Technical',
+    expertise: 'Infrastructure',
   },
   {
     id: 20,
@@ -218,6 +256,8 @@ export const PeopleData = [
     jobTitle: 'Technical Writer',
     email: 'harley.takahashi@example.ca',
     phone: '613-555-0120',
+    category: 'Creative',
+    expertise: 'Communications',
   },
   {
     id: 21,
@@ -229,6 +269,8 @@ export const PeopleData = [
     jobTitle: 'Business Analyst',
     email: 'indigo.rousseau@example.ca',
     phone: '613-555-0121',
+    category: 'Administrative',
+    expertise: 'Data & Analytics',
   },
   {
     id: 22,
@@ -240,6 +282,8 @@ export const PeopleData = [
     jobTitle: 'Cloud Infrastructure Engineer',
     email: 'jesse.kimura@example.ca',
     phone: '613-555-0122',
+    category: 'Technical',
+    expertise: 'Infrastructure',
   },
   {
     id: 23,
@@ -251,6 +295,8 @@ export const PeopleData = [
     jobTitle: 'QA Engineer',
     email: 'kennedy.lavoie@example.ca',
     phone: '613-555-0123',
+    category: 'Technical',
+    expertise: 'Web Development',
   },
   {
     id: 24,
@@ -262,5 +308,7 @@ export const PeopleData = [
     jobTitle: 'Associate Director, Digital Strategy',
     email: 'lane.andersen@example.ca',
     phone: '613-555-0124',
+    category: 'Administrative',
+    expertise: 'Management',
   },
 ];
