@@ -101,13 +101,9 @@ Full-width or image/video-heavy promotional components.
 
 ---
 
-## Navigation
+## DONE: Navigation
 
 Wayfinding components — site chrome, page-level navigation, search, and pagination.
-
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Search Input | port | No | No
 
 ### Completed
 
@@ -218,7 +214,18 @@ Data entry and filtering. Form is a sub-system with its own set of primitive inp
 |---|---|---|---|
 | Filter Panel | port | No | No
 | Location Picker | port | No | No
-| **Form** | port | No | No
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Search Input | done | No | No
+
+### Form Fields
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Form | port | No | No
 | → Auto Suggest | port | No | No
 | → Checkbox | port | No | No
 | → Date Time | port | No | No

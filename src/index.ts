@@ -73,6 +73,10 @@ export { Status, defaultStatusTypes, type StatusProps, type StatusVariant, type 
 export type { StatusTypeDefinition, StatusTypeRegistry } from './components/Status/types';
 export { formatHoursStatus, type HoursStatus } from './components/Status/hoursStatus';
 
+// Forms
+export { SearchInput, type SearchInputProps } from './components/SearchInput/SearchInput';
+export type { SearchInputResultsProps, SearchResultItem } from './components/SearchInput/SearchInputResults';
+
 // Utilities
 export { CookieBanner, type CookieBannerProps } from './components/CookieBanner/CookieBanner';
 export { LinkProvider } from './components/LinkProvider/index';
