@@ -7,6 +7,8 @@
   border-radius: var(--rds--radius-md);
   border-left: 4px solid var(--rds--color-primary);
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: $rds-media-query-sm) {
     flex-direction: row;

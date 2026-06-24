@@ -90,7 +90,6 @@ Full-width or image/video-heavy promotional components.
 | Image Grid | done | No | No
 | Image Slider | done | No | No
 | Page Header | done | No | No
-| Splash | port | No | No
 | Wide Banner | done | No | No
 | Wide Image | done | No | No
 

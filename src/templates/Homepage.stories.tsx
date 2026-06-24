@@ -194,12 +194,13 @@ export const CarletonHomepage: Story = {
                         }) => <ImageGrid.Image key={id} imageUrl={image} />)}
                     </ImageGrid>
                     <Testimonial
+                        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
                         cite="Jane Doe"
                         focalPointX={50}
                         focalPointY={50}
                         imageUrl="https://picsum.photos/id/342/600/400"
                         imageZoom={0}
-                        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                        maxWidth="alignwide"
                     />
                 </Section>
 
