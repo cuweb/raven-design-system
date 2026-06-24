@@ -1,0 +1,113 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ImageSliderStories from './ImageSlider.stories';
+
+<Meta of={ImageSliderStories} />
+
+# ImageSlider
+
+A horizontally scrollable image slider with configurable slides-per-view at desktop, tablet, and mobile breakpoints, optional caption overlays, and previous/next navigation controls.
+
+## When to use
+
+- Displaying a collection of images in a space-constrained horizontal scroll
+- Showcasing a gallery with different numbers of images visible at each breakpoint
+- Pairing images with title, description, and link overlays for editorial content
+- When a full grid layout (`ImageGrid`) would be too dense for the content
+
+## Import
+
+```tsx
+import { ImageSlider } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+{/* aligncontent = 2 slides, alignwide = 3, alignfull = 4 */}
+<ImageSlider maxWidth="alignwide">
+  <ImageSlider.Item imageUrl="https://picsum.photos/seed/a/600/400" />
+  <ImageSlider.Item imageUrl="https://picsum.photos/seed/b/600/400" />
+  <ImageSlider.Item imageUrl="https://picsum.photos/seed/c/600/400" />
+  <ImageSlider.Item imageUrl="https://picsum.photos/seed/d/600/400" />
+</ImageSlider>
+
+{/* With caption overlay and link */}
+<ImageSlider maxWidth="alignwide">
+  <ImageSlider.Item
+    imageUrl="https://picsum.photos/seed/a/600/400"
+    title="Image title"
+    content="A short description of this image."
+    link="https://carleton.ca"
+  />
+</ImageSlider>
+```
+
+## Examples
+
+<Canvas of={ImageSliderStories.Default} />
+<Controls of={ImageSliderStories.Default} />
+
+### Align wide (3 columns)
+
+<Canvas of={ImageSliderStories.AlignWide} />
+
+### Align full (4 columns)
+
+<Canvas of={ImageSliderStories.AlignFull} />
+
+### With caption overlays
+
+<Canvas of={ImageSliderStories.WithCaptions} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-slider` | Always on the root wrapper element |
+| `aligncontent` | When `maxWidth="aligncontent"` (default) |
+| `alignwide` | When `maxWidth="alignwide"` |
+| `alignfull` | When `maxWidth="alignfull"` |
+| `cu-slider__track` | Always on the slide track (flex container) |
+| `cu-slider__slide` | Always on the outer slide wrapper (handles gap) |
+| `cu-slider__item` | Always on the inner image element |
+| `cu-slider__item--landscape` | When `aspectRatio="landscape"` (default) |
+| `cu-slider__item--portrait` | When `aspectRatio="portrait"` |
+| `cu-slider__item--square` | When `aspectRatio="square"` |
+| `cu-slider__item--wide` | When `aspectRatio="wide"` |
+| `cu-slider__overlay` | When `title` or `content` is provided |
+| `cu-slider__overlay--linked` | When `link` is also provided |
+| `cu-slider__overlay-link` | On the anchor wrapping overlay text when `link` is set |
+| `cu-slider__overlay-title` | On the `<p>` rendering `title` |
+| `cu-slider__overlay-content` | On the `<p>` rendering `content` |
+| `cu-slider__controls` | Always on the prev/next button container |
+| `cu-slider__arrow` | Always on each navigation button |
+| `cu-slider__arrow--prev` | On the previous button |
+| `cu-slider__arrow--next` | On the next button |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--spacing-x-small` | Gap between slides |
+| `--rds--spacing-small` | Overlay vertical padding |
+| `--rds--spacing-medium` | Overlay horizontal padding; controls row top margin |
+| `--rds--spacing-2-x-small` | Top padding on overlay content text |
+| `--rds--radius-lg` | Border radius on slide images |
+| `--rds--radius-md` | Border radius on nav arrow buttons |
+| `--rds--color-black` | Slide background color; overlay background base |
+| `--rds--color-primary` | Arrow button hover background |
+| `--rds--color-primary-dark` | Linked overlay hover background |
+| `--rds--color-white` | Overlay text color; arrow hover icon color |
+| `--rds--color-grey-lighter` | Arrow button default background |
+| `--rds--color-grey-dark` | Arrow button default icon color |
+| `--rds--font-size-small` | Overlay title and content font size |
+| `--rds--font-weight-bold` | Overlay title font weight |
+| `--rds--font-weight-normal` | Overlay content font weight |
+
+## Accessibility
+
+- Navigation buttons include visually-hidden `<span class="sr-only">` labels ("Go to Previous Slide" / "Go to Next Slide") for screen readers
+- Decorative images (no `title` or `content`) receive `aria-hidden="true"` on the image container so screen readers skip them
+- Images with overlay content omit `aria-hidden` so overlay text is announced
+- The `link` prop is rendered through `useLinkContext`, supporting Next.js `<Link>`, React Router `<Link>`, or a plain `<a>` depending on the consumer's `LinkProvider` configuration
+- Arrow icon elements have `aria-hidden="true"` so only the button label is read by screen readers
