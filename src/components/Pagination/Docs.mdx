@@ -1,0 +1,96 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as PaginationStories from './Pagination.stories';
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+A fully-controlled navigation component that renders a row of page buttons with previous/next controls and smart ellipsis for large page counts.
+
+## When to use
+
+- Navigating through a paginated list of content such as news articles, search results, or events
+- Anywhere a large data set is split into discrete pages and the caller manages the active page in state
+- As a companion to card grids or listing layouts where only a subset of items is shown at once
+- When a URL-driven or state-driven page index needs a visual control
+
+## Import
+
+```tsx
+import { Pagination } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+const [page, setPage] = useState(1);
+
+<Pagination
+  currentPage={page}
+  totalPages={8}
+  onPageChange={setPage}
+/>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={PaginationStories.Default} />
+<Controls of={PaginationStories.Default} />
+
+### Many Pages
+
+Demonstrates the ellipsis behaviour when `totalPages` is large.
+
+<Canvas of={PaginationStories.ManyPages} />
+
+### With News Cards
+
+Interactive example — clicking page buttons updates the card grid. Uses `NewsData` split into batches of 3 (24 items, 8 pages).
+
+<Canvas of={PaginationStories.WithNewsCards} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `.cu-pagination` | Always — applied to the `<nav>` wrapper |
+| `.cu-pagination__list` | Always — applied to the `<ol>` |
+| `.cu-pagination__item` | Always — applied to each `<li>` |
+| `.cu-pagination__button` | Applied to every `<button>` (pages, prev, next) |
+| `.cu-pagination__button--active` | Applied to the button whose page number equals `currentPage` |
+| `.cu-pagination__button--prev` | Applied to the Previous button |
+| `.cu-pagination__button--next` | Applied to the Next button |
+| `.cu-pagination__ellipsis` | Applied to each `<span>` that renders `…` |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--spacing-medium` | Block padding around the pagination bar |
+| `--rds--spacing-2-x-small` | Gap between page items |
+| `--rds--spacing-x-small` | Inline padding inside each button |
+| `--rds--font-family-inter` | Button font family |
+| `--rds--font-size-small` | Button and ellipsis font size |
+| `--rds--font-weight-medium` | Default button font weight |
+| `--rds--font-weight-bold` | Active page button font weight |
+| `--rds--color-grey-dark` | Default button text colour |
+| `--rds--color-grey` | Ellipsis text colour |
+| `--rds--color-grey-light` | Default button border colour |
+| `--rds--color-grey-lighter` | Disabled button border colour |
+| `--rds--color-grey-pale` | Button hover background |
+| `--rds--color-primary` | Active button background and border; focus ring colour |
+| `--rds--color-primary-dark` | Active button hover background |
+| `--rds--color-white` | Active button text colour |
+| `--rds--radius-md` | Button border radius |
+
+## Accessibility
+
+- The component renders a `<nav>` element — a landmark region. The `ariaLabel` prop (default `"Pagination"`) is applied as `aria-label` so screen readers can distinguish it from other navigation landmarks on the page.
+- Page buttons are wrapped in an `<ol>` with `<li>` items, conveying list semantics.
+- The active page button carries `aria-current="page"`, which screen readers announce as the current location.
+- Previous and Next buttons receive `disabled` and `aria-disabled="true"` when the user is at the first or last page respectively, preventing interaction and communicating the boundary to assistive technology.
+- Chevron icons inside Prev/Next are decorative and carry `aria-hidden="true"`; each button has an explicit `aria-label` (`"Previous page"` / `"Next page"`) so the action is announced without relying on the icon.
+- Ellipsis spans carry `aria-hidden="true"` — they are visual punctuation only and add no useful information for screen reader users.
+- All interactive buttons expose a visible `:focus-visible` outline styled with the primary colour token, meeting WCAG 2.4.7 (Focus Visible).

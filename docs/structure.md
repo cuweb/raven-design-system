@@ -76,7 +76,7 @@ Full-width or image/video-heavy promotional components.
 | Full Banner | done | No | No
 | Image Caption Overlay | port | No | No
 | Image Grid | done | No | No
-| Image Slider | port | No | No
+| Image Slider | done | No | No
 | Page Header | done | No | No
 | Splash | port | No | No
 | Wide Banner | done | No | No
@@ -94,7 +94,7 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 | Footer | done | No | No
 | Footer Standard | done | No | No
 | Nav | done | No | No
-| Pagination | port | No | No
+| Pagination | done | No | No
 | Search Input | port | No | No
 
 ---
