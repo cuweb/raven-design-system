@@ -7,7 +7,7 @@ import type { SearchResultItem } from './SearchInputResults';
 import { SearchDatabase } from '../../data/SearchData';
 
 const meta: Meta<typeof SearchInput> = {
-  title: 'Components/Forms/SearchInput',
+  title: 'Components/Forms/Search Input',
   component: SearchInput,
   tags: ['!autodocs'],
   decorators: [
