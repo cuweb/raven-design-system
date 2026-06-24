@@ -73,9 +73,13 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 ---
 
-## DONE: Media & Banners
+## Media & Banners
 
 Full-width or image/video-heavy promotional components.
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Splash | port | No | No
 
 ### Completed
 
