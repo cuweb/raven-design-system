@@ -121,10 +121,6 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Float Box | port | No | No
-
 ### Completed
 
 | Component | Refactor Status | Primary Review | Secondary Review
@@ -134,6 +130,12 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 | Section | done | No | No
 | Stacked List | done | No | No
 | Wide Wave | done | No | No
+
+### Deprecated
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Float Box | port | No | No
 
 ---
 
