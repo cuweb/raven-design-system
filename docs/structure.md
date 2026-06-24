@@ -22,9 +22,11 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 ---
 
-## Elements
+## DONE: Elements
 
 Atomic, composable primitives. Used as building blocks inside larger components.
+
+### Completed
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
@@ -46,16 +48,21 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Calendar | done | No | No
-| Call Out | done | No | No
-| Card | done | No | No
 | Carleton360 | port | No | No
 | Description | port | No | No
 | Details | port | No | No
-| Figure | done | No | No
 | Funding Details | port | No | No
-| Listing | done | No | No
 | Location | port | No | No
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Calendar | done | No | No
+| Call Out | done | No | No
+| Card | done | No | No
+| Figure | done | No | No
+| Listing | done | No | No
 | Multi-day Calendar | done | No | No
 | Quote | done | No | No
 | Table | done | No | No
@@ -66,21 +73,28 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 ---
 
-## Media & Banners
+## DONE: Media & Banners
 
 Full-width or image/video-heavy promotional components.
+
+### Completed
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Embed | done | No | No
 | Full Banner | done | No | No
-| Image Caption Overlay | port | No | No
 | Image Grid | done | No | No
 | Image Slider | done | No | No
 | Page Header | done | No | No
 | Splash | port | No | No
 | Wide Banner | done | No | No
 | Wide Image | done | No | No
+
+### Deprecated
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Image Caption Overlay | deprecated | No | No
 
 ---
 
@@ -90,43 +104,75 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
+| Search Input | port | No | No
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
 | Department Bar | done | No | No
 | Footer | done | No | No
 | Footer Standard | done | No | No
 | Nav | done | No | No
 | Pagination | done | No | No
-| Search Input | port | No | No
 
 ---
 
-## Forms
+## Layout
 
-Data entry and filtering. Form is a sub-system with its own set of primitive inputs — each sub-component lives under `Components/Forms/` and is built independently.
+Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Filter Panel | port | No | No
-| Location Picker | port | No | No
-| **Form** | port | No | No
-| → Auto Suggest | port | No | No
-| → Checkbox | port | No | No
-| → Date Time | port | No | No
-| → Error | port | No | No
-| → Field Array Container | port | No | No
-| → Field Control | port | No | No
-| → Field Group | port | No | No
-| → Field Wrapper | port | No | No
-| → File Upload | port | No | No
-| → Form Button | port | No | No
-| → Form Field | port | No | No
-| → Form Field Set | port | No | No
-| → Helper Text | port | No | No
-| → Input | port | No | No
-| → Input Addon | port | No | No
-| → Places Auto Complete | port | No | No
-| → Radio | port | No | No
-| → Select | port | No | No
-| → Text Area | port | No | No
+| Float Box | port | No | No
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Column | done | No | No
+| Image Cover | done | No | No
+| Section | done | No | No
+| Stacked List | done | No | No
+| Wide Wave | done | No | No
+
+---
+
+## DONE: Template Parts
+
+WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Article | done | No | No
+| Aside | done | No | No
+| Body | done | No | No
+| Main | done | No | No
+
+---
+
+## Utilities
+
+Behavioral or non-visual components. These don't render meaningful UI on their own.
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Login | port | No | No
+
+### Completed
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Cookie Banner | done | No | No
+| Link Provider | done | No | No
+
+### Deprecated
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| Meta | deprecated | No | No
 
 ---
 
@@ -161,41 +207,31 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 ---
 
-## Layout
+## Forms
 
-Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
-
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Column | done | No | No
-| Float Box | port | No | No
-| Image Cover | done | No | No
-| Section | done | No | No
-| Stacked List | done | No | No
-| Wide Wave | done | No | No
-
----
-
-## Template Parts
-
-WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
+Data entry and filtering. Form is a sub-system with its own set of primitive inputs — each sub-component lives under `Components/Forms/` and is built independently.
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
-| Article | done | No | No
-| Aside | done | No | No
-| Body | done | No | No
-| Main | done | No | No
-
----
-
-## Utilities
-
-Behavioral or non-visual components. These don't render meaningful UI on their own.
-
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Cookie Banner | done | No | No
-| Link Provider | done | No | No
-| Login | port | No | No
-| Meta | port | No | No
+| Filter Panel | port | No | No
+| Location Picker | port | No | No
+| **Form** | port | No | No
+| → Auto Suggest | port | No | No
+| → Checkbox | port | No | No
+| → Date Time | port | No | No
+| → Error | port | No | No
+| → Field Array Container | port | No | No
+| → Field Control | port | No | No
+| → Field Group | port | No | No
+| → Field Wrapper | port | No | No
+| → File Upload | port | No | No
+| → Form Button | port | No | No
+| → Form Field | port | No | No
+| → Form Field Set | port | No | No
+| → Helper Text | port | No | No
+| → Input | port | No | No
+| → Input Addon | port | No | No
+| → Places Auto Complete | port | No | No
+| → Radio | port | No | No
+| → Select | port | No | No
+| → Text Area | port | No | No
