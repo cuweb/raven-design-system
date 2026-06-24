@@ -1,0 +1,95 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as LocationPickerStories from './LocationPicker.stories';
+
+<Meta of={LocationPickerStories} />
+
+# LocationPicker
+
+A Google Places autocomplete input that resolves a human-readable address into geographic coordinates, designed to be composed with the `Location` map component.
+
+## When to use
+
+- Allow editors or admins to search for and set a location in a CMS or form
+- Pair with `Location` to give users a live preview of the selected map pin
+- When an address string needs to be converted to `lat`/`lng` before saving to a database
+- Any form where a freeform address needs to be validated against Google Places
+
+## Import
+
+```tsx
+import { LocationPicker, type LocationPickerProps, type SingleMarkerInterface } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Standalone picker (fires callback with resolved coordinates)
+<LocationPicker
+  address="Carleton University"
+  markerCallback={({ address, coordinates }) => {
+    console.log(address, coordinates.lat, coordinates.lng);
+  }}
+/>
+```
+
+```tsx
+// Combined with Location map for live preview
+import { useState, useCallback } from 'react';
+import { LocationPicker, Location, type SingleMarkerInterface } from '@cuweb/rds2';
+
+const [marker, setMarker] = useState<SingleMarkerInterface>({
+  address: "Carleton University Raven's Nest",
+  coordinates: { lat: 45.3850225, lng: -75.6946679 },
+});
+
+const handleMarker = useCallback(
+  (coords: SingleMarkerInterface) => setMarker(coords),
+  [],
+);
+
+<LocationPicker address={marker.address} markerCallback={handleMarker} />
+<Location
+  lat={marker.coordinates.lat.toString()}
+  lng={marker.coordinates.lng.toString()}
+  location={marker.address}
+/>
+```
+
+## Examples
+
+<Canvas of={LocationPickerStories.SingleMarker} />
+<Controls of={LocationPickerStories.SingleMarker} />
+
+### Location address
+
+Start with a pre-filled address and allow the user to search for a different one.
+
+<Canvas of={LocationPickerStories.LocationAddress} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-location-picker` | Always applied to the root `<div>` |
+| `cu-location-picker__input` | Applied to the `<input>` element |
+| `cu-location-picker__icon` | Applied to the search `<Icon>` wrapper |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--spacing-x-small` | Input padding (all sides) and icon left offset |
+| `--rds--color-grey-light` | Input border color |
+| `--rds--radius-md` | Input border radius |
+| `--rds--font-size-base` | Input font size |
+| `--rds--color-black` | Input text color |
+| `--rds--color-white` | Input background color |
+| `--rds--color-primary` | Input focus outline color |
+| `--rds--color-grey` | Placeholder text and icon color |
+
+## Accessibility
+
+- The `<input>` has an explicit `aria-label="Search for a location"` since there is no visible `<label>` element; replace with a visible `<label>` if the context requires it
+- The search icon is decorative and uses the `<Icon>` component's default `aria-hidden="true"` — it does not require alt text
+- The component returns `null` while the Google Maps JS API is loading, avoiding a flash of unstyled content
+- The `Autocomplete` dropdown is rendered by the Google Maps library and is keyboard-navigable via arrow keys and Enter

@@ -29,6 +29,7 @@ export { Listing, type ListingProps } from './components/Listing';
 export type { CardStatusProps } from './components/Card/CardStatus';
 export type { CardVideoFigureProps } from './components/Card/CardVideoFigure';
 export { Figure, type FigureProps } from './components/Figure/Figure';
+export { Location, type LocationProps, type MarkerData } from './components/Location/Location';
 export { Quote, type QuoteProps } from './components/Quote/Quote';
 export { StackedList, type StackedListProps } from './components/StackedList';
 export { Testimonial, type TestimonialProps } from './components/Testimonial/Testimonial';
@@ -74,6 +75,11 @@ export type { StatusTypeDefinition, StatusTypeRegistry } from './components/Stat
 export { formatHoursStatus, type HoursStatus } from './components/Status/hoursStatus';
 
 // Forms
+export {
+  LocationPicker,
+  type LocationPickerProps,
+  type SingleMarkerInterface,
+} from './components/LocationPicker/LocationPicker';
 export { SearchInput, type SearchInputProps } from './components/SearchInput/SearchInput';
 export type { SearchInputResultsProps, SearchResultItem } from './components/SearchInput/SearchInputResults';
 

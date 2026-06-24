@@ -142,6 +142,8 @@
     "vitest": "^4.1.9"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.20.8",
+    "@types/google.maps": "^3.65.2",
     "date-fns": "^4.4.0"
   },
   "pnpm": {

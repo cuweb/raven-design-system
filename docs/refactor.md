@@ -51,7 +51,6 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Description | port | No | No
 | Details | port | No | No
 | Funding Details | port | No | No
-| Location | port | No | No
 
 ### Completed
 
@@ -63,6 +62,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Carleton360 | done | No | No
 | Figure | done | No | No
 | Listing | done | No | No
+| Location | done | No | No
 | Multi-day Calendar | done | No | No
 | Quote | done | No | No
 | Table | done | No | No
@@ -213,12 +213,12 @@ Data entry and filtering. Form is a sub-system with its own set of primitive inp
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Filter Panel | port | No | No
-| Location Picker | port | No | No
 
 ### Completed
 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
+| Location Picker | done | No | No
 | Search Input | done | No | No
 
 ### Form Fields
