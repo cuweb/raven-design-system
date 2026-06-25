@@ -23,6 +23,9 @@ export type { IconName } from '@cuweb/rds-icons';
 // Content
 export { Calendar, type CalendarProps, type CalendarEvent } from './components/Calendar/Calendar';
 export { CallOut, type CallOutProps } from './components/CallOut/CallOut';
+export { Description, DescriptionWrapper, type DescriptionProps } from './components/Description/Description';
+export { DescriptionMeta, type DescriptionMetaProps } from './components/Description/DescriptionMeta';
+export { DescriptionAccordion, type DescriptionAccordionProps } from './components/Description/DescriptionAccordion';
 export { Details, type DetailsProps } from './components/Details/Details';
 export type { DetailsItemProps } from './components/Details/DetailsItem';
 export { Carleton360, type Carleton360Props } from './components/Carleton360/Carleton360';
