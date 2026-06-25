@@ -46,10 +46,6 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Description | port | No | No
-
 ### Completed
 
 | Component | Refactor Status | Primary Review | Secondary Review
@@ -59,6 +55,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Card | done | No | No
 | Carleton360 | done | No | No
 | Details | done | No | No
+| Description | description | No | No
 | Figure | done | No | No
 | Listing | done | No | No
 | Location | done | No | No
