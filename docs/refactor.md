@@ -176,7 +176,7 @@ Behavioral or non-visual components. These don't render meaningful UI on their o
 
 ---
 
-## Feedback
+## Feedback: Part One
 
 Transient overlays, loading skeletons, error states, and empty states.
 
@@ -185,20 +185,6 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Dialog | port | No | No
-| **Loaders** | port | No | No
-| → Block Loader | port | No | No
-| → Button Loader | port | No | No
-| → Calendar Loader | port | No | No
-| → Card Loader | port | No | No
-| → Description Loader | port | No | No
-| → Event Loader | port | No | No
-| → Form Loader | port | No | No
-| → Listing Loader | port | No | No
-| → Page Header Loader | port | No | No
-| → Page Loader | port | No | No
-| → Pagination Loader | port | No | No
-| → Table Loader | port | No | No
-| → Top Nav Loader | port | No | No
 | Modal | port | No | No
 
 ### Completed
@@ -214,6 +200,31 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 |---|---|---|
 | Error Messages | deprecated | can be replicated with text & image
 | Placeholder | deprecated | this is for lazy people, dump a div already
+
+---
+
+## Feedback: Part Two
+
+Transient overlays, loading skeletons, error states, and empty states.
+
+Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but are grouped here rather than alongside each component — they share a common skeleton pattern and are typically used together.
+
+| Component | Refactor Status | Primary Review | Secondary Review
+|---|---|---|---|
+| **Loaders** | port | No | No
+| → Block Loader | port | No | No
+| → Button Loader | port | No | No
+| → Calendar Loader | port | No | No
+| → Card Loader | port | No | No
+| → Description Loader | port | No | No
+| → Event Loader | port | No | No
+| → Form Loader | port | No | No
+| → Listing Loader | port | No | No
+| → Page Header Loader | port | No | No
+| → Page Loader | port | No | No
+| → Pagination Loader | port | No | No
+| → Table Loader | port | No | No
+| → Top Nav Loader | port | No | No
 
 ---
 

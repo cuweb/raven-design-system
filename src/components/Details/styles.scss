@@ -47,16 +47,6 @@
         padding-bottom: 0;
       }
 
-    a {
-      color: var(--rds--color-primary);
-      font-weight: var(--rds--font-weight-medium);
-      text-underline-offset: 2px;
-
-      &:hover {
-        color: var(--rds--color-primary-dark);
-      }
-    }
-
     &--bold {
       font-weight: var(--rds--font-weight-bold);
     }
