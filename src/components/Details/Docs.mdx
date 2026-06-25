@@ -1,0 +1,113 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DetailsStories from './Details.stories';
+
+<Meta of={DetailsStories} />
+
+# Details
+
+A structured metadata list for displaying concise factual information — event details, contact info, programme attributes, and similar content — as an accessible `<ul>` or `<ol>`.
+
+## When to use
+
+- Displaying key details for an event (date, location, cost, link)
+- Listing contact information for a person or department
+- Showing programme or course metadata in a scannable format
+- Pairing factual items with icons to aid recognition at a glance
+
+## Import
+
+```tsx
+import { Details } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+<Details>
+  <Details.Item isBold>Hybrid Event</Details.Item>
+  <Details.Item>Raven's Nest, 1125 Colonel By Drive</Details.Item>
+  <Details.Item>
+    <a href="/teams">Teams meeting link</a>
+  </Details.Item>
+  <Details.Item iconName="tag">
+    <strong>Cost:</strong> $20 per adult, $15 for youth/senior
+  </Details.Item>
+</Details>
+```
+
+With dividers and a grey background:
+
+```tsx
+<Details hasDividers isGrey>
+  <Details.Item isBold>Contact</Details.Item>
+  <Details.Item>
+    Jane Doe, <a href="mailto:jane@example.com">Email Jane</a>, 613-520-2600 x1234
+  </Details.Item>
+</Details>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={DetailsStories.Default} />
+<Controls of={DetailsStories.Default} />
+
+### With dividers
+
+Adds a horizontal rule between each item using `hasDividers`.
+
+<Canvas of={DetailsStories.WithDividers} />
+
+### With icons
+
+Each `Details.Item` accepts an `iconName` prop (typed as `IconName` from `@cuweb/rds-icons`) to prepend an icon for quick visual scanning.
+
+<Canvas of={DetailsStories.WithIcons} />
+
+### Grey background
+
+The `isGrey` prop applies a pale grey background with rounded corners — useful when the list needs visual separation from surrounding content.
+
+<Canvas of={DetailsStories.GreyBackground} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-details` | Always — applied to the root `<ul>` or `<ol>` |
+| `cu-details--dividers` | When `hasDividers` is `true` |
+| `cu-details--grey` | When `isGrey` is `true` |
+| `cu-details__item` | Always — applied to each `<li>` |
+| `cu-details__item--bold` | When `isBold` is `true` on `Details.Item` |
+| `cu-details__item--icon` | When `iconName` is provided on `Details.Item` |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--color-grey-pale` | Grey background fill (`cu-details--grey`) |
+| `--rds--radius-lg` | Corner radius of the grey background |
+| `--rds--spacing-medium` | Vertical padding in the grey variant |
+| `--rds--spacing-large` | Horizontal padding in the grey variant |
+| `--rds--color-grey-light` | Divider border colour (`cu-details--dividers`) |
+| `--rds--spacing-x-small` | Vertical padding between divider items |
+| `--rds--spacing-small` | Vertical padding between divider items at `md` breakpoint |
+| `--rds--font-family-inter` | Item font family |
+| `--rds--font-size-medium` | Item font size |
+| `--rds--font-weight-normal` | Default item font weight |
+| `--rds--font-weight-medium` | Link font weight within items |
+| `--rds--font-weight-bold` | Bold item font weight (`cu-details__item--bold`) |
+| `--rds--color-grey-dark` | Item text colour |
+| `--rds--color-primary` | Link colour |
+| `--rds--color-primary-dark` | Link hover colour |
+| `--rds--color-grey` | Icon colour within icon items |
+| `--rds--spacing-x-small` | Gap between icon and text in icon items |
+
+## Accessibility
+
+- Renders as a semantic `<ul>` by default; pass `as="ol"` when order is meaningful
+- List markers are hidden visually but the list semantics are preserved for screen readers — items are announced as list members with a count
+- Links within items inherit the component's link colour tokens and include underline on hover; avoid using colour as the sole indicator of interactivity
+- Icons are decorative by default (`aria-hidden` is set on the `<Icon>` component); if an icon is the only content conveying meaning, add a visible text label alongside it
+- `isBold` is a visual cue only — do not rely on it alone to convey semantic importance; wrap text in `<strong>` inside the item for screen reader emphasis when needed

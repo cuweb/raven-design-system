@@ -49,7 +49,6 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Component | Refactor Status | Primary Review | Secondary Review
 |---|---|---|---|
 | Description | port | No | No
-| Details | port | No | No
 
 ### Completed
 
@@ -59,6 +58,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Call Out | done | No | No
 | Card | done | No | No
 | Carleton360 | done | No | No
+| Details | done | No | No
 | Figure | done | No | No
 | Listing | done | No | No
 | Location | done | No | No
