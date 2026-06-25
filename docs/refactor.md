@@ -42,7 +42,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 ---
 
-## Content
+## DONE: Content
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
