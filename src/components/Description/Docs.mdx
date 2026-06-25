@@ -1,0 +1,125 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DescriptionStories from './Description.stories';
+
+<Meta of={DescriptionStories} />
+
+# Description
+
+A semantic description list (`<dl>`) for displaying labelled metadata — programme details, event attributes, contact information — in stacked, columnar, or collapsible accordion layouts.
+
+## When to use
+
+- Displaying labelled facts about a programme, event, or person (e.g. "Programme", "Faculty", "Duration")
+- Pairing terms with longer prose or mixed content (paragraphs, lists) using the accordion variant
+- Presenting metadata in a scannable two-column layout at wider viewports with `useColumns`
+- Any context where a semantic term/definition structure is more appropriate than a plain table
+
+## Import
+
+```tsx
+import { Description } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+Stacked layout — each term sits above its definition:
+
+```tsx
+<Description>
+  <Description.Meta term="Programme">Bachelor of Computer Science</Description.Meta>
+  <Description.Meta term="Faculty">Faculty of Engineering and Design</Description.Meta>
+  <Description.Meta term="Duration">4 years (120 credits)</Description.Meta>
+</Description>
+```
+
+Two-column layout — term is pinned to a 260 px left column at `md` and wider:
+
+```tsx
+<Description>
+  <Description.Meta term="Programme" useColumns>Bachelor of Computer Science</Description.Meta>
+  <Description.Meta term="Faculty" useColumns>Faculty of Engineering and Design</Description.Meta>
+</Description>
+```
+
+Collapsible accordion items:
+
+```tsx
+<Description>
+  <Description.Accordion term="Admission requirements">
+    <p>Applicants must hold an Ontario Secondary School Diploma...</p>
+  </Description.Accordion>
+  <Description.Accordion term="Career outcomes">
+    <p>Graduates work in software engineering, data science, and research.</p>
+  </Description.Accordion>
+</Description>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={DescriptionStories.Default} />
+<Controls of={DescriptionStories.Default} />
+
+### With columns
+
+The `useColumns` prop switches to a two-column grid at the `md` breakpoint, with a fixed 260 px term column.
+
+<Canvas of={DescriptionStories.WithColumns} />
+
+### With accordion
+
+Each `Description.Accordion` item renders a toggle button; clicking expands the definition.
+
+<Canvas of={DescriptionStories.WithAccordion} />
+
+### Multiple stacked items
+
+<Canvas of={DescriptionStories.MultipleItems} />
+
+### Multiple column items
+
+<Canvas of={DescriptionStories.MultipleColumns} />
+
+### Multiple accordions
+
+<Canvas of={DescriptionStories.MultipleAccordions} />
+
+## CSS classes
+
+| Class | Condition |
+|---|---|
+| `cu-description` | Always — applied to the root `<dl>` |
+| `cu-description__item` | Always — applied to the wrapper `<div>` of each term/definition pair |
+| `cu-description__item--columns` | When `useColumns` is `true` on `Description.Meta` |
+| `cu-description__item--accordion` | Always on `Description.Accordion` items |
+| `cu-description__term` | Always — applied to the `<dt>` element |
+| `cu-description__content` | Always — applied to the `<dd>` element |
+| `cu-description__trigger` | Always on the `<button>` inside `Description.Accordion` |
+| `cu-description__accordion-icon` | Always on the chevron icon inside the accordion trigger |
+| `cu-description__accordion-icon--open` | When the accordion item is expanded |
+
+## Design tokens
+
+| Token | Controls |
+|---|---|
+| `--rds--color-grey-light` | Border colour between items |
+| `--rds--color-black` | Term text colour and accordion trigger text colour |
+| `--rds--color-grey-dark` | Definition content text colour |
+| `--rds--color-grey` | Accordion chevron icon colour |
+| `--rds--color-primary` | Focus ring colour on the accordion trigger |
+| `--rds--font-family-inter` | Font family for terms and content |
+| `--rds--font-size-medium` | Font size for terms and content |
+| `--rds--font-weight-semibold` | Term font weight |
+| `--rds--spacing-x-small` | Gap between term and definition in stacked layout |
+| `--rds--spacing-small` | Vertical padding on each item; spacing between sibling content nodes |
+| `--rds--spacing-medium` | Column gap in the `--columns` variant at `md` breakpoint |
+| `--rds--radius-sm` | Focus ring border radius on the accordion trigger |
+
+## Accessibility
+
+- The root element is a semantic `<dl>`; each `Description.Meta` and `Description.Accordion` contributes a `<dt>`/`<dd>` pair, preserving screen reader term/definition announcements
+- The accordion trigger is a `<button type="button">` — keyboard accessible and activatable with Space or Enter; avoid using `<div role="button">` or `onClick` on non-interactive elements
+- `aria-expanded` on the trigger reflects open/closed state; `aria-controls` links the button to its associated `<dd>` by `id`
+- The chevron icon is decorative and inherits `aria-hidden="true"` from `<Icon>` — the visible term text is the accessible label for the trigger
+- Do not place interactive elements (links, buttons) directly inside a `<dt>` — they belong in `<dd>` content
