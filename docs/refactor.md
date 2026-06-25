@@ -50,7 +50,6 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 |---|---|---|---|
 | Description | port | No | No
 | Details | port | No | No
-| Funding Details | port | No | No
 
 ### Completed
 
@@ -71,15 +70,17 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Text & Media | done | No | No
 | Timeline | done | No | No
 
+### Deprecated
+
+| Component | Refactor Status | Reasoning
+|---|---|---|
+| Funding Details | deprecated | can be replicated with text & image
+
 ---
 
-## Media & Banners
+## DONE: Media & Banners
 
 Full-width or image/video-heavy promotional components.
-
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Splash | port | No | No
 
 ### Completed
 
@@ -98,6 +99,7 @@ Full-width or image/video-heavy promotional components.
 | Component | Refactor Status | Reasoning
 |---|---|---|
 | Image Caption Overlay | deprecated | best to have individual control for various reasons
+| Splash | deprecated | only used in WordPress, no component required
 
 ---
 
@@ -117,7 +119,7 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 ---
 
-## Layout
+## DONE: Layout
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
@@ -154,13 +156,9 @@ WordPress block editor template part wrappers. These map directly to the templat
 
 ---
 
-## Utilities
+## DONE: Utilities
 
 Behavioral or non-visual components. These don't render meaningful UI on their own.
-
-| Component | Refactor Status | Primary Review | Secondary Review
-|---|---|---|---|
-| Login | port | No | No
 
 ### Completed
 
@@ -168,6 +166,7 @@ Behavioral or non-visual components. These don't render meaningful UI on their o
 |---|---|---|---|
 | Cookie Banner | done | No | No
 | Link Provider | done | No | No
+| Login | done | No | No
 
 ### Deprecated
 

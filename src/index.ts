@@ -90,6 +90,7 @@ export type { SearchInputResultsProps, SearchResultItem } from './components/Sea
 // Utilities
 export { CookieBanner, type CookieBannerProps } from './components/CookieBanner/CookieBanner';
 export { LinkProvider } from './components/LinkProvider/index';
+export { Login, type LoginProps } from './components/Login/Login';
 export { SocialIcons, type SocialIconsProps } from './components/SocialIcons/SocialIcons';
 export type { SocialIconsItemProps } from './components/SocialIcons/SocialIconsItem';
 
