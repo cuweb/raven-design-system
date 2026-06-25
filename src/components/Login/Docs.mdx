@@ -1,0 +1,101 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as LoginStories from './Login.stories';
+
+<Meta of={LoginStories} />
+
+# Login
+
+A self-contained authentication card that renders a Carleton-branded login prompt with an optional social login section and inline error display.
+
+## When to use
+
+- As the primary login entry point for Carleton web applications and portals
+- When a page requires authentication before granting access to content
+- When social or third-party login options (Google, LinkedIn, Twitter) should be offered alongside the primary Carleton account login
+- When login errors need to be surfaced inline, close to the action that caused them
+
+## Import
+
+```tsx
+import { Login } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+// Default — Carleton account login only
+<Login onClickHandler={{ default: () => handleLogin(), google: () => {}, linkedIn: () => {} }} />
+
+// With social login options
+<Login
+  useSocial
+  onClickHandler={{
+    default: () => handleLogin(),
+    google: () => handleGoogle(),
+    linkedIn: () => handleLinkedIn(),
+    twitter: () => handleTwitter(),
+  }}
+/>
+
+// With an error message
+<Login
+  errorTitle="Login Error"
+  errorDesc="Please ensure you are connected to the VPN and try again."
+  onClickHandler={{ default: () => handleLogin(), google: () => {}, linkedIn: () => {} }}
+/>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={LoginStories.Default} />
+<Controls of={LoginStories.Default} />
+
+### With social logins
+
+When `useSocial` is `true`, a secondary section appears below the primary login button showing available third-party login options. Only buttons whose handlers are provided in `onClickHandler` are rendered.
+
+<Canvas of={LoginStories.SocialLogins} />
+
+### With error title only
+
+<Canvas of={LoginStories.WithErrorTitle} />
+
+### With error title and description
+
+<Canvas of={LoginStories.WithErrorDescription} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-login` | Always — root wrapper |
+| `cu-login--start` | `align="start"` |
+| `cu-login--center` | `align="center"` (default) |
+| `cu-login--end` | `align="end"` |
+| `cu-login__logo` | Carleton logo `<img>` |
+| `cu-login__error` | Error `<Alert>` wrapper — when `errorTitle` or `errorDesc` is provided |
+| `cu-login__social` | Social login section wrapper — when `useSocial` is `true` |
+| `cu-login__social-label` | "Or login with…" paragraph inside the social section |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--color-white` | Card and logo background |
+| `--rds--color-grey-lighter` | Card border colour |
+| `--rds--color-grey-pale` | Social section background |
+| `--rds--shadow-natural` | Card drop shadow |
+| `--rds--radius-lg` | Card border radius |
+| `--rds--radius-md` | Logo and social section border radius |
+| `--rds--spacing-medium` | Card padding, logo margin, button group spacing |
+| `--rds--spacing-small` | Social label bottom margin |
+
+## Accessibility
+
+- The Carleton logo carries a descriptive `alt` attribute ("Logo of Carleton University") so screen readers convey its meaning.
+- Error state uses the `<Alert type="error">` component which renders with `role="alert"`, causing screen readers to announce the message immediately when it appears in the DOM.
+- The component spreads `...rest` so consumers can add ARIA attributes (e.g. `aria-labelledby`, `aria-describedby`) at the card level.
+- Each button (`Login with your Carleton account`, `Login with Google`, etc.) has an explicit `title` prop which maps to visible button text, ensuring clear interactive labels for keyboard and screen reader users.
+- Social login buttons are only rendered when the corresponding handler exists in `onClickHandler`, preventing empty or inert elements from appearing in the DOM.
