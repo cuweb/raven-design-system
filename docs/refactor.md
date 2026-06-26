@@ -55,7 +55,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Card | done | No | No
 | Carleton360 | done | No | No
 | Details | done | No | No
-| Description | description | No | No
+| Description | done | No | No
 | Figure | done | No | No
 | Listing | done | No | No
 | Location | done | No | No
