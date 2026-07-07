@@ -69,13 +69,13 @@
 }
 
 @media (min-width: $rds-media-query-lg) {
-    .cu-fullbanner__wrap {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: var(--rds--spacing-medium);
-    }
+  .cu-fullbanner__wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--rds--spacing-medium);
+  }
 }
 
 .cu-fullbanner__inner {
@@ -83,15 +83,15 @@
   margin-left: auto;
   margin-right: auto;
 
-    @media (min-width: $rds-media-query-lg) {
-        &--lg {
-            max-width: var(--rds--layout-content-size);
-        }
-
-        &--xl {
-            max-width: var(--rds--layout-wide-size);
-        }
+  @media (min-width: $rds-media-query-lg) {
+    &--lg {
+      max-width: var(--rds--layout-content-size);
     }
+
+    &--xl {
+      max-width: var(--rds--layout-wide-size);
+    }
+  }
 
   &--start {
     justify-content: flex-start;
@@ -107,21 +107,21 @@
 }
 
 .cu-fullbanner__box {
-    background-color: var(--rds--color-black);
-    padding: var(--rds--spacing-large);
-    width: 100%;
-    
-    > * + * {
-        margin-top: var(--rds--spacing-large);
-    }
-    
-    p {
-        color: var(--rds--color-white);
-    }
-    
-    @media (min-width: $rds-media-query-lg) {
-        max-width: 48rem;
-        background-color: color-mix(in srgb, var(--rds--color-black) 80%, transparent);
-        border-radius: var(--rds--radius-lg);
+  background-color: var(--rds--color-black);
+  padding: var(--rds--spacing-large);
+  width: 100%;
+
+  > * + * {
+    margin-top: var(--rds--spacing-large);
+  }
+
+  p {
+    color: var(--rds--color-white);
+  }
+
+  @media (min-width: $rds-media-query-lg) {
+    max-width: 48rem;
+    background-color: color-mix(in srgb, var(--rds--color-black) 80%, transparent);
+    border-radius: var(--rds--radius-lg);
   }
 }

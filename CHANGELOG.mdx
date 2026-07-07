@@ -17,7 +17,11 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+_Added_ `Modal` component — dismissible overlay for freeform content, rendered as a native `<dialog>` with configurable `size`, optional close button, and `preventOutsideClick`/`alignTop` options.
+_Added_ `Dialog` component — non-dismissible confirmation/action prompt with a built-in title, optional description, and button footer; only closable via an action button.
 _Changed_ Upgraded `packageManager` from `pnpm@10.34.4` to `pnpm@11.10.0`. Migrated pnpm config out of `package.json#pnpm` and `.npmrc` (non-auth settings) into `pnpm-workspace.yaml` to follow pnpm 11 conventions.
+_Breaking_ Simplified `Toast` to a plain `title`/`content` prop API (matching `Alert`), removing the `Toast.Title` and `Toast.Content` subcomponents. Update `<Toast.Title>`/`<Toast.Content>` children to `title`/`content` props: `<Toast type="success" title="..." content="..." />`.
+_Added_ Shared VSCode workspace settings (`.vscode/settings.json`, `.vscode/extensions.json`) for consistent format-on-save and recommended extensions, a `.prettierignore`, `.gitattributes` for LF line-ending normalization, and `lint-staged` wired into the pre-commit hook to auto-format/fix staged files.
 
 ## [0.8.0] - 2026-06-25
 
@@ -181,12 +185,11 @@ _Changed_ Upgraded `packageManager` from `pnpm@10.34.4` to `pnpm@11.10.0`. Migra
 - _Changed_: Renamed package from `@cuweb/rds-2.0` to `@carletonuniversity/rds2`, added a `repository` field to `package.json`, and updated all docs and examples to match. The repository will be renamed from `cuweb/rds-2.0` to `cuweb/rds2` to align.
 - _Fixed_: Resolved oEmbed provider handling issues for video cards in `src/utils/video/providers.ts` and `src/utils/video/useOEmbed.ts`.
 
-
 ## [0.4.0] - 2026-04-30
 
 - _Added_: Top-level `CONTRIBUTING.md` and per-section READMEs ([docs/README.md](docs/README.md), [docs/consumers/README.md](docs/consumers/README.md), [docs/contributing/README.md](docs/contributing/README.md)) so each audience has a clear entry point.
 - _Added_: New [docs/contributing/architecture.md](docs/contributing/architecture.md), [docs/contributing/conventions.md](docs/contributing/conventions.md), and [docs/contributing/testing.md](docs/contributing/testing.md) covering build pipeline, file conventions, and the testing/a11y workflow.
-- _Added_: Centralized asset path config in [src/config/assets.json](src/config/assets.json), generated to [src/config/assets.ts](src/config/assets.ts) + [src/styles/auto/_assets.scss](src/styles/auto/_assets.scss) by [scripts/build-assets.mjs](scripts/build-assets.mjs). Production uses the Carleton CDN; Storybook dev pulls from `public/_assets/` via a separate `_assets-dev.scss` override wired through [.storybook/preview.ts](.storybook/preview.ts). All 68 asset paths (logos, wave graphics, banners, bg images, favicons, lexical icons, Ravens logos) are exposed as camelCase TS constants (`assets.cuLogoColorVerticalOutlined`, `assets.ravensLogo`, etc.) and as kebab-case CSS custom properties (`var(--rds--asset-cu-waves-footer-red)`).
+- _Added_: Centralized asset path config in [src/config/assets.json](src/config/assets.json), generated to [src/config/assets.ts](src/config/assets.ts) + [src/styles/auto/\_assets.scss](src/styles/auto/_assets.scss) by [scripts/build-assets.mjs](scripts/build-assets.mjs). Production uses the Carleton CDN; Storybook dev pulls from `public/_assets/` via a separate `_assets-dev.scss` override wired through [.storybook/preview.ts](.storybook/preview.ts). All 68 asset paths (logos, wave graphics, banners, bg images, favicons, lexical icons, Ravens logos) are exposed as camelCase TS constants (`assets.cuLogoColorVerticalOutlined`, `assets.ravensLogo`, etc.) and as kebab-case CSS custom properties (`var(--rds--asset-cu-waves-footer-red)`).
 - _Added_: `assets` npm script that regenerates the asset files; chained into `dev`, `build`, and `build-storybook` ahead of downstream steps.
 - _Added_: Auto-generated base and typography CSS files: `src/styles/auto/base-styles.css`, `src/styles/auto/typography.css`, and `dist/cutheme/typography.css`.
 - _Added_: New `ContentFlow.stories.tsx` in `src/docs/stylebook/` to demonstrate content and heading flow.
@@ -196,7 +199,7 @@ _Changed_ Upgraded `packageManager` from `pnpm@10.34.4` to `pnpm@11.10.0`. Migra
 - _Added_: `DepartmentBar` component (renamed from `FooterDept`) — department contact strip with optional action buttons ([src/components/DepartmentBar/DepartmentBar.tsx](src/components/DepartmentBar/DepartmentBar.tsx))
 - _Added_: `CookieBanner` component (renamed from `FooterCookie`) — fixed-position cookie consent banner with helpers split into [cookies.ts](src/components/CookieBanner/cookies.ts) ([src/components/CookieBanner/CookieBanner.tsx](src/components/CookieBanner/CookieBanner.tsx))
 - _Added_: `src/data/FooterData.ts` — Carleton link columns, contact info, social icons, footer buttons, plus `FooterType` union and `footerLinksByType` registry (includes a `futureFunder` placeholder cloned from `standard`)
-- _Added_: `sr-only` global utility class in [src/styles/base/_utils.scss](src/styles/base/_utils.scss)
+- _Added_: `sr-only` global utility class in [src/styles/base/\_utils.scss](src/styles/base/_utils.scss)
 - _Changed_: Restructured `docs/` into audience-based folders — `docs/consumers/` (installation, Next.js, icons, per-component CSS, WordPress), `docs/contributing/` (local setup, architecture, conventions, testing, AI session bootstrap), `docs/maintenance/` (releasing, branch protection, automation), and `docs/archive/todos/` for completed planning docs. Old SCREAMING-KEBAB filenames (`CONSUMING.md`, `ICONS.md`, `ICONS-SETUP.md`, `RELEASING.md`, `BRANCH-PROTECTION.md`, `AI-CONTEXT.md`) replaced with audience-grouped lowercase-kebab files.
 - _Changed_: Replaced empty `src/docs/GettingStarted.mdx` placeholder with a five-page section under `src/docs/getting-started/` (Overview, Installation, Next.js, WordPress, Accessibility). Story sort in [.storybook/preview.ts](.storybook/preview.ts) updated to enforce subpage order.
 - _Changed_: Updated typography and heading spacing tokens in `c2b.config.json` and `dist/cutheme/tokens.css` for improved type scale and spacing consistency.

@@ -3,10 +3,7 @@ export interface TextMediaMediaProps {
   align?: 'top' | 'center' | 'bottom';
 }
 
-export const TextMediaMedia = ({
-  children,
-  align = 'top',
-}: TextMediaMediaProps) => {
+export const TextMediaMedia = ({ children, align = 'top' }: TextMediaMediaProps) => {
   const rootClasses = [
     'cu-textmedia__media',
     align !== 'top' ? `cu-textmedia__media--${align}` : undefined,

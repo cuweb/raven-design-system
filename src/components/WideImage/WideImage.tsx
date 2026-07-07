@@ -30,11 +30,7 @@ const WideImageWrapper = ({
   isType = 'light',
   maxWidth = 'aligncontent',
 }: WideImageProps) => {
-  const rootClasses = [
-    'cu-wideimage',
-    `cu-wideimage--${isType}`,
-    maxWidthClasses[maxWidth],
-  ]
+  const rootClasses = ['cu-wideimage', `cu-wideimage--${isType}`, maxWidthClasses[maxWidth]]
     .filter(Boolean)
     .join(' ');
 

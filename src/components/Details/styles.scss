@@ -9,9 +9,9 @@
     background-color: var(--rds--color-grey-pale);
     border-radius: var(--rds--radius-md);
     padding: var(--rds--spacing-medium);
-  
+
     @media (min-width: $rds-media-query-md) {
-        padding: var(--rds--spacing-large);
+      padding: var(--rds--spacing-large);
     }
   }
 
@@ -38,14 +38,14 @@
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
 
-      &:first-child {
-        padding-top: 0;
-      }
+    &:first-child {
+      padding-top: 0;
+    }
 
-      &:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
 
     &--bold {
       font-weight: var(--rds--font-weight-bold);

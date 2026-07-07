@@ -51,10 +51,18 @@
   }
 
   // Gap variants
-  &--gap-none { gap: 0; }
-  &--gap-sm   { gap: var(--rds--spacing-x-small); }
-  &--gap-md   { gap: var(--rds--spacing-medium); }
-  &--gap-lg   { gap: var(--rds--spacing-large); }
+  &--gap-none {
+    gap: 0;
+  }
+  &--gap-sm {
+    gap: var(--rds--spacing-x-small);
+  }
+  &--gap-md {
+    gap: var(--rds--spacing-medium);
+  }
+  &--gap-lg {
+    gap: var(--rds--spacing-large);
+  }
 }
 
 // ─── Grid item ───────────────────────────────────────────────────────────────
@@ -68,10 +76,18 @@
   background-repeat: no-repeat;
 
   // Aspect ratios
-  &--landscape { aspect-ratio: 4 / 3; }
-  &--portrait  { aspect-ratio: 3 / 4; }
-  &--square    { aspect-ratio: 1 / 1; }
-  &--wide      { aspect-ratio: 16 / 9; }
+  &--landscape {
+    aspect-ratio: 4 / 3;
+  }
+  &--portrait {
+    aspect-ratio: 3 / 4;
+  }
+  &--square {
+    aspect-ratio: 1 / 1;
+  }
+  &--wide {
+    aspect-ratio: 16 / 9;
+  }
 
   // Col spans — single col on mobile, span applies at md+
   &--col-2 {
@@ -140,12 +156,12 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-        background-color: var(--rds--color-primary-dark);
+      background-color: var(--rds--color-primary-dark);
 
-        a {
-            color: var(--rds--color-white);
-            text-decoration: none;
-        }
+      a {
+        color: var(--rds--color-white);
+        text-decoration: none;
+      }
     }
   }
 }

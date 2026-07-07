@@ -10,7 +10,8 @@ export const SearchDatabase: SearchDataItem[] = [
   {
     id: 1,
     title: 'Academics & Programs',
-    description: 'Explore undergraduate, graduate, and professional programs across all faculties at Carleton University.',
+    description:
+      'Explore undergraduate, graduate, and professional programs across all faculties at Carleton University.',
     url: '/academics',
   },
   {
@@ -22,13 +23,15 @@ export const SearchDatabase: SearchDataItem[] = [
   {
     id: 3,
     title: 'Research & Innovation',
-    description: 'Discover research centres, funding opportunities, and innovation initiatives at Carleton.',
+    description:
+      'Discover research centres, funding opportunities, and innovation initiatives at Carleton.',
     url: '/research',
   },
   {
     id: 4,
     title: 'Student Services',
-    description: 'Access health services, counselling, the writing centre, and other academic supports.',
+    description:
+      'Access health services, counselling, the writing centre, and other academic supports.',
     url: '/student-services',
   },
   {
@@ -52,7 +55,8 @@ export const SearchDatabase: SearchDataItem[] = [
   {
     id: 8,
     title: 'Faculty of Engineering & Design',
-    description: 'Engineering, architecture, industrial design, and information technology programs.',
+    description:
+      'Engineering, architecture, industrial design, and information technology programs.',
     url: '/engineering-design',
   },
   {
@@ -70,13 +74,15 @@ export const SearchDatabase: SearchDataItem[] = [
   {
     id: 11,
     title: 'Graduate Studies & Postdoctoral Affairs',
-    description: 'Resources for graduate applicants, current students, and postdoctoral researchers.',
+    description:
+      'Resources for graduate applicants, current students, and postdoctoral researchers.',
     url: '/graduate-studies',
   },
   {
     id: 12,
     title: 'International Students',
-    description: 'Immigration advising, support programs, and resources for students studying from abroad.',
+    description:
+      'Immigration advising, support programs, and resources for students studying from abroad.',
     url: '/international',
   },
   {
@@ -88,7 +94,8 @@ export const SearchDatabase: SearchDataItem[] = [
   {
     id: 14,
     title: 'Indigenous Initiatives',
-    description: 'Programs, resources, and community connections supporting Indigenous students and staff.',
+    description:
+      'Programs, resources, and community connections supporting Indigenous students and staff.',
     url: '/indigenous',
   },
   {

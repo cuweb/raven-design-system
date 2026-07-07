@@ -18,7 +18,9 @@ export const NavMenuItem = ({ item, isOpen, onToggle, variant = 'desktop' }: Nav
   // Mobile (browse dropdown): submenu-link styles so all dropdown items — both
   // the primary submenu and browse overflow items — share identical look and feel.
   const linkClass = isMobile
-    ? ['cu-nav__submenu-link', hasSubmenu && isOpen && 'cu-nav__submenu-link--open'].filter(Boolean).join(' ')
+    ? ['cu-nav__submenu-link', hasSubmenu && isOpen && 'cu-nav__submenu-link--open']
+        .filter(Boolean)
+        .join(' ')
     : ['cu-nav__link', hasSubmenu && isOpen && 'cu-nav__link--open'].filter(Boolean).join(' ');
 
   return (
@@ -26,7 +28,10 @@ export const NavMenuItem = ({ item, isOpen, onToggle, variant = 'desktop' }: Nav
       {hasSubmenu ? (
         <button className={linkClass} onClick={onToggle} aria-expanded={isOpen}>
           {item.title}
-          <span className={`cu-nav__arrow${isOpen ? ' cu-nav__arrow--open' : ''}`} aria-hidden="true" />
+          <span
+            className={`cu-nav__arrow${isOpen ? ' cu-nav__arrow--open' : ''}`}
+            aria-hidden="true"
+          />
         </button>
       ) : (
         // eslint-disable-next-line react-hooks/static-components

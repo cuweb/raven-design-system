@@ -36,7 +36,10 @@
     border-radius: var(--rds--radius-sm);
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
 
     &:hover:not(:disabled) {
       background-color: var(--rds--color-grey-pale);

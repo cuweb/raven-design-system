@@ -18,7 +18,8 @@ export const SystemData: Array<{
     title: 'API Gateway',
     image: 'https://picsum.photos/seed/system1/600/400',
     alt: 'Network topology diagram on a monitor',
-    excerpt: 'Routes incoming requests to backend services. Rate-limited per consumer key, with circuit breakers around upstream timeouts.',
+    excerpt:
+      'Routes incoming requests to backend services. Rate-limited per consumer key, with circuit breakers around upstream timeouts.',
     state: 'success',
   },
   {
@@ -27,7 +28,8 @@ export const SystemData: Array<{
     title: 'Authentication Service',
     image: 'https://picsum.photos/seed/system2/600/400',
     alt: 'Security key on a keyboard',
-    excerpt: 'OAuth + SAML SSO provider for first-party apps. Session tokens rotate every 30 minutes via background refresh.',
+    excerpt:
+      'OAuth + SAML SSO provider for first-party apps. Session tokens rotate every 30 minutes via background refresh.',
     state: 'success',
   },
   {
@@ -36,7 +38,8 @@ export const SystemData: Array<{
     title: 'CDN — US-East Region',
     image: 'https://picsum.photos/seed/system3/600/400',
     alt: 'World map with network edge nodes',
-    excerpt: 'Serves static assets from the closest edge to North American users. Cache TTL is 24 hours with on-demand purge.',
+    excerpt:
+      'Serves static assets from the closest edge to North American users. Cache TTL is 24 hours with on-demand purge.',
     state: 'warning',
   },
   {
@@ -45,7 +48,8 @@ export const SystemData: Array<{
     title: 'Primary Database Cluster',
     image: 'https://picsum.photos/seed/system4/600/400',
     alt: 'Database server rack with status LEDs',
-    excerpt: 'Postgres 15 with two read replicas and a hot standby. Read traffic auto-balances; writes go to the primary.',
+    excerpt:
+      'Postgres 15 with two read replicas and a hot standby. Read traffic auto-balances; writes go to the primary.',
     state: 'error',
   },
   {
@@ -54,7 +58,8 @@ export const SystemData: Array<{
     title: 'Build Pipeline',
     image: 'https://picsum.photos/seed/system5/600/400',
     alt: 'CI/CD dashboard showing pipeline stages',
-    excerpt: 'CI/CD orchestrator running test, build, and deploy stages on every pull request and main-branch merge.',
+    excerpt:
+      'CI/CD orchestrator running test, build, and deploy stages on every pull request and main-branch merge.',
     state: 'success',
   },
   {
@@ -63,7 +68,8 @@ export const SystemData: Array<{
     title: 'Search Index',
     image: 'https://picsum.photos/seed/system6/600/400',
     alt: 'Search results overlay on a screen',
-    excerpt: 'Full-text and faceted search across the public site. Re-indexed weekly, with incremental updates every 15 minutes.',
+    excerpt:
+      'Full-text and faceted search across the public site. Re-indexed weekly, with incremental updates every 15 minutes.',
     state: 'info',
   },
 ];

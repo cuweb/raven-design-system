@@ -101,7 +101,9 @@ export const WithVideo: Story = {
   render: (args) => (
     <FullBanner
       {...args}
-      media={<FullBanner.Video src="https://cdn.carleton.ca/truth/videos/aerial-view-20260513134411.mp4" />}
+      media={
+        <FullBanner.Video src="https://cdn.carleton.ca/truth/videos/aerial-view-20260513134411.mp4" />
+      }
     >
       <ButtonGroup>
         <Button title="Explore Programs" />
@@ -131,7 +133,8 @@ export const ContentBoxLg: Story = {
   ),
   args: {
     title: 'Content Box at 1024px',
-    content: 'The content box inner wrapper is constrained to 1024px (lg), suitable for narrower layouts.',
+    content:
+      'The content box inner wrapper is constrained to 1024px (lg), suitable for narrower layouts.',
     headerType: 'h2',
     image: 'https://picsum.photos/id/20/1920/840',
     opacity: 70,

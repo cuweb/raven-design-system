@@ -46,8 +46,8 @@ export const OnCard: Story = {
           <img src={NewsData[0].image} alt={NewsData[0].alt} width="600" height="400" />
         </Card.Figure>
         <BadgeGroup>
-            <Badge text="Featured" color="black80" rounded="full" />
-            <Badge text="New" color="teal" rounded="full" />
+          <Badge text="Featured" color="black80" rounded="full" />
+          <Badge text="New" color="teal" rounded="full" />
         </BadgeGroup>
         <Card.Header title={NewsData[0].title} link={NewsData[0].link} />
         <Card.Body>

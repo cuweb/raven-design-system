@@ -44,7 +44,9 @@ const FullBannerWrapper = ({
   contentBox = 'xl',
   justify = 'start',
 }: FullBannerProps) => {
-  const rootClasses = ['cu-layout cu-fullbanner', maxWidthClasses[maxWidth]].filter(Boolean).join(' ');
+  const rootClasses = ['cu-layout cu-fullbanner', maxWidthClasses[maxWidth]]
+    .filter(Boolean)
+    .join(' ');
 
   const overlayStyle = {
     '--cu-fullbanner-overlay': `rgba(0, 0, 0, ${opacity / 100})`,

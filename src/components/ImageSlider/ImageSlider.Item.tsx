@@ -35,7 +35,11 @@ export const ImageSliderItem = ({
 
   return (
     <div className="cu-slider__slide">
-      <div className={itemClasses} style={inlineStyle} aria-hidden={hasOverlay ? undefined : 'true'}>
+      <div
+        className={itemClasses}
+        style={inlineStyle}
+        aria-hidden={hasOverlay ? undefined : 'true'}
+      >
         {hasOverlay && (
           <div className={`cu-slider__overlay${link ? ' cu-slider__overlay--linked' : ''}`}>
             {link ? (

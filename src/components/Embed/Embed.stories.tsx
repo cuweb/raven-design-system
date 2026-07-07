@@ -106,7 +106,10 @@ export const HubSpot: Story = {
 export const AlignWide: Story = {
   render: () => (
     <Embed maxWidth="alignwide">
-      <Embed.YouTube title="YouTube embed — wide" url="https://www.youtube.com/watch?v=Fbb1gdTcH-A" />
+      <Embed.YouTube
+        title="YouTube embed — wide"
+        url="https://www.youtube.com/watch?v=Fbb1gdTcH-A"
+      />
     </Embed>
   ),
 };
@@ -114,7 +117,10 @@ export const AlignWide: Story = {
 export const AlignFull: Story = {
   render: () => (
     <Embed maxWidth="alignfull">
-      <Embed.YouTube title="YouTube embed — full width" url="https://www.youtube.com/watch?v=Fbb1gdTcH-A" />
+      <Embed.YouTube
+        title="YouTube embed — full width"
+        url="https://www.youtube.com/watch?v=Fbb1gdTcH-A"
+      />
     </Embed>
   ),
 };

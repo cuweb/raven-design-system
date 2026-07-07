@@ -1,0 +1,93 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ModalStories from './Modal.stories';
+
+<Meta of={ModalStories} />
+
+# Modal
+
+A general-purpose overlay container for freeform content. Renders as a native `<dialog>` opened with `showModal()`, so it sits in the browser's top layer with a built-in backdrop and traps focus automatically.
+
+## When to use
+
+- Show supplementary content (forms, details, media) without navigating away from the page
+- Present freeform content that doesn't fit the fixed title/description/action shape of `Dialog`
+- Use `preventOutsideClick` for flows the user must consciously exit (e.g. an in-progress form) rather than for simple confirmations — `Dialog` is purpose-built for confirmation prompts
+
+For a non-dismissible confirmation prompt with a built-in title, description, and button footer, use `Dialog` instead.
+
+## Import
+
+```tsx
+import { Modal } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+const [isOpen, setIsOpen] = useState(false);
+
+<Modal isOpen={isOpen} setIsOpen={setIsOpen} ariaLabel="Example modal">
+  <h2>Modal title</h2>
+  <p>Modal content goes here.</p>
+</Modal>
+
+// Larger size
+<Modal isOpen={isOpen} setIsOpen={setIsOpen} ariaLabel="Large modal" size="lg">
+  ...
+</Modal>
+
+// Non-dismissible via Esc / backdrop click
+<Modal isOpen={isOpen} setIsOpen={setIsOpen} ariaLabel="Non-dismissible modal" preventOutsideClick>
+  ...
+</Modal>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={ModalStories.Default} />
+<Controls of={ModalStories.Default} />
+
+### Large size
+
+`size` controls the modal's max-width: `sm`, `md` (default), `lg`, `xl`, or `full`.
+
+<Canvas of={ModalStories.LargeSize} />
+
+### Non-dismissible
+
+With `preventOutsideClick`, the Esc key and backdrop clicks no longer close the modal — only an explicit action (e.g. a button inside the modal, or `hideCloseButton={false}`'s close button) can.
+
+<Canvas of={ModalStories.NonDismissible} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-modal` | Always — base class, the `<dialog>` element itself |
+| `cu-modal--sm` / `--md` / `--lg` / `--xl` / `--full` | Set by the `size` prop (default `md`) |
+| `cu-modal--align-top` | `alignTop` is true |
+| `cu-modal__close` | Close (X) button, rendered unless `hideCloseButton` is true |
+| `cu-modal__content` | Wrapper around `children` |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--spacing-large` | Viewport inset / horizontal padding |
+| `--rds--spacing-x-large` | Vertical padding |
+| `--rds--spacing-2-x-large` | Top offset when `alignTop` is set |
+| `--rds--spacing-small` | Close button padding |
+| `--rds--radius-md` | Modal and close-button corner radius |
+| `--rds--shadow-natural` | Modal drop shadow |
+| `--rds--color-black` | `::backdrop` tint |
+| `--rds--color-grey-dark` | Close button icon color |
+| `--rds--color-grey-lighter` | Close button hover/focus background |
+
+## Accessibility
+
+- Renders as a native `<dialog>` opened via `showModal()`, which traps focus within the modal and restores focus to the triggering element on close.
+- Requires an `ariaLabel`, applied as `aria-label`, since the modal has no built-in visible heading — pass `ariaDescribedBy` (an id of content inside the modal) for additional context if needed.
+- Dismissible by default via the close button, the Esc key, and a backdrop click; set `preventOutsideClick` to require an explicit in-modal action instead.
+- The close button includes a visually-hidden "Close" label (`.sr-only`) for screen readers.

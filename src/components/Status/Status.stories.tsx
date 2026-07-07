@@ -102,10 +102,18 @@ export const FormatHoursStatus: Story = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-        <Status type="hours" variant={open.variant}>{open.label}</Status>
-        <Status type="hours" variant={closingSoon.variant}>{closingSoon.label}</Status>
-        <Status type="hours" variant={closed.variant}>{closed.label}</Status>
-        <Status type="hours" variant={beforeOpen.variant}>{beforeOpen.label}</Status>
+        <Status type="hours" variant={open.variant}>
+          {open.label}
+        </Status>
+        <Status type="hours" variant={closingSoon.variant}>
+          {closingSoon.label}
+        </Status>
+        <Status type="hours" variant={closed.variant}>
+          {closed.label}
+        </Status>
+        <Status type="hours" variant={beforeOpen.variant}>
+          {beforeOpen.label}
+        </Status>
       </div>
     );
   },

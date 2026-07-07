@@ -123,12 +123,12 @@
 // ─── Icon thumb ───────────────────────────────────────────────────────────────
 
 .cu-listing__icon-thumb {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: var(--rds--color-primary);
-    margin: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--rds--color-primary);
+  margin: 0;
 }
 
 @media (min-width: $rds-media-query-md) {

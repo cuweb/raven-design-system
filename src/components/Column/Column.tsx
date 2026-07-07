@@ -12,17 +12,11 @@ export interface ColumnProps {
 }
 
 export const ColumnWrapper = ({ children, cols = '2', maxWidth = 'aligncontent' }: ColumnProps) => {
-
-  const rootClasses = [
-    `cu-layout cu-column cu-column--${gridColumnClasses[cols]}`,
-    maxWidth,
-  ]
+  const rootClasses = [`cu-layout cu-column cu-column--${gridColumnClasses[cols]}`, maxWidth]
     .filter(Boolean)
     .join(' ');
 
-  return <div
-    className={rootClasses}>{children}</div>;
-    
+  return <div className={rootClasses}>{children}</div>;
 };
 
 export const Column = Object.assign(ColumnWrapper, {

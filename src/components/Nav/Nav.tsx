@@ -44,8 +44,17 @@ const moveButtonsIntoBottom = (children: ReactNode): ReactNode => {
   if (buttonsIndex === -1) return children;
 
   const buttons = topChildren[buttonsIndex];
-  items[topIndex] = cloneElement(top, undefined, ...topChildren.filter((_, i) => i !== buttonsIndex));
-  items[bottomIndex] = cloneElement(bottom, undefined, ...Children.toArray(bottom.props.children), buttons);
+  items[topIndex] = cloneElement(
+    top,
+    undefined,
+    ...topChildren.filter((_, i) => i !== buttonsIndex),
+  );
+  items[bottomIndex] = cloneElement(
+    bottom,
+    undefined,
+    ...Children.toArray(bottom.props.children),
+    buttons,
+  );
   return items;
 };
 

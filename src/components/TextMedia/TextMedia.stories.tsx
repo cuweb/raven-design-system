@@ -127,7 +127,10 @@ export const WithVideo: Story = {
         </ButtonGroup>
       </TextMedia.Content>
       <TextMedia.Media>
-        <Embed.YouTube title="Carleton University" url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+        <Embed.YouTube
+          title="Carleton University"
+          url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        />
       </TextMedia.Media>
     </TextMedia>
   ),
@@ -175,5 +178,3 @@ export const EqualColumns: Story = {
     </TextMedia>
   ),
 };
-
-

@@ -9,7 +9,7 @@ export const WideImageSignup = ({ buttonText = 'Subscribe' }: WideImageSignupPro
   return (
     <div className="cu-wideimage__signup">
       <div className="cu-wideimage__signup-row">
-        <label htmlFor="cu-wideimage-email"         className="sr-only">
+        <label htmlFor="cu-wideimage-email" className="sr-only">
           Enter your email address
         </label>
         <input

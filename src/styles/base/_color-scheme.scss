@@ -9,7 +9,7 @@
 // their root element. Components with an optional dark background can add it
 // conditionally based on a prop.
 
-[data-color-scheme="dark"] {
+[data-color-scheme='dark'] {
   color: var(--rds--color-white);
   background-color: var(--rds--color-black);
 

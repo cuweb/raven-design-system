@@ -1,0 +1,73 @@
+$cu-modal-sizes: (
+  sm: 24rem,
+  md: 32rem,
+  lg: 48rem,
+  xl: 64rem,
+  full: calc(100% - var(--rds--spacing-large) * 2),
+);
+
+.cu-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 51;
+  width: calc(100% - var(--rds--spacing-large) * 2);
+  max-height: calc(100vh - var(--rds--spacing-large) * 2);
+  margin: 0;
+  padding: var(--rds--spacing-x-large);
+  border: none;
+  border-radius: var(--rds--radius-md);
+  box-shadow: var(--rds--shadow-natural);
+  overflow: auto;
+
+  &::backdrop {
+    background-color: var(--rds--color-black);
+    opacity: 0.5;
+  }
+}
+
+.cu-modal--align-top {
+  top: var(--rds--spacing-2-x-large);
+  transform: translate(-50%, 0);
+}
+
+@each $name, $width in $cu-modal-sizes {
+  .cu-modal--#{$name} {
+    max-width: $width;
+  }
+}
+
+.cu-modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--rds--spacing-small);
+  background-color: transparent;
+  border: none;
+  border-radius: 0 var(--rds--radius-md) 0 var(--rds--radius-md);
+  color: var(--rds--color-grey-dark);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--rds--color-grey-lighter);
+    color: var(--rds--color-black);
+  }
+}
+
+.cu-modal__content {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}

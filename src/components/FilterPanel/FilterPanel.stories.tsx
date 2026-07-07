@@ -148,7 +148,10 @@ const PeopleCardsDemo = () => {
   });
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PEOPLE_PER_PAGE));
-  const paginated = filtered.slice((currentPage - 1) * PEOPLE_PER_PAGE, currentPage * PEOPLE_PER_PAGE);
+  const paginated = filtered.slice(
+    (currentPage - 1) * PEOPLE_PER_PAGE,
+    currentPage * PEOPLE_PER_PAGE,
+  );
 
   return (
     <>

@@ -35,7 +35,7 @@
 }
 
 .cu-calendar__month {
-//   flex: 1;
+  //   flex: 1;
   font-size: var(--rds--font-size-medium);
   font-weight: var(--rds--font-weight-semibold);
   color: var(--rds--color-black);
@@ -79,12 +79,24 @@
   text-align: center;
 
   // Grid column offsets for the first row
-  &--col-start-2 { grid-column-start: 2; }
-  &--col-start-3 { grid-column-start: 3; }
-  &--col-start-4 { grid-column-start: 4; }
-  &--col-start-5 { grid-column-start: 5; }
-  &--col-start-6 { grid-column-start: 6; }
-  &--col-start-7 { grid-column-start: 7; }
+  &--col-start-2 {
+    grid-column-start: 2;
+  }
+  &--col-start-3 {
+    grid-column-start: 3;
+  }
+  &--col-start-4 {
+    grid-column-start: 4;
+  }
+  &--col-start-5 {
+    grid-column-start: 5;
+  }
+  &--col-start-6 {
+    grid-column-start: 6;
+  }
+  &--col-start-7 {
+    grid-column-start: 7;
+  }
 }
 
 // ─── Day button ───────────────────────────────────────────────────────────────
@@ -102,7 +114,9 @@
   color: var(--rds--color-black);
   cursor: pointer;
   font-size: inherit;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 
   &:hover:not(:disabled) {
     background-color: var(--rds--color-primary);

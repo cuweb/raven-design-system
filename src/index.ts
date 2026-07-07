@@ -23,9 +23,19 @@ export type { IconName } from '@cuweb/rds-icons';
 // Content
 export { Calendar, type CalendarProps, type CalendarEvent } from './components/Calendar/Calendar';
 export { CallOut, type CallOutProps } from './components/CallOut/CallOut';
-export { Description, DescriptionWrapper, type DescriptionProps } from './components/Description/Description';
-export { DescriptionMeta, type DescriptionMetaProps } from './components/Description/DescriptionMeta';
-export { DescriptionAccordion, type DescriptionAccordionProps } from './components/Description/DescriptionAccordion';
+export {
+  Description,
+  DescriptionWrapper,
+  type DescriptionProps,
+} from './components/Description/Description';
+export {
+  DescriptionMeta,
+  type DescriptionMetaProps,
+} from './components/Description/DescriptionMeta';
+export {
+  DescriptionAccordion,
+  type DescriptionAccordionProps,
+} from './components/Description/DescriptionAccordion';
 export { Details, type DetailsProps } from './components/Details/Details';
 export type { DetailsItemProps } from './components/Details/DetailsItem';
 export { Carleton360, type Carleton360Props } from './components/Carleton360/Carleton360';
@@ -34,7 +44,12 @@ export { Listing, type ListingProps } from './components/Listing';
 export type { CardStatusProps } from './components/Card/CardStatus';
 export type { CardVideoFigureProps } from './components/Card/CardVideoFigure';
 export { FilterPanel, type FilterPanelProps } from './components/FilterPanel';
-export type { SortOption, FilterGroup, FilterOption, ActiveFilters } from './components/FilterPanel';
+export type {
+  SortOption,
+  FilterGroup,
+  FilterOption,
+  ActiveFilters,
+} from './components/FilterPanel';
 export { Figure, type FigureProps } from './components/Figure/Figure';
 export { Location, type LocationProps, type MarkerData } from './components/Location/Location';
 export { Quote, type QuoteProps } from './components/Quote/Quote';
@@ -66,7 +81,10 @@ export { WideWave } from './components/WideWave/WideWave';
 // Navigation
 export { DepartmentBar, type DepartmentBarProps } from './components/DepartmentBar/DepartmentBar';
 export { Footer, type FooterProps } from './components/Footer/Footer';
-export { FooterStandard, type FooterStandardProps } from './components/FooterStandard/FooterStandard';
+export {
+  FooterStandard,
+  type FooterStandardProps,
+} from './components/FooterStandard/FooterStandard';
 export type { FooterType } from './data/FooterData';
 export { Nav, type NavProps, type NavItem } from './components/Nav/Nav';
 export type { NavButtonsProps, NavButton } from './components/Nav/NavButtons';
@@ -77,9 +95,17 @@ export { Pagination, type PaginationProps } from './components/Pagination/Pagina
 
 // Feedback
 export { Alert, type AlertProps } from './components/Alert/Alert';
-export { Toast, type ToastProps, type ToasterProps, type ToastTitleProps, type ToastContentProps } from './components/Toast/Toast';
+export { Dialog, type DialogProps } from './components/Dialog/Dialog';
+export { Modal, type ModalProps, type ModalSize } from './components/Modal/Modal';
+export { Toast, type ToastProps, type ToasterProps } from './components/Toast/Toast';
 export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/ProgressBar';
-export { Status, defaultStatusTypes, type StatusProps, type StatusVariant, type StatusType } from './components/Status/Status';
+export {
+  Status,
+  defaultStatusTypes,
+  type StatusProps,
+  type StatusVariant,
+  type StatusType,
+} from './components/Status/Status';
 export type { StatusTypeDefinition, StatusTypeRegistry } from './components/Status/types';
 export { formatHoursStatus, type HoursStatus } from './components/Status/hoursStatus';
 
@@ -90,7 +116,10 @@ export {
   type SingleMarkerInterface,
 } from './components/LocationPicker/LocationPicker';
 export { SearchInput, type SearchInputProps } from './components/SearchInput/SearchInput';
-export type { SearchInputResultsProps, SearchResultItem } from './components/SearchInput/SearchInputResults';
+export type {
+  SearchInputResultsProps,
+  SearchResultItem,
+} from './components/SearchInput/SearchInputResults';
 
 // Utilities
 export { CookieBanner, type CookieBannerProps } from './components/CookieBanner/CookieBanner';
@@ -102,6 +131,11 @@ export type { SocialIconsItemProps } from './components/SocialIcons/SocialIconsI
 // Hooks
 export { useOEmbed, type UseOEmbedOptions } from './utils/video/useOEmbed';
 export { detectProvider, getProvider, PROVIDER_NAMES } from './utils/video/providers';
-export type { OEmbedData, ProviderDefinition, ProviderName, UseOEmbedResult } from './utils/video/types';
+export type {
+  OEmbedData,
+  ProviderDefinition,
+  ProviderName,
+  UseOEmbedResult,
+} from './utils/video/types';
 export { useReducedMotion } from './utils/motion/useReducedMotion';
 export { useScrollReveal, type ScrollRevealOptions } from './utils/motion/useScrollReveal';

@@ -35,9 +35,7 @@ export const Section = ({
       className={rootClasses}
       data-color-scheme={bgType === 'black' ? 'dark' : undefined}
     >
-        <div className={`has-global-padding ${contentWidth}`}>
-            {children}
-        </div>
+      <div className={`has-global-padding ${contentWidth}`}>{children}</div>
     </SectionWrapper>
   );
 };

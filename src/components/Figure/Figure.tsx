@@ -11,17 +11,11 @@ export interface FigureProps {
   align?: FigureAlignType;
 }
 
-export const Figure = ({
-  children,
-  caption,
-  size = 'full',
-  align = 'none',
-}: FigureProps) => {
+export const Figure = ({ children, caption, size = 'full', align = 'none' }: FigureProps) => {
   // alignleft / alignright opt the figure out of the is-layout-constrained
   // rule in layout.css that would otherwise force margin-left/right: auto
   // and prevent float margins from applying.
-  const layoutAlignClass =
-    align === 'left' ? 'alignleft' : align === 'right' ? 'alignright' : '';
+  const layoutAlignClass = align === 'left' ? 'alignleft' : align === 'right' ? 'alignright' : '';
 
   const rootClasses = [
     'cu-figure',

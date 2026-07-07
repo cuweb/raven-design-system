@@ -5,7 +5,8 @@ export const PageData = [
     title: 'Getting Started with the Design System',
     image: 'https://picsum.photos/seed/news1/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Readers skim first, so lead with purpose, trim filler, and make every heading earn its click.',
+    excerpt:
+      'Readers skim first, so lead with purpose, trim filler, and make every heading earn its click.',
     date: '2026-01-15 10:00:00',
   },
   {
@@ -14,7 +15,8 @@ export const PageData = [
     title: 'Accessibility Guidelines for Component Authors',
     image: 'https://picsum.photos/seed/news2/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Accessibility starts early: strong contrast, clear focus states, and components that behave with keyboards.',
+    excerpt:
+      'Accessibility starts early: strong contrast, clear focus states, and components that behave with keyboards.',
     date: '2026-02-04 14:30:00',
   },
   {
@@ -23,7 +25,8 @@ export const PageData = [
     title: 'Component Architecture and Composition Patterns',
     image: 'https://picsum.photos/seed/news3/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Modern design systems thrive when tokens, docs, and testing pipelines evolve together instead of in silos.',
+    excerpt:
+      'Modern design systems thrive when tokens, docs, and testing pipelines evolve together instead of in silos.',
     date: '2026-02-22 09:15:00',
   },
   {
@@ -32,7 +35,8 @@ export const PageData = [
     title: 'WordPress Block Integration Guide',
     image: 'https://picsum.photos/seed/news4/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Block-first workflows move faster when patterns are opinionated, reusable, and easy for editors to trust.',
+    excerpt:
+      'Block-first workflows move faster when patterns are opinionated, reusable, and easy for editors to trust.',
     date: '2026-03-10 16:45:00',
   },
   {
@@ -41,7 +45,8 @@ export const PageData = [
     title: 'Styling Conventions and SCSS Token Usage',
     image: 'https://picsum.photos/seed/news5/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Container queries let components respond to their own space, reducing brittle page-level breakpoint hacks.',
+    excerpt:
+      'Container queries let components respond to their own space, reducing brittle page-level breakpoint hacks.',
     date: '2026-03-14 11:20:00',
   },
   {
@@ -50,7 +55,8 @@ export const PageData = [
     title: 'TypeScript Patterns for Shared UI Components',
     image: 'https://picsum.photos/seed/news6/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Lean typings, strict unions, and shared utility types can prevent regressions without slowing feature work.',
+    excerpt:
+      'Lean typings, strict unions, and shared utility types can prevent regressions without slowing feature work.',
     date: '2026-03-18 08:40:00',
   },
   {
@@ -59,7 +65,8 @@ export const PageData = [
     title: 'Design Tokens Reference and Naming Rules',
     image: 'https://picsum.photos/seed/news7/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Teams now tokenize spacing, motion, and elevation so themes stay consistent across apps and CMS surfaces.',
+    excerpt:
+      'Teams now tokenize spacing, motion, and elevation so themes stay consistent across apps and CMS surfaces.',
     date: '2026-03-21 13:05:00',
   },
   {
@@ -68,7 +75,8 @@ export const PageData = [
     title: 'Image Performance and Asset Optimization',
     image: 'https://picsum.photos/seed/news8/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Responsive sources, smart placeholders, and precise dimensions are still the quickest route to faster pages.',
+    excerpt:
+      'Responsive sources, smart placeholders, and precise dimensions are still the quickest route to faster pages.',
     date: '2026-03-26 09:50:00',
   },
   {
@@ -77,7 +85,8 @@ export const PageData = [
     title: 'State Management Guidelines for UI Modules',
     image: 'https://picsum.photos/seed/news9/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Most interfaces improve when local state stays local and shared state is promoted only when the pain is real.',
+    excerpt:
+      'Most interfaces improve when local state stays local and shared state is promoted only when the pain is real.',
     date: '2026-04-01 15:10:00',
   },
   {
@@ -86,7 +95,8 @@ export const PageData = [
     title: 'Automated Accessibility Testing in CI',
     image: 'https://picsum.photos/seed/news10/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Automated axe checks catch repeat issues early, but pairing them with manual audits finds the deeper gaps.',
+    excerpt:
+      'Automated axe checks catch repeat issues early, but pairing them with manual audits finds the deeper gaps.',
     date: '2026-04-03 10:35:00',
   },
   {
@@ -95,7 +105,8 @@ export const PageData = [
     title: 'Form Component API and Validation Standards',
     image: 'https://picsum.photos/seed/news11/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Validation, hint text, and error states belong in shared primitives so teams stop reinventing basic UX.',
+    excerpt:
+      'Validation, hint text, and error states belong in shared primitives so teams stop reinventing basic UX.',
     date: '2026-04-06 17:00:00',
   },
   {
@@ -104,7 +115,8 @@ export const PageData = [
     title: 'Rendering Strategy: SSR, SSG, and Hybrid',
     image: 'https://picsum.photos/seed/news12/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Choose rendering strategy by content freshness, not trend cycles, and measure outcomes before switching.',
+    excerpt:
+      'Choose rendering strategy by content freshness, not trend cycles, and measure outcomes before switching.',
     date: '2026-04-08 12:15:00',
   },
   {
@@ -113,7 +125,8 @@ export const PageData = [
     title: 'Developer Experience Principles and Tooling',
     image: 'https://picsum.photos/seed/news13/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Clear docs, sensible defaults, and predictable APIs usually matter more than one more clever abstraction.',
+    excerpt:
+      'Clear docs, sensible defaults, and predictable APIs usually matter more than one more clever abstraction.',
     date: '2026-04-10 09:25:00',
   },
   {
@@ -122,7 +135,8 @@ export const PageData = [
     title: 'Storybook Documentation Authoring Guide',
     image: 'https://picsum.photos/seed/news14/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Stories become living docs when examples mirror real use cases and controls map directly to prop unions.',
+    excerpt:
+      'Stories become living docs when examples mirror real use cases and controls map directly to prop unions.',
     date: '2026-04-12 14:05:00',
   },
   {
@@ -131,7 +145,8 @@ export const PageData = [
     title: 'Motion and Interaction Documentation Standards',
     image: 'https://picsum.photos/seed/news15/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Motion should confirm user intent and hierarchy, not distract from tasks or trigger accessibility concerns.',
+    excerpt:
+      'Motion should confirm user intent and hierarchy, not distract from tasks or trigger accessibility concerns.',
     date: '2026-04-14 11:45:00',
   },
   {
@@ -140,7 +155,8 @@ export const PageData = [
     title: 'Legacy CSS Migration Playbook',
     image: 'https://picsum.photos/seed/news16/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Introduce tokens and naming conventions incrementally so teams can modernize styles without full rewrites.',
+    excerpt:
+      'Introduce tokens and naming conventions incrementally so teams can modernize styles without full rewrites.',
     date: '2026-04-16 16:30:00',
   },
   {
@@ -149,7 +165,8 @@ export const PageData = [
     title: 'API Data Fetching and Caching Recommendations',
     image: 'https://picsum.photos/seed/news17/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Layered caching, stale-while-revalidate, and selective invalidation can stabilize performance under load.',
+    excerpt:
+      'Layered caching, stale-while-revalidate, and selective invalidation can stabilize performance under load.',
     date: '2026-04-19 10:55:00',
   },
   {
@@ -158,7 +175,8 @@ export const PageData = [
     title: 'Using Web Components in React Projects',
     image: 'https://picsum.photos/seed/news18/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Interop is improving, but wrapper patterns and event typing still determine whether adoption feels smooth.',
+    excerpt:
+      'Interop is improving, but wrapper patterns and event typing still determine whether adoption feels smooth.',
     date: '2026-04-21 13:40:00',
   },
   {
@@ -167,7 +185,8 @@ export const PageData = [
     title: 'Progressive Enhancement Implementation Guide',
     image: 'https://picsum.photos/seed/news19/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Start from robust HTML and layer behavior carefully so critical journeys work even under poor conditions.',
+    excerpt:
+      'Start from robust HTML and layer behavior carefully so critical journeys work even under poor conditions.',
     date: '2026-04-23 09:10:00',
   },
   {
@@ -176,7 +195,8 @@ export const PageData = [
     title: 'Build Pipeline and Vite Configuration',
     image: 'https://picsum.photos/seed/news20/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Dependency pre-bundling and targeted code splitting can cut local feedback loops from minutes to seconds.',
+    excerpt:
+      'Dependency pre-bundling and targeted code splitting can cut local feedback loops from minutes to seconds.',
     date: '2026-04-24 15:25:00',
   },
   {
@@ -185,7 +205,8 @@ export const PageData = [
     title: 'Monorepo Structure and Package Boundaries',
     image: 'https://picsum.photos/seed/news21/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Good boundaries, shared linting, and predictable release flows keep monorepos productive instead of noisy.',
+    excerpt:
+      'Good boundaries, shared linting, and predictable release flows keep monorepos productive instead of noisy.',
     date: '2026-04-25 11:05:00',
   },
   {
@@ -194,7 +215,8 @@ export const PageData = [
     title: 'Navigation Patterns and Accessibility Requirements',
     image: 'https://picsum.photos/seed/news22/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Menus, skip links, and landmarks work best when keyboard order and screen reader announcements are tested.',
+    excerpt:
+      'Menus, skip links, and landmarks work best when keyboard order and screen reader announcements are tested.',
     date: '2026-04-27 14:50:00',
   },
   {
@@ -203,7 +225,8 @@ export const PageData = [
     title: 'Pull Request and Code Review Guidelines',
     image: 'https://picsum.photos/seed/news23/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Strong PR notes explain intent, impact, and verification steps so reviewers can focus on real risks faster.',
+    excerpt:
+      'Strong PR notes explain intent, impact, and verification steps so reviewers can focus on real risks faster.',
     date: '2026-04-29 08:35:00',
   },
   {
@@ -212,7 +235,8 @@ export const PageData = [
     title: 'Frontend Security Checklist and Best Practices',
     image: 'https://picsum.photos/seed/news24/600/400',
     alt: 'News article thumbnail',
-    excerpt: 'Treat input as untrusted, lock down dependencies, and make CSP part of the default deployment checklist.',
+    excerpt:
+      'Treat input as untrusted, lock down dependencies, and make CSP part of the default deployment checklist.',
     date: '2026-05-01 10:20:00',
   },
 ];

@@ -8,7 +8,12 @@ export interface DetailsProps {
   isGrey?: boolean;
 }
 
-export const DetailsWrapper = ({ children, as: Tag = 'ul', hasDividers = false, isGrey = false }: DetailsProps) => {
+export const DetailsWrapper = ({
+  children,
+  as: Tag = 'ul',
+  hasDividers = false,
+  isGrey = false,
+}: DetailsProps) => {
   const classes = [
     'cu-details',
     hasDividers ? 'cu-details--dividers' : undefined,

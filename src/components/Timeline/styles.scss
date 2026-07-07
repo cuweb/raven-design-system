@@ -6,9 +6,9 @@
   &__item {
     padding-left: #{$rds-spacing-x-large};
     padding-bottom: var(--rds--spacing-x-large);
-    
+
     &:last-child {
-        padding-bottom: var(--rds--spacing-medium);
+      padding-bottom: var(--rds--spacing-medium);
     }
   }
 
@@ -37,12 +37,12 @@
   }
 
   &__content {
-        .cu-pageheader + p {
-            margin-top: var(--rds--spacing-x-small);
-        }
+    .cu-pageheader + p {
+      margin-top: var(--rds--spacing-x-small);
+    }
 
-      *:last-child {
-        margin-bottom: 0;
-      }
+    *:last-child {
+      margin-bottom: 0;
+    }
   }
 }

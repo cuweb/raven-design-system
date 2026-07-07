@@ -1,17 +1,17 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-progressbar {
-    position: relative;
-    height: 0.75rem;
-    background-color: var(--rds--color-grey-pale);
-    border-radius: var(--rds--radius-sm);
-    overflow: hidden;
+  position: relative;
+  height: 0.75rem;
+  background-color: var(--rds--color-grey-pale);
+  border-radius: var(--rds--radius-sm);
+  overflow: hidden;
 }
 
 .cu-progressbar__fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background: linear-gradient(to right, var(--rds--color-primary), var(--rds--color-primary-dark));
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right, var(--rds--color-primary), var(--rds--color-primary-dark));
 }

@@ -28,13 +28,12 @@ type Story = StoryObj<typeof Toast>;
 export const Default: Story = {
   args: {
     type: 'success',
+    title: 'Notification',
+    content: 'Your changes have been saved successfully.',
   },
   render: (args) => (
     <Toast.Toaster>
-      <Toast type={args.type}>
-        <Toast.Title>Notification</Toast.Title>
-        <Toast.Content>Your changes have been saved successfully.</Toast.Content>
-      </Toast>
+      <Toast {...args} />
     </Toast.Toaster>
   ),
 };
@@ -42,22 +41,10 @@ export const Default: Story = {
 export const AllTypes: Story = {
   render: () => (
     <Toast.Toaster>
-      <Toast type="success">
-        <Toast.Title>Success</Toast.Title>
-        <Toast.Content>Your changes have been saved.</Toast.Content>
-      </Toast>
-      <Toast type="error">
-        <Toast.Title>Error</Toast.Title>
-        <Toast.Content>Unable to complete the request.</Toast.Content>
-      </Toast>
-      <Toast type="warning">
-        <Toast.Title>Warning</Toast.Title>
-        <Toast.Content>This action cannot be undone.</Toast.Content>
-      </Toast>
-      <Toast type="info">
-        <Toast.Title>Information</Toast.Title>
-        <Toast.Content>Your session will expire in 10 minutes.</Toast.Content>
-      </Toast>
+      <Toast type="success" title="Success" content="Your changes have been saved." />
+      <Toast type="error" title="Error" content="Unable to complete the request." />
+      <Toast type="warning" title="Warning" content="This action cannot be undone." />
+      <Toast type="info" title="Information" content="Your session will expire in 10 minutes." />
     </Toast.Toaster>
   ),
 };

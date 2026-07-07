@@ -43,13 +43,28 @@ export const Login = ({
         <p className="cu-login__social-label">Or login with one of the following:</p>
         <ButtonGroup>
           {onClickHandler?.google && (
-            <Button title="Login with Google" color="white" onClick={onClickHandler.google} isFull />
+            <Button
+              title="Login with Google"
+              color="white"
+              onClick={onClickHandler.google}
+              isFull
+            />
           )}
           {onClickHandler?.linkedIn && (
-            <Button title="Login with LinkedIn" color="white" onClick={onClickHandler.linkedIn} isFull />
+            <Button
+              title="Login with LinkedIn"
+              color="white"
+              onClick={onClickHandler.linkedIn}
+              isFull
+            />
           )}
           {onClickHandler?.twitter && (
-            <Button title="Login with Twitter" color="white" onClick={onClickHandler.twitter} isFull />
+            <Button
+              title="Login with Twitter"
+              color="white"
+              onClick={onClickHandler.twitter}
+              isFull
+            />
           )}
         </ButtonGroup>
       </div>

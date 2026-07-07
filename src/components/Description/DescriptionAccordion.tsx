@@ -28,7 +28,10 @@ export const DescriptionAccordion = ({ term, children }: DescriptionAccordionPro
           <Icon
             name="chevron-right"
             size={20}
-            className={['cu-description__accordion-icon', isOpen ? 'cu-description__accordion-icon--open' : undefined]
+            className={[
+              'cu-description__accordion-icon',
+              isOpen ? 'cu-description__accordion-icon--open' : undefined,
+            ]
               .filter(Boolean)
               .join(' ')}
           />

@@ -53,7 +53,8 @@ export const Default: Story = {
   args: {
     title: 'Wide Image Light',
     headerType: 'h2',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis.',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis.',
     isType: 'light',
     maxWidth: 'aligncontent',
   },
@@ -63,7 +64,8 @@ export const Dark: Story = {
   args: {
     title: 'Wide Image Dark',
     headerType: 'h2',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis.',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis.',
     isType: 'dark',
     maxWidth: 'aligncontent',
   },
@@ -81,7 +83,8 @@ export const WithImage: Story = {
   args: {
     title: 'Wide Image with Photo',
     headerType: 'h1',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis.',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis.',
     isType: 'image',
     image: 'https://picsum.photos/id/381/1200/600',
     opacity: 70,

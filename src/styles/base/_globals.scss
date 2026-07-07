@@ -24,3 +24,8 @@ html {
 article {
   width: 100%;
 }
+
+// Body scroll lock while a Modal or Dialog is open (see src/utils/dialog/useDialogElement.ts)
+body.cu-dialog-open {
+  overflow: hidden;
+}

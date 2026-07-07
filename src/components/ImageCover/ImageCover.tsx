@@ -37,10 +37,8 @@ export const ImageCover = ({
 
   return (
     <section className={rootClasses} style={bgImageStyles}>
-        <div className={`has-global-padding ${contentWidth}`}>
-          {children}
-        </div>
-        <div className="cu-imagecover__wave alignfull" />
+      <div className={`has-global-padding ${contentWidth}`}>{children}</div>
+      <div className="cu-imagecover__wave alignfull" />
     </section>
   );
 };

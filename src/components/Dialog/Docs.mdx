@@ -1,0 +1,85 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+A blocking confirmation / action prompt. Renders as a native `<dialog>` opened with `showModal()`, with a built-in title, optional description, and a button footer. Unlike `Modal`, it cannot be dismissed via the Esc key or a backdrop click — the user must choose an action button.
+
+## When to use
+
+- Confirm a destructive or hard-to-reverse action (e.g. delete, discard changes)
+- Require an explicit acknowledgement before continuing
+- Surface a short, single-purpose message with one or more action buttons
+
+For freeform, dismissible overlay content without a fixed title/description/footer shape, use `Modal` instead.
+
+## Import
+
+```tsx
+import { Dialog } from '@cuweb/rds2';
+```
+
+## Basic usage
+
+```tsx
+const [isOpen, setIsOpen] = useState(false);
+
+// With a confirm action
+<Dialog
+  isOpen={isOpen}
+  setIsOpen={setIsOpen}
+  title="Delete this item?"
+  description="This action cannot be undone."
+>
+  <Button title="Delete" onClick={() => setIsOpen(false)} isSmall />
+</Dialog>
+
+// Title only, no description or extra actions
+<Dialog isOpen={isOpen} setIsOpen={setIsOpen} title="Your changes have been saved." />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={DialogStories.Default} />
+<Controls of={DialogStories.Default} />
+
+### Title only
+
+`description` and `children` (extra action buttons) are both optional — a title alone is enough for a simple acknowledgement dialog.
+
+<Canvas of={DialogStories.TitleOnly} />
+
+## CSS classes
+
+| Class | When applied |
+|---|---|
+| `cu-dialog` | Always — base class, the `<dialog>` element itself |
+| `cu-dialog__body` | Wrapper around the title and description |
+| `cu-dialog__title` | Title `<h2>` element |
+| `cu-dialog__description` | Optional description `<p>` element |
+
+## Design tokens
+
+| Token | Used for |
+|---|---|
+| `--rds--spacing-large` | Viewport inset / padding |
+| `--rds--spacing-medium` | Gap between body and button footer |
+| `--rds--spacing-small` | Gap between title and description |
+| `--rds--radius-md` | Corner radius |
+| `--rds--shadow-natural` | Drop shadow |
+| `--rds--color-black` | `::backdrop` tint |
+| `--rds--color-grey-dark` | Description text color |
+| `--rds--font-size-large` | Title font size |
+| `--rds--font-size-small` | Description font size |
+| `--rds--font-weight-semibold` | Title font weight |
+
+## Accessibility
+
+- Renders as a native `<dialog>` opened via `showModal()`, which traps focus within the dialog and restores focus to the triggering element on close.
+- `aria-labelledby` points at the title; `aria-describedby` points at the description when one is provided.
+- The Esc key and backdrop clicks are intentionally disabled — the dialog can only be closed via an action button, so destructive actions are never dismissed accidentally.
+- The built-in "Close" button always renders last in the footer, after any action buttons passed as `children`.

@@ -33,12 +33,22 @@ export interface CalendarProps {
   onSelect?: (value: Date | Date[]) => void;
 }
 
-const colStartClasses = ['', 'col-start-2', 'col-start-3', 'col-start-4', 'col-start-5', 'col-start-6', 'col-start-7'];
+const colStartClasses = [
+  '',
+  'col-start-2',
+  'col-start-3',
+  'col-start-4',
+  'col-start-5',
+  'col-start-6',
+  'col-start-7',
+];
 
 export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: CalendarProps) => {
   const today = startOfToday();
 
-  const [selectedDays, setSelectedDays] = useState<Date[]>(defaultDate ? [new Date(defaultDate)] : []);
+  const [selectedDays, setSelectedDays] = useState<Date[]>(
+    defaultDate ? [new Date(defaultDate)] : [],
+  );
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
 
@@ -108,7 +118,8 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
     if (isInRange && !isSelected) classes.push('cu-calendar__day-btn--in-range');
     if (isToday(day) && !isSelected) classes.push('cu-calendar__day-btn--today');
     if (isBefore(day, today)) classes.push('cu-calendar__day-btn--disabled');
-    if (!isSameMonth(day, firstDayCurrentMonth)) classes.push('cu-calendar__day-btn--outside-month');
+    if (!isSameMonth(day, firstDayCurrentMonth))
+      classes.push('cu-calendar__day-btn--outside-month');
 
     return classes.join(' ');
   };
@@ -132,11 +143,21 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
   return (
     <div className="cu-calendar">
       <div className="cu-calendar__header">
-        <button type="button" onClick={previousMonth} className="cu-calendar__nav-btn" aria-label="Previous month">
+        <button
+          type="button"
+          onClick={previousMonth}
+          className="cu-calendar__nav-btn"
+          aria-label="Previous month"
+        >
           <Icon name="chevron-left" size={12} />
         </button>
         <h2 className="cu-calendar__month">{format(firstDayCurrentMonth, 'MMMM yyyy')}</h2>
-        <button type="button" onClick={nextMonth} className="cu-calendar__nav-btn" aria-label="Next month">
+        <button
+          type="button"
+          onClick={nextMonth}
+          className="cu-calendar__nav-btn"
+          aria-label="Next month"
+        >
           <Icon name="chevron-right" size={12} />
         </button>
       </div>
@@ -149,7 +170,11 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
         ))}
       </div>
 
-      <div className="cu-calendar__grid" role="grid" aria-label={format(firstDayCurrentMonth, 'MMMM yyyy')}>
+      <div
+        className="cu-calendar__grid"
+        role="grid"
+        aria-label={format(firstDayCurrentMonth, 'MMMM yyyy')}
+      >
         {weeks.map((week, weekIdx) => (
           <div key={weekIdx} role="row" className="cu-calendar__row">
             {week.map((day, dayIdx) => {
@@ -158,7 +183,11 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
                   ? ` cu-calendar__day--${colStartClasses[startDayOfWeek]}`
                   : '';
               return (
-                <div key={day.toString()} className={`cu-calendar__day${colStartClass}`} role="gridcell">
+                <div
+                  key={day.toString()}
+                  className={`cu-calendar__day${colStartClass}`}
+                  role="gridcell"
+                >
                   <button
                     type="button"
                     disabled={isBefore(day, today)}
@@ -168,7 +197,9 @@ export const Calendar = ({ mode = 'single', events, defaultDate, onSelect }: Cal
                   >
                     <time dateTime={format(day, 'yyyy-MM-dd')}>{format(day, 'd')}</time>
                   </button>
-                  {hasEventOnDay(day) && <div className="cu-calendar__event-dot" aria-hidden="true" />}
+                  {hasEventOnDay(day) && (
+                    <div className="cu-calendar__event-dot" aria-hidden="true" />
+                  )}
                 </div>
               );
             })}
