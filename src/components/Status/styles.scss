@@ -17,29 +17,29 @@
     align-items: center;
     gap: 0.5rem;
     font-size: var(--rds--font-size-small);
+}
 
-    &__dot {
-        flex-shrink: 0;
-        display: inline-block;
-        width: 0.75rem;
-        height: 0.75rem;
-        border-radius: 50%;
-        background: var(--cu-status-color);
-    }
+.cu-status__dot {
+    flex-shrink: 0;
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--cu-status-color);
+}
 
-    &--success {
-        --cu-status-color: var(--rds--color-success);
-    }
+.cu-status--success {
+    --cu-status-color: var(--rds--color-success);
+}
 
-    &--error {
-        --cu-status-color: var(--rds--color-error);
-    }
+.cu-status--error {
+    --cu-status-color: var(--rds--color-error);
+}
 
-    &--warning {
-        --cu-status-color: var(--rds--color-warning);
-    }
+.cu-status--warning {
+    --cu-status-color: var(--rds--color-warning);
+}
 
-    &--info {
-        --cu-status-color: var(--rds--color-info);
-    }
+.cu-status--info {
+    --cu-status-color: var(--rds--color-info);
 }

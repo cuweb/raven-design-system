@@ -26,17 +26,17 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 Atomic, composable primitives. Used as building blocks inside larger components.
 
-| Component       | Refactor Status | Primary Review | Secondary Review |
-| --------------- | --------------- | -------------- | ---------------- |
-| Avatar          | done            | No             | No               |
-| Badge           | done            | No             | No               |
-| Badge Group     | done            | No             | No               |
-| Button          | done            | No             | No               |
-| Button Group    | done            | No             | No               |
-| Icon            | done            | No             | No               |
-| Progress Bar    | done            | No             | No               |
-| Social Icons    | done            | No             | No               |
-| Refactor Status | done            | No             | No               |
+| Component    | Refactor Status | Primary Review | Secondary Review |
+| ------------ | --------------- | -------------- | ---------------- |
+| Avatar       | done            | Yes            | No               |
+| Badge        | done            | Yes            | No               |
+| Badge Group  | done            | Yes            | No               |
+| Button       | done            | Yes            | No               |
+| Button Group | done            | Yes            | No               |
+| Icon         | done            | Yes            | No               |
+| Progress Bar | done            | Yes            | No               |
+| Social Icons | done            | Yes            | No               |
+| Status       | done            | Yes            | No               |
 
 ---
 
