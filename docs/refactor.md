@@ -26,8 +26,6 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 Atomic, composable primitives. Used as building blocks inside larger components.
 
-### Completed
-
 | Component       | Refactor Status | Primary Review | Secondary Review |
 | --------------- | --------------- | -------------- | ---------------- |
 | Avatar          | done            | No             | No               |
@@ -45,8 +43,6 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 ## DONE: Content
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
-
-### Completed
 
 | Component          | Refactor Status | Primary Review | Secondary Review |
 | ------------------ | --------------- | -------------- | ---------------- |
@@ -79,8 +75,6 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 Full-width or image/video-heavy promotional components.
 
-### Completed
-
 | Component    | Refactor Status | Primary Review | Secondary Review |
 | ------------ | --------------- | -------------- | ---------------- |
 | Embed        | done            | No             | No               |
@@ -104,8 +98,6 @@ Full-width or image/video-heavy promotional components.
 
 Wayfinding components — site chrome, page-level navigation, search, and pagination.
 
-### Completed
-
 | Component       | Refactor Status | Primary Review | Secondary Review |
 | --------------- | --------------- | -------------- | ---------------- |
 | Department Bar  | done            | No             | No               |
@@ -119,8 +111,6 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 ## DONE: Layout
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
-
-### Completed
 
 | Component    | Refactor Status | Primary Review | Secondary Review |
 | ------------ | --------------- | -------------- | ---------------- |
@@ -142,8 +132,6 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
 
-### Completed
-
 | Component | Refactor Status | Primary Review | Secondary Review |
 | --------- | --------------- | -------------- | ---------------- |
 | Article   | done            | No             | No               |
@@ -156,8 +144,6 @@ WordPress block editor template part wrappers. These map directly to the templat
 ## DONE: Utilities
 
 Behavioral or non-visual components. These don't render meaningful UI on their own.
-
-### Completed
 
 | Component     | Refactor Status | Primary Review | Secondary Review |
 | ------------- | --------------- | -------------- | ---------------- |
@@ -179,14 +165,12 @@ Transient overlays, loading skeletons, error states, and empty states.
 
 Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but are grouped here rather than alongside each component — they share a common skeleton pattern and are typically used together.
 
-### Completed
-
 | Component | Refactor Status | Primary Review | Secondary Review |
 | --------- | --------------- | -------------- | ---------------- |
-| Alert     | done            | No             | No               |
-| Dialog    | port            | No             | No               |
-| Modal     | port            | No             | No               |
-| Toast     | done            | No             | No               |
+| Alert     | done            | Yes            | No               |
+| Dialog    | done            | Yes            | No               |
+| Modal     | done            | Yes            | No               |
+| Toast     | done            | Yes            | No               |
 
 ### Deprecated
 
