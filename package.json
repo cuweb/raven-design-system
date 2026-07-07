@@ -97,7 +97,7 @@
   ],
   "author": "Carleton University",
   "license": "SEE LICENSE IN LICENSE",
-  "packageManager": "pnpm@10.34.1",
+  "packageManager": "pnpm@11.10.0",
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
     "@cuweb/rds-icons": "^0.1.8",
@@ -145,13 +145,5 @@
     "@react-google-maps/api": "^2.20.8",
     "@types/google.maps": "^3.65.2",
     "date-fns": "^4.4.0"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint-plugin-jsx-a11y>eslint": "10",
-        "eslint-plugin-react>eslint": "10"
-      }
-    }
   }
 }
