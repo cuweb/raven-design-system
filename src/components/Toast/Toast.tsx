@@ -5,18 +5,11 @@ import './styles.scss';
 
 export interface ToastProps {
   type: 'success' | 'error' | 'warning' | 'info';
-  children: React.ReactNode;
+  title: string;
+  content?: React.ReactNode;
 }
 
 export interface ToasterProps {
-  children: React.ReactNode;
-}
-
-export interface ToastTitleProps {
-  children: React.ReactNode;
-}
-
-export interface ToastContentProps {
   children: React.ReactNode;
 }
 
@@ -37,15 +30,7 @@ const Toaster = ({ children }: ToasterProps) => (
   </div>
 );
 
-const Title = ({ children }: ToastTitleProps) => (
-  <p className="cu-toast__title">{children}</p>
-);
-
-const Content = ({ children }: ToastContentProps) => (
-  <p className="cu-toast__content">{children}</p>
-);
-
-const ToastBase = ({ children, type }: ToastProps) => {
+const ToastBase = ({ type, title, content }: ToastProps) => {
   const [visible, setVisible] = useState(true);
   const [rendered, setRendered] = useState(true);
 
@@ -62,7 +47,10 @@ const ToastBase = ({ children, type }: ToastProps) => {
         <span className="cu-toast__icon" aria-hidden="true">
           <Icon name={toastIcons[type]} size={20} />
         </span>
-        <div className="cu-toast__body">{children}</div>
+        <div className="cu-toast__body">
+          <p className="cu-toast__title">{title}</p>
+          {content && <p className="cu-toast__content">{content}</p>}
+        </div>
         <button
           type="button"
           className="cu-toast__close"
@@ -78,11 +66,7 @@ const ToastBase = ({ children, type }: ToastProps) => {
 
 ToastBase.displayName = 'Toast';
 Toaster.displayName = 'Toast.Toaster';
-Title.displayName = 'Toast.Title';
-Content.displayName = 'Toast.Content';
 
 export const Toast = Object.assign(ToastBase, {
   Toaster,
-  Title,
-  Content,
 });

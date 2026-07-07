@@ -25,10 +25,11 @@ import { Toast } from '@cuweb/rds2';
 
 ```tsx
 <Toast.Toaster>
-  <Toast type="success">
-    <Toast.Title>Changes saved</Toast.Title>
-    <Toast.Content>Your profile has been updated successfully.</Toast.Content>
-  </Toast>
+  <Toast
+    type="success"
+    title="Changes saved"
+    content="Your profile has been updated successfully."
+  />
 </Toast.Toaster>
 ```
 
@@ -37,9 +38,7 @@ import { Toast } from '@cuweb/rds2';
 | Component | Purpose |
 |---|---|
 | `Toast.Toaster` | Fixed-position `aria-live` region that stacks notifications |
-| `Toast` | Individual notification card with dismiss functionality |
-| `Toast.Title` | Title line (semibold, dark) |
-| `Toast.Content` | Optional body line (regular, muted) |
+| `Toast` | Individual notification card with a title, optional content, and dismiss functionality |
 
 ## Examples
 
