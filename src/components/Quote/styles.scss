@@ -1,42 +1,42 @@
 .cu-quote {
-  position: relative;
-  max-width: 48rem;
+    position: relative;
+    max-width: 48rem;
 
-  p {
-    margin: 0;
-  }
-
-  &--border {
-    border-left: 3px solid var(--rds--color-primary);
-    border-radius: var(--rds--radius-md);
-    padding: var(--rds--spacing-x-small) 0 var(--rds--spacing-x-small) var(--rds--spacing-large);
-  }
-
-  &--quote {
-    padding-top: var(--rds--spacing-large);
-    padding-left: var(--rds--spacing-x-small);
-
-    &::before {
-      content: '\201C';
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 3.5rem;
-      line-height: 1;
-      color: var(--rds--color-primary);
-      font-family: var(--rds--font-family-inter);
+    p {
+        margin: 0;
     }
-  }
 
-  &--center {
-    margin-inline: auto;
-  }
+    &--border {
+        border-left: 3px solid var(--rds--color-primary);
+        border-radius: var(--rds--radius-md);
+        padding: var(--rds--spacing-x-small) 0 var(--rds--spacing-x-small) var(--rds--spacing-large);
+    }
 
-  &__cite {
-    display: block;
-    font-size: var(--rds--font-size-small);
-    font-weight: var(--rds--font-weight-light);
-    font-style: normal;
-    margin-top: var(--rds--spacing-x-small);
-  }
+    &--quote {
+        padding-top: var(--rds--spacing-large);
+        padding-left: var(--rds--spacing-x-small);
+
+        &::before {
+            content: '\201C';
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: var(--rds--color-primary);
+            font-family: var(--rds--font-family-inter);
+        }
+    }
+
+    &--center {
+        margin-inline: auto;
+    }
+
+    &__cite {
+        display: block;
+        font-size: var(--rds--font-size-small);
+        font-weight: var(--rds--font-weight-light);
+        font-style: normal;
+        margin-top: var(--rds--spacing-x-small);
+    }
 }

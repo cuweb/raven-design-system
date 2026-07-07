@@ -1,89 +1,89 @@
 .cu-wideimage__signup {
-  width: 100%;
-  max-width: 36rem;
-  display: flex;
-  flex-direction: column;
-  gap: var(--rds--spacing-small);
+    width: 100%;
+    max-width: 36rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-small);
 }
 
 .cu-wideimage__signup-row {
-  display: flex;
-  gap: var(--rds--spacing-x-small);
+    display: flex;
+    gap: var(--rds--spacing-x-small);
 }
 
 .cu-wideimage__signup-input {
-  flex: 1 1 auto;
-  border-radius: var(--rds--radius-md);
-  border: 1px solid;
-  padding: 0.5rem 0.875rem;
-  font-size: var(--rds--font-size-medium);
-  font-family: var(--rds--font-family-inter);
+    flex: 1 1 auto;
+    border-radius: var(--rds--radius-md);
+    border: 1px solid;
+    padding: 0.5rem 0.875rem;
+    font-size: var(--rds--font-size-medium);
+    font-family: var(--rds--font-family-inter);
 
-  &:focus {
-    outline: 2px solid;
-    outline-offset: 0;
-  }
+    &:focus {
+        outline: 2px solid;
+        outline-offset: 0;
+    }
 }
 
 .cu-wideimage__signup-optin {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--rds--spacing-x-small);
-  text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rds--spacing-x-small);
+    text-align: left;
 }
 
 .cu-wideimage__signup-checkbox {
-  margin-top: 0.125rem;
-  flex-shrink: 0;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
 }
 
 .cu-wideimage__signup-label {
-  font-size: var(--rds--font-size-small);
-  font-weight: var(--rds--font-weight-light);
+    font-size: var(--rds--font-size-small);
+    font-weight: var(--rds--font-weight-light);
 
-  a {
-    font-weight: var(--rds--font-weight-bold);
-  }
+    a {
+        font-weight: var(--rds--font-weight-bold);
+    }
 }
 
 // Input styles per variant
 .cu-wideimage--light .cu-wideimage__signup-input {
-  color: var(--rds--color-grey-dark);
-  background-color: rgba(255, 255, 255, 0.4);
-  border-color: var(--rds--color-grey-light);
-
-  &::placeholder {
     color: var(--rds--color-grey-dark);
-  }
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: var(--rds--color-grey-light);
 
-  &:focus {
-    background-color: var(--rds--color-white);
-    outline-color: var(--rds--color-grey-dark);
-  }
+    &::placeholder {
+        color: var(--rds--color-grey-dark);
+    }
+
+    &:focus {
+        background-color: var(--rds--color-white);
+        outline-color: var(--rds--color-grey-dark);
+    }
 }
 
 .cu-wideimage--dark .cu-wideimage__signup-input,
 .cu-wideimage--image .cu-wideimage__signup-input {
-  color: var(--rds--color-white);
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.4);
+    color: var(--rds--color-white);
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
 
-  &::placeholder {
-    color: var(--rds--color-grey-lighter);
-  }
+    &::placeholder {
+        color: var(--rds--color-grey-lighter);
+    }
 
-  &:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    outline-color: var(--rds--color-white);
-  }
+    &:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+        outline-color: var(--rds--color-white);
+    }
 }
 
 .cu-wideimage--dark .cu-wideimage__signup-label,
 .cu-wideimage--image .cu-wideimage__signup-label {
-  color: var(--rds--color-white);
-
-  a {
     color: var(--rds--color-white);
-    border-bottom: 1px solid var(--rds--color-white);
-  }
+
+    a {
+        color: var(--rds--color-white);
+        border-bottom: 1px solid var(--rds--color-white);
+    }
 }

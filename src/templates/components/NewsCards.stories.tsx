@@ -12,149 +12,169 @@ import { MultiParagraph } from '../../data/storyContent';
 import { NewsData } from '../../data/NewsData';
 
 const meta: Meta = {
-  title: 'Overview/Templates/Components/Cards',
-  parameters: {
-    layout: 'fullscreen',
-  },
-  tags: ['!autodocs'],
+    title: 'Overview/Templates/Components/Cards',
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['!autodocs'],
 };
 
 export default meta;
 type Story = StoryObj;
 
 export const NewsCardComponent: Story = {
-  name: 'News Cards',
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          { id: 'color-contrast', enabled: false },
-          { id: 'landmark-complementary-is-top-level', enabled: false },
-        ],
-      },
+    name: 'News Cards',
+    parameters: {
+        a11y: {
+            config: {
+                rules: [
+                    { id: 'color-contrast', enabled: false },
+                    { id: 'landmark-complementary-is-top-level', enabled: false },
+                ],
+            },
+        },
     },
-  },
-  render: () => (
-    <>
-      <Nav>
-        <Nav.Top>
-          <Nav.Logo title="Raven Design System" link="#" />
-          <Nav.Buttons
-            isSearch
-            buttons={[
-              {
-                title: 'Apply',
-                href: '/apply',
-              },
-              {
-                title: 'Donate',
-                href: '/donate',
-                variant: 'dark',
-              },
-            ]}
-          />
-        </Nav.Top>
-        <Nav.Bottom>
-          <Nav.Menu menu={largeNavData} />
-        </Nav.Bottom>
-      </Nav>
+    render: () => (
+        <>
+            <Nav>
+                <Nav.Top>
+                    <Nav.Logo title="Raven Design System" link="#" />
+                    <Nav.Buttons
+                        isSearch
+                        buttons={[
+                            {
+                                title: 'Apply',
+                                href: '/apply',
+                            },
+                            {
+                                title: 'Donate',
+                                href: '/donate',
+                                variant: 'dark',
+                            },
+                        ]}
+                    />
+                </Nav.Top>
+                <Nav.Bottom>
+                    <Nav.Menu menu={largeNavData} />
+                </Nav.Bottom>
+            </Nav>
 
-      <Main>
-        <Section maxWidth="alignfull" bgType="light-gradient" isHero>
-          <PageHeader
-            as="h1"
-            header="News Card Component"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            size="primary"
-          />
-        </Section>
+            <Main>
+                <Section maxWidth="alignfull" bgType="light-gradient" isHero>
+                    <PageHeader
+                        as="h1"
+                        header="News Card Component"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        size="primary"
+                    />
+                </Section>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Column cols="3">
-          {NewsData.slice(0, 6).map((item) => (
-            <Card key={`news-${item.id}`}>
-              <Card.Figure>
-                <img src={item.image} alt={item.alt} width="600" height="400" />
-              </Card.Figure>
-              <Card.Header title={item.title} link={item.link} date={item.date} readTime="7" />
-              <Card.Body>
-                <Card.Excerpt text={item.excerpt} />
-              </Card.Body>
-            </Card>
-          ))}
-        </Column>
+                <Column cols="3">
+                    {NewsData.slice(0, 6).map((item) => (
+                        <Card key={`news-${item.id}`}>
+                            <Card.Figure>
+                                <img src={item.image} alt={item.alt} width="600" height="400" />
+                            </Card.Figure>
+                            <Card.Header
+                                title={item.title}
+                                link={item.link}
+                                date={item.date}
+                                readTime="7"
+                            />
+                            <Card.Body>
+                                <Card.Excerpt text={item.excerpt} />
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </Column>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Section as="section" maxWidth="alignwide" bgType="grey">
-          <PageHeader
-            as="h2"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            header="Grey Background"
-            size="lg"
-          />
-          <Column cols="3">
-            {NewsData.slice(0, 6).map((item) => (
-              <Card key={`news-${item.id}`}>
-                <Card.Figure>
-                  <img src={item.image} alt={item.alt} width="600" height="400" />
-                </Card.Figure>
-                <Card.Header title={item.title} link={item.link} date={item.date} readTime="7" />
-                <Card.Body>
-                  <Card.Excerpt text={item.excerpt} />
-                </Card.Body>
-              </Card>
-            ))}
-          </Column>
-        </Section>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                    />
+                    <Column cols="3">
+                        {NewsData.slice(0, 6).map((item) => (
+                            <Card key={`news-${item.id}`}>
+                                <Card.Figure>
+                                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                                </Card.Figure>
+                                <Card.Header
+                                    title={item.title}
+                                    link={item.link}
+                                    date={item.date}
+                                    readTime="7"
+                                />
+                                <Card.Body>
+                                    <Card.Excerpt text={item.excerpt} />
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </Column>
+                </Section>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Column cols="4" maxWidth="alignwide">
-          {NewsData.slice(0, 8).map((item) => (
-            <Card key={`news-${item.id}`}>
-              <Card.Figure>
-                <img src={item.image} alt={item.alt} width="600" height="400" />
-              </Card.Figure>
-              <Card.Header title={item.title} link={item.link} date={item.date} readTime="7" />
-              <Card.Body>
-                <Card.Excerpt text={item.excerpt} />
-              </Card.Body>
-            </Card>
-          ))}
-        </Column>
+                <Column cols="4" maxWidth="alignwide">
+                    {NewsData.slice(0, 8).map((item) => (
+                        <Card key={`news-${item.id}`}>
+                            <Card.Figure>
+                                <img src={item.image} alt={item.alt} width="600" height="400" />
+                            </Card.Figure>
+                            <Card.Header
+                                title={item.title}
+                                link={item.link}
+                                date={item.date}
+                                readTime="7"
+                            />
+                            <Card.Body>
+                                <Card.Excerpt text={item.excerpt} />
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </Column>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Section as="section" maxWidth="alignwide" bgType="grey">
-          <PageHeader
-            as="h2"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            header="Grey Background"
-            size="lg"
-            isCenter
-          />
-          <Column cols="4" maxWidth="alignwide">
-            {NewsData.slice(0, 8).map((item) => (
-              <Card key={`news-${item.id}`}>
-                <Card.Figure>
-                  <img src={item.image} alt={item.alt} width="600" height="400" />
-                </Card.Figure>
-                <Card.Header title={item.title} link={item.link} date={item.date} readTime="7" />
-                <Card.Body>
-                  <Card.Excerpt text={item.excerpt} />
-                </Card.Body>
-              </Card>
-            ))}
-          </Column>
-        </Section>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                        isCenter
+                    />
+                    <Column cols="4" maxWidth="alignwide">
+                        {NewsData.slice(0, 8).map((item) => (
+                            <Card key={`news-${item.id}`}>
+                                <Card.Figure>
+                                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                                </Card.Figure>
+                                <Card.Header
+                                    title={item.title}
+                                    link={item.link}
+                                    date={item.date}
+                                    readTime="7"
+                                />
+                                <Card.Body>
+                                    <Card.Excerpt text={item.excerpt} />
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </Column>
+                </Section>
 
-        <MultiParagraph count={2} />
-      </Main>
+                <MultiParagraph count={2} />
+            </Main>
 
-      <FooterStandard type="standard" />
-      <CookieBanner cookieName="storybook-preview-consent" />
-    </>
-  ),
+            <FooterStandard type="standard" />
+            <CookieBanner cookieName="storybook-preview-consent" />
+        </>
+    ),
 };

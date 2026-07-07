@@ -1,75 +1,75 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: var(--rds--color-grey-pale);
-  flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--rds--color-grey-pale);
+    flex-shrink: 0;
 }
 
 .cu-avatar__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .cu-avatar__initials {
-  font-family: var(--rds--font-family-inter);
-  font-weight: var(--rds--font-weight-medium);
-  color: var(--rds--color-grey-dark);
-  line-height: 1;
-  text-transform: uppercase;
-  user-select: none;
+    font-family: var(--rds--font-family-inter);
+    font-weight: var(--rds--font-weight-medium);
+    color: var(--rds--color-grey-dark);
+    line-height: 1;
+    text-transform: uppercase;
+    user-select: none;
 }
 
 // Sizes
 .cu-avatar--sm {
-  width: 2.5rem;
-  height: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
 
-  .cu-avatar__initials {
-    font-size: var(--rds--font-size-small);
-  }
+    .cu-avatar__initials {
+        font-size: var(--rds--font-size-small);
+    }
 }
 
 .cu-avatar--md {
-  width: 4.5rem;
-  height: 4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
 
-  .cu-avatar__initials {
-    font-size: var(--rds--font-size-x-large);
-  }
+    .cu-avatar__initials {
+        font-size: var(--rds--font-size-x-large);
+    }
 }
 
 .cu-avatar--lg {
-  width: 7rem;
-  height: 7rem;
+    width: 7rem;
+    height: 7rem;
 
-  .cu-avatar__initials {
-    font-size: var(--rds--font-size-heading-medium);
-  }
+    .cu-avatar__initials {
+        font-size: var(--rds--font-size-heading-medium);
+    }
 }
 
 // Shape
 .cu-avatar--square {
-  border-radius: var(--rds--radius-md);
+    border-radius: var(--rds--radius-md);
 }
 
 .cu-avatar--circle {
-  border-radius: var(--rds--radius-full);
+    border-radius: var(--rds--radius-full);
 }
 
 // Button reset when Avatar is interactive
 button.cu-avatar {
-  border: none;
-  padding: 0;
-  cursor: pointer;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 
-  &:focus-visible {
-    outline: 2px solid var(--rds--color-primary);
-    outline-offset: 2px;
-  }
+    &:focus-visible {
+        outline: 2px solid var(--rds--color-primary);
+        outline-offset: 2px;
+    }
 }

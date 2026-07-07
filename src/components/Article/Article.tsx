@@ -1,14 +1,14 @@
 import React from 'react';
 
 export interface ArticleProps {
-  children?: React.ReactNode;
-  content?: string;
+    children?: React.ReactNode;
+    content?: string;
 }
 
 export const Article = ({ children, content }: ArticleProps) => {
-  if (content) {
-    return <article dangerouslySetInnerHTML={{ __html: content }} />;
-  }
+    if (content) {
+        return <article dangerouslySetInnerHTML={{ __html: content }} />;
+    }
 
-  return <article>{children}</article>;
+    return <article>{children}</article>;
 };

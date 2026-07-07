@@ -1,38 +1,38 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-callout {
-  margin-inline: auto;
-  padding: var(--rds--spacing-large) var(--rds--spacing-x-large);
-  background-color: var(--rds--color-white);
-  border: 5px solid var(--rds--color-grey-light);
-  border-radius: var(--rds--radius-md);
+    margin-inline: auto;
+    padding: var(--rds--spacing-large) var(--rds--spacing-x-large);
+    background-color: var(--rds--color-white);
+    border: 5px solid var(--rds--color-grey-light);
+    border-radius: var(--rds--radius-md);
 
-  .cu-pageheader {
-    margin-bottom: var(--rds--spacing-medium);
-  }
-
-  .cu-buttongroup {
-    margin-bottom: 0;
-  }
-
-  &--center {
-    text-align: center;
-
-    .cu-buttongroup {
-      justify-content: center;
-    }
-  }
-
-  &--end {
-    text-align: right;
-
-    .cu-pageheader__heading--underline::after {
-      left: auto;
-      right: 0;
+    .cu-pageheader {
+        margin-bottom: var(--rds--spacing-medium);
     }
 
     .cu-buttongroup {
-      justify-content: flex-end;
+        margin-bottom: 0;
     }
-  }
+
+    &--center {
+        text-align: center;
+
+        .cu-buttongroup {
+            justify-content: center;
+        }
+    }
+
+    &--end {
+        text-align: right;
+
+        .cu-pageheader__heading--underline::after {
+            left: auto;
+            right: 0;
+        }
+
+        .cu-buttongroup {
+            justify-content: flex-end;
+        }
+    }
 }

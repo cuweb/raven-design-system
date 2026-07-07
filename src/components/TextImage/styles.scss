@@ -1,90 +1,90 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-textimage {
-  display: flex;
-  flex-direction: column;
-  gap: var(--rds--spacing-large);
-  margin-left: auto;
-  margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-large);
+    margin-left: auto;
+    margin-right: auto;
 
-  &--row-sm {
-    @media (min-width: $rds-media-query-sm) {
-      flex-direction: row;
+    &--row-sm {
+        @media (min-width: $rds-media-query-sm) {
+            flex-direction: row;
+        }
     }
-  }
 
-  &--row-md {
-    @media (min-width: $rds-media-query-md) {
-      flex-direction: row;
+    &--row-md {
+        @media (min-width: $rds-media-query-md) {
+            flex-direction: row;
+        }
     }
-  }
 
-  &--row-lg {
-    @media (min-width: $rds-media-query-lg) {
-      flex-direction: row;
+    &--row-lg {
+        @media (min-width: $rds-media-query-lg) {
+            flex-direction: row;
+        }
     }
-  }
 
-  &--reversed {
-    @media (min-width: $rds-media-query-lg) {
-      flex-direction: row-reverse;
+    &--reversed {
+        @media (min-width: $rds-media-query-lg) {
+            flex-direction: row-reverse;
+        }
     }
-  }
 
-  &--flip-mobile {
-    flex-direction: column-reverse;
+    &--flip-mobile {
+        flex-direction: column-reverse;
 
-    @media (min-width: $rds-media-query-sm) {
-      flex-direction: row;
+        @media (min-width: $rds-media-query-sm) {
+            flex-direction: row;
+        }
     }
-  }
 }
 
 .cu-textimage__content {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  > * {
-    flex-grow: 0;
-  }
+    > * {
+        flex-grow: 0;
+    }
 
-  > .cu-buttongroup {
-    flex: 0 1 auto;
-  }
+    > .cu-buttongroup {
+        flex: 0 1 auto;
+    }
 
-  &--top {
-    justify-content: flex-start;
-  }
+    &--top {
+        justify-content: flex-start;
+    }
 }
 
 .cu-textimage__media-wrap {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--rds--radius-lg);
-  min-height: 360px;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--rds--radius-lg);
+    min-height: 360px;
 
-  &--aspect {
-    aspect-ratio: var(--cu-textimage-aspect);
-    min-height: unset;
-    align-self: flex-start;
-  }
-
-  &--hide-mobile {
-    display: none;
-
-    @media (min-width: $rds-media-query-lg) {
-      display: block;
+    &--aspect {
+        aspect-ratio: var(--cu-textimage-aspect);
+        min-height: unset;
+        align-self: flex-start;
     }
-  }
+
+    &--hide-mobile {
+        display: none;
+
+        @media (min-width: $rds-media-query-lg) {
+            display: block;
+        }
+    }
 }
 
 .cu-textimage__media {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

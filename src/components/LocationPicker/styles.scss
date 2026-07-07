@@ -1,33 +1,33 @@
 .cu-location-picker {
-  position: relative;
+    position: relative;
 
-  &__input {
-    width: 100%;
-    padding: var(--rds--spacing-x-small) var(--rds--spacing-x-small) var(--rds--spacing-x-small)
-      calc(var(--rds--spacing-x-small) * 3.5);
-    border: 1px solid var(--rds--color-grey-light);
-    border-radius: var(--rds--radius-md);
-    font-size: var(--rds--font-size-x-small);
-    color: var(--rds--color-black);
-    background-color: var(--rds--color-white);
+    &__input {
+        width: 100%;
+        padding: var(--rds--spacing-x-small) var(--rds--spacing-x-small) var(--rds--spacing-x-small)
+            calc(var(--rds--spacing-x-small) * 3.5);
+        border: 1px solid var(--rds--color-grey-light);
+        border-radius: var(--rds--radius-md);
+        font-size: var(--rds--font-size-x-small);
+        color: var(--rds--color-black);
+        background-color: var(--rds--color-white);
 
-    &:focus {
-      outline: 2px solid var(--rds--color-primary);
-      outline-offset: 2px;
-      border-color: var(--rds--color-primary);
+        &:focus {
+            outline: 2px solid var(--rds--color-primary);
+            outline-offset: 2px;
+            border-color: var(--rds--color-primary);
+        }
+
+        &::placeholder {
+            color: var(--rds--color-grey);
+        }
     }
 
-    &::placeholder {
-      color: var(--rds--color-grey);
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: var(--rds--spacing-x-small);
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: var(--rds--color-grey);
     }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 50%;
-    left: var(--rds--spacing-x-small);
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: var(--rds--color-grey);
-  }
 }

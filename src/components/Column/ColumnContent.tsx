@@ -1,12 +1,12 @@
 import React from 'react';
 
 export interface ColumnContentProps {
-  children: React.ReactNode;
-  isFirst?: boolean;
+    children: React.ReactNode;
+    isFirst?: boolean;
 }
 
 export const ColumnContent = ({ children, isFirst = false }: ColumnContentProps) => {
-  return <div className={`cu-column__content ${isFirst ? 'is-first' : ''}`}>{children}</div>;
+    return <div className={`cu-column__content ${isFirst ? 'is-first' : ''}`}>{children}</div>;
 };
 
 ColumnContent.displayName = 'Column.Content';

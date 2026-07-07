@@ -1,48 +1,48 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-timeline {
-  border-left: 1px solid var(--rds--color-grey-light);
+    border-left: 1px solid var(--rds--color-grey-light);
 
-  &__item {
-    padding-left: #{$rds-spacing-x-large};
-    padding-bottom: var(--rds--spacing-x-large);
+    &__item {
+        padding-left: #{$rds-spacing-x-large};
+        padding-bottom: var(--rds--spacing-x-large);
 
-    &:last-child {
-      padding-bottom: var(--rds--spacing-medium);
-    }
-  }
-
-  &__date {
-    p {
-      position: relative;
-      font-size: var(--rds--font-size-medium);
-      font-style: italic;
-      color: var(--rds--color-grey-dark);
-      margin-top: 0;
-      margin-bottom: var(--rds--spacing-2-x-small);
-
-      &::after {
-        content: '';
-        display: block;
-        width: 0.6rem;
-        height: 0.6rem;
-        background-color: var(--rds--color-primary);
-        border-radius: var(--rds--radius-full);
-        position: absolute;
-        top: 50%;
-        left: calc(-1 * #{$rds-spacing-x-large} - 0.3rem);
-        transform: translateY(-50%);
-      }
-    }
-  }
-
-  &__content {
-    .cu-pageheader + p {
-      margin-top: var(--rds--spacing-x-small);
+        &:last-child {
+            padding-bottom: var(--rds--spacing-medium);
+        }
     }
 
-    *:last-child {
-      margin-bottom: 0;
+    &__date {
+        p {
+            position: relative;
+            font-size: var(--rds--font-size-medium);
+            font-style: italic;
+            color: var(--rds--color-grey-dark);
+            margin-top: 0;
+            margin-bottom: var(--rds--spacing-2-x-small);
+
+            &::after {
+                content: '';
+                display: block;
+                width: 0.6rem;
+                height: 0.6rem;
+                background-color: var(--rds--color-primary);
+                border-radius: var(--rds--radius-full);
+                position: absolute;
+                top: 50%;
+                left: calc(-1 * #{$rds-spacing-x-large} - 0.3rem);
+                transform: translateY(-50%);
+            }
+        }
     }
-  }
+
+    &__content {
+        .cu-pageheader + p {
+            margin-top: var(--rds--spacing-x-small);
+        }
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
 }

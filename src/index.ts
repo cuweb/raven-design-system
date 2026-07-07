@@ -24,17 +24,17 @@ export type { IconName } from '@cuweb/rds-icons';
 export { Calendar, type CalendarProps, type CalendarEvent } from './components/Calendar/Calendar';
 export { CallOut, type CallOutProps } from './components/CallOut/CallOut';
 export {
-  Description,
-  DescriptionWrapper,
-  type DescriptionProps,
+    Description,
+    DescriptionWrapper,
+    type DescriptionProps,
 } from './components/Description/Description';
 export {
-  DescriptionMeta,
-  type DescriptionMetaProps,
+    DescriptionMeta,
+    type DescriptionMetaProps,
 } from './components/Description/DescriptionMeta';
 export {
-  DescriptionAccordion,
-  type DescriptionAccordionProps,
+    DescriptionAccordion,
+    type DescriptionAccordionProps,
 } from './components/Description/DescriptionAccordion';
 export { Details, type DetailsProps } from './components/Details/Details';
 export type { DetailsItemProps } from './components/Details/DetailsItem';
@@ -45,10 +45,10 @@ export type { CardStatusProps } from './components/Card/CardStatus';
 export type { CardVideoFigureProps } from './components/Card/CardVideoFigure';
 export { FilterPanel, type FilterPanelProps } from './components/FilterPanel';
 export type {
-  SortOption,
-  FilterGroup,
-  FilterOption,
-  ActiveFilters,
+    SortOption,
+    FilterGroup,
+    FilterOption,
+    ActiveFilters,
 } from './components/FilterPanel';
 export { Figure, type FigureProps } from './components/Figure/Figure';
 export { Location, type LocationProps, type MarkerData } from './components/Location/Location';
@@ -82,8 +82,8 @@ export { WideWave } from './components/WideWave/WideWave';
 export { DepartmentBar, type DepartmentBarProps } from './components/DepartmentBar/DepartmentBar';
 export { Footer, type FooterProps } from './components/Footer/Footer';
 export {
-  FooterStandard,
-  type FooterStandardProps,
+    FooterStandard,
+    type FooterStandardProps,
 } from './components/FooterStandard/FooterStandard';
 export type { FooterType } from './data/FooterData';
 export { Nav, type NavProps, type NavItem } from './components/Nav/Nav';
@@ -100,25 +100,25 @@ export { Modal, type ModalProps, type ModalSize } from './components/Modal/Modal
 export { Toast, type ToastProps, type ToasterProps } from './components/Toast/Toast';
 export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/ProgressBar';
 export {
-  Status,
-  defaultStatusTypes,
-  type StatusProps,
-  type StatusVariant,
-  type StatusType,
+    Status,
+    defaultStatusTypes,
+    type StatusProps,
+    type StatusVariant,
+    type StatusType,
 } from './components/Status/Status';
 export type { StatusTypeDefinition, StatusTypeRegistry } from './components/Status/types';
 export { formatHoursStatus, type HoursStatus } from './components/Status/hoursStatus';
 
 // Forms
 export {
-  LocationPicker,
-  type LocationPickerProps,
-  type SingleMarkerInterface,
+    LocationPicker,
+    type LocationPickerProps,
+    type SingleMarkerInterface,
 } from './components/LocationPicker/LocationPicker';
 export { SearchInput, type SearchInputProps } from './components/SearchInput/SearchInput';
 export type {
-  SearchInputResultsProps,
-  SearchResultItem,
+    SearchInputResultsProps,
+    SearchResultItem,
 } from './components/SearchInput/SearchInputResults';
 
 // Utilities
@@ -132,10 +132,10 @@ export type { SocialIconsItemProps } from './components/SocialIcons/SocialIconsI
 export { useOEmbed, type UseOEmbedOptions } from './utils/video/useOEmbed';
 export { detectProvider, getProvider, PROVIDER_NAMES } from './utils/video/providers';
 export type {
-  OEmbedData,
-  ProviderDefinition,
-  ProviderName,
-  UseOEmbedResult,
+    OEmbedData,
+    ProviderDefinition,
+    ProviderName,
+    UseOEmbedResult,
 } from './utils/video/types';
 export { useReducedMotion } from './utils/motion/useReducedMotion';
 export { useScrollReveal, type ScrollRevealOptions } from './utils/motion/useScrollReveal';

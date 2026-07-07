@@ -12,189 +12,199 @@ import { MultiParagraph } from '../../data/storyContent';
 import { EventData } from '../../data/EventData';
 
 const meta: Meta = {
-  title: 'Overview/Templates/Components/Cards',
-  parameters: {
-    layout: 'fullscreen',
-  },
-  tags: ['!autodocs'],
+    title: 'Overview/Templates/Components/Cards',
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['!autodocs'],
 };
 
 export default meta;
 type Story = StoryObj;
 
 export const EventCardComponent: Story = {
-  name: 'Event Cards',
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          { id: 'color-contrast', enabled: false },
-          { id: 'landmark-complementary-is-top-level', enabled: false },
-        ],
-      },
+    name: 'Event Cards',
+    parameters: {
+        a11y: {
+            config: {
+                rules: [
+                    { id: 'color-contrast', enabled: false },
+                    { id: 'landmark-complementary-is-top-level', enabled: false },
+                ],
+            },
+        },
     },
-  },
-  render: () => (
-    <>
-      <Nav>
-        <Nav.Top>
-          <Nav.Logo title="Raven Design System" link="#" />
-          <Nav.Buttons
-            isSearch
-            buttons={[
-              {
-                title: 'Apply',
-                href: '/apply',
-              },
-              {
-                title: 'Donate',
-                href: '/donate',
-                variant: 'dark',
-              },
-            ]}
-          />
-        </Nav.Top>
-        <Nav.Bottom>
-          <Nav.Menu menu={largeNavData} />
-        </Nav.Bottom>
-      </Nav>
+    render: () => (
+        <>
+            <Nav>
+                <Nav.Top>
+                    <Nav.Logo title="Raven Design System" link="#" />
+                    <Nav.Buttons
+                        isSearch
+                        buttons={[
+                            {
+                                title: 'Apply',
+                                href: '/apply',
+                            },
+                            {
+                                title: 'Donate',
+                                href: '/donate',
+                                variant: 'dark',
+                            },
+                        ]}
+                    />
+                </Nav.Top>
+                <Nav.Bottom>
+                    <Nav.Menu menu={largeNavData} />
+                </Nav.Bottom>
+            </Nav>
 
-      <Main>
-        <Section maxWidth="alignfull" bgType="light-gradient" isHero>
-          <PageHeader
-            as="h1"
-            header="Event Card Component"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            size="primary"
-          />
-        </Section>
+            <Main>
+                <Section maxWidth="alignfull" bgType="light-gradient" isHero>
+                    <PageHeader
+                        as="h1"
+                        header="Event Card Component"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        size="primary"
+                    />
+                </Section>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Column cols="3">
-          {EventData.slice(0, 6).map((item) => (
-            <Card key={`event-${item.id}`} noImage={!item.image}>
-              {item.image && (
-                <Card.Figure>
-                  <img src={item.image} alt={item.alt} width="600" height="400" />
-                </Card.Figure>
-              )}
-              <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
-              <Card.Header title={item.title} link={item.link} />
-              <Card.Body>
-                <Card.EventMeta
-                  startDateTime={item.startDate}
-                  endDateTime={item.endDate}
-                  onCampus={item.on_campus}
-                  onCampusBuilding={item.on_campus_building}
-                  onCampusRoomNumber={item.on_campus_room_number}
-                  eventAddress={item.event_address}
-                />
-              </Card.Body>
-            </Card>
-          ))}
-        </Column>
+                <Column cols="3">
+                    {EventData.slice(0, 6).map((item) => (
+                        <Card key={`event-${item.id}`} noImage={!item.image}>
+                            {item.image && (
+                                <Card.Figure>
+                                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                                </Card.Figure>
+                            )}
+                            <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
+                            <Card.Header title={item.title} link={item.link} />
+                            <Card.Body>
+                                <Card.EventMeta
+                                    startDateTime={item.startDate}
+                                    endDateTime={item.endDate}
+                                    onCampus={item.on_campus}
+                                    onCampusBuilding={item.on_campus_building}
+                                    onCampusRoomNumber={item.on_campus_room_number}
+                                    eventAddress={item.event_address}
+                                />
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </Column>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Section as="section" maxWidth="alignwide" bgType="grey">
-          <PageHeader
-            as="h2"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            header="Grey Background"
-            size="lg"
-          />
-          <Column cols="3">
-            {EventData.slice(0, 6).map((item) => (
-              <Card key={`event-${item.id}`} noImage={!item.image}>
-                {item.image && (
-                  <Card.Figure>
-                    <img src={item.image} alt={item.alt} width="600" height="400" />
-                  </Card.Figure>
-                )}
-                <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
-                <Card.Header title={item.title} link={item.link} />
-                <Card.Body>
-                  <Card.EventMeta
-                    startDateTime={item.startDate}
-                    endDateTime={item.endDate}
-                    onCampus={item.on_campus}
-                    onCampusBuilding={item.on_campus_building}
-                    onCampusRoomNumber={item.on_campus_room_number}
-                    eventAddress={item.event_address}
-                  />
-                </Card.Body>
-              </Card>
-            ))}
-          </Column>
-        </Section>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                    />
+                    <Column cols="3">
+                        {EventData.slice(0, 6).map((item) => (
+                            <Card key={`event-${item.id}`} noImage={!item.image}>
+                                {item.image && (
+                                    <Card.Figure>
+                                        <img
+                                            src={item.image}
+                                            alt={item.alt}
+                                            width="600"
+                                            height="400"
+                                        />
+                                    </Card.Figure>
+                                )}
+                                <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
+                                <Card.Header title={item.title} link={item.link} />
+                                <Card.Body>
+                                    <Card.EventMeta
+                                        startDateTime={item.startDate}
+                                        endDateTime={item.endDate}
+                                        onCampus={item.on_campus}
+                                        onCampusBuilding={item.on_campus_building}
+                                        onCampusRoomNumber={item.on_campus_room_number}
+                                        eventAddress={item.event_address}
+                                    />
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </Column>
+                </Section>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Column cols="4" maxWidth="alignwide">
-          {EventData.slice(0, 8).map((item) => (
-            <Card key={`event-${item.id}`} noImage={!item.image}>
-              {item.image && (
-                <Card.Figure>
-                  <img src={item.image} alt={item.alt} width="600" height="400" />
-                </Card.Figure>
-              )}
-              <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
-              <Card.Header title={item.title} link={item.link} />
-              <Card.Body>
-                <Card.EventMeta
-                  startDateTime={item.startDate}
-                  endDateTime={item.endDate}
-                  onCampus={item.on_campus}
-                  onCampusBuilding={item.on_campus_building}
-                  onCampusRoomNumber={item.on_campus_room_number}
-                  eventAddress={item.event_address}
-                />
-              </Card.Body>
-            </Card>
-          ))}
-        </Column>
+                <Column cols="4" maxWidth="alignwide">
+                    {EventData.slice(0, 8).map((item) => (
+                        <Card key={`event-${item.id}`} noImage={!item.image}>
+                            {item.image && (
+                                <Card.Figure>
+                                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                                </Card.Figure>
+                            )}
+                            <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
+                            <Card.Header title={item.title} link={item.link} />
+                            <Card.Body>
+                                <Card.EventMeta
+                                    startDateTime={item.startDate}
+                                    endDateTime={item.endDate}
+                                    onCampus={item.on_campus}
+                                    onCampusBuilding={item.on_campus_building}
+                                    onCampusRoomNumber={item.on_campus_room_number}
+                                    eventAddress={item.event_address}
+                                />
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </Column>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Section as="section" maxWidth="alignwide" bgType="grey">
-          <PageHeader
-            as="h2"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            header="Grey Background"
-            size="lg"
-            isCenter
-          />
-          <Column cols="4" maxWidth="alignwide">
-            {EventData.slice(0, 8).map((item) => (
-              <Card key={`event-${item.id}`} noImage={!item.image}>
-                {item.image && (
-                  <Card.Figure>
-                    <img src={item.image} alt={item.alt} width="600" height="400" />
-                  </Card.Figure>
-                )}
-                <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
-                <Card.Header title={item.title} link={item.link} />
-                <Card.Body>
-                  <Card.EventMeta
-                    startDateTime={item.startDate}
-                    endDateTime={item.endDate}
-                    onCampus={item.on_campus}
-                    onCampusBuilding={item.on_campus_building}
-                    onCampusRoomNumber={item.on_campus_room_number}
-                    eventAddress={item.event_address}
-                  />
-                </Card.Body>
-              </Card>
-            ))}
-          </Column>
-        </Section>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                        isCenter
+                    />
+                    <Column cols="4" maxWidth="alignwide">
+                        {EventData.slice(0, 8).map((item) => (
+                            <Card key={`event-${item.id}`} noImage={!item.image}>
+                                {item.image && (
+                                    <Card.Figure>
+                                        <img
+                                            src={item.image}
+                                            alt={item.alt}
+                                            width="600"
+                                            height="400"
+                                        />
+                                    </Card.Figure>
+                                )}
+                                <Card.DateThumb startDate={item.startDate} endDate={item.endDate} />
+                                <Card.Header title={item.title} link={item.link} />
+                                <Card.Body>
+                                    <Card.EventMeta
+                                        startDateTime={item.startDate}
+                                        endDateTime={item.endDate}
+                                        onCampus={item.on_campus}
+                                        onCampusBuilding={item.on_campus_building}
+                                        onCampusRoomNumber={item.on_campus_room_number}
+                                        eventAddress={item.event_address}
+                                    />
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </Column>
+                </Section>
 
-        <MultiParagraph count={2} />
-      </Main>
+                <MultiParagraph count={2} />
+            </Main>
 
-      <FooterStandard type="standard" />
-      <CookieBanner cookieName="storybook-preview-consent" />
-    </>
-  ),
+            <FooterStandard type="standard" />
+            <CookieBanner cookieName="storybook-preview-consent" />
+        </>
+    ),
 };

@@ -1,100 +1,100 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-table {
-  overflow-x: auto;
-  overflow-y: hidden;
-  background-color: var(--rds--color-white);
-  border-radius: var(--rds--radius-md);
-  border: 1px solid var(--rds--color-grey-lighter);
-  width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: var(--rds--color-white);
+    border-radius: var(--rds--radius-md);
+    border: 1px solid var(--rds--color-grey-lighter);
+    width: 100%;
 
-  &__table {
-    min-width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
+    &__table {
+        min-width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
 
-    &--fixed {
-      table-layout: fixed;
+        &--fixed {
+            table-layout: fixed;
 
-      @media (min-width: $rds-media-query-lg) {
-        width: 100%;
-      }
-    }
-  }
-
-  &__head {
-    border-bottom: 1px solid var(--rds--color-grey-light);
-    background-image: var(--rds--gradient-white-to-pale-grey);
-  }
-
-  &__header-cell {
-    padding: var(--rds--spacing-x-small);
-    text-align: left;
-    vertical-align: top;
-    font-size: var(--rds--font-size-small);
-    font-weight: var(--rds--font-weight-semibold);
-    color: var(--rds--color-black);
-
-    @media (min-width: $rds-media-query-md) {
-      padding-block: var(--rds--spacing-small);
-      padding-inline: var(--rds--spacing-x-small);
+            @media (min-width: $rds-media-query-lg) {
+                width: 100%;
+            }
+        }
     }
 
-    &--sortable {
-      cursor: pointer;
+    &__head {
+        border-bottom: 1px solid var(--rds--color-grey-light);
+        background-image: var(--rds--gradient-white-to-pale-grey);
     }
 
-    &--no-wrap {
-      white-space: nowrap;
-    }
-  }
+    &__header-cell {
+        padding: var(--rds--spacing-x-small);
+        text-align: left;
+        vertical-align: top;
+        font-size: var(--rds--font-size-small);
+        font-weight: var(--rds--font-weight-semibold);
+        color: var(--rds--color-black);
 
-  &__header-cell-inner {
-    display: flex;
-    align-items: center;
-    gap: var(--rds--spacing-2-x-small);
-  }
+        @media (min-width: $rds-media-query-md) {
+            padding-block: var(--rds--spacing-small);
+            padding-inline: var(--rds--spacing-x-small);
+        }
 
-  &__sort-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: var(--rds--color-grey-dark);
-    line-height: 1;
-  }
+        &--sortable {
+            cursor: pointer;
+        }
 
-  &__row {
-    border-bottom: 1px solid var(--rds--color-grey-lighter);
-
-    &:last-child {
-      border-bottom: none;
+        &--no-wrap {
+            white-space: nowrap;
+        }
     }
 
-    &--striped {
-      &:nth-child(odd) {
-        background-color: var(--rds--color-white);
-      }
-
-      &:nth-child(even) {
-        background-color: var(--rds--color-grey-faint);
-      }
+    &__header-cell-inner {
+        display: flex;
+        align-items: center;
+        gap: var(--rds--spacing-2-x-small);
     }
-  }
 
-  &__cell {
-    padding: var(--rds--spacing-x-small);
-    text-align: left;
-    vertical-align: top;
-    font-size: var(--rds--font-size-small);
-    color: var(--rds--color-grey-dark);
-
-    @media (min-width: $rds-media-query-md) {
-      padding-block: var(--rds--spacing-small);
-      padding-inline: var(--rds--spacing-x-small);
+    &__sort-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        color: var(--rds--color-grey-dark);
+        line-height: 1;
     }
-  }
+
+    &__row {
+        border-bottom: 1px solid var(--rds--color-grey-lighter);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &--striped {
+            &:nth-child(odd) {
+                background-color: var(--rds--color-white);
+            }
+
+            &:nth-child(even) {
+                background-color: var(--rds--color-grey-faint);
+            }
+        }
+    }
+
+    &__cell {
+        padding: var(--rds--spacing-x-small);
+        text-align: left;
+        vertical-align: top;
+        font-size: var(--rds--font-size-small);
+        color: var(--rds--color-grey-dark);
+
+        @media (min-width: $rds-media-query-md) {
+            padding-block: var(--rds--spacing-small);
+            padding-inline: var(--rds--spacing-x-small);
+        }
+    }
 }

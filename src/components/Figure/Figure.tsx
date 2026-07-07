@@ -5,33 +5,33 @@ type FigureSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'full';
 type FigureAlignType = 'left' | 'right' | 'center' | 'none';
 
 export interface FigureProps {
-  children: React.ReactNode;
-  caption?: string;
-  size?: FigureSizeType;
-  align?: FigureAlignType;
+    children: React.ReactNode;
+    caption?: string;
+    size?: FigureSizeType;
+    align?: FigureAlignType;
 }
 
 export const Figure = ({ children, caption, size = 'full', align = 'none' }: FigureProps) => {
-  // alignleft / alignright opt the figure out of the is-layout-constrained
-  // rule in layout.css that would otherwise force margin-left/right: auto
-  // and prevent float margins from applying.
-  const layoutAlignClass = align === 'left' ? 'alignleft' : align === 'right' ? 'alignright' : '';
+    // alignleft / alignright opt the figure out of the is-layout-constrained
+    // rule in layout.css that would otherwise force margin-left/right: auto
+    // and prevent float margins from applying.
+    const layoutAlignClass = align === 'left' ? 'alignleft' : align === 'right' ? 'alignright' : '';
 
-  const rootClasses = [
-    'cu-figure',
-    `cu-figure--${size}`,
-    align !== 'none' ? `cu-figure--${align}` : '',
-    layoutAlignClass,
-  ]
-    .filter(Boolean)
-    .join(' ');
+    const rootClasses = [
+        'cu-figure',
+        `cu-figure--${size}`,
+        align !== 'none' ? `cu-figure--${align}` : '',
+        layoutAlignClass,
+    ]
+        .filter(Boolean)
+        .join(' ');
 
-  return (
-    <figure className={rootClasses}>
-      <div className="cu-figure__inner">
-        {children}
-        {caption && <figcaption className="cu-figure__caption">{caption}</figcaption>}
-      </div>
-    </figure>
-  );
+    return (
+        <figure className={rootClasses}>
+            <div className="cu-figure__inner">
+                {children}
+                {caption && <figcaption className="cu-figure__caption">{caption}</figcaption>}
+            </div>
+        </figure>
+    );
 };

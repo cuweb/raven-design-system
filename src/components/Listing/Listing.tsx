@@ -14,40 +14,40 @@ import { ListingPeopleMeta } from './ListingPeopleMeta';
 import './styles.scss';
 
 export interface ListingProps {
-  children: React.ReactNode;
-  noHover?: boolean;
-  revealOnScroll?: boolean;
+    children: React.ReactNode;
+    noHover?: boolean;
+    revealOnScroll?: boolean;
 }
 
 export const ListingWrapper = ({ children, noHover, revealOnScroll = true }: ListingProps) => {
-  const { ref, isVisible } = useScrollReveal<HTMLLIElement>({ disabled: !revealOnScroll });
+    const { ref, isVisible } = useScrollReveal<HTMLLIElement>({ disabled: !revealOnScroll });
 
-  const className = ['cu-listing', noHover && 'cu-listing--no-hover'].filter(Boolean).join(' ');
+    const className = ['cu-listing', noHover && 'cu-listing--no-hover'].filter(Boolean).join(' ');
 
-  return (
-    <li
-      ref={ref}
-      className={className}
-      data-cu-reveal={revealOnScroll ? '' : undefined}
-      data-revealed={isVisible ? 'true' : 'false'}
-    >
-      {children}
-    </li>
-  );
+    return (
+        <li
+            ref={ref}
+            className={className}
+            data-cu-reveal={revealOnScroll ? '' : undefined}
+            data-revealed={isVisible ? 'true' : 'false'}
+        >
+            {children}
+        </li>
+    );
 };
 
 export const Listing = Object.assign(ListingWrapper, {
-  Figure: ListingFigure,
-  DateThumb: ListingDateThumb,
-  IconThumb: ListingIconThumb,
-  Initials: ListingInitials,
-  Header: ListingHeader,
-  Body: ListingBody,
-  Content: ListingContent,
-  Excerpt: ListingExcerpt,
-  EventMeta: ListingEventMeta,
-  PeopleMeta: ListingPeopleMeta,
-  Footer: ListingFooter,
+    Figure: ListingFigure,
+    DateThumb: ListingDateThumb,
+    IconThumb: ListingIconThumb,
+    Initials: ListingInitials,
+    Header: ListingHeader,
+    Body: ListingBody,
+    Content: ListingContent,
+    Excerpt: ListingExcerpt,
+    EventMeta: ListingEventMeta,
+    PeopleMeta: ListingPeopleMeta,
+    Footer: ListingFooter,
 });
 
 ListingWrapper.displayName = 'Listing';

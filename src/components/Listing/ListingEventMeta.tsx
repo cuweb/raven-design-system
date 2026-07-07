@@ -2,12 +2,12 @@ import { isSameDay, parse, format, getDate } from 'date-fns';
 import { Icon } from '../Icon/Icon';
 
 export interface ListingEventMetaProps {
-  startDateTime: string;
-  endDateTime: string;
-  onCampus: boolean;
-  onCampusBuilding?: string | null;
-  onCampusRoomNumber?: string | null;
-  eventAddress?: string;
+    startDateTime: string;
+    endDateTime: string;
+    onCampus: boolean;
+    onCampusBuilding?: string | null;
+    onCampusRoomNumber?: string | null;
+    eventAddress?: string;
 }
 
 const ICON_SIZE = 16;
@@ -16,64 +16,64 @@ const toIso = (raw: string) => raw.replace(' ', 'T');
 const toIsoDate = (raw: string) => raw.split(' ')[0];
 
 const formatTime = (date: Date) => {
-  const hours = date.getHours() % 12 || 12;
-  const minutes = format(date, 'mm');
-  const ampm = format(date, 'a');
-  return `${hours}:${minutes} ${ampm}`;
+    const hours = date.getHours() % 12 || 12;
+    const minutes = format(date, 'mm');
+    const ampm = format(date, 'a');
+    return `${hours}:${minutes} ${ampm}`;
 };
 
 export const ListingEventMeta = ({
-  startDateTime,
-  endDateTime,
-  onCampus,
-  onCampusBuilding,
-  onCampusRoomNumber,
-  eventAddress,
+    startDateTime,
+    endDateTime,
+    onCampus,
+    onCampusBuilding,
+    onCampusRoomNumber,
+    eventAddress,
 }: ListingEventMetaProps) => {
-  const startDate = parse(startDateTime, 'yyyy-MM-dd HH:mm:ss', new Date());
-  const endDate = parse(endDateTime, 'yyyy-MM-dd HH:mm:ss', new Date());
+    const startDate = parse(startDateTime, 'yyyy-MM-dd HH:mm:ss', new Date());
+    const endDate = parse(endDateTime, 'yyyy-MM-dd HH:mm:ss', new Date());
 
-  const isEventSameDay = isSameDay(startDate, endDate);
+    const isEventSameDay = isSameDay(startDate, endDate);
 
-  const startMonth = format(startDate, 'MMMM');
-  const startDay = getDate(startDate);
-  const endMonth = format(endDate, 'MMMM');
-  const endDay = getDate(endDate);
+    const startMonth = format(startDate, 'MMMM');
+    const startDay = getDate(startDate);
+    const endMonth = format(endDate, 'MMMM');
+    const endDay = getDate(endDate);
 
-  const startTime = formatTime(startDate);
-  const endTime = formatTime(endDate);
+    const startTime = formatTime(startDate);
+    const endTime = formatTime(endDate);
 
-  const location = onCampus ? `${onCampusRoomNumber} ${onCampusBuilding}` : eventAddress;
+    const location = onCampus ? `${onCampusRoomNumber} ${onCampusBuilding}` : eventAddress;
 
-  return (
-    <ul className="cu-listing__meta cu-listing__meta--has-icons">
-      <li>
-        {isEventSameDay ? (
-          <>
-            <Icon name="clock" size={ICON_SIZE} title="When" />
-            <time dateTime={`${toIso(startDateTime)}/${toIso(endDateTime)}`}>
-              {startTime} — {endTime}
-            </time>
-          </>
-        ) : (
-          <>
-            <Icon name="calendar-days" size={ICON_SIZE} title="When" />
-            <time dateTime={toIsoDate(startDateTime)}>
-              {startMonth} {startDay}
-            </time>
-            {' — '}
-            <time dateTime={toIsoDate(endDateTime)}>
-              {endMonth} {endDay}
-            </time>
-          </>
-        )}
-      </li>
-      <li>
-        <Icon name="location-dot" size={ICON_SIZE} title="Where" />
-        {location}
-      </li>
-    </ul>
-  );
+    return (
+        <ul className="cu-listing__meta cu-listing__meta--has-icons">
+            <li>
+                {isEventSameDay ? (
+                    <>
+                        <Icon name="clock" size={ICON_SIZE} title="When" />
+                        <time dateTime={`${toIso(startDateTime)}/${toIso(endDateTime)}`}>
+                            {startTime} — {endTime}
+                        </time>
+                    </>
+                ) : (
+                    <>
+                        <Icon name="calendar-days" size={ICON_SIZE} title="When" />
+                        <time dateTime={toIsoDate(startDateTime)}>
+                            {startMonth} {startDay}
+                        </time>
+                        {' — '}
+                        <time dateTime={toIsoDate(endDateTime)}>
+                            {endMonth} {endDay}
+                        </time>
+                    </>
+                )}
+            </li>
+            <li>
+                <Icon name="location-dot" size={ICON_SIZE} title="Where" />
+                {location}
+            </li>
+        </ul>
+    );
 };
 
 ListingEventMeta.displayName = 'Listing.EventMeta';

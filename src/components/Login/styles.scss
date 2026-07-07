@@ -1,52 +1,52 @@
 .cu-login {
-  padding: var(--rds--spacing-medium);
-  padding-top: 0;
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--rds--color-grey-lighter);
-  border-radius: var(--rds--radius-md);
-  background-color: var(--rds--color-white);
-  box-shadow: var(--rds--shadow-natural);
-  max-width: 32rem;
-
-  &--start {
-    margin-right: auto;
-  }
-
-  &--center {
-    margin-inline: auto;
-  }
-
-  &--end {
-    margin-left: auto;
-  }
-
-  &__logo {
-    display: block;
-    width: auto;
-    height: 50px;
-    margin-inline: auto;
-    margin-top: var(--rds--spacing-medium);
-    background-color: var(--rds--color-white);
-  }
-
-  &__error {
-    margin-top: var(--rds--spacing-medium);
-  }
-
-  &__social {
     padding: var(--rds--spacing-medium);
-    background-color: var(--rds--color-grey-pale);
+    padding-top: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--rds--color-grey-lighter);
     border-radius: var(--rds--radius-md);
-  }
+    background-color: var(--rds--color-white);
+    box-shadow: var(--rds--shadow-natural);
+    max-width: 32rem;
 
-  &__social-label {
-    font-weight: 600;
-    text-align: center;
-    margin: 0 0 var(--rds--spacing-small);
-  }
+    &--start {
+        margin-right: auto;
+    }
 
-  .cu-buttongroup {
-    margin-top: var(--rds--spacing-medium);
-  }
+    &--center {
+        margin-inline: auto;
+    }
+
+    &--end {
+        margin-left: auto;
+    }
+
+    &__logo {
+        display: block;
+        width: auto;
+        height: 50px;
+        margin-inline: auto;
+        margin-top: var(--rds--spacing-medium);
+        background-color: var(--rds--color-white);
+    }
+
+    &__error {
+        margin-top: var(--rds--spacing-medium);
+    }
+
+    &__social {
+        padding: var(--rds--spacing-medium);
+        background-color: var(--rds--color-grey-pale);
+        border-radius: var(--rds--radius-md);
+    }
+
+    &__social-label {
+        font-weight: 600;
+        text-align: center;
+        margin: 0 0 var(--rds--spacing-small);
+    }
+
+    .cu-buttongroup {
+        margin-top: var(--rds--spacing-medium);
+    }
 }

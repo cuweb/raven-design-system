@@ -5,15 +5,15 @@
 // ===========================================================================
 
 .cu-nav {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background-color: var(--rds--color-white);
-  border-bottom: 1px solid var(--rds--color-grey-lighter);
-  // On scroll the wrapper sets `top` (in Nav.tsx): the header stays pinned but
-  // shifts up so a Nav.Bottom strip stays visible while the white logo row
-  // scrolls away. Animate that shift.
-  transition: top 0.3s ease-in-out;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background-color: var(--rds--color-white);
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
+    // On scroll the wrapper sets `top` (in Nav.tsx): the header stays pinned but
+    // shifts up so a Nav.Bottom strip stays visible while the white logo row
+    // scrolls away. Animate that shift.
+    transition: top 0.3s ease-in-out;
 }
 
 // Brand accent: a 2px red line fixed to the very top of the viewport. It stays
@@ -21,18 +21,18 @@
 // so the accent is always at the top and never moves. Replaces the header's own
 // border-top, which would scroll off with the white top row.
 .cu-nav::before {
-  content: '';
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: 2px;
-  background-color: var(--rds--color-primary);
-  z-index: 41;
+    content: '';
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 2px;
+    background-color: var(--rds--color-primary);
+    z-index: 41;
 }
 
 .cu-nav__inner {
-  display: flex;
-  flex-direction: column;
-  padding-inline: var(--rds--spacing-large);
+    display: flex;
+    flex-direction: column;
+    padding-inline: var(--rds--spacing-large);
 }
 
 // ---------------------------------------------------------------------------
@@ -47,22 +47,22 @@
 
 .cu-nav__top,
 .cu-nav__menu {
-  width: 100%;
-  max-width: 1536px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 100%;
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cu-nav__top {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  column-gap: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 0.75rem;
 
-  @media (min-width: $rds-media-query-sm) {
-    display: flex;
-    flex-wrap: nowrap;
-  }
+    @media (min-width: $rds-media-query-sm) {
+        display: flex;
+        flex-wrap: nowrap;
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -70,23 +70,23 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__bottom {
-  //   background-color: var(--rds--color-grey-pale);
-  background-color: var(--rds--color-white);
-  border-top: 1px solid var(--rds--color-grey-lighter);
-  // break out of cu-nav__inner padding to span full header width
-  margin-inline: calc(-1 * var(--rds--spacing-large));
-
-  @media (min-width: $rds-media-query-sm) {
+    //   background-color: var(--rds--color-grey-pale);
+    background-color: var(--rds--color-white);
+    border-top: 1px solid var(--rds--color-grey-lighter);
+    // break out of cu-nav__inner padding to span full header width
     margin-inline: calc(-1 * var(--rds--spacing-large));
-  }
+
+    @media (min-width: $rds-media-query-sm) {
+        margin-inline: calc(-1 * var(--rds--spacing-large));
+    }
 }
 
 .cu-nav__bottom-inner {
-  display: flex;
-  align-items: center;
-  gap: var(--rds--spacing-small);
-  padding-block: min(1rem, 2vw);
-  padding-inline: var(--rds--spacing-large);
+    display: flex;
+    align-items: center;
+    gap: var(--rds--spacing-small);
+    padding-block: min(1rem, 2vw);
+    padding-inline: var(--rds--spacing-large);
 }
 
 // ---------------------------------------------------------------------------
@@ -94,62 +94,62 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__logo {
-  display: flex;
-  align-items: center;
-  gap: var(--rds--spacing-large);
-  padding-block: 0.875rem;
-  flex-shrink: 0; // never let the logo shrink (desktop flex row)
-  grid-column: 1; // mobile grid: row 1, left
-  grid-row: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--rds--spacing-large);
+    padding-block: 0.875rem;
+    flex-shrink: 0; // never let the logo shrink (desktop flex row)
+    grid-column: 1; // mobile grid: row 1, left
+    grid-row: 1;
 }
 
 .cu-nav__logomark {
-  display: flex;
-  flex-shrink: 0;
+    display: flex;
+    flex-shrink: 0;
 }
 
 .cu-nav__logomark-full {
-  width: auto;
-  height: 38px;
-
-  @media (min-width: $rds-media-query-sm) {
-    height: 40px;
-  }
-
-  &--sm-hidden {
-    display: none;
+    width: auto;
+    height: 38px;
 
     @media (min-width: $rds-media-query-sm) {
-      display: block;
+        height: 40px;
     }
-  }
+
+    &--sm-hidden {
+        display: none;
+
+        @media (min-width: $rds-media-query-sm) {
+            display: block;
+        }
+    }
 }
 
 .cu-nav__logomark-shield {
-  width: 30px;
-  height: 38px;
+    width: 30px;
+    height: 38px;
 
-  @media (min-width: $rds-media-query-sm) {
-    display: none;
-  }
+    @media (min-width: $rds-media-query-sm) {
+        display: none;
+    }
 }
 
 .cu-nav__site-title {
-  font-size: var(--rds--font-size-medium);
-  font-weight: var(--rds--font-weight-bold);
-  line-height: 1.2;
-  color: var(--rds--color-black);
-  text-decoration: none;
-  max-width: 14rem;
-  display: -webkit-box;
-  line-clamp: 2;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    font-size: var(--rds--font-size-medium);
+    font-weight: var(--rds--font-weight-bold);
+    line-height: 1.2;
+    color: var(--rds--color-black);
+    text-decoration: none;
+    max-width: 14rem;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
-  &:hover {
-    color: var(--rds--color-primary-dark);
-  }
+    &:hover {
+        color: var(--rds--color-primary-dark);
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -157,16 +157,16 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__menu {
-  flex-grow: 1;
-  min-width: 0; // required so flex-grow doesn't prevent shrinking
-  display: flex;
-  align-items: center;
-  gap: 0.125rem; // matches ITEM_GAP_PX constant in NavMenu.tsx
+    flex-grow: 1;
+    min-width: 0; // required so flex-grow doesn't prevent shrinking
+    display: flex;
+    align-items: center;
+    gap: 0.125rem; // matches ITEM_GAP_PX constant in NavMenu.tsx
 
-  // static on mobile: .cu-nav__browse-dropdown is positioned relative to <header>
-  @media (min-width: $rds-media-query-sm) {
-    position: relative; // on desktop: dropdown positioned relative to this container
-  }
+    // static on mobile: .cu-nav__browse-dropdown is positioned relative to <header>
+    @media (min-width: $rds-media-query-sm) {
+        position: relative; // on desktop: dropdown positioned relative to this container
+    }
 }
 
 // Mobile: when the menu is composed into the top, the top becomes two rows —
@@ -179,59 +179,59 @@
 // rules don't match it; that composition keeps its buttons in the top row and
 // renders the menu in the .cu-nav__bottom bar.)
 .cu-nav__top > .cu-nav__menu {
-  grid-column: 1;
-  grid-row: 2;
-  justify-self: start;
-  padding-block: var(--rds--spacing-x-small);
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    padding-block: var(--rds--spacing-x-small);
 
-  @media (min-width: $rds-media-query-sm) {
-    grid-column: auto;
-    grid-row: auto;
-    padding-block: 0;
-    margin-left: var(--rds--spacing-medium);
-  }
+    @media (min-width: $rds-media-query-sm) {
+        grid-column: auto;
+        grid-row: auto;
+        padding-block: 0;
+        margin-left: var(--rds--spacing-medium);
+    }
 }
 
 // Logo takes the full first row when the menu sits in the top.
 .cu-nav__top:has(> .cu-nav__menu) > .cu-nav__logo {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
 // CTA buttons join the Browse trigger on the grey bar (row 2, right side).
 .cu-nav__top:has(> .cu-nav__menu) > .cu-nav__buttons {
-  grid-row: 2;
-  padding-block: var(--rds--spacing-x-small);
+    grid-row: 2;
+    padding-block: var(--rds--spacing-x-small);
 
-  @media (min-width: $rds-media-query-sm) {
-    grid-row: auto;
-    padding-block: 0;
-  }
+    @media (min-width: $rds-media-query-sm) {
+        grid-row: auto;
+        padding-block: 0;
+    }
 }
 
 // Full-bleed grey background behind the row-2 bar (Browse + buttons).
 .cu-nav__top:has(> .cu-nav__menu)::before {
-  content: '';
-  grid-column: 1 / -1;
-  grid-row: 2;
-  align-self: stretch;
-  margin-inline: calc(-1 * var(--rds--spacing-large));
-  background-color: var(--rds--color-grey-pale);
-  border-top: 1px solid var(--rds--color-grey-lighter);
+    content: '';
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-self: stretch;
+    margin-inline: calc(-1 * var(--rds--spacing-large));
+    background-color: var(--rds--color-grey-pale);
+    border-top: 1px solid var(--rds--color-grey-lighter);
 
-  @media (min-width: $rds-media-query-sm) {
-    display: none;
-  }
+    @media (min-width: $rds-media-query-sm) {
+        display: none;
+    }
 }
 
 // Primary item list — always a flex row; priority-plus slices the items
 .cu-nav__list {
-  display: flex;
-  align-items: center;
-  gap: min(1rem, 2vw);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: min(1rem, 2vw);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
 }
 
 // Hidden clone holding every item, used only to measure natural widths.
@@ -239,14 +239,14 @@
 // overflow:hidden so an overwide clone never extends the page scroll area.
 // getBoundingClientRect still reports true geometry for clipped children.
 .cu-nav__list--measure {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  visibility: hidden;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 // ---------------------------------------------------------------------------
@@ -254,7 +254,7 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__item {
-  position: relative;
+    position: relative;
 }
 
 // ---------------------------------------------------------------------------
@@ -263,35 +263,35 @@
 
 .cu-nav__link,
 .cu-nav__browse {
-  display: block;
-  align-items: center;
-  font-size: var(--rds--font-size-medium);
-  font-weight: var(--rds--font-weight-medium);
-  color: var(--rds--color-grey-dark);
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-radius: var(--rds--radius-md);
-  white-space: nowrap;
-  font-family: inherit;
-  line-height: 1;
-  transition:
-    color 0.15s ease,
-    background-color 0.15s ease;
+    display: block;
+    align-items: center;
+    font-size: var(--rds--font-size-medium);
+    font-weight: var(--rds--font-weight-medium);
+    color: var(--rds--color-grey-dark);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--rds--radius-md);
+    white-space: nowrap;
+    font-family: inherit;
+    line-height: 1;
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
 
-  @media (min-width: $rds-media-query-sm) {
-    font-size: var(--rds--font-size-small);
-  }
+    @media (min-width: $rds-media-query-sm) {
+        font-size: var(--rds--font-size-small);
+    }
 
-  &:hover {
-    color: var(--rds--color-primary);
-  }
+    &:hover {
+        color: var(--rds--color-primary);
+    }
 
-  &--open {
-    color: var(--rds--color-primary);
-    background-color: var(--rds--color-grey-pale);
-  }
+    &--open {
+        color: var(--rds--color-primary);
+        background-color: var(--rds--color-grey-pale);
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -299,24 +299,24 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__arrow {
-  display: inline-block;
-  flex-shrink: 0;
-  width: 0.35rem;
-  height: 0.35rem;
-  margin-top: 0.35rem;
-  margin-left: 0.25rem;
-  border-top: 1px solid currentColor;
-  border-right: 1px solid currentColor;
-  transform: rotate(135deg); // points down
-  // The chevron's "ink" is the top + right borders, so its visual centre sits in
-  // the top-right of the box, not the box centre. Pivot there so it rotates in
-  // place instead of swinging up when it flips open.
-  transform-origin: 70% 30%;
-  transition: transform 0.2s ease;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 0.35rem;
+    height: 0.35rem;
+    margin-top: 0.35rem;
+    margin-left: 0.25rem;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(135deg); // points down
+    // The chevron's "ink" is the top + right borders, so its visual centre sits in
+    // the top-right of the box, not the box centre. Pivot there so it rotates in
+    // place instead of swinging up when it flips open.
+    transform-origin: 70% 30%;
+    transition: transform 0.2s ease;
 
-  &--open {
-    transform: rotate(-45deg); // points up
-  }
+    &--open {
+        transform: rotate(-45deg); // points up
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -328,18 +328,18 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__browse {
-  padding-left: 0;
+    padding-left: 0;
 
-  @media (min-width: $rds-media-query-sm) {
-    margin-left: min(1rem, 2vw);
-  }
+    @media (min-width: $rds-media-query-sm) {
+        margin-left: min(1rem, 2vw);
+    }
 
-  // Off-flow but measurable — used when all items fit in the primary nav
-  &--ghost {
-    position: absolute;
-    visibility: hidden;
-    pointer-events: none;
-  }
+    // Off-flow but measurable — used when all items fit in the primary nav
+    &--ghost {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -354,35 +354,35 @@
 
 .cu-nav__submenu,
 .cu-nav__browse-dropdown {
-  position: absolute;
-  min-width: 14rem;
-  top: calc(100% + 0.25rem);
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  z-index: 30;
-  box-shadow: var(--rds--shadow-natural);
-  background-color: var(--rds--color-white);
+    position: absolute;
+    min-width: 14rem;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 30;
+    box-shadow: var(--rds--shadow-natural);
+    background-color: var(--rds--color-white);
 
-  @media (min-width: $rds-media-query-sm) {
-    border: 1px solid var(--rds--color-grey-lighter);
-    border-radius: var(--rds--radius-md);
-  }
+    @media (min-width: $rds-media-query-sm) {
+        border: 1px solid var(--rds--color-grey-lighter);
+        border-radius: var(--rds--radius-md);
+    }
 }
 
 .cu-nav__browse-dropdown {
-  border-bottom: 1px solid var(--rds--color-grey-lighter);
-  border-top: 1px solid var(--rds--color-grey-lighter);
-  max-height: calc(100svh - 4rem);
-  overflow-y: auto;
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
+    border-top: 1px solid var(--rds--color-grey-lighter);
+    max-height: calc(100svh - 4rem);
+    overflow-y: auto;
 
-  @media (min-width: $rds-media-query-sm) {
-    left: auto;
-    width: 16rem;
-    max-height: 80vh;
-  }
+    @media (min-width: $rds-media-query-sm) {
+        left: auto;
+        width: 16rem;
+        max-height: 80vh;
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -390,55 +390,55 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__submenu--mobile {
-  position: static;
-  box-shadow: none;
-  border: none;
-  border-top: 1px solid var(--rds--color-grey-lighter);
-  border-radius: 0;
-  background-color: var(--rds--color-grey-faint);
-  padding: 0;
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid var(--rds--color-grey-lighter);
+    border-radius: 0;
+    background-color: var(--rds--color-grey-faint);
+    padding: 0;
 }
 
 .cu-nav__submenu-row {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  .cu-nav__submenu-link {
-    flex-grow: 1;
-  }
+    .cu-nav__submenu-link {
+        flex-grow: 1;
+    }
 }
 
 .cu-nav__submenu-expand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding: var(--rds--spacing-x-small) 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--rds--color-grey-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: var(--rds--spacing-x-small) 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--rds--color-grey-dark);
 
-  &:hover {
-    color: var(--rds--color-primary);
-  }
+    &:hover {
+        color: var(--rds--color-primary);
+    }
 }
 
 .cu-nav__submenu--nested {
-  position: static;
-  box-shadow: none;
-  border: none;
-  border-top: 1px solid var(--rds--color-grey-lighter);
-  border-radius: 0;
-  background-color: var(--rds--color-grey-faint);
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  z-index: auto;
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid var(--rds--color-grey-lighter);
+    border-radius: 0;
+    background-color: var(--rds--color-grey-faint);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: auto;
 
-  .cu-nav__submenu-link {
-    padding-inline-start: 1.5rem;
-  }
+    .cu-nav__submenu-link {
+        padding-inline-start: 1.5rem;
+    }
 }
 
 // Shared style for all dropdown items — used in both the primary submenu and
@@ -447,40 +447,40 @@
 // to keep the expand arrow right-aligned without a wrapper element.
 
 .cu-nav__submenu-item:not(:last-child) {
-  border-bottom: 1px solid var(--rds--color-grey-lighter);
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
 }
 
 .cu-nav__submenu-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  border: none;
-  padding: var(--rds--spacing-x-small) 1rem;
-  font-size: var(--rds--font-size-small);
-  font-family: inherit;
-  color: var(--rds--color-grey-dark);
-  text-decoration: none;
-  background: none;
-  cursor: pointer;
-  white-space: normal;
-  transition:
-    color 0.15s ease,
-    background-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: none;
+    padding: var(--rds--spacing-x-small) 1rem;
+    font-size: var(--rds--font-size-small);
+    font-family: inherit;
+    color: var(--rds--color-grey-dark);
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+    white-space: normal;
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
 
-  &:hover {
-    color: var(--rds--color-primary);
-    background-color: var(--rds--color-grey-pale);
-  }
+    &:hover {
+        color: var(--rds--color-primary);
+        background-color: var(--rds--color-grey-pale);
+    }
 
-  &--open {
-    color: var(--rds--color-primary);
-    background-color: var(--rds--color-grey-pale);
-  }
+    &--open {
+        color: var(--rds--color-primary);
+        background-color: var(--rds--color-grey-pale);
+    }
 
-  .cu-nav__submenu--mobile & {
-    padding-inline-start: 2rem;
-  }
+    .cu-nav__submenu--mobile & {
+        padding-inline-start: 2rem;
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -488,57 +488,57 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__buttons {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-shrink: 0; // never squeeze buttons out of the row
-  margin-left: auto; // push buttons to the right edge of the top row
-  grid-column: 2; // mobile grid: row 1 by default (Nav.Bottom composition)
-  grid-row: 1;
-  justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0; // never squeeze buttons out of the row
+    margin-left: auto; // push buttons to the right edge of the top row
+    grid-column: 2; // mobile grid: row 1 by default (Nav.Bottom composition)
+    grid-row: 1;
+    justify-self: end;
 }
 
 .cu-nav__search-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.375rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--rds--color-grey);
-  border-radius: var(--rds--radius-md);
-  transition: color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.375rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--rds--color-grey);
+    border-radius: var(--rds--radius-md);
+    transition: color 0.15s ease;
 
-  &:hover {
-    color: var(--rds--color-primary);
-  }
+    &:hover {
+        color: var(--rds--color-primary);
+    }
 }
 
 .cu-nav__cta-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.375rem 0.875rem;
-  font-size: var(--rds--font-size-small);
-  font-weight: var(--rds--font-weight-medium);
-  color: var(--rds--color-white);
-  background-color: var(--rds--color-primary);
-  border-radius: var(--rds--radius-md);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color 0.15s ease;
-
-  &:hover {
-    background-color: var(--rds--color-primary-dark);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    font-size: var(--rds--font-size-small);
+    font-weight: var(--rds--font-weight-medium);
     color: var(--rds--color-white);
-  }
-
-  // Black CTA (e.g. Donate) — set via NavButton `variant: 'dark'`
-  &--dark {
-    background-color: var(--rds--color-black);
+    background-color: var(--rds--color-primary);
+    border-radius: var(--rds--radius-md);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
 
     &:hover {
-      background-color: var(--rds--color-grey-dark);
+        background-color: var(--rds--color-primary-dark);
+        color: var(--rds--color-white);
     }
-  }
+
+    // Black CTA (e.g. Donate) — set via NavButton `variant: 'dark'`
+    &--dark {
+        background-color: var(--rds--color-black);
+
+        &:hover {
+            background-color: var(--rds--color-grey-dark);
+        }
+    }
 }

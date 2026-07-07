@@ -1,73 +1,73 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-column {
-  display: grid;
-  gap: var(--rds--spacing-large);
-  margin-left: auto;
-  margin-right: auto;
+    display: grid;
+    gap: var(--rds--spacing-large);
+    margin-left: auto;
+    margin-right: auto;
 
-  &--one {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  &--two {
-    grid-template-columns: 1fr;
-
-    @media (min-width: $rds-media-query-sm) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  &--three {
-    grid-template-columns: 1fr;
-
-    @media (min-width: $rds-media-query-md) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  &--four {
-    grid-template-columns: 1fr;
-
-    @media (min-width: $rds-media-query-sm) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    &--one {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
-    @media (min-width: $rds-media-query-lg) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    &--two {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
     }
-  }
 
-  &--one-third {
-    grid-template-columns: 1fr;
+    &--three {
+        grid-template-columns: 1fr;
 
-    @media (min-width: $rds-media-query-md) {
-      grid-template-columns: 33% auto;
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
-  }
 
-  &--two-thirds {
-    grid-template-columns: 1fr;
+    &--four {
+        grid-template-columns: 1fr;
 
-    @media (min-width: $rds-media-query-md) {
-      grid-template-columns: 66% auto;
+        @media (min-width: $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (min-width: $rds-media-query-lg) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
     }
-  }
+
+    &--one-third {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: 33% auto;
+        }
+    }
+
+    &--two-thirds {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: 66% auto;
+        }
+    }
 }
 
 .cu-column > .cu-column__content *:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .cu-column > .cu-column__content *:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 /* Ordering */
 .cu-column > .cu-column__content {
-  order: 1;
+    order: 1;
 }
 
 .cu-column > div.is-first {
-  order: 0;
+    order: 0;
 }

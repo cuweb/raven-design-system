@@ -3,175 +3,175 @@
 // ─── Header ──────────────────────────────────────────────────────────────────
 
 .cu-calendar__header {
-  display: flex;
-  gap: var(--rds--spacing-medium);
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: var(--rds--radius-md);
+    display: flex;
+    gap: var(--rds--spacing-medium);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: var(--rds--radius-md);
 }
 
 .cu-calendar__nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  padding: 0.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--rds--color-grey-dark);
-  border-radius: var(--rds--radius-md);
-  transition: color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--rds--color-grey-dark);
+    border-radius: var(--rds--radius-md);
+    transition: color 0.15s ease;
 
-  &:hover {
-    color: var(--rds--color-primary);
-  }
+    &:hover {
+        color: var(--rds--color-primary);
+    }
 
-  &:focus-visible {
-    outline: 2px solid var(--rds--color-primary);
-    outline-offset: 2px;
-  }
+    &:focus-visible {
+        outline: 2px solid var(--rds--color-primary);
+        outline-offset: 2px;
+    }
 }
 
 .cu-calendar__month {
-  //   flex: 1;
-  font-size: var(--rds--font-size-medium);
-  font-weight: var(--rds--font-weight-semibold);
-  color: var(--rds--color-black);
-  text-align: center;
-  margin: 0;
+    //   flex: 1;
+    font-size: var(--rds--font-size-medium);
+    font-weight: var(--rds--font-weight-semibold);
+    color: var(--rds--color-black);
+    text-align: center;
+    margin: 0;
 }
 
 // ─── Weekday labels ───────────────────────────────────────────────────────────
 
 .cu-calendar__weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: var(--rds--spacing-medium);
-  text-align: center;
-  font-size: var(--rds--font-size-x-small);
-  color: var(--rds--color-grey-dark);
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: var(--rds--spacing-medium);
+    text-align: center;
+    font-size: var(--rds--font-size-x-small);
+    color: var(--rds--color-grey-dark);
 }
 
 // ─── Day grid ─────────────────────────────────────────────────────────────────
 
 .cu-calendar__grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 0.5rem;
-  overflow: hidden;
-  border: 1px solid var(--rds--color-grey-light);
-  border-radius: var(--rds--radius-md);
-  background-color: var(--rds--color-grey-pale);
-  font-size: var(--rds--font-size-small);
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    border: 1px solid var(--rds--color-grey-light);
+    border-radius: var(--rds--radius-md);
+    background-color: var(--rds--color-grey-pale);
+    font-size: var(--rds--font-size-small);
 }
 
 .cu-calendar__row {
-  display: contents;
+    display: contents;
 }
 
 .cu-calendar__day {
-  background-color: var(--rds--color-white);
-  padding: 0.5rem 0;
-  text-align: center;
+    background-color: var(--rds--color-white);
+    padding: 0.5rem 0;
+    text-align: center;
 
-  // Grid column offsets for the first row
-  &--col-start-2 {
-    grid-column-start: 2;
-  }
-  &--col-start-3 {
-    grid-column-start: 3;
-  }
-  &--col-start-4 {
-    grid-column-start: 4;
-  }
-  &--col-start-5 {
-    grid-column-start: 5;
-  }
-  &--col-start-6 {
-    grid-column-start: 6;
-  }
-  &--col-start-7 {
-    grid-column-start: 7;
-  }
+    // Grid column offsets for the first row
+    &--col-start-2 {
+        grid-column-start: 2;
+    }
+    &--col-start-3 {
+        grid-column-start: 3;
+    }
+    &--col-start-4 {
+        grid-column-start: 4;
+    }
+    &--col-start-5 {
+        grid-column-start: 5;
+    }
+    &--col-start-6 {
+        grid-column-start: 6;
+    }
+    &--col-start-7 {
+        grid-column-start: 7;
+    }
 }
 
 // ─── Day button ───────────────────────────────────────────────────────────────
 
 .cu-calendar__day-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  margin: 0 auto;
-  background: none;
-  border: none;
-  border-radius: var(--rds--radius-full);
-  color: var(--rds--color-black);
-  cursor: pointer;
-  font-size: inherit;
-  transition:
-    background-color 0.15s ease,
-    color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    border-radius: var(--rds--radius-full);
+    color: var(--rds--color-black);
+    cursor: pointer;
+    font-size: inherit;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
 
-  &:hover:not(:disabled) {
-    background-color: var(--rds--color-primary);
-    color: var(--rds--color-white);
-  }
+    &:hover:not(:disabled) {
+        background-color: var(--rds--color-primary);
+        color: var(--rds--color-white);
+    }
 
-  &:focus-visible {
-    outline: 2px solid var(--rds--color-primary);
-    outline-offset: 2px;
-  }
+    &:focus-visible {
+        outline: 2px solid var(--rds--color-primary);
+        outline-offset: 2px;
+    }
 
-  &--today {
-    color: var(--rds--color-primary);
-    font-weight: var(--rds--font-weight-semibold);
-  }
+    &--today {
+        color: var(--rds--color-primary);
+        font-weight: var(--rds--font-weight-semibold);
+    }
 
-  &--selected {
-    background-color: var(--rds--color-primary);
-    color: var(--rds--color-white);
-    font-weight: var(--rds--font-weight-semibold);
-  }
+    &--selected {
+        background-color: var(--rds--color-primary);
+        color: var(--rds--color-white);
+        font-weight: var(--rds--font-weight-semibold);
+    }
 
-  &--in-range {
-    background-color: var(--rds--color-primary);
-    color: var(--rds--color-white);
-    border-radius: 0;
-  }
+    &--in-range {
+        background-color: var(--rds--color-primary);
+        color: var(--rds--color-white);
+        border-radius: 0;
+    }
 
-  &--outside-month {
-    color: var(--rds--color-grey);
-  }
+    &--outside-month {
+        color: var(--rds--color-grey);
+    }
 
-  &--disabled,
-  &:disabled {
-    background-color: var(--rds--color-grey-pale);
-    color: var(--rds--color-grey-light);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+    &--disabled,
+    &:disabled {
+        background-color: var(--rds--color-grey-pale);
+        color: var(--rds--color-grey-light);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 }
 
 // ─── Event dot ────────────────────────────────────────────────────────────────
 
 .cu-calendar__event-dot {
-  width: 0.375rem;
-  height: 0.375rem;
-  margin: 0.25rem auto 0;
-  border-radius: var(--rds--radius-full);
-  background-color: var(--rds--color-primary);
+    width: 0.375rem;
+    height: 0.375rem;
+    margin: 0.25rem auto 0;
+    border-radius: var(--rds--radius-full);
+    background-color: var(--rds--color-primary);
 }
 
 // ─── Clear button ─────────────────────────────────────────────────────────────
 
 .cu-calendar__clear {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }

@@ -1,26 +1,26 @@
 export interface EmbedYouTubeProps {
-  title: string;
-  url: string;
+    title: string;
+    url: string;
 }
 
 export const EmbedYouTube = ({ title, url }: EmbedYouTubeProps) => {
-  let embedURL = '';
+    let embedURL = '';
 
-  if (url) {
-    const match = url.match(/(?:\/|v=)([a-zA-Z0-9_-]{11})/);
-    const videoID = match ? match[1] : null;
-    embedURL = `https://www.youtube.com/embed/${videoID}`;
-  }
+    if (url) {
+        const match = url.match(/(?:\/|v=)([a-zA-Z0-9_-]{11})/);
+        const videoID = match ? match[1] : null;
+        embedURL = `https://www.youtube.com/embed/${videoID}`;
+    }
 
-  return (
-    <iframe
-      title={title}
-      src={embedURL}
-      className="cu-embed-iframe"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
-    />
-  );
+    return (
+        <iframe
+            title={title}
+            src={embedURL}
+            className="cu-embed-iframe"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+        />
+    );
 };
 
 EmbedYouTube.displayName = 'Embed.YouTube';

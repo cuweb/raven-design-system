@@ -1,87 +1,87 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-social__prefix {
-  font-family: var(--rds--font-family-inter);
-  font-size: var(--rds--font-size-small);
-  font-style: italic;
-  color: var(--rds--color-grey-dark);
-  margin-bottom: 0.5rem;
+    font-family: var(--rds--font-family-inter);
+    font-size: var(--rds--font-size-small);
+    font-style: italic;
+    color: var(--rds--color-grey-dark);
+    margin-bottom: 0.5rem;
 }
 
 .cu-social__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .cu-social__item {
-  &[data-social='linkedin'] {
-    --cu-social-brand: var(--rds--color-linkedin);
-  }
-  &[data-social='facebook'] {
-    --cu-social-brand: var(--rds--color-facebook);
-  }
-  &[data-social='bluesky'] {
-    --cu-social-brand: var(--rds--color-bluesky);
-  }
-  &[data-social='x-twitter'] {
-    --cu-social-brand: var(--rds--color-twitter);
-  }
-  &[data-social='instagram'] {
-    --cu-social-brand: var(--rds--color-instagram);
-  }
-  &[data-social='youtube'] {
-    --cu-social-brand: var(--rds--color-youtube);
-  }
-  &[data-social='tiktok'] {
-    --cu-social-brand: var(--rds--color-tiktok);
-  }
-  &[data-social='orcid'] {
-    --cu-social-brand: var(--rds--color-orcid);
-  }
+    &[data-social='linkedin'] {
+        --cu-social-brand: var(--rds--color-linkedin);
+    }
+    &[data-social='facebook'] {
+        --cu-social-brand: var(--rds--color-facebook);
+    }
+    &[data-social='bluesky'] {
+        --cu-social-brand: var(--rds--color-bluesky);
+    }
+    &[data-social='x-twitter'] {
+        --cu-social-brand: var(--rds--color-twitter);
+    }
+    &[data-social='instagram'] {
+        --cu-social-brand: var(--rds--color-instagram);
+    }
+    &[data-social='youtube'] {
+        --cu-social-brand: var(--rds--color-youtube);
+    }
+    &[data-social='tiktok'] {
+        --cu-social-brand: var(--rds--color-tiktok);
+    }
+    &[data-social='orcid'] {
+        --cu-social-brand: var(--rds--color-orcid);
+    }
 }
 
 .cu-social__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: var(--rds--color-grey-dark);
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--rds--color-grey-dark);
+    text-decoration: none;
 
-  &:hover {
-    color: var(--rds--color-primary);
-  }
+    &:hover {
+        color: var(--rds--color-primary);
+    }
 
-  @media (min-width: $rds-media-query-md) {
-    font-size: 2rem;
-  }
+    @media (min-width: $rds-media-query-md) {
+        font-size: 2rem;
+    }
 }
 
 .cu-social--black .cu-social__link {
-  color: var(--rds--color-black);
+    color: var(--rds--color-black);
 
-  &:hover {
-    color: var(--cu-social-brand, var(--rds--color-black));
-  }
+    &:hover {
+        color: var(--cu-social-brand, var(--rds--color-black));
+    }
 }
 
 .cu-social--white .cu-social__link {
-  color: var(--rds--color-white);
+    color: var(--rds--color-white);
 
-  &:hover {
-    color: var(--cu-social-brand, var(--rds--color-white));
-  }
+    &:hover {
+        color: var(--cu-social-brand, var(--rds--color-white));
+    }
 }
 
 .cu-social--brand .cu-social__link {
-  color: var(--cu-social-brand, var(--rds--color-black));
-
-  &:hover {
     color: var(--cu-social-brand, var(--rds--color-black));
-  }
+
+    &:hover {
+        color: var(--cu-social-brand, var(--rds--color-black));
+    }
 }

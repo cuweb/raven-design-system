@@ -9,9 +9,9 @@ export type CardStatusProps = StatusProps;
  * collapses via CSS `:empty`.
  */
 export const CardStatus = (props: CardStatusProps) => (
-  <div className="cu-card__status">
-    <Status {...props} context="in-card" />
-  </div>
+    <div className="cu-card__status">
+        <Status {...props} context="in-card" />
+    </div>
 );
 
 CardStatus.displayName = 'Card.Status';

@@ -10,130 +10,130 @@ import { largeNavData } from '../../data/NavigationData';
 import { MultiParagraph } from '../../data/storyContent';
 
 const meta: Meta = {
-  title: 'Overview/Templates/Components',
-  parameters: {
-    layout: 'fullscreen',
-  },
-  tags: ['!autodocs'],
+    title: 'Overview/Templates/Components',
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['!autodocs'],
 };
 
 export default meta;
 type Story = StoryObj;
 
 export const TestimonialComponent: Story = {
-  name: 'Testimonial',
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          { id: 'color-contrast', enabled: false },
-          { id: 'landmark-complementary-is-top-level', enabled: false },
-        ],
-      },
+    name: 'Testimonial',
+    parameters: {
+        a11y: {
+            config: {
+                rules: [
+                    { id: 'color-contrast', enabled: false },
+                    { id: 'landmark-complementary-is-top-level', enabled: false },
+                ],
+            },
+        },
     },
-  },
-  render: () => (
-    <>
-      <Nav>
-        <Nav.Top>
-          <Nav.Logo title="Raven Design System" link="#" />
-          <Nav.Buttons
-            isSearch
-            buttons={[
-              {
-                title: 'Apply',
-                href: '/apply',
-              },
-              {
-                title: 'Donate',
-                href: '/donate',
-                variant: 'dark',
-              },
-            ]}
-          />
-        </Nav.Top>
-        <Nav.Bottom>
-          <Nav.Menu menu={largeNavData} />
-        </Nav.Bottom>
-      </Nav>
+    render: () => (
+        <>
+            <Nav>
+                <Nav.Top>
+                    <Nav.Logo title="Raven Design System" link="#" />
+                    <Nav.Buttons
+                        isSearch
+                        buttons={[
+                            {
+                                title: 'Apply',
+                                href: '/apply',
+                            },
+                            {
+                                title: 'Donate',
+                                href: '/donate',
+                                variant: 'dark',
+                            },
+                        ]}
+                    />
+                </Nav.Top>
+                <Nav.Bottom>
+                    <Nav.Menu menu={largeNavData} />
+                </Nav.Bottom>
+            </Nav>
 
-      <Main>
-        <Section maxWidth="alignfull" bgType="light-gradient" isHero>
-          <PageHeader
-            as="h1"
-            header="Testimonial Component"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            size="primary"
-          />
-        </Section>
+            <Main>
+                <Section maxWidth="alignfull" bgType="light-gradient" isHero>
+                    <PageHeader
+                        as="h1"
+                        header="Testimonial Component"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        size="primary"
+                    />
+                </Section>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Testimonial
-          cite="Jane Doe"
-          focalPointX={50}
-          focalPointY={50}
-          imageUrl="https://picsum.photos/id/342/600/400"
-          imageZoom={0}
-          quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
-        />
+                <Testimonial
+                    cite="Jane Doe"
+                    focalPointX={50}
+                    focalPointY={50}
+                    imageUrl="https://picsum.photos/id/342/600/400"
+                    imageZoom={0}
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                />
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Section as="section" maxWidth="alignwide" bgType="grey">
-          <PageHeader
-            as="h2"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            header="Grey Background"
-            size="lg"
-          />
-          <Testimonial
-            cite="Jane Doe"
-            focalPointX={50}
-            focalPointY={50}
-            imageUrl="https://picsum.photos/id/342/600/400"
-            imageZoom={0}
-            quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
-          />
-        </Section>
+                <Section as="section" maxWidth="alignwide" bgType="grey">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                    />
+                    <Testimonial
+                        cite="Jane Doe"
+                        focalPointX={50}
+                        focalPointY={50}
+                        imageUrl="https://picsum.photos/id/342/600/400"
+                        imageZoom={0}
+                        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    />
+                </Section>
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Testimonial
-          cite="Jane Doe"
-          quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
-          focalPointX={50}
-          focalPointY={50}
-          imageUrl="https://picsum.photos/id/342/600/400"
-          imageZoom={0}
-          maxWidth="alignwide"
-        />
+                <Testimonial
+                    cite="Jane Doe"
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    focalPointX={50}
+                    focalPointY={50}
+                    imageUrl="https://picsum.photos/id/342/600/400"
+                    imageZoom={0}
+                    maxWidth="alignwide"
+                />
 
-        <MultiParagraph count={2} />
+                <MultiParagraph count={2} />
 
-        <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
-          <PageHeader
-            as="h2"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
-            header="Grey Background"
-            size="lg"
-            isCenter
-          />
-          <Testimonial
-            cite="Jane Doe"
-            focalPointX={50}
-            focalPointY={50}
-            imageUrl="https://picsum.photos/id/342/600/400"
-            imageZoom={0}
-            quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
-          />
-        </Section>
+                <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                        isCenter
+                    />
+                    <Testimonial
+                        cite="Jane Doe"
+                        focalPointX={50}
+                        focalPointY={50}
+                        imageUrl="https://picsum.photos/id/342/600/400"
+                        imageZoom={0}
+                        quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    />
+                </Section>
 
-        <MultiParagraph count={2} />
-      </Main>
+                <MultiParagraph count={2} />
+            </Main>
 
-      <FooterStandard type="standard" />
-      <CookieBanner cookieName="storybook-preview-consent" />
-    </>
-  ),
+            <FooterStandard type="standard" />
+            <CookieBanner cookieName="storybook-preview-consent" />
+        </>
+    ),
 };

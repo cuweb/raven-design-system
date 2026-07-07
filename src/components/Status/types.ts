@@ -14,10 +14,10 @@ export const defaultStatusTypes = statusTypes as StatusTypeRegistry;
 export type StatusType = keyof typeof statusTypes;
 
 export interface StatusTypeDefinition {
-  /** Used as a prefix in the rendered aria-label, e.g. "Hours: Open until 8:00 PM". */
-  ariaPrefix: string;
-  /** Default visible text per variant. Variants may be omitted; an unresolved (type, variant) pair renders nothing. */
-  labels: Partial<Record<StatusVariant, string>>;
+    /** Used as a prefix in the rendered aria-label, e.g. "Hours: Open until 8:00 PM". */
+    ariaPrefix: string;
+    /** Default visible text per variant. Variants may be omitted; an unresolved (type, variant) pair renders nothing. */
+    labels: Partial<Record<StatusVariant, string>>;
 }
 
 export type StatusTypeRegistry = Record<string, StatusTypeDefinition>;

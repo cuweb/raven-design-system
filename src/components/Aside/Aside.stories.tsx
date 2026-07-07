@@ -6,80 +6,80 @@ import { Aside } from './Aside';
 import { MultiParagraph, UnorderedList } from '../../data/storyContent';
 
 const meta: Meta<typeof Aside> = {
-  title: 'Components/Template Parts/Aside',
-  component: Aside,
-  tags: ['!autodocs'],
-  argTypes: {
-    topSpace: {
-      control: { type: 'number', min: 0 },
+    title: 'Components/Template Parts/Aside',
+    component: Aside,
+    tags: ['!autodocs'],
+    argTypes: {
+        topSpace: {
+            control: { type: 'number', min: 0 },
+        },
     },
-  },
-  parameters: {
-    controls: {
-      sort: 'requiredFirst',
+    parameters: {
+        controls: {
+            sort: 'requiredFirst',
+        },
     },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Aside>;
 
 export const Default: Story = {
-  args: {
-    children: 'Aside HTML5 tag as component',
-  },
+    args: {
+        children: 'Aside HTML5 tag as component',
+    },
 };
 
 export const RightSidebar: Story = {
-  parameters: {
-    a11y: {
-      config: {
-        rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
-      },
+    parameters: {
+        a11y: {
+            config: {
+                rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
+            },
+        },
     },
-  },
-  render: () => (
-    <Main>
-      <Section>
-        <Column cols="2/3">
-          <Column.Content>
-            <MultiParagraph count={4} />
-          </Column.Content>
-          <Aside>
-            <MultiParagraph count={1} />
-            <UnorderedList />
-          </Aside>
-        </Column>
-      </Section>
-    </Main>
-  ),
+    render: () => (
+        <Main>
+            <Section>
+                <Column cols="2/3">
+                    <Column.Content>
+                        <MultiParagraph count={4} />
+                    </Column.Content>
+                    <Aside>
+                        <MultiParagraph count={1} />
+                        <UnorderedList />
+                    </Aside>
+                </Column>
+            </Section>
+        </Main>
+    ),
 };
 
 export const LeftSidebarSticky: Story = {
-  args: {
-    isSticky: true,
-    topSpace: 16,
-  },
-  parameters: {
-    a11y: {
-      config: {
-        rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
-      },
+    args: {
+        isSticky: true,
+        topSpace: 16,
     },
-  },
-  render: (args) => (
-    <Main>
-      <Section>
-        <Column cols="1/3">
-          <Aside {...args}>
-            <MultiParagraph count={1} />
-            <UnorderedList />
-          </Aside>
-          <Column.Content>
-            <MultiParagraph count={4} />
-          </Column.Content>
-        </Column>
-      </Section>
-    </Main>
-  ),
+    parameters: {
+        a11y: {
+            config: {
+                rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
+            },
+        },
+    },
+    render: (args) => (
+        <Main>
+            <Section>
+                <Column cols="1/3">
+                    <Aside {...args}>
+                        <MultiParagraph count={1} />
+                        <UnorderedList />
+                    </Aside>
+                    <Column.Content>
+                        <MultiParagraph count={4} />
+                    </Column.Content>
+                </Column>
+            </Section>
+        </Main>
+    ),
 };

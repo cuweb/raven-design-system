@@ -1,58 +1,58 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-testimonial {
-  display: flex;
-  flex-direction: column-reverse;
-  background-color: var(--rds--color-grey-pale);
-  border-radius: var(--rds--radius-md);
-  border-left: 4px solid var(--rds--color-primary);
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (min-width: $rds-media-query-sm) {
-    flex-direction: row;
-    align-items: stretch;
-    border: none;
-  }
-
-  &--reverse {
-    @media (min-width: $rds-media-query-sm) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  &__image {
-    display: none;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--rds--color-grey-pale);
+    border-radius: var(--rds--radius-md);
+    border-left: 4px solid var(--rds--color-primary);
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
 
     @media (min-width: $rds-media-query-sm) {
-      display: block;
-      width: 40%;
-      flex-shrink: 0;
-      background-color: var(--rds--color-grey-faint);
-      background-size: cover;
-    }
-  }
-
-  &__content {
-    width: 100%;
-    min-width: 0;
-    flex: 1 1 auto;
-    padding: var(--rds--spacing-2-x-large);
-
-    .cu-quote {
-      max-width: none;
-      margin: 0;
-      padding: 0;
-
-      &--border {
+        flex-direction: row;
+        align-items: stretch;
         border: none;
-        border-radius: 0;
-      }
     }
-  }
+
+    &--reverse {
+        @media (min-width: $rds-media-query-sm) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__image {
+        display: none;
+
+        @media (min-width: $rds-media-query-sm) {
+            display: block;
+            width: 40%;
+            flex-shrink: 0;
+            background-color: var(--rds--color-grey-faint);
+            background-size: cover;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 auto;
+        padding: var(--rds--spacing-2-x-large);
+
+        .cu-quote {
+            max-width: none;
+            margin: 0;
+            padding: 0;
+
+            &--border {
+                border: none;
+                border-radius: 0;
+            }
+        }
+    }
 }
 
 .cu-section--grey .cu-testimonial {
-  background-color: var(--rds--color-white);
+    background-color: var(--rds--color-white);
 }

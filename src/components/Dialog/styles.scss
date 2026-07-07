@@ -1,35 +1,35 @@
 .cu-dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 51;
-  width: calc(100% - var(--rds--spacing-large) * 2);
-  max-width: 24rem;
-  margin: 0;
-  padding: var(--rds--spacing-large);
-  border: none;
-  border-radius: var(--rds--radius-md);
-  box-shadow: var(--rds--shadow-natural);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 51;
+    width: calc(100% - var(--rds--spacing-large) * 2);
+    max-width: 24rem;
+    margin: 0;
+    padding: var(--rds--spacing-large);
+    border: none;
+    border-radius: var(--rds--radius-md);
+    box-shadow: var(--rds--shadow-natural);
 
-  &::backdrop {
-    background-color: var(--rds--color-black);
-    opacity: 0.5;
-  }
+    &::backdrop {
+        background-color: var(--rds--color-black);
+        opacity: 0.5;
+    }
 }
 
 .cu-dialog__body {
-  margin-bottom: var(--rds--spacing-medium);
+    margin-bottom: var(--rds--spacing-medium);
 }
 
 .cu-dialog__title {
-  margin: 0 0 var(--rds--spacing-small);
-  font-size: var(--rds--font-size-large);
-  font-weight: var(--rds--font-weight-semibold);
+    margin: 0 0 var(--rds--spacing-small);
+    font-size: var(--rds--font-size-large);
+    font-weight: var(--rds--font-weight-semibold);
 }
 
 .cu-dialog__description {
-  margin: 0;
-  color: var(--rds--color-grey-dark);
-  font-size: var(--rds--font-size-small);
+    margin: 0;
+    color: var(--rds--color-grey-dark);
+    font-size: var(--rds--font-size-small);
 }

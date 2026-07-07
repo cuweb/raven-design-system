@@ -1,123 +1,123 @@
 @use '../../styles/auto/variables' as *;
 
 .cu-card {
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  font-family: var(--rds--font-family-inter);
-  color: var(--rds--color-black);
-  background: var(--rds--color-white);
-  padding: 1.25rem 1.25rem 1.75rem 1.25rem;
-  border-radius: var(--rds--radius-md);
-  box-shadow: var(--rds--shadow-natural);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-family: var(--rds--font-family-inter);
+    color: var(--rds--color-black);
+    background: var(--rds--color-white);
+    padding: 1.25rem 1.25rem 1.75rem 1.25rem;
+    border-radius: var(--rds--radius-md);
+    box-shadow: var(--rds--shadow-natural);
 
-  a {
-    color: var(--rds--color-primary);
-    text-decoration: none;
+    a {
+        color: var(--rds--color-primary);
+        text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
     }
-  }
 
-  & > * {
-    z-index: 2;
-  }
+    & > * {
+        z-index: 2;
+    }
 }
 
 .cu-card--border-left {
-  border-left: 3px solid var(--rds--color-primary);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+    border-left: 3px solid var(--rds--color-primary);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 // With badges
 .cu-card .cu-badge-group {
-  margin-bottom: var(--rds--spacing-2-x-large);
+    margin-bottom: var(--rds--spacing-2-x-large);
 }
 
 .cu-card__figure + .cu-badge-group,
 .cu-badge-group + .cu-card__figure {
-  position: absolute;
-  z-index: 3;
-  top: var(--rds--spacing-x-small);
-  left: var(--rds--spacing-x-small);
+    position: absolute;
+    z-index: 3;
+    top: var(--rds--spacing-x-small);
+    left: var(--rds--spacing-x-small);
 }
 
 // Content
 
 .cu-card__body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--rds--spacing-small);
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-small);
 }
 
 .cu-card__header h2,
 .cu-card__header h3 {
-  font-size: var(--rds--font-size-x-large);
-  line-height: var(--rds--line-height-tight);
-  margin: 0 0 var(--rds--spacing-x-small) 0;
+    font-size: var(--rds--font-size-x-large);
+    line-height: var(--rds--line-height-tight);
+    margin: 0 0 var(--rds--spacing-x-small) 0;
 
-  a {
-    color: var(--rds--color-black);
+    a {
+        color: var(--rds--color-black);
 
-    &:hover {
-      color: var(--rds--color-primary);
-      text-decoration: none;
+        &:hover {
+            color: var(--rds--color-primary);
+            text-decoration: none;
+        }
     }
-  }
 }
 
 .cu-card__header-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--rds--spacing-x-small);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--rds--spacing-x-small);
 }
 
 .cu-card__header-meta time,
 .cu-card__header-meta p {
-  font-size: var(--rds--font-size-x-small);
-  font-style: italic;
-  margin: 0;
+    font-size: var(--rds--font-size-x-small);
+    font-style: italic;
+    margin: 0;
 }
 
 .cu-card__excerpt {
-  font-size: var(--rds--font-size-small);
-  margin: 0;
+    font-size: var(--rds--font-size-small);
+    margin: 0;
 }
 
 .cu-card__meta,
 .cu-card__status {
-  font-size: var(--rds--font-size-small);
-  list-style: none;
-  padding: 0;
-  margin: var(--rds--spacing-2-x-small) 0 0 0;
+    font-size: var(--rds--font-size-small);
+    list-style: none;
+    padding: 0;
+    margin: var(--rds--spacing-2-x-small) 0 0 0;
 
-  li:not(:last-child) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.22rem;
-  }
+    li:not(:last-child) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.22rem;
+    }
 
-  &--has-icons li:not(:last-child) {
-    display: flex;
-    align-items: center;
-    margin-bottom: var(--rds--spacing-2-x-small);
-  }
+    &--has-icons li:not(:last-child) {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--rds--spacing-2-x-small);
+    }
 
-  svg {
-    color: var(--rds--color-primary);
-    margin-right: var(--rds--spacing-2-x-small);
-    vertical-align: middle;
-  }
+    svg {
+        color: var(--rds--color-primary);
+        margin-right: var(--rds--spacing-2-x-small);
+        vertical-align: middle;
+    }
 }
 
 .cu-card--center {
-  text-align: center;
+    text-align: center;
 
-  .cu-card__meta li {
-    justify-content: center;
-  }
+    .cu-card__meta li {
+        justify-content: center;
+    }
 }

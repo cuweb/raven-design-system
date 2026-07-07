@@ -34,70 +34,70 @@ const STAGGER_CAP_MS = 600;
 const STAGGER_VAR = '--cu-card-stagger';
 
 declare global {
-  interface Window {
-    cuMotion?: { init: () => void; register: (root?: ParentNode) => void };
-  }
+    interface Window {
+        cuMotion?: { init: () => void; register: (root?: ParentNode) => void };
+    }
 }
 
 const prefersReducedMotion = (): boolean =>
-  !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 const reveal = (el: Element): void => {
-  el.setAttribute(REVEALED, 'true');
+    el.setAttribute(REVEALED, 'true');
 };
 
 let observer: IntersectionObserver | null = null;
 const observed: WeakSet<Element> | null =
-  typeof WeakSet === 'function' ? new WeakSet<Element>() : null;
+    typeof WeakSet === 'function' ? new WeakSet<Element>() : null;
 
 const getObserver = (): IntersectionObserver | null => {
-  if (observer) return observer;
-  if (typeof IntersectionObserver === 'undefined') return null;
-  observer = new IntersectionObserver(
-    (entries) => {
-      let batchIndex = 0;
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const stagger = Math.min(batchIndex * STAGGER_STEP_MS, STAGGER_CAP_MS);
-          (entry.target as HTMLElement).style.setProperty(STAGGER_VAR, `${stagger}ms`);
-          reveal(entry.target);
-          observer?.unobserve(entry.target);
-          batchIndex++;
-        }
-      });
-    },
-    { threshold: THRESHOLD, rootMargin: ROOT_MARGIN },
-  );
-  return observer;
+    if (observer) return observer;
+    if (typeof IntersectionObserver === 'undefined') return null;
+    observer = new IntersectionObserver(
+        (entries) => {
+            let batchIndex = 0;
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const stagger = Math.min(batchIndex * STAGGER_STEP_MS, STAGGER_CAP_MS);
+                    (entry.target as HTMLElement).style.setProperty(STAGGER_VAR, `${stagger}ms`);
+                    reveal(entry.target);
+                    observer?.unobserve(entry.target);
+                    batchIndex++;
+                }
+            });
+        },
+        { threshold: THRESHOLD, rootMargin: ROOT_MARGIN },
+    );
+    return observer;
 };
 
 export const register = (root: ParentNode = document): void => {
-  const elements = root.querySelectorAll<HTMLElement>(SELECTOR);
-  if (!elements.length) return;
+    const elements = root.querySelectorAll<HTMLElement>(SELECTOR);
+    if (!elements.length) return;
 
-  const reduced = prefersReducedMotion();
-  const obs = reduced ? null : getObserver();
+    const reduced = prefersReducedMotion();
+    const obs = reduced ? null : getObserver();
 
-  elements.forEach((el) => {
-    if (observed?.has(el)) return;
-    if (reduced || !obs) {
-      reveal(el);
-    } else {
-      obs.observe(el);
-      observed?.add(el);
-    }
-  });
+    elements.forEach((el) => {
+        if (observed?.has(el)) return;
+        if (reduced || !obs) {
+            reveal(el);
+        } else {
+            obs.observe(el);
+            observed?.add(el);
+        }
+    });
 };
 
 export const init = (): void => {
-  register(document);
+    register(document);
 };
 
 if (typeof window !== 'undefined' && typeof document !== 'undefined' && !window.cuMotion) {
-  window.cuMotion = { init, register };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+    window.cuMotion = { init, register };
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 }
