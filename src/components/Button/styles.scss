@@ -23,123 +23,135 @@
         padding: 0.75rem 1.5rem;
         font-size: var(--rds--font-size-medium);
     }
+}
 
-    &--red {
-        color: var(--rds--color-white);
-        background-color: var(--rds--color-primary);
-        border-color: var(--rds--color-primary);
+.cu-button--red {
+    color: var(--rds--color-white);
+    background-color: var(--rds--color-primary);
+    border-color: var(--rds--color-primary);
 
-        &:hover {
-            background-color: var(--rds--color-grey-dark);
-            border-color: var(--rds--color-grey-dark);
-        }
-
-        &.cu-button--outline {
-            color: var(--rds--color-primary);
-            background-color: var(--rds--color-white);
-            border-color: var(--rds--color-primary);
-
-            &:hover {
-                color: var(--rds--color-white);
-                background-color: var(--rds--color-primary);
-                border-color: var(--rds--color-primary);
-            }
-        }
+    &:hover {
+        background-color: var(--rds--color-grey-dark);
+        border-color: var(--rds--color-grey-dark);
     }
 
-    &--grey {
-        color: var(--rds--color-grey-dark);
-        background-color: var(--rds--color-grey-pale);
-        border-color: var(--rds--color-grey-pale);
+    &.cu-button--outline {
+        color: var(--rds--color-primary);
+        background-color: var(--rds--color-white);
+        border-color: var(--rds--color-primary);
 
         &:hover {
             color: var(--rds--color-white);
             background-color: var(--rds--color-primary);
             border-color: var(--rds--color-primary);
         }
+    }
+}
 
-        &.cu-button--outline {
-            background-color: var(--rds--color-white);
-            border-color: var(--rds--color-grey-pale);
+.cu-button--grey {
+    color: var(--rds--color-grey-dark);
+    background-color: var(--rds--color-grey-pale);
+    border-color: var(--rds--color-grey-pale);
 
-            &:hover {
-                color: var(--rds--color-grey-dark);
-                background-color: var(--rds--color-grey-pale);
-                border-color: var(--rds--color-grey-pale);
-            }
-        }
+    &:hover {
+        color: var(--rds--color-white);
+        background-color: var(--rds--color-primary);
+        border-color: var(--rds--color-primary);
     }
 
-    &--dark-grey {
-        color: var(--rds--color-white);
-        background-color: var(--rds--color-grey-dark);
+    &.cu-button--outline {
+        background-color: var(--rds--color-white);
+        border-color: var(--rds--color-grey-pale);
+
+        &:hover {
+            color: var(--rds--color-grey-dark);
+            background-color: var(--rds--color-grey-pale);
+            border-color: var(--rds--color-grey-pale);
+        }
+    }
+}
+
+.cu-button--dark-grey {
+    color: var(--rds--color-white);
+    background-color: var(--rds--color-grey-dark);
+    border-color: var(--rds--color-grey-dark);
+
+    &:hover {
+        background-color: var(--rds--color-primary);
+        border-color: var(--rds--color-primary);
+    }
+
+    &.cu-button--outline {
+        color: var(--rds--color-grey-dark);
+        background-color: var(--rds--color-white);
         border-color: var(--rds--color-grey-dark);
 
         &:hover {
-            background-color: var(--rds--color-primary);
-            border-color: var(--rds--color-primary);
-        }
-
-        &.cu-button--outline {
-            color: var(--rds--color-grey-dark);
-            background-color: var(--rds--color-white);
-            border-color: var(--rds--color-grey-dark);
-
-            &:hover {
-                color: var(--rds--color-white);
-                background-color: var(--rds--color-grey-dark);
-                border-color: var(--rds--color-grey-dark);
-            }
-        }
-    }
-
-    &--blue {
-        color: var(--rds--color-white);
-        background-color: var(--rds--color-experience-blue);
-        border-color: var(--rds--color-experience-blue);
-
-        &:hover {
+            color: var(--rds--color-white);
             background-color: var(--rds--color-grey-dark);
             border-color: var(--rds--color-grey-dark);
         }
+    }
+}
 
-        &.cu-button--outline {
-            color: var(--rds--color-experience-blue);
-            background-color: var(--rds--color-white);
-            border-color: var(--rds--color-experience-blue);
+.cu-button--blue {
+    color: var(--rds--color-white);
+    background-color: var(--rds--color-experience-blue);
+    border-color: var(--rds--color-experience-blue);
 
-            &:hover {
-                color: var(--rds--color-white);
-                background-color: var(--rds--color-experience-blue);
-                border-color: var(--rds--color-experience-blue);
-            }
-        }
+    &:hover {
+        background-color: var(--rds--color-grey-dark);
+        border-color: var(--rds--color-grey-dark);
     }
 
-    &--black {
-        color: var(--rds--color-white);
+    &.cu-button--outline {
+        color: var(--rds--color-experience-blue);
+        background-color: var(--rds--color-white);
+        border-color: var(--rds--color-experience-blue);
+
+        &:hover {
+            color: var(--rds--color-white);
+            background-color: var(--rds--color-experience-blue);
+            border-color: var(--rds--color-experience-blue);
+        }
+    }
+}
+
+.cu-button--black {
+    color: var(--rds--color-white);
+    background-color: var(--rds--color-black);
+    border-color: var(--rds--color-black);
+
+    &:hover {
         background-color: var(--rds--color-black);
+        border-color: var(--rds--color-black);
+    }
+
+    &.cu-button--outline {
+        color: var(--rds--color-black);
+        background-color: var(--rds--color-white);
         border-color: var(--rds--color-black);
 
         &:hover {
+            color: var(--rds--color-white);
             background-color: var(--rds--color-black);
             border-color: var(--rds--color-black);
         }
+    }
+}
 
-        &.cu-button--outline {
-            color: var(--rds--color-black);
-            background-color: var(--rds--color-white);
-            border-color: var(--rds--color-black);
+.cu-button--white {
+    color: var(--rds--color-black);
+    background-color: var(--rds--color-white);
+    border-color: var(--rds--color-white);
 
-            &:hover {
-                color: var(--rds--color-white);
-                background-color: var(--rds--color-black);
-                border-color: var(--rds--color-black);
-            }
-        }
+    &:hover {
+        color: var(--rds--color-white);
+        background-color: var(--rds--color-primary);
+        border-color: var(--rds--color-primary);
     }
 
-    &--white {
+    &.cu-button--outline {
         color: var(--rds--color-black);
         background-color: var(--rds--color-white);
         border-color: var(--rds--color-white);
@@ -149,41 +161,29 @@
             background-color: var(--rds--color-primary);
             border-color: var(--rds--color-primary);
         }
-
-        &.cu-button--outline {
-            color: var(--rds--color-black);
-            background-color: var(--rds--color-white);
-            border-color: var(--rds--color-white);
-
-            &:hover {
-                color: var(--rds--color-white);
-                background-color: var(--rds--color-primary);
-                border-color: var(--rds--color-primary);
-            }
-        }
     }
+}
 
-    &--disabled {
-        color: var(--rds--color-grey-dark);
-        background-color: var(--rds--color-grey-light);
-        border-color: var(--rds--color-grey-light);
-        cursor: default;
-    }
+.cu-button--disabled {
+    color: var(--rds--color-grey-dark);
+    background-color: var(--rds--color-grey-light);
+    border-color: var(--rds--color-grey-light);
+    cursor: default;
+}
 
-    &--full {
-        width: 100%;
-    }
+.cu-button--full {
+    width: 100%;
+}
 
-    &--center {
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+.cu-button--center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-    &--small {
-        padding: 0.5rem 0.75rem;
-        font-size: var(--rds--font-size-small);
-    }
+.cu-button--small {
+    padding: 0.5rem 0.75rem;
+    font-size: var(--rds--font-size-small);
 }
 
 .cu-column + .cu-button,

@@ -21,84 +21,84 @@ a.cu-badge {
     border-width: 1px;
     border-style: solid;
     white-space: nowrap;
+}
 
-    &--radius-sm {
-        border-radius: var(--rds--radius-sm);
-    }
+.cu-badge--radius-sm {
+    border-radius: var(--rds--radius-sm);
+}
 
-    &--radius-md {
-        border-radius: var(--rds--radius-md);
-    }
+.cu-badge--radius-md {
+    border-radius: var(--rds--radius-md);
+}
 
-    &--radius-lg {
-        border-radius: var(--rds--radius-lg);
-    }
+.cu-badge--radius-lg {
+    border-radius: var(--rds--radius-lg);
+}
 
-    &--radius-full {
-        border-radius: var(--rds--radius-full);
-    }
+.cu-badge--radius-full {
+    border-radius: var(--rds--radius-full);
+}
 
-    &--radius-none {
-        border-radius: 0;
-    }
+.cu-badge--radius-none {
+    border-radius: 0;
+}
 
-    &--grey {
-        background-color: var(--rds--color-grey-pale);
-        border-color: var(--rds--color-grey-pale);
-        color: var(--rds--color-grey-dark);
-    }
+.cu-badge--grey {
+    background-color: var(--rds--color-grey-pale);
+    border-color: var(--rds--color-grey-pale);
+    color: var(--rds--color-grey-dark);
+}
 
-    &--white {
-        background-color: var(--rds--color-white);
-        border-color: var(--rds--color-white);
-        color: var(--rds--color-grey-dark);
-    }
+.cu-badge--white {
+    background-color: var(--rds--color-white);
+    border-color: var(--rds--color-white);
+    color: var(--rds--color-grey-dark);
+}
 
-    &--green {
-        background-color: var(--rds--color-success-dark);
-        border-color: var(--rds--color-success-dark);
-        color: var(--rds--color-white);
-    }
+.cu-badge--green {
+    background-color: var(--rds--color-success-dark);
+    border-color: var(--rds--color-success-dark);
+    color: var(--rds--color-white);
+}
 
-    &--red {
-        background-color: var(--rds--color-error-dark);
-        border-color: var(--rds--color-error-dark);
-        color: var(--rds--color-white);
-    }
+.cu-badge--red {
+    background-color: var(--rds--color-error-dark);
+    border-color: var(--rds--color-error-dark);
+    color: var(--rds--color-white);
+}
 
-    &--yellow {
-        background-color: var(--rds--color-warning);
-        border-color: var(--rds--color-warning);
-        color: var(--rds--color-black);
-    }
+.cu-badge--yellow {
+    background-color: var(--rds--color-warning);
+    border-color: var(--rds--color-warning);
+    color: var(--rds--color-black);
+}
 
-    &--blue {
-        background-color: var(--rds--color-info);
-        border-color: var(--rds--color-info);
-        color: var(--rds--color-black);
-    }
+.cu-badge--blue {
+    background-color: var(--rds--color-info);
+    border-color: var(--rds--color-info);
+    color: var(--rds--color-black);
+}
 
-    &--purple {
-        background-color: var(--rds--color-purple);
-        border-color: var(--rds--color-purple);
-        color: var(--rds--color-white);
-    }
+.cu-badge--purple {
+    background-color: var(--rds--color-purple);
+    border-color: var(--rds--color-purple);
+    color: var(--rds--color-white);
+}
 
-    &--teal {
-        background-color: var(--rds--color-teal);
-        border-color: var(--rds--color-teal);
-        color: var(--rds--color-white);
-    }
+.cu-badge--teal {
+    background-color: var(--rds--color-teal);
+    border-color: var(--rds--color-teal);
+    color: var(--rds--color-white);
+}
 
-    &--black80 {
-        background-color: rgba(0, 0, 0, 0.8);
-        border-color: rgba(0, 0, 0, 0.8);
-        color: var(--rds--color-white);
-    }
+.cu-badge--black80 {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-color: rgba(0, 0, 0, 0.8);
+    color: var(--rds--color-white);
+}
 
-    &--white80 {
-        background-color: rgba(255, 255, 255, 0.8);
-        border-color: rgba(255, 255, 255, 0.8);
-        color: var(--rds--color-grey-dark);
-    }
+.cu-badge--white80 {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: var(--rds--color-grey-dark);
 }

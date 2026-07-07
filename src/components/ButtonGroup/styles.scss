@@ -8,16 +8,16 @@
     @media (min-width: $rds-media-query-md) {
         flex: 1 1 0%;
     }
+}
 
-    &--justify-start {
-        justify-content: flex-start;
-    }
+.cu-buttongroup--justify-start {
+    justify-content: flex-start;
+}
 
-    &--justify-center {
-        justify-content: center;
-    }
+.cu-buttongroup--justify-center {
+    justify-content: center;
+}
 
-    &--justify-end {
-        justify-content: flex-end;
-    }
+.cu-buttongroup--justify-end {
+    justify-content: flex-end;
 }
