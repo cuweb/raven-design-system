@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+_Changed_ Upgraded `packageManager` from `pnpm@10.34.4` to `pnpm@11.10.0`. Migrated pnpm config out of `package.json#pnpm` and `.npmrc` (non-auth settings) into `pnpm-workspace.yaml` to follow pnpm 11 conventions.
+
 ## [0.8.0] - 2026-06-25
 
 - _Added_: `Description` component — semantic `<dl>` for labelled metadata with three layouts: stacked (`Description.Meta`), two-column (`Description.Meta useColumns`), and collapsible accordion (`Description.Accordion`); accordion uses React state and a proper `<button>` trigger with `aria-expanded`/`aria-controls`.
