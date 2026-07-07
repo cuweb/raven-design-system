@@ -14,25 +14,25 @@
     .cu-buttongroup {
         margin-bottom: 0;
     }
+}
 
-    &--center {
-        text-align: center;
+.cu-callout--center {
+    text-align: center;
 
-        .cu-buttongroup {
-            justify-content: center;
-        }
+    .cu-buttongroup {
+        justify-content: center;
+    }
+}
+
+.cu-callout--end {
+    text-align: right;
+
+    .cu-pageheader__heading--underline::after {
+        left: auto;
+        right: 0;
     }
 
-    &--end {
-        text-align: right;
-
-        .cu-pageheader__heading--underline::after {
-            left: auto;
-            right: 0;
-        }
-
-        .cu-buttongroup {
-            justify-content: flex-end;
-        }
+    .cu-buttongroup {
+        justify-content: flex-end;
     }
 }

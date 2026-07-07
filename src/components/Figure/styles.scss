@@ -9,63 +9,63 @@
         width: 100%;
         height: auto;
     }
+}
 
-    // Explicit width so cu-figure__inner (and the caption inside it) is always
-    // bounded to the same width as the image. max-width: 100% on the root
-    // handles the case where the viewport is narrower than the declared size.
-    &--xs {
-        width: 320px;
-    }
-    &--sm {
-        width: 440px;
-    }
-    &--md {
-        width: 512px;
-    }
-    &--lg {
-        width: 48rem;
-    }
-    &--full {
+// Explicit width so cu-figure__inner (and the caption inside it) is always
+// bounded to the same width as the image. max-width: 100% on the root
+// handles the case where the viewport is narrower than the declared size.
+.cu-figure--xs {
+    width: 320px;
+}
+.cu-figure--sm {
+    width: 440px;
+}
+.cu-figure--md {
+    width: 512px;
+}
+.cu-figure--lg {
+    width: 48rem;
+}
+.cu-figure--full {
+    width: 100%;
+}
+
+// Below the float breakpoint, collapse all sized variants to full width
+// so they stack naturally without overflowing narrow viewports.
+@media (max-width: $rds-media-query-md - 0.02px) {
+    .cu-figure--xs,
+    .cu-figure--sm,
+    .cu-figure--md,
+    .cu-figure--lg {
         width: 100%;
     }
+}
 
-    // Below the float breakpoint, collapse all sized variants to full width
-    // so they stack naturally without overflowing narrow viewports.
-    @media (max-width: $rds-media-query-md - 0.02px) {
-        &--xs,
-        &--sm,
-        &--md,
-        &--lg {
-            width: 100%;
-        }
+// Float alignment — activates at md+
+.cu-figure--left {
+    margin: var(--rds--spacing-medium) 0;
+
+    @media (min-width: $rds-media-query-md) {
+        float: left;
+        clear: left;
+        margin-top: 0;
+        margin-right: var(--rds--spacing-large);
     }
+}
 
-    // Float alignment — activates at md+
-    &--left {
-        margin: var(--rds--spacing-medium) 0;
+.cu-figure--right {
+    margin: var(--rds--spacing-medium) 0;
 
-        @media (min-width: $rds-media-query-md) {
-            float: left;
-            clear: left;
-            margin-top: 0;
-            margin-right: var(--rds--spacing-large);
-        }
+    @media (min-width: $rds-media-query-md) {
+        float: right;
+        clear: right;
+        margin-top: 0;
+        margin-left: var(--rds--spacing-large);
     }
+}
 
-    &--right {
-        margin: var(--rds--spacing-medium) 0;
-
-        @media (min-width: $rds-media-query-md) {
-            float: right;
-            clear: right;
-            margin-top: 0;
-            margin-left: var(--rds--spacing-large);
-        }
-    }
-
-    &--center {
-        margin: var(--rds--spacing-medium) 0;
-    }
+.cu-figure--center {
+    margin: var(--rds--spacing-medium) 0;
 }
 
 .cu-figure__inner {

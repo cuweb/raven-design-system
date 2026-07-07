@@ -77,26 +77,26 @@
     background-color: var(--rds--color-white);
     padding: 0.5rem 0;
     text-align: center;
+}
 
-    // Grid column offsets for the first row
-    &--col-start-2 {
-        grid-column-start: 2;
-    }
-    &--col-start-3 {
-        grid-column-start: 3;
-    }
-    &--col-start-4 {
-        grid-column-start: 4;
-    }
-    &--col-start-5 {
-        grid-column-start: 5;
-    }
-    &--col-start-6 {
-        grid-column-start: 6;
-    }
-    &--col-start-7 {
-        grid-column-start: 7;
-    }
+// Grid column offsets for the first row
+.cu-calendar__day--col-start-2 {
+    grid-column-start: 2;
+}
+.cu-calendar__day--col-start-3 {
+    grid-column-start: 3;
+}
+.cu-calendar__day--col-start-4 {
+    grid-column-start: 4;
+}
+.cu-calendar__day--col-start-5 {
+    grid-column-start: 5;
+}
+.cu-calendar__day--col-start-6 {
+    grid-column-start: 6;
+}
+.cu-calendar__day--col-start-7 {
+    grid-column-start: 7;
 }
 
 // ─── Day button ───────────────────────────────────────────────────────────────
@@ -127,35 +127,35 @@
         outline: 2px solid var(--rds--color-primary);
         outline-offset: 2px;
     }
+}
 
-    &--today {
-        color: var(--rds--color-primary);
-        font-weight: var(--rds--font-weight-semibold);
-    }
+.cu-calendar__day-btn--today {
+    color: var(--rds--color-primary);
+    font-weight: var(--rds--font-weight-semibold);
+}
 
-    &--selected {
-        background-color: var(--rds--color-primary);
-        color: var(--rds--color-white);
-        font-weight: var(--rds--font-weight-semibold);
-    }
+.cu-calendar__day-btn--selected {
+    background-color: var(--rds--color-primary);
+    color: var(--rds--color-white);
+    font-weight: var(--rds--font-weight-semibold);
+}
 
-    &--in-range {
-        background-color: var(--rds--color-primary);
-        color: var(--rds--color-white);
-        border-radius: 0;
-    }
+.cu-calendar__day-btn--in-range {
+    background-color: var(--rds--color-primary);
+    color: var(--rds--color-white);
+    border-radius: 0;
+}
 
-    &--outside-month {
-        color: var(--rds--color-grey);
-    }
+.cu-calendar__day-btn--outside-month {
+    color: var(--rds--color-grey);
+}
 
-    &--disabled,
-    &:disabled {
-        background-color: var(--rds--color-grey-pale);
-        color: var(--rds--color-grey-light);
-        cursor: not-allowed;
-        pointer-events: none;
-    }
+.cu-calendar__day-btn--disabled,
+.cu-calendar__day-btn:disabled {
+    background-color: var(--rds--color-grey-pale);
+    color: var(--rds--color-grey-light);
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 // ─── Event dot ────────────────────────────────────────────────────────────────
