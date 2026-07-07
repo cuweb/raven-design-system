@@ -76,7 +76,7 @@
                 "slug": "custom-dark-grey-to-black"
             },
             "white-to-pale-grey": {
-                "value": "linear-gradient(135deg,rgb(250,250,250) 0%,rgb(240,240,240) 100%)",
+                "value": "linear-gradient(135deg,rgb(250,250,250) 0%,rgb(245,245,245) 90%)",
                 "slug": "custom-white-to-pale-grey"
             }
         },
@@ -173,7 +173,7 @@
         "h6": { "fontSize": "heading-small", "fontWeight": "600", "fontStyle": "italic", "marginBlockStart": "large" },
         "caption": { "fontSize": "small", "fontStyle": "italic", "fontWeight": "light", "color": "warning" },
         "button": { "color": "white", "background": "primary" },
-        "link": { "color": "primary-dark" },
+        "link": { "color": "primary-dark", "hoverColor": "exp-blue" },
         "spacing": {
             "blockGap": "0",
             "afterHeading": "small",
