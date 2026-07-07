@@ -19,20 +19,20 @@
         padding-inline: var(--rds--spacing-x-large);
     }
 
-    &__logo {
-        display: flex;
-        max-width: 24rem;
-        width: 100%;
-        margin-inline: auto;
-        margin-bottom: var(--rds--spacing-x-small);
-    }
-
-    &__description {
-        margin: 0;
-        color: var(--rds--color-black);
-    }
-
     .cu-buttongroup {
         margin-top: var(--rds--spacing-medium);
     }
+}
+
+.cu-carleton360__logo {
+    display: flex;
+    max-width: 24rem;
+    width: 100%;
+    margin-inline: auto;
+    margin-bottom: var(--rds--spacing-x-small);
+}
+
+.cu-carleton360__description {
+    margin: 0;
+    color: var(--rds--color-black);
 }
