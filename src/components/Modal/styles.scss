@@ -34,7 +34,7 @@ $cu-modal-sizes: (
 
 @each $name, $width in $cu-modal-sizes {
     .cu-modal--#{$name} {
-    max-width: $width;
+        max-width: $width;
     }
 }
 
@@ -54,8 +54,8 @@ $cu-modal-sizes: (
 
     &:hover,
     &:focus-visible {
-    background-color: var(--rds--color-grey-lighter);
-    color: var(--rds--color-black);
+        background-color: var(--rds--color-grey-lighter);
+        color: var(--rds--color-black);
     }
 }
 
@@ -64,10 +64,10 @@ $cu-modal-sizes: (
     overflow-y: auto;
 
     & > *:first-child {
-    margin-top: 0;
+        margin-top: 0;
     }
 
     & > *:last-child {
-    margin-bottom: 0;
+        margin-bottom: 0;
     }
 }
