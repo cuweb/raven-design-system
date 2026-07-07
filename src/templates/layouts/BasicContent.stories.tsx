@@ -59,7 +59,9 @@
                     />
                 </Section>
 
-                <MultiParagraph count={2} />
+                <MultiParagraph count={1} />
+
+                <p>Aliquam blandit tellus odio, nec commodo est efficitur sit amet. Proin molestie, risus in mollis laoreet, <a href="https://carleton.ca">lectus dui egestas augue</a>, eu maximus velit dui sed quam. Pellentesque iaculis suscipit libero gravida tempus. Phasellus in egestas sapien ac libero.</p>
 
                 <h2>Header Two Basic</h2>
                 <MultiParagraph count={2} />

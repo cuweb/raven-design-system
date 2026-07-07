@@ -66,3 +66,7 @@ body {
 :where(a) {
   color: var(--rds--color-primary-dark);
 }
+
+:where(a:hover) {
+  color: var(--rds--color-exp-blue);
+}
