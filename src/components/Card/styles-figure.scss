@@ -1,60 +1,58 @@
 @use '../../styles/auto/variables' as *;
 
-
 .cu-card__figure {
-    overflow: hidden;
-    margin: calc(1.25rem * -1);
-    margin-bottom: 1.25rem;
-    line-height: 0;
-    aspect-ratio: 3/2;
+  overflow: hidden;
+  margin: calc(1.25rem * -1);
+  margin-bottom: 1.25rem;
+  line-height: 0;
+  aspect-ratio: 3/2;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &--round,
+  &--square {
+    aspect-ratio: 1 / 1;
+    max-width: 180px;
+
+    img,
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &--round {
+    margin: var(--rds--spacing-small) auto 1.25rem;
+    border: 4px solid var(--rds--color-grey-pale);
+    border-radius: 50%;
+  }
+
+  &--square {
+    margin: var(--rds--spacing-small) 0 1.25rem;
+    border-radius: var(--rds--radius-sm);
+  }
+
+  &--small {
+    aspect-ratio: auto;
+    max-width: 220px;
+    padding: 1rem 1rem 0 1rem;
 
     img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+      height: auto;
+      object-fit: initial;
+      border-radius: var(--rds--radius-sm);
     }
+  }
 
-
-    &--round,
-    &--square {
-        aspect-ratio: 1 / 1;
-        max-width: 180px;
-
-        img,
-        svg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-    }
-
-    &--round {
-        margin: var(--rds--spacing-small) auto 1.25rem;
-        border: 4px solid var(--rds--color-grey-pale);
-        border-radius: 50%;
-    }
-
-    &--square {
-        margin: var(--rds--spacing-small) 0 1.25rem;
-        border-radius: var(--rds--radius-sm);
-    }
-
-    &--small {
-        aspect-ratio: auto;
-        max-width: 220px;
-        padding: 1rem 1rem 0 1rem;
-
-        img {
-            height: auto;
-            object-fit: initial;
-            border-radius: var(--rds--radius-sm);
-        }
-    }
-
-    &--icon {
-        aspect-ratio: auto;
-        padding: 1.25rem 1.25rem 0 1.25rem;
-    }
+  &--icon {
+    aspect-ratio: auto;
+    padding: 1.25rem 1.25rem 0 1.25rem;
+  }
 }

@@ -9,7 +9,8 @@ export interface FilterPanelTopProps {
 }
 
 export const FilterPanelTop = ({ sortOptions, filterOptions }: FilterPanelTopProps) => {
-  const { sortBy, filterBy, openDropdown, setSortBy, toggleFilter, setOpenDropdown } = useFilterPanel();
+  const { sortBy, filterBy, openDropdown, setSortBy, toggleFilter, setOpenDropdown } =
+    useFilterPanel();
   const topRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -73,7 +74,9 @@ export const FilterPanelTop = ({ sortOptions, filterOptions }: FilterPanelTopPro
                         type="button"
                         className={[
                           'cu-filter-panel__sort-item',
-                          sortBy === option.value ? 'cu-filter-panel__sort-item--selected' : undefined,
+                          sortBy === option.value
+                            ? 'cu-filter-panel__sort-item--selected'
+                            : undefined,
                         ]
                           .filter(Boolean)
                           .join(' ')}
@@ -107,7 +110,9 @@ export const FilterPanelTop = ({ sortOptions, filterOptions }: FilterPanelTopPro
                       id={`cu-filter-panel-${group.id}`}
                       className={[
                         'cu-filter-panel__dropdown-toggle',
-                        openDropdown === group.id ? 'cu-filter-panel__dropdown-toggle--open' : undefined,
+                        openDropdown === group.id
+                          ? 'cu-filter-panel__dropdown-toggle--open'
+                          : undefined,
                       ]
                         .filter(Boolean)
                         .join(' ')}
@@ -117,7 +122,10 @@ export const FilterPanelTop = ({ sortOptions, filterOptions }: FilterPanelTopPro
                     >
                       {group.name}
                       {activeGroupFilters.length > 0 && (
-                        <span className="cu-filter-panel__count" aria-label={`${activeGroupFilters.length} selected`}>
+                        <span
+                          className="cu-filter-panel__count"
+                          aria-label={`${activeGroupFilters.length} selected`}
+                        >
                           {activeGroupFilters.length}
                         </span>
                       )}
@@ -131,7 +139,9 @@ export const FilterPanelTop = ({ sortOptions, filterOptions }: FilterPanelTopPro
                         aria-labelledby={`cu-filter-panel-${group.id}`}
                       >
                         {group.options.map((option) => {
-                          const isChecked = activeGroupFilters.some((i) => i.value === option.value);
+                          const isChecked = activeGroupFilters.some(
+                            (i) => i.value === option.value,
+                          );
 
                           return (
                             <li key={option.value} className="cu-filter-panel__filter-item">
@@ -140,7 +150,10 @@ export const FilterPanelTop = ({ sortOptions, filterOptions }: FilterPanelTopPro
                                 id={`cu-filter-panel-${group.id}-${option.value}`}
                                 checked={isChecked}
                                 onChange={() =>
-                                  toggleFilter(group.id, { value: option.value, label: option.label })
+                                  toggleFilter(group.id, {
+                                    value: option.value,
+                                    label: option.label,
+                                  })
                                 }
                               />
                               <label htmlFor={`cu-filter-panel-${group.id}-${option.value}`}>

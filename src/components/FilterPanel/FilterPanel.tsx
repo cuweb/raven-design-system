@@ -71,9 +71,21 @@ export const FilterPanelWrapper = ({ children, onFilterChange }: FilterPanelProp
 
   return (
     <FilterPanelContext.Provider
-      value={{ sortBy, filterBy, openDropdown, setSortBy, toggleFilter, removeFilter, setOpenDropdown }}
+      value={{
+        sortBy,
+        filterBy,
+        openDropdown,
+        setSortBy,
+        toggleFilter,
+        removeFilter,
+        setOpenDropdown,
+      }}
     >
-      <div className={['cu-filter-panel', hasFilters ? 'cu-filter-panel--has-filters' : undefined].filter(Boolean).join(' ')}>
+      <div
+        className={['cu-filter-panel', hasFilters ? 'cu-filter-panel--has-filters' : undefined]
+          .filter(Boolean)
+          .join(' ')}
+      >
         {children}
       </div>
     </FilterPanelContext.Provider>

@@ -10,7 +10,5 @@ export interface ButtonGroupProps {
 }
 
 export const ButtonGroup = ({ children, align = 'start' }: ButtonGroupProps) => (
-  <div className={`cu-buttongroup cu-buttongroup--justify-${align}`}>
-    {children}
-  </div>
+  <div className={`cu-buttongroup cu-buttongroup--justify-${align}`}>{children}</div>
 );

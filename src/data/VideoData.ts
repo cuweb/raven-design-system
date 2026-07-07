@@ -30,7 +30,7 @@ export const VideoData = [
   },
   {
     id: 6,
-    title: 'Enterprise WordPress Isn\'t Just Bigger',
+    title: "Enterprise WordPress Isn't Just Bigger",
     source: 'https://www.youtube.com/watch?v=WUeytRYzngY',
   },
   {

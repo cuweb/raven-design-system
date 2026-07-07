@@ -156,7 +156,12 @@ export const NavMenu = ({ menu }: NavMenuProps) => {
       <button
         ref={browseButtonRef}
         className={`cu-nav__browse${isGhost ? ' cu-nav__browse--ghost' : ''}`}
-        onClick={() => { if (!isGhost) { setOpenDropdown(null); setBrowseOpen((prev) => !prev); } }}
+        onClick={() => {
+          if (!isGhost) {
+            setOpenDropdown(null);
+            setBrowseOpen((prev) => !prev);
+          }
+        }}
         aria-expanded={isGhost ? undefined : browseOpen}
         aria-haspopup={isGhost ? undefined : 'true'}
         aria-hidden={isGhost || undefined}

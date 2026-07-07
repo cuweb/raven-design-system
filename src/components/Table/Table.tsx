@@ -47,16 +47,13 @@ export const Table = ({
     }
   }, [columns, setTableData]);
 
-  const rootClasses = [
-      'cu-table',
-      maxWidth ? maxWidthClasses[maxWidth] : '',
-    ]
-      .filter(Boolean)
-      .join(' ');
+  const rootClasses = ['cu-table', maxWidth ? maxWidthClasses[maxWidth] : '']
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={rootClasses}>
-    {/* <div className="cu-table"> */}
+      {/* <div className="cu-table"> */}
       <table className={colgroup ? 'cu-table__table cu-table__table--fixed' : 'cu-table__table'}>
         {colgroup && (
           <colgroup>

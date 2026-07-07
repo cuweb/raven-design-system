@@ -8,21 +8,39 @@ const sampleEvents = [
     id: 1,
     name: 'Open House',
     imageUrl: '',
-    startDatetime: new Date(new Date().getFullYear(), new Date().getMonth(), 5, 10, 0).toISOString(),
+    startDatetime: new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      5,
+      10,
+      0,
+    ).toISOString(),
     endDatetime: new Date(new Date().getFullYear(), new Date().getMonth(), 5, 12, 0).toISOString(),
   },
   {
     id: 2,
     name: 'Convocation Week',
     imageUrl: '',
-    startDatetime: new Date(new Date().getFullYear(), new Date().getMonth(), 12, 9, 0).toISOString(),
+    startDatetime: new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      12,
+      9,
+      0,
+    ).toISOString(),
     endDatetime: new Date(new Date().getFullYear(), new Date().getMonth(), 16, 17, 0).toISOString(),
   },
   {
     id: 3,
     name: 'Research Symposium',
     imageUrl: '',
-    startDatetime: new Date(new Date().getFullYear(), new Date().getMonth(), 20, 13, 0).toISOString(),
+    startDatetime: new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      20,
+      13,
+      0,
+    ).toISOString(),
     endDatetime: new Date(new Date().getFullYear(), new Date().getMonth(), 20, 17, 0).toISOString(),
   },
 ];
@@ -43,11 +61,11 @@ const meta: Meta<typeof Calendar> = {
   },
   decorators: [
     (Story) => (
-        <Main>
-            <Section>
-                <Story />
-            </Section>
-        </Main>
+      <Main>
+        <Section>
+          <Story />
+        </Section>
+      </Main>
     ),
   ],
 };

@@ -45,7 +45,13 @@ export const WithButtons: Story = {
       <Nav.Top>
         <Nav.Logo />
         <Nav.Menu menu={primaryNavData} />
-        <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+        <Nav.Buttons
+          isSearch
+          buttons={[
+            { title: 'Apply', href: '/apply' },
+            { title: 'Donate', href: '/donate', variant: 'dark' },
+          ]}
+        />
       </Nav.Top>
     </Nav>
   ),
@@ -56,7 +62,12 @@ export const WithBottomNav: Story = {
     <Nav>
       <Nav.Top>
         <Nav.Logo title="Faculty of Arts and Social Sciences" link="/science" />
-        <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
+        <Nav.Buttons
+          buttons={[
+            { title: 'Apply', href: '/apply' },
+            { title: 'Donate', href: '/donate', variant: 'dark' },
+          ]}
+        />
       </Nav.Top>
       <Nav.Bottom>
         <Nav.Menu menu={primaryNavData} />
@@ -68,11 +79,17 @@ export const WithBottomNav: Story = {
 export const LargeTopMenu: Story = {
   render: () => (
     <Nav>
-        <Nav.Top>
-            <Nav.Logo title="Faculty of Arts and Social Sciences" link="/science" />
-            <Nav.Menu menu={largeNavData} />
-            <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
-        </Nav.Top>
+      <Nav.Top>
+        <Nav.Logo title="Faculty of Arts and Social Sciences" link="/science" />
+        <Nav.Menu menu={largeNavData} />
+        <Nav.Buttons
+          isSearch
+          buttons={[
+            { title: 'Apply', href: '/apply' },
+            { title: 'Donate', href: '/donate', variant: 'dark' },
+          ]}
+        />
+      </Nav.Top>
     </Nav>
   ),
 };
@@ -80,13 +97,19 @@ export const LargeTopMenu: Story = {
 export const LargeBottomMenu: Story = {
   render: () => (
     <Nav>
-        <Nav.Top>
-            <Nav.Logo title="Faculty of Arts and Social Sciences" link="/science" />
-            <Nav.Buttons isSearch buttons={[{ title: 'Apply', href: '/apply' }, { title: 'Donate', href: '/donate', variant: 'dark' }]} />
-        </Nav.Top>
-        <Nav.Bottom>
-            <Nav.Menu menu={largeNavData} />
-        </Nav.Bottom>
+      <Nav.Top>
+        <Nav.Logo title="Faculty of Arts and Social Sciences" link="/science" />
+        <Nav.Buttons
+          isSearch
+          buttons={[
+            { title: 'Apply', href: '/apply' },
+            { title: 'Donate', href: '/donate', variant: 'dark' },
+          ]}
+        />
+      </Nav.Top>
+      <Nav.Bottom>
+        <Nav.Menu menu={largeNavData} />
+      </Nav.Bottom>
     </Nav>
   ),
 };

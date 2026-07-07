@@ -56,11 +56,7 @@ export const Modal = ({
       onClick={handleBackdropClick}
     >
       {!hideCloseButton && (
-        <button
-          type="button"
-          className="cu-modal__close"
-          onClick={() => setIsOpen(false)}
-        >
+        <button type="button" className="cu-modal__close" onClick={() => setIsOpen(false)}>
           <span className="sr-only">Close</span>
           <Icon name="xmark" size={16} />
         </button>

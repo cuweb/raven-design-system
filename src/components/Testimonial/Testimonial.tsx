@@ -25,9 +25,11 @@ export const Testimonial = ({
   reverse = false,
   maxWidth = 'aligncontent',
 }: TestimonialProps) => {
-  const rootClasses = ['cu-testimonial',
+  const rootClasses = [
+    'cu-testimonial',
     maxWidth ? maxWidthClasses[maxWidth] : '',
-    reverse ? 'cu-testimonial--reverse' : undefined]
+    reverse ? 'cu-testimonial--reverse' : undefined,
+  ]
     .filter(Boolean)
     .join(' ');
 

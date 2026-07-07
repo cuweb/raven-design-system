@@ -60,7 +60,12 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(
   // the motion. Cards revealed in the same observer callback (typically a
   // row scrolling in together) stagger by 120ms increments, capped at
   // 600ms. New batches start fresh at 0ms.
-  const { threshold = 0, rootMargin = '0px 0px 200px 0px', once = true, disabled = false } = options;
+  const {
+    threshold = 0,
+    rootMargin = '0px 0px 200px 0px',
+    once = true,
+    disabled = false,
+  } = options;
   const reducedMotion = useReducedMotion();
   const ref = useRef<T>(null);
   const [hasIntersected, setHasIntersected] = useState(false);

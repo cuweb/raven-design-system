@@ -5,10 +5,7 @@ export interface DescriptionMetaProps {
 }
 
 export const DescriptionMeta = ({ term, children, useColumns = false }: DescriptionMetaProps) => {
-  const classes = [
-    'cu-description__item',
-    useColumns ? 'cu-description__item--columns' : undefined,
-  ]
+  const classes = ['cu-description__item', useColumns ? 'cu-description__item--columns' : undefined]
     .filter(Boolean)
     .join(' ');
 

@@ -38,22 +38,50 @@ For full onboarding details (PAT alternative, troubleshooting) see [docs/contrib
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Run `c2b generate` then start Storybook dev server |
-| `pnpm build` | Vite library build + `c2b generate` |
-| `pnpm build-storybook` | Build static Storybook for deployment |
-| `pnpm c2b` | Regenerate tokens, base styles, and WP theme files |
-| `pnpm typecheck` | TypeScript type checking (no emit) |
-| `pnpm lint` | ESLint across `src/` |
-| `pnpm lint:fix` | ESLint with auto-fix |
-| `pnpm format` | Prettier write |
-| `pnpm format:check` | Prettier check (no write) |
-| `pnpm test` | Vitest unit tests |
-| `pnpm test:watch` | Vitest in watch mode |
-| `pnpm test:storybook` | Vitest + axe a11y checks across all stories (requires Playwright) |
-| `pnpm test:coverage` | Vitest with coverage report |
-| `pnpm size` | Bundle size check against limits |
+| Command                | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| `pnpm dev`             | Run `c2b generate` then start Storybook dev server                |
+| `pnpm build`           | Vite library build + `c2b generate`                               |
+| `pnpm build-storybook` | Build static Storybook for deployment                             |
+| `pnpm c2b`             | Regenerate tokens, base styles, and WP theme files                |
+| `pnpm typecheck`       | TypeScript type checking (no emit)                                |
+| `pnpm lint`            | ESLint across `src/`                                              |
+| `pnpm lint:fix`        | ESLint with auto-fix                                              |
+| `pnpm format`          | Prettier write                                                    |
+| `pnpm format:check`    | Prettier check (no write)                                         |
+| `pnpm test`            | Vitest unit tests                                                 |
+| `pnpm test:watch`      | Vitest in watch mode                                              |
+| `pnpm test:storybook`  | Vitest + axe a11y checks across all stories (requires Playwright) |
+| `pnpm test:coverage`   | Vitest with coverage report                                       |
+| `pnpm size`            | Bundle size check against limits                                  |
+
+## Formatting & code style
+
+Formatting is enforced automatically so contributors don't create diffs based on
+personal editor preferences:
+
+- **EditorConfig** (`.editorconfig`) sets base whitespace rules (2-space indent, LF
+  line endings, trimmed trailing whitespace) recognized by most editors.
+- **Prettier** (`.prettierrc`) formats TS/TSX/SCSS/JSON/Markdown. `.prettierignore`
+  excludes build output and generated files (`dist/`, `storybook-static/`,
+  `src/styles/auto/`, etc.).
+- **ESLint** (`eslint.config.mjs`) lints `src/` for code quality (React, hooks,
+  jsx-a11y, Storybook rules), with `eslint-config-prettier` disabling any
+  formatting rules that could conflict with Prettier.
+- **VSCode workspace settings** (`.vscode/settings.json`, committed to the repo)
+  set Prettier as the default formatter with format-on-save and ESLint
+  auto-fix-on-save enabled. `.vscode/extensions.json` recommends the Prettier,
+  ESLint, and EditorConfig extensions so VSCode prompts new contributors to
+  install them.
+- **`.gitattributes`** normalizes line endings to LF across operating systems.
+- **Husky + lint-staged**: on every commit, `.husky/pre-commit` runs
+  `lint-staged` first, which formats and auto-fixes only the files staged in
+  that commit (Prettier for TS/TSX/SCSS/JSON/MD, ESLint `--fix` for TS/TSX).
+  It then runs the full `pnpm lint` and `pnpm typecheck` as a final check
+  across the whole project. `.husky/pre-push` runs `pnpm test:storybook`.
+
+Run `pnpm format` any time to format the whole project, or `pnpm format:check`
+to verify formatting without writing changes.
 
 ## Project structure
 

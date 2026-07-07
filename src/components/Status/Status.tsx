@@ -38,8 +38,7 @@ export const Status = ({
   const registryLabel = registryEntry?.labels?.[variant];
 
   // Resolution: children > label prop > registry default > nothing.
-  const resolvedText: React.ReactNode =
-    children ?? label ?? registryLabel ?? undefined;
+  const resolvedText: React.ReactNode = children ?? label ?? registryLabel ?? undefined;
 
   // If a type was requested but nothing resolved, render nothing — the
   // registry says this (type, variant) combination has no signal to show.

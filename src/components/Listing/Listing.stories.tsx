@@ -90,7 +90,17 @@ export const EventListingSingle: Story = {
   render: (args) => (
     <StackedList cols="1">
       {EventData.slice(0, 3).map(
-        ({ id, link, title, startDate, endDate, on_campus, on_campus_building, on_campus_room_number, event_address }) => (
+        ({
+          id,
+          link,
+          title,
+          startDate,
+          endDate,
+          on_campus,
+          on_campus_building,
+          on_campus_room_number,
+          event_address,
+        }) => (
           <Listing key={id} {...args}>
             <Listing.DateThumb startDate={startDate} endDate={endDate} />
             <Listing.Body>
@@ -115,7 +125,17 @@ export const EventListingMultiple: Story = {
   render: (args) => (
     <StackedList cols="2">
       {EventData.slice(0, 8).map(
-        ({ id, link, title, startDate, endDate, on_campus, on_campus_building, on_campus_room_number, event_address }) => (
+        ({
+          id,
+          link,
+          title,
+          startDate,
+          endDate,
+          on_campus,
+          on_campus_building,
+          on_campus_room_number,
+          event_address,
+        }) => (
           <Listing key={id} {...args}>
             <Listing.DateThumb startDate={startDate} endDate={endDate} />
             <Listing.Body>
@@ -141,19 +161,21 @@ export const EventListingMultiple: Story = {
 export const PeopleListingSingle: Story = {
   render: (args) => (
     <StackedList cols="1">
-      {PeopleData.slice(0, 3).map(({ id, link, image, alt, firstName, lastName, jobTitle, email, phone }) => (
-        <Listing key={id} {...args}>
-          <Listing.Figure isSquare>
-            <img src={image} alt={alt} width="280" height="280" />
-          </Listing.Figure>
-          <Listing.Body>
-            <Listing.Header title={`${firstName} ${lastName}`} link={link} />
-            <Listing.PeopleMeta jobTitle={jobTitle} phone={phone}>
-              <a href={`mailto:${email}`}>{email}</a>
-            </Listing.PeopleMeta>
-          </Listing.Body>
-        </Listing>
-      ))}
+      {PeopleData.slice(0, 3).map(
+        ({ id, link, image, alt, firstName, lastName, jobTitle, email, phone }) => (
+          <Listing key={id} {...args}>
+            <Listing.Figure isSquare>
+              <img src={image} alt={alt} width="280" height="280" />
+            </Listing.Figure>
+            <Listing.Body>
+              <Listing.Header title={`${firstName} ${lastName}`} link={link} />
+              <Listing.PeopleMeta jobTitle={jobTitle} phone={phone}>
+                <a href={`mailto:${email}`}>{email}</a>
+              </Listing.PeopleMeta>
+            </Listing.Body>
+          </Listing>
+        ),
+      )}
     </StackedList>
   ),
 };
@@ -161,19 +183,21 @@ export const PeopleListingSingle: Story = {
 export const PeopleListingMultiple: Story = {
   render: (args) => (
     <StackedList cols="2">
-      {PeopleData.slice(0, 8).map(({ id, link, image, alt, firstName, lastName, jobTitle, email, phone }) => (
-        <Listing key={id} {...args}>
-          <Listing.Figure isSquare>
-            <img src={image} alt={alt} width="280" height="280" />
-          </Listing.Figure>
-          <Listing.Body>
-            <Listing.Header title={`${firstName} ${lastName}`} link={link} />
-            <Listing.PeopleMeta jobTitle={jobTitle} phone={phone}>
-              <a href={`mailto:${email}`}>{email}</a>
-            </Listing.PeopleMeta>
-          </Listing.Body>
-        </Listing>
-      ))}
+      {PeopleData.slice(0, 8).map(
+        ({ id, link, image, alt, firstName, lastName, jobTitle, email, phone }) => (
+          <Listing key={id} {...args}>
+            <Listing.Figure isSquare>
+              <img src={image} alt={alt} width="280" height="280" />
+            </Listing.Figure>
+            <Listing.Body>
+              <Listing.Header title={`${firstName} ${lastName}`} link={link} />
+              <Listing.PeopleMeta jobTitle={jobTitle} phone={phone}>
+                <a href={`mailto:${email}`}>{email}</a>
+              </Listing.PeopleMeta>
+            </Listing.Body>
+          </Listing>
+        ),
+      )}
     </StackedList>
   ),
 };
@@ -220,7 +244,13 @@ export const PageListingSingle: Story = {
       {NewsData.slice(0, 3).map(({ id, link, title, date, excerpt }) => (
         <Listing key={id} {...args}>
           <Listing.Body>
-            <Listing.Header title={title} link={link} date={date} datePrefix="Modified on" position="bottom" />
+            <Listing.Header
+              title={title}
+              link={link}
+              date={date}
+              datePrefix="Modified on"
+              position="bottom"
+            />
             <Listing.Excerpt text={excerpt} />
           </Listing.Body>
         </Listing>
@@ -235,7 +265,13 @@ export const PageListingMultiple: Story = {
       {NewsData.slice(0, 8).map(({ id, link, title, date, excerpt }) => (
         <Listing key={id} {...args}>
           <Listing.Body>
-            <Listing.Header title={title} link={link} date={date} datePrefix="Modified on" position="bottom" />
+            <Listing.Header
+              title={title}
+              link={link}
+              date={date}
+              datePrefix="Modified on"
+              position="bottom"
+            />
             <Listing.Excerpt text={excerpt} />
           </Listing.Body>
         </Listing>

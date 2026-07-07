@@ -21,11 +21,7 @@ const toastIcons: Record<ToastProps['type'], IconName> = {
 };
 
 const Toaster = ({ children }: ToasterProps) => (
-  <div
-    aria-live="assertive"
-    aria-atomic="true"
-    className="cu-toaster"
-  >
+  <div aria-live="assertive" aria-atomic="true" className="cu-toaster">
     <div className="cu-toaster__stack">{children}</div>
   </div>
 );
@@ -42,7 +38,10 @@ const ToastBase = ({ type, title, content }: ToastProps) => {
   if (!rendered) return null;
 
   return (
-    <div className={`cu-toast cu-toast--${type}${visible ? '' : ' cu-toast--hidden'}`} role="status">
+    <div
+      className={`cu-toast cu-toast--${type}${visible ? '' : ' cu-toast--hidden'}`}
+      role="status"
+    >
       <div className="cu-toast__inner">
         <span className="cu-toast__icon" aria-hidden="true">
           <Icon name={toastIcons[type]} size={20} />

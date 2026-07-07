@@ -19,7 +19,8 @@ export const AvailabilityData: Array<{
     title: 'Staging Environment',
     image: 'https://picsum.photos/seed/avail1/600/400',
     alt: 'Server racks with status lights',
-    excerpt: 'Pre-production mirror of the main app. Auto-deploys from the develop branch on every merge.',
+    excerpt:
+      'Pre-production mirror of the main app. Auto-deploys from the develop branch on every merge.',
     state: 'success',
   },
   {
@@ -28,7 +29,8 @@ export const AvailabilityData: Array<{
     title: 'API Sandbox',
     image: 'https://picsum.photos/seed/avail2/600/400',
     alt: 'Developer reading API documentation',
-    excerpt: 'Read-only public endpoint with seed data. Rate-limited to 100 requests per minute per anonymous client.',
+    excerpt:
+      'Read-only public endpoint with seed data. Rate-limited to 100 requests per minute per anonymous client.',
     state: 'success',
   },
   {
@@ -37,7 +39,8 @@ export const AvailabilityData: Array<{
     title: 'Beta Feature: AI Code Assist',
     image: 'https://picsum.photos/seed/avail3/600/400',
     alt: 'Code editor with inline suggestions',
-    excerpt: 'Inline completions powered by an internal LLM gateway. Currently capped at 50 invited teams while we tune latency.',
+    excerpt:
+      'Inline completions powered by an internal LLM gateway. Currently capped at 50 invited teams while we tune latency.',
     state: 'warning',
   },
   {
@@ -46,7 +49,8 @@ export const AvailabilityData: Array<{
     title: 'Code Playground',
     image: 'https://picsum.photos/seed/avail4/600/400',
     alt: 'Web-based IDE with split panels',
-    excerpt: 'Browser-based scratchpad for trying snippets against the latest design-system bundle. No login, no persistence.',
+    excerpt:
+      'Browser-based scratchpad for trying snippets against the latest design-system bundle. No login, no persistence.',
     state: 'success',
   },
   {
@@ -55,7 +59,8 @@ export const AvailabilityData: Array<{
     title: 'Demo Dataset Mirror',
     image: 'https://picsum.photos/seed/avail5/600/400',
     alt: 'Database visualisation dashboard',
-    excerpt: 'Anonymised production dataset for local development. The replication job runs nightly; expect a few hours of staleness.',
+    excerpt:
+      'Anonymised production dataset for local development. The replication job runs nightly; expect a few hours of staleness.',
     state: 'warning',
   },
   {
@@ -64,7 +69,8 @@ export const AvailabilityData: Array<{
     title: 'Internal Component Storybook',
     image: 'https://picsum.photos/seed/avail6/600/400',
     alt: 'Component library catalog interface',
-    excerpt: 'Visual catalog for unreleased components. Currently offline while the design tokens migration finishes.',
+    excerpt:
+      'Visual catalog for unreleased components. Currently offline while the design tokens migration finishes.',
     state: 'error',
   },
 ];

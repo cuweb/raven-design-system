@@ -13,7 +13,13 @@ export const EmbedAudioboom = ({ title, url }: EmbedAudioboomProps) => {
   }
 
   return (
-    <iframe title={title} src={embedURL} className="cu-embed-iframe" allow="autoplay" allowFullScreen />
+    <iframe
+      title={title}
+      src={embedURL}
+      className="cu-embed-iframe"
+      allow="autoplay"
+      allowFullScreen
+    />
   );
 };
 

@@ -9,15 +9,15 @@ const meta: Meta<typeof Alert> = {
   title: 'Components/Feedback/Alert',
   component: Alert,
   tags: ['!autodocs'],
-    decorators: [
-      (Story) => (
-        <Main>
-          <Section>
-            <Story />
-          </Section>
-        </Main>
-      ),
-    ],
+  decorators: [
+    (Story) => (
+      <Main>
+        <Section>
+          <Story />
+        </Section>
+      </Main>
+    ),
+  ],
   argTypes: {
     type: {
       control: 'inline-radio',
@@ -54,7 +54,11 @@ export const AllTypes: Story = {
   render: () => (
     <>
       <Alert type="success" title="Success" content="Your changes have been saved." />
-      <Alert type="error" title="Error" content="Unable to complete the request. Please try again." />
+      <Alert
+        type="error"
+        title="Error"
+        content="Unable to complete the request. Please try again."
+      />
       <Alert type="warning" title="Warning" content="This action cannot be undone." />
       <Alert type="info" title="Information" content="Your session will expire in 10 minutes." />
     </>

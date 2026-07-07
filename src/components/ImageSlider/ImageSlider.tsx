@@ -6,8 +6,8 @@ import './styles.scss';
 
 const SLIDES_PER_VIEW = {
   aligncontent: { desktop: 2, tablet: 2, mobile: 1 },
-  alignwide:    { desktop: 3, tablet: 2, mobile: 1 },
-  alignfull:    { desktop: 4, tablet: 2, mobile: 1 },
+  alignwide: { desktop: 3, tablet: 2, mobile: 1 },
+  alignfull: { desktop: 4, tablet: 2, mobile: 1 },
 } as const;
 
 export interface ImageSliderProps {
@@ -15,20 +15,21 @@ export interface ImageSliderProps {
   maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
 }
 
-export const ImageSliderWrapper = ({
-  children,
-  maxWidth = 'aligncontent',
-}: ImageSliderProps) => {
+export const ImageSliderWrapper = ({ children, maxWidth = 'aligncontent' }: ImageSliderProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const { desktop, tablet, mobile } = SLIDES_PER_VIEW[maxWidth];
 
-  const { nextSlide, prevSlide, isPrevDisabled, isNextDisabled } = useImageSlider(containerRef, trackRef, {
-    slidesPerViewDesktop: desktop,
-    slidesPerViewTablet: tablet,
-    slidesPerViewMobile: mobile,
-  });
+  const { nextSlide, prevSlide, isPrevDisabled, isNextDisabled } = useImageSlider(
+    containerRef,
+    trackRef,
+    {
+      slidesPerViewDesktop: desktop,
+      slidesPerViewTablet: tablet,
+      slidesPerViewMobile: mobile,
+    },
+  );
 
   const rootClasses = ['cu-slider', maxWidth].filter(Boolean).join(' ');
 
@@ -39,12 +40,22 @@ export const ImageSliderWrapper = ({
       </div>
 
       <div className="cu-slider__controls">
-        <button className="cu-slider__arrow cu-slider__arrow--prev" onClick={prevSlide} disabled={isPrevDisabled} type="button">
+        <button
+          className="cu-slider__arrow cu-slider__arrow--prev"
+          onClick={prevSlide}
+          disabled={isPrevDisabled}
+          type="button"
+        >
           <span className="sr-only">Go to Previous Slide</span>
           <Icon name="chevron-left" size={20} aria-hidden="true" />
         </button>
 
-        <button className="cu-slider__arrow cu-slider__arrow--next" onClick={nextSlide} disabled={isNextDisabled} type="button">
+        <button
+          className="cu-slider__arrow cu-slider__arrow--next"
+          onClick={nextSlide}
+          disabled={isNextDisabled}
+          type="button"
+        >
           <span className="sr-only">Go to Next Slide</span>
           <Icon name="chevron-right" size={20} aria-hidden="true" />
         </button>

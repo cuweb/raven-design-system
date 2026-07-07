@@ -53,7 +53,8 @@ const tableData = [
   {
     id: 4,
     title: 'How to Write for the Web',
-    description: 'Vivamus sodales leo ut nisl rutrum viverra. Nullam et dui at libero malesuada vestibulum.',
+    description:
+      'Vivamus sodales leo ut nisl rutrum viverra. Nullam et dui at libero malesuada vestibulum.',
     link: <a href="http://example.com/4">Edit</a>,
   },
   {

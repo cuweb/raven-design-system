@@ -41,7 +41,9 @@ const AutoSuggestDemo = ({ placeholder }: { placeholder?: string }) => {
     () =>
       searchString === ''
         ? []
-        : SearchDatabase.filter((item) => item.title.toLowerCase().includes(searchString.toLowerCase())),
+        : SearchDatabase.filter((item) =>
+            item.title.toLowerCase().includes(searchString.toLowerCase()),
+          ),
     [searchString],
   );
 

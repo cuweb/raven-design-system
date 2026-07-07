@@ -15,7 +15,11 @@ export interface UseDialogElementOptions {
  * - Locks body scroll while open
  * - Handles the Esc key (`cancel` event) and backdrop clicks according to `dismissible`
  */
-export const useDialogElement = ({ isOpen, onOpenChange, dismissible = true }: UseDialogElementOptions) => {
+export const useDialogElement = ({
+  isOpen,
+  onOpenChange,
+  dismissible = true,
+}: UseDialogElementOptions) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {

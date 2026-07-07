@@ -2,8 +2,7 @@ import { useLinkContext } from '../LinkProvider/useLinkContext';
 
 const CU_LOGO_FULL =
   'https://cdn.carleton.ca/rds/assets/cu-logos/cu-logo-color-right-horiztonal.svg';
-const CU_LOGO_SHIELD =
-  'https://cdn.carleton.ca/rds/assets/cu-logos/cu-shield-color.svg';
+const CU_LOGO_SHIELD = 'https://cdn.carleton.ca/rds/assets/cu-logos/cu-shield-color.svg';
 
 export interface NavLogoProps {
   title?: string;

@@ -13,16 +13,31 @@
   // Explicit width so cu-figure__inner (and the caption inside it) is always
   // bounded to the same width as the image. max-width: 100% on the root
   // handles the case where the viewport is narrower than the declared size.
-  &--xs   { width: 320px; }
-  &--sm   { width: 440px; }
-  &--md   { width: 512px; }
-  &--lg   { width: 48rem; }
-  &--full { width: 100%;  }
+  &--xs {
+    width: 320px;
+  }
+  &--sm {
+    width: 440px;
+  }
+  &--md {
+    width: 512px;
+  }
+  &--lg {
+    width: 48rem;
+  }
+  &--full {
+    width: 100%;
+  }
 
   // Below the float breakpoint, collapse all sized variants to full width
   // so they stack naturally without overflowing narrow viewports.
   @media (max-width: $rds-media-query-md - 0.02px) {
-    &--xs, &--sm, &--md, &--lg { width: 100%; }
+    &--xs,
+    &--sm,
+    &--md,
+    &--lg {
+      width: 100%;
+    }
   }
 
   // Float alignment — activates at md+

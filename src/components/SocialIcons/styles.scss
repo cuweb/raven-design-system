@@ -19,14 +19,30 @@
 }
 
 .cu-social__item {
-  &[data-social="linkedin"] { --cu-social-brand: var(--rds--color-linkedin); }
-  &[data-social="facebook"] { --cu-social-brand: var(--rds--color-facebook); }
-  &[data-social="bluesky"] { --cu-social-brand: var(--rds--color-bluesky); }
-  &[data-social="x-twitter"] { --cu-social-brand: var(--rds--color-twitter); }
-  &[data-social="instagram"] { --cu-social-brand: var(--rds--color-instagram); }
-  &[data-social="youtube"] { --cu-social-brand: var(--rds--color-youtube); }
-  &[data-social="tiktok"] { --cu-social-brand: var(--rds--color-tiktok); }
-  &[data-social="orcid"] { --cu-social-brand: var(--rds--color-orcid); }
+  &[data-social='linkedin'] {
+    --cu-social-brand: var(--rds--color-linkedin);
+  }
+  &[data-social='facebook'] {
+    --cu-social-brand: var(--rds--color-facebook);
+  }
+  &[data-social='bluesky'] {
+    --cu-social-brand: var(--rds--color-bluesky);
+  }
+  &[data-social='x-twitter'] {
+    --cu-social-brand: var(--rds--color-twitter);
+  }
+  &[data-social='instagram'] {
+    --cu-social-brand: var(--rds--color-instagram);
+  }
+  &[data-social='youtube'] {
+    --cu-social-brand: var(--rds--color-youtube);
+  }
+  &[data-social='tiktok'] {
+    --cu-social-brand: var(--rds--color-tiktok);
+  }
+  &[data-social='orcid'] {
+    --cu-social-brand: var(--rds--color-orcid);
+  }
 }
 
 .cu-social__link {

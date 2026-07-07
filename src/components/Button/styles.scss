@@ -23,7 +23,7 @@
     padding: 0.75rem 1.5rem;
     font-size: var(--rds--font-size-medium);
   }
-  
+
   &--red {
     color: var(--rds--color-white);
     background-color: var(--rds--color-primary);
@@ -162,24 +162,24 @@
       }
     }
   }
-  
+
   &--disabled {
     color: var(--rds--color-grey-dark);
     background-color: var(--rds--color-grey-light);
     border-color: var(--rds--color-grey-light);
     cursor: default;
   }
-  
+
   &--full {
     width: 100%;
   }
-  
+
   &--center {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   &--small {
     padding: 0.5rem 0.75rem;
     font-size: var(--rds--font-size-small);

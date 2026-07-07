@@ -9,11 +9,13 @@ export interface MainProps {
 }
 
 export const Main = ({ children, as = 'main', hasPadding = true, className = '' }: MainProps) => {
-    const MainWrapper = as;
+  const MainWrapper = as;
 
-    return (
-        <MainWrapper className={`${hasPadding ? 'cu-main cu-main--padding' : 'cu-main'} ${className}`}>
-            <div className="alignfull has-global-padding is-layout-constrained entry-content">{children}</div>
-        </MainWrapper>
-    );
+  return (
+    <MainWrapper className={`${hasPadding ? 'cu-main cu-main--padding' : 'cu-main'} ${className}`}>
+      <div className="alignfull has-global-padding is-layout-constrained entry-content">
+        {children}
+      </div>
+    </MainWrapper>
+  );
 };

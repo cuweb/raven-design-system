@@ -32,7 +32,8 @@ export const LanguageData = [
     title: 'JavaScript',
     image: 'https://picsum.photos/seed/lang4/600/400',
     alt: 'Browser developer tools with JavaScript code',
-    excerpt: 'Powers Gutenberg blocks, WordPress admin interactions, and modern React applications.',
+    excerpt:
+      'Powers Gutenberg blocks, WordPress admin interactions, and modern React applications.',
     date: '1995-12-04 00:00:00',
   },
   {
@@ -41,7 +42,8 @@ export const LanguageData = [
     title: 'JSON',
     image: 'https://picsum.photos/seed/lang5/600/400',
     alt: 'Structured JSON document in code editor',
-    excerpt: 'Used heavily in WordPress block metadata, REST payloads, and React app data exchange.',
+    excerpt:
+      'Used heavily in WordPress block metadata, REST payloads, and React app data exchange.',
     date: '2013-10-15 00:00:00',
   },
   {
@@ -68,7 +70,8 @@ export const LanguageData = [
     title: 'TypeScript',
     image: 'https://picsum.photos/seed/lang8/600/400',
     alt: 'Typed interface definitions in TypeScript file',
-    excerpt: 'Adds static typing to JavaScript and is common in modern React and Gutenberg tooling.',
+    excerpt:
+      'Adds static typing to JavaScript and is common in modern React and Gutenberg tooling.',
     date: '2012-10-01 00:00:00',
   },
   {
@@ -104,7 +107,8 @@ export const LanguageData = [
     title: 'SCSS',
     image: 'https://picsum.photos/seed/lang12/600/400',
     alt: 'Nested SCSS styles in a component stylesheet',
-    excerpt: 'Sass syntax frequently used in design systems and component libraries for maintainable styling.',
+    excerpt:
+      'Sass syntax frequently used in design systems and component libraries for maintainable styling.',
     date: '2006-01-01 00:00:00',
   },
 ];

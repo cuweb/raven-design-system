@@ -35,7 +35,15 @@ export const Default: Story = {
 export const InheritsTextColor: Story = {
   name: 'Inherits text color',
   render: () => (
-    <span style={{ color: 'var(--rds--color-primary)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <span
+      style={{
+        color: 'var(--rds--color-primary)',
+        fontSize: '1.25rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+      }}
+    >
       <Icon name="circle-check" size={32} /> color inherits from parent
     </span>
   ),

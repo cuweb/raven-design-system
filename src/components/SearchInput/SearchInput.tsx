@@ -9,7 +9,11 @@ export interface SearchInputProps {
   children?: React.ReactNode;
 }
 
-const SearchInputWrapper = ({ callback = () => {}, placeholder = 'Search', children }: SearchInputProps) => {
+const SearchInputWrapper = ({
+  callback = () => {},
+  placeholder = 'Search',
+  children,
+}: SearchInputProps) => {
   const [value, setValue] = useState('');
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);

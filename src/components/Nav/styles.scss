@@ -47,10 +47,10 @@
 
 .cu-nav__top,
 .cu-nav__menu {
-    width: 100%;
-    max-width: 1536px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cu-nav__top {
@@ -63,16 +63,14 @@
     display: flex;
     flex-wrap: nowrap;
   }
-
 }
-
 
 // ---------------------------------------------------------------------------
 // Bottom row (secondary nav strip)
 // ---------------------------------------------------------------------------
 
 .cu-nav__bottom {
-//   background-color: var(--rds--color-grey-pale);
+  //   background-color: var(--rds--color-grey-pale);
   background-color: var(--rds--color-white);
   border-top: 1px solid var(--rds--color-grey-lighter);
   // break out of cu-nav__inner padding to span full header width
@@ -113,16 +111,16 @@
 .cu-nav__logomark-full {
   width: auto;
   height: 38px;
-  
+
   @media (min-width: $rds-media-query-sm) {
-      height: 40px;
+    height: 40px;
   }
 
   &--sm-hidden {
-      display: none;
-      
+    display: none;
+
     @media (min-width: $rds-media-query-sm) {
-        display: block;
+      display: block;
     }
   }
 }
@@ -282,9 +280,9 @@
     color 0.15s ease,
     background-color 0.15s ease;
 
-    @media (min-width: $rds-media-query-sm) {
-      font-size: var(--rds--font-size-small);
-    }
+  @media (min-width: $rds-media-query-sm) {
+    font-size: var(--rds--font-size-small);
+  }
 
   &:hover {
     color: var(--rds--color-primary);
@@ -330,18 +328,18 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__browse {
-    padding-left: 0;
+  padding-left: 0;
 
-    @media (min-width: $rds-media-query-sm) {
-      margin-left: min(1rem, 2vw);
-    }
+  @media (min-width: $rds-media-query-sm) {
+    margin-left: min(1rem, 2vw);
+  }
 
-    // Off-flow but measurable — used when all items fit in the primary nav
-    &--ghost {
-        position: absolute;
-        visibility: hidden;
-        pointer-events: none;
-    }
+  // Off-flow but measurable — used when all items fit in the primary nav
+  &--ghost {
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -354,53 +352,51 @@
 //   cu-nav__menu is position:relative on desktop.
 // ---------------------------------------------------------------------------
 
-
 .cu-nav__submenu,
 .cu-nav__browse-dropdown {
-    position: absolute;
-    min-width: 14rem;
-    top: calc(100% + 0.25rem);
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    z-index: 30;
-    box-shadow: var(--rds--shadow-natural);
-    background-color: var(--rds--color-white);
+  position: absolute;
+  min-width: 14rem;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 30;
+  box-shadow: var(--rds--shadow-natural);
+  background-color: var(--rds--color-white);
 
-    @media (min-width: $rds-media-query-sm) {
-        border: 1px solid var(--rds--color-grey-lighter);
-        border-radius: var(--rds--radius-md);
-    }
+  @media (min-width: $rds-media-query-sm) {
+    border: 1px solid var(--rds--color-grey-lighter);
+    border-radius: var(--rds--radius-md);
+  }
 }
 
 .cu-nav__browse-dropdown {
-    border-bottom: 1px solid var(--rds--color-grey-lighter);
-    border-top: 1px solid var(--rds--color-grey-lighter);
-    max-height: calc(100svh - 4rem);
-    overflow-y: auto;
+  border-bottom: 1px solid var(--rds--color-grey-lighter);
+  border-top: 1px solid var(--rds--color-grey-lighter);
+  max-height: calc(100svh - 4rem);
+  overflow-y: auto;
 
-    @media (min-width: $rds-media-query-sm) {
-        left: auto;
-        width: 16rem;
-        max-height: 80vh;
-    }
+  @media (min-width: $rds-media-query-sm) {
+    left: auto;
+    width: 16rem;
+    max-height: 80vh;
+  }
 }
-
 
 // ---------------------------------------------------------------------------
 // Desktop dropdown submenu (primary nav items)
 // ---------------------------------------------------------------------------
 
 .cu-nav__submenu--mobile {
-    position: static;
-    box-shadow: none;
-    border: none;
-    border-top: 1px solid var(--rds--color-grey-lighter);
-    border-radius: 0;
-    background-color: var(--rds--color-grey-faint);
-    padding: 0;
+  position: static;
+  box-shadow: none;
+  border: none;
+  border-top: 1px solid var(--rds--color-grey-lighter);
+  border-radius: 0;
+  background-color: var(--rds--color-grey-faint);
+  padding: 0;
 }
 
 .cu-nav__submenu-row {
@@ -451,7 +447,7 @@
 // to keep the expand arrow right-aligned without a wrapper element.
 
 .cu-nav__submenu-item:not(:last-child) {
-    border-bottom: 1px solid var(--rds--color-grey-lighter);
+  border-bottom: 1px solid var(--rds--color-grey-lighter);
 }
 
 .cu-nav__submenu-link {

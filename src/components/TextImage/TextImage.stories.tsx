@@ -55,7 +55,10 @@ export const Primary: Story = {
   },
   render: (args) => (
     <TextImage {...args}>
-      <TextImage.Content title="Website and Application Development" imageUrl="https://picsum.photos/800/600">
+      <TextImage.Content
+        title="Website and Application Development"
+        imageUrl="https://picsum.photos/800/600"
+      >
         <SingleParagraph />
         <ButtonGroup>
           <Button title="Primary" />
@@ -190,4 +193,3 @@ export const NoImage: Story = {
     </TextImage>
   ),
 };
-

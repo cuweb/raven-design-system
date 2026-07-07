@@ -92,7 +92,9 @@ export const Variants: Story = {
               {(() => {
                 const { variant, label } = formatHoursStatus(hours.openTime, hours.closeTime);
                 return (
-                  <Card.Status type="hours" variant={variant}>{label}</Card.Status>
+                  <Card.Status type="hours" variant={variant}>
+                    {label}
+                  </Card.Status>
                 );
               })()}
               <Card.Excerpt text={EXCERPT} />
@@ -105,10 +107,7 @@ export const Variants: Story = {
           <Card.Figure isSmall>
             <img src={featured.image} alt={featured.alt} width="400" height="300" />
           </Card.Figure>
-          <Card.Header
-            title={featured.title}
-            link={featured.link}
-          />
+          <Card.Header title={featured.title} link={featured.link} />
           <Card.Body>
             <Card.Excerpt text={EXCERPT} />
           </Card.Body>

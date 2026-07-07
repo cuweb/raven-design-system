@@ -168,8 +168,14 @@ export function FontSizeTokens({
             return (
               <tr key={name}>
                 <td>{formatTokenName(name)}</td>
-                <td><code>--{prefix}--font-size-{name}</code></td>
-                <td>{min} → {max}</td>
+                <td>
+                  <code>
+                    --{prefix}--font-size-{name}
+                  </code>
+                </td>
+                <td>
+                  {min} → {max}
+                </td>
               </tr>
             );
           })}

@@ -21,7 +21,9 @@ export const EmbedHubSpot = ({ formId, portalId }: EmbedHubSpotProps) => {
   const formContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const existingScript = document.querySelector('script[src="https://js.hsforms.net/forms/embed/v2.js"]');
+    const existingScript = document.querySelector(
+      'script[src="https://js.hsforms.net/forms/embed/v2.js"]',
+    );
 
     if (!existingScript) {
       const script = document.createElement('script');
