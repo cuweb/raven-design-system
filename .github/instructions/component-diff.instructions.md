@@ -10,27 +10,22 @@ prop renames, removals, default changes, deprecations, and behavioral/styling di
 having to diff source themselves.
 
 This file is a **reference spec only**. It does not trigger generation on its own. A `Diff.md` is
-produced when explicitly requested by comparing a named legacy component against its RDS2
-counterpart, e.g.:
+produced when explicitly requested with a component name and the legacy source folder, e.g.:
 
-> "Using the component diff instructions, compare legacy Badge and new Badge and generate a Diff.md file."
+> "Using the component diff instructions, generate a Diff.md for Badge — legacy version is at ../rds/lib/components/Badge."
 
-Generate `Diff.md` one component pair at a time, on explicit request. Do not bulk-generate across the
+The RDS2 side is never provided explicitly — always resolve it from `src/components/{ComponentName}/`
+in this repo, using the same component name given in the request.
+
+Generate `Diff.md` one component at a time, on explicit request. Do not bulk-generate across the
 library, and do not assume a legacy component has been renamed into a differently-named RDS2
-component — only compare the specific pair named in the request.
+component — only compare the exact pair named in the request.
 
 ## Legacy source
 
-Both the legacy and new component are provided explicitly in each request — this file does not need to
-locate or resolve anything on disk. By convention the legacy RDS repo checkout is a folder named `rds`
-(sibling to this repo), with components split across two folders:
-
-- `lib/components/{Name}` — most components (e.g. `lib/components/Badge/Badge.tsx`)
-- `lib/layouts/{Name}` — layout-style components (`Article`, `Aside`, `Body`, `Column`, `FloatBox`,
-  `ImageCover`, `Main`, `Section`, `StackedList`, `WideWave`)
-
-See `docs/name-mismatch.md` for the current list of components that exist only in one project
-(no same-named counterpart in the other) — useful context before assuming a pairing is valid.
+The legacy component's folder is provided explicitly in each request (by convention, under a sibling
+`rds` repo checkout, split across `lib/components/{Name}` or `lib/layouts/{Name}` — see
+`docs/name-mismatch.md` for the current list of components that exist only in one project).
 
 ## Where Diff.md lives
 
@@ -78,8 +73,9 @@ If there are none beyond the props table, state "None."
 
 ## Process for generating a Diff.md
 
-1. Read the legacy component's `.tsx` (and `styles.css` if relevant) as provided in the request.
-2. Read the RDS2 component's `.tsx` and `styles.scss`.
+1. Read the legacy component's `.tsx` (and `styles.css` if relevant) from the folder given in the request.
+2. Read the RDS2 component's `.tsx` and `styles.scss` from `src/components/{ComponentName}/` in this
+   repo — resolved by name, not provided in the request.
 3. Compare prop interfaces field-by-field: renamed, removed, added, default value changes, type changes.
 4. Compare rendering output: element structure, class name strategy, conditional logic, attribute
    passthrough.
