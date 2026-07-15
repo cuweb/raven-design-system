@@ -14,7 +14,7 @@ export interface ImageCoverProps {
 export const ImageCover = ({
     children,
     maxWidth = 'alignfull',
-    contentWidth = 'alignfull',
+    contentWidth = 'aligncontent',
     image,
     opacity = 90,
 }: ImageCoverProps) => {
