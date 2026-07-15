@@ -48,7 +48,7 @@ type Story = StoryObj<typeof ImageCover>;
 export const Default: Story = {
     render: (args) => (
         <ImageCover {...args}>
-            <MultiParagraph count={2} />
+            <MultiParagraph count={5} />
         </ImageCover>
     ),
 };
