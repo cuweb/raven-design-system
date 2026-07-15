@@ -26,17 +26,17 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 Atomic, composable primitives. Used as building blocks inside larger components.
 
-| Component    | Refactor Status | Primary Review | Secondary Review |
-| ------------ | --------------- | -------------- | ---------------- |
-| Avatar       | done            | Yes            | No               |
-| Badge        | done            | Yes            | No               |
-| Badge Group  | done            | Yes            | No               |
-| Button       | done            | Yes            | No               |
-| Button Group | done            | Yes            | No               |
-| Icon         | done            | Yes            | No               |
-| Progress Bar | done            | Yes            | No               |
-| Social Icons | done            | Yes            | No               |
-| Status       | done            | Yes            | No               |
+| Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ------------ | --------------- | ------------ | -------------- | ---------------- |
+| Avatar       | done            | Yes          | Yes            | No               |
+| Badge        | done            | Yes          | Yes            | No               |
+| Badge Group  | done            | Yes          | Yes            | No               |
+| Button       | done            | Yes          | Yes            | No               |
+| Button Group | done            | Yes          | Yes            | No               |
+| Icon         | done            | Yes          | Yes            | No               |
+| Progress Bar | done            | Yes          | Yes            | No               |
+| Social Icons | done            | Yes          | Yes            | No               |
+| Status       | done            | N/A          | Yes            | No               |
 
 ---
 
@@ -44,24 +44,24 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
-| Component          | Refactor Status | Primary Review | Secondary Review |
-| ------------------ | --------------- | -------------- | ---------------- |
-| Calendar           | done            | Yes            | No               |
-| Call Out           | done            | Yes            | No               |
-| Card               | done            | No             | No               |
-| Carleton360        | done            | Yes            | No               |
-| Details            | done            | Yes            | No               |
-| Description        | done            | Yes            | No               |
-| Figure             | done            | Yes            | No               |
-| Listing            | done            | No             | No               |
-| Location           | done            | No             | No               |
-| Multi-day Calendar | done            | No             | No               |
-| Quote              | done            | No             | No               |
-| Table              | done            | No             | No               |
-| Testimonial        | done            | No             | No               |
-| Text & Image       | done            | No             | No               |
-| Text & Media       | done            | No             | No               |
-| Timeline           | done            | No             | No               |
+| Component          | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ------------------ | --------------- | ------------ | -------------- | ---------------- |
+| Calendar           | done            | No           | Yes            | No               |
+| Call Out           | done            | No           | Yes            | No               |
+| Card               | done            | No           | No             | No               |
+| Carleton360        | done            | No           | Yes            | No               |
+| Details            | done            | No           | Yes            | No               |
+| Description        | done            | No           | Yes            | No               |
+| Figure             | done            | No           | Yes            | No               |
+| Listing            | done            | No           | No             | No               |
+| Location           | done            | No           | No             | No               |
+| Multi-day Calendar | done            | No           | No             | No               |
+| Quote              | done            | No           | No             | No               |
+| Table              | done            | No           | No             | No               |
+| Testimonial        | done            | No           | No             | No               |
+| Text & Image       | done            | No           | No             | No               |
+| Text & Media       | done            | No           | No             | No               |
+| Timeline           | done            | No           | No             | No               |
 
 ### Deprecated
 
@@ -75,15 +75,15 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 Full-width or image/video-heavy promotional components.
 
-| Component    | Refactor Status | Primary Review | Secondary Review |
-| ------------ | --------------- | -------------- | ---------------- |
-| Embed        | done            | No             | No               |
-| Full Banner  | done            | No             | No               |
-| Image Grid   | done            | No             | No               |
-| Image Slider | done            | No             | No               |
-| Page Header  | done            | No             | No               |
-| Wide Banner  | done            | No             | No               |
-| Wide Image   | done            | No             | No               |
+| Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ------------ | --------------- | ------------ | -------------- | ---------------- |
+| Embed        | done            | No           | No             | No               |
+| Full Banner  | done            | No           | No             | No               |
+| Image Grid   | done            | No           | No             | No               |
+| Image Slider | done            | No           | No             | No               |
+| Page Header  | done            | No           | No             | No               |
+| Wide Banner  | done            | No           | No             | No               |
+| Wide Image   | done            | No           | No             | No               |
 
 ### Deprecated
 
@@ -98,13 +98,13 @@ Full-width or image/video-heavy promotional components.
 
 Wayfinding components — site chrome, page-level navigation, search, and pagination.
 
-| Component       | Refactor Status | Primary Review | Secondary Review |
-| --------------- | --------------- | -------------- | ---------------- |
-| Department Bar  | done            | No             | No               |
-| Footer          | done            | No             | No               |
-| Footer Standard | done            | No             | No               |
-| Nav             | done            | No             | No               |
-| Pagination      | done            | No             | No               |
+| Component       | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| --------------- | --------------- | ------------ | -------------- | ---------------- |
+| Department Bar  | done            | No           | No             | No               |
+| Footer          | done            | No           | No             | No               |
+| Footer Standard | done            | No           | No             | No               |
+| Nav             | done            | No           | No             | No               |
+| Pagination      | done            | No           | No             | No               |
 
 ---
 
@@ -112,13 +112,13 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
-| Component    | Refactor Status | Primary Review | Secondary Review |
-| ------------ | --------------- | -------------- | ---------------- |
-| Column       | done            | No             | No               |
-| Image Cover  | done            | No             | No               |
-| Section      | done            | No             | No               |
-| Stacked List | done            | No             | No               |
-| Wide Wave    | done            | No             | No               |
+| Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ------------ | --------------- | ------------ | -------------- | ---------------- |
+| Column       | done            | No           | No             | No               |
+| Image Cover  | done            | Yes          | No             | No               |
+| Section      | done            | No           | No             | No               |
+| Stacked List | done            | No           | No             | No               |
+| Wide Wave    | done            | No           | No             | No               |
 
 ### Deprecated
 
@@ -132,12 +132,12 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
 
-| Component | Refactor Status | Primary Review | Secondary Review |
-| --------- | --------------- | -------------- | ---------------- |
-| Article   | done            | No             | No               |
-| Aside     | done            | No             | No               |
-| Body      | done            | No             | No               |
-| Main      | done            | No             | No               |
+| Component | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| --------- | --------------- | ------------ | -------------- | ---------------- |
+| Article   | done            | No           | No             | No               |
+| Aside     | done            | No           | No             | No               |
+| Body      | done            | No           | No             | No               |
+| Main      | done            | No           | No             | No               |
 
 ---
 
@@ -145,11 +145,11 @@ WordPress block editor template part wrappers. These map directly to the templat
 
 Behavioral or non-visual components. These don't render meaningful UI on their own.
 
-| Component     | Refactor Status | Primary Review | Secondary Review |
-| ------------- | --------------- | -------------- | ---------------- |
-| Cookie Banner | done            | No             | No               |
-| Link Provider | done            | No             | No               |
-| Login         | done            | No             | No               |
+| Component     | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ------------- | --------------- | ------------ | -------------- | ---------------- |
+| Cookie Banner | done            | No           | No             | No               |
+| Link Provider | done            | No           | No             | No               |
+| Login         | done            | No           | No             | No               |
 
 ### Deprecated
 
@@ -165,12 +165,12 @@ Transient overlays, loading skeletons, error states, and empty states.
 
 Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but are grouped here rather than alongside each component — they share a common skeleton pattern and are typically used together.
 
-| Component | Refactor Status | Primary Review | Secondary Review |
-| --------- | --------------- | -------------- | ---------------- |
-| Alert     | done            | Yes            | No               |
-| Dialog    | done            | Yes            | No               |
-| Modal     | done            | Yes            | No               |
-| Toast     | done            | Yes            | No               |
+| Component | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| --------- | --------------- | ------------ | -------------- | ---------------- |
+| Alert     | done            | No           | Yes            | No               |
+| Dialog    | done            | No           | Yes            | No               |
+| Modal     | done            | No           | Yes            | No               |
+| Toast     | done            | No           | Yes            | No               |
 
 ### Deprecated
 
@@ -187,22 +187,22 @@ Transient overlays, loading skeletons, error states, and empty states.
 
 Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but are grouped here rather than alongside each component — they share a common skeleton pattern and are typically used together.
 
-| Component            | Refactor Status | Primary Review | Secondary Review |
-| -------------------- | --------------- | -------------- | ---------------- |
-| **Loaders**          | port            | No             | No               |
-| → Block Loader       | port            | No             | No               |
-| → Button Loader      | port            | No             | No               |
-| → Calendar Loader    | port            | No             | No               |
-| → Card Loader        | port            | No             | No               |
-| → Description Loader | port            | No             | No               |
-| → Event Loader       | port            | No             | No               |
-| → Form Loader        | port            | No             | No               |
-| → Listing Loader     | port            | No             | No               |
-| → Page Header Loader | port            | No             | No               |
-| → Page Loader        | port            | No             | No               |
-| → Pagination Loader  | port            | No             | No               |
-| → Table Loader       | port            | No             | No               |
-| → Top Nav Loader     | port            | No             | No               |
+| Component            | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| -------------------- | --------------- | ------------ | -------------- | ---------------- |
+| **Loaders**          | port            | No           | No             | No               |
+| → Block Loader       | port            | No           | No             | No               |
+| → Button Loader      | port            | No           | No             | No               |
+| → Calendar Loader    | port            | No           | No             | No               |
+| → Card Loader        | port            | No           | No             | No               |
+| → Description Loader | port            | No           | No             | No               |
+| → Event Loader       | port            | No           | No             | No               |
+| → Form Loader        | port            | No           | No             | No               |
+| → Listing Loader     | port            | No           | No             | No               |
+| → Page Header Loader | port            | No           | No             | No               |
+| → Page Loader        | port            | No           | No             | No               |
+| → Pagination Loader  | port            | No           | No             | No               |
+| → Table Loader       | port            | No           | No             | No               |
+| → Top Nav Loader     | port            | No           | No             | No               |
 
 ---
 
@@ -212,35 +212,35 @@ Data entry and filtering. Form is a sub-system with its own set of primitive inp
 
 ### Completed
 
-| Component       | Refactor Status | Primary Review | Secondary Review |
-| --------------- | --------------- | -------------- | ---------------- |
-| Filter Panel    | done            | No             | No               |
-| Location Picker | done            | No             | No               |
-| Search Input    | done            | No             | No               |
+| Component       | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| --------------- | --------------- | ------------ | -------------- | ---------------- |
+| Filter Panel    | done            | No           | No             | No               |
+| Location Picker | done            | No           | No             | No               |
+| Search Input    | done            | No           | No             | No               |
 
 ## Forms: Part Two
 
 ### Form Fields
 
-| Component               | Refactor Status | Primary Review | Secondary Review |
-| ----------------------- | --------------- | -------------- | ---------------- |
-| Form                    | port            | No             | No               |
-| → Auto Suggest          | port            | No             | No               |
-| → Checkbox              | port            | No             | No               |
-| → Date Time             | port            | No             | No               |
-| → Error                 | port            | No             | No               |
-| → Field Array Container | port            | No             | No               |
-| → Field Control         | port            | No             | No               |
-| → Field Group           | port            | No             | No               |
-| → Field Wrapper         | port            | No             | No               |
-| → File Upload           | port            | No             | No               |
-| → Form Button           | port            | No             | No               |
-| → Form Field            | port            | No             | No               |
-| → Form Field Set        | port            | No             | No               |
-| → Helper Text           | port            | No             | No               |
-| → Input                 | port            | No             | No               |
-| → Input Addon           | port            | No             | No               |
-| → Places Auto Complete  | port            | No             | No               |
-| → Radio                 | port            | No             | No               |
-| → Select                | port            | No             | No               |
-| → Text Area             | port            | No             | No               |
+| Component               | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ----------------------- | --------------- | ------------ | -------------- | ---------------- |
+| Form                    | port            | No           | No             | No               |
+| → Auto Suggest          | port            | No           | No             | No               |
+| → Checkbox              | port            | No           | No             | No               |
+| → Date Time             | port            | No           | No             | No               |
+| → Error                 | port            | No           | No             | No               |
+| → Field Array Container | port            | No           | No             | No               |
+| → Field Control         | port            | No           | No             | No               |
+| → Field Group           | port            | No           | No             | No               |
+| → Field Wrapper         | port            | No           | No             | No               |
+| → File Upload           | port            | No           | No             | No               |
+| → Form Button           | port            | No           | No             | No               |
+| → Form Field            | port            | No           | No             | No               |
+| → Form Field Set        | port            | No           | No             | No               |
+| → Helper Text           | port            | No           | No             | No               |
+| → Input                 | port            | No           | No             | No               |
+| → Input Addon           | port            | No           | No             | No               |
+| → Places Auto Complete  | port            | No           | No             | No               |
+| → Radio                 | port            | No           | No             | No               |
+| → Select                | port            | No           | No             | No               |
+| → Text Area             | port            | No           | No             | No               |
