@@ -36,7 +36,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 | Icon         | done            | Yes          | Yes            | No               |
 | Progress Bar | done            | Yes          | Yes            | No               |
 | Social Icons | done            | Yes          | Yes            | No               |
-| Status       | done            | N/A          | Yes            | No               |
+| Status       | done            | New          | Yes            | No               |
 
 ---
 
@@ -44,30 +44,30 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
-| Component          | Refactor Status | Diff Created | Primary Review | Secondary Review |
-| ------------------ | --------------- | ------------ | -------------- | ---------------- |
-| Calendar           | done            | No           | Yes            | No               |
-| Call Out           | done            | No           | Yes            | No               |
-| Card               | done            | No           | No             | No               |
-| Carleton360        | done            | No           | Yes            | No               |
-| Details            | done            | No           | Yes            | No               |
-| Description        | done            | No           | Yes            | No               |
-| Figure             | done            | No           | Yes            | No               |
-| Listing            | done            | No           | No             | No               |
-| Location           | done            | No           | No             | No               |
-| Multi-day Calendar | done            | No           | No             | No               |
-| Quote              | done            | No           | No             | No               |
-| Table              | done            | No           | No             | No               |
-| Testimonial        | done            | No           | No             | No               |
-| Text & Image       | done            | No           | No             | No               |
-| Text & Media       | done            | No           | No             | No               |
-| Timeline           | done            | No           | No             | No               |
+| Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
+| ------------ | --------------- | ------------ | -------------- | ---------------- |
+| Calendar     | done            | Yes          | Yes            | No               |
+| Call Out     | done            | Yes          | Yes            | No               |
+| Card         | done            | No           | No             | No               |
+| Carleton360  | done            | Yes          | Yes            | No               |
+| Details      | done            | Yes          | Yes            | No               |
+| Description  | done            | Yes          | Yes            | No               |
+| Figure       | done            | Yes          | Yes            | No               |
+| Listing      | done            | No           | No             | No               |
+| Location     | done            | No           | No             | No               |
+| Quote        | done            | No           | No             | No               |
+| Table        | done            | No           | No             | No               |
+| Testimonial  | done            | No           | No             | No               |
+| Text & Image | done            | No           | No             | No               |
+| Text & Media | done            | No           | No             | No               |
+| Timeline     | done            | No           | No             | No               |
 
 ### Deprecated
 
-| Component       | Refactor Status | Reasoning                           |
-| --------------- | --------------- | ----------------------------------- |
-| Funding Details | deprecated      | can be replicated with text & image |
+| Component          | Refactor Status | Reasoning                                         |
+| ------------------ | --------------- | ------------------------------------------------- |
+| Funding Details    | deprecated      | can be replicated with text & image               |
+| Multi-day Calendar | deprecated      | functionality merged into main calendar component |
 
 ---
 
