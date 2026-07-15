@@ -22,7 +22,7 @@ Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs
 
 ---
 
-## DONE: Elements
+## Elements
 
 Atomic, composable primitives. Used as building blocks inside larger components.
 
@@ -40,7 +40,7 @@ Atomic, composable primitives. Used as building blocks inside larger components.
 
 ---
 
-## DONE: Content
+## Content
 
 Mid-level content display patterns. Typically consume Elements and are consumed by Layout.
 
@@ -71,7 +71,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 ---
 
-## DONE: Media & Banners
+## Media & Banners
 
 Full-width or image/video-heavy promotional components.
 
@@ -94,7 +94,7 @@ Full-width or image/video-heavy promotional components.
 
 ---
 
-## DONE: Navigation
+## Navigation
 
 Wayfinding components — site chrome, page-level navigation, search, and pagination.
 
@@ -108,7 +108,7 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 ---
 
-## DONE: Layout
+## Layout
 
 Structural wrappers and grid composition. These define the skeleton of a page region — they contain other components but carry little visual weight of their own.
 
@@ -128,7 +128,7 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 ---
 
-## DONE: Template Parts
+## Template Parts
 
 WordPress block editor template part wrappers. These map directly to the template parts concept in the WordPress Site Editor.
 
@@ -141,7 +141,7 @@ WordPress block editor template part wrappers. These map directly to the templat
 
 ---
 
-## DONE: Utilities
+## Utilities
 
 Behavioral or non-visual components. These don't render meaningful UI on their own.
 
@@ -181,7 +181,7 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 ---
 
-## Feedback: Part Two
+## INCOMPLETE: Feedback: Part Two
 
 Transient overlays, loading skeletons, error states, and empty states.
 
@@ -206,7 +206,7 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 ---
 
-## DONE: Forms: Part One
+## Forms: Part One
 
 Data entry and filtering. Form is a sub-system with its own set of primitive inputs — each sub-component lives under `Components/Forms/` and is built independently.
 
