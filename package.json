@@ -1,162 +1,162 @@
 {
-  "name": "@cuweb/rds2",
-  "version": "0.8.0",
-  "description": "React component library and design system for Carleton University",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cuweb/rds2.git"
-  },
-  "type": "module",
-  "private": false,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
-  },
-  "sideEffects": [
-    "**/*.css",
-    "**/*.scss"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+    "name": "@cuweb/rds2",
+    "version": "0.8.0",
+    "description": "React component library and design system for Carleton University",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cuweb/rds2.git"
     },
-    "./styles.css": "./dist/style.css",
-    "./design-system.css": "./dist/wordpress/styles.css",
-    "./tokens.css": "./dist/styles/tokens.css",
-    "./base-styles.css": "./dist/styles/base-styles.css",
-    "./layout.css": "./dist/styles/layout.css",
-    "./typography.css": "./dist/styles/typography.css",
-    "./fonts.css": "./dist/fonts.css",
-    "./vanilla-js/videoCard": {
-      "import": "./dist/vanilla-js/videoCard.mjs",
-      "default": "./dist/vanilla-js/videoCard.js"
+    "type": "module",
+    "private": false,
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com",
+        "access": "restricted"
     },
-    "./vanilla-js/cuMotion": {
-      "import": "./dist/vanilla-js/cuMotion.mjs",
-      "default": "./dist/vanilla-js/cuMotion.js"
-    },
-    "./*": {
-      "types": "./dist/components/*/index.d.ts",
-      "import": "./dist/components/*/index.mjs",
-      "require": "./dist/components/*/index.cjs"
-    },
-    "./*.css": "./dist/components/*/styles.css",
-    "./*.scss": "./dist/components/*/styles.scss"
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "dev": "npm run assets && npm run c2b && storybook dev -p 6006",
-    "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-cleanup.mjs",
-    "build-storybook": "npm run assets && storybook build",
-    "assets": "node scripts/build-assets.mjs",
-    "c2b": "c2b generate",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:storybook": "vitest --project=storybook",
-    "test:coverage": "vitest run --coverage",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss}'",
-    "format:check": "prettier --check 'src/**/*.{ts,tsx,scss}'",
-    "typecheck": "tsc --noEmit",
-    "size": "size-limit",
-    "size:check": "size-limit --limit",
-    "prepare": "husky",
-    "release": "node release.mjs"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss"
     ],
-    "src/**/*.scss": [
-      "prettier --write"
-    ],
-    "*.{json,md,mdx}": [
-      "prettier --write"
-    ]
-  },
-  "size-limit": [
-    {
-      "path": "dist/index.mjs",
-      "limit": "25 kB"
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        },
+        "./styles.css": "./dist/style.css",
+        "./design-system.css": "./dist/wordpress/styles.css",
+        "./tokens.css": "./dist/styles/tokens.css",
+        "./base-styles.css": "./dist/styles/base-styles.css",
+        "./layout.css": "./dist/styles/layout.css",
+        "./typography.css": "./dist/styles/typography.css",
+        "./fonts.css": "./dist/fonts.css",
+        "./vanilla-js/videoCard": {
+            "import": "./dist/vanilla-js/videoCard.mjs",
+            "default": "./dist/vanilla-js/videoCard.js"
+        },
+        "./vanilla-js/cuMotion": {
+            "import": "./dist/vanilla-js/cuMotion.mjs",
+            "default": "./dist/vanilla-js/cuMotion.js"
+        },
+        "./*": {
+            "types": "./dist/components/*/index.d.ts",
+            "import": "./dist/components/*/index.mjs",
+            "require": "./dist/components/*/index.cjs"
+        },
+        "./*.css": "./dist/components/*/styles.css",
+        "./*.scss": "./dist/components/*/styles.scss"
     },
-    {
-      "path": "dist/style.css",
-      "limit": "7 kB"
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "npm run assets && npm run c2b && storybook dev -p 6006",
+        "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-cleanup.mjs",
+        "build-storybook": "npm run assets && storybook build",
+        "assets": "node scripts/build-assets.mjs",
+        "c2b": "c2b generate",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:storybook": "vitest --project=storybook",
+        "test:coverage": "vitest run --coverage",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
+        "format": "prettier --write 'src/**/*.{ts,tsx,scss}'",
+        "format:check": "prettier --check 'src/**/*.{ts,tsx,scss}'",
+        "typecheck": "tsc --noEmit",
+        "size": "size-limit",
+        "size:check": "size-limit --limit",
+        "prepare": "husky",
+        "release": "node release.mjs"
+    },
+    "lint-staged": {
+        "src/**/*.{ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "src/**/*.scss": [
+            "prettier --write"
+        ],
+        "*.{json,md,mdx}": [
+            "prettier --write"
+        ]
+    },
+    "size-limit": [
+        {
+            "path": "dist/index.mjs",
+            "limit": "25 kB"
+        },
+        {
+            "path": "dist/style.css",
+            "limit": "7 kB"
+        }
+    ],
+    "peerDependencies": {
+        "@cuweb/rds-icons": "^0.1.8",
+        "react": "^18.0.0 || ^19.0.0",
+        "react-dom": "^18.0.0 || ^19.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@cuweb/rds-icons": {
+            "optional": true
+        }
+    },
+    "keywords": [
+        "react",
+        "component-library",
+        "design-system",
+        "carleton",
+        "storybook"
+    ],
+    "author": "Carleton University",
+    "license": "SEE LICENSE IN LICENSE",
+    "packageManager": "pnpm@11.13.0",
+    "devDependencies": {
+        "@chromatic-com/storybook": "^5.2.1",
+        "@cuweb/rds-icons": "^0.1.8",
+        "@eslint/js": "^10.0.1",
+        "@size-limit/file": "^12.1.0",
+        "@storybook/addon-a11y": "^10.5.0",
+        "@storybook/addon-docs": "^10.5.0",
+        "@storybook/addon-mcp": "^0.7.0",
+        "@storybook/addon-vitest": "^10.5.0",
+        "@storybook/react-vite": "^10.5.0",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^14.6.1",
+        "@troychaplin/component2block": "^0.5.11",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^6.0.3",
+        "@vitest/browser-playwright": "^4.1.10",
+        "@vitest/coverage-v8": "^4.1.10",
+        "eslint": "^10.7.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "eslint-plugin-storybook": "^10.5.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.0.8",
+        "modern-normalize": "^3.0.1",
+        "playwright": "^1.61.1",
+        "prettier": "^3.9.5",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "remark-gfm": "^4.0.1",
+        "rollup": "^4.62.2",
+        "rollup-plugin-dts": "^6.4.1",
+        "sass": "^1.101.0",
+        "size-limit": "^12.1.0",
+        "storybook": "^10.5.0",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.64.0",
+        "vite": "^8.1.4",
+        "vite-plugin-dts": "^5.0.3",
+        "vitest": "^4.1.10"
+    },
+    "dependencies": {
+        "@react-google-maps/api": "^2.20.8",
+        "@types/google.maps": "^3.65.2",
+        "date-fns": "^4.4.0"
     }
-  ],
-  "peerDependencies": {
-    "@cuweb/rds-icons": "^0.1.8",
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@cuweb/rds-icons": {
-      "optional": true
-    }
-  },
-  "keywords": [
-    "react",
-    "component-library",
-    "design-system",
-    "carleton",
-    "storybook"
-  ],
-  "author": "Carleton University",
-  "license": "SEE LICENSE IN LICENSE",
-  "packageManager": "pnpm@11.10.0",
-  "devDependencies": {
-    "@chromatic-com/storybook": "^5.2.1",
-    "@cuweb/rds-icons": "^0.1.8",
-    "@eslint/js": "^10.0.1",
-    "@size-limit/file": "^12.1.0",
-    "@storybook/addon-a11y": "^10.4.6",
-    "@storybook/addon-docs": "^10.4.6",
-    "@storybook/addon-mcp": "^0.6.0",
-    "@storybook/addon-vitest": "^10.4.6",
-    "@storybook/react-vite": "^10.4.6",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
-    "@troychaplin/component2block": "^0.5.11",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
-    "@vitest/browser-playwright": "^4.1.9",
-    "@vitest/coverage-v8": "^4.1.9",
-    "eslint": "^10.5.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-storybook": "^10.4.6",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.0.8",
-    "modern-normalize": "^3.0.1",
-    "playwright": "^1.61.0",
-    "prettier": "^3.8.4",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "remark-gfm": "^4.0.1",
-    "rollup": "^4.62.2",
-    "rollup-plugin-dts": "^6.4.1",
-    "sass": "^1.101.0",
-    "size-limit": "^12.1.0",
-    "storybook": "^10.4.6",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.1",
-    "vite": "^8.0.16",
-    "vite-plugin-dts": "^5.0.2",
-    "vitest": "^4.1.9"
-  },
-  "dependencies": {
-    "@react-google-maps/api": "^2.20.8",
-    "@types/google.maps": "^3.65.2",
-    "date-fns": "^4.4.0"
-  }
 }
