@@ -4,26 +4,26 @@ A small, accessibility-first motion layer. CSS does the animation; JS only flips
 
 ## Pieces
 
-| Piece | Where |
-|---|---|
+| Piece                               | Where                                                                                                                                                                        |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Motion tokens (durations + easings) | [`src/styles/base/_motion.scss`](../../src/styles/base/_motion.scss) — hand-authored on `:root`. Slated to move into `c2b.config.json` once the tool grows a motion section. |
-| `useReducedMotion()` hook | [`src/utils/motion/useReducedMotion.ts`](../../src/utils/motion/useReducedMotion.ts) |
-| `useScrollReveal()` hook | [`src/utils/motion/useScrollReveal.ts`](../../src/utils/motion/useScrollReveal.ts) |
-| Vanilla `cu-motion` runtime | [`src/utils/motion/vanilla.ts`](../../src/utils/motion/vanilla.ts) → builds to `dist/vanilla-js/cuMotion.{js,mjs}` |
-| Per-component reveal CSS | e.g. [`src/components/Card/styles-reveal.scss`](../../src/components/Card/styles-reveal.scss) |
+| `useReducedMotion()` hook           | [`src/utils/motion/useReducedMotion.ts`](../../src/utils/motion/useReducedMotion.ts)                                                                                         |
+| `useScrollReveal()` hook            | [`src/utils/motion/useScrollReveal.ts`](../../src/utils/motion/useScrollReveal.ts)                                                                                           |
+| Vanilla `cu-motion` runtime         | [`src/utils/motion/vanilla.ts`](../../src/utils/motion/vanilla.ts) → builds to `dist/vanilla-js/cuMotion.{js,mjs}`                                                           |
+| Per-component reveal CSS            | e.g. [`src/components/Card/styles-reveal.scss`](../../src/components/Card/styles-reveal.scss)                                                                                |
 
 ## Tokens
 
 ```scss
 --rds--duration-instant: 100ms;
---rds--duration-fast:    150ms;
---rds--duration-base:    250ms;
---rds--duration-slow:    400ms;
---rds--duration-slower:  600ms;
+--rds--duration-fast: 150ms;
+--rds--duration-base: 250ms;
+--rds--duration-slow: 400ms;
+--rds--duration-slower: 600ms;
 
---rds--ease-standard:    cubic-bezier(0.2, 0, 0, 1);  // most UI motion
---rds--ease-emphasized:  cubic-bezier(0.3, 0, 0, 1);  // entrances
---rds--ease-accelerate:  cubic-bezier(0.3, 0, 1, 1);  // exits
+--rds--ease-standard: cubic-bezier(0.2, 0, 0, 1); // most UI motion
+--rds--ease-emphasized: cubic-bezier(0.3, 0, 0, 1); // entrances
+--rds--ease-accelerate: cubic-bezier(0.3, 0, 1, 1); // exits
 ```
 
 Component CSS reads them via `var(--rds--duration-base)` etc. To add a new value: edit [`_motion.scss`](../../src/styles/base/_motion.scss). When c2b adds a motion section, the file moves into `src/styles/auto/` and is generated from `c2b.config.json` like every other token category.
@@ -31,7 +31,7 @@ Component CSS reads them via `var(--rds--duration-base)` etc. To add a new value
 ## React usage
 
 ```tsx
-import { Card } from '@cuweb/rds2';
+import { Card } from '@cuweb/raven-design-system';
 
 // Default — reveals on scroll
 <Card>…</Card>
@@ -43,25 +43,21 @@ import { Card } from '@cuweb/rds2';
 `useScrollReveal` is available directly for custom components:
 
 ```tsx
-import { useScrollReveal } from '@cuweb/rds2';
+import { useScrollReveal } from '@cuweb/raven-design-system';
 
 const MyBlock = () => {
-  const { ref, isVisible } = useScrollReveal<HTMLElement>();
-  return (
-    <section
-      ref={ref}
-      data-cu-reveal=""
-      data-revealed={isVisible ? 'true' : 'false'}
-    >
-      …
-    </section>
-  );
+    const { ref, isVisible } = useScrollReveal<HTMLElement>();
+    return (
+        <section ref={ref} data-cu-reveal="" data-revealed={isVisible ? 'true' : 'false'}>
+            …
+        </section>
+    );
 };
 ```
 
 Options: `{ threshold?: number, rootMargin?: string, once?: boolean, disabled?: boolean }`. Defaults: `0`, `'0px 0px 200px 0px'`, `true`, `false`.
 
-The default `rootMargin` extends the IntersectionObserver's trigger zone 200px **below** the viewport — cards start animating while still under the fold so the transition completes by the time they reach the user's eyes. This is deliberate: the animation is a *pre-render*, not a reaction to the card scrolling into view. Fast scrollers don't outrun the motion; slow scrollers just see the card already there.
+The default `rootMargin` extends the IntersectionObserver's trigger zone 200px **below** the viewport — cards start animating while still under the fold so the transition completes by the time they reach the user's eyes. This is deliberate: the animation is a _pre-render_, not a reaction to the card scrolling into view. Fast scrollers don't outrun the motion; slow scrollers just see the card already there.
 
 `useReducedMotion()` returns a live boolean reflecting `prefers-reduced-motion: reduce`. Use it to branch any JS-driven motion.
 
@@ -71,10 +67,10 @@ Enqueue the vanilla runtime alongside the stylesheet:
 
 ```php
 // functions.php
-wp_enqueue_style('rds2', '...rds2/dist/style.css');
+wp_enqueue_style('raven-design-system', '...raven-design-system/dist/style.css');
 wp_enqueue_script(
   'cu-motion',
-  '...rds2/dist/vanilla-js/cuMotion.js',
+  '...raven-design-system/dist/vanilla-js/cuMotion.js',
   array(),
   '1.0',
   true
@@ -92,6 +88,7 @@ Opt elements into the reveal by adding `data-cu-reveal`:
 ```
 
 `cu-motion.js`:
+
 - Auto-discovers `[data-cu-reveal]` elements on `DOMContentLoaded` and sets `data-revealed="true"` as each scrolls into view.
 - Honours `prefers-reduced-motion: reduce` by revealing everything immediately, no observer attached.
 - Idempotent — loading twice is a no-op.
@@ -103,17 +100,17 @@ The hidden state is gated on `[data-cu-reveal]` (the attribute), **not** on the 
 
 ```scss
 .cu-card[data-cu-reveal] {
-  --cu-card-stagger: 0ms;
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-card-stagger),
-    transform var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-card-stagger);
+    --cu-card-stagger: 0ms;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-card-stagger),
+        transform var(--rds--duration-slower) var(--rds--ease-emphasized) var(--cu-card-stagger);
 }
 
 .cu-card[data-cu-reveal][data-revealed='true'] {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 ```
 

@@ -1,6 +1,6 @@
 # Local setup
 
-How to get a working dev environment for contributing to `@cuweb/rds2`.
+How to get a working dev environment for contributing to `@cuweb/raven-design-system`.
 
 ## Prerequisites
 
@@ -37,8 +37,8 @@ echo "//npm.pkg.github.com/:_authToken=ghp_your_token_here" >> ~/.npmrc
 ## 2. Clone and install
 
 ```sh
-git clone git@github.com:cuweb/rds2.git
-cd rds2
+git clone git@github.com:cuweb/raven-design-system.git
+cd raven-design-system
 nvm use
 pnpm install
 ```
@@ -77,7 +77,7 @@ pnpm install
 pnpm generate                   # regenerate components from SVGs
 ```
 
-To use the local checkout in rds2, switch the dep in [`package.json`](../../package.json) from a version range to a `file:` link:
+To use the local checkout in raven-design-system, switch the dep in [`package.json`](../../package.json) from a version range to a `file:` link:
 
 ```jsonc
 "devDependencies": {
@@ -85,7 +85,7 @@ To use the local checkout in rds2, switch the dep in [`package.json`](../../pack
 }
 ```
 
-Then `pnpm install` in rds2 to pick up the symlink. **Don't commit the `file:` change** — switch back to the version range before opening a PR.
+Then `pnpm install` in raven-design-system to pick up the symlink. **Don't commit the `file:` change** — switch back to the version range before opening a PR.
 
 `rds-icons` points its `main`/`module`/`types`/`exports` at `src/` during local dev (no build step needed). Re-run `pnpm generate` in rds-icons after editing SVGs and reload Storybook to see changes.
 
@@ -111,13 +111,13 @@ If a hook fails, fix the underlying issue rather than skipping with `--no-verify
 
 ## Troubleshooting
 
-| Error | Fix |
-|---|---|
-| `ERR_PNPM_FETCH_401 Unauthorized` | Step 1 wasn't completed, or the token expired. Regenerate. |
-| `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/rds-icons` | Project's `.npmrc` is missing the scope config — restore `@cuweb:registry=https://npm.pkg.github.com` |
-| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 3) |
-| `pnpm test:storybook` hangs or fails on Node < 22 | Install Node 22.14 (`nvm install 22.14.0 && nvm use`) |
-| `pnpm c2b` errors about missing `c2b.config.json` | You're not in the repo root, or the file was deleted — restore from git |
+| Error                                                                   | Fix                                                                                                   |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `ERR_PNPM_FETCH_401 Unauthorized`                                       | Step 1 wasn't completed, or the token expired. Regenerate.                                            |
+| `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/rds-icons`                    | Project's `.npmrc` is missing the scope config — restore `@cuweb:registry=https://npm.pkg.github.com` |
+| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 3)                                                  |
+| `pnpm test:storybook` hangs or fails on Node < 22                       | Install Node 22.14 (`nvm install 22.14.0 && nvm use`)                                                 |
+| `pnpm c2b` errors about missing `c2b.config.json`                       | You're not in the repo root, or the file was deleted — restore from git                               |
 
 For deeper authentication issues, see the [rds-icons README → Troubleshooting](https://github.com/cuweb/rds-icons#troubleshooting).
 

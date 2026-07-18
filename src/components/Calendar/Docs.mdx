@@ -17,7 +17,7 @@ An interactive month-view calendar for selecting a single date or a date range. 
 ## Import
 
 ```tsx
-import { Calendar } from '@cuweb/rds2';
+import { Calendar } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -70,45 +70,45 @@ When `events` is omitted no indicator dots are shown.
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-calendar` | Always — root wrapper |
-| `cu-calendar__header` | Navigation bar containing prev/next buttons and month title |
-| `cu-calendar__nav-btn` | Previous and next month arrow buttons |
-| `cu-calendar__month` | Month and year heading inside the header |
-| `cu-calendar__weekdays` | Row of abbreviated weekday labels (S M T W T F S) |
-| `cu-calendar__weekday` | Individual weekday label cell |
-| `cu-calendar__grid` | 7-column grid of day cells |
-| `cu-calendar__day` | Wrapper cell for a single day |
-| `cu-calendar__day--col-start-{2–7}` | CSS grid column offset applied to the first cell when the month does not start on Sunday |
-| `cu-calendar__day-btn` | Clickable button for a day |
-| `cu-calendar__day-btn--today` | Today's date (when not selected) |
-| `cu-calendar__day-btn--selected` | A day that is currently selected |
-| `cu-calendar__day-btn--in-range` | Days between a selected start and end in `range` mode |
-| `cu-calendar__day-btn--outside-month` | Days that belong to a different month |
-| `cu-calendar__day-btn--disabled` | Past dates (non-interactive) |
-| `cu-calendar__event-dot` | Small indicator dot shown below a day that has one or more events |
-| `cu-calendar__clear` | Wrapper for the "Clear selection" button |
+| Class                                 | When applied                                                                             |
+| ------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `cu-calendar`                         | Always — root wrapper                                                                    |
+| `cu-calendar__header`                 | Navigation bar containing prev/next buttons and month title                              |
+| `cu-calendar__nav-btn`                | Previous and next month arrow buttons                                                    |
+| `cu-calendar__month`                  | Month and year heading inside the header                                                 |
+| `cu-calendar__weekdays`               | Row of abbreviated weekday labels (S M T W T F S)                                        |
+| `cu-calendar__weekday`                | Individual weekday label cell                                                            |
+| `cu-calendar__grid`                   | 7-column grid of day cells                                                               |
+| `cu-calendar__day`                    | Wrapper cell for a single day                                                            |
+| `cu-calendar__day--col-start-{2–7}`   | CSS grid column offset applied to the first cell when the month does not start on Sunday |
+| `cu-calendar__day-btn`                | Clickable button for a day                                                               |
+| `cu-calendar__day-btn--today`         | Today's date (when not selected)                                                         |
+| `cu-calendar__day-btn--selected`      | A day that is currently selected                                                         |
+| `cu-calendar__day-btn--in-range`      | Days between a selected start and end in `range` mode                                    |
+| `cu-calendar__day-btn--outside-month` | Days that belong to a different month                                                    |
+| `cu-calendar__day-btn--disabled`      | Past dates (non-interactive)                                                             |
+| `cu-calendar__event-dot`              | Small indicator dot shown below a day that has one or more events                        |
+| `cu-calendar__clear`                  | Wrapper for the "Clear selection" button                                                 |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-primary` | Selected/in-range day background, today text, event dot, nav button hover, focus ring |
-| `--rds--color-primary-dark` | Nav button active state |
-| `--rds--color-black` | Default day text, month heading |
-| `--rds--color-grey-dark` | Nav button default color |
-| `--rds--color-grey` | Weekday label text, outside-month day text |
-| `--rds--color-grey-light` | Grid border, header border, disabled day text |
-| `--rds--color-grey-pale` | Grid background (gap color), disabled day background |
-| `--rds--color-white` | Day cell background, selected day text, header background |
-| `--rds--font-size-medium` | Month heading size |
-| `--rds--font-size-small` | Day number size |
-| `--rds--font-size-x-small` | Weekday label size |
-| `--rds--font-weight-semibold` | Month heading and selected/today day weight |
-| `--rds--radius-full` | Circular day buttons and event dot |
-| `--rds--radius-lg` | Header and grid container border radius |
-| `--rds--radius-md` | Nav button focus ring radius |
+| Token                         | Used for                                                                              |
+| ----------------------------- | ------------------------------------------------------------------------------------- |
+| `--rds--color-primary`        | Selected/in-range day background, today text, event dot, nav button hover, focus ring |
+| `--rds--color-primary-dark`   | Nav button active state                                                               |
+| `--rds--color-black`          | Default day text, month heading                                                       |
+| `--rds--color-grey-dark`      | Nav button default color                                                              |
+| `--rds--color-grey`           | Weekday label text, outside-month day text                                            |
+| `--rds--color-grey-light`     | Grid border, header border, disabled day text                                         |
+| `--rds--color-grey-pale`      | Grid background (gap color), disabled day background                                  |
+| `--rds--color-white`          | Day cell background, selected day text, header background                             |
+| `--rds--font-size-medium`     | Month heading size                                                                    |
+| `--rds--font-size-small`      | Day number size                                                                       |
+| `--rds--font-size-x-small`    | Weekday label size                                                                    |
+| `--rds--font-weight-semibold` | Month heading and selected/today day weight                                           |
+| `--rds--radius-full`          | Circular day buttons and event dot                                                    |
+| `--rds--radius-lg`            | Header and grid container border radius                                               |
+| `--rds--radius-md`            | Nav button focus ring radius                                                          |
 
 ## Accessibility
 

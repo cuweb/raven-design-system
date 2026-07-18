@@ -16,7 +16,7 @@ A blockquote component for pull quotes, testimonials, and highlighted excerpts. 
 ## Import
 
 ```tsx
-import { Quote } from '@cuweb/rds2';
+import { Quote } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -65,31 +65,31 @@ Adds `margin-inline: auto` to center the quote within its container. Works with 
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-quote` | Always — base class |
-| `cu-quote--border` | `graphic="border"` (default) |
-| `cu-quote--quote` | `graphic="quote"` |
-| `cu-quote--center` | `isCenter={true}` |
-| `cu-quote__cite` | Present when `cite` prop is provided |
+| Class              | When applied                         |
+| ------------------ | ------------------------------------ |
+| `cu-quote`         | Always — base class                  |
+| `cu-quote--border` | `graphic="border"` (default)         |
+| `cu-quote--quote`  | `graphic="quote"`                    |
+| `cu-quote--center` | `isCenter={true}`                    |
+| `cu-quote__cite`   | Present when `cite` prop is provided |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-primary` | Border color (`border` variant); quotation mark color (`quote` variant) |
-| `--rds--radius-md` | Border radius on the `border` variant |
-| `--rds--spacing-x-small` | Vertical padding (`border` variant); top margin on `__cite` |
-| `--rds--spacing-medium` | Horizontal padding (`border` variant) |
-| `--rds--spacing-large` | Top padding (`quote` variant, to clear the pseudo-element) |
-| `--rds--font-family-inter` | Font family for the quotation mark pseudo-element |
-| `--rds--font-size-small` | `cite` font size |
-| `--rds--font-weight-semibold` | `cite` font weight |
-| `--rds--color-grey-dark` | `cite` text color |
+| Token                         | Used for                                                                |
+| ----------------------------- | ----------------------------------------------------------------------- |
+| `--rds--color-primary`        | Border color (`border` variant); quotation mark color (`quote` variant) |
+| `--rds--radius-md`            | Border radius on the `border` variant                                   |
+| `--rds--spacing-x-small`      | Vertical padding (`border` variant); top margin on `__cite`             |
+| `--rds--spacing-medium`       | Horizontal padding (`border` variant)                                   |
+| `--rds--spacing-large`        | Top padding (`quote` variant, to clear the pseudo-element)              |
+| `--rds--font-family-inter`    | Font family for the quotation mark pseudo-element                       |
+| `--rds--font-size-small`      | `cite` font size                                                        |
+| `--rds--font-weight-semibold` | `cite` font weight                                                      |
+| `--rds--color-grey-dark`      | `cite` text color                                                       |
 
 ## Accessibility
 
 - The component renders a native `<blockquote>`, which is the semantically correct element for quoted content. Screen readers announce it as a block quote.
-- When `cite` is provided it renders as a `<cite>` element, which is the correct HTML element for attribution. Note that `<cite>` refers to the *title of a work or person* — it is distinct from the `cite` attribute on `<blockquote>`, which takes a URL.
+- When `cite` is provided it renders as a `<cite>` element, which is the correct HTML element for attribution. Note that `<cite>` refers to the _title of a work or person_ — it is distinct from the `cite` attribute on `<blockquote>`, which takes a URL.
 - The decorative quotation mark in the `quote` variant is a CSS `::before` pseudo-element with no text content, so it is invisible to assistive technology.
 - Do not rely on the visual border or quotation mark alone to convey meaning — the `<blockquote>` element itself carries the semantic signal.

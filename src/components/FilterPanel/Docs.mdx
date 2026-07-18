@@ -17,38 +17,38 @@ A composable filter and sort control bar that manages its own state via React co
 ## Import
 
 ```tsx
-import { FilterPanel } from '@cuweb/rds2';
-import type { SortOption, FilterGroup, ActiveFilters } from '@cuweb/rds2';
+import { FilterPanel } from '@cuweb/raven-design-system';
+import type { SortOption, FilterGroup, ActiveFilters } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 const sortOptions: SortOption[] = [
-  { label: 'Newest', value: 'newest' },
-  { label: 'Oldest', value: 'oldest' },
+    { label: 'Newest', value: 'newest' },
+    { label: 'Oldest', value: 'oldest' },
 ];
 
 const filterOptions: FilterGroup[] = [
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'design', label: 'Design' },
-      { value: 'development', label: 'Development' },
-      { value: 'accessibility', label: 'Accessibility' },
-    ],
-  },
+    {
+        id: 'category',
+        name: 'Category',
+        options: [
+            { value: 'design', label: 'Design' },
+            { value: 'development', label: 'Development' },
+            { value: 'accessibility', label: 'Accessibility' },
+        ],
+    },
 ];
 
 const handleFilterChange = (filters: ActiveFilters) => {
-  console.log(filters.sortBy, filters.filterBy);
+    console.log(filters.sortBy, filters.filterBy);
 };
 
 <FilterPanel onFilterChange={handleFilterChange}>
-  <FilterPanel.Top sortOptions={sortOptions} filterOptions={filterOptions} />
-  <FilterPanel.Bottom />
-</FilterPanel>
+    <FilterPanel.Top sortOptions={sortOptions} filterOptions={filterOptions} />
+    <FilterPanel.Bottom />
+</FilterPanel>;
 ```
 
 `FilterPanel.Bottom` renders nothing when no filters are active — it is safe to always include it.
@@ -76,53 +76,53 @@ FilterPanel with two filter groups — Category and Area of Expertise — connec
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-filter-panel` | Always — root wrapper |
-| `cu-filter-panel--has-filters` | When one or more filter items are currently active |
-| `cu-filter-panel__top` | The top bar containing sort and filter controls |
-| `cu-filter-panel__controls` | Flex row inside the top bar |
-| `cu-filter-panel__sort` | Wrapper for the sort dropdown (left side) |
-| `cu-filter-panel__filters` | Wrapper for all filter group dropdowns (right side) |
-| `cu-filter-panel__filter-group` | Wrapper for a single filter group + its divider |
-| `cu-filter-panel__divider` | Vertical line between consecutive filter groups |
-| `cu-filter-panel__dropdown` | Relative-positioned container for a toggle + menu |
-| `cu-filter-panel__dropdown-toggle` | The dropdown trigger button |
-| `cu-filter-panel__dropdown-toggle--open` | When the dropdown is expanded |
-| `cu-filter-panel__count` | Active-filter count badge on a filter group toggle |
-| `cu-filter-panel__dropdown-menu` | Absolute-positioned dropdown menu list |
-| `cu-filter-panel__sort-item` | An individual sort option button inside the menu |
-| `cu-filter-panel__sort-item--selected` | The currently active sort option |
-| `cu-filter-panel__filter-item` | A checkbox + label row inside a filter menu |
-| `cu-filter-panel__bottom` | The bottom bar (only rendered when filters are active) |
-| `cu-filter-panel__active-label` | "Active filters:" text label |
-| `cu-filter-panel__active-filters` | Flex container for active filter tag pills |
-| `cu-filter-panel__tag` | An individual active filter tag pill |
-| `cu-filter-panel__tag-remove` | The × button inside an active filter tag |
+| Class                                    | When applied                                           |
+| ---------------------------------------- | ------------------------------------------------------ |
+| `cu-filter-panel`                        | Always — root wrapper                                  |
+| `cu-filter-panel--has-filters`           | When one or more filter items are currently active     |
+| `cu-filter-panel__top`                   | The top bar containing sort and filter controls        |
+| `cu-filter-panel__controls`              | Flex row inside the top bar                            |
+| `cu-filter-panel__sort`                  | Wrapper for the sort dropdown (left side)              |
+| `cu-filter-panel__filters`               | Wrapper for all filter group dropdowns (right side)    |
+| `cu-filter-panel__filter-group`          | Wrapper for a single filter group + its divider        |
+| `cu-filter-panel__divider`               | Vertical line between consecutive filter groups        |
+| `cu-filter-panel__dropdown`              | Relative-positioned container for a toggle + menu      |
+| `cu-filter-panel__dropdown-toggle`       | The dropdown trigger button                            |
+| `cu-filter-panel__dropdown-toggle--open` | When the dropdown is expanded                          |
+| `cu-filter-panel__count`                 | Active-filter count badge on a filter group toggle     |
+| `cu-filter-panel__dropdown-menu`         | Absolute-positioned dropdown menu list                 |
+| `cu-filter-panel__sort-item`             | An individual sort option button inside the menu       |
+| `cu-filter-panel__sort-item--selected`   | The currently active sort option                       |
+| `cu-filter-panel__filter-item`           | A checkbox + label row inside a filter menu            |
+| `cu-filter-panel__bottom`                | The bottom bar (only rendered when filters are active) |
+| `cu-filter-panel__active-label`          | "Active filters:" text label                           |
+| `cu-filter-panel__active-filters`        | Flex container for active filter tag pills             |
+| `cu-filter-panel__tag`                   | An individual active filter tag pill                   |
+| `cu-filter-panel__tag-remove`            | The × button inside an active filter tag               |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--font-family-inter` | Font family throughout the component |
-| `--rds--font-size-small` | Default text size for controls and menus |
-| `--rds--font-size-x-small` | Count badge and active tag text |
-| `--rds--font-weight-medium` | Toggle button and selected sort item weight |
-| `--rds--font-weight-bold` | Count badge weight |
-| `--rds--color-grey-faint` | Top bar background |
-| `--rds--color-grey-lighter` | Top bar border, divider, and tag border |
-| `--rds--color-grey-pale` | Sort item hover background |
-| `--rds--color-grey-dark` | Default text color |
-| `--rds--color-grey` | "Active filters" label and tag-remove icon |
-| `--rds--color-white` | Dropdown menu and bottom bar background |
-| `--rds--color-primary` | Hovered/open toggle text, count badge, tag-remove hover background |
-| `--rds--shadow-natural` | Dropdown menu box shadow |
-| `--rds--radius-lg` | Top bar, bottom bar, and dropdown menu corner radius |
-| `--rds--radius-full` | Count badge and tag-remove button pill radius |
-| `--rds--spacing-2-x-small` | Gap inside toggle button, sort item vertical padding |
-| `--rds--spacing-x-small` | Gaps in filter groups, active filters |
-| `--rds--spacing-small` | Top/bottom bar padding, controls gap |
-| `--rds--spacing-medium` | Top/bottom bar horizontal padding |
+| Token                       | Used for                                                           |
+| --------------------------- | ------------------------------------------------------------------ |
+| `--rds--font-family-inter`  | Font family throughout the component                               |
+| `--rds--font-size-small`    | Default text size for controls and menus                           |
+| `--rds--font-size-x-small`  | Count badge and active tag text                                    |
+| `--rds--font-weight-medium` | Toggle button and selected sort item weight                        |
+| `--rds--font-weight-bold`   | Count badge weight                                                 |
+| `--rds--color-grey-faint`   | Top bar background                                                 |
+| `--rds--color-grey-lighter` | Top bar border, divider, and tag border                            |
+| `--rds--color-grey-pale`    | Sort item hover background                                         |
+| `--rds--color-grey-dark`    | Default text color                                                 |
+| `--rds--color-grey`         | "Active filters" label and tag-remove icon                         |
+| `--rds--color-white`        | Dropdown menu and bottom bar background                            |
+| `--rds--color-primary`      | Hovered/open toggle text, count badge, tag-remove hover background |
+| `--rds--shadow-natural`     | Dropdown menu box shadow                                           |
+| `--rds--radius-lg`          | Top bar, bottom bar, and dropdown menu corner radius               |
+| `--rds--radius-full`        | Count badge and tag-remove button pill radius                      |
+| `--rds--spacing-2-x-small`  | Gap inside toggle button, sort item vertical padding               |
+| `--rds--spacing-x-small`    | Gaps in filter groups, active filters                              |
+| `--rds--spacing-small`      | Top/bottom bar padding, controls gap                               |
+| `--rds--spacing-medium`     | Top/bottom bar horizontal padding                                  |
 
 ## Accessibility
 

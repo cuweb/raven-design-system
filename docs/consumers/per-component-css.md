@@ -1,18 +1,18 @@
 # Per-component CSS
 
-By default, `import '@cuweb/rds2/styles'` pulls in the bundled stylesheet — tokens, globals, and every component's rules. If you only need a subset of components, you can import each one's CSS individually to ship fewer bytes.
+By default, `import '@cuweb/raven-design-system/styles'` pulls in the bundled stylesheet — tokens, globals, and every component's rules. If you only need a subset of components, you can import each one's CSS individually to ship fewer bytes.
 
 ## Pattern
 
 ```tsx
-import { Badge } from '@cuweb/rds2';
-import '@cuweb/rds2/Badge.css';
+import { Badge } from '@cuweb/raven-design-system';
+import '@cuweb/raven-design-system/Badge.css';
 ```
 
 For SCSS contexts (e.g., a WordPress block's `editor.scss`):
 
 ```scss
-@use '@cuweb/rds2/Badge.scss';
+@use '@cuweb/raven-design-system/Badge.scss';
 ```
 
 ## Available subpath exports
@@ -21,8 +21,8 @@ Every component with a `styles.scss` source has a CSS and SCSS subpath. Check th
 
 ```jsonc
 {
-  "./*.css": "./dist/components/*/styles.css",
-  "./*.scss": "./dist/components/*/styles.scss"
+    "./*.css": "./dist/components/*/styles.css",
+    "./*.scss": "./dist/components/*/styles.scss",
 }
 ```
 
@@ -39,12 +39,12 @@ Per-component CSS files contain **only** that component's rules. They do **not**
 Consumers using per-component imports still need the tokens and globals once, somewhere. The simplest pattern: import the bundled stylesheet for those, and let the per-component imports be additive (CSS deduplicates, but rule order matters less when your subset is small).
 
 ```tsx
-import '@cuweb/rds2/styles';        // tokens + globals + all components
+import '@cuweb/raven-design-system/styles'; // tokens + globals + all components
 // (or, in the future when split entries land:)
-// import '@cuweb/rds2/tokens.css';
-// import '@cuweb/rds2/globals.css';
+// import '@cuweb/raven-design-system/tokens.css';
+// import '@cuweb/raven-design-system/globals.css';
 
-import '@cuweb/rds2/Badge.css';     // only needed if you want the per-component path
+import '@cuweb/raven-design-system/Badge.css'; // only needed if you want the per-component path
 ```
 
 In a WordPress block context where the bundled stylesheet is already enqueued by the theme, the per-component import in a block's `editor.scss` is what you want — see the [WordPress integration docs](wordpress/) for examples.
@@ -54,4 +54,4 @@ In a WordPress block context where the bundled stylesheet is already enqueued by
 - **WordPress blocks** — each block's `editor.scss` and `style.scss` import only the components it uses, so the editor and frontend payloads stay small per-block. CSS will be duplicated across blocks that use the same component, but that's an explicit trade-off.
 - **Bundle-size sensitive Next.js routes** — combined with `<ComponentName />` named imports for tree-shakable JS, per-component CSS keeps a small route from pulling the full RDS stylesheet.
 
-For most apps, just use `@cuweb/rds2/styles` once at the root.
+For most apps, just use `@cuweb/raven-design-system/styles` once at the root.

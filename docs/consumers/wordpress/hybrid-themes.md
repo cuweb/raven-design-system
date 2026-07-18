@@ -16,7 +16,7 @@ In your theme directory:
 
 ```sh
 echo "@cuweb:registry=https://npm.pkg.github.com" >> .npmrc
-pnpm add @cuweb/rds2 @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system @cuweb/rds-icons
 ```
 
 ### The helper function
@@ -139,10 +139,10 @@ curl -I https://your-site.com/wp-content/themes/your-theme/node_modules/@cuweb/r
 ```json
 // package.json
 {
-  "scripts": {
-    "build:icons": "mkdir -p assets/icons && cp -R node_modules/@cuweb/rds-icons/src/svg/*.svg assets/icons/",
-    "build": "pnpm build:icons && wp-scripts build"
-  }
+    "scripts": {
+        "build:icons": "mkdir -p assets/icons && cp -R node_modules/@cuweb/rds-icons/src/svg/*.svg assets/icons/",
+        "build": "pnpm build:icons && wp-scripts build"
+    }
 }
 ```
 
@@ -181,10 +181,10 @@ Enqueue the full RDS stylesheet in `functions.php`:
 ```php
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style(
-        'rds2',
-        get_theme_file_uri('/node_modules/@cuweb/rds2/dist/style.css'),
+        'raven-design-system',
+        get_theme_file_uri('/node_modules/@cuweb/raven-design-system/dist/style.css'),
         [],
-        filemtime(get_theme_file_path('/node_modules/@cuweb/rds2/dist/style.css'))
+        filemtime(get_theme_file_path('/node_modules/@cuweb/raven-design-system/dist/style.css'))
     );
 });
 ```

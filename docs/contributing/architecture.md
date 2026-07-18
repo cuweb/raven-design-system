@@ -7,12 +7,12 @@ How RDS 2.0 is put together — the moving parts you'll touch when contributing.
 ```
 @cuweb/rds-icons    (private, GitHub Packages — Carleton org only)
     ↑ peerDependency
-@cuweb/rds2      (this repo)
+@cuweb/raven-design-system      (this repo)
     ↑ dependency
 Consumer project
 ```
 
-Two packages, released independently. `rds2` declares a version range for `rds-icons` in `peerDependencies`; consumers install both. See [maintenance/releasing.md](../maintenance/releasing.md) for the release flow that spans both repos.
+Two packages, released independently. `raven-design-system` declares a version range for `rds-icons` in `peerDependencies`; consumers install both. See [maintenance/releasing.md](../maintenance/releasing.md) for the release flow that spans both repos.
 
 ## Two-package icon model
 
@@ -25,15 +25,15 @@ Font Awesome Pro's [license](https://fontawesome.com/license) prohibits:
 
 Carleton's FA Pro Organization license covers Carleton developers as "Creators," but **not** the general public who might `npm install` a public package.
 
-If FA Pro SVGs were baked into `rds2` and published publicly, anyone could install it and get the Pro Icons — a license violation. Same for serving the SVGs from a public CDN.
+If FA Pro SVGs were baked into `raven-design-system` and published publicly, anyone could install it and get the Pro Icons — a license violation. Same for serving the SVGs from a public CDN.
 
 ### The split
 
-`rds2` ships public, but contains **no Pro Icon data**. The icon data lives in a private companion package (`rds-icons`) published to GitHub Packages, which requires Carleton authentication to install. The GitHub Packages auth gate is what enforces license compliance — anyone can install `rds2`, but the `<Icon>` component won't resolve without `rds-icons` present at install time.
+`raven-design-system` ships public, but contains **no Pro Icon data**. The icon data lives in a private companion package (`rds-icons`) published to GitHub Packages, which requires Carleton authentication to install. The GitHub Packages auth gate is what enforces license compliance — anyone can install `raven-design-system`, but the `<Icon>` component won't resolve without `rds-icons` present at install time.
 
 ```
 ┌─────────────────────────────┐        ┌─────────────────────────────┐
-│       @cuweb/rds2        │        │      @cuweb/rds-icons       │
+│       @cuweb/raven-design-system        │        │      @cuweb/rds-icons       │
 │          (PUBLIC)           │        │          (PRIVATE)          │
 │                             │        │                             │
 │ - Icon component            │ ◂──────│ - iconMap                   │
@@ -100,16 +100,16 @@ The `exports` map in [`package.json`](../../package.json) wires this layout to s
 Storybook 10 with `@storybook/react-vite`. Stories live next to components (`Foo.stories.tsx`) and are picked up by the glob in [`.storybook/main.ts`](../../.storybook/main.ts):
 
 ```ts
-stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)']
+stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'];
 ```
 
 A11y testing runs through `@storybook/addon-a11y` + `@vitest/browser-playwright`. The `a11y.test: 'error'` parameter in [`.storybook/preview.ts`](../../.storybook/preview.ts) makes axe violations fail the build. See [testing.md](testing.md).
 
 ## Local development with rds-icons
 
-When working on rds2 itself, you need `rds-icons` checked out locally (it's a private peer dep). The dev convention is `~/Develop/personal/{rds2,rds-icons}` — see [local-setup.md](local-setup.md) for the setup steps.
+When working on raven-design-system itself, you need `rds-icons` checked out locally (it's a private peer dep). The dev convention is `~/Develop/personal/{raven-design-system,rds-icons}` — see [local-setup.md](local-setup.md) for the setup steps.
 
-`rds-icons` points its `main`/`module`/`types`/`exports` at `src/` during local development (no build needed). On publish, `publishConfig` overrides those fields to point at `dist/`. This means changes to `rds-icons/src/` are picked up immediately by rds2's Storybook — re-run `pnpm generate` in rds-icons and reload.
+`rds-icons` points its `main`/`module`/`types`/`exports` at `src/` during local development (no build needed). On publish, `publishConfig` overrides those fields to point at `dist/`. This means changes to `rds-icons/src/` are picked up immediately by raven-design-system's Storybook — re-run `pnpm generate` in rds-icons and reload.
 
 ## Related
 

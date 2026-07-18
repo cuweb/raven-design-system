@@ -14,7 +14,7 @@ Use `ProgressBar` to represent a known, measurable value against a target — a 
 ## Import
 
 ```tsx
-import { ProgressBar } from '@cuweb/rds2';
+import { ProgressBar } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -69,23 +69,23 @@ const percentage = max > 0 ? Math.min(Math.round((value / max) * 100), 100) : 0;
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-progressbar` | Always — the outer track element |
+| Class                  | When applied                                                |
+| ---------------------- | ----------------------------------------------------------- |
+| `cu-progressbar`       | Always — the outer track element                            |
 | `cu-progressbar__fill` | Always — the inner fill bar, width driven by inline `style` |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-pale` | Track background |
-| `--rds--color-primary` | Fill gradient start (left) |
-| `--rds--color-primary-dark` | Fill gradient end (right) |
-| `--rds--radius-sm` | Border radius on the track |
+| Token                       | Used for                   |
+| --------------------------- | -------------------------- |
+| `--rds--color-grey-pale`    | Track background           |
+| `--rds--color-primary`      | Fill gradient start (left) |
+| `--rds--color-primary-dark` | Fill gradient end (right)  |
+| `--rds--radius-sm`          | Border radius on the track |
 
 ## Accessibility
 
-- The outer element carries `role="progressbar"` with `aria-label`, `aria-valuenow`, `aria-valuemin={0}`, and `aria-valuemax={100}`. Screen readers announce the label and current percentage — e.g. *"Fundraising progress, 69%"*.
+- The outer element carries `role="progressbar"` with `aria-label`, `aria-valuenow`, `aria-valuemin={0}`, and `aria-valuemax={100}`. Screen readers announce the label and current percentage — e.g. _"Fundraising progress, 69%"_.
 - `aria-valuenow` always reflects the computed percentage, not the raw `value` — so a bar at `34500 / 50000` is announced as `69`, not `34500`.
 - `label` is required and must describe what is being measured. Do not use generic text like `"Progress"` — give users enough context to understand the value without seeing the bar.
 - The fill width is controlled by an inline `style` attribute. It is decorative; the ARIA attributes carry the semantic meaning for assistive technology.

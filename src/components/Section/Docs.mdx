@@ -14,7 +14,7 @@ Use `Section` to group related content into a distinct visual band — a card gr
 ## Import
 
 ```tsx
-import { Section } from '@cuweb/rds2';
+import { Section } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -129,11 +129,11 @@ The most common page pattern — alternating white and grey bands, ending with a
 
 ## Max-width presets
 
-| `maxWidth` | Token | Description |
-|---|---|---|
-| `"aligncontent"` | `--rds--layout-content-size` | Default — standard readable content width |
-| `"alignwide"` | `--rds--layout-wide-size` | Wider — for card grids and media-rich sections |
-| `"alignfull"` | `--rds--layout-full-size` | Full viewport width — hero and accent bands |
+| `maxWidth`       | Token                        | Description                                    |
+| ---------------- | ---------------------------- | ---------------------------------------------- |
+| `"aligncontent"` | `--rds--layout-content-size` | Default — standard readable content width      |
+| `"alignwide"`    | `--rds--layout-wide-size`    | Wider — for card grids and media-rich sections |
+| `"alignfull"`    | `--rds--layout-full-size`    | Full viewport width — hero and accent bands    |
 
 These names and tokens mirror the WordPress block editor's alignment system so that React templates and WordPress block themes share the same layout vocabulary.
 
@@ -145,40 +145,40 @@ By default `Section` renders a `<section>` element. Pass `as="div"` when a secti
 
 When set, `contentWidth` wraps all children in a `cu-section__content` div independently constrained within the outer layout:
 
-| Value | Inner content width |
-|---|---|
-| `"aligncontent"` | 1024px — standard readable content width |
-| `"alignwide"` | 1280px — wider, for card grids and media-rich layouts |
-| `"alignfull"` | Full viewport width |
+| Value            | Inner content width                                   |
+| ---------------- | ----------------------------------------------------- |
+| `"aligncontent"` | 1024px — standard readable content width              |
+| `"alignwide"`    | 1280px — wider, for card grids and media-rich layouts |
+| `"alignfull"`    | Full viewport width                                   |
 
 Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-section` | Always |
-| `cu-section--grey` | `bgType="grey"` |
-| `cu-section--black` | `bgType="black"` |
-| `cu-section--light-gradient` | `bgType="light-gradient"` |
-| `aligncontent` | `maxWidth="aligncontent"` (default) |
-| `alignwide` | `maxWidth="alignwide"` |
-| `alignfull` | `maxWidth="alignfull"` |
-| `has-global-padding` | When `bgType` is set — horizontal gutter |
-| `is-layout-constrained` | Always — constrains children to content / wide widths |
+| Class                        | When applied                                          |
+| ---------------------------- | ----------------------------------------------------- |
+| `cu-section`                 | Always                                                |
+| `cu-section--grey`           | `bgType="grey"`                                       |
+| `cu-section--black`          | `bgType="black"`                                      |
+| `cu-section--light-gradient` | `bgType="light-gradient"`                             |
+| `aligncontent`               | `maxWidth="aligncontent"` (default)                   |
+| `alignwide`                  | `maxWidth="alignwide"`                                |
+| `alignfull`                  | `maxWidth="alignfull"`                                |
+| `has-global-padding`         | When `bgType` is set — horizontal gutter              |
+| `is-layout-constrained`      | Always — constrains children to content / wide widths |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-pale` | Grey section background |
-| `--rds--color-black` | Black section background |
-| `--rds--gradient-white-to-pale-grey` | Light gradient section background |
-| `--rds--spacing-large` | Internal padding on styled sections |
-| `--rds--radius-md` | Border radius on non-full-width styled sections |
-| `--rds--layout-content-size` | `aligncontent` max-width |
-| `--rds--layout-wide-size` | `alignwide` max-width |
-| `--rds--layout-full-size` | `alignfull` max-width (100%) |
+| Token                                | Used for                                        |
+| ------------------------------------ | ----------------------------------------------- |
+| `--rds--color-grey-pale`             | Grey section background                         |
+| `--rds--color-black`                 | Black section background                        |
+| `--rds--gradient-white-to-pale-grey` | Light gradient section background               |
+| `--rds--spacing-large`               | Internal padding on styled sections             |
+| `--rds--radius-md`                   | Border radius on non-full-width styled sections |
+| `--rds--layout-content-size`         | `aligncontent` max-width                        |
+| `--rds--layout-wide-size`            | `alignwide` max-width                           |
+| `--rds--layout-full-size`            | `alignfull` max-width (100%)                    |
 
 ## Accessibility
 

@@ -14,7 +14,7 @@ Place `CookieBanner` once at the application root, outside of any scrollable con
 ## Import
 
 ```tsx
-import { CookieBanner } from '@cuweb/rds2';
+import { CookieBanner } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -56,7 +56,7 @@ The component is SSR-safe: both `isCookieExpired` and `setCookie` guard against 
 Two helpers from `cookies.ts` are used internally and can be imported directly if needed:
 
 ```ts
-import { isCookieExpired, setCookie } from '@cuweb/rds2/CookieBanner';
+import { isCookieExpired, setCookie } from '@cuweb/raven-design-system/CookieBanner';
 
 // Returns true if the cookie is absent (banner should show)
 isCookieExpired('cookieConsent');
@@ -67,29 +67,29 @@ setCookie('cookieConsent', 365);
 
 ## CSS classes
 
-| Class | Element | Notes |
-|---|---|---|
-| `cu-cookie-banner` | Outer `<div>` | Fixed position, `z-index: 50`, max-width capped at `--rds--layout-wide-size` |
-| `cu-cookie-banner__content` | Inner flex container | Column on mobile, row on desktop |
-| `cu-cookie-banner__message` | `<p>` | Message text |
-| `cu-cookie-banner__link` | Policy link | Bold, `--rds--color-primary-dark`, underline on hover |
-| `cu-cookie-banner__action` | Button wrapper | Pushes to trailing edge on desktop via `margin-left: auto` |
+| Class                       | Element              | Notes                                                                        |
+| --------------------------- | -------------------- | ---------------------------------------------------------------------------- |
+| `cu-cookie-banner`          | Outer `<div>`        | Fixed position, `z-index: 50`, max-width capped at `--rds--layout-wide-size` |
+| `cu-cookie-banner__content` | Inner flex container | Column on mobile, row on desktop                                             |
+| `cu-cookie-banner__message` | `<p>`                | Message text                                                                 |
+| `cu-cookie-banner__link`    | Policy link          | Bold, `--rds--color-primary-dark`, underline on hover                        |
+| `cu-cookie-banner__action`  | Button wrapper       | Pushes to trailing edge on desktop via `margin-left: auto`                   |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--layout-wide-size` | Maximum width of the banner |
-| `--rds--color-grey-faint` | Banner background |
-| `--rds--color-white` | Border colour |
-| `--rds--color-grey-dark` | Message text colour |
-| `--rds--color-primary-dark` | Policy link colour |
-| `--rds--font-family-inter` | Message font |
-| `--rds--font-size-small` | Message font size on mobile |
-| `--rds--font-size-medium` | Message font size on desktop |
-| `--rds--font-weight-bold` | Policy link weight |
-| `--rds--radius-md` | Banner border radius |
-| `--rds--shadow-natural` | Banner drop shadow |
+| Token                       | Used for                     |
+| --------------------------- | ---------------------------- |
+| `--rds--layout-wide-size`   | Maximum width of the banner  |
+| `--rds--color-grey-faint`   | Banner background            |
+| `--rds--color-white`        | Border colour                |
+| `--rds--color-grey-dark`    | Message text colour          |
+| `--rds--color-primary-dark` | Policy link colour           |
+| `--rds--font-family-inter`  | Message font                 |
+| `--rds--font-size-small`    | Message font size on mobile  |
+| `--rds--font-size-medium`   | Message font size on desktop |
+| `--rds--font-weight-bold`   | Policy link weight           |
+| `--rds--radius-md`          | Banner border radius         |
+| `--rds--shadow-natural`     | Banner drop shadow           |
 
 ## Accessibility
 

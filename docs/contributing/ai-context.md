@@ -1,6 +1,6 @@
 # AI session starting context
 
-Paste the snippet below into a new AI session (Claude, ChatGPT, etc.) when working on rds2 outside of a Copilot Chat inside this repo.
+Paste the snippet below into a new AI session (Claude, ChatGPT, etc.) when working on raven-design-system outside of a Copilot Chat inside this repo.
 
 Copilot Chat in VS Code / JetBrains gets this context automatically via [`.github/copilot-instructions.md`](../../.github/copilot-instructions.md) — use this doc only for sessions that don't.
 
@@ -9,11 +9,11 @@ Copilot Chat in VS Code / JetBrains gets this context automatically via [`.githu
 ## Snippet to paste
 
 ```text
-You are working on @cuweb/rds2 — Carleton University's React component
+You are working on @cuweb/raven-design-system — Carleton University's React component
 library and design system. Two packages are involved:
 
-- @cuweb/rds2 (this repo, public): components + tokens + styles
-  Location: ~/Develop/personal/rds2
+- @cuweb/raven-design-system (this repo, public): components + tokens + styles
+  Location: ~/Develop/personal/raven-design-system
 - @cuweb/rds-icons (peer dep, private GitHub Packages): FA Pro icon
   components. Location: ~/Develop/personal/rds-icons
 
@@ -46,15 +46,15 @@ Font Awesome Pro license requires Carleton to keep Pro Icons inside an auth-gate
 
 ## Where to find things
 
-| Looking for | Read |
-|---|---|
-| File-by-file conventions Copilot enforces | [`.github/instructions/`](../../.github/instructions/) |
-| Build pipeline, token flow, Storybook setup | [architecture.md](architecture.md) |
-| Adding a new component | [conventions.md](conventions.md#adding-a-new-component) |
-| Running tests / a11y / lint | [testing.md](testing.md) |
-| Local environment setup | [local-setup.md](local-setup.md) |
-| Releasing | [../maintenance/releasing.md](../maintenance/releasing.md) |
-| Consumer-facing docs | [../consumers/](../consumers/) |
+| Looking for                                 | Read                                                       |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| File-by-file conventions Copilot enforces   | [`.github/instructions/`](../../.github/instructions/)     |
+| Build pipeline, token flow, Storybook setup | [architecture.md](architecture.md)                         |
+| Adding a new component                      | [conventions.md](conventions.md#adding-a-new-component)    |
+| Running tests / a11y / lint                 | [testing.md](testing.md)                                   |
+| Local environment setup                     | [local-setup.md](local-setup.md)                           |
+| Releasing                                   | [../maintenance/releasing.md](../maintenance/releasing.md) |
+| Consumer-facing docs                        | [../consumers/](../consumers/)                             |
 
 ## Gotchas worth knowing
 

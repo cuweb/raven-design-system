@@ -17,7 +17,7 @@ A full-width or constrained-width banner component that displays a background im
 ## Import
 
 ```tsx
-import { FullBanner } from '@cuweb/rds2';
+import { FullBanner } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -77,38 +77,38 @@ import { FullBanner } from '@cuweb/rds2';
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-fullbanner` | Always applied to the root element |
-| `aligncontent` | When `maxWidth="aligncontent"` — constrains to 1024px |
-| `alignwide` | When `maxWidth="alignwide"` — constrains to 1280px |
-| `alignfull` | When `maxWidth="alignfull"` — removes border-radius for edge-to-edge display |
-| `cu-fullbanner__media` | Wraps the image or video background |
-| `cu-fullbanner__img` | Applied to the `<img>` element when `image` prop is set |
-| `cu-fullbanner__video` | Applied to the `<video>` element rendered by `FullBanner.Video` |
-| `cu-fullbanner__overlay` | Semi-transparent overlay div over the media layer |
-| `cu-fullbanner__wrap` | Positions the content box area; becomes `position: absolute` at `lg` breakpoint |
-| `cu-fullbanner__inner` | Max-width and flex container for the content box |
-| `cu-fullbanner__inner--lg` | When `contentBox="lg"` — inner max-width 1024px |
-| `cu-fullbanner__inner--xl` | When `contentBox="xl"` — inner max-width 1280px |
-| `cu-fullbanner__inner--start` | When `justify="start"` — aligns content box to the left |
-| `cu-fullbanner__inner--end` | When `justify="end"` — aligns content box to the right |
-| `cu-fullbanner__inner--center` | When `justify="center"` — centers the content box |
-| `cu-fullbanner__box` | The dark translucent content box, max-width 48rem |
+| Class                          | Condition                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| `cu-fullbanner`                | Always applied to the root element                                              |
+| `aligncontent`                 | When `maxWidth="aligncontent"` — constrains to 1024px                           |
+| `alignwide`                    | When `maxWidth="alignwide"` — constrains to 1280px                              |
+| `alignfull`                    | When `maxWidth="alignfull"` — removes border-radius for edge-to-edge display    |
+| `cu-fullbanner__media`         | Wraps the image or video background                                             |
+| `cu-fullbanner__img`           | Applied to the `<img>` element when `image` prop is set                         |
+| `cu-fullbanner__video`         | Applied to the `<video>` element rendered by `FullBanner.Video`                 |
+| `cu-fullbanner__overlay`       | Semi-transparent overlay div over the media layer                               |
+| `cu-fullbanner__wrap`          | Positions the content box area; becomes `position: absolute` at `lg` breakpoint |
+| `cu-fullbanner__inner`         | Max-width and flex container for the content box                                |
+| `cu-fullbanner__inner--lg`     | When `contentBox="lg"` — inner max-width 1024px                                 |
+| `cu-fullbanner__inner--xl`     | When `contentBox="xl"` — inner max-width 1280px                                 |
+| `cu-fullbanner__inner--start`  | When `justify="start"` — aligns content box to the left                         |
+| `cu-fullbanner__inner--end`    | When `justify="end"` — aligns content box to the right                          |
+| `cu-fullbanner__inner--center` | When `justify="center"` — centers the content box                               |
+| `cu-fullbanner__box`           | The dark translucent content box, max-width 48rem                               |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--radius-xl` | Border radius on the root element |
-| `--rds--radius-lg` | Border radius on the content box |
-| `--rds--color-black` | Content box background (80% opacity via `color-mix`) |
-| `--rds--color-white` | Text color inside the content box (via PageHeader `isWhite`) |
-| `--rds--spacing-large` | Padding on `__wrap` and `__box` at mobile sizes |
-| `--rds--spacing-x-large` | Padding on `__wrap` and `__box` at `lg+` |
-| `--rds--layout-content-size` | Max-width for `contentBox="lg"` (1024px) |
-| `--rds--layout-wide-size` | Max-width for `contentBox="xl"` (1280px) |
-| `--cu-fullbanner-overlay` | Overlay color/opacity, set via inline style from the `opacity` prop |
+| Token                        | Used for                                                            |
+| ---------------------------- | ------------------------------------------------------------------- |
+| `--rds--radius-xl`           | Border radius on the root element                                   |
+| `--rds--radius-lg`           | Border radius on the content box                                    |
+| `--rds--color-black`         | Content box background (80% opacity via `color-mix`)                |
+| `--rds--color-white`         | Text color inside the content box (via PageHeader `isWhite`)        |
+| `--rds--spacing-large`       | Padding on `__wrap` and `__box` at mobile sizes                     |
+| `--rds--spacing-x-large`     | Padding on `__wrap` and `__box` at `lg+`                            |
+| `--rds--layout-content-size` | Max-width for `contentBox="lg"` (1024px)                            |
+| `--rds--layout-wide-size`    | Max-width for `contentBox="xl"` (1280px)                            |
+| `--cu-fullbanner-overlay`    | Overlay color/opacity, set via inline style from the `opacity` prop |
 
 ## Accessibility
 

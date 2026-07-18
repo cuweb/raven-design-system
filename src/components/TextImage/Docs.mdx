@@ -17,23 +17,23 @@ A side-by-side layout component that pairs a content area (heading, body copy, c
 ## Import
 
 ```tsx
-import { TextImage } from '@cuweb/rds2';
+import { TextImage } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 <TextImage>
-  <TextImage.Content
-    title="Website and Application Development"
-    imageUrl="https://example.com/image.jpg"
-  >
-    <p>Supporting copy goes here.</p>
-    <ButtonGroup>
-      <Button title="Primary" />
-      <Button title="Learn more" color="grey" />
-    </ButtonGroup>
-  </TextImage.Content>
+    <TextImage.Content
+        title="Website and Application Development"
+        imageUrl="https://example.com/image.jpg"
+    >
+        <p>Supporting copy goes here.</p>
+        <ButtonGroup>
+            <Button title="Primary" />
+            <Button title="Learn more" color="grey" />
+        </ButtonGroup>
+    </TextImage.Content>
 </TextImage>
 ```
 
@@ -41,13 +41,13 @@ Image with a fixed 16:9 aspect ratio (instead of stretching to content height):
 
 ```tsx
 <TextImage>
-  <TextImage.Content
-    title="Our Services"
-    imageUrl="https://example.com/image.jpg"
-    imageMode="16/9"
-  >
-    <p>Content here.</p>
-  </TextImage.Content>
+    <TextImage.Content
+        title="Our Services"
+        imageUrl="https://example.com/image.jpg"
+        imageMode="16/9"
+    >
+        <p>Content here.</p>
+    </TextImage.Content>
 </TextImage>
 ```
 
@@ -55,9 +55,9 @@ Image on the left (reversed):
 
 ```tsx
 <TextImage flipX>
-  <TextImage.Content title="Our Services" imageUrl="https://example.com/image.jpg" showOnMobile>
-    <p>Content here.</p>
-  </TextImage.Content>
+    <TextImage.Content title="Our Services" imageUrl="https://example.com/image.jpg" showOnMobile>
+        <p>Content here.</p>
+    </TextImage.Content>
 </TextImage>
 ```
 
@@ -90,38 +90,38 @@ Image on the left (reversed):
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-textimage` | Always applied to the wrapper |
-| `cu-textimage--row-sm` | `flexRow="sm"` |
-| `cu-textimage--row-md` | `flexRow="md"` |
-| `cu-textimage--row-lg` | `flexRow="lg"` (default) |
-| `cu-textimage--reversed` | `flipX={true}` — reverses column order at lg breakpoint |
-| `cu-textimage--flip-mobile` | `flipMobile={true}` — column-reverse on mobile, row from sm up |
-| `alignsmall` / `aligncontent` / `alignwide` / `alignfull` | `maxWidth` prop — WordPress layout alignment class |
-| `cu-textimage__content` | Content area div |
-| `cu-textimage__content--center` | `isCenter={true}` — vertically centers content |
-| `cu-textimage__heading` | Heading element (`h1` or `h2`) |
-| `cu-textimage__meta` | `metaData` wrapper div, only rendered when `metaData` is provided |
-| `cu-textimage__media-wrap` | Image column wrapper, only rendered when `imageUrl` is provided |
-| `cu-textimage__media-wrap--aspect` | `imageMode` is a ratio value — enables `aspect-ratio` sizing, removes `min-height` |
-| `cu-textimage__media-wrap--hide-mobile` | `showOnMobile` is falsy — hides image below lg breakpoint |
-| `cu-textimage__media` | Inner background-image div |
+| Class                                                     | Condition                                                                          |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `cu-textimage`                                            | Always applied to the wrapper                                                      |
+| `cu-textimage--row-sm`                                    | `flexRow="sm"`                                                                     |
+| `cu-textimage--row-md`                                    | `flexRow="md"`                                                                     |
+| `cu-textimage--row-lg`                                    | `flexRow="lg"` (default)                                                           |
+| `cu-textimage--reversed`                                  | `flipX={true}` — reverses column order at lg breakpoint                            |
+| `cu-textimage--flip-mobile`                               | `flipMobile={true}` — column-reverse on mobile, row from sm up                     |
+| `alignsmall` / `aligncontent` / `alignwide` / `alignfull` | `maxWidth` prop — WordPress layout alignment class                                 |
+| `cu-textimage__content`                                   | Content area div                                                                   |
+| `cu-textimage__content--center`                           | `isCenter={true}` — vertically centers content                                     |
+| `cu-textimage__heading`                                   | Heading element (`h1` or `h2`)                                                     |
+| `cu-textimage__meta`                                      | `metaData` wrapper div, only rendered when `metaData` is provided                  |
+| `cu-textimage__media-wrap`                                | Image column wrapper, only rendered when `imageUrl` is provided                    |
+| `cu-textimage__media-wrap--aspect`                        | `imageMode` is a ratio value — enables `aspect-ratio` sizing, removes `min-height` |
+| `cu-textimage__media-wrap--hide-mobile`                   | `showOnMobile` is falsy — hides image below lg breakpoint                          |
+| `cu-textimage__media`                                     | Inner background-image div                                                         |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--spacing-large` | Gap between content and image columns; heading underline width |
-| `--rds--spacing-medium` | Heading bottom padding (above underline) |
-| `--rds--font-family-inter` | Heading font family |
-| `--rds--font-weight-semibold` | Heading font weight |
-| `--rds--font-size-heading-large` | `h2` heading size |
-| `--rds--font-size-heading-primary` | `h1` heading size |
-| `--rds--line-height-tight` | Heading line height |
-| `--rds--color-black` | Heading text colour |
-| `--rds--color-primary` | Heading underline colour |
-| `--rds--radius-lg` | Border radius on the image column |
+| Token                              | Controls                                                       |
+| ---------------------------------- | -------------------------------------------------------------- |
+| `--rds--spacing-large`             | Gap between content and image columns; heading underline width |
+| `--rds--spacing-medium`            | Heading bottom padding (above underline)                       |
+| `--rds--font-family-inter`         | Heading font family                                            |
+| `--rds--font-weight-semibold`      | Heading font weight                                            |
+| `--rds--font-size-heading-large`   | `h2` heading size                                              |
+| `--rds--font-size-heading-primary` | `h1` heading size                                              |
+| `--rds--line-height-tight`         | Heading line height                                            |
+| `--rds--color-black`               | Heading text colour                                            |
+| `--rds--color-primary`             | Heading underline colour                                       |
+| `--rds--radius-lg`                 | Border radius on the image column                              |
 
 ## Accessibility
 

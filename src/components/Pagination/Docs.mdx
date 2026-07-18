@@ -17,7 +17,7 @@ A fully-controlled navigation component that renders a row of page buttons with 
 ## Import
 
 ```tsx
-import { Pagination } from '@cuweb/rds2';
+import { Pagination } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -25,11 +25,7 @@ import { Pagination } from '@cuweb/rds2';
 ```tsx
 const [page, setPage] = useState(1);
 
-<Pagination
-  currentPage={page}
-  totalPages={8}
-  onPageChange={setPage}
-/>
+<Pagination currentPage={page} totalPages={8} onPageChange={setPage} />;
 ```
 
 ## Examples
@@ -53,37 +49,37 @@ Interactive example — clicking page buttons updates the card grid. Uses `NewsD
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `.cu-pagination` | Always — applied to the `<nav>` wrapper |
-| `.cu-pagination__list` | Always — applied to the `<ol>` |
-| `.cu-pagination__item` | Always — applied to each `<li>` |
-| `.cu-pagination__button` | Applied to every `<button>` (pages, prev, next) |
+| Class                            | Condition                                                    |
+| -------------------------------- | ------------------------------------------------------------ |
+| `.cu-pagination`                 | Always — applied to the `<nav>` wrapper                      |
+| `.cu-pagination__list`           | Always — applied to the `<ol>`                               |
+| `.cu-pagination__item`           | Always — applied to each `<li>`                              |
+| `.cu-pagination__button`         | Applied to every `<button>` (pages, prev, next)              |
 | `.cu-pagination__button--active` | Applied to the button whose page number equals `currentPage` |
-| `.cu-pagination__button--prev` | Applied to the Previous button |
-| `.cu-pagination__button--next` | Applied to the Next button |
-| `.cu-pagination__ellipsis` | Applied to each `<span>` that renders `…` |
+| `.cu-pagination__button--prev`   | Applied to the Previous button                               |
+| `.cu-pagination__button--next`   | Applied to the Next button                                   |
+| `.cu-pagination__ellipsis`       | Applied to each `<span>` that renders `…`                    |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--spacing-medium` | Block padding around the pagination bar |
-| `--rds--spacing-2-x-small` | Gap between page items |
-| `--rds--spacing-x-small` | Inline padding inside each button |
-| `--rds--font-family-inter` | Button font family |
-| `--rds--font-size-small` | Button and ellipsis font size |
-| `--rds--font-weight-medium` | Default button font weight |
-| `--rds--font-weight-bold` | Active page button font weight |
-| `--rds--color-grey-dark` | Default button text colour |
-| `--rds--color-grey` | Ellipsis text colour |
-| `--rds--color-grey-light` | Default button border colour |
-| `--rds--color-grey-lighter` | Disabled button border colour |
-| `--rds--color-grey-pale` | Button hover background |
-| `--rds--color-primary` | Active button background and border; focus ring colour |
-| `--rds--color-primary-dark` | Active button hover background |
-| `--rds--color-white` | Active button text colour |
-| `--rds--radius-md` | Button border radius |
+| Token                       | Controls                                               |
+| --------------------------- | ------------------------------------------------------ |
+| `--rds--spacing-medium`     | Block padding around the pagination bar                |
+| `--rds--spacing-2-x-small`  | Gap between page items                                 |
+| `--rds--spacing-x-small`    | Inline padding inside each button                      |
+| `--rds--font-family-inter`  | Button font family                                     |
+| `--rds--font-size-small`    | Button and ellipsis font size                          |
+| `--rds--font-weight-medium` | Default button font weight                             |
+| `--rds--font-weight-bold`   | Active page button font weight                         |
+| `--rds--color-grey-dark`    | Default button text colour                             |
+| `--rds--color-grey`         | Ellipsis text colour                                   |
+| `--rds--color-grey-light`   | Default button border colour                           |
+| `--rds--color-grey-lighter` | Disabled button border colour                          |
+| `--rds--color-grey-pale`    | Button hover background                                |
+| `--rds--color-primary`      | Active button background and border; focus ring colour |
+| `--rds--color-primary-dark` | Active button hover background                         |
+| `--rds--color-white`        | Active button text colour                              |
+| `--rds--radius-md`          | Button border radius                                   |
 
 ## Accessibility
 

@@ -14,7 +14,7 @@ Use `ImageCover` when you want a visually distinct section with a background ima
 ## Import
 
 ```tsx
-import { ImageCover } from '@cuweb/rds2';
+import { ImageCover } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -84,11 +84,11 @@ Content width (`aligncontent`), grey background. Use the controls to explore `ma
 
 ## Max-width presets
 
-| `maxWidth` | Token | Description |
-|---|---|---|
-| `"aligncontent"` | `--rds--layout-content-size` | Default — standard readable content width |
-| `"alignwide"` | `--rds--layout-wide-size` | Wider — for card grids and media-rich sections |
-| `"alignfull"` | `--rds--layout-full-size` | Full viewport width — hero and accent bands |
+| `maxWidth`       | Token                        | Description                                    |
+| ---------------- | ---------------------------- | ---------------------------------------------- |
+| `"aligncontent"` | `--rds--layout-content-size` | Default — standard readable content width      |
+| `"alignwide"`    | `--rds--layout-wide-size`    | Wider — for card grids and media-rich sections |
+| `"alignfull"`    | `--rds--layout-full-size`    | Full viewport width — hero and accent bands    |
 
 These names and tokens mirror the WordPress block editor's alignment system so that React templates and WordPress block themes share the same layout vocabulary.
 
@@ -110,37 +110,37 @@ Controls the white overlay applied on top of the background image — higher val
 
 When set, `contentWidth` wraps all children in an inner div constrained within the outer layout:
 
-| Value | Inner content width |
-|---|---|
-| `"aligncontent"` | 1024px — standard readable content width |
-| `"alignwide"` | 1280px — wider, for card grids and media-rich layouts |
-| `"alignfull"` | Full viewport width |
+| Value            | Inner content width                                   |
+| ---------------- | ----------------------------------------------------- |
+| `"aligncontent"` | 1024px — standard readable content width              |
+| `"alignwide"`    | 1280px — wider, for card grids and media-rich layouts |
+| `"alignfull"`    | Full viewport width                                   |
 
 Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-imagecover` | Always |
-| `cu-imagecover--image` | When `image` is set |
-| `has-global-padding` | Always — horizontal gutter from `--rds--layout-gutter` |
-| `aligncontent` | `maxWidth="aligncontent"` (default) |
-| `alignwide` | `maxWidth="alignwide"` |
-| `alignfull` | `maxWidth="alignfull"` |
-| `is-layout-constrained` | Always — constrains children to content / wide widths |
+| Class                   | When applied                                           |
+| ----------------------- | ------------------------------------------------------ |
+| `cu-imagecover`         | Always                                                 |
+| `cu-imagecover--image`  | When `image` is set                                    |
+| `has-global-padding`    | Always — horizontal gutter from `--rds--layout-gutter` |
+| `aligncontent`          | `maxWidth="aligncontent"` (default)                    |
+| `alignwide`             | `maxWidth="alignwide"`                                 |
+| `alignfull`             | `maxWidth="alignfull"`                                 |
+| `is-layout-constrained` | Always — constrains children to content / wide widths  |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-pale` | Background colour (always applied) |
-| `--rds--spacing-large` | Internal padding |
-| `--rds--layout-content-size` | `aligncontent` max-width |
-| `--rds--layout-wide-size` | `alignwide` max-width |
-| `--rds--layout-full-size` | `alignfull` max-width (100%) |
-| `--cu-imagecover-bg` | CSS custom property set via `style` when image is provided |
-| `--cu-imagecover-overlay` | CSS custom property set via `style` to control overlay opacity |
+| Token                        | Used for                                                       |
+| ---------------------------- | -------------------------------------------------------------- |
+| `--rds--color-grey-pale`     | Background colour (always applied)                             |
+| `--rds--spacing-large`       | Internal padding                                               |
+| `--rds--layout-content-size` | `aligncontent` max-width                                       |
+| `--rds--layout-wide-size`    | `alignwide` max-width                                          |
+| `--rds--layout-full-size`    | `alignfull` max-width (100%)                                   |
+| `--cu-imagecover-bg`         | CSS custom property set via `style` when image is provided     |
+| `--cu-imagecover-overlay`    | CSS custom property set via `style` to control overlay opacity |
 
 ## Accessibility
 
@@ -148,4 +148,3 @@ Omitting `contentWidth` keeps the existing behaviour: children are direct childr
 - Without an accessible name, `<section>` is not exposed as a landmark, which is acceptable for generic layout sections.
 - When stacking multiple `ImageCover` sections on a page, ensure each meaningful one has a distinct label so screen reader users can distinguish between them.
 - The decorative wave element (`cu-imagecover__wave`) has no accessible meaning and is hidden from assistive technology.
-

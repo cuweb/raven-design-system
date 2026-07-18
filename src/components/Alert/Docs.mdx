@@ -19,7 +19,7 @@ Keep alerts concise — they are not a replacement for form validation or toast 
 ## Import
 
 ```tsx
-import { Alert } from '@cuweb/rds2';
+import { Alert } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -57,33 +57,33 @@ When `content` is omitted the alert renders the title alone, suitable for brief 
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-alert` | Always — base class |
-| `cu-alert--success` | `type="success"` |
-| `cu-alert--error` | `type="error"` |
-| `cu-alert--warning` | `type="warning"` |
-| `cu-alert--info` | `type="info"` (default) |
-| `cu-alert__icon` | Icon wrapper element |
-| `cu-alert__body` | Text content wrapper |
-| `cu-alert__title` | Title `<p>` element |
+| Class               | When applied                |
+| ------------------- | --------------------------- |
+| `cu-alert`          | Always — base class         |
+| `cu-alert--success` | `type="success"`            |
+| `cu-alert--error`   | `type="error"`              |
+| `cu-alert--warning` | `type="warning"`            |
+| `cu-alert--info`    | `type="info"` (default)     |
+| `cu-alert__icon`    | Icon wrapper element        |
+| `cu-alert__body`    | Text content wrapper        |
+| `cu-alert__title`   | Title `<p>` element         |
 | `cu-alert__content` | Optional body `<p>` element |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-success` | Success icon and tinted background/border/text |
-| `--rds--color-error` | Error icon and tinted background/border/text |
-| `--rds--color-warning` | Warning icon and tinted background/border/text |
-| `--rds--color-info` | Info icon and tinted background/border/text |
-| `--rds--color-white` | Base for tinted background and border blending |
-| `--rds--color-black` | Base for tinted text blending |
-| `--rds--radius-md` | Border radius |
-| `--rds--spacing-small` | Padding and gap |
-| `--rds--font-size-medium` | Title font size |
-| `--rds--font-size-small` | Content font size |
-| `--rds--font-weight-semibold` | Title font weight |
+| Token                         | Used for                                       |
+| ----------------------------- | ---------------------------------------------- |
+| `--rds--color-success`        | Success icon and tinted background/border/text |
+| `--rds--color-error`          | Error icon and tinted background/border/text   |
+| `--rds--color-warning`        | Warning icon and tinted background/border/text |
+| `--rds--color-info`           | Info icon and tinted background/border/text    |
+| `--rds--color-white`          | Base for tinted background and border blending |
+| `--rds--color-black`          | Base for tinted text blending                  |
+| `--rds--radius-md`            | Border radius                                  |
+| `--rds--spacing-small`        | Padding and gap                                |
+| `--rds--font-size-medium`     | Title font size                                |
+| `--rds--font-size-small`      | Content font size                              |
+| `--rds--font-weight-semibold` | Title font weight                              |
 
 ## Accessibility
 

@@ -2,7 +2,7 @@
 
 ## Project
 
-**Raven Design System (RDS) 2.0** — Carleton University's React component library. Package: `@cuweb/rds2`. Paired with `@cuweb/rds-icons` (private peer dep) for Font Awesome Pro icons.
+**Raven Design System (RDS) 2.0** — Carleton University's React component library. Package: `@cuweb/raven-design-system`. Paired with `@cuweb/rds-icons` (private peer dep) for Font Awesome Pro icons.
 
 Consumed by: Next.js apps, WordPress block plugins, block themes, hybrid themes, Timber/Twig. See `docs/contributing/ai-context.md` for an AI bootstrap snippet, `docs/contributing/architecture.md` for the build pipeline and two-package model, and `docs/consumers/wordpress/` for WordPress integration patterns.
 
@@ -40,8 +40,8 @@ Icons are a peer dependency from `@cuweb/rds-icons` (private package).
 
 ```tsx
 // Central component (preferred for most usage)
-import { Icon } from '@cuweb/rds2';
-<Icon name="circle-check" size={24} />
+import { Icon } from '@cuweb/raven-design-system';
+<Icon name="circle-check" size={24} />;
 
 // Named imports (better tree-shaking for known names)
 import { CircleCheckIcon } from '@cuweb/rds-icons';

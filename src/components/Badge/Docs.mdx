@@ -14,7 +14,7 @@ Use `Badge` to surface a short, scannable label — a category tag, a content ty
 ## Import
 
 ```tsx
-import { Badge } from '@cuweb/rds2';
+import { Badge } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -58,40 +58,40 @@ Ten color options span decorative, semantic, and overlay use cases. `green`, `re
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-badge` | Always — base class |
-| `cu-badge--{color}` | The active `color` prop value, e.g. `cu-badge--green` |
-| `cu-badge--radius-sm` | `rounded="sm"` |
-| `cu-badge--radius-md` | `rounded="md"` (default) |
-| `cu-badge--radius-lg` | `rounded="lg"` |
-| `cu-badge--radius-full` | `rounded="full"` |
-| `cu-badge--radius-none` | `rounded="none"` |
+| Class                   | When applied                                          |
+| ----------------------- | ----------------------------------------------------- |
+| `cu-badge`              | Always — base class                                   |
+| `cu-badge--{color}`     | The active `color` prop value, e.g. `cu-badge--green` |
+| `cu-badge--radius-sm`   | `rounded="sm"`                                        |
+| `cu-badge--radius-md`   | `rounded="md"` (default)                              |
+| `cu-badge--radius-lg`   | `rounded="lg"`                                        |
+| `cu-badge--radius-full` | `rounded="full"`                                      |
+| `cu-badge--radius-none` | `rounded="none"`                                      |
 
 When rendered as a link, the `a.cu-badge` selector additionally removes underline decoration at rest and restores it on hover.
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--font-family-inter` | Font family |
-| `--rds--font-size-x-small` | Font size |
-| `--rds--font-weight-bold` | Font weight |
-| `--rds--line-height-x-small` | Line height |
-| `--rds--radius-sm` | `rounded="sm"` border radius |
-| `--rds--radius-md` | `rounded="md"` border radius |
-| `--rds--radius-lg` | `rounded="lg"` border radius |
-| `--rds--radius-full` | `rounded="full"` border radius |
-| `--rds--color-grey-pale` | `grey` background |
-| `--rds--color-grey-dark` | `grey` and `white` text; `white80` text |
-| `--rds--color-white` | `white` background; text on dark variants |
-| `--rds--color-success` | `green` background |
-| `--rds--color-error` | `red` background |
-| `--rds--color-warning` | `yellow` background |
-| `--rds--color-info` | `blue` background |
-| `--rds--color-purple` | `purple` background |
-| `--rds--color-teal` | `teal` background |
-| `--rds--color-black` | `yellow` and `blue` text |
+| Token                        | Used for                                  |
+| ---------------------------- | ----------------------------------------- |
+| `--rds--font-family-inter`   | Font family                               |
+| `--rds--font-size-x-small`   | Font size                                 |
+| `--rds--font-weight-bold`    | Font weight                               |
+| `--rds--line-height-x-small` | Line height                               |
+| `--rds--radius-sm`           | `rounded="sm"` border radius              |
+| `--rds--radius-md`           | `rounded="md"` border radius              |
+| `--rds--radius-lg`           | `rounded="lg"` border radius              |
+| `--rds--radius-full`         | `rounded="full"` border radius            |
+| `--rds--color-grey-pale`     | `grey` background                         |
+| `--rds--color-grey-dark`     | `grey` and `white` text; `white80` text   |
+| `--rds--color-white`         | `white` background; text on dark variants |
+| `--rds--color-success`       | `green` background                        |
+| `--rds--color-error`         | `red` background                          |
+| `--rds--color-warning`       | `yellow` background                       |
+| `--rds--color-info`          | `blue` background                         |
+| `--rds--color-purple`        | `purple` background                       |
+| `--rds--color-teal`          | `teal` background                         |
+| `--rds--color-black`         | `yellow` and `blue` text                  |
 
 `black80` and `white80` use raw `rgba()` values rather than design tokens.
 

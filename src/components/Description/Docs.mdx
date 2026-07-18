@@ -17,7 +17,7 @@ A semantic description list (`<dl>`) for displaying labelled metadata — progra
 ## Import
 
 ```tsx
-import { Description } from '@cuweb/rds2';
+import { Description } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -26,9 +26,9 @@ Stacked layout — each term sits above its definition:
 
 ```tsx
 <Description>
-  <Description.Meta term="Programme">Bachelor of Computer Science</Description.Meta>
-  <Description.Meta term="Faculty">Faculty of Engineering and Design</Description.Meta>
-  <Description.Meta term="Duration">4 years (120 credits)</Description.Meta>
+    <Description.Meta term="Programme">Bachelor of Computer Science</Description.Meta>
+    <Description.Meta term="Faculty">Faculty of Engineering and Design</Description.Meta>
+    <Description.Meta term="Duration">4 years (120 credits)</Description.Meta>
 </Description>
 ```
 
@@ -36,8 +36,12 @@ Two-column layout — term is pinned to a 260 px left column at `md` and wider:
 
 ```tsx
 <Description>
-  <Description.Meta term="Programme" useColumns>Bachelor of Computer Science</Description.Meta>
-  <Description.Meta term="Faculty" useColumns>Faculty of Engineering and Design</Description.Meta>
+    <Description.Meta term="Programme" useColumns>
+        Bachelor of Computer Science
+    </Description.Meta>
+    <Description.Meta term="Faculty" useColumns>
+        Faculty of Engineering and Design
+    </Description.Meta>
 </Description>
 ```
 
@@ -45,12 +49,12 @@ Collapsible accordion items:
 
 ```tsx
 <Description>
-  <Description.Accordion term="Admission requirements">
-    <p>Applicants must hold an Ontario Secondary School Diploma...</p>
-  </Description.Accordion>
-  <Description.Accordion term="Career outcomes">
-    <p>Graduates work in software engineering, data science, and research.</p>
-  </Description.Accordion>
+    <Description.Accordion term="Admission requirements">
+        <p>Applicants must hold an Ontario Secondary School Diploma...</p>
+    </Description.Accordion>
+    <Description.Accordion term="Career outcomes">
+        <p>Graduates work in software engineering, data science, and research.</p>
+    </Description.Accordion>
 </Description>
 ```
 
@@ -87,34 +91,34 @@ Each `Description.Accordion` item renders a toggle button; clicking expands the 
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-description` | Always — applied to the root `<dl>` |
-| `cu-description__item` | Always — applied to the wrapper `<div>` of each term/definition pair |
-| `cu-description__item--columns` | When `useColumns` is `true` on `Description.Meta` |
-| `cu-description__item--accordion` | Always on `Description.Accordion` items |
-| `cu-description__term` | Always — applied to the `<dt>` element |
-| `cu-description__content` | Always — applied to the `<dd>` element |
-| `cu-description__trigger` | Always on the `<button>` inside `Description.Accordion` |
-| `cu-description__accordion-icon` | Always on the chevron icon inside the accordion trigger |
-| `cu-description__accordion-icon--open` | When the accordion item is expanded |
+| Class                                  | Condition                                                            |
+| -------------------------------------- | -------------------------------------------------------------------- |
+| `cu-description`                       | Always — applied to the root `<dl>`                                  |
+| `cu-description__item`                 | Always — applied to the wrapper `<div>` of each term/definition pair |
+| `cu-description__item--columns`        | When `useColumns` is `true` on `Description.Meta`                    |
+| `cu-description__item--accordion`      | Always on `Description.Accordion` items                              |
+| `cu-description__term`                 | Always — applied to the `<dt>` element                               |
+| `cu-description__content`              | Always — applied to the `<dd>` element                               |
+| `cu-description__trigger`              | Always on the `<button>` inside `Description.Accordion`              |
+| `cu-description__accordion-icon`       | Always on the chevron icon inside the accordion trigger              |
+| `cu-description__accordion-icon--open` | When the accordion item is expanded                                  |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--color-grey-light` | Border colour between items |
-| `--rds--color-black` | Term text colour and accordion trigger text colour |
-| `--rds--color-grey-dark` | Definition content text colour |
-| `--rds--color-grey` | Accordion chevron icon colour |
-| `--rds--color-primary` | Focus ring colour on the accordion trigger |
-| `--rds--font-family-inter` | Font family for terms and content |
-| `--rds--font-size-medium` | Font size for terms and content |
-| `--rds--font-weight-semibold` | Term font weight |
-| `--rds--spacing-x-small` | Gap between term and definition in stacked layout |
-| `--rds--spacing-small` | Vertical padding on each item; spacing between sibling content nodes |
-| `--rds--spacing-medium` | Column gap in the `--columns` variant at `md` breakpoint |
-| `--rds--radius-sm` | Focus ring border radius on the accordion trigger |
+| Token                         | Controls                                                             |
+| ----------------------------- | -------------------------------------------------------------------- |
+| `--rds--color-grey-light`     | Border colour between items                                          |
+| `--rds--color-black`          | Term text colour and accordion trigger text colour                   |
+| `--rds--color-grey-dark`      | Definition content text colour                                       |
+| `--rds--color-grey`           | Accordion chevron icon colour                                        |
+| `--rds--color-primary`        | Focus ring colour on the accordion trigger                           |
+| `--rds--font-family-inter`    | Font family for terms and content                                    |
+| `--rds--font-size-medium`     | Font size for terms and content                                      |
+| `--rds--font-weight-semibold` | Term font weight                                                     |
+| `--rds--spacing-x-small`      | Gap between term and definition in stacked layout                    |
+| `--rds--spacing-small`        | Vertical padding on each item; spacing between sibling content nodes |
+| `--rds--spacing-medium`       | Column gap in the `--columns` variant at `md` breakpoint             |
+| `--rds--radius-sm`            | Focus ring border radius on the accordion trigger                    |
 
 ## Accessibility
 

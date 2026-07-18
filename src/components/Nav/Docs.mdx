@@ -10,7 +10,7 @@ A sticky site header built from composable sub-components. Six named pieces — 
 ## Import
 
 ```tsx
-import { Nav } from '@cuweb/rds2';
+import { Nav } from '@cuweb/raven-design-system';
 ```
 
 ## Compositions
@@ -23,17 +23,17 @@ Logo, menu, and buttons share one row. Use this for the main Carleton site or an
 
 ```tsx
 <Nav>
-  <Nav.Top>
-    <Nav.Logo />
-    <Nav.Menu menu={navData} />
-    <Nav.Buttons
-      isSearch
-      buttons={[
-        { title: 'Apply', href: '/apply' },
-        { title: 'Donate', href: '/donate', variant: 'dark' },
-      ]}
-    />
-  </Nav.Top>
+    <Nav.Top>
+        <Nav.Logo />
+        <Nav.Menu menu={navData} />
+        <Nav.Buttons
+            isSearch
+            buttons={[
+                { title: 'Apply', href: '/apply' },
+                { title: 'Donate', href: '/donate', variant: 'dark' },
+            ]}
+        />
+    </Nav.Top>
 </Nav>
 ```
 
@@ -43,13 +43,13 @@ Logo and CTA buttons sit in the top row; the menu moves to a grey accent strip b
 
 ```tsx
 <Nav>
-  <Nav.Top>
-    <Nav.Logo title="Faculty of Arts and Social Sciences" link="/arts" />
-    <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }]} />
-  </Nav.Top>
-  <Nav.Bottom>
-    <Nav.Menu menu={navData} />
-  </Nav.Bottom>
+    <Nav.Top>
+        <Nav.Logo title="Faculty of Arts and Social Sciences" link="/arts" />
+        <Nav.Buttons buttons={[{ title: 'Apply', href: '/apply' }]} />
+    </Nav.Top>
+    <Nav.Bottom>
+        <Nav.Menu menu={navData} />
+    </Nav.Bottom>
 </Nav>
 ```
 
@@ -101,10 +101,10 @@ Same eight items placed in `Nav.Bottom`. The bottom strip scrolls under the top 
 
 ### Nav.Logo
 
-| Prop | Type | Default | Notes |
-|---|---|---|---|
-| `title` | `string` | — | Department or site name; renders as a linked text label |
-| `link` | `string` | — | `href` for the site title link (requires `title`) |
+| Prop    | Type     | Default | Notes                                                   |
+| ------- | -------- | ------- | ------------------------------------------------------- |
+| `title` | `string` | —       | Department or site name; renders as a linked text label |
+| `link`  | `string` | —       | `href` for the site title link (requires `title`)       |
 
 When `title` is provided the horizontal CU wordmark is hidden on mobile and replaced with the CU shield so the site title has room. Both images are always in the DOM — the swap is CSS-driven.
 
@@ -112,8 +112,8 @@ The Carleton University logomark always links to `https://carleton.ca`. The site
 
 ### Nav.Menu
 
-| Prop | Type | Notes |
-|---|---|---|
+| Prop   | Type        | Notes                    |
+| ------ | ----------- | ------------------------ |
 | `menu` | `NavItem[]` | The full navigation tree |
 
 **Priority-plus overflow:** On mount and on every container resize, `Nav.Menu` measures a hidden off-flow clone of all items to find how many fit within the available width. Items that fit are shown inline; the remainder are collected under a "Browse" button. The Browse button is always in the DOM (ghost state) so its width is always measurable — it becomes interactive only when there is overflow.
@@ -124,19 +124,19 @@ The Carleton University logomark always links to `https://carleton.ca`. The site
 
 ### Nav.Buttons
 
-| Prop | Type | Default | Notes |
-|---|---|---|---|
-| `buttons` | `NavButton[]` | — | Array of CTA links |
-| `isSearch` | `boolean` | `false` | Shows a search icon button |
-| `onClickSearch` | `() => void` | — | Handler called when the search button is clicked |
+| Prop            | Type          | Default | Notes                                            |
+| --------------- | ------------- | ------- | ------------------------------------------------ |
+| `buttons`       | `NavButton[]` | —       | Array of CTA links                               |
+| `isSearch`      | `boolean`     | `false` | Shows a search icon button                       |
+| `onClickSearch` | `() => void`  | —       | Handler called when the search button is clicked |
 
 CTA links render through `LinkProvider` and adopt any injected router component. The `variant` on each `NavButton` controls colour — `'primary'` (default) is red, `'dark'` is black.
 
 ```ts
 interface NavButton {
-  title: string;
-  href: string;
-  variant?: 'primary' | 'dark';
+    title: string;
+    href: string;
+    variant?: 'primary' | 'dark';
 }
 ```
 
@@ -146,9 +146,9 @@ Returns `null` if neither `isSearch` nor any `buttons` are provided.
 
 ```ts
 interface NavItem {
-  title: string;
-  href?: string;       // leaf items need an href; parent items can omit it
-  submenu?: NavItem[]; // one level of nesting is supported inside dropdowns
+    title: string;
+    href?: string; // leaf items need an href; parent items can omit it
+    submenu?: NavItem[]; // one level of nesting is supported inside dropdowns
 }
 ```
 
@@ -167,67 +167,67 @@ Below the `sm` breakpoint (600 px):
 
 ## CSS classes
 
-| Class | Element | Notes |
-|---|---|---|
-| `cu-nav` | `<header>` | Sticky wrapper; transitions `top` for scroll hide/reveal |
-| `cu-nav::before` | Pseudo-element | Fixed 2 px red accent line at top of viewport |
-| `cu-nav__inner` | `<nav>` | Flex column; horizontal padding via `--rds--spacing-large` |
-| `cu-nav__top` | `<div>` | 2-col grid on mobile; flex row on `sm+` |
-| `cu-nav__bottom` | `<div>` | Grey accent strip; full-width bleed via negative `margin-inline` |
-| `cu-nav__bottom-inner` | `<div>` | Flex row inside the bottom strip; re-applies padding |
-| `cu-nav__logo` | `<div>` | Logo + site title; never shrinks; grid row 1 on mobile |
-| `cu-nav__logomark` | `<a>` | Wraps the CU logo image(s) |
-| `cu-nav__logomark-full` | `<img>` | Full horizontal wordmark; hidden on mobile when title is set |
-| `cu-nav__logomark-full--sm-hidden` | Modifier | Applied when `title` is provided; hides full logo below `sm` |
-| `cu-nav__logomark-shield` | `<img>` | Shield logo; visible only on mobile when title is set |
-| `cu-nav__site-title` | `<a>` | Department/site title link; two-line clamp |
-| `cu-nav__menu` | `<div>` | Priority-plus container; `flex-grow: 1`; `position: relative` on `sm+` |
-| `cu-nav__list` | `<ul>` | Visible primary nav items; flex row |
-| `cu-nav__list--measure` | Modifier | Off-flow hidden clone used only for width measurement |
-| `cu-nav__item` | `<li>` | Primary nav item; `position: relative` for dropdown anchor |
-| `cu-nav__link` | `<a>` or `<button>` | Primary nav link / toggle |
-| `cu-nav__link--open` | Modifier | Active/open state; primary colour + pale background |
-| `cu-nav__browse` | `<button>` | Priority-plus overflow trigger |
-| `cu-nav__browse--ghost` | Modifier | Off-flow but measurable; no items overflow |
-| `cu-nav__browse-dropdown` | `<ul>` | Overflow items panel; scrollable; full-width on mobile |
-| `cu-nav__submenu` | `<ul>` | Desktop dropdown submenu |
-| `cu-nav__submenu--mobile` | Modifier | Static submenu inside the Browse dropdown |
-| `cu-nav__submenu--nested` | Modifier | Third-level nested submenu |
-| `cu-nav__submenu-item` | `<li>` | Item inside a dropdown; bottom border except last |
-| `cu-nav__submenu-link` | `<a>` or `<button>` | Dropdown item link / toggle |
-| `cu-nav__submenu-link--open` | Modifier | Active state inside dropdown |
-| `cu-nav__submenu-row` | `<div>` | Flex row for link + expand chevron in nested items |
-| `cu-nav__submenu-expand` | `<button>` | Expand/collapse button for nested submenu |
-| `cu-nav__arrow` | `<span>` | CSS chevron indicator |
-| `cu-nav__arrow--open` | Modifier | Rotates chevron to point up |
-| `cu-nav__buttons` | `<div>` | Right-aligned CTA area; flex row |
-| `cu-nav__search-btn` | `<button>` | Search icon button |
-| `cu-nav__cta-link` | `<a>` | Red CTA pill link |
-| `cu-nav__cta-link--dark` | Modifier | Black CTA pill (`variant: 'dark'`) |
+| Class                              | Element             | Notes                                                                  |
+| ---------------------------------- | ------------------- | ---------------------------------------------------------------------- |
+| `cu-nav`                           | `<header>`          | Sticky wrapper; transitions `top` for scroll hide/reveal               |
+| `cu-nav::before`                   | Pseudo-element      | Fixed 2 px red accent line at top of viewport                          |
+| `cu-nav__inner`                    | `<nav>`             | Flex column; horizontal padding via `--rds--spacing-large`             |
+| `cu-nav__top`                      | `<div>`             | 2-col grid on mobile; flex row on `sm+`                                |
+| `cu-nav__bottom`                   | `<div>`             | Grey accent strip; full-width bleed via negative `margin-inline`       |
+| `cu-nav__bottom-inner`             | `<div>`             | Flex row inside the bottom strip; re-applies padding                   |
+| `cu-nav__logo`                     | `<div>`             | Logo + site title; never shrinks; grid row 1 on mobile                 |
+| `cu-nav__logomark`                 | `<a>`               | Wraps the CU logo image(s)                                             |
+| `cu-nav__logomark-full`            | `<img>`             | Full horizontal wordmark; hidden on mobile when title is set           |
+| `cu-nav__logomark-full--sm-hidden` | Modifier            | Applied when `title` is provided; hides full logo below `sm`           |
+| `cu-nav__logomark-shield`          | `<img>`             | Shield logo; visible only on mobile when title is set                  |
+| `cu-nav__site-title`               | `<a>`               | Department/site title link; two-line clamp                             |
+| `cu-nav__menu`                     | `<div>`             | Priority-plus container; `flex-grow: 1`; `position: relative` on `sm+` |
+| `cu-nav__list`                     | `<ul>`              | Visible primary nav items; flex row                                    |
+| `cu-nav__list--measure`            | Modifier            | Off-flow hidden clone used only for width measurement                  |
+| `cu-nav__item`                     | `<li>`              | Primary nav item; `position: relative` for dropdown anchor             |
+| `cu-nav__link`                     | `<a>` or `<button>` | Primary nav link / toggle                                              |
+| `cu-nav__link--open`               | Modifier            | Active/open state; primary colour + pale background                    |
+| `cu-nav__browse`                   | `<button>`          | Priority-plus overflow trigger                                         |
+| `cu-nav__browse--ghost`            | Modifier            | Off-flow but measurable; no items overflow                             |
+| `cu-nav__browse-dropdown`          | `<ul>`              | Overflow items panel; scrollable; full-width on mobile                 |
+| `cu-nav__submenu`                  | `<ul>`              | Desktop dropdown submenu                                               |
+| `cu-nav__submenu--mobile`          | Modifier            | Static submenu inside the Browse dropdown                              |
+| `cu-nav__submenu--nested`          | Modifier            | Third-level nested submenu                                             |
+| `cu-nav__submenu-item`             | `<li>`              | Item inside a dropdown; bottom border except last                      |
+| `cu-nav__submenu-link`             | `<a>` or `<button>` | Dropdown item link / toggle                                            |
+| `cu-nav__submenu-link--open`       | Modifier            | Active state inside dropdown                                           |
+| `cu-nav__submenu-row`              | `<div>`             | Flex row for link + expand chevron in nested items                     |
+| `cu-nav__submenu-expand`           | `<button>`          | Expand/collapse button for nested submenu                              |
+| `cu-nav__arrow`                    | `<span>`            | CSS chevron indicator                                                  |
+| `cu-nav__arrow--open`              | Modifier            | Rotates chevron to point up                                            |
+| `cu-nav__buttons`                  | `<div>`             | Right-aligned CTA area; flex row                                       |
+| `cu-nav__search-btn`               | `<button>`          | Search icon button                                                     |
+| `cu-nav__cta-link`                 | `<a>`               | Red CTA pill link                                                      |
+| `cu-nav__cta-link--dark`           | Modifier            | Black CTA pill (`variant: 'dark'`)                                     |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-white` | Header background |
-| `--rds--color-grey-lighter` | Header border, dropdown borders, item dividers |
-| `--rds--color-grey-pale` | Bottom strip background; open item background |
-| `--rds--color-grey-faint` | Nested submenu background |
-| `--rds--color-grey` | Search icon colour |
-| `--rds--color-grey-dark` | Nav link and dropdown item colour |
-| `--rds--color-black` | Site title colour; dark CTA button background |
-| `--rds--color-primary` | Red accent line; link hover colour; primary CTA background |
-| `--rds--color-primary-dark` | Primary CTA hover; site title hover |
-| `--rds--font-size-small` | Nav link size on `sm+`; CTA and dropdown text |
-| `--rds--font-size-medium` | Nav link size on mobile; site title |
-| `--rds--font-weight-medium` | Nav link weight |
-| `--rds--font-weight-bold` | Site title weight |
-| `--rds--radius-md` | Nav link, Browse button, CTA pill border radius |
-| `--rds--shadow-natural` | Dropdown box-shadow |
-| `--rds--spacing-large` | Horizontal padding on the nav inner and bottom strip |
-| `--rds--spacing-small` | Gap in the bottom-inner flex row |
-| `--rds--spacing-x-small` | Padding on menu in the mobile grey bar; submenu item padding |
-| `--rds--spacing-medium` | Left margin on the menu in the top row on `sm+` |
+| Token                       | Used for                                                     |
+| --------------------------- | ------------------------------------------------------------ |
+| `--rds--color-white`        | Header background                                            |
+| `--rds--color-grey-lighter` | Header border, dropdown borders, item dividers               |
+| `--rds--color-grey-pale`    | Bottom strip background; open item background                |
+| `--rds--color-grey-faint`   | Nested submenu background                                    |
+| `--rds--color-grey`         | Search icon colour                                           |
+| `--rds--color-grey-dark`    | Nav link and dropdown item colour                            |
+| `--rds--color-black`        | Site title colour; dark CTA button background                |
+| `--rds--color-primary`      | Red accent line; link hover colour; primary CTA background   |
+| `--rds--color-primary-dark` | Primary CTA hover; site title hover                          |
+| `--rds--font-size-small`    | Nav link size on `sm+`; CTA and dropdown text                |
+| `--rds--font-size-medium`   | Nav link size on mobile; site title                          |
+| `--rds--font-weight-medium` | Nav link weight                                              |
+| `--rds--font-weight-bold`   | Site title weight                                            |
+| `--rds--radius-md`          | Nav link, Browse button, CTA pill border radius              |
+| `--rds--shadow-natural`     | Dropdown box-shadow                                          |
+| `--rds--spacing-large`      | Horizontal padding on the nav inner and bottom strip         |
+| `--rds--spacing-small`      | Gap in the bottom-inner flex row                             |
+| `--rds--spacing-x-small`    | Padding on menu in the mobile grey bar; submenu item padding |
+| `--rds--spacing-medium`     | Left margin on the menu in the top row on `sm+`              |
 
 ## Accessibility
 

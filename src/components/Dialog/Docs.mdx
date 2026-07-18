@@ -18,7 +18,7 @@ For freeform, dismissible overlay content without a fixed title/description/foot
 ## Import
 
 ```tsx
-import { Dialog } from '@cuweb/rds2';
+import { Dialog } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -55,27 +55,27 @@ const [isOpen, setIsOpen] = useState(false);
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-dialog` | Always — base class, the `<dialog>` element itself |
-| `cu-dialog__body` | Wrapper around the title and description |
-| `cu-dialog__title` | Title `<h2>` element |
-| `cu-dialog__description` | Optional description `<p>` element |
+| Class                    | When applied                                       |
+| ------------------------ | -------------------------------------------------- |
+| `cu-dialog`              | Always — base class, the `<dialog>` element itself |
+| `cu-dialog__body`        | Wrapper around the title and description           |
+| `cu-dialog__title`       | Title `<h2>` element                               |
+| `cu-dialog__description` | Optional description `<p>` element                 |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--spacing-large` | Viewport inset / padding |
-| `--rds--spacing-medium` | Gap between body and button footer |
-| `--rds--spacing-small` | Gap between title and description |
-| `--rds--radius-md` | Corner radius |
-| `--rds--shadow-natural` | Drop shadow |
-| `--rds--color-black` | `::backdrop` tint |
-| `--rds--color-grey-dark` | Description text color |
-| `--rds--font-size-large` | Title font size |
-| `--rds--font-size-small` | Description font size |
-| `--rds--font-weight-semibold` | Title font weight |
+| Token                         | Used for                           |
+| ----------------------------- | ---------------------------------- |
+| `--rds--spacing-large`        | Viewport inset / padding           |
+| `--rds--spacing-medium`       | Gap between body and button footer |
+| `--rds--spacing-small`        | Gap between title and description  |
+| `--rds--radius-md`            | Corner radius                      |
+| `--rds--shadow-natural`       | Drop shadow                        |
+| `--rds--color-black`          | `::backdrop` tint                  |
+| `--rds--color-grey-dark`      | Description text color             |
+| `--rds--font-size-large`      | Title font size                    |
+| `--rds--font-size-small`      | Description font size              |
+| `--rds--font-weight-semibold` | Title font weight                  |
 
 ## Accessibility
 

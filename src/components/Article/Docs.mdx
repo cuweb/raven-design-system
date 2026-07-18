@@ -14,7 +14,7 @@ Use `Article` as the primary content region inside a page layout — typically n
 ## Import
 
 ```tsx
-import { Article } from '@cuweb/rds2';
+import { Article } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -55,10 +55,10 @@ When `content` is provided, the component renders via `dangerouslySetInnerHTML`.
 
 ## Content modes
 
-| Mode | How | When |
-|---|---|---|
-| JSX children | `<Article><p>...</p></Article>` | Composing content in React |
-| HTML string | `<Article content={htmlString} />` | CMS or server-rendered content |
+| Mode         | How                                | When                           |
+| ------------ | ---------------------------------- | ------------------------------ |
+| JSX children | `<Article><p>...</p></Article>`    | Composing content in React     |
+| HTML string  | `<Article content={htmlString} />` | CMS or server-rendered content |
 
 If both `children` and `content` are passed, `content` wins — the component checks `content` first.
 

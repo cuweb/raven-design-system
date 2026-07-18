@@ -16,19 +16,19 @@ A vertically-stacked list of events or milestones, each with a label (such as a 
 ## Import
 
 ```tsx
-import { Timeline } from '@cuweb/rds2';
+import { Timeline } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 <Timeline>
-  <Timeline.Item aside="2022 – Present" title="Senior Developer">
-    <p>Led front-end architecture for the Carleton design system.</p>
-  </Timeline.Item>
-  <Timeline.Item aside="2019 – 2022" title="Developer">
-    <p>Built accessible React components for the university web platform.</p>
-  </Timeline.Item>
+    <Timeline.Item aside="2022 – Present" title="Senior Developer">
+        <p>Led front-end architecture for the Carleton design system.</p>
+    </Timeline.Item>
+    <Timeline.Item aside="2019 – 2022" title="Developer">
+        <p>Built accessible React components for the university web platform.</p>
+    </Timeline.Item>
 </Timeline>
 ```
 
@@ -36,9 +36,9 @@ Use `as="h3"` when the Timeline appears inside a section that already has an `<h
 
 ```tsx
 <Timeline>
-  <Timeline.Item as="h3" aside="Phase 1" title="Discovery">
-    <p>...</p>
-  </Timeline.Item>
+    <Timeline.Item as="h3" aside="Phase 1" title="Discovery">
+        <p>...</p>
+    </Timeline.Item>
 </Timeline>
 ```
 
@@ -55,24 +55,24 @@ Use `as="h3"` when the component is nested inside a section with an existing `<h
 
 ## CSS classes
 
-| Class | Applied when |
-|---|---|
-| `cu-timeline` | Always — the wrapper `<div>` |
-| `cu-timeline__item` | Always — each `<Timeline.Item>` wrapper |
-| `cu-timeline__aside` | Always — the label column |
-| `cu-timeline__content` | Always — the content column |
+| Class                  | Applied when                            |
+| ---------------------- | --------------------------------------- |
+| `cu-timeline`          | Always — the wrapper `<div>`            |
+| `cu-timeline__item`    | Always — each `<Timeline.Item>` wrapper |
+| `cu-timeline__aside`   | Always — the label column               |
+| `cu-timeline__content` | Always — the content column             |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--color-primary` | Red dot marker colour |
-| `--rds--color-grey-light` | Vertical border line colour |
-| `--rds--color-grey` | Aside label text colour |
-| `--rds--font-size-medium` | Aside label font size |
-| `--rds--radius-full` | Dot marker border radius |
-| `--rds--spacing-x-large` | Item indent from the vertical line; bottom padding between items |
-| `--rds--spacing-x-small` | Gap between aside label and heading |
+| Token                     | Controls                                                         |
+| ------------------------- | ---------------------------------------------------------------- |
+| `--rds--color-primary`    | Red dot marker colour                                            |
+| `--rds--color-grey-light` | Vertical border line colour                                      |
+| `--rds--color-grey`       | Aside label text colour                                          |
+| `--rds--font-size-medium` | Aside label font size                                            |
+| `--rds--radius-full`      | Dot marker border radius                                         |
+| `--rds--spacing-x-large`  | Item indent from the vertical line; bottom padding between items |
+| `--rds--spacing-x-small`  | Gap between aside label and heading                              |
 
 ## Accessibility
 

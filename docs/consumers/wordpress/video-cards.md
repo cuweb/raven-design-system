@@ -17,18 +17,18 @@ The React `<Card>` + `<Card.VideoFigure>` and the WordPress integration share an
 
 The package ships:
 
-| File | Purpose |
-|---|---|
-| `dist/vanilla-js/videoCard.js` | Browser-ready IIFE. Auto-attaches on `DOMContentLoaded`. ~1.5 KB minified. |
-| `dist/vanilla-js/videoCard.mjs` | ES module variant of the same script for modern setups. |
-| `dist/components/Card/styles.css` | Card styles (includes the video figure variant). |
-| `dist/style.css` | Full library stylesheet. |
+| File                              | Purpose                                                                    |
+| --------------------------------- | -------------------------------------------------------------------------- |
+| `dist/vanilla-js/videoCard.js`    | Browser-ready IIFE. Auto-attaches on `DOMContentLoaded`. ~1.5 KB minified. |
+| `dist/vanilla-js/videoCard.mjs`   | ES module variant of the same script for modern setups.                    |
+| `dist/components/Card/styles.css` | Card styles (includes the video figure variant).                           |
+| `dist/style.css`                  | Full library stylesheet.                                                   |
 
 If your theme already loads the full RDS stylesheet, you only need the script. Otherwise enqueue the per-component CSS:
 
 ```php
 add_action( 'wp_enqueue_scripts', function () {
-    $rds = get_template_directory_uri() . '/vendor/cuweb/rds2/dist';
+    $rds = get_template_directory_uri() . '/vendor/cuweb/raven-design-system/dist';
 
     wp_enqueue_style(
         'rds-card',
@@ -55,41 +55,47 @@ Every video card must follow this shape so the script can find and enhance it. T
 
 ```html
 <div class="cu-card">
-  <figure class="cu-card__figure cu-card__figure--video"
-          data-rds-video-card
-          data-embed-url="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&rel=0"
-          data-provider="youtube">
-    <a class="cu-card__figure-link"
-       href="https://www.youtube.com/watch?v=ScMzIvxBSi4"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Play video: Welcome to Carleton">
-      <img class="cu-card__figure-poster"
-           src="https://i.ytimg.com/vi/ScMzIvxBSi4/maxresdefault.jpg"
-           alt=""
-           loading="lazy"
-           data-fallbacks="https://i.ytimg.com/vi/ScMzIvxBSi4/sddefault.jpg,https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg,https://i.ytimg.com/vi/ScMzIvxBSi4/default.jpg">
-      <span class="cu-card__figure-play" aria-hidden="true">
-        <!-- play SVG, copy from CardVideoFigure.tsx if you need it inline -->
-      </span>
-    </a>
-  </figure>
-  <header class="cu-card__header">
-    <h3 class="cu-card__header-title">Welcome to Carleton</h3>
-  </header>
+    <figure
+        class="cu-card__figure cu-card__figure--video"
+        data-rds-video-card
+        data-embed-url="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&rel=0"
+        data-provider="youtube"
+    >
+        <a
+            class="cu-card__figure-link"
+            href="https://www.youtube.com/watch?v=ScMzIvxBSi4"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Play video: Welcome to Carleton"
+        >
+            <img
+                class="cu-card__figure-poster"
+                src="https://i.ytimg.com/vi/ScMzIvxBSi4/maxresdefault.jpg"
+                alt=""
+                loading="lazy"
+                data-fallbacks="https://i.ytimg.com/vi/ScMzIvxBSi4/sddefault.jpg,https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg,https://i.ytimg.com/vi/ScMzIvxBSi4/default.jpg"
+            />
+            <span class="cu-card__figure-play" aria-hidden="true">
+                <!-- play SVG, copy from CardVideoFigure.tsx if you need it inline -->
+            </span>
+        </a>
+    </figure>
+    <header class="cu-card__header">
+        <h3 class="cu-card__header-title">Welcome to Carleton</h3>
+    </header>
 </div>
 ```
 
 Required attributes:
 
-| Attribute | Where | Why |
-|---|---|---|
-| `data-rds-video-card` | figure | selector the script queries for |
-| `data-embed-url` | figure | iframe `src` used after click |
-| `data-provider` | figure | emitted on the `rds:video-play` custom event |
-| `href` on `.cu-card__figure-link` | link | JS-off fallback target |
-| `aria-label="Play video: <Title>"` on link | link | the script extracts the title for the iframe's accessible name |
-| `data-fallbacks` on `<img>` | poster (YouTube only) | ordered list of replacement URLs on `error` |
+| Attribute                                  | Where                 | Why                                                            |
+| ------------------------------------------ | --------------------- | -------------------------------------------------------------- |
+| `data-rds-video-card`                      | figure                | selector the script queries for                                |
+| `data-embed-url`                           | figure                | iframe `src` used after click                                  |
+| `data-provider`                            | figure                | emitted on the `rds:video-play` custom event                   |
+| `href` on `.cu-card__figure-link`          | link                  | JS-off fallback target                                         |
+| `aria-label="Play video: <Title>"` on link | link                  | the script extracts the title for the iframe's accessible name |
+| `data-fallbacks` on `<img>`                | poster (YouTube only) | ordered list of replacement URLs on `error`                    |
 
 The `data-provider` attribute is informational — the script doesn't branch on it. Use it for analytics or styling.
 

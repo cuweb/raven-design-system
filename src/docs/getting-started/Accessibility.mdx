@@ -52,17 +52,17 @@ If `pnpm test:storybook` fails with an axe error, the fix is almost always one o
 2. **Missing label on a control.** Add `aria-label` or visible text.
 3. **Story-structure artifact.** A demo story renders an `<aside>` standalone for documentation purposes, and axe flags `landmark-complementary-is-top-level`. In this case (and only this case), disable the specific rule on the story:
 
-   ```tsx
-   parameters: {
-     a11y: {
-       config: {
-         rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
-       },
-     },
-   }
-   ```
+    ```tsx
+    parameters: {
+      a11y: {
+        config: {
+          rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
+        },
+      },
+    }
+    ```
 
-   Never disable `color-contrast` without fixing the underlying token or component design.
+    Never disable `color-contrast` without fixing the underlying token or component design.
 
 ## Standards we target
 
@@ -73,7 +73,7 @@ If `pnpm test:storybook` fails with an axe error, the fix is almost always one o
 
 ## Reporting an issue
 
-If you find an accessibility issue with a shipped component, open an issue on [`cuweb/rds2`](https://github.com/cuweb/rds2/issues) tagged `accessibility`. Include:
+If you find an accessibility issue with a shipped component, open an issue on [`cuweb/raven-design-system`](https://github.com/cuweb/raven-design-system/issues) tagged `accessibility`. Include:
 
 - The component and prop combination
 - The assistive technology you're using (VoiceOver / NVDA / JAWS / etc.)

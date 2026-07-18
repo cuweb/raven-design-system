@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Release helper for @cuweb/rds2.
+/* Release helper for @cuweb/raven-design-system.
  *
  * Usage:  pnpm run release <version>
  * Example: pnpm run release 0.5.1

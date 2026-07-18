@@ -1,10 +1,10 @@
 {
-    "name": "@cuweb/rds2",
+    "name": "@cuweb/raven-design-system",
     "version": "0.8.0",
     "description": "React component library and design system for Carleton University",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/cuweb/rds2.git"
+        "url": "git+https://github.com/cuweb/raven-design-system.git"
     },
     "type": "module",
     "private": false,

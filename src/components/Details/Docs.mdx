@@ -17,21 +17,21 @@ A structured metadata list for displaying concise factual information — event 
 ## Import
 
 ```tsx
-import { Details } from '@cuweb/rds2';
+import { Details } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 <Details>
-  <Details.Item isBold>Hybrid Event</Details.Item>
-  <Details.Item>Raven's Nest, 1125 Colonel By Drive</Details.Item>
-  <Details.Item>
-    <a href="/teams">Teams meeting link</a>
-  </Details.Item>
-  <Details.Item iconName="tag">
-    <strong>Cost:</strong> $20 per adult, $15 for youth/senior
-  </Details.Item>
+    <Details.Item isBold>Hybrid Event</Details.Item>
+    <Details.Item>Raven's Nest, 1125 Colonel By Drive</Details.Item>
+    <Details.Item>
+        <a href="/teams">Teams meeting link</a>
+    </Details.Item>
+    <Details.Item iconName="tag">
+        <strong>Cost:</strong> $20 per adult, $15 for youth/senior
+    </Details.Item>
 </Details>
 ```
 
@@ -39,10 +39,10 @@ With dividers and a grey background:
 
 ```tsx
 <Details hasDividers isGrey>
-  <Details.Item isBold>Contact</Details.Item>
-  <Details.Item>
-    Jane Doe, <a href="mailto:jane@example.com">Email Jane</a>, 613-520-2600 x1234
-  </Details.Item>
+    <Details.Item isBold>Contact</Details.Item>
+    <Details.Item>
+        Jane Doe, <a href="mailto:jane@example.com">Email Jane</a>, 613-520-2600 x1234
+    </Details.Item>
 </Details>
 ```
 
@@ -73,36 +73,36 @@ The `isGrey` prop applies a pale grey background with rounded corners — useful
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-details` | Always — applied to the root `<ul>` or `<ol>` |
-| `cu-details--dividers` | When `hasDividers` is `true` |
-| `cu-details--grey` | When `isGrey` is `true` |
-| `cu-details__item` | Always — applied to each `<li>` |
-| `cu-details__item--bold` | When `isBold` is `true` on `Details.Item` |
+| Class                    | Condition                                     |
+| ------------------------ | --------------------------------------------- |
+| `cu-details`             | Always — applied to the root `<ul>` or `<ol>` |
+| `cu-details--dividers`   | When `hasDividers` is `true`                  |
+| `cu-details--grey`       | When `isGrey` is `true`                       |
+| `cu-details__item`       | Always — applied to each `<li>`               |
+| `cu-details__item--bold` | When `isBold` is `true` on `Details.Item`     |
 | `cu-details__item--icon` | When `iconName` is provided on `Details.Item` |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--color-grey-pale` | Grey background fill (`cu-details--grey`) |
-| `--rds--radius-lg` | Corner radius of the grey background |
-| `--rds--spacing-medium` | Vertical padding in the grey variant |
-| `--rds--spacing-large` | Horizontal padding in the grey variant |
-| `--rds--color-grey-light` | Divider border colour (`cu-details--dividers`) |
-| `--rds--spacing-x-small` | Vertical padding between divider items |
-| `--rds--spacing-small` | Vertical padding between divider items at `md` breakpoint |
-| `--rds--font-family-inter` | Item font family |
-| `--rds--font-size-medium` | Item font size |
-| `--rds--font-weight-normal` | Default item font weight |
-| `--rds--font-weight-medium` | Link font weight within items |
-| `--rds--font-weight-bold` | Bold item font weight (`cu-details__item--bold`) |
-| `--rds--color-grey-dark` | Item text colour |
-| `--rds--color-primary` | Link colour |
-| `--rds--color-primary-dark` | Link hover colour |
-| `--rds--color-grey` | Icon colour within icon items |
-| `--rds--spacing-x-small` | Gap between icon and text in icon items |
+| Token                       | Controls                                                  |
+| --------------------------- | --------------------------------------------------------- |
+| `--rds--color-grey-pale`    | Grey background fill (`cu-details--grey`)                 |
+| `--rds--radius-lg`          | Corner radius of the grey background                      |
+| `--rds--spacing-medium`     | Vertical padding in the grey variant                      |
+| `--rds--spacing-large`      | Horizontal padding in the grey variant                    |
+| `--rds--color-grey-light`   | Divider border colour (`cu-details--dividers`)            |
+| `--rds--spacing-x-small`    | Vertical padding between divider items                    |
+| `--rds--spacing-small`      | Vertical padding between divider items at `md` breakpoint |
+| `--rds--font-family-inter`  | Item font family                                          |
+| `--rds--font-size-medium`   | Item font size                                            |
+| `--rds--font-weight-normal` | Default item font weight                                  |
+| `--rds--font-weight-medium` | Link font weight within items                             |
+| `--rds--font-weight-bold`   | Bold item font weight (`cu-details__item--bold`)          |
+| `--rds--color-grey-dark`    | Item text colour                                          |
+| `--rds--color-primary`      | Link colour                                               |
+| `--rds--color-primary-dark` | Link hover colour                                         |
+| `--rds--color-grey`         | Icon colour within icon items                             |
+| `--rds--spacing-x-small`    | Gap between icon and text in icon items                   |
 
 ## Accessibility
 

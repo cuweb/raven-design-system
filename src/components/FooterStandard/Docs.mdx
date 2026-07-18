@@ -14,7 +14,7 @@ Use `FooterStandard` on all full-site pages. For lightweight contexts (microsite
 ## Import
 
 ```tsx
-import { FooterStandard } from '@cuweb/rds2';
+import { FooterStandard } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -77,26 +77,26 @@ Identical to the [`Footer`](?path=/docs/components-navigation-footer--docs) comp
 
 ```tsx
 <FooterStandard
-  contact={{
-    phone: '613-555-0100',
-    phoneHref: 'tel:+1-613-555-0100',
-    contactHref: '/contact',
-    address: '1 Example Street, Ottawa, ON, K1A 0A0',
-  }}
+    contact={{
+        phone: '613-555-0100',
+        phoneHref: 'tel:+1-613-555-0100',
+        contactHref: '/contact',
+        address: '1 Example Street, Ottawa, ON, K1A 0A0',
+    }}
 />
 ```
 
 ## Customising social links
 
 ```tsx
-import type { FooterSocialLink } from '@cuweb/rds2/data/FooterData';
+import type { FooterSocialLink } from '@cuweb/raven-design-system/data/FooterData';
 
 const social: FooterSocialLink[] = [
-  { name: 'Facebook', href: 'https://facebook.com/mypage', icon: 'facebook' },
-  { name: 'Instagram', href: 'https://instagram.com/mypage', icon: 'instagram' },
+    { name: 'Facebook', href: 'https://facebook.com/mypage', icon: 'facebook' },
+    { name: 'Instagram', href: 'https://instagram.com/mypage', icon: 'instagram' },
 ];
 
-<FooterStandard social={social} />
+<FooterStandard social={social} />;
 ```
 
 ## Links via LinkProvider
@@ -105,50 +105,50 @@ All links in `FooterStandard` — column links, contact links, social links, and
 
 ## CSS classes
 
-| Class | Element | Notes |
-|---|---|---|
-| `cu-footer` | `<footer>` | Black background, CU waves decorative image |
-| `cu-footer--standard` | `<footer>` | Modifier; `background-size: 100.5%` |
-| `cu-footer--athletics` | `<footer>` | Athletics variant modifier |
-| `cu-footer--futureFunder` | `<footer>` | FutureFunder variant modifier |
-| `cu-footer__inner` | Flex column `<div>` | Max-width `--rds--layout-wide-size`, centred |
-| `cu-footer__acknowledgment` | `<div>` | Centred text; bottom border on `md+` |
-| `cu-footer__columns` | `<div>` | Hidden on mobile; flex row on `md+` |
-| `cu-footer__column` | `<div>` | Flex column within the columns grid |
-| `cu-footer__column-group` | `<div>` | Groups heading + links; top margin between sibling groups |
-| `cu-footer__column-heading` | `<h3>` | White, bold |
-| `cu-footer__column-list` | `<ul>` | No list style, no padding |
-| `cu-footer__column-item` | `<li>` | Top margin `0.625rem`; small font size |
-| `cu-footer__column-link` | `<a>` | Grey-light; white on hover |
-| `cu-footer__column-media` | `<a>` or `<img>` | Media item (e.g. Ravens logo) below the link list |
-| `cu-footer__contact` | `<div>` | Reverse column on mobile; row on `lg+` |
-| `cu-footer__contact-lead` | `<p>` | "Contact us by phone or email" |
-| `cu-footer__contact-address` | `<p>` | Mailing address; centred on mobile |
-| `cu-footer__contact-link` | `<a>` | White, bold, underline; primary colour on hover |
-| `cu-footer__social` | `<ul>` | Flex row; centred on mobile, trailing on `lg+` |
-| `cu-footer__social-link` | `<a>` | Grey-light; primary colour on hover |
-| `cu-footer__logo-links` | `<div>` | Centred grid; bottom padding for waves |
-| `cu-footer__logo` | `<img>` | `8rem` / `11rem` tall; centred |
-| `cu-footer__meta` | `<ul>` | Flex row, centred, wraps |
-| `cu-footer__meta-item` | `<li>` | Gap `1rem` / `1.5rem` |
-| `cu-footer__meta-link` | `<a>` | Grey-light, no underline; white on hover |
+| Class                        | Element             | Notes                                                     |
+| ---------------------------- | ------------------- | --------------------------------------------------------- |
+| `cu-footer`                  | `<footer>`          | Black background, CU waves decorative image               |
+| `cu-footer--standard`        | `<footer>`          | Modifier; `background-size: 100.5%`                       |
+| `cu-footer--athletics`       | `<footer>`          | Athletics variant modifier                                |
+| `cu-footer--futureFunder`    | `<footer>`          | FutureFunder variant modifier                             |
+| `cu-footer__inner`           | Flex column `<div>` | Max-width `--rds--layout-wide-size`, centred              |
+| `cu-footer__acknowledgment`  | `<div>`             | Centred text; bottom border on `md+`                      |
+| `cu-footer__columns`         | `<div>`             | Hidden on mobile; flex row on `md+`                       |
+| `cu-footer__column`          | `<div>`             | Flex column within the columns grid                       |
+| `cu-footer__column-group`    | `<div>`             | Groups heading + links; top margin between sibling groups |
+| `cu-footer__column-heading`  | `<h3>`              | White, bold                                               |
+| `cu-footer__column-list`     | `<ul>`              | No list style, no padding                                 |
+| `cu-footer__column-item`     | `<li>`              | Top margin `0.625rem`; small font size                    |
+| `cu-footer__column-link`     | `<a>`               | Grey-light; white on hover                                |
+| `cu-footer__column-media`    | `<a>` or `<img>`    | Media item (e.g. Ravens logo) below the link list         |
+| `cu-footer__contact`         | `<div>`             | Reverse column on mobile; row on `lg+`                    |
+| `cu-footer__contact-lead`    | `<p>`               | "Contact us by phone or email"                            |
+| `cu-footer__contact-address` | `<p>`               | Mailing address; centred on mobile                        |
+| `cu-footer__contact-link`    | `<a>`               | White, bold, underline; primary colour on hover           |
+| `cu-footer__social`          | `<ul>`              | Flex row; centred on mobile, trailing on `lg+`            |
+| `cu-footer__social-link`     | `<a>`               | Grey-light; primary colour on hover                       |
+| `cu-footer__logo-links`      | `<div>`             | Centred grid; bottom padding for waves                    |
+| `cu-footer__logo`            | `<img>`             | `8rem` / `11rem` tall; centred                            |
+| `cu-footer__meta`            | `<ul>`              | Flex row, centred, wraps                                  |
+| `cu-footer__meta-item`       | `<li>`              | Gap `1rem` / `1.5rem`                                     |
+| `cu-footer__meta-link`       | `<a>`               | Grey-light, no underline; white on hover                  |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-light` | Default text and link colour |
-| `--rds--color-white` | Headings, bold link colour |
-| `--rds--color-black` | Footer background |
-| `--rds--color-grey-dark` | Section divider borders |
-| `--rds--color-primary` | Link hover colour (social, contact) |
-| `--rds--asset-cu-waves-footer-red` | Decorative waves background image |
-| `--rds--layout-wide-size` | Inner max-width |
-| `--rds--font-family-inter` | Column font family |
-| `--rds--font-size-small` | Column link font size; meta link size on `sm+` |
-| `--rds--font-size-medium` | Column heading, acknowledgment, contact font size |
-| `--rds--font-size-x-small` | Meta link font size on mobile |
-| `--rds--font-weight-bold` | Column headings, acknowledgment, contact link weight |
+| Token                              | Used for                                             |
+| ---------------------------------- | ---------------------------------------------------- |
+| `--rds--color-grey-light`          | Default text and link colour                         |
+| `--rds--color-white`               | Headings, bold link colour                           |
+| `--rds--color-black`               | Footer background                                    |
+| `--rds--color-grey-dark`           | Section divider borders                              |
+| `--rds--color-primary`             | Link hover colour (social, contact)                  |
+| `--rds--asset-cu-waves-footer-red` | Decorative waves background image                    |
+| `--rds--layout-wide-size`          | Inner max-width                                      |
+| `--rds--font-family-inter`         | Column font family                                   |
+| `--rds--font-size-small`           | Column link font size; meta link size on `sm+`       |
+| `--rds--font-size-medium`          | Column heading, acknowledgment, contact font size    |
+| `--rds--font-size-x-small`         | Meta link font size on mobile                        |
+| `--rds--font-weight-bold`          | Column headings, acknowledgment, contact link weight |
 
 ## Accessibility
 
