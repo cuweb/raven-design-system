@@ -42,7 +42,7 @@ const dropRootCss = {
   name: 'rds:drop-root-css',
   closeBundle: async () => {
     try {
-      await unlink(join(__dirname, 'dist/components/rds2.css'));
+      await unlink(join(__dirname, 'dist/components/raven-design-system.css'));
     } catch (err: unknown) {
       if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
     }

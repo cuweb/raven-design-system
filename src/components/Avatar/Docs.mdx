@@ -14,7 +14,7 @@ Use `Avatar` to represent a person in navigation headers, comment threads, peopl
 ## Import
 
 ```tsx
-import { Avatar } from '@cuweb/rds2';
+import { Avatar } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -71,16 +71,16 @@ Three sizes are available. `sm` suits compact contexts like comment threads; `md
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-avatar` | Always — base class |
-| `cu-avatar--sm` | `size="sm"` |
-| `cu-avatar--md` | `size="md"` (default) |
-| `cu-avatar--lg` | `size="lg"` |
-| `cu-avatar--square` | `isCircle` is false (default) |
-| `cu-avatar--circle` | `isCircle={true}` |
-| `cu-avatar__image` | The inner `<img>` when `src` is provided |
-| `cu-avatar__initials` | The inner `<span>` when no `src` |
+| Class                 | When applied                             |
+| --------------------- | ---------------------------------------- |
+| `cu-avatar`           | Always — base class                      |
+| `cu-avatar--sm`       | `size="sm"`                              |
+| `cu-avatar--md`       | `size="md"` (default)                    |
+| `cu-avatar--lg`       | `size="lg"`                              |
+| `cu-avatar--square`   | `isCircle` is false (default)            |
+| `cu-avatar--circle`   | `isCircle={true}`                        |
+| `cu-avatar__image`    | The inner `<img>` when `src` is provided |
+| `cu-avatar__initials` | The inner `<span>` when no `src`         |
 
 When `onClick` is provided, the root element is a `<button>` — a `button.cu-avatar` selector in the styles resets `border`, `padding`, and `cursor`, and adds a `focus-visible` outline using `--rds--color-primary`.
 
@@ -94,18 +94,18 @@ The component always provides an accessible name on the outer element:
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-pale` | Background (initials variant) |
-| `--rds--color-grey-dark` | Initials text color |
-| `--rds--font-family-inter` | Initials font family |
-| `--rds--font-weight-medium` | Initials font weight |
-| `--rds--font-size-small` | Initials font size at `sm` |
-| `--rds--font-size-x-large` | Initials font size at `md` |
-| `--rds--font-size-heading-medium` | Initials font size at `lg` |
-| `--rds--radius-md` | Border radius for square shape |
-| `--rds--radius-full` | Border radius for circle shape |
-| `--rds--color-primary` | Focus ring on interactive avatar |
+| Token                             | Used for                         |
+| --------------------------------- | -------------------------------- |
+| `--rds--color-grey-pale`          | Background (initials variant)    |
+| `--rds--color-grey-dark`          | Initials text color              |
+| `--rds--font-family-inter`        | Initials font family             |
+| `--rds--font-weight-medium`       | Initials font weight             |
+| `--rds--font-size-small`          | Initials font size at `sm`       |
+| `--rds--font-size-x-large`        | Initials font size at `md`       |
+| `--rds--font-size-heading-medium` | Initials font size at `lg`       |
+| `--rds--radius-md`                | Border radius for square shape   |
+| `--rds--radius-full`              | Border radius for circle shape   |
+| `--rds--color-primary`            | Focus ring on interactive avatar |
 
 ## Accessibility
 

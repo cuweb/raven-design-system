@@ -1,7 +1,7 @@
 /**
  * cu-motion — vanilla scroll-reveal runtime for WordPress / non-React contexts.
  *
- * Pairs with the [data-cu-reveal] CSS shipped in @cuweb/rds2.
+ * Pairs with the [data-cu-reveal] CSS shipped in @cuweb/raven-design-system.
  * On DOMContentLoaded, observes every [data-cu-reveal] element and sets
  * data-revealed="true" as each scrolls into view, which is what the CSS
  * keys off to fade and translate the element in.
@@ -10,7 +10,7 @@
  * (no observer attached, no animation delay).
  *
  * Consumption:
- *   wp_enqueue_script('cu-motion', '.../rds2/dist/vanilla-js/cuMotion.js', [], '1.0', true);
+ *   wp_enqueue_script('cu-motion', '.../raven-design-system/dist/vanilla-js/cuMotion.js', [], '1.0', true);
  *
  *   <div class="cu-card" data-cu-reveal>...</div>
  *

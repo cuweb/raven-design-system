@@ -1,6 +1,6 @@
 # WordPress integration
 
-Using `@cuweb/rds2` components (and `@cuweb/rds-icons`) inside WordPress projects. This directory has a doc for each common scenario.
+Using `@cuweb/raven-design-system` components (and `@cuweb/rds-icons`) inside WordPress projects. This directory has a doc for each common scenario.
 
 ## Prerequisites
 
@@ -8,20 +8,20 @@ All WordPress projects follow the base consumer setup:
 
 1. [Set up GitHub Packages auth](https://github.com/cuweb/rds-icons#developer-onboarding-one-time) (one-time per machine)
 2. Add `.npmrc` with `@cuweb:registry=https://npm.pkg.github.com` in the project root
-3. `pnpm add @cuweb/rds2 @cuweb/rds-icons`
+3. `pnpm add @cuweb/raven-design-system @cuweb/rds-icons`
 
 See [the consumer guide](../README.md) for the full install flow.
 
 ## Pick the scenario that matches your project
 
-| If you're building… | Read |
-|---|---|
-| A custom block whose save markup is static HTML | [blocks-static.md](blocks-static.md) |
-| A custom block rendered server-side via `render.php` | [blocks-dynamic.md](blocks-dynamic.md) |
-| A block theme (no classic PHP templates) | [block-themes.md](block-themes.md) |
-| A hybrid theme (classic PHP templates + blocks) | [hybrid-themes.md](hybrid-themes.md) |
-| A Timber theme with Twig templates | [timber-twig.md](timber-twig.md) |
-| A video gallery (lite-embed cards, no React on the frontend) | [video-cards.md](video-cards.md) |
+| If you're building…                                          | Read                                   |
+| ------------------------------------------------------------ | -------------------------------------- |
+| A custom block whose save markup is static HTML              | [blocks-static.md](blocks-static.md)   |
+| A custom block rendered server-side via `render.php`         | [blocks-dynamic.md](blocks-dynamic.md) |
+| A block theme (no classic PHP templates)                     | [block-themes.md](block-themes.md)     |
+| A hybrid theme (classic PHP templates + blocks)              | [hybrid-themes.md](hybrid-themes.md)   |
+| A Timber theme with Twig templates                           | [timber-twig.md](timber-twig.md)       |
+| A video gallery (lite-embed cards, no React on the frontend) | [video-cards.md](video-cards.md)       |
 
 Some projects span multiple scenarios — a site might have a block theme with custom dynamic blocks and a Timber-based admin plugin. In that case, each layer follows its own doc.
 

@@ -18,7 +18,7 @@ For a non-dismissible confirmation prompt with a built-in title, description, an
 ## Import
 
 ```tsx
-import { Modal } from '@cuweb/rds2';
+import { Modal } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -63,27 +63,27 @@ With `preventOutsideClick`, the Esc key and backdrop clicks no longer close the 
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-modal` | Always — base class, the `<dialog>` element itself |
-| `cu-modal--sm` / `--md` / `--lg` / `--xl` / `--full` | Set by the `size` prop (default `md`) |
-| `cu-modal--align-top` | `alignTop` is true |
-| `cu-modal__close` | Close (X) button, rendered unless `hideCloseButton` is true |
-| `cu-modal__content` | Wrapper around `children` |
+| Class                                                | When applied                                                |
+| ---------------------------------------------------- | ----------------------------------------------------------- |
+| `cu-modal`                                           | Always — base class, the `<dialog>` element itself          |
+| `cu-modal--sm` / `--md` / `--lg` / `--xl` / `--full` | Set by the `size` prop (default `md`)                       |
+| `cu-modal--align-top`                                | `alignTop` is true                                          |
+| `cu-modal__close`                                    | Close (X) button, rendered unless `hideCloseButton` is true |
+| `cu-modal__content`                                  | Wrapper around `children`                                   |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--spacing-large` | Viewport inset / horizontal padding |
-| `--rds--spacing-x-large` | Vertical padding |
-| `--rds--spacing-2-x-large` | Top offset when `alignTop` is set |
-| `--rds--spacing-small` | Close button padding |
-| `--rds--radius-md` | Modal and close-button corner radius |
-| `--rds--shadow-natural` | Modal drop shadow |
-| `--rds--color-black` | `::backdrop` tint |
-| `--rds--color-grey-dark` | Close button icon color |
-| `--rds--color-grey-lighter` | Close button hover/focus background |
+| Token                       | Used for                             |
+| --------------------------- | ------------------------------------ |
+| `--rds--spacing-large`      | Viewport inset / horizontal padding  |
+| `--rds--spacing-x-large`    | Vertical padding                     |
+| `--rds--spacing-2-x-large`  | Top offset when `alignTop` is set    |
+| `--rds--spacing-small`      | Close button padding                 |
+| `--rds--radius-md`          | Modal and close-button corner radius |
+| `--rds--shadow-natural`     | Modal drop shadow                    |
+| `--rds--color-black`        | `::backdrop` tint                    |
+| `--rds--color-grey-dark`    | Close button icon color              |
+| `--rds--color-grey-lighter` | Close button hover/focus background  |
 
 ## Accessibility
 

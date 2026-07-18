@@ -16,7 +16,7 @@ A minimal site footer displaying the Carleton University logo above three meta l
 ## Import
 
 ```tsx
-import { Footer } from '@cuweb/rds2';
+import { Footer } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -56,37 +56,37 @@ All three meta links render through the `LinkProvider` context. Wrap the applica
 
 ```tsx
 import Link from 'next/link';
-import { LinkProvider, Footer } from '@cuweb/rds2';
+import { LinkProvider, Footer } from '@cuweb/raven-design-system';
 
 <LinkProvider component={Link}>
-  <Footer />
-</LinkProvider>
+    <Footer />
+</LinkProvider>;
 ```
 
 ## CSS classes
 
 `Footer` uses the same stylesheet as `FooterStandard` and shares several classes.
 
-| Class | Element | Notes |
-|---|---|---|
-| `cu-footer` | `<footer>` | Black background, CU waves image at the bottom |
-| `cu-footer--basic` | `<footer>` | Modifier for the minimal footer; `background-size: cover` |
-| `cu-footer__logo-links` | Wrapper `<div>` | Centred grid; bottom padding leaves space for the waves |
-| `cu-footer__logo` | `<img>` | `8rem` tall on mobile, `11rem` on `sm+` |
-| `cu-footer__meta` | `<ul>` | Flex row, centred, wraps on narrow screens |
-| `cu-footer__meta-item` | `<li>` | Gap `1rem` mobile / `1.5rem` on `sm+` |
-| `cu-footer__meta-link` | `<a>` | `grey-light` colour, no underline; white on hover |
+| Class                   | Element         | Notes                                                     |
+| ----------------------- | --------------- | --------------------------------------------------------- |
+| `cu-footer`             | `<footer>`      | Black background, CU waves image at the bottom            |
+| `cu-footer--basic`      | `<footer>`      | Modifier for the minimal footer; `background-size: cover` |
+| `cu-footer__logo-links` | Wrapper `<div>` | Centred grid; bottom padding leaves space for the waves   |
+| `cu-footer__logo`       | `<img>`         | `8rem` tall on mobile, `11rem` on `sm+`                   |
+| `cu-footer__meta`       | `<ul>`          | Flex row, centred, wraps on narrow screens                |
+| `cu-footer__meta-item`  | `<li>`          | Gap `1rem` mobile / `1.5rem` on `sm+`                     |
+| `cu-footer__meta-link`  | `<a>`           | `grey-light` colour, no underline; white on hover         |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-light` | Link and text colour |
-| `--rds--color-black` | Footer background |
-| `--rds--asset-cu-waves-footer-red` | Decorative waves background image |
-| `--rds--layout-wide-size` | Inner max-width (via `FooterStandard` styles) |
-| `--rds--font-size-x-small` | Meta link font size on mobile |
-| `--rds--font-size-small` | Meta link font size on `sm+` |
+| Token                              | Used for                                      |
+| ---------------------------------- | --------------------------------------------- |
+| `--rds--color-grey-light`          | Link and text colour                          |
+| `--rds--color-black`               | Footer background                             |
+| `--rds--asset-cu-waves-footer-red` | Decorative waves background image             |
+| `--rds--layout-wide-size`          | Inner max-width (via `FooterStandard` styles) |
+| `--rds--font-size-x-small`         | Meta link font size on mobile                 |
+| `--rds--font-size-small`           | Meta link font size on `sm+`                  |
 
 ## Accessibility
 

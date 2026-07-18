@@ -14,10 +14,10 @@ Use `Icon` whenever you need a standalone icon — inside a `Button`, a nav item
 ## Import
 
 ```tsx
-import { Icon } from '@cuweb/rds2';
+import { Icon } from '@cuweb/raven-design-system';
 
 // If you need to reference icon names as a type
-import type { IconName } from '@cuweb/rds2';
+import type { IconName } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -74,11 +74,11 @@ When `title` is provided, the icon switches from decorative to meaningful — se
 
 `size` sets both `width` and `height` on the SVG and accepts any CSS length or a unitless number (treated as pixels).
 
-| Value | Result |
-|---|---|
-| `size={24}` | `24px × 24px` |
-| `size="1.5rem"` | `1.5rem × 1.5rem` |
-| *(omitted)* | `1em × 1em` — scales with the parent's `font-size` |
+| Value           | Result                                             |
+| --------------- | -------------------------------------------------- |
+| `size={24}`     | `24px × 24px`                                      |
+| `size="1.5rem"` | `1.5rem × 1.5rem`                                  |
+| _(omitted)_     | `1em × 1em` — scales with the parent's `font-size` |
 
 The `1em` default is intentional — icons placed inside text or buttons automatically match the surrounding type size without any explicit `size` prop.
 
@@ -99,10 +99,10 @@ Both approaches accept design tokens (`var(--rds--color-primary)`) or any valid 
 
 Icon's ARIA behaviour is controlled entirely by the `title` prop:
 
-| Scenario | What to do | What renders |
-|---|---|---|
-| Icon accompanies visible text (button label, link text) | Omit `title` | `aria-hidden="true"` — screen readers skip it |
-| Icon stands alone with no visible label | Provide `title` | `role="img"` + `aria-label={title}` + `<title>` inside the SVG |
+| Scenario                                                | What to do      | What renders                                                   |
+| ------------------------------------------------------- | --------------- | -------------------------------------------------------------- |
+| Icon accompanies visible text (button label, link text) | Omit `title`    | `aria-hidden="true"` — screen readers skip it                  |
+| Icon stands alone with no visible label                 | Provide `title` | `role="img"` + `aria-label={title}` + `<title>` inside the SVG |
 
 A title-less icon inside a `<Button title="Download">` needs no `title` — the button's own label covers it. An icon used as the only content in a link or button must have `title` (or the parent must have `aria-label`).
 

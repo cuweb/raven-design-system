@@ -1,13 +1,13 @@
 # Next.js usage
 
-Using `@cuweb/rds2` in a Next.js app. Assumes you've completed [installation](installation.md).
+Using `@cuweb/raven-design-system` in a Next.js app. Assumes you've completed [installation](installation.md).
 
 ## Import styles once
 
 In `app/layout.tsx` (App Router) or `pages/_app.tsx` (Pages Router):
 
 ```tsx
-import '@cuweb/rds2/styles';
+import '@cuweb/raven-design-system/styles';
 ```
 
 This imports the bundled stylesheet (tokens + globals + all components). For per-component CSS, see [per-component-css.md](per-component-css.md).
@@ -19,17 +19,17 @@ Wrap your app in `<LinkProvider>` so RDS components that accept an `href` prop r
 ```tsx
 // app/layout.tsx
 import Link from 'next/link';
-import { LinkProvider } from '@cuweb/rds2';
-import '@cuweb/rds2/styles';
+import { LinkProvider } from '@cuweb/raven-design-system';
+import '@cuweb/raven-design-system/styles';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <LinkProvider component={Link}>{children}</LinkProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body>
+                <LinkProvider component={Link}>{children}</LinkProvider>
+            </body>
+        </html>
+    );
 }
 ```
 
@@ -38,20 +38,20 @@ Without `LinkProvider`, RDS link-aware components fall back to a plain anchor ta
 ## Compose components
 
 ```tsx
-import { Badge, Button, Column, Icon, Main, Section } from '@cuweb/rds2';
+import { Badge, Button, Column, Icon, Main, Section } from '@cuweb/raven-design-system';
 
 export default function Page() {
-  return (
-    <Main>
-      <Section>
-        <Column cols="2">
-          <Badge text="New" color="green" />
-          <Button title="Get started" icon="circle-check" />
-          <Icon name="calendar-clock" size={24} />
-        </Column>
-      </Section>
-    </Main>
-  );
+    return (
+        <Main>
+            <Section>
+                <Column cols="2">
+                    <Badge text="New" color="green" />
+                    <Button title="Get started" icon="circle-check" />
+                    <Icon name="calendar-clock" size={24} />
+                </Column>
+            </Section>
+        </Main>
+    );
 }
 ```
 

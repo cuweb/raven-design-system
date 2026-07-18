@@ -14,7 +14,7 @@ Use `SocialIcons` in footers, profile headers, department bars, or anywhere a co
 ## Import
 
 ```tsx
-import { SocialIcons } from '@cuweb/rds2';
+import { SocialIcons } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -73,43 +73,43 @@ Each icon renders in its platform brand colour directly, with no hover transitio
 
 Each icon link is a `SocialIcons.Item`. All three props are required.
 
-| Prop | Type | Description |
-|---|---|---|
-| `icon` | `IconName` | Icon name from `@cuweb/rds-icons` — use the brand icon variants (e.g. `linkedin`, `x-twitter`, `bluesky`) |
-| `href` | `string` | URL for the social profile |
-| `label` | `string` | Accessible name for the link — see accessibility notes below |
+| Prop    | Type       | Description                                                                                               |
+| ------- | ---------- | --------------------------------------------------------------------------------------------------------- |
+| `icon`  | `IconName` | Icon name from `@cuweb/rds-icons` — use the brand icon variants (e.g. `linkedin`, `x-twitter`, `bluesky`) |
+| `href`  | `string`   | URL for the social profile                                                                                |
+| `label` | `string`   | Accessible name for the link — see accessibility notes below                                              |
 
 ## CSS classes
 
-| Class | Element | Notes |
-|---|---|---|
-| `cu-social` | Outer `<div>` | Always |
-| `cu-social--black` | Outer `<div>` | Applied when `iconColor="black"` |
-| `cu-social--white` | Outer `<div>` | Applied when `iconColor="white"` |
-| `cu-social--brand` | Outer `<div>` | Applied when `iconColor="brand"` |
-| `cu-social__prefix` | `<p>` | Only rendered when `prefix` is provided |
-| `cu-social__list` | `<ul>` | Flex row, wraps on overflow |
-| `cu-social__item` | `<li>` | One per `SocialIcons.Item`; receives `data-social={icon}` when `iconColor` is set |
-| `cu-social__link` | `<a>` / link | Carries the icon and hover colour |
+| Class               | Element       | Notes                                                                             |
+| ------------------- | ------------- | --------------------------------------------------------------------------------- |
+| `cu-social`         | Outer `<div>` | Always                                                                            |
+| `cu-social--black`  | Outer `<div>` | Applied when `iconColor="black"`                                                  |
+| `cu-social--white`  | Outer `<div>` | Applied when `iconColor="white"`                                                  |
+| `cu-social--brand`  | Outer `<div>` | Applied when `iconColor="brand"`                                                  |
+| `cu-social__prefix` | `<p>`         | Only rendered when `prefix` is provided                                           |
+| `cu-social__list`   | `<ul>`        | Flex row, wraps on overflow                                                       |
+| `cu-social__item`   | `<li>`        | One per `SocialIcons.Item`; receives `data-social={icon}` when `iconColor` is set |
+| `cu-social__link`   | `<a>` / link  | Carries the icon and hover colour                                                 |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--font-family-inter` | Prefix text font |
-| `--rds--font-size-small` | Prefix text size |
-| `--rds--color-grey-dark` | Prefix text colour; default icon colour |
-| `--rds--color-primary` | Icon colour on hover (default mode) |
-| `--rds--color-black` | Icon colour in `black` mode |
-| `--rds--color-white` | Icon colour in `white` mode |
-| `--rds--color-linkedin` | Brand colour for `linkedin` |
-| `--rds--color-facebook` | Brand colour for `facebook` |
-| `--rds--color-experience-bluesky` | Brand colour for `bluesky` |
-| `--rds--color-twitter` | Brand colour for `x-twitter` |
-| `--rds--color-instagram` | Brand colour for `instagram` |
-| `--rds--color-youtube` | Brand colour for `youtube` |
-| `--rds--color-tiktok` | Brand colour for `tiktok` |
-| `--rds--color-orcid` | Brand colour for `orcid` |
+| Token                             | Used for                                |
+| --------------------------------- | --------------------------------------- |
+| `--rds--font-family-inter`        | Prefix text font                        |
+| `--rds--font-size-small`          | Prefix text size                        |
+| `--rds--color-grey-dark`          | Prefix text colour; default icon colour |
+| `--rds--color-primary`            | Icon colour on hover (default mode)     |
+| `--rds--color-black`              | Icon colour in `black` mode             |
+| `--rds--color-white`              | Icon colour in `white` mode             |
+| `--rds--color-linkedin`           | Brand colour for `linkedin`             |
+| `--rds--color-facebook`           | Brand colour for `facebook`             |
+| `--rds--color-experience-bluesky` | Brand colour for `bluesky`              |
+| `--rds--color-twitter`            | Brand colour for `x-twitter`            |
+| `--rds--color-instagram`          | Brand colour for `instagram`            |
+| `--rds--color-youtube`            | Brand colour for `youtube`              |
+| `--rds--color-tiktok`             | Brand colour for `tiktok`               |
+| `--rds--color-orcid`              | Brand colour for `orcid`                |
 
 Icon size is set via `font-size` on the link (`1.5rem` mobile, `2rem` desktop) rather than a direct size prop — the `Icon` component inherits this through `em`-relative sizing.
 

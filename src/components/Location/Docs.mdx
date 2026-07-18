@@ -17,7 +17,7 @@ An interactive Google Map component that renders a single-location marker with a
 ## Import
 
 ```tsx
-import { Location, type LocationProps, type MarkerData } from '@cuweb/rds2';
+import { Location, type LocationProps, type MarkerData } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -53,22 +53,22 @@ Passing the `markers` array automatically fits the map viewport to show all pins
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-location` | Always applied to the root `<div>` |
-| `cu-location--rounded` | Applied when `isRounded` is `true` (default) |
-| `cu-location__map` | Applied to the `GoogleMap` container |
-| `cu-location__info` | Applied to the info window content wrapper |
-| `cu-location__info-link` | Applied to the "View on Google Maps" anchor |
+| Class                    | Condition                                    |
+| ------------------------ | -------------------------------------------- |
+| `cu-location`            | Always applied to the root `<div>`           |
+| `cu-location--rounded`   | Applied when `isRounded` is `true` (default) |
+| `cu-location__map`       | Applied to the `GoogleMap` container         |
+| `cu-location__info`      | Applied to the info window content wrapper   |
+| `cu-location__info-link` | Applied to the "View on Google Maps" anchor  |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--radius-lg` | Border radius when `cu-location--rounded` is active |
-| `--rds--font-size-base` | Font size of info window content |
-| `--rds--color-primary` | Link color in info window |
-| `--rds--color-primary-dark` | Link hover color in info window |
+| Token                       | Controls                                            |
+| --------------------------- | --------------------------------------------------- |
+| `--rds--radius-lg`          | Border radius when `cu-location--rounded` is active |
+| `--rds--font-size-base`     | Font size of info window content                    |
+| `--rds--color-primary`      | Link color in info window                           |
+| `--rds--color-primary-dark` | Link hover color in info window                     |
 
 ## Accessibility
 

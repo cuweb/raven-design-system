@@ -1,19 +1,19 @@
 # Icons
 
-Icons in RDS are split across **two packages** for Font Awesome Pro license compliance — the `<Icon>` component lives in the public `@cuweb/rds2`, and the icon data lives in the private `@cuweb/rds-icons`. To use icons, install both.
+Icons in RDS are split across **two packages** for Font Awesome Pro license compliance — the `<Icon>` component lives in the public `@cuweb/raven-design-system`, and the icon data lives in the private `@cuweb/rds-icons`. To use icons, install both.
 
 For the architectural rationale (why two packages), see [contributing/architecture.md](../contributing/architecture.md#two-package-icon-model).
 
 ## Quick start
 
 ```sh
-pnpm add @cuweb/rds2 @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system @cuweb/rds-icons
 ```
 
 ```tsx
-import { Icon } from '@cuweb/rds2';
+import { Icon } from '@cuweb/raven-design-system';
 
-<Icon name="circle-check" size={24} />
+<Icon name="circle-check" size={24} />;
 ```
 
 If `pnpm install` fails with `ERR_PNPM_FETCH_401`, you need GitHub Packages auth — see [installation.md](installation.md#prerequisites).
@@ -23,7 +23,7 @@ If `pnpm install` fails with `ERR_PNPM_FETCH_401`, you need GitHub Packages auth
 Wraps the raw icon components from `@cuweb/rds-icons` with accessibility handling and a string-name API.
 
 ```tsx
-import { Icon } from '@cuweb/rds2';
+import { Icon } from '@cuweb/raven-design-system';
 
 // Default: decorative, inherits text color, size 1em
 <Icon name="circle-check" />
@@ -47,20 +47,20 @@ For the full list of available icon names, see [rds-icons README → Import](htt
 
 Pick the right one for your context:
 
-| Style | When | Trade-off |
-|---|---|---|
-| `<Icon name="..." />` from `@cuweb/rds2` | Default for most usage | Most ergonomic; works with dynamic names; includes a11y defaults |
-| `<CircleCheckIcon />` from `@cuweb/rds-icons` | Bundle size matters and names are known at build time | Best tree-shaking in Next.js; no a11y wrapper |
-| `iconList` from `@cuweb/rds-icons` | CMS / Gutenberg select controls | Returns `[{ value, label }]` shape consumable by `<SelectControl>` |
+| Style                                                   | When                                                  | Trade-off                                                          |
+| ------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------ |
+| `<Icon name="..." />` from `@cuweb/raven-design-system` | Default for most usage                                | Most ergonomic; works with dynamic names; includes a11y defaults   |
+| `<CircleCheckIcon />` from `@cuweb/rds-icons`           | Bundle size matters and names are known at build time | Best tree-shaking in Next.js; no a11y wrapper                      |
+| `iconList` from `@cuweb/rds-icons`                      | CMS / Gutenberg select controls                       | Returns `[{ value, label }]` shape consumable by `<SelectControl>` |
 
 ```tsx
 // Central component (recommended default)
-import { Icon } from '@cuweb/rds2';
-<Icon name="circle-check" size={24} />
+import { Icon } from '@cuweb/raven-design-system';
+<Icon name="circle-check" size={24} />;
 
 // Named imports (best tree-shaking for known names)
 import { CircleCheckIcon } from '@cuweb/rds-icons';
-<CircleCheckIcon width={24} height={24} />
+<CircleCheckIcon width={24} height={24} />;
 
 // Icon name list for Gutenberg block controls
 import { iconList } from '@cuweb/rds-icons';

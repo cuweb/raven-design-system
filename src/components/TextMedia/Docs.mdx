@@ -17,23 +17,23 @@ A two-column layout component for pairing content (heading, body copy, calls-to-
 ## Import
 
 ```tsx
-import { TextMedia } from '@cuweb/rds2';
+import { TextMedia } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 <TextMedia>
-  <TextMedia.Content width={55}>
-    <PageHeader header="Our Services" as="h2" />
-    <p>Supporting copy.</p>
-    <ButtonGroup>
-      <Button title="Learn more" />
-    </ButtonGroup>
-  </TextMedia.Content>
-  <TextMedia.Media>
-    <img src="/path/to/image.jpg" alt="Descriptive alt text" />
-  </TextMedia.Media>
+    <TextMedia.Content width={55}>
+        <PageHeader header="Our Services" as="h2" />
+        <p>Supporting copy.</p>
+        <ButtonGroup>
+            <Button title="Learn more" />
+        </ButtonGroup>
+    </TextMedia.Content>
+    <TextMedia.Media>
+        <img src="/path/to/image.jpg" alt="Descriptive alt text" />
+    </TextMedia.Media>
 </TextMedia>
 ```
 
@@ -41,13 +41,13 @@ With a video embed:
 
 ```tsx
 <TextMedia maxWidth="alignwide">
-  <TextMedia.Content width={45}>
-    <PageHeader header="Research in Action" as="h2" />
-    <p>Supporting copy.</p>
-  </TextMedia.Content>
-  <TextMedia.Media>
-    <Embed.YouTube title="Video title" url="https://www.youtube.com/watch?v=..." />
-  </TextMedia.Media>
+    <TextMedia.Content width={45}>
+        <PageHeader header="Research in Action" as="h2" />
+        <p>Supporting copy.</p>
+    </TextMedia.Content>
+    <TextMedia.Media>
+        <Embed.YouTube title="Video title" url="https://www.youtube.com/watch?v=..." />
+    </TextMedia.Media>
 </TextMedia>
 ```
 
@@ -55,10 +55,10 @@ Image on the left:
 
 ```tsx
 <TextMedia flipX>
-  <TextMedia.Content>...</TextMedia.Content>
-  <TextMedia.Media>
-    <img src="..." alt="..." />
-  </TextMedia.Media>
+    <TextMedia.Content>...</TextMedia.Content>
+    <TextMedia.Media>
+        <img src="..." alt="..." />
+    </TextMedia.Media>
 </TextMedia>
 ```
 
@@ -87,27 +87,27 @@ Image on the left:
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-textmedia` | Always applied to the wrapper |
-| `cu-textmedia--row-sm` | `flexRow="sm"` |
-| `cu-textmedia--row-md` | `flexRow="md"` |
-| `cu-textmedia--row-lg` | `flexRow="lg"` (default) |
-| `cu-textmedia--reversed` | `flipX={true}` — reverses column order at lg breakpoint |
-| `cu-textmedia--flip-mobile` | `flipMobile={true}` — column-reverse on mobile, row from sm up |
-| `alignsmall` / `aligncontent` / `alignwide` / `alignfull` | `maxWidth` prop |
-| `cu-textmedia__content` | Content column div |
-| `cu-textmedia__content--top` | `align="top"` — content aligns to top of column |
-| `cu-textmedia__media` | Media column div |
-| `cu-textmedia__media--center` | `align="center"` on the Media subcomponent |
-| `cu-textmedia__media--bottom` | `align="bottom"` on the Media subcomponent |
+| Class                                                     | Condition                                                      |
+| --------------------------------------------------------- | -------------------------------------------------------------- |
+| `cu-textmedia`                                            | Always applied to the wrapper                                  |
+| `cu-textmedia--row-sm`                                    | `flexRow="sm"`                                                 |
+| `cu-textmedia--row-md`                                    | `flexRow="md"`                                                 |
+| `cu-textmedia--row-lg`                                    | `flexRow="lg"` (default)                                       |
+| `cu-textmedia--reversed`                                  | `flipX={true}` — reverses column order at lg breakpoint        |
+| `cu-textmedia--flip-mobile`                               | `flipMobile={true}` — column-reverse on mobile, row from sm up |
+| `alignsmall` / `aligncontent` / `alignwide` / `alignfull` | `maxWidth` prop                                                |
+| `cu-textmedia__content`                                   | Content column div                                             |
+| `cu-textmedia__content--top`                              | `align="top"` — content aligns to top of column                |
+| `cu-textmedia__media`                                     | Media column div                                               |
+| `cu-textmedia__media--center`                             | `align="center"` on the Media subcomponent                     |
+| `cu-textmedia__media--bottom`                             | `align="bottom"` on the Media subcomponent                     |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--spacing-large` | Gap between content and media columns |
-| `--rds--radius-lg` | Border radius on child `<img>` elements |
+| Token                  | Controls                                |
+| ---------------------- | --------------------------------------- |
+| `--rds--spacing-large` | Gap between content and media columns   |
+| `--rds--radius-lg`     | Border radius on child `<img>` elements |
 
 ## Accessibility
 

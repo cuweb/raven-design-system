@@ -17,44 +17,35 @@ A data table component with optional client-side column sorting, striped rows, r
 ## Import
 
 ```tsx
-import { Table, type TableProps, type ColumnDefinitionType } from '@cuweb/rds2';
+import { Table, type TableProps, type ColumnDefinitionType } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 const columns: ColumnDefinitionType[] = [
-  { key: 'name', header: 'Name', sort: { sortable: true }, default: true, order: 'ascending' },
-  { key: 'role', header: 'Role', sort: { sortable: false } },
+    { key: 'name', header: 'Name', sort: { sortable: true }, default: true, order: 'ascending' },
+    { key: 'role', header: 'Role', sort: { sortable: false } },
 ];
 
 const data = [
-  { name: 'Alice', role: 'Developer' },
-  { name: 'Bob', role: 'Designer' },
+    { name: 'Alice', role: 'Developer' },
+    { name: 'Bob', role: 'Designer' },
 ];
 
-<Table columns={columns} data={data} />
+<Table columns={columns} data={data} />;
 ```
 
 With striped rows and row headers:
 
 ```tsx
-<Table
-  columns={columns}
-  data={data}
-  hasStripes
-  enableRowHeader
-/>
+<Table columns={columns} data={data} hasStripes enableRowHeader />
 ```
 
 With fixed column widths using `colgroup` (percentages must sum to 100):
 
 ```tsx
-<Table
-  columns={columns}
-  data={data}
-  colgroup={[20, 80]}
-/>
+<Table columns={columns} data={data} colgroup={[20, 80]} />
 ```
 
 ## Examples
@@ -92,39 +83,39 @@ Column `header` values accept any `React.ReactNode`, allowing checkboxes or othe
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-table` | Always — outermost wrapper div |
-| `cu-table__table` | Always — the `<table>` element |
-| `cu-table__table--fixed` | When `colgroup` is provided — switches to `table-layout: fixed` |
-| `cu-table__head` | Always — the `<thead>` element |
-| `cu-table__header-cell` | Always — each `<th scope="col">` in the header row |
-| `cu-table__header-cell--sortable` | When `column.sort.sortable` is `true` |
-| `cu-table__header-cell--no-wrap` | When `noWordBreak` is `true` |
-| `cu-table__header-cell-inner` | When column is sortable — flex wrapper for label + sort button |
-| `cu-table__sort-btn` | When column is sortable — the sort direction `<button>` |
-| `cu-table__row` | Always — each `<tr>` in `<tbody>` |
-| `cu-table__row--striped` | When `hasStripes` is `true` |
-| `cu-table__cell` | Always — each `<td>` or `<th scope="row">` in the body |
+| Class                             | Condition                                                       |
+| --------------------------------- | --------------------------------------------------------------- |
+| `cu-table`                        | Always — outermost wrapper div                                  |
+| `cu-table__table`                 | Always — the `<table>` element                                  |
+| `cu-table__table--fixed`          | When `colgroup` is provided — switches to `table-layout: fixed` |
+| `cu-table__head`                  | Always — the `<thead>` element                                  |
+| `cu-table__header-cell`           | Always — each `<th scope="col">` in the header row              |
+| `cu-table__header-cell--sortable` | When `column.sort.sortable` is `true`                           |
+| `cu-table__header-cell--no-wrap`  | When `noWordBreak` is `true`                                    |
+| `cu-table__header-cell-inner`     | When column is sortable — flex wrapper for label + sort button  |
+| `cu-table__sort-btn`              | When column is sortable — the sort direction `<button>`         |
+| `cu-table__row`                   | Always — each `<tr>` in `<tbody>`                               |
+| `cu-table__row--striped`          | When `hasStripes` is `true`                                     |
+| `cu-table__cell`                  | Always — each `<td>` or `<th scope="row">` in the body          |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--radius-lg` | Border radius of the table wrapper |
-| `--rds--shadow-natural` | Box shadow of the table wrapper |
-| `--rds--color-grey-pale` | `<thead>` background color |
-| `--rds--color-grey-light` | `<thead>` bottom border color |
-| `--rds--color-grey-lighter` | Row bottom border color |
-| `--rds--color-white` | Odd striped row background |
-| `--rds--color-grey-faint` | Even striped row background |
-| `--rds--color-black` | Header cell text color |
-| `--rds--color-grey-dark` | Body cell text color and sort button icon color |
-| `--rds--font-size-small` | Font size for both header and body cells |
-| `--rds--font-weight-semibold` | Font weight of header cells |
-| `--rds--spacing-x-small` | Cell padding (mobile) |
-| `--rds--spacing-small` | Cell block padding (≥ 768px) |
-| `--rds--spacing-2-x-small` | Gap between header label and sort icon |
+| Token                         | Controls                                        |
+| ----------------------------- | ----------------------------------------------- |
+| `--rds--radius-lg`            | Border radius of the table wrapper              |
+| `--rds--shadow-natural`       | Box shadow of the table wrapper                 |
+| `--rds--color-grey-pale`      | `<thead>` background color                      |
+| `--rds--color-grey-light`     | `<thead>` bottom border color                   |
+| `--rds--color-grey-lighter`   | Row bottom border color                         |
+| `--rds--color-white`          | Odd striped row background                      |
+| `--rds--color-grey-faint`     | Even striped row background                     |
+| `--rds--color-black`          | Header cell text color                          |
+| `--rds--color-grey-dark`      | Body cell text color and sort button icon color |
+| `--rds--font-size-small`      | Font size for both header and body cells        |
+| `--rds--font-weight-semibold` | Font weight of header cells                     |
+| `--rds--spacing-x-small`      | Cell padding (mobile)                           |
+| `--rds--spacing-small`        | Cell block padding (≥ 768px)                    |
+| `--rds--spacing-2-x-small`    | Gap between header label and sort icon          |
 
 ## Accessibility
 

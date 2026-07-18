@@ -16,7 +16,7 @@ A full-width banner component with a centred heading and optional call-to-action
 ## Import
 
 ```tsx
-import { WideImage } from '@cuweb/rds2';
+import { WideImage } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -74,40 +74,40 @@ The `WideImage.Signup` subcomponent renders an email input, submit button, and o
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-wideimage` | Always — root block |
-| `cu-wideimage--light` | `isType="light"` |
-| `cu-wideimage--dark` | `isType="dark"` |
-| `cu-wideimage--image` | `isType="image"` |
-| `aligncontent` / `alignwide` / `alignfull` | The active `maxWidth` value |
-| `cu-wideimage__content` | Always — inner flex column, centred |
-| `cu-wideimage__signup` | `WideImage.Signup` root |
-| `cu-wideimage__signup-row` | Input + button row |
-| `cu-wideimage__signup-input` | Email `<input>` |
-| `cu-wideimage__signup-optin` | Checkbox + label row |
-| `cu-wideimage__signup-label` | Opt-in label text |
+| Class                                      | When applied                        |
+| ------------------------------------------ | ----------------------------------- |
+| `cu-wideimage`                             | Always — root block                 |
+| `cu-wideimage--light`                      | `isType="light"`                    |
+| `cu-wideimage--dark`                       | `isType="dark"`                     |
+| `cu-wideimage--image`                      | `isType="image"`                    |
+| `aligncontent` / `alignwide` / `alignfull` | The active `maxWidth` value         |
+| `cu-wideimage__content`                    | Always — inner flex column, centred |
+| `cu-wideimage__signup`                     | `WideImage.Signup` root             |
+| `cu-wideimage__signup-row`                 | Input + button row                  |
+| `cu-wideimage__signup-input`               | Email `<input>`                     |
+| `cu-wideimage__signup-optin`               | Checkbox + label row                |
+| `cu-wideimage__signup-label`               | Opt-in label text                   |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-grey-pale` | `light` background |
-| `--rds--color-black` | `dark` background |
-| `--rds--radius-xl` | Component border radius |
-| `--rds--spacing-x-large` | `padding-block` for `light` and `dark` variants |
-| `--rds--spacing-2-x-large` | Base `padding-block` for `image` variant (scales up at md/lg) |
-| `--rds--spacing-small` | Gap between `__content` children; gap between signup stacked rows |
-| `--rds--spacing-x-small` | Gap within signup row and opt-in row |
-| `--rds--color-grey-light` | Light variant input border |
-| `--rds--color-grey-dark` | Light variant input text and placeholder |
-| `--rds--color-white` | Dark/image input focus ring; dark/image label and link |
-| `--rds--color-grey-lighter` | Dark/image input placeholder |
-| `--rds--font-size-medium` | Input font size |
-| `--rds--font-size-small` | Opt-in label font size |
-| `--rds--font-weight-light` | Opt-in label weight |
-| `--rds--font-weight-bold` | Opt-in link weight |
-| `--cu-wideimage-overlay` | CSS custom property set inline for image overlay (`rgba(0,0,0,X)`) |
+| Token                       | Used for                                                           |
+| --------------------------- | ------------------------------------------------------------------ |
+| `--rds--color-grey-pale`    | `light` background                                                 |
+| `--rds--color-black`        | `dark` background                                                  |
+| `--rds--radius-xl`          | Component border radius                                            |
+| `--rds--spacing-x-large`    | `padding-block` for `light` and `dark` variants                    |
+| `--rds--spacing-2-x-large`  | Base `padding-block` for `image` variant (scales up at md/lg)      |
+| `--rds--spacing-small`      | Gap between `__content` children; gap between signup stacked rows  |
+| `--rds--spacing-x-small`    | Gap within signup row and opt-in row                               |
+| `--rds--color-grey-light`   | Light variant input border                                         |
+| `--rds--color-grey-dark`    | Light variant input text and placeholder                           |
+| `--rds--color-white`        | Dark/image input focus ring; dark/image label and link             |
+| `--rds--color-grey-lighter` | Dark/image input placeholder                                       |
+| `--rds--font-size-medium`   | Input font size                                                    |
+| `--rds--font-size-small`    | Opt-in label font size                                             |
+| `--rds--font-weight-light`  | Opt-in label weight                                                |
+| `--rds--font-weight-bold`   | Opt-in link weight                                                 |
+| `--cu-wideimage-overlay`    | CSS custom property set inline for image overlay (`rgba(0,0,0,X)`) |
 
 ## Image overlay
 

@@ -14,8 +14,8 @@ Use `BadgeGroup` whenever you need more than one badge to appear together — as
 ## Import
 
 ```tsx
-import { Badge } from '@cuweb/rds2';
-import { BadgeGroup } from '@cuweb/rds2';
+import { Badge } from '@cuweb/raven-design-system';
+import { BadgeGroup } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -57,37 +57,37 @@ The recommended pattern for badge overlays. Wrap `BadgeGroup` in a `<div classNa
 
 ```tsx
 <Card>
-  <Card.Figure>
-    <img src={image} alt={alt} width="600" height="400" />
-  </Card.Figure>
-  <div className="cu-card__badge">
-    <BadgeGroup>
-      <Badge text="Featured" color="black80" rounded="full" />
-      <Badge text="New" color="teal" rounded="full" />
-    </BadgeGroup>
-  </div>
-  <Card.Header title={title} link={link} />
-  <Card.Body>
-    <Card.Excerpt text={excerpt} />
-  </Card.Body>
+    <Card.Figure>
+        <img src={image} alt={alt} width="600" height="400" />
+    </Card.Figure>
+    <div className="cu-card__badge">
+        <BadgeGroup>
+            <Badge text="Featured" color="black80" rounded="full" />
+            <Badge text="New" color="teal" rounded="full" />
+        </BadgeGroup>
+    </div>
+    <Card.Header title={title} link={link} />
+    <Card.Body>
+        <Card.Excerpt text={excerpt} />
+    </Card.Body>
 </Card>
 ```
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-badge-group` | Always — base class on the `BadgeGroup` element |
+| Class            | When applied                                                           |
+| ---------------- | ---------------------------------------------------------------------- |
+| `cu-badge-group` | Always — base class on the `BadgeGroup` element                        |
 | `cu-card__badge` | Applied to a wrapping `<div>` in the Card — not on `BadgeGroup` itself |
 
 `cu-card__badge` is defined in the Card component's styles and sets `position: absolute`, `z-index: 3`, and `top`/`left` offsets via `--rds--spacing-x-small`.
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--spacing-2-x-small` | Gap between badges in the group |
-| `--rds--spacing-x-small` | `top` and `left` offset when using `cu-card__badge` |
+| Token                      | Used for                                            |
+| -------------------------- | --------------------------------------------------- |
+| `--rds--spacing-2-x-small` | Gap between badges in the group                     |
+| `--rds--spacing-x-small`   | `top` and `left` offset when using `cu-card__badge` |
 
 ## Accessibility
 

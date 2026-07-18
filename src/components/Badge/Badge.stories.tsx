@@ -54,7 +54,7 @@ export const Default: Story = {
 export const WithLink: Story = {
     args: {
         text: 'Badge',
-        href: 'https://github.com/cuweb/rds2',
+        href: 'https://github.com/cuweb/raven-design-system',
         color: 'grey',
         rounded: 'full',
     },

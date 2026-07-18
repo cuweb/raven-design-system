@@ -8,20 +8,20 @@ How to install and use Raven Design System 2.0 in your project.
 
 ## Pick your context
 
-| If you're building… | Read |
-|---|---|
-| A Next.js app or other modern React framework | [Installation](?path=/docs/overview-getting-started-installation--docs) → [Next.js](?path=/docs/overview-getting-started-next-js--docs) |
-| A WordPress block, block theme, hybrid theme, or Timber site | [WordPress](?path=/docs/overview-getting-started-wordpress--docs) |
-| Anything where accessibility matters (it always does) | [Accessibility](?path=/docs/overview-getting-started-accessibility--docs) |
+| If you're building…                                          | Read                                                                                                                                    |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| A Next.js app or other modern React framework                | [Installation](?path=/docs/overview-getting-started-installation--docs) → [Next.js](?path=/docs/overview-getting-started-next-js--docs) |
+| A WordPress block, block theme, hybrid theme, or Timber site | [WordPress](?path=/docs/overview-getting-started-wordpress--docs)                                                                       |
+| Anything where accessibility matters (it always does)        | [Accessibility](?path=/docs/overview-getting-started-accessibility--docs)                                                               |
 
 ## Two-package model
 
-`@cuweb/rds2` ships with `@cuweb/rds-icons` as a peer dependency. Both packages must be installed.
+`@cuweb/raven-design-system` ships with `@cuweb/rds-icons` as a peer dependency. Both packages must be installed.
 
-- `@cuweb/rds2` (this package) — components, tokens, styles
+- `@cuweb/raven-design-system` (this package) — components, tokens, styles
 - `@cuweb/rds-icons` — Font Awesome Pro icon components, distributed as a private package on GitHub Packages
 
-The second package being private is what enforces FA Pro license compliance — anyone can install rds-2.0, but the `<Icon>` component won't resolve without rds-icons present at install time. See the [icons architecture rationale](https://github.com/cuweb/rds2/blob/main/docs/contributing/architecture.md#two-package-icon-model) for the full story.
+The second package being private is what enforces FA Pro license compliance — anyone can install rds-2.0, but the `<Icon>` component won't resolve without rds-icons present at install time. See the [icons architecture rationale](https://github.com/cuweb/raven-design-system/blob/main/docs/contributing/architecture.md#two-package-icon-model) for the full story.
 
 ## Quick start
 
@@ -31,18 +31,18 @@ The second package being private is what enforces FA Pro license compliance — 
 
 # 2. In your project
 echo "@cuweb:registry=https://npm.pkg.github.com" >> .npmrc
-pnpm add @cuweb/rds2 @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system @cuweb/rds-icons
 ```
 
 ```tsx
-import { Button, Icon } from '@cuweb/rds2';
-import '@cuweb/rds2/styles';
+import { Button, Icon } from '@cuweb/raven-design-system';
+import '@cuweb/raven-design-system/styles';
 
-<Button title="Save" icon="floppy-disk" />
+<Button title="Save" icon="floppy-disk" />;
 ```
 
 For the full install flow with troubleshooting, see [Installation](?path=/docs/overview-getting-started-installation--docs).
 
 ## Companion docs
 
-The repo's [`docs/consumers/`](https://github.com/cuweb/rds2/tree/main/docs/consumers) folder has deeper guides — including all the WordPress integration scenarios — in raw markdown for easy reading on GitHub. The MDX pages in this section summarize the most common paths.
+The repo's [`docs/consumers/`](https://github.com/cuweb/raven-design-system/tree/main/docs/consumers) folder has deeper guides — including all the WordPress integration scenarios — in raw markdown for easy reading on GitHub. The MDX pages in this section summarize the most common paths.

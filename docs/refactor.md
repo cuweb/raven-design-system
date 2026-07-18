@@ -1,6 +1,6 @@
 # Component Structure
 
-This is the canonical taxonomy for rds2 components — what category each component belongs to, its porting status, and the Storybook title it should use.
+This is the canonical taxonomy for raven-design-system components — what category each component belongs to, its porting status, and the Storybook title it should use.
 
 > When `conventions.md` describes the story title taxonomy and this file disagrees, **this file wins**.
 
@@ -18,7 +18,7 @@ This is the canonical taxonomy for rds2 components — what category each compon
 | Template Parts  | `Components/Template Parts/` | 4           |
 | Utilities       | `Components/Utilities/`      | 4           |
 
-Status legend: **done** = implemented in rds2 · **port** = exists in rds, needs porting · **new** = net-new in rds2
+Status legend: **done** = implemented in raven-design-system · **port** = exists in rds, needs porting · **new** = net-new in raven-design-system
 
 ---
 

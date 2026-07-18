@@ -25,19 +25,19 @@ my-plugin/
 
 ```json
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "cuweb/info-card",
-  "title": "Info Card",
-  "editorScript": "file:./edit.js",
-  "script": "file:./save.js",
-  "style": "file:./style.css",
-  "editorStyle": "file:./editor.css",
-  "attributes": {
-    "iconName": { "type": "string", "default": "circle-check" },
-    "title": { "type": "string", "default": "" },
-    "body": { "type": "string", "default": "" }
-  }
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cuweb/info-card",
+    "title": "Info Card",
+    "editorScript": "file:./edit.js",
+    "script": "file:./save.js",
+    "style": "file:./style.css",
+    "editorStyle": "file:./editor.css",
+    "attributes": {
+        "iconName": { "type": "string", "default": "circle-check" },
+        "title": { "type": "string", "default": "" },
+        "body": { "type": "string", "default": "" }
+    }
 }
 ```
 
@@ -47,42 +47,42 @@ my-plugin/
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, SelectControl } from '@wordpress/components';
-import { Icon } from '@cuweb/rds2';
+import { Icon } from '@cuweb/raven-design-system';
 import { iconList, type IconName } from '@cuweb/rds-icons';
 
 export default function Edit({ attributes, setAttributes }) {
-  const blockProps = useBlockProps({ className: 'cu-info-card' });
+    const blockProps = useBlockProps({ className: 'cu-info-card' });
 
-  return (
-    <>
-      <InspectorControls>
-        <PanelBody title="Icon">
-          <SelectControl
-            label="Icon"
-            value={attributes.iconName}
-            options={iconList}
-            onChange={(iconName: IconName) => setAttributes({ iconName })}
-          />
-        </PanelBody>
-      </InspectorControls>
+    return (
+        <>
+            <InspectorControls>
+                <PanelBody title="Icon">
+                    <SelectControl
+                        label="Icon"
+                        value={attributes.iconName}
+                        options={iconList}
+                        onChange={(iconName: IconName) => setAttributes({ iconName })}
+                    />
+                </PanelBody>
+            </InspectorControls>
 
-      <div {...blockProps}>
-        <Icon name={attributes.iconName} size={32} />
-        <RichText
-          tagName="h3"
-          value={attributes.title}
-          onChange={(title) => setAttributes({ title })}
-          placeholder="Card title"
-        />
-        <RichText
-          tagName="p"
-          value={attributes.body}
-          onChange={(body) => setAttributes({ body })}
-          placeholder="Card body"
-        />
-      </div>
-    </>
-  );
+            <div {...blockProps}>
+                <Icon name={attributes.iconName} size={32} />
+                <RichText
+                    tagName="h3"
+                    value={attributes.title}
+                    onChange={(title) => setAttributes({ title })}
+                    placeholder="Card title"
+                />
+                <RichText
+                    tagName="p"
+                    value={attributes.body}
+                    onChange={(body) => setAttributes({ body })}
+                    placeholder="Card body"
+                />
+            </div>
+        </>
+    );
 }
 ```
 
@@ -90,18 +90,18 @@ export default function Edit({ attributes, setAttributes }) {
 
 ```tsx
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { Icon } from '@cuweb/rds2';
+import { Icon } from '@cuweb/raven-design-system';
 
 export default function Save({ attributes }) {
-  const blockProps = useBlockProps.save({ className: 'cu-info-card' });
+    const blockProps = useBlockProps.save({ className: 'cu-info-card' });
 
-  return (
-    <div {...blockProps}>
-      <Icon name={attributes.iconName} size={32} />
-      <RichText.Content tagName="h3" value={attributes.title} />
-      <RichText.Content tagName="p" value={attributes.body} />
-    </div>
-  );
+    return (
+        <div {...blockProps}>
+            <Icon name={attributes.iconName} size={32} />
+            <RichText.Content tagName="h3" value={attributes.title} />
+            <RichText.Content tagName="p" value={attributes.body} />
+        </div>
+    );
 }
 ```
 
@@ -112,11 +112,19 @@ When an editor saves the post, Gutenberg calls `save()`, serializes the returned
 ```html
 <!-- wp:cuweb/info-card {"iconName":"circle-check","title":"Accessible","body":"..."} -->
 <div class="wp-block-cuweb-info-card cu-info-card">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="32" height="32" aria-hidden="true" focusable="false">
-    <path d="M256 32a224 224 0 1 1 0 448..." />
-  </svg>
-  <h3>Accessible</h3>
-  <p>...</p>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        fill="currentColor"
+        width="32"
+        height="32"
+        aria-hidden="true"
+        focusable="false"
+    >
+        <path d="M256 32a224 224 0 1 1 0 448..." />
+    </svg>
+    <h3>Accessible</h3>
+    <p>...</p>
 </div>
 <!-- /wp:cuweb/info-card -->
 ```
@@ -129,19 +137,19 @@ Import the per-component RDS styles you want to reuse, plus your block-specific 
 
 ```scss
 // style.scss — frontend styles
-@use '@cuweb/rds2/Badge.scss';
+@use '@cuweb/raven-design-system/Badge.scss';
 
 .cu-info-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--rds--spacing-medium);
-  padding: var(--rds--spacing-medium);
-  background: var(--rds--color-grey-pale);
-  border-radius: var(--rds--radius-md);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--rds--spacing-medium);
+    padding: var(--rds--spacing-medium);
+    background: var(--rds--color-grey-pale);
+    border-radius: var(--rds--radius-md);
 }
 ```
 
-The tokens (`--rds--*`) are available anywhere the RDS stylesheet has been enqueued — typically the theme or a sitewide plugin loads `@cuweb/rds2/styles`.
+The tokens (`--rds--*`) are available anywhere the RDS stylesheet has been enqueued — typically the theme or a sitewide plugin loads `@cuweb/raven-design-system/styles`.
 
 ## Gotchas
 
@@ -151,22 +159,22 @@ The tokens (`--rds--*`) are available anywhere the RDS stylesheet has been enque
 
 ## Build
 
-@wordpress/scripts bundles edit.tsx and save.tsx via webpack. The resulting bundle imports from `@cuweb/rds2` and `@cuweb/rds-icons` as external packages — tree-shaking picks up only the icons you use.
+@wordpress/scripts bundles edit.tsx and save.tsx via webpack. The resulting bundle imports from `@cuweb/raven-design-system` and `@cuweb/rds-icons` as external packages — tree-shaking picks up only the icons you use.
 
 ```json
 // package.json
 {
-  "scripts": {
-    "build": "wp-scripts build",
-    "start": "wp-scripts start"
-  },
-  "devDependencies": {
-    "@wordpress/scripts": "^30.0.0"
-  },
-  "dependencies": {
-    "@cuweb/rds2": "^0.2.0",
-    "@cuweb/rds-icons": "^0.1.0"
-  }
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^30.0.0"
+    },
+    "dependencies": {
+        "@cuweb/raven-design-system": "^0.2.0",
+        "@cuweb/rds-icons": "^0.1.0"
+    }
 }
 ```
 

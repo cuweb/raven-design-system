@@ -14,8 +14,8 @@ Use `ButtonGroup` any time two or more buttons appear side by side — a primary
 ## Import
 
 ```tsx
-import { Button } from '@cuweb/rds2';
-import { ButtonGroup } from '@cuweb/rds2';
+import { Button } from '@cuweb/raven-design-system';
+import { ButtonGroup } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -60,19 +60,19 @@ Right-aligned — the natural layout for a form footer or dialog action row wher
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-buttongroup` | Always — base class |
-| `cu-buttongroup--justify-start` | `align="start"` (default) |
-| `cu-buttongroup--justify-center` | `align="center"` |
-| `cu-buttongroup--justify-end` | `align="end"` |
+| Class                            | When applied              |
+| -------------------------------- | ------------------------- |
+| `cu-buttongroup`                 | Always — base class       |
+| `cu-buttongroup--justify-start`  | `align="start"` (default) |
+| `cu-buttongroup--justify-center` | `align="center"`          |
+| `cu-buttongroup--justify-end`    | `align="end"`             |
 
 The same contextual margin rule that applies to `Button` also applies here: a top margin (`2rem` mobile, `2.5rem` desktop) is automatically added when `ButtonGroup` directly follows a `Column` or `StackedList` element.
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
+| Token                      | Used for                         |
+| -------------------------- | -------------------------------- |
 | `--rds--spacing-2-x-small` | Gap between buttons in the group |
 
 ## Accessibility

@@ -17,22 +17,22 @@ An individual list item component designed for use inside `StackedList`. Each `L
 ## Import
 
 ```tsx
-import { Listing } from '@cuweb/rds2';
+import { Listing } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
 <StackedList cols="2">
-  <Listing>
-    <Listing.Figure>
-      <img src="..." alt="..." width="400" height="300" />
-    </Listing.Figure>
-    <Listing.Body>
-      <Listing.Header title="Article title" link="/article" date="2026-01-15 10:00:00" />
-      <Listing.Excerpt text="Short description of the article." />
-    </Listing.Body>
-  </Listing>
+    <Listing>
+        <Listing.Figure>
+            <img src="..." alt="..." width="400" height="300" />
+        </Listing.Figure>
+        <Listing.Body>
+            <Listing.Header title="Article title" link="/article" date="2026-01-15 10:00:00" />
+            <Listing.Excerpt text="Short description of the article." />
+        </Listing.Body>
+    </Listing>
 </StackedList>
 ```
 
@@ -95,62 +95,62 @@ Body-only listing (no figure). The date appears below the title using `position=
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-listing` | Always applied to the `<li>` wrapper |
-| `cu-listing--no-hover` | When `noHover` is `true` |
-| `cu-listing__figure` | Applied by `Listing.Figure` |
-| `cu-listing__figure--square` | When `isSquare` is `true` on `Listing.Figure` |
-| `cu-listing__figure--small` | When `isSmall` is `true` on `Listing.Figure` |
-| `cu-listing__figure--hide-mobile` | When `hideMobile` is `true` on `Listing.Figure` |
-| `cu-listing__date-thumb` | Applied by `Listing.DateThumb` |
-| `cu-listing__date-thumb-month` | Month label inside `Listing.DateThumb` |
-| `cu-listing__date-thumb-day` | Day label inside `Listing.DateThumb` |
-| `cu-listing__icon-thumb` | Applied by `Listing.IconThumb` |
-| `cu-listing__initials` | Applied by `Listing.Initials` |
-| `cu-listing__initials-label` | Text overlay inside `Listing.Initials` |
-| `cu-listing__body` | Applied by `Listing.Body` |
-| `cu-listing__header` | Applied by `Listing.Header` |
-| `cu-listing__header-title` | Title heading inside `Listing.Header` |
-| `cu-listing__header-meta` | Meta row (date + read time) inside `Listing.Header` |
-| `cu-listing__header-time` | `<time>` element inside the meta row |
-| `cu-listing__header-readtime` | Read time paragraph inside the meta row |
-| `cu-listing__header-readtime--with-divider` | Adds a left border when a date is also shown |
-| `cu-listing__excerpt` | Applied by `Listing.Excerpt` |
-| `cu-listing__excerpt-more` | "More" text inside `Listing.Excerpt` |
-| `cu-listing__meta` | Applied by `Listing.EventMeta` and `Listing.PeopleMeta` |
-| `cu-listing__meta--has-icons` | Applied by `Listing.EventMeta` (icon-aligned list items) |
-| `cu-listing__people-meta-job` | Job title item inside `Listing.PeopleMeta` |
-| `cu-listing__people-meta-email` | Email item inside `Listing.PeopleMeta` |
-| `cu-listing__content` | Applied by `Listing.Content` |
-| `cu-listing__footer` | Applied by `Listing.Footer` |
+| Class                                       | Condition                                                |
+| ------------------------------------------- | -------------------------------------------------------- |
+| `cu-listing`                                | Always applied to the `<li>` wrapper                     |
+| `cu-listing--no-hover`                      | When `noHover` is `true`                                 |
+| `cu-listing__figure`                        | Applied by `Listing.Figure`                              |
+| `cu-listing__figure--square`                | When `isSquare` is `true` on `Listing.Figure`            |
+| `cu-listing__figure--small`                 | When `isSmall` is `true` on `Listing.Figure`             |
+| `cu-listing__figure--hide-mobile`           | When `hideMobile` is `true` on `Listing.Figure`          |
+| `cu-listing__date-thumb`                    | Applied by `Listing.DateThumb`                           |
+| `cu-listing__date-thumb-month`              | Month label inside `Listing.DateThumb`                   |
+| `cu-listing__date-thumb-day`                | Day label inside `Listing.DateThumb`                     |
+| `cu-listing__icon-thumb`                    | Applied by `Listing.IconThumb`                           |
+| `cu-listing__initials`                      | Applied by `Listing.Initials`                            |
+| `cu-listing__initials-label`                | Text overlay inside `Listing.Initials`                   |
+| `cu-listing__body`                          | Applied by `Listing.Body`                                |
+| `cu-listing__header`                        | Applied by `Listing.Header`                              |
+| `cu-listing__header-title`                  | Title heading inside `Listing.Header`                    |
+| `cu-listing__header-meta`                   | Meta row (date + read time) inside `Listing.Header`      |
+| `cu-listing__header-time`                   | `<time>` element inside the meta row                     |
+| `cu-listing__header-readtime`               | Read time paragraph inside the meta row                  |
+| `cu-listing__header-readtime--with-divider` | Adds a left border when a date is also shown             |
+| `cu-listing__excerpt`                       | Applied by `Listing.Excerpt`                             |
+| `cu-listing__excerpt-more`                  | "More" text inside `Listing.Excerpt`                     |
+| `cu-listing__meta`                          | Applied by `Listing.EventMeta` and `Listing.PeopleMeta`  |
+| `cu-listing__meta--has-icons`               | Applied by `Listing.EventMeta` (icon-aligned list items) |
+| `cu-listing__people-meta-job`               | Job title item inside `Listing.PeopleMeta`               |
+| `cu-listing__people-meta-email`             | Email item inside `Listing.PeopleMeta`                   |
+| `cu-listing__content`                       | Applied by `Listing.Content`                             |
+| `cu-listing__footer`                        | Applied by `Listing.Footer`                              |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--font-family-inter` | Font family on the listing wrapper |
-| `--rds--color-black` | Default text colour |
-| `--rds--color-primary` | Link and icon colour |
-| `--rds--color-grey-dark` | Secondary text (excerpt, meta, content) |
-| `--rds--color-grey-light` | Divider border on read-time with date |
-| `--rds--color-white` | Background, date thumb background |
-| `--rds--spacing-2-x-small` | Tight gaps inside header meta and meta lists |
-| `--rds--spacing-x-small` | Inner gaps (body gap, header meta gap, footer padding) |
-| `--rds--spacing-small` | Gap between figure/thumb and body (mobile) |
-| `--rds--spacing-medium` | Outer padding and row gap at md+ |
-| `--rds--font-size-x-small` | Date thumb month label, header meta time |
-| `--rds--font-size-small` | Excerpt, meta lists, content |
-| `--rds--font-size-large` | Header title |
-| `--rds--font-size-x-large` | Date thumb day label |
-| `--rds--font-size-2x-large` | Initials overlay text |
-| `--rds--font-weight-bold` | Date thumb month/day |
-| `--rds--font-weight-semibold` | Header title, excerpt "more" label |
-| `--rds--line-height-tight` | Header title line height |
-| `--rds--radius-sm` | Date thumb and initials border radius |
-| `--rds--shadow-natural` | Date thumb box shadow |
-| `--rds--duration-slower` | Scroll reveal transition duration |
-| `--rds--ease-emphasized` | Scroll reveal easing |
+| Token                         | Used for                                               |
+| ----------------------------- | ------------------------------------------------------ |
+| `--rds--font-family-inter`    | Font family on the listing wrapper                     |
+| `--rds--color-black`          | Default text colour                                    |
+| `--rds--color-primary`        | Link and icon colour                                   |
+| `--rds--color-grey-dark`      | Secondary text (excerpt, meta, content)                |
+| `--rds--color-grey-light`     | Divider border on read-time with date                  |
+| `--rds--color-white`          | Background, date thumb background                      |
+| `--rds--spacing-2-x-small`    | Tight gaps inside header meta and meta lists           |
+| `--rds--spacing-x-small`      | Inner gaps (body gap, header meta gap, footer padding) |
+| `--rds--spacing-small`        | Gap between figure/thumb and body (mobile)             |
+| `--rds--spacing-medium`       | Outer padding and row gap at md+                       |
+| `--rds--font-size-x-small`    | Date thumb month label, header meta time               |
+| `--rds--font-size-small`      | Excerpt, meta lists, content                           |
+| `--rds--font-size-large`      | Header title                                           |
+| `--rds--font-size-x-large`    | Date thumb day label                                   |
+| `--rds--font-size-2x-large`   | Initials overlay text                                  |
+| `--rds--font-weight-bold`     | Date thumb month/day                                   |
+| `--rds--font-weight-semibold` | Header title, excerpt "more" label                     |
+| `--rds--line-height-tight`    | Header title line height                               |
+| `--rds--radius-sm`            | Date thumb and initials border radius                  |
+| `--rds--shadow-natural`       | Date thumb box shadow                                  |
+| `--rds--duration-slower`      | Scroll reveal transition duration                      |
+| `--rds--ease-emphasized`      | Scroll reveal easing                                   |
 
 ## Accessibility
 

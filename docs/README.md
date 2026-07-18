@@ -6,7 +6,7 @@ Docs are organized by audience. Pick the section that matches what you're trying
 
 → [**consumers/**](consumers/) — installation, Next.js integration, icons, per-component CSS, WordPress (block plugins, block themes, hybrid themes, Timber/Twig)
 
-The Storybook site at https://cuweb.github.io/rds2/ is the primary consumer reference; this folder is the deeper-dive companion.
+The Storybook site at https://cuweb.github.io/raven-design-system/ is the primary consumer reference; this folder is the deeper-dive companion.
 
 ## I want to **contribute** to RDS
 
@@ -20,16 +20,16 @@ If you're using GitHub Copilot in this repo, the conventions in [`.github/instru
 
 ## Looking for something specific?
 
-| Topic | Where |
-|---|---|
-| Install RDS in a Next.js app | [consumers/installation.md](consumers/installation.md) → [consumers/nextjs.md](consumers/nextjs.md) |
-| Use RDS in a WordPress block | [consumers/wordpress/blocks-static.md](consumers/wordpress/blocks-static.md) (or `blocks-dynamic.md`) |
-| Why icons live in a separate package | [contributing/architecture.md#two-package-icon-model](contributing/architecture.md#two-package-icon-model) |
-| Add a new component to the library | [contributing/conventions.md#adding-a-new-component](contributing/conventions.md#adding-a-new-component) |
-| Run tests / accessibility checks | [contributing/testing.md](contributing/testing.md) |
-| Cut a release | [maintenance/releasing.md](maintenance/releasing.md) |
-| Use a Copilot prompt (`#update-changelog`, `#create-release`) | [maintenance/automation.md](maintenance/automation.md) |
-| Bootstrap an AI session outside Copilot | [contributing/ai-context.md](contributing/ai-context.md) |
+| Topic                                                         | Where                                                                                                      |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Install RDS in a Next.js app                                  | [consumers/installation.md](consumers/installation.md) → [consumers/nextjs.md](consumers/nextjs.md)        |
+| Use RDS in a WordPress block                                  | [consumers/wordpress/blocks-static.md](consumers/wordpress/blocks-static.md) (or `blocks-dynamic.md`)      |
+| Why icons live in a separate package                          | [contributing/architecture.md#two-package-icon-model](contributing/architecture.md#two-package-icon-model) |
+| Add a new component to the library                            | [contributing/conventions.md#adding-a-new-component](contributing/conventions.md#adding-a-new-component)   |
+| Run tests / accessibility checks                              | [contributing/testing.md](contributing/testing.md)                                                         |
+| Cut a release                                                 | [maintenance/releasing.md](maintenance/releasing.md)                                                       |
+| Use a Copilot prompt (`#update-changelog`, `#create-release`) | [maintenance/automation.md](maintenance/automation.md)                                                     |
+| Bootstrap an AI session outside Copilot                       | [contributing/ai-context.md](contributing/ai-context.md)                                                   |
 
 ## Archive
 

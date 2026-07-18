@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+_Breaking_ Renamed the repository from `cuweb/rds2` to `cuweb/raven-design-system`, and the published package from `@cuweb/rds2` to `@cuweb/raven-design-system`. Consumers must update their `package.json` dependency name and any `@cuweb/rds2` imports to `@cuweb/raven-design-system`.
+
 _Added_ `Modal` component — dismissible overlay for freeform content, rendered as a native `<dialog>` with configurable `size`, optional close button, and `preventOutsideClick`/`alignTop` options.
 _Added_ `Dialog` component — non-dismissible confirmation/action prompt with a built-in title, optional description, and button footer; only closable via an action button.
 _Changed_ Upgraded `packageManager` from `pnpm@10.34.4` to `pnpm@11.10.0`. Migrated pnpm config out of `package.json#pnpm` and `.npmrc` (non-auth settings) into `pnpm-workspace.yaml` to follow pnpm 11 conventions.

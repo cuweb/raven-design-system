@@ -1,19 +1,19 @@
-# AGENTS.md — rds2 AI Agent Guide
+# AGENTS.md — raven-design-system AI Agent Guide
 
 Canonical per-file rules live in `.github/instructions/`. When this file and an `.instructions.md` file disagree, the `.instructions.md` file wins.
 
-| Scope | Canonical file |
-|---|---|
-| Project-wide | `.github/copilot-instructions.md` |
+| Scope                     | Canonical file                                    |
+| ------------------------- | ------------------------------------------------- |
+| Project-wide              | `.github/copilot-instructions.md`                 |
 | `src/components/**/*.tsx` | `.github/instructions/components.instructions.md` |
-| `**/*.stories.tsx` | `.github/instructions/stories.instructions.md` |
-| `**/*.scss` | `.github/instructions/styles.instructions.md` |
+| `**/*.stories.tsx`        | `.github/instructions/stories.instructions.md`    |
+| `**/*.scss`               | `.github/instructions/styles.instructions.md`     |
 
 ---
 
 ## Project overview
 
-**@cuweb/rds2** — Carleton University's React component library. Paired with `@cuweb/rds-icons` (private peer dep) for Font Awesome Pro icons.
+**@cuweb/raven-design-system** — Carleton University's React component library. Paired with `@cuweb/rds-icons` (private peer dep) for Font Awesome Pro icons.
 
 - **Build:** Vite library mode (ESM + CJS), TypeScript 6, pnpm
 - **Runtime:** React 18, SCSS + CSS custom properties (no Tailwind)
@@ -69,15 +69,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Component } from './Component';
 
 const meta: Meta<typeof Component> = {
-  title: 'Components/Category/Component',
-  component: Component,
-  tags: ['autodocs'],
-  argTypes: {
-    // Required for all union/enum props
-  },
-  parameters: {
-    controls: { sort: 'requiredFirst' },
-  },
+    title: 'Components/Category/Component',
+    component: Component,
+    tags: ['autodocs'],
+    argTypes: {
+        // Required for all union/enum props
+    },
+    parameters: {
+        controls: { sort: 'requiredFirst' },
+    },
 };
 
 export default meta;
@@ -86,18 +86,18 @@ type Story = StoryObj<typeof Component>;
 
 ### Title taxonomy
 
-| Prefix | Usage |
-|---|---|
-| `Components/Elements/*` | Atomic UI (Badge, Button, Icon, BadgeGroup) |
-| `Components/Content/*` | Content display (Card, Quote, Table) |
-| `Components/Media/*` | Image/video-heavy (FullBanner, ImageGrid) |
-| `Components/Navigation/*` | Wayfinding (Nav, PageHeader, Footer) |
-| `Components/Forms/*` | Data entry (Form, Input, Select) |
-| `Components/Feedback/*` | Overlays, loading, errors (Alert, Modal) |
-| `Components/Layout/*` | Structural wrappers (Section, Column) |
+| Prefix                        | Usage                                                         |
+| ----------------------------- | ------------------------------------------------------------- |
+| `Components/Elements/*`       | Atomic UI (Badge, Button, Icon, BadgeGroup)                   |
+| `Components/Content/*`        | Content display (Card, Quote, Table)                          |
+| `Components/Media/*`          | Image/video-heavy (FullBanner, ImageGrid)                     |
+| `Components/Navigation/*`     | Wayfinding (Nav, PageHeader, Footer)                          |
+| `Components/Forms/*`          | Data entry (Form, Input, Select)                              |
+| `Components/Feedback/*`       | Overlays, loading, errors (Alert, Modal)                      |
+| `Components/Layout/*`         | Structural wrappers (Section, Column)                         |
 | `Components/Template Parts/*` | WordPress template part wrappers (Article, Aside, Body, Main) |
-| `Components/Utilities/*` | Behavioral / non-visual (LinkProvider, CookieBanner) |
-| `Overview/Templates/*` | Full-page compositions |
+| `Components/Utilities/*`      | Behavioral / non-visual (LinkProvider, CookieBanner)          |
+| `Overview/Templates/*`        | Full-page compositions                                        |
 
 ### Args
 
@@ -106,7 +106,7 @@ Always inline `args` inside the story object — never the external-assignment p
 ```tsx
 // Correct
 export const Primary: Story = {
-  args: { text: 'Badge', color: 'green' },
+    args: { text: 'Badge', color: 'green' },
 };
 
 // Wrong
@@ -137,17 +137,17 @@ The source transform in `.storybook/preview.ts` unwraps `render` functions for t
 ```tsx
 // Correct — expression body
 render: (args) => (
-  <Main>
-    <Section>
-      <Component {...args} />
-    </Section>
-  </Main>
-)
+    <Main>
+        <Section>
+            <Component {...args} />
+        </Section>
+    </Main>
+);
 
 // Wrong — block body (breaks docs source panel)
 render: (args) => {
-  return <Component {...args} />;
-}
+    return <Component {...args} />;
+};
 ```
 
 If you need derived values, compute them inline with ternaries or hoist them outside `render`.
@@ -216,11 +216,13 @@ Icons come exclusively from `@cuweb/rds-icons` (private peer dep). **Never add `
 ```tsx
 // Central component — preferred
 import { Icon } from '../Icon/Icon';
-<Icon name="circle-check" size={24} />
+<Icon name="circle-check" size={24} />;
 
 // Typed icon prop on a component
 import type { IconName } from '@cuweb/rds-icons';
-interface FooProps { icon?: IconName; }
+interface FooProps {
+    icon?: IconName;
+}
 ```
 
 For story grid/select demos, use `iconList` from `@cuweb/rds-icons` — don't hardcode icon name arrays.

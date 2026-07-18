@@ -17,7 +17,7 @@ A controlled search field component that calls a callback on every keystroke, wi
 ## Import
 
 ```tsx
-import { SearchInput } from '@cuweb/rds2';
+import { SearchInput } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -30,7 +30,7 @@ import { SearchInput } from '@cuweb/rds2';
 ```tsx
 // With auto-suggest results
 <SearchInput callback={setSearchString} placeholder="Search...">
-  <SearchInput.Results resultsData={filteredResults} />
+    <SearchInput.Results resultsData={filteredResults} />
 </SearchInput>
 ```
 
@@ -49,31 +49,31 @@ Pair `SearchInput` with `SearchInput.Results` to render a filtered list as the u
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-search-input` | Always — root wrapper element |
-| `cu-search-input__icon` | Always — magnifying-glass icon |
-| `cu-search-input__field` | Always — the `<input>` element |
-| `cu-search-input__results` | When `children` is provided |
+| Class                           | Condition                                     |
+| ------------------------------- | --------------------------------------------- |
+| `cu-search-input`               | Always — root wrapper element                 |
+| `cu-search-input__icon`         | Always — magnifying-glass icon                |
+| `cu-search-input__field`        | Always — the `<input>` element                |
+| `cu-search-input__results`      | When `children` is provided                   |
 | `cu-search-input__results-list` | Always on the `<ul>` in `SearchInput.Results` |
-| `cu-search-input__results-item` | Applied to each `<li>` result row |
-| `cu-search-input__results-link` | Applied to each result link |
+| `cu-search-input__results-item` | Applied to each `<li>` result row             |
+| `cu-search-input__results-link` | Applied to each result link                   |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--spacing-small` | Icon left offset; field horizontal padding |
-| `--rds--spacing-x-small` | Extra gap between icon and field text |
-| `--rds--spacing-2-x-small` | Results list vertical padding; result item padding |
-| `--rds--font-family-inter` | Input font family |
-| `--rds--font-size-small` | Input and result link font size |
-| `--rds--color-grey` | Icon color; input placeholder color; focus border color |
-| `--rds--color-grey-light` | Input default border color |
-| `--rds--color-grey-dark` | Input text color; result link text color |
-| `--rds--color-grey-pale` | Result link hover background |
-| `--rds--radius-lg` | Input border radius |
-| `--rds--radius-md` | Result link hover border radius |
+| Token                      | Controls                                                |
+| -------------------------- | ------------------------------------------------------- |
+| `--rds--spacing-small`     | Icon left offset; field horizontal padding              |
+| `--rds--spacing-x-small`   | Extra gap between icon and field text                   |
+| `--rds--spacing-2-x-small` | Results list vertical padding; result item padding      |
+| `--rds--font-family-inter` | Input font family                                       |
+| `--rds--font-size-small`   | Input and result link font size                         |
+| `--rds--color-grey`        | Icon color; input placeholder color; focus border color |
+| `--rds--color-grey-light`  | Input default border color                              |
+| `--rds--color-grey-dark`   | Input text color; result link text color                |
+| `--rds--color-grey-pale`   | Result link hover background                            |
+| `--rds--radius-lg`         | Input border radius                                     |
+| `--rds--radius-md`         | Result link hover border radius                         |
 
 ## Accessibility
 

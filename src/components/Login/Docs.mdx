@@ -17,7 +17,7 @@ A self-contained authentication card that renders a Carleton-branded login promp
 ## Import
 
 ```tsx
-import { Login } from '@cuweb/rds2';
+import { Login } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -68,29 +68,29 @@ When `useSocial` is `true`, a secondary section appears below the primary login 
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-login` | Always — root wrapper |
-| `cu-login--start` | `align="start"` |
-| `cu-login--center` | `align="center"` (default) |
-| `cu-login--end` | `align="end"` |
-| `cu-login__logo` | Carleton logo `<img>` |
-| `cu-login__error` | Error `<Alert>` wrapper — when `errorTitle` or `errorDesc` is provided |
-| `cu-login__social` | Social login section wrapper — when `useSocial` is `true` |
-| `cu-login__social-label` | "Or login with…" paragraph inside the social section |
+| Class                    | When applied                                                           |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `cu-login`               | Always — root wrapper                                                  |
+| `cu-login--start`        | `align="start"`                                                        |
+| `cu-login--center`       | `align="center"` (default)                                             |
+| `cu-login--end`          | `align="end"`                                                          |
+| `cu-login__logo`         | Carleton logo `<img>`                                                  |
+| `cu-login__error`        | Error `<Alert>` wrapper — when `errorTitle` or `errorDesc` is provided |
+| `cu-login__social`       | Social login section wrapper — when `useSocial` is `true`              |
+| `cu-login__social-label` | "Or login with…" paragraph inside the social section                   |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-white` | Card and logo background |
-| `--rds--color-grey-lighter` | Card border colour |
-| `--rds--color-grey-pale` | Social section background |
-| `--rds--shadow-natural` | Card drop shadow |
-| `--rds--radius-lg` | Card border radius |
-| `--rds--radius-md` | Logo and social section border radius |
-| `--rds--spacing-medium` | Card padding, logo margin, button group spacing |
-| `--rds--spacing-small` | Social label bottom margin |
+| Token                       | Used for                                        |
+| --------------------------- | ----------------------------------------------- |
+| `--rds--color-white`        | Card and logo background                        |
+| `--rds--color-grey-lighter` | Card border colour                              |
+| `--rds--color-grey-pale`    | Social section background                       |
+| `--rds--shadow-natural`     | Card drop shadow                                |
+| `--rds--radius-lg`          | Card border radius                              |
+| `--rds--radius-md`          | Logo and social section border radius           |
+| `--rds--spacing-medium`     | Card padding, logo margin, button group spacing |
+| `--rds--spacing-small`      | Social label bottom margin                      |
 
 ## Accessibility
 

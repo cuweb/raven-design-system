@@ -16,7 +16,7 @@ An image or media wrapper with optional caption, float alignment, and border rad
 ## Import
 
 ```tsx
-import { Figure } from '@cuweb/rds2';
+import { Figure } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -46,10 +46,10 @@ Float the figure left with surrounding text wrapping around it. Float activates 
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `children` | `ReactNode` | — | Image or media content |
-| `caption` | `string` | — | Optional caption rendered in a `<figcaption>` |
-| `size` | `xs \| sm \| md \| lg \| full` | `full` | Max-width constraint (activates at lg+ for xs–lg) |
-| `align` | `none \| left \| right \| center` | `none` | Float alignment; floats activate at lg+ |
-| `rounded` | `none \| sm \| md \| lg \| xl \| full` | `none` | Border radius on the inner wrapper |
+| Prop       | Type                                   | Default | Description                                       |
+| ---------- | -------------------------------------- | ------- | ------------------------------------------------- |
+| `children` | `ReactNode`                            | —       | Image or media content                            |
+| `caption`  | `string`                               | —       | Optional caption rendered in a `<figcaption>`     |
+| `size`     | `xs \| sm \| md \| lg \| full`         | `full`  | Max-width constraint (activates at lg+ for xs–lg) |
+| `align`    | `none \| left \| right \| center`      | `none`  | Float alignment; floats activate at lg+           |
+| `rounded`  | `none \| sm \| md \| lg \| xl \| full` | `none`  | Border radius on the inner wrapper                |

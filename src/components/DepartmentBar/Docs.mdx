@@ -14,7 +14,7 @@ Place `DepartmentBar` once per page, between the main content and the `Footer`. 
 ## Import
 
 ```tsx
-import { DepartmentBar } from '@cuweb/rds2';
+import { DepartmentBar } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -67,9 +67,9 @@ Minimal bar — phone and email only, no department name or building.
 When `buttons` is provided, the first button renders with `color="red"` and all subsequent buttons with `color="dark-grey"`. Buttons are wrapped in a `ButtonGroup align="end"` and push to the trailing edge of the bar on desktop (`md` and above).
 
 ```tsx
-import { defaultFooterButtons } from '@cuweb/rds2/data/FooterData';
+import { defaultFooterButtons } from '@cuweb/raven-design-system/data/FooterData';
 
-<DepartmentBar buttons={defaultFooterButtons} />
+<DepartmentBar buttons={defaultFooterButtons} />;
 ```
 
 ## Email link
@@ -82,30 +82,30 @@ On desktop (`lg` breakpoint and above), the contact meta items (location, phone,
 
 ## CSS classes
 
-| Class | Element | Notes |
-|---|---|---|
-| `cu-department-bar` | `<aside>` | Outer wrapper; grey background, Inter font |
-| `cu-department-bar__inner` | Inner `<div>` | Max-width `--rds--layout-wide-size`; row on `md+` |
-| `cu-department-bar__info` | Info column | Flex column, `gap: 0.5rem` |
-| `cu-department-bar__name` | `<h2>` | Centred on mobile, left-aligned on `md+`; large on `lg+` |
-| `cu-department-bar__meta` | `<ul>` | Centred on mobile; inline flex with gaps on `lg+` |
-| `cu-department-bar__meta-item` | `<li>` | Gets left-border separator on `lg+` (first child excluded) |
-| `cu-department-bar__email` | `<a>` inside email item | Primary-dark colour, bold, underline on hover |
-| `cu-department-bar__actions` | Button wrapper `<div>` | Top margin on mobile; `margin-left: auto` on `md+` |
+| Class                          | Element                 | Notes                                                      |
+| ------------------------------ | ----------------------- | ---------------------------------------------------------- |
+| `cu-department-bar`            | `<aside>`               | Outer wrapper; grey background, Inter font                 |
+| `cu-department-bar__inner`     | Inner `<div>`           | Max-width `--rds--layout-wide-size`; row on `md+`          |
+| `cu-department-bar__info`      | Info column             | Flex column, `gap: 0.5rem`                                 |
+| `cu-department-bar__name`      | `<h2>`                  | Centred on mobile, left-aligned on `md+`; large on `lg+`   |
+| `cu-department-bar__meta`      | `<ul>`                  | Centred on mobile; inline flex with gaps on `lg+`          |
+| `cu-department-bar__meta-item` | `<li>`                  | Gets left-border separator on `lg+` (first child excluded) |
+| `cu-department-bar__email`     | `<a>` inside email item | Primary-dark colour, bold, underline on hover              |
+| `cu-department-bar__actions`   | Button wrapper `<div>`  | Top margin on mobile; `margin-left: auto` on `md+`         |
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--font-family-inter` | Bar font family |
-| `--rds--color-grey-pale` | Bar background |
-| `--rds--color-black` | Department name colour |
-| `--rds--font-weight-bold` | Department name weight |
-| `--rds--font-size-large` | Department name size on `lg+` |
-| `--rds--font-size-medium` | Meta item font size |
-| `--rds--color-primary-dark` | Email link colour |
-| `--rds--layout-wide-size` | Max-width of the inner container |
-| `--rds--color-grey-light` | Pipe separator colour between meta items |
+| Token                       | Used for                                 |
+| --------------------------- | ---------------------------------------- |
+| `--rds--font-family-inter`  | Bar font family                          |
+| `--rds--color-grey-pale`    | Bar background                           |
+| `--rds--color-black`        | Department name colour                   |
+| `--rds--font-weight-bold`   | Department name weight                   |
+| `--rds--font-size-large`    | Department name size on `lg+`            |
+| `--rds--font-size-medium`   | Meta item font size                      |
+| `--rds--color-primary-dark` | Email link colour                        |
+| `--rds--layout-wide-size`   | Max-width of the inner container         |
+| `--rds--color-grey-light`   | Pipe separator colour between meta items |
 
 ## Accessibility
 

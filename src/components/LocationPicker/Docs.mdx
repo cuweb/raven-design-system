@@ -17,7 +17,11 @@ A Google Places autocomplete input that resolves a human-readable address into g
 ## Import
 
 ```tsx
-import { LocationPicker, type LocationPickerProps, type SingleMarkerInterface } from '@cuweb/rds2';
+import {
+    LocationPicker,
+    type LocationPickerProps,
+    type SingleMarkerInterface,
+} from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -25,17 +29,17 @@ import { LocationPicker, type LocationPickerProps, type SingleMarkerInterface } 
 ```tsx
 // Standalone picker (fires callback with resolved coordinates)
 <LocationPicker
-  address="Carleton University"
-  markerCallback={({ address, coordinates }) => {
-    console.log(address, coordinates.lat, coordinates.lng);
-  }}
+    address="Carleton University"
+    markerCallback={({ address, coordinates }) => {
+        console.log(address, coordinates.lat, coordinates.lng);
+    }}
 />
 ```
 
 ```tsx
 // Combined with Location map for live preview
 import { useState, useCallback } from 'react';
-import { LocationPicker, Location, type SingleMarkerInterface } from '@cuweb/rds2';
+import { LocationPicker, Location, type SingleMarkerInterface } from '@cuweb/raven-design-system';
 
 const [marker, setMarker] = useState<SingleMarkerInterface>({
   address: "Carleton University Raven's Nest",
@@ -68,24 +72,24 @@ Start with a pre-filled address and allow the user to search for a different one
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-location-picker` | Always applied to the root `<div>` |
-| `cu-location-picker__input` | Applied to the `<input>` element |
-| `cu-location-picker__icon` | Applied to the search `<Icon>` wrapper |
+| Class                       | Condition                              |
+| --------------------------- | -------------------------------------- |
+| `cu-location-picker`        | Always applied to the root `<div>`     |
+| `cu-location-picker__input` | Applied to the `<input>` element       |
+| `cu-location-picker__icon`  | Applied to the search `<Icon>` wrapper |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--spacing-x-small` | Input padding (all sides) and icon left offset |
-| `--rds--color-grey-light` | Input border color |
-| `--rds--radius-md` | Input border radius |
-| `--rds--font-size-base` | Input font size |
-| `--rds--color-black` | Input text color |
-| `--rds--color-white` | Input background color |
-| `--rds--color-primary` | Input focus outline color |
-| `--rds--color-grey` | Placeholder text and icon color |
+| Token                     | Controls                                       |
+| ------------------------- | ---------------------------------------------- |
+| `--rds--spacing-x-small`  | Input padding (all sides) and icon left offset |
+| `--rds--color-grey-light` | Input border color                             |
+| `--rds--radius-md`        | Input border radius                            |
+| `--rds--font-size-base`   | Input font size                                |
+| `--rds--color-black`      | Input text color                               |
+| `--rds--color-white`      | Input background color                         |
+| `--rds--color-primary`    | Input focus outline color                      |
+| `--rds--color-grey`       | Placeholder text and icon color                |
 
 ## Accessibility
 

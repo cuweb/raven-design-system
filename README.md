@@ -12,7 +12,7 @@ theme files.
 ## Package
 
 ```
-@cuweb/rds2
+@cuweb/raven-design-system
 ```
 
 ## Quick start
@@ -110,10 +110,10 @@ dist/
 
 ```tsx
 // Import the full stylesheet once (tokens + globals + components)
-import '@cuweb/rds2/styles';
+import '@cuweb/raven-design-system/styles';
 
 // Import components
-import { Button } from '@cuweb/rds2';
+import { Button } from '@cuweb/raven-design-system';
 ```
 
 ### WordPress block themes
@@ -128,7 +128,7 @@ Import per-component CSS in a block's stylesheets:
 
 ```scss
 // block-name/src/editor.scss
-@import '@cuweb/rds2/components/Button/style.css';
+@import '@cuweb/raven-design-system/components/Button/style.css';
 ```
 
 ## Design tokens
@@ -162,6 +162,6 @@ For a live, browsable reference, visit the Storybook deployment.
 
 ## Links
 
-- [Storybook (GitHub Pages)](https://cuweb.github.io/rds2/)
-- [Source](https://github.com/cuweb/rds2)
+- [Storybook (GitHub Pages)](https://cuweb.github.io/raven-design-system/)
+- [Source](https://github.com/cuweb/raven-design-system)
 - [Changelog](CHANGELOG.mdx)

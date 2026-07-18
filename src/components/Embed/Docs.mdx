@@ -17,7 +17,7 @@ A responsive 16:9 wrapper for embedding third-party media — video, audio, and 
 ## Import
 
 ```tsx
-import { Embed, EmbedHubSpot } from '@cuweb/rds2';
+import { Embed, EmbedHubSpot } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -77,22 +77,22 @@ import { Embed, EmbedHubSpot } from '@cuweb/rds2';
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-embed` | Always applied to the root element |
-| `aligncontent` | Default — constrains to content width (~1024px) |
-| `alignwide` | `maxWidth="alignwide"` — expands to wide width (~1280px) |
-| `alignfull` | `maxWidth="alignfull"` — stretches to full viewport width |
-| `is-layout-constrained` | Always applied; works with WordPress block layout system |
-| `cu-embed__container` | Aspect-ratio box that wraps the iframe |
-| `cu-embed-iframe` | Applied to every iframe subcomponent |
+| Class                   | Condition                                                 |
+| ----------------------- | --------------------------------------------------------- |
+| `cu-embed`              | Always applied to the root element                        |
+| `aligncontent`          | Default — constrains to content width (~1024px)           |
+| `alignwide`             | `maxWidth="alignwide"` — expands to wide width (~1280px)  |
+| `alignfull`             | `maxWidth="alignfull"` — stretches to full viewport width |
+| `is-layout-constrained` | Always applied; works with WordPress block layout system  |
+| `cu-embed__container`   | Aspect-ratio box that wraps the iframe                    |
+| `cu-embed-iframe`       | Applied to every iframe subcomponent                      |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--radius-md` | Border radius of the embed container |
-| `--rds--color-grey-light` | Border color of the embed container |
+| Token                     | Controls                             |
+| ------------------------- | ------------------------------------ |
+| `--rds--radius-md`        | Border radius of the embed container |
+| `--rds--color-grey-light` | Border color of the embed container  |
 
 ## Accessibility
 

@@ -16,20 +16,20 @@ A branded promotional block that displays the Carleton 360 logo alongside a shor
 ## Import
 
 ```tsx
-import { Carleton360 } from '@cuweb/rds2';
+import { Carleton360 } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
 
 ```tsx
-import { Carleton360, ButtonGroup, Button } from '@cuweb/rds2';
+import { Carleton360, ButtonGroup, Button } from '@cuweb/raven-design-system';
 
 <Carleton360>
-  <ButtonGroup>
-    <Button title="Sign up for 360" />
-    <Button title="Login to 360" color="grey" />
-  </ButtonGroup>
-</Carleton360>
+    <ButtonGroup>
+        <Button title="Sign up for 360" />
+        <Button title="Login to 360" color="grey" />
+    </ButtonGroup>
+</Carleton360>;
 ```
 
 ## Examples
@@ -51,23 +51,23 @@ The component renders without `children` when no CTA is needed.
 
 ## CSS classes
 
-| Class | Condition |
-|---|---|
-| `cu-carleton360` | Applied to the root `<div>` always |
-| `cu-carleton360__logo` | Applied to the SVG wrapper `<div>` always |
-| `cu-carleton360__description` | Applied to the description `<p>` always |
+| Class                         | Condition                                 |
+| ----------------------------- | ----------------------------------------- |
+| `cu-carleton360`              | Applied to the root `<div>` always        |
+| `cu-carleton360__logo`        | Applied to the SVG wrapper `<div>` always |
+| `cu-carleton360__description` | Applied to the description `<p>` always   |
 
 ## Design tokens
 
-| Token | Controls |
-|---|---|
-| `--rds--color-grey-pale` | Background colour of the block |
-| `--rds--color-black` | Description text colour |
+| Token                    | Controls                                         |
+| ------------------------ | ------------------------------------------------ |
+| `--rds--color-grey-pale` | Background colour of the block                   |
+| `--rds--color-black`     | Description text colour                          |
 | `--rds--spacing-x-large` | Block padding (vertical and horizontal at `md+`) |
-| `--rds--spacing-large` | Block padding inline on mobile |
-| `--rds--spacing-x-small` | Gap between flex children; logo bottom margin |
-| `--rds--spacing-medium` | Top margin of the nested `ButtonGroup` |
-| `--rds--radius-xl` | Border radius of the block |
+| `--rds--spacing-large`   | Block padding inline on mobile                   |
+| `--rds--spacing-x-small` | Gap between flex children; logo bottom margin    |
+| `--rds--spacing-medium`  | Top margin of the nested `ButtonGroup`           |
+| `--rds--radius-xl`       | Border radius of the block                       |
 
 ## Accessibility
 

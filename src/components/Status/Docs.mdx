@@ -14,10 +14,10 @@ Use `Status` to surface a live or frequently changing state — whether a venue 
 ## Import
 
 ```tsx
-import { Status } from '@cuweb/rds2';
+import { Status } from '@cuweb/raven-design-system';
 
 // Type registry helpers — for hours-based status
-import { formatHoursStatus } from '@cuweb/rds2';
+import { formatHoursStatus } from '@cuweb/raven-design-system';
 ```
 
 ## Basic usage
@@ -77,18 +77,18 @@ The only built-in type that includes an `info` variant (`"Maintenance"`).
 
 ## Registry labels reference
 
-| Type | Variant | Label |
-|---|---|---|
-| `hours` | `success` | Open |
-| `hours` | `warning` | Closing soon |
-| `hours` | `error` | Closed |
-| `availability` | `success` | Available |
+| Type           | Variant   | Label                |
+| -------------- | --------- | -------------------- |
+| `hours`        | `success` | Open                 |
+| `hours`        | `warning` | Closing soon         |
+| `hours`        | `error`   | Closed               |
+| `availability` | `success` | Available            |
 | `availability` | `warning` | Limited availability |
-| `availability` | `error` | Unavailable |
-| `system` | `success` | Operational |
-| `system` | `warning` | Degraded |
-| `system` | `error` | Outage |
-| `system` | `info` | Maintenance |
+| `availability` | `error`   | Unavailable          |
+| `system`       | `success` | Operational          |
+| `system`       | `warning` | Degraded             |
+| `system`       | `error`   | Outage               |
+| `system`       | `info`    | Maintenance          |
 
 ## Text resolution order
 
@@ -104,19 +104,19 @@ When multiple text sources are present, the component resolves in this priority:
 A helper that converts a venue's opening and closing times into a `{ variant, label }` pair ready to pass directly to `Status`. Import it alongside the component.
 
 ```ts
-import { formatHoursStatus } from '@cuweb/rds2';
+import { formatHoursStatus } from '@cuweb/raven-design-system';
 
 const { variant, label } = formatHoursStatus(openTime, closeTime);
 // variant: 'success' | 'warning' | 'error'
 // label:   e.g. 'Open until 8:00 PM' | 'Closes at 7:30 PM' | 'Opens tomorrow at 7:00 AM'
 ```
 
-| Condition | Variant | Label |
-|---|---|---|
-| Current time is before `open` | `error` | Opens at `{time}` |
-| Current time is after `close` | `error` | Opens tomorrow at `{time}` |
-| Within 60 minutes of `close` | `warning` | Closes at `{time}` |
-| More than 60 minutes until `close` | `success` | Open until `{time}` |
+| Condition                          | Variant   | Label                      |
+| ---------------------------------- | --------- | -------------------------- |
+| Current time is before `open`      | `error`   | Opens at `{time}`          |
+| Current time is after `close`      | `error`   | Opens tomorrow at `{time}` |
+| Within 60 minutes of `close`       | `warning` | Closes at `{time}`         |
+| More than 60 minutes until `close` | `success` | Open until `{time}`        |
 
 `open` and `close` are 24-hour strings (`'07:00'`, `'20:00'`). An optional third argument accepts a `Date` to use instead of `new Date()` — useful for testing and server rendering.
 
@@ -136,28 +136,28 @@ const beforeOpen = formatHoursStatus('07:00', '20:00', new Date('2024-01-15T06:0
 
 ## CSS classes
 
-| Class | When applied |
-|---|---|
-| `cu-status` | Always — outer `<span>` |
-| `cu-status--success` | `variant="success"` |
-| `cu-status--warning` | `variant="warning"` |
-| `cu-status--error` | `variant="error"` |
-| `cu-status--info` | `variant="info"` |
-| `cu-status--standalone` | Default context — direct `<Status>` use |
-| `cu-status--in-card` | Set internally by `Card.Status` — do not set manually |
-| `cu-status__dot` | The coloured dot `<span>` inside |
+| Class                   | When applied                                          |
+| ----------------------- | ----------------------------------------------------- |
+| `cu-status`             | Always — outer `<span>`                               |
+| `cu-status--success`    | `variant="success"`                                   |
+| `cu-status--warning`    | `variant="warning"`                                   |
+| `cu-status--error`      | `variant="error"`                                     |
+| `cu-status--info`       | `variant="info"`                                      |
+| `cu-status--standalone` | Default context — direct `<Status>` use               |
+| `cu-status--in-card`    | Set internally by `Card.Status` — do not set manually |
+| `cu-status__dot`        | The coloured dot `<span>` inside                      |
 
 The `--standalone` and `--in-card` context modifiers allow the same component to have fully independent styles in each context without descendant selector conflicts.
 
 ## Design tokens
 
-| Token | Used for |
-|---|---|
-| `--rds--color-success` | Dot colour for `success` variant |
-| `--rds--color-warning` | Dot colour for `warning` variant |
-| `--rds--color-error` | Dot colour for `error` variant |
-| `--rds--color-info` | Dot colour for `info` variant |
-| `--rds--font-size-small` | Label text size |
+| Token                    | Used for                         |
+| ------------------------ | -------------------------------- |
+| `--rds--color-success`   | Dot colour for `success` variant |
+| `--rds--color-warning`   | Dot colour for `warning` variant |
+| `--rds--color-error`     | Dot colour for `error` variant   |
+| `--rds--color-info`      | Dot colour for `info` variant    |
+| `--rds--font-size-small` | Label text size                  |
 
 Dot colour is driven by a local `--cu-status-color` custom property set per variant, which is then consumed by the `__dot` element — making it straightforward to override the colour for a specific variant without touching the dot's selector directly.
 

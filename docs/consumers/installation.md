@@ -1,6 +1,6 @@
 # Installation
 
-How to install `@cuweb/rds2` and its peer dependency `@cuweb/rds-icons` in any consumer project.
+How to install `@cuweb/raven-design-system` and its peer dependency `@cuweb/rds-icons` in any consumer project.
 
 ## Prerequisites
 
@@ -24,17 +24,17 @@ Commit this file. It tells pnpm/npm to look for `@cuweb/*` packages on GitHub Pa
 ## 2. Install both packages
 
 ```sh
-pnpm add @cuweb/rds2 @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system @cuweb/rds-icons
 ```
 
-`rds-icons` is a peer dependency of `rds2` — your package manager will warn if only one is installed.
+`rds-icons` is a peer dependency of `raven-design-system` — your package manager will warn if only one is installed.
 
 ## 3. Import styles
 
 Once, near the top of your application:
 
 ```tsx
-import '@cuweb/rds2/styles';
+import '@cuweb/raven-design-system/styles';
 ```
 
 This imports the full bundled stylesheet — design tokens, base element styles, and every component's CSS. For per-component CSS instead, see [per-component-css.md](per-component-css.md).
@@ -42,7 +42,7 @@ This imports the full bundled stylesheet — design tokens, base element styles,
 ## 4. Use components
 
 ```tsx
-import { Badge, Button, Icon } from '@cuweb/rds2';
+import { Badge, Button, Icon } from '@cuweb/raven-design-system';
 
 <Badge text="New" color="green" />
 <Button title="Get started" icon="circle-check" />
@@ -57,9 +57,9 @@ Your deploy pipeline also needs to pull from GitHub Packages. See the [rds-icons
 
 ## Troubleshooting
 
-| Error | Fix |
-|---|---|
-| `ERR_PNPM_FETCH_401 Unauthorized` | Auth not set up, or token expired — repeat step 1 of the rds-icons onboarding |
+| Error                                                | Fix                                                                                                  |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ERR_PNPM_FETCH_401 Unauthorized`                    | Auth not set up, or token expired — repeat step 1 of the rds-icons onboarding                        |
 | `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/rds-icons` | Project's `.npmrc` is missing the scope config — re-add `@cuweb:registry=https://npm.pkg.github.com` |
 
 For deeper diagnosis, see the [rds-icons README → Troubleshooting](https://github.com/cuweb/rds-icons#troubleshooting).
