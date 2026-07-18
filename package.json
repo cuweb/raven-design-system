@@ -1,6 +1,6 @@
 {
     "name": "@cuweb/raven-design-system",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "description": "React component library and design system for Carleton University",
     "repository": {
         "type": "git",
