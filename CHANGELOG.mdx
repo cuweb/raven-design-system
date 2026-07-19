@@ -17,6 +17,10 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-07-19
+
+- _Fixed_: `dist/index.d.ts` was not generated at the package root, causing TypeScript-aware ESLint resolvers (and editors) to report "Unable to resolve path to module" even though the package resolved correctly at runtime and build time. Added `entryRoot: 'src'` to the `vite-plugin-dts` config in `vite.config.ts` so the declaration file is emitted at `dist/index.d.ts`, matching the `"types"` field in the `exports` map.
+
 ## [0.9.0] - 2026-07-18
 
 - _Breaking_: Renamed the repository from `cuweb/rds2` to `cuweb/raven-design-system`, and the published package from `@cuweb/rds2` to `@cuweb/raven-design-system`. Consumers must update their `package.json` dependency name and any `@cuweb/rds2` imports to `@cuweb/raven-design-system`.
