@@ -9,6 +9,7 @@ export default defineConfig({
       include: ['src'],
       tsconfigPath: './tsconfig.build.json',
       rollupTypes: true,
+      entryRoot: 'src',
     }),
   ],
   build: {
