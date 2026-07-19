@@ -34,7 +34,7 @@ export const CallOut = ({
             <PageHeader
                 as={as}
                 header={title}
-                size="md"
+                size="lg"
                 isCenter={justify === 'center'}
                 noUnderline={false}
             />
