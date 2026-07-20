@@ -57,7 +57,7 @@ Nothing special — normal editor UI with RDS components and controls:
 import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, RangeControl } from '@wordpress/components';
 import { Icon } from '@cuweb/raven-design-system';
-import { iconList, type IconName } from '@cuweb/rds-icons';
+import { iconList, type IconName } from '@cuweb/raven-design-system';
 
 export default function Edit({ attributes, setAttributes }) {
     const blockProps = useBlockProps({ className: 'cu-latest-posts' });
@@ -230,7 +230,7 @@ Styles are the same as static blocks — import per-component RDS SCSS:
 If you update FA Pro and a saved icon's SVG path changes, existing posts keep the old SVG. Options:
 
 1. **Re-save posts** (manual, WP-CLI, or a migration script)
-2. **Fall back to PHP helper** — instead of using `$content`, look up the SVG from `node_modules/@cuweb/rds-icons/src/svg/` in PHP at render time (see [hybrid-themes.md](hybrid-themes.md) for the `cuweb_icon()` helper pattern). Use this if retroactive updates matter more than zero-render-cost.
+2. **Fall back to PHP helper** — instead of using `$content`, look up the SVG from `node_modules/@cuweb/raven-design-system/dist/icons/svg/` in PHP at render time (see [hybrid-themes.md](hybrid-themes.md) for the `cuweb_icon()` helper pattern). Use this if retroactive updates matter more than zero-render-cost.
 
 ### `<Icon>` adds focusable="false" and aria-hidden
 

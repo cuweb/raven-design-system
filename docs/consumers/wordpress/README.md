@@ -1,14 +1,14 @@
 # WordPress integration
 
-Using `@cuweb/raven-design-system` components (and `@cuweb/rds-icons`) inside WordPress projects. This directory has a doc for each common scenario.
+Using `@cuweb/raven-design-system` components inside WordPress projects. This directory has a doc for each common scenario.
 
 ## Prerequisites
 
 All WordPress projects follow the base consumer setup:
 
-1. [Set up GitHub Packages auth](https://github.com/cuweb/rds-icons#developer-onboarding-one-time) (one-time per machine)
+1. Set up GitHub Packages auth (one-time per machine) — see [installation.md](../installation.md)
 2. Add `.npmrc` with `@cuweb:registry=https://npm.pkg.github.com` in the project root
-3. `pnpm add @cuweb/raven-design-system @cuweb/rds-icons`
+3. `pnpm add @cuweb/raven-design-system`
 
 See [the consumer guide](../README.md) for the full install flow.
 
@@ -36,4 +36,4 @@ Everything else (block themes, hybrid themes, Timber) is a choice of where and h
 
 ## The FA Pro compliance reminder
 
-The rds-icons package ships raw SVG files in addition to generated TSX. When your PHP code reads from `node_modules/@cuweb/rds-icons/src/svg/`, make sure your web server **does not** expose `node_modules/` publicly. Test with `curl` before shipping. See [the icons guide](../icons.md#fa-pro-license-compliance-checklist) for the full compliance checklist.
+The `@cuweb/raven-design-system` package ships raw SVG files in `dist/icons/svg/`. When your PHP code reads from `node_modules/@cuweb/raven-design-system/dist/icons/svg/`, make sure your web server **does not** expose `node_modules/` publicly. Test with `curl` before shipping. See [the icons guide](../icons.md#fa-pro-license-compliance-checklist) for the full compliance checklist.

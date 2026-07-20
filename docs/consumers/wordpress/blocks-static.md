@@ -48,7 +48,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, SelectControl } from '@wordpress/components';
 import { Icon } from '@cuweb/raven-design-system';
-import { iconList, type IconName } from '@cuweb/rds-icons';
+import { iconList, type IconName } from '@cuweb/raven-design-system';
 
 export default function Edit({ attributes, setAttributes }) {
     const blockProps = useBlockProps({ className: 'cu-info-card' });
@@ -159,7 +159,7 @@ The tokens (`--rds--*`) are available anywhere the RDS stylesheet has been enque
 
 ## Build
 
-@wordpress/scripts bundles edit.tsx and save.tsx via webpack. The resulting bundle imports from `@cuweb/raven-design-system` and `@cuweb/rds-icons` as external packages — tree-shaking picks up only the icons you use.
+@wordpress/scripts bundles edit.tsx and save.tsx via webpack. The resulting bundle imports from `@cuweb/raven-design-system` as an external package — tree-shaking picks up only the icons you use.
 
 ```json
 // package.json
@@ -172,8 +172,7 @@ The tokens (`--rds--*`) are available anywhere the RDS stylesheet has been enque
         "@wordpress/scripts": "^30.0.0"
     },
     "dependencies": {
-        "@cuweb/raven-design-system": "^0.2.0",
-        "@cuweb/rds-icons": "^0.1.0"
+        "@cuweb/raven-design-system": "^0.2.0"
     }
 }
 ```

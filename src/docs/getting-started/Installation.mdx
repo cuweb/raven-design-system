@@ -4,13 +4,20 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Installation
 
-How to install `@cuweb/raven-design-system` and its peer dependency `@cuweb/rds-icons` in any consumer project.
+How to install `@cuweb/raven-design-system` in any consumer project.
 
 ## Prerequisites — GitHub Packages auth
 
-`@cuweb/rds-icons` is private; without auth, `pnpm install` fails with `ERR_PNPM_FETCH_401`. Set up auth once per machine by following the [rds-icons → Developer onboarding](https://github.com/cuweb/rds-icons#developer-onboarding-one-time) guide. It writes a token line to your user-level `~/.npmrc`.
+`@cuweb/raven-design-system` is private; without auth, `pnpm install` fails with `ERR_PNPM_FETCH_401`. Set up auth once per machine:
 
-For CI, see the [rds-icons → CI authentication](https://github.com/cuweb/rds-icons#ci-authentication) snippet.
+```sh
+gh auth refresh --scopes read:packages
+echo "//npm.pkg.github.com/:_authToken=$(gh auth token)" >> ~/.npmrc
+```
+
+Or create a classic PAT at https://github.com/settings/tokens with `read:packages` scope and add it to `~/.npmrc`.
+
+For CI, set the `NODE_AUTH_TOKEN` environment variable to your token.
 
 ## 1. Add the scope config
 
@@ -22,13 +29,11 @@ Create or edit `.npmrc` at your project root:
 
 Commit this file. It tells pnpm/npm to look for `@cuweb/*` packages on GitHub Packages, not the public npm registry. It does **not** contain any secrets.
 
-## 2. Install both packages
+## 2. Install the package
 
 ```sh
-pnpm add @cuweb/raven-design-system @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system
 ```
-
-`rds-icons` is a peer dependency of `rds-2.0` — your package manager will warn if only one is installed.
 
 ## 3. Import styles
 
@@ -65,9 +70,7 @@ This is most useful inside WordPress block bundles. See the full pattern at [`do
 
 ## Troubleshooting
 
-| Error                                                | Fix                                                                        |
-| ---------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ERR_PNPM_FETCH_401 Unauthorized`                    | Auth not set up, or token expired — repeat the rds-icons onboarding        |
-| `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/rds-icons` | Project's `.npmrc` is missing `@cuweb:registry=https://npm.pkg.github.com` |
-
-For deeper diagnosis, see the [rds-icons → Troubleshooting](https://github.com/cuweb/rds-icons#troubleshooting).
+| Error                                              | Fix                                                                        |
+| -------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ERR_PNPM_FETCH_401 Unauthorized`                  | Auth not set up, or token expired — regenerate your GitHub Packages token  |
+| `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/raven-*` | Project's `.npmrc` is missing `@cuweb:registry=https://npm.pkg.github.com` |

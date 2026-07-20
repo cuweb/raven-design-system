@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # WordPress integration
 
-Using `@cuweb/raven-design-system` (and `@cuweb/rds-icons`) inside WordPress projects. WordPress integration spans several distinct scenarios — pick the one that matches your project, then read the corresponding deep-dive in [`docs/consumers/wordpress/`](https://github.com/cuweb/raven-design-system/tree/main/docs/consumers/wordpress).
+Using `@cuweb/raven-design-system` inside WordPress projects. WordPress integration spans several distinct scenarios — pick the one that matches your project, then read the corresponding deep-dive in [`docs/consumers/wordpress/`](https://github.com/cuweb/raven-design-system/tree/main/docs/consumers/wordpress).
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ All WordPress projects follow the base [Installation](?path=/docs/overview-getti
 
 ```sh
 echo "@cuweb:registry=https://npm.pkg.github.com" >> .npmrc
-pnpm add @cuweb/raven-design-system @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system
 ```
 
 ## Pick your scenario
@@ -38,10 +38,10 @@ Block themes, hybrid themes, and Timber are choices about _where_ and _how_ the 
 
 ## FA Pro compliance reminder
 
-The `rds-icons` package ships raw SVG files alongside the generated React components. When PHP code reads from `node_modules/@cuweb/rds-icons/src/svg/`, the web server **must not** expose `node_modules/` publicly. Test with `curl` before shipping:
+`@cuweb/raven-design-system` ships raw SVG files in `dist/icons/svg/`. When PHP code reads from `node_modules/@cuweb/raven-design-system/dist/icons/svg/`, the web server **must not** expose `node_modules/` publicly. Test with `curl` before shipping:
 
 ```sh
-curl -I https://your-site.com/wp-content/themes/your-theme/node_modules/@cuweb/rds-icons/src/svg/circle-check.svg
+curl -I https://your-site.com/wp-content/themes/your-theme/node_modules/@cuweb/raven-design-system/dist/icons/svg/circle-check.svg
 ```
 
 A `200 OK` is **not safe** — see the [hybrid-themes.md compliance section](https://github.com/cuweb/raven-design-system/blob/main/docs/consumers/wordpress/hybrid-themes.md#compliance-dont-serve-node_modules-publicly) for the fix.

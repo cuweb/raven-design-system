@@ -1,5 +1,5 @@
 import { Icon } from '../Icon/Icon';
-import type { IconName } from '@cuweb/rds-icons';
+import type { IconName } from '../../icons';
 
 export interface ListingIconThumbProps {
     icon: IconName;

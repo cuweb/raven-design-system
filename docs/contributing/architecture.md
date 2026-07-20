@@ -2,72 +2,46 @@
 
 How RDS 2.0 is put together — the moving parts you'll touch when contributing.
 
-## Two-package model
+## Package structure
 
 ```
-@cuweb/rds-icons    (private, GitHub Packages — Carleton org only)
-    ↑ peerDependency
-@cuweb/raven-design-system      (this repo)
+@cuweb/raven-design-system      (this repo, private GitHub Packages)
     ↑ dependency
 Consumer project
 ```
 
-Two packages, released independently. `raven-design-system` declares a version range for `rds-icons` in `peerDependencies`; consumers install both. See [maintenance/releasing.md](../maintenance/releasing.md) for the release flow that spans both repos.
+`raven-design-system` is a single private package published to GitHub Packages. Consumers install it with a GitHub Packages token scoped to the `cuweb` org.
 
-## Two-package icon model
+## Icon pipeline
 
-### Why two packages
+Font Awesome Pro's [license](https://fontawesome.com/license) prohibits distributing Pro Icons in public packages. When `raven-design-system` was a public package, icons lived in a separate private companion package (`@cuweb/rds-icons`) published to GitHub Packages — the auth gate enforced compliance. RDS is now private as well, so both packages live in the same private boundary.
 
-Font Awesome Pro's [license](https://fontawesome.com/license) prohibits:
+Icons are maintained directly in this repository:
 
-1. Distributing standalone copies of Pro Icons to non-Creators
-2. Giving non-Creators permission to embed Pro Icons in their own projects
-
-Carleton's FA Pro Organization license covers Carleton developers as "Creators," but **not** the general public who might `npm install` a public package.
-
-If FA Pro SVGs were baked into `raven-design-system` and published publicly, anyone could install it and get the Pro Icons — a license violation. Same for serving the SVGs from a public CDN.
-
-### The split
-
-`raven-design-system` ships public, but contains **no Pro Icon data**. The icon data lives in a private companion package (`rds-icons`) published to GitHub Packages, which requires Carleton authentication to install. The GitHub Packages auth gate is what enforces license compliance — anyone can install `raven-design-system`, but the `<Icon>` component won't resolve without `rds-icons` present at install time.
+- **SVG source files** — `src/icons/svg/` (214 FA Pro SVGs, committed)
+- **Generate script** — `scripts/generate-icons.mjs` (reads SVGs, writes React components)
+- **Generated output** — `src/icons/generated/` and `src/icons/iconList.ts` (gitignored, rebuilt on every build and dev start)
+- **Barrel export** — `src/icons/index.ts` (re-exports `iconMap`, `IconName`, `iconList`, `IconListEntry`)
 
 ```
-┌─────────────────────────────┐        ┌─────────────────────────────┐
-│       @cuweb/raven-design-system        │        │      @cuweb/rds-icons       │
-│          (PUBLIC)           │        │          (PRIVATE)          │
-│                             │        │                             │
-│ - Icon component            │ ◂──────│ - iconMap                   │
-│ - IconProps                 │  peer  │ - IconName union            │
-│ - Button w/ icon prop       │   dep  │ - CircleCheckIcon, etc.     │
-│ - Stories                   │        │ - iconList (Gutenberg)      │
-│                             │        │ - FA Pro SVG sources        │
-└─────────────────────────────┘        └─────────────────────────────┘
-   Public npm (or GH Packages)            GitHub Packages (private)
+src/icons/
+├── svg/              ← committed FA Pro SVG source files
+├── generated/        ← gitignored, produced by generate-icons.mjs
+│   ├── registry.ts   ← iconMap, IconName, named icon component exports
+│   └── *.tsx         ← one React component per SVG
+├── iconList.ts       ← gitignored, { value, label }[] for Gutenberg selects
+└── index.ts          ← barrel export (committed)
 ```
 
-### Key files in this repo
+Run `pnpm generate:icons` to rebuild the generated files. This runs automatically as the first step of `pnpm build`, `pnpm dev`, and `pnpm typecheck`.
 
-- [`src/components/Icon/Icon.tsx`](../../src/components/Icon/Icon.tsx) — the `<Icon>` component. Imports `iconMap` and `IconName` from the peer package.
-- [`src/components/Icon/Icon.stories.tsx`](../../src/components/Icon/Icon.stories.tsx) — stories demonstrating color approaches and the full icon grid.
+> **If RDS ever goes public again**, the SVGs would need to move back to a separate private package to maintain FA Pro license compliance. See the original architecture rationale in git history.
 
-### Not in this repo (lives in `rds-icons`)
+### Key files
 
-- FA Pro `.svg` source files
-- The icon generator script
-- Generated icon components
-- `iconList` for Gutenberg
-
-### Peer dependency declaration
-
-In [`package.json`](../../package.json):
-
-```json
-"peerDependencies": {
-  "@cuweb/rds-icons": "^0.1.1",
-  "react": "^18.0.0",
-  "react-dom": "^18.0.0"
-}
-```
+- [`src/components/Icon/Icon.tsx`](../../src/components/Icon/Icon.tsx) — the `<Icon>` component; imports `iconMap` and `IconName` from `../../icons`
+- [`src/icons/index.ts`](../../src/icons/index.ts) — internal barrel for all icon exports
+- [`scripts/generate-icons.mjs`](../../scripts/generate-icons.mjs) — SVG → React component generator
 
 ## Token pipeline
 
@@ -105,15 +79,9 @@ stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'];
 
 A11y testing runs through `@storybook/addon-a11y` + `@vitest/browser-playwright`. The `a11y.test: 'error'` parameter in [`.storybook/preview.ts`](../../.storybook/preview.ts) makes axe violations fail the build. See [testing.md](testing.md).
 
-## Local development with rds-icons
-
-When working on raven-design-system itself, you need `rds-icons` checked out locally (it's a private peer dep). The dev convention is `~/Develop/personal/{raven-design-system,rds-icons}` — see [local-setup.md](local-setup.md) for the setup steps.
-
-`rds-icons` points its `main`/`module`/`types`/`exports` at `src/` during local development (no build needed). On publish, `publishConfig` overrides those fields to point at `dist/`. This means changes to `rds-icons/src/` are picked up immediately by raven-design-system's Storybook — re-run `pnpm generate` in rds-icons and reload.
-
 ## Related
 
 - [conventions.md](conventions.md) — component / story / SCSS authoring conventions
 - [testing.md](testing.md) — typecheck, lint, Vitest, a11y
 - [local-setup.md](local-setup.md) — getting your machine ready to contribute
-- [maintenance/releasing.md](../maintenance/releasing.md) — how releases work across both packages
+- [maintenance/releasing.md](../maintenance/releasing.md) — how releases work

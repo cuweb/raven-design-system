@@ -5,7 +5,7 @@
 Icons in a block theme come from three places, each with a different integration:
 
 1. **Custom blocks** rendered by editors → follow [blocks-static.md](blocks-static.md) or [blocks-dynamic.md](blocks-dynamic.md)
-2. **Theme-authored inline SVG** in template parts → copy the SVG markup from `node_modules/@cuweb/rds-icons/src/svg/` directly into the template
+2. **Theme-authored inline SVG** in template parts → copy the SVG markup from `node_modules/@cuweb/raven-design-system/dist/icons/svg/` directly into the template
 3. **Theme block patterns** that need icons → use RDS components through a registered block, or inline SVG
 
 This doc covers the theme-level integration (#2 and #3) and the stylesheet setup.
@@ -24,7 +24,7 @@ In the theme directory:
 
 ```sh
 echo "@cuweb:registry=https://npm.pkg.github.com" >> .npmrc
-pnpm add @cuweb/raven-design-system @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system
 ```
 
 ## Enqueuing the RDS stylesheet
@@ -78,7 +78,7 @@ See `dist/cutheme/integrate.php` in the `raven-design-system` package for a drop
 
 ## Inline SVG in a template part
 
-If you want an icon in `parts/header.html` or similar, inline the SVG. Copy the contents from `node_modules/@cuweb/rds-icons/src/svg/<name>.svg` directly into the template part:
+If you want an icon in `parts/header.html` or similar, inline the SVG. Copy the contents from `node_modules/@cuweb/raven-design-system/dist/icons/svg/<name>.svg` directly into the template part:
 
 ```html
 <!-- parts/header.html -->

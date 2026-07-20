@@ -18,7 +18,7 @@ export { Button } from './components/Button/Button';
 export { ButtonGroup } from './components/ButtonGroup/ButtonGroup';
 export { Icon } from './components/Icon/Icon';
 export type { IconProps } from './components/Icon';
-export type { IconName } from '@cuweb/rds-icons';
+export type { IconName } from './icons';
 
 // Content
 export { Calendar, type CalendarProps, type CalendarEvent } from './components/Calendar/Calendar';

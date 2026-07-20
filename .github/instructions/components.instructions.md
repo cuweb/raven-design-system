@@ -1,5 +1,5 @@
 ---
-applyTo: "src/components/**/*.tsx"
+applyTo: 'src/components/**/*.tsx'
 ---
 
 # Component Conventions
@@ -57,7 +57,7 @@ Use `Object.assign` to attach subcomponents, and set `displayName`:
 
 ```tsx
 export const Column = Object.assign(ColumnWrapper, {
-  Content: ColumnContent,
+    Content: ColumnContent,
 });
 ColumnWrapper.displayName = 'Column';
 ```
@@ -76,22 +76,24 @@ ColumnWrapper.displayName = 'Column';
 
 ## Icons
 
-When a component accepts an icon, type it as `IconName` from `@cuweb/rds-icons` (peer dep):
+When a component accepts an icon, type it as `IconName` from `../../icons`:
 
 ```tsx
 import { Icon } from '../Icon/Icon';
-import type { IconName } from '@cuweb/rds-icons';
+import type { IconName } from '../../icons';
 
 interface ButtonProps {
-  icon?: IconName;
-  // ...
+    icon?: IconName;
+    // ...
 }
 
 // Render
-{icon && <Icon name={icon} size={20} />}
+{
+    icon && <Icon name={icon} size={20} />;
+}
 ```
 
-This gives consumers autocomplete on icon names and catches typos at compile time. Never import SVG files directly — icons only come through the peer dependency.
+This gives consumers autocomplete on icon names and catches typos at compile time. Never import SVG files directly — icons only come through `src/icons/`.
 
 ## Accessibility
 
@@ -108,12 +110,16 @@ Components that render links (e.g., Badge with `href`) should use `useLinkContex
 import { useLinkContext } from '../LinkProvider/useLinkContext';
 
 export const MyComponent = ({ href, ...rest }) => {
-  // eslint-disable-next-line react-hooks/static-components -- stable component from context
-  const LinkComponent = useLinkContext();
-  if (href) {
-    // eslint-disable-next-line react-hooks/static-components -- injected via context
-    return <LinkComponent href={href} {...rest}>...</LinkComponent>;
-  }
-  return <span {...rest}>...</span>;
+    // eslint-disable-next-line react-hooks/static-components -- stable component from context
+    const LinkComponent = useLinkContext();
+    if (href) {
+        // eslint-disable-next-line react-hooks/static-components -- injected via context
+        return (
+            <LinkComponent href={href} {...rest}>
+                ...
+            </LinkComponent>
+        );
+    }
+    return <span {...rest}>...</span>;
 };
 ```

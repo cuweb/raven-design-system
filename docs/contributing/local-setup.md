@@ -6,35 +6,8 @@ How to get a working dev environment for contributing to `@cuweb/raven-design-sy
 
 - **Node 22.14+** — pinned in [`.nvmrc`](../../.nvmrc). Run `nvm use` from the repo root.
 - **pnpm 10.x** — declared in `packageManager` of [`package.json`](../../package.json). Install via `corepack enable` or follow [pnpm's install docs](https://pnpm.io/installation).
-- **`gh` CLI** (recommended) for the GitHub Packages auth step below.
-- Carleton org membership on GitHub (required to install the private `@cuweb/rds-icons` peer dep).
 
-## 1. Authenticate to GitHub Packages
-
-`@cuweb/rds-icons` is a private package on GitHub Packages. Without auth, `pnpm install` fails with `ERR_PNPM_FETCH_401 Unauthorized`.
-
-**With `gh` CLI (easiest):**
-
-```sh
-gh auth refresh --scopes read:packages
-echo "//npm.pkg.github.com/:_authToken=$(gh auth token)" >> ~/.npmrc
-```
-
-That writes a token line to your user-level `~/.npmrc`. Done.
-
-**Manually:**
-
-1. Go to https://github.com/settings/tokens
-2. **Generate new token → Generate new token (classic)**
-3. Name it `cuweb-packages`, pick an expiration, scope: `read:packages` only
-4. Copy the `ghp_...` token
-5. Add to your user-level `~/.npmrc`:
-
-```sh
-echo "//npm.pkg.github.com/:_authToken=ghp_your_token_here" >> ~/.npmrc
-```
-
-## 2. Clone and install
+## 1. Clone and install
 
 ```sh
 git clone git@github.com:cuweb/raven-design-system.git
@@ -43,9 +16,11 @@ nvm use
 pnpm install
 ```
 
-The repo's [`.npmrc`](../../.npmrc) (committed) tells pnpm to look for `@cuweb/*` packages on GitHub Packages — it pairs with your `~/.npmrc` token.
+All devDependencies come from the public npm registry. No GitHub Packages authentication is required for contributors.
 
-## 3. Install Playwright browsers
+> **Note for consumers:** If you are installing `@cuweb/raven-design-system` as a dependency in your own project, you will need a GitHub Packages token since RDS is published privately. See the [README](../../README.md) for consumer setup instructions.
+
+## 2. Install Playwright browsers
 
 `pnpm test:storybook` runs stories in headless Playwright. The npm package installs the runner, but the browser binaries are downloaded separately:
 
@@ -57,42 +32,28 @@ This is a one-time step per machine. If you skip it, `pnpm test:storybook` will 
 
 If you need cross-browser coverage (not typical for this project), run `pnpm exec playwright install` without arguments to install all browsers.
 
-## 4. Run Storybook
+## 3. Run Storybook
 
 ```sh
 pnpm dev
 ```
 
-Storybook starts at http://localhost:6006. The `dev` script runs `pnpm assets` + `pnpm c2b` first to ensure generated files (asset config + design tokens) are current.
+Storybook starts at http://localhost:6006. The `dev` script runs `assets` + `c2b` first to ensure generated files (asset config + design tokens) are current.
 
-## Optional: clone rds-icons locally
+## Adding or updating icons
 
-For most contribution work you don't need this — `pnpm install` pulls the published `rds-icons` package. Clone the companion repo only if you need to **change icons** as part of your work, or test unreleased icon changes.
+Icon SVG source files live in `src/icons/svg/`. After adding or modifying an SVG, regenerate the icon components:
 
 ```sh
-cd ~/Develop/personal           # or wherever you keep repos
-git clone git@github.com:cuweb/rds-icons.git
-cd rds-icons
-pnpm install
-pnpm generate                   # regenerate components from SVGs
+pnpm generate:icons
 ```
 
-To use the local checkout in raven-design-system, switch the dep in [`package.json`](../../package.json) from a version range to a `file:` link:
-
-```jsonc
-"devDependencies": {
-  "@cuweb/rds-icons": "file:../../rds-icons"
-}
-```
-
-Then `pnpm install` in raven-design-system to pick up the symlink. **Don't commit the `file:` change** — switch back to the version range before opening a PR.
-
-`rds-icons` points its `main`/`module`/`types`/`exports` at `src/` during local dev (no build step needed). Re-run `pnpm generate` in rds-icons after editing SVGs and reload Storybook to see changes.
+This rebuilds `src/icons/generated/` and `src/icons/iconList.ts` from the SVG files. Commit both the SVG and the regenerated files together. This is the same pattern as `pnpm c2b` for design tokens — run it when the source changes, commit the output.
 
 ## Verify your setup
 
 ```sh
-pnpm typecheck      # tsc --noEmit
+pnpm typecheck      # generate icons + tsc --noEmit
 pnpm lint           # ESLint over src/
 pnpm test           # Vitest run
 pnpm test:storybook # Vitest + a11y axe checks across all stories (Node 22+ required)
@@ -111,16 +72,13 @@ If a hook fails, fix the underlying issue rather than skipping with `--no-verify
 
 ## Troubleshooting
 
-| Error                                                                   | Fix                                                                                                   |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `ERR_PNPM_FETCH_401 Unauthorized`                                       | Step 1 wasn't completed, or the token expired. Regenerate.                                            |
-| `ERR_PNPM_FETCH_404 Not Found` on `@cuweb/rds-icons`                    | Project's `.npmrc` is missing the scope config — restore `@cuweb:registry=https://npm.pkg.github.com` |
-| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 3)                                                  |
-| `pnpm test:storybook` hangs or fails on Node < 22                       | Install Node 22.14 (`nvm install 22.14.0 && nvm use`)                                                 |
-| `pnpm c2b` errors about missing `c2b.config.json`                       | You're not in the repo root, or the file was deleted — restore from git                               |
-
-For deeper authentication issues, see the [rds-icons README → Troubleshooting](https://github.com/cuweb/rds-icons#troubleshooting).
+| Error                                                                   | Fix                                                                                              |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 2)                                             |
+| `pnpm test:storybook` hangs or fails on Node < 22                       | Install Node 22.14 (`nvm install 22.14.0 && nvm use`)                                            |
+| `pnpm c2b` errors about missing `c2b.config.json`                       | You're not in the repo root, or the file was deleted — restore from git                          |
+| TypeScript errors about missing icon types                              | Run `pnpm generate:icons` — this should only happen if generated files were accidentally deleted |
 
 ## When to rotate tokens
 
-When your PAT expires (based on the expiration you picked in step 1), regenerate and replace the line in `~/.npmrc`. When you leave the team, revoke the token at https://github.com/settings/tokens.
+If you are a consumer with a GitHub Packages token, rotate it at https://github.com/settings/tokens when it expires or when you leave the team.

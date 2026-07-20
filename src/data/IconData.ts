@@ -1,4 +1,4 @@
-import type { IconName } from '@cuweb/rds-icons';
+import type { IconName } from '../icons';
 
 export interface IconDataItem {
     id: number;

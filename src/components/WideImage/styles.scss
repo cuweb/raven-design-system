@@ -9,26 +9,29 @@
     border-radius: var(--rds--radius-xl);
     text-align: center;
     background-size: cover;
+    box-sizing: border-box;
+    padding: var(--rds--spacing-large);
 
     &--light {
         background-color: var(--rds--color-grey-pale);
-        padding-block: var(--rds--spacing-x-large);
     }
 
     &--dark {
         background-color: var(--rds--color-black);
-        padding-block: var(--rds--spacing-x-large);
     }
 
     &--image {
-        padding-block: var(--rds--spacing-2-x-large);
+        padding-top: var(--rds--spacing-2-x-large);
+        padding-bottom: var(--rds--spacing-2-x-large);
 
         @media (min-width: $rds-media-query-md) {
-            padding-block: calc(var(--rds--spacing-2-x-large) * 1.25);
+            padding-top: calc(var(--rds--spacing-2-x-large) * 1.25);
+            padding-bottom: calc(var(--rds--spacing-2-x-large) * 1.25);
         }
 
         @media (min-width: $rds-media-query-lg) {
-            padding-block: calc(var(--rds--spacing-2-x-large) * 1.5);
+            padding-top: calc(var(--rds--spacing-2-x-large) * 1.5);
+            padding-bottom: calc(var(--rds--spacing-2-x-large) * 1.5);
         }
 
         &::before {
@@ -47,7 +50,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 var(--rds--spacing-x-large);
+        // padding: 0 var(--rds--spacing-x-large);
 
         > * + * {
             margin-top: var(--rds--spacing-large);

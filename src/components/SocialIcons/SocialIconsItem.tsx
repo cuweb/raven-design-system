@@ -1,4 +1,4 @@
-import type { IconName } from '@cuweb/rds-icons';
+import type { IconName } from '../../icons';
 import { useLinkContext } from '../LinkProvider/useLinkContext';
 import { Icon } from '../Icon/Icon';
 import { useSocialIconsContext } from './SocialIconsContext';

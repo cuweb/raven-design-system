@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*.stories.tsx"
+applyTo: '**/*.stories.tsx'
 ---
 
 # Storybook Story Conventions
@@ -11,17 +11,17 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Component } from './Component';
 
 const meta: Meta<typeof Component> = {
-  title: 'Components/Category/Component',
-  component: Component,
-  tags: ['autodocs'],
-  argTypes: {
-    // Define controls for enum/union props
-  },
-  parameters: {
-    controls: {
-      sort: 'requiredFirst',
+    title: 'Components/Category/Component',
+    component: Component,
+    tags: ['autodocs'],
+    argTypes: {
+        // Define controls for enum/union props
     },
-  },
+    parameters: {
+        controls: {
+            sort: 'requiredFirst',
+        },
+    },
 };
 
 export default meta;
@@ -42,10 +42,10 @@ Use inline `args` inside the story object. Do not use the `Primary.args = {...}`
 ```tsx
 // Correct
 export const Primary: Story = {
-  args: {
-    text: 'Badge',
-    color: 'green',
-  },
+    args: {
+        text: 'Badge',
+        color: 'green',
+    },
 };
 
 // Wrong
@@ -83,16 +83,16 @@ argTypes: {
 ```tsx
 // Correct — expression body
 render: (args) => (
-  <Section>
-    <Component {...args} />
-  </Section>
-)
+    <Section>
+        <Component {...args} />
+    </Section>
+);
 
 // Wrong — block body
 render: (args) => {
-  const computed = args.foo ?? 'default';
-  return <Component {...args} computed={computed} />;
-}
+    const computed = args.foo ?? 'default';
+    return <Component {...args} computed={computed} />;
+};
 ```
 
 If you need derived values, compute them inline in the JSX (conditional expressions, ternaries) or hoist them outside the render function.
@@ -105,18 +105,18 @@ Use meta-level `decorators` when a component requires a layout wrapper (e.g., `M
 
 ```tsx
 const meta: Meta<typeof Component> = {
-  // ...
-  decorators: [
-    (Story) => (
-      <Main>
-        <Story />
-      </Main>
-    ),
-  ],
-  parameters: {
-    layout: 'fullscreen',
-    controls: { sort: 'requiredFirst' },
-  },
+    // ...
+    decorators: [
+        (Story) => (
+            <Main>
+                <Story />
+            </Main>
+        ),
+    ],
+    parameters: {
+        layout: 'fullscreen',
+        controls: { sort: 'requiredFirst' },
+    },
 };
 ```
 
@@ -133,10 +133,10 @@ Use helpers from `src/data/storyContent.tsx` instead of inlining lorem ipsum:
 import { MultiParagraph, SingleParagraph, SampleList } from '../../data/storyContent';
 
 render: () => (
-  <Section>
-    <MultiParagraph count={2} />
-  </Section>
-)
+    <Section>
+        <MultiParagraph count={2} />
+    </Section>
+);
 ```
 
 ## Accessibility
@@ -175,7 +175,7 @@ The `!test` tag skips the story in `pnpm test:storybook` while keeping it visibl
 For stories that demonstrate multiple icons or colors:
 
 ```tsx
-import { iconList, type IconName } from '@cuweb/rds-icons';
+import { iconList, type IconName } from '../../icons';
 ```
 
 Don't hardcode icon names in arrays — use `iconList` for grid/select demos. Use `IconName` type when passing to `<Icon name={...} />` from a dynamic source.

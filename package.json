@@ -49,8 +49,9 @@
         "dist"
     ],
     "scripts": {
-        "dev": "npm run assets && npm run c2b && storybook dev -p 6006",
-        "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-cleanup.mjs",
+        "start": "npm run assets && npm run c2b && storybook dev -p 6006",
+        "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-copy-svgs.mjs && node scripts/build-cleanup.mjs",
+        "generate:icons": "node scripts/generate-icons.mjs",
         "build-storybook": "npm run assets && storybook build",
         "assets": "node scripts/build-assets.mjs",
         "c2b": "c2b generate",
@@ -91,14 +92,8 @@
         }
     ],
     "peerDependencies": {
-        "@cuweb/rds-icons": "^0.1.8",
         "react": "^18.0.0 || ^19.0.0",
         "react-dom": "^18.0.0 || ^19.0.0"
-    },
-    "peerDependenciesMeta": {
-        "@cuweb/rds-icons": {
-            "optional": true
-        }
     },
     "keywords": [
         "react",
@@ -112,7 +107,6 @@
     "packageManager": "pnpm@11.13.0",
     "devDependencies": {
         "@chromatic-com/storybook": "^5.2.1",
-        "@cuweb/rds-icons": "^0.1.8",
         "@eslint/js": "^10.0.1",
         "@size-limit/file": "^12.1.0",
         "@storybook/addon-a11y": "^10.5.2",

@@ -13,7 +13,7 @@ Canonical per-file rules live in `.github/instructions/`. When this file and an 
 
 ## Project overview
 
-**@cuweb/raven-design-system** — Carleton University's React component library. Paired with `@cuweb/rds-icons` (private peer dep) for Font Awesome Pro icons.
+**@cuweb/raven-design-system** — Carleton University's React component library. Font Awesome Pro icons are bundled internally in `src/icons/`.
 
 - **Build:** Vite library mode (ESM + CJS), TypeScript 6, pnpm
 - **Runtime:** React 18, SCSS + CSS custom properties (no Tailwind)
@@ -211,7 +211,7 @@ Mobile-first: default styles target mobile; `min-width` queries enhance upward.
 
 ## Icons
 
-Icons come exclusively from `@cuweb/rds-icons` (private peer dep). **Never add `.svg` files to this repo.**
+Icon SVGs live in `src/icons/svg/`. React components are generated into `src/icons/generated/` (gitignored) by `scripts/generate-icons.mjs`. Run `pnpm generate:icons` after adding or changing SVGs.
 
 ```tsx
 // Central component — preferred
@@ -219,13 +219,15 @@ import { Icon } from '../Icon/Icon';
 <Icon name="circle-check" size={24} />;
 
 // Typed icon prop on a component
-import type { IconName } from '@cuweb/rds-icons';
+import type { IconName } from '../../icons';
 interface FooProps {
     icon?: IconName;
 }
 ```
 
-For story grid/select demos, use `iconList` from `@cuweb/rds-icons` — don't hardcode icon name arrays.
+For story grid/select demos, use `iconList` from `../../icons` — don't hardcode icon name arrays.
+
+SVG files only go in `src/icons/svg/`. FA Pro licensing requires icons stay in this private repo.
 
 ---
 
@@ -268,7 +270,8 @@ Prefixes: `_Added_`, `_Changed_`, `_Fixed_`, `_Removed_`, `_Deprecated_`, `_Brea
 ## Key gotchas
 
 - **Node 22.14 specifically** — `eslint-visitor-keys` (transitive dep) requires 22.13+; earlier minors fail on install
-- **No SVGs in this repo** — FA Pro license requires icons stay in `@cuweb/rds-icons`
+- **SVGs only in `src/icons/svg/`** — FA Pro license requires icons stay in this private repo; never place SVG files elsewhere
+- **Generated icon files are committed** — run `pnpm generate:icons` after adding/changing SVGs and commit the output alongside the SVG (same pattern as `pnpm c2b`)
 - **Storybook source transform** — expression-bodied render functions only; block bodies break the docs code panel
 - **CSS vars in media queries** — won't work; use SCSS variables from `_variables.scss`
 - **TS 6 side-effect imports** — `declare module '*.scss';` (no body) in `src/scss.d.ts`

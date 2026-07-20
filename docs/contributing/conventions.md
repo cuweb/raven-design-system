@@ -2,12 +2,12 @@
 
 This is a human-readable overview. The **canonical** rules — the ones GitHub Copilot enforces per file — live in [`.github/instructions/`](../../.github/instructions/). When this doc and a `.instructions.md` file disagree, the `.instructions.md` file wins.
 
-| Scope | Canonical file |
-|---|---|
-| Project-wide | [`.github/copilot-instructions.md`](../../.github/copilot-instructions.md) |
+| Scope                     | Canonical file                                                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Project-wide              | [`.github/copilot-instructions.md`](../../.github/copilot-instructions.md)                                 |
 | `src/components/**/*.tsx` | [`.github/instructions/components.instructions.md`](../../.github/instructions/components.instructions.md) |
-| `**/*.stories.tsx` | [`.github/instructions/stories.instructions.md`](../../.github/instructions/stories.instructions.md) |
-| `**/*.scss` | [`.github/instructions/styles.instructions.md`](../../.github/instructions/styles.instructions.md) |
+| `**/*.stories.tsx`        | [`.github/instructions/stories.instructions.md`](../../.github/instructions/stories.instructions.md)       |
+| `**/*.scss`               | [`.github/instructions/styles.instructions.md`](../../.github/instructions/styles.instructions.md)         |
 
 ## File layout
 
@@ -40,19 +40,19 @@ src/components/Foo/
 ## Story patterns
 
 - **Title taxonomy** — see [`docs/structure.md`](../structure.md) for the full component inventory and rationale. The prefix for each category:
-  - `Components/Elements/*` — atomic primitives (Badge, Button, Icon, …)
-  - `Components/Content/*` — content display patterns (Card, Quote, Table, …)
-  - `Components/Media/*` — image/video-heavy and promotional (FullBanner, ImageGrid, …)
-  - `Components/Navigation/*` — wayfinding (Nav, PageHeader, Footer, Pagination, …)
-  - `Components/Forms/*` — data entry and filtering (Form, Input, Select, FilterPanel, …)
-  - `Components/Feedback/*` — overlays, loading states, errors (Alert, Modal, Loaders, …)
-  - `Components/Layout/*` — structural wrappers (Section, Column, StackedList, …)
-  - `Components/Template Parts/*` — WordPress template part wrappers (Article, Aside, Body, Main)
-  - `Components/Utilities/*` — behavioral / non-visual (LinkProvider, CookieBanner, …)
+    - `Components/Elements/*` — atomic primitives (Badge, Button, Icon, …)
+    - `Components/Content/*` — content display patterns (Card, Quote, Table, …)
+    - `Components/Media/*` — image/video-heavy and promotional (FullBanner, ImageGrid, …)
+    - `Components/Navigation/*` — wayfinding (Nav, PageHeader, Footer, Pagination, …)
+    - `Components/Forms/*` — data entry and filtering (Form, Input, Select, FilterPanel, …)
+    - `Components/Feedback/*` — overlays, loading states, errors (Alert, Modal, Loaders, …)
+    - `Components/Layout/*` — structural wrappers (Section, Column, StackedList, …)
+    - `Components/Template Parts/*` — WordPress template part wrappers (Article, Aside, Body, Main)
+    - `Components/Utilities/*` — behavioral / non-visual (LinkProvider, CookieBanner, …)
 - Always `tags: ['autodocs']` and `parameters.controls.sort: 'requiredFirst'`
 - Define `argTypes` for union-type props so Storybook renders a dropdown:
-  - `'inline-radio'` for 2–4 options
-  - `'select'` for larger sets
+    - `'inline-radio'` for 2–4 options
+    - `'select'` for larger sets
 - Use **expression-bodied** render functions only — `.storybook/preview.ts` source transform unwraps `{ render: (args) => <Foo {...args} /> }` into clean code in the docs panel. Block bodies break the transform.
 - For shared content, use helpers from [`src/data/storyContent.tsx`](../../src/data/storyContent.tsx): `<SingleParagraph />`, `<MultiParagraph count={n} />`, `<SampleList />`. Don't inline lorem ipsum.
 
@@ -66,15 +66,15 @@ src/components/Foo/
 
 ## Icons
 
-- Type the icon name with `IconName` from `@cuweb/rds-icons` (peer dep) so consumers get autocomplete:
-  ```tsx
-  import type { IconName } from '@cuweb/rds-icons';
-  interface FooProps {
-    icon?: IconName;
-  }
-  ```
+- Type the icon name with `IconName` from `../../icons` so consumers get autocomplete:
+    ```tsx
+    import type { IconName } from '../../icons';
+    interface FooProps {
+        icon?: IconName;
+    }
+    ```
 - Render via the central component: `<Icon name={icon} size={20} />`
-- Never add `.svg` files to this repo — FA Pro license requires icons stay in `@cuweb/rds-icons`. See [architecture.md → Two-package icon model](architecture.md#two-package-icon-model).
+- SVG files only go in `src/icons/svg/` — FA Pro license requires icons stay in this private repo. See [architecture.md → Icon pipeline](architecture.md#icon-pipeline).
 
 ## Accessibility
 

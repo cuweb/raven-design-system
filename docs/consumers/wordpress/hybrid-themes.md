@@ -4,11 +4,11 @@
 
 The block side follows [blocks-static.md](blocks-static.md) and [blocks-dynamic.md](blocks-dynamic.md) — same patterns as a pure block theme or plugin.
 
-The PHP side needs a `cuweb_icon()` helper that reads SVG files from the shipped `@cuweb/rds-icons` package at render time. That's what this doc is about.
+The PHP side needs a `cuweb_icon()` helper that reads SVG files from the published `@cuweb/raven-design-system` package at render time. That's what this doc is about.
 
 ## The PHP helper pattern
 
-The rds-icons package ships raw SVG source files alongside the React components. Its `package.json` declares `"files": ["dist", "src"]`, which means the published npm package contains `src/svg/*.svg` — so PHP can read them directly from `node_modules/`.
+`@cuweb/raven-design-system` ships raw SVG source files alongside the compiled components. Its build step copies SVGs to `dist/icons/svg/`, so PHP can read them directly from `node_modules/`.
 
 ### Install
 
@@ -16,7 +16,7 @@ In your theme directory:
 
 ```sh
 echo "@cuweb:registry=https://npm.pkg.github.com" >> .npmrc
-pnpm add @cuweb/raven-design-system @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system
 ```
 
 ### The helper function
@@ -26,7 +26,7 @@ Drop this in `functions.php` (or an mu-plugin if you prefer):
 ```php
 <?php
 /**
- * Render an inline SVG icon from @cuweb/rds-icons.
+ * Render an inline SVG icon from @cuweb/raven-design-system.
  *
  * @param string $name  Icon name (e.g. 'circle-check'). See iconList for all names.
  * @param int    $size  Width and height in pixels. Defaults to 24.
@@ -44,7 +44,7 @@ function cuweb_icon(string $name, int $size = 24, array $attrs = []): string {
     if (isset($cache[$name])) {
         $svg = $cache[$name];
     } else {
-        $path = get_theme_file_path('/node_modules/@cuweb/rds-icons/src/svg/' . $name . '.svg');
+        $path = get_theme_file_path('/node_modules/@cuweb/raven-design-system/dist/icons/svg/' . $name . '.svg');
         if (!file_exists($path)) {
             return '';
         }
@@ -101,7 +101,7 @@ function cuweb_icon(string $name, int $size = 24, array $attrs = []): string {
 <?php echo cuweb_icon('circle-check', 24, ['class' => 'cu-hero__icon']); ?>
 ```
 
-The `echo` is safe — the SVG source comes from a trusted package (rds-icons), not from user input. The helper sanitizes the `name` argument with a regex allow-list before using it as a filename.
+The `echo` is safe — the SVG source comes from a trusted package, not from user input. The helper sanitizes the `name` argument with a regex allow-list before using it as a filename.
 
 ### Example in a template
 
@@ -121,12 +121,12 @@ The `echo` is safe — the SVG source comes from a trusted package (rds-icons), 
 
 ## Compliance: don't serve `node_modules/` publicly
 
-The helper reads from `/node_modules/@cuweb/rds-icons/src/svg/` — a path inside your theme. By default, your web server **may or may not** serve that path to the public. If it does, anyone can `curl` the SVGs, which violates FA Pro licensing.
+The helper reads from `/node_modules/@cuweb/raven-design-system/dist/icons/svg/` — a path inside your theme. By default, your web server **may or may not** serve that path to the public. If it does, anyone can `curl` the SVGs, which violates FA Pro licensing.
 
 **Verify before production:**
 
 ```sh
-curl -I https://your-site.com/wp-content/themes/your-theme/node_modules/@cuweb/rds-icons/src/svg/circle-check.svg
+curl -I https://your-site.com/wp-content/themes/your-theme/node_modules/@cuweb/raven-design-system/dist/icons/svg/circle-check.svg
 ```
 
 - `200 OK` with SVG body → **not safe, fix this**
@@ -140,7 +140,7 @@ curl -I https://your-site.com/wp-content/themes/your-theme/node_modules/@cuweb/r
 // package.json
 {
     "scripts": {
-        "build:icons": "mkdir -p assets/icons && cp -R node_modules/@cuweb/rds-icons/src/svg/*.svg assets/icons/",
+        "build:icons": "mkdir -p assets/icons && cp -R node_modules/@cuweb/raven-design-system/dist/icons/svg/*.svg assets/icons/",
         "build": "pnpm build:icons && wp-scripts build"
     }
 }
@@ -209,7 +209,7 @@ If the same page has both a PHP template (header.php) using `cuweb_icon()` and G
 
 ### Version sync
 
-Your helper reads SVGs from `node_modules/` — if you update `@cuweb/rds-icons` to a new version, the SVGs reflect automatically on the next deploy. No manual asset version bumps.
+Your helper reads SVGs from `node_modules/` — if you update `@cuweb/raven-design-system` to a new version, the SVGs reflect automatically on the next deploy. No manual asset version bumps.
 
 ### Accessibility
 

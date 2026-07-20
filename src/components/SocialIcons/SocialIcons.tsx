@@ -10,7 +10,7 @@ export interface SocialIconsProps {
     iconColor?: SocialIconsColor;
 }
 
-const SocialIconsWrapper = ({ children, prefix, iconColor = 'black' }: SocialIconsProps) => {
+const SocialIconsWrapper = ({ children, prefix, iconColor = 'brand' }: SocialIconsProps) => {
     const colorClass = iconColor ? `cu-social--${iconColor}` : undefined;
 
     return (

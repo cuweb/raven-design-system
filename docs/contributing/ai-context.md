@@ -10,12 +10,9 @@ Copilot Chat in VS Code / JetBrains gets this context automatically via [`.githu
 
 ```text
 You are working on @cuweb/raven-design-system — Carleton University's React component
-library and design system. Two packages are involved:
+library and design system. This is a single private package.
 
-- @cuweb/raven-design-system (this repo, public): components + tokens + styles
-  Location: ~/Develop/personal/raven-design-system
-- @cuweb/rds-icons (peer dep, private GitHub Packages): FA Pro icon
-  components. Location: ~/Develop/personal/rds-icons
+  Location: ~/Develop/raven-design-system
 
 Consumed by: Next.js apps, WordPress block plugins, block themes, hybrid
 themes, Timber/Twig.
@@ -27,22 +24,25 @@ Tech stack:
 - Storybook 10 + Vitest + Playwright; axe a11y at threshold "error"
 - @troychaplin/component2block generates tokens from c2b.config.json
 
+Icons: FA Pro SVGs in src/icons/svg/; generate-icons.mjs builds React
+components into src/icons/generated/ (gitignored, rebuilt on every build).
+
 Conventions are in:
 - .github/copilot-instructions.md (project-wide)
 - .github/instructions/components.instructions.md (src/components/**/*.tsx)
 - .github/instructions/stories.instructions.md (**/*.stories.tsx)
 - .github/instructions/styles.instructions.md (**/*.scss)
 
-Architecture and the two-package icon model:
+Architecture and icon pipeline:
 docs/contributing/architecture.md
 
 Component / story / SCSS conventions overview:
 docs/contributing/conventions.md
 ```
 
-## Why two-package model
+## Icon pipeline
 
-Font Awesome Pro license requires Carleton to keep Pro Icons inside an auth-gated package. See [architecture.md → Two-package icon model](architecture.md#two-package-icon-model) for the full rationale.
+Font Awesome Pro SVGs live in `src/icons/svg/` and React components are generated from them. See [architecture.md → Icon pipeline](architecture.md#icon-pipeline) for details.
 
 ## Where to find things
 
@@ -59,7 +59,8 @@ Font Awesome Pro license requires Carleton to keep Pro Icons inside an auth-gate
 ## Gotchas worth knowing
 
 - **Node 22.14 specifically** — `eslint-visitor-keys` (transitive) requires 22.13+. Earlier minors fail on install.
-- **No SVGs ship from this repo** — FA Pro license requires icons stay in `@cuweb/rds-icons`. Never add `.svg` files here.
+- **SVGs only in `src/icons/svg/`** — FA Pro license requires icons stay in this private repo. Never place SVG files elsewhere or in public storage.
+- **Generated icon files are gitignored** — run `pnpm generate:icons` to rebuild `src/icons/generated/`; `pnpm typecheck` does this automatically.
 - **Storybook source transform** — [`.storybook/preview.ts`](../../.storybook/preview.ts) unwraps `{ render: (args) => ... }` for the docs code panel. Only **expression-bodied** render functions work; block bodies break the transform.
 - **CSS custom properties don't work in `@media`** — for breakpoint values use SCSS variables from `src/styles/auto/_variables.scss` (`$rds-media-query-{sm,md,lg,xl}`).
 - **TS 6 side-effect imports** — `declare module '*.scss';` (no body) in [`src/scss.d.ts`](../../src/scss.d.ts).

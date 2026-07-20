@@ -12,7 +12,7 @@ Same as hybrid themes:
 
 ```sh
 echo "@cuweb:registry=https://npm.pkg.github.com" >> .npmrc
-pnpm add @cuweb/raven-design-system @cuweb/rds-icons
+pnpm add @cuweb/raven-design-system
 ```
 
 Copy the `cuweb_icon()` helper from [hybrid-themes.md](hybrid-themes.md#the-helper-function) into `functions.php` or a theme include.
@@ -42,7 +42,7 @@ add_filter('timber/twig', function (\Twig\Environment $twig) {
 
 A few details:
 
-- **`is_safe => ['html']`** — tells Twig not to escape the return value. The SVG markup is trusted (from rds-icons, sanitized inside the helper), so we want it emitted as-is.
+- **`is_safe => ['html']`** — tells Twig not to escape the return value. The SVG markup is trusted (from the RDS package, sanitized inside the helper), so we want it emitted as-is.
 - **Function vs filter** — using `addFunction` lets you call `{{ icon('name') }}`. If you prefer pipe syntax, register a filter with `addFilter` and call `{{ 'name' | icon }}`.
 - **Multiple args** — Twig passes arguments positionally, so `{{ icon('circle-check', 32) }}` and `{{ icon('circle-check', 32, {'title': 'Check'}) }}` both work.
 
@@ -158,7 +158,7 @@ If you register the function without `'is_safe' => ['html']`, Twig auto-escapes 
 The helper uses `get_theme_file_path()` which assumes the SVGs are inside the theme. If you move them to a plugin (shared helper across themes), adjust the path:
 
 ```php
-$path = plugin_dir_path(__FILE__) . 'node_modules/@cuweb/rds-icons/src/svg/' . $name . '.svg';
+$path = plugin_dir_path(__FILE__) . 'node_modules/@cuweb/raven-design-system/dist/icons/svg/' . $name . '.svg';
 ```
 
 Or pass a configurable base directory.
@@ -173,4 +173,4 @@ Don't do `{{ icon(name) | escape }}` or `{{ icon(name) | e }}` — that double-e
 
 ### Missing icons
 
-If a controller passes an icon name that doesn't exist in rds-icons, the helper returns an empty string. Twig renders nothing — no error. Validate names in the controller if your template relies on an icon being present.
+If a controller passes an icon name that doesn't exist in the icon set, the helper returns an empty string. Twig renders nothing — no error. Validate names in the controller if your template relies on an icon being present.
