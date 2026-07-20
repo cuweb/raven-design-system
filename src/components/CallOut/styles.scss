@@ -6,6 +6,7 @@
     background-color: var(--rds--color-white);
     border: 5px solid var(--rds--color-grey-light);
     border-radius: var(--rds--radius-md);
+    box-sizing: border-box;
 
     .cu-pageheader {
         margin-bottom: var(--rds--spacing-medium);
