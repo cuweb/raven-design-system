@@ -38,7 +38,7 @@ If you need cross-browser coverage (not typical for this project), run `pnpm exe
 pnpm dev
 ```
 
-Storybook starts at http://localhost:6006. The `dev` script runs `generate:icons` + `assets` + `c2b` first to ensure all generated files (icon components, asset config, design tokens) are current.
+Storybook starts at http://localhost:6006. The `dev` script runs `assets` + `c2b` first to ensure generated files (asset config + design tokens) are current.
 
 ## Adding or updating icons
 
@@ -48,7 +48,7 @@ Icon SVG source files live in `src/icons/svg/`. After adding or modifying an SVG
 pnpm generate:icons
 ```
 
-This rebuilds `src/icons/generated/` and `src/icons/iconList.ts` from the SVG files. The generated files are gitignored — they are rebuilt on every `pnpm build` and `pnpm dev`. Never edit files inside `src/icons/generated/` or `src/icons/iconList.ts` by hand.
+This rebuilds `src/icons/generated/` and `src/icons/iconList.ts` from the SVG files. Commit both the SVG and the regenerated files together. This is the same pattern as `pnpm c2b` for design tokens — run it when the source changes, commit the output.
 
 ## Verify your setup
 
@@ -72,12 +72,12 @@ If a hook fails, fix the underlying issue rather than skipping with `--no-verify
 
 ## Troubleshooting
 
-| Error                                                                   | Fix                                                                                                           |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 2)                                                          |
-| `pnpm test:storybook` hangs or fails on Node < 22                       | Install Node 22.14 (`nvm install 22.14.0 && nvm use`)                                                         |
-| `pnpm c2b` errors about missing `c2b.config.json`                       | You're not in the repo root, or the file was deleted — restore from git                                       |
-| TypeScript errors about missing icon types                              | Run `pnpm generate:icons` — the generated files in `src/icons/generated/` are not committed and must be built |
+| Error                                                                   | Fix                                                                                              |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `pnpm test:storybook` — "Executable doesn't exist" / Chromium not found | Run `pnpm exec playwright install chromium` (step 2)                                             |
+| `pnpm test:storybook` hangs or fails on Node < 22                       | Install Node 22.14 (`nvm install 22.14.0 && nvm use`)                                            |
+| `pnpm c2b` errors about missing `c2b.config.json`                       | You're not in the repo root, or the file was deleted — restore from git                          |
+| TypeScript errors about missing icon types                              | Run `pnpm generate:icons` — this should only happen if generated files were accidentally deleted |
 
 ## When to rotate tokens
 

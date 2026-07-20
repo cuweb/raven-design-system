@@ -271,7 +271,7 @@ Prefixes: `_Added_`, `_Changed_`, `_Fixed_`, `_Removed_`, `_Deprecated_`, `_Brea
 
 - **Node 22.14 specifically** — `eslint-visitor-keys` (transitive dep) requires 22.13+; earlier minors fail on install
 - **SVGs only in `src/icons/svg/`** — FA Pro license requires icons stay in this private repo; never place SVG files elsewhere
-- **Generated icon files are gitignored** — run `pnpm generate:icons` (or `pnpm dev`/`pnpm build`) to produce `src/icons/generated/`; `pnpm typecheck` does this automatically
+- **Generated icon files are committed** — run `pnpm generate:icons` after adding/changing SVGs and commit the output alongside the SVG (same pattern as `pnpm c2b`)
 - **Storybook source transform** — expression-bodied render functions only; block bodies break the docs code panel
 - **CSS vars in media queries** — won't work; use SCSS variables from `_variables.scss`
 - **TS 6 side-effect imports** — `declare module '*.scss';` (no body) in `src/scss.d.ts`
