@@ -17,13 +17,23 @@ const kebabToPascal = (name) =>
 const formatLabel = (name) =>
   name.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 
+const stripHtmlComments = (input) => {
+  let previous;
+  let output = input;
+  do {
+    previous = output;
+    output = output.replace(/<!--[\s\S]*?-->/g, '');
+  } while (output !== previous);
+  return output;
+};
+
 const svgAttrsToJsx = (inner) =>
   inner
     .replace(/\s+fill="[^"]*"/g, '')
     .replace(/([a-z]+)-([a-z])/g, (_, a, b) => a + b.toUpperCase());
 
 const parseSvg = (source, name) => {
-  const noComments = source.replace(/<!--[\s\S]*?-->/g, '');
+  const noComments = stripHtmlComments(source);
   const svgMatch = noComments.match(/<svg([^>]*)>([\s\S]*)<\/svg>/);
   if (!svgMatch) throw new Error(`Could not parse ${name}.svg`);
   const attrs = svgMatch[1];
