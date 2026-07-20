@@ -49,8 +49,8 @@
         "dist"
     ],
     "scripts": {
-        "start": "npm run generate:icons && npm run assets && npm run c2b && storybook dev -p 6006",
-        "build": "npm run generate:icons && npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-copy-svgs.mjs && node scripts/build-cleanup.mjs",
+        "start": "npm run assets && npm run c2b && storybook dev -p 6006",
+        "build": "npm run assets && vite build && vite build -c vite.config.components.ts && vite build -c vite.config.vanilla.ts && vite build -c vite.config.vanilla-motion.ts && node scripts/build-components-scss.mjs && node scripts/build-components-dts.mjs && npm run c2b && node scripts/build-inject-fonts.mjs && node scripts/build-copy-svgs.mjs && node scripts/build-cleanup.mjs",
         "generate:icons": "node scripts/generate-icons.mjs",
         "build-storybook": "npm run assets && storybook build",
         "assets": "node scripts/build-assets.mjs",
@@ -63,7 +63,7 @@
         "lint:fix": "eslint src/ --fix",
         "format": "prettier --write 'src/**/*.{ts,tsx,scss}'",
         "format:check": "prettier --check 'src/**/*.{ts,tsx,scss}'",
-        "typecheck": "node scripts/generate-icons.mjs && tsc --noEmit",
+        "typecheck": "tsc --noEmit",
         "size": "size-limit",
         "size:check": "size-limit --limit",
         "prepare": "husky",
