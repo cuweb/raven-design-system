@@ -11,16 +11,21 @@ export interface SingleMarkerInterface {
 }
 
 export interface LocationPickerProps {
+    googleMapsApiKey: string;
     address?: string;
     markerCallback?: (marker: SingleMarkerInterface) => void;
 }
 
-export const LocationPicker = ({ address, markerCallback }: LocationPickerProps) => {
+export const LocationPicker = ({
+    googleMapsApiKey,
+    address,
+    markerCallback,
+}: LocationPickerProps) => {
     const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey,
         libraries,
     });
 

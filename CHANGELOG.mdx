@@ -18,6 +18,7 @@ Prefix the change with one of these keywords:
 ## [Unreleased]
 
 - _Changed_: default heading size for call out component
+- _Changed_: `LocationPicker` now requires a `googleMapsApiKey` prop instead of reading `import.meta.env.VITE_GOOGLE_MAPS_API_KEY` internally. Pass your API key as a prop so it is never baked into the compiled bundle.
 
 ## [0.9.1] - 2026-07-19
 

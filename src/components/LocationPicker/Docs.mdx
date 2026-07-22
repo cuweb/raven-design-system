@@ -29,6 +29,7 @@ import {
 ```tsx
 // Standalone picker (fires callback with resolved coordinates)
 <LocationPicker
+    googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY"
     address="Carleton University"
     markerCallback={({ address, coordinates }) => {
         console.log(address, coordinates.lat, coordinates.lng);
@@ -51,7 +52,7 @@ const handleMarker = useCallback(
   [],
 );
 
-<LocationPicker address={marker.address} markerCallback={handleMarker} />
+<LocationPicker googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY" address={marker.address} markerCallback={handleMarker} />
 <Location
   lat={marker.coordinates.lat.toString()}
   lng={marker.coordinates.lng.toString()}
