@@ -79,16 +79,17 @@
     }
 }
 
+.cu-pageheader + p,
+.cu-pageheader__heading + p {
+    margin-top: var(--rds--spacing-small);
+}
+
 .cu-pageheader__heading {
     font-family: var(--rds--font-family-inter);
     font-weight: var(--rds--font-weight-semibold);
     line-height: var(--rds--line-height-tight);
     color: var(--rds--color-black);
     margin: 0;
-
-    & + p {
-        margin-top: var(--rds--spacing-small);
-    }
 
     &--underline {
         position: relative;

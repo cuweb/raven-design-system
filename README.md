@@ -15,17 +15,46 @@ theme files.
 @cuweb/raven-design-system
 ```
 
+> [!IMPORTANT]
+> **`@cuweb/rds-icons` is a private package — auth required before installing.**
+> This package lists `@cuweb/rds-icons` as a peer dependency. It is hosted on GitHub Packages (not public npm), so any project that installs `@cuweb/raven-design-system` — including in CI — needs a GitHub token with `read:packages` scope, or installation fails with `401 Unauthorized`.
+>
+> **Local setup (one-time per machine):**
+>
+> ```sh
+> gh auth refresh --scopes read:packages
+> echo "//npm.pkg.github.com/:_authToken=$(gh auth token)" >> ~/.npmrc
+> ```
+>
+> Or generate a classic PAT at https://github.com/settings/tokens with `read:packages` scope and add the same `_authToken` line to `~/.npmrc` manually.
+>
+> **CI setup (GitHub Actions in the same `cuweb` org):**
+>
+> ```yaml
+> - uses: actions/setup-node@v4
+>   with:
+>       node-version-file: '.nvmrc'
+>       registry-url: 'https://npm.pkg.github.com'
+>       scope: '@cuweb'
+> - run: npm ci # or: pnpm install --frozen-lockfile
+>   env:
+>       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+> ```
+>
+> The built-in `GITHUB_TOKEN` automatically has `read:packages` access for packages in the same org — no extra secrets needed.
+>
+> **CI setup (external CI — Vercel, Netlify, CircleCI, etc.):**
+> Store a classic PAT as a secret named `NODE_AUTH_TOKEN` and inject it into the install step's environment.
+>
+> See the [rds-icons README → Consuming this package](https://github.com/cuweb/rds-icons#consuming-this-package) for full details and troubleshooting.
+
 ## Quick start
 
 ```bash
 # Requires Node 22+ (see .nvmrc)
 nvm use
 
-# First time on a new machine: authenticate to GitHub Packages
-# @cuweb/rds-icons is a private package — pnpm install fails with 401 without this
-gh auth refresh --scopes read:packages
-echo "//npm.pkg.github.com/:_authToken=$(gh auth token)" >> ~/.npmrc
-
+# Authenticate to GitHub Packages first (see the callout above if you haven't)
 pnpm install
 
 # First time only: download Playwright browser binaries (used by pnpm test:storybook)
@@ -34,7 +63,7 @@ pnpm exec playwright install chromium
 pnpm dev          # Storybook at http://localhost:6006
 ```
 
-For full onboarding details (PAT alternative, troubleshooting) see [docs/contributing/local-setup.md](docs/contributing/local-setup.md).
+For full contributor onboarding (PAT alternative, troubleshooting) see [docs/contributing/local-setup.md](docs/contributing/local-setup.md).
 
 ## Scripts
 

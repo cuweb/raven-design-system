@@ -3,7 +3,7 @@
 .cu-fullbanner {
     position: relative;
     overflow: hidden;
-    border-radius: var(--rds--radius-xl);
+    border-radius: var(--rds--radius-md);
 
     &.alignfull {
         border-radius: 0;
@@ -83,16 +83,6 @@
     margin-left: auto;
     margin-right: auto;
 
-    @media (min-width: $rds-media-query-lg) {
-        &--lg {
-            max-width: var(--rds--layout-content-size);
-        }
-
-        &--xl {
-            max-width: var(--rds--layout-wide-size);
-        }
-    }
-
     &--start {
         justify-content: flex-start;
     }
@@ -107,9 +97,18 @@
 }
 
 .cu-fullbanner__box {
+    max-width: var(--rds--layout-content-size);
     background-color: var(--rds--color-black);
     padding: var(--rds--spacing-large);
     width: 100%;
+
+    &--sm {
+        max-width: var(--rds--layout-small-size);
+    }
+
+    &--md {
+        max-width: var(--rds--layout-content-size);
+    }
 
     > * + * {
         margin-top: var(--rds--spacing-large);
@@ -120,7 +119,6 @@
     }
 
     @media (min-width: $rds-media-query-lg) {
-        max-width: 48rem;
         background-color: color-mix(in srgb, var(--rds--color-black) 80%, transparent);
         border-radius: var(--rds--radius-lg);
     }

@@ -7,8 +7,8 @@ type MaxWidthKeys = keyof typeof maxWidthClasses;
 type JustifyKeys = keyof typeof justifyClasses;
 
 const contentBoxClasses = {
-    lg: 'cu-fullbanner__inner--lg',
-    xl: 'cu-fullbanner__inner--xl',
+    sm: 'cu-fullbanner__box--sm',
+    md: 'cu-fullbanner__box--md',
 } as const;
 
 type ContentBoxKeys = keyof typeof contentBoxClasses;
@@ -41,7 +41,7 @@ const FullBannerWrapper = ({
     focalPointX = 50,
     focalPointY = 50,
     maxWidth = 'alignwide',
-    contentBox = 'xl',
+    contentBox = 'sm',
     justify = 'start',
 }: FullBannerProps) => {
     const rootClasses = ['cu-layout cu-fullbanner', maxWidthClasses[maxWidth]]
@@ -80,13 +80,13 @@ const FullBannerWrapper = ({
             )}
             <div className="cu-fullbanner__wrap">
                 <div
-                    className={`cu-fullbanner__inner ${contentBoxClasses[contentBox]} cu-fullbanner__inner--${justifyClasses[justify]}`}
+                    className={`cu-fullbanner__inner cu-fullbanner__inner--${justifyClasses[justify]}`}
                 >
-                    <div className="cu-fullbanner__box">
+                    <div className={`cu-fullbanner__box ${contentBoxClasses[contentBox]}`}>
                         <PageHeader
                             header={title}
                             as={headerType}
-                            size="md"
+                            size="lg"
                             content={content}
                             isWhite
                             noUnderline

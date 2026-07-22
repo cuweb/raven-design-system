@@ -26,7 +26,7 @@ const meta: Meta<typeof FullBanner> = {
         },
         contentBox: {
             control: 'inline-radio',
-            options: ['lg', 'xl'],
+            options: ['sm', 'md'],
         },
         justify: {
             control: 'inline-radio',
@@ -71,28 +71,41 @@ export const Default: Story = {
         focalPointX: 50,
         focalPointY: 50,
         maxWidth: 'alignwide',
-        contentBox: 'xl',
+        contentBox: 'sm',
         justify: 'start',
     },
 };
 
 export const AlignFull: Story = {
     render: (args) => (
-        <FullBanner {...args}>
-            <ButtonGroup>
-                <Button title="Apply Now" />
-                <Button title="Request Information" color="dark-grey" />
-            </ButtonGroup>
-        </FullBanner>
+        <>
+            <FullBanner
+                {...args}
+                content="A full-bleed banner that spans the entire viewport width with no border radius."
+            >
+                <ButtonGroup>
+                    <Button title="Apply Now" />
+                    <Button title="Request Information" color="dark-grey" />
+                </ButtonGroup>
+            </FullBanner>
+            <FullBanner {...args}>
+                <p>
+                    A full-bleed banner that spans the entire viewport width with no border radius.
+                </p>
+                <ButtonGroup>
+                    <Button title="Apply Now" />
+                    <Button title="Request Information" color="dark-grey" />
+                </ButtonGroup>
+            </FullBanner>
+        </>
     ),
     args: {
         title: 'Full Width Banner',
-        content: 'A full-bleed banner that spans the entire viewport width with no border radius.',
         headerType: 'h1',
         image: 'https://picsum.photos/id/381/1920/840',
         opacity: 65,
         maxWidth: 'alignfull',
-        contentBox: 'xl',
+        contentBox: 'sm',
         justify: 'start',
     },
 };
@@ -117,7 +130,7 @@ export const WithVideo: Story = {
         headerType: 'h1',
         opacity: 60,
         maxWidth: 'alignwide',
-        contentBox: 'xl',
+        contentBox: 'sm',
         justify: 'start',
     },
 };
@@ -139,7 +152,7 @@ export const ContentBoxLg: Story = {
         image: 'https://picsum.photos/id/20/1920/840',
         opacity: 70,
         maxWidth: 'alignwide',
-        contentBox: 'lg',
+        contentBox: 'md',
         justify: 'start',
     },
 };
@@ -160,7 +173,7 @@ export const JustifyCenter: Story = {
         image: 'https://picsum.photos/id/381/1920/840',
         opacity: 70,
         maxWidth: 'alignwide',
-        contentBox: 'xl',
+        contentBox: 'md',
         justify: 'center',
     },
 };
@@ -181,7 +194,7 @@ export const JustifyEnd: Story = {
         image: 'https://picsum.photos/id/20/1920/840',
         opacity: 70,
         maxWidth: 'alignwide',
-        contentBox: 'xl',
+        contentBox: 'md',
         justify: 'end',
     },
 };

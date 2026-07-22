@@ -74,7 +74,7 @@ export const CarletonHomepage: Story = {
                 <FullBanner
                     title="Join a Smart, Caring Community"
                     content="Find your people and your purpose with our new programs and award-winning student support."
-                    contentBox="xl"
+                    contentBox="sm"
                     headerType="h1"
                     justify="start"
                     maxWidth="alignfull"
