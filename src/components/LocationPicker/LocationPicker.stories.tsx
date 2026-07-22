@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { LoadScript } from '@react-google-maps/api';
 import { Main } from '../Main/Main';
 import { Section } from '../Section/Section';
 import { LocationPicker, type SingleMarkerInterface } from './LocationPicker';
@@ -10,6 +11,11 @@ const meta: Meta<typeof LocationPicker> = {
     component: LocationPicker,
     tags: ['!autodocs'],
     decorators: [
+        (Story) => (
+            <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+                <Story />
+            </LoadScript>
+        ),
         (Story) => (
             <Main>
                 <Section>
