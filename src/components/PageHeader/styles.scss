@@ -110,7 +110,7 @@
 
 .cu-pageheader__pre {
     display: block;
-    font-size: var(--rds--font-size-large);
+    font-size: var(--rds--font-size-medium);
     font-weight: var(--rds--font-weight-normal);
     color: var(--rds--color-grey-dark);
     margin-bottom: var(--rds--spacing-x-small);
@@ -130,15 +130,6 @@
     font-weight: var(--rds--font-weight-light);
     color: var(--rds--color-grey);
     margin-left: var(--rds--spacing-x-small);
-}
-
-.cu-pageheader__content {
-    font-family: var(--rds--font-family-inter);
-    line-height: var(--rds--line-height-normal);
-    color: var(--rds--color-grey-dark);
-    max-width: 65ch;
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 .cu-pageheader__meta {

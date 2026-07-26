@@ -80,6 +80,7 @@
 
 .cu-fullbanner__inner {
     display: flex;
+    max-width: var(--rds--layout-wide-size);
     margin-left: auto;
     margin-right: auto;
 
@@ -93,22 +94,14 @@
 
     &--center {
         justify-content: center;
+        text-align: center;
     }
 }
 
 .cu-fullbanner__box {
-    max-width: var(--rds--layout-content-size);
     background-color: var(--rds--color-black);
     padding: var(--rds--spacing-large);
     width: 100%;
-
-    &--sm {
-        max-width: var(--rds--layout-small-size);
-    }
-
-    &--md {
-        max-width: var(--rds--layout-content-size);
-    }
 
     > * + * {
         margin-top: var(--rds--spacing-large);
@@ -119,7 +112,15 @@
     }
 
     @media (min-width: $rds-media-query-lg) {
-        background-color: color-mix(in srgb, var(--rds--color-black) 80%, transparent);
+        background-color: color-mix(in srgb, var(--rds--color-black) 90%, transparent);
         border-radius: var(--rds--radius-lg);
+
+        &--sm {
+            max-width: var(--rds--layout-small-size);
+        }
+
+        &--md {
+            max-width: var(--rds--layout-content-size);
+        }
     }
 }

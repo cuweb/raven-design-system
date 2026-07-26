@@ -58,7 +58,7 @@ export const PageHeader = ({
                 {postHeader && <span className="cu-pageheader__post">{postHeader}</span>}
             </As>
             {metaData && <div className="cu-pageheader__meta">{metaData}</div>}
-            {truncatedContent && <p className="cu-pageheader__content">{truncatedContent}</p>}
+            {truncatedContent && <p>{truncatedContent}</p>}
             {children}
         </header>
     );

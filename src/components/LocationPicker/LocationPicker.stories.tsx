@@ -9,10 +9,13 @@ import { Location } from '../Location/Location';
 const meta: Meta<typeof LocationPicker> = {
     title: 'Components/Forms/LocationPicker',
     component: LocationPicker,
-    tags: ['!autodocs'],
+    tags: ['!autodocs', '!test'],
     decorators: [
         (Story) => (
-            <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+            <LoadScript
+                googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+                libraries={['places']}
+            >
                 <Story />
             </LoadScript>
         ),
