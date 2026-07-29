@@ -27,6 +27,11 @@
         background-image: var(--rds--gradient-white-to-pale-grey);
     }
 
+    &__foot {
+        border-top: 1px solid var(--rds--color-grey-light);
+        background-image: var(--rds--gradient-white-to-pale-grey);
+    }
+
     &__header-cell {
         padding: var(--rds--spacing-x-small);
         text-align: left;

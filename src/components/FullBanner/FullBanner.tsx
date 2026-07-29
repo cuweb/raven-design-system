@@ -86,7 +86,7 @@ const FullBannerWrapper = ({
                         <PageHeader
                             header={title}
                             as={headerType}
-                            size="lg"
+                            size={headerType === 'h1' ? 'primary' : 'lg'}
                             content={content}
                             isWhite
                             noUnderline

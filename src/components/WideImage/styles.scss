@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: var(--rds--radius-xl);
+    border-radius: var(--rds--radius-md);
     background-size: cover;
     padding-block: var(--rds--spacing-2-x-large);
 
@@ -37,7 +37,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-color: var(--cu-wideimage-overlay, rgba(0, 0, 0, 0.7));
+            background-color: rgba(0, 0, 0, var(--cu-wideimage-overlay, 0.7));
             z-index: 1;
         }
     }
