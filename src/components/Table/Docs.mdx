@@ -42,6 +42,12 @@ With striped rows and row headers:
 <Table columns={columns} data={data} hasStripes enableRowHeader />
 ```
 
+With a footer row repeating the column headers:
+
+```tsx
+<Table columns={columns} data={data} hasFooter />
+```
+
 With fixed column widths using `colgroup` (percentages must sum to 100):
 
 ```tsx
@@ -81,6 +87,12 @@ Column `header` values accept any `React.ReactNode`, allowing checkboxes or othe
 
 <Canvas of={TableStories.ReactNodeInHeader} />
 
+### With footer
+
+Use `hasFooter` to render a `<tfoot>` that repeats the column header labels below the data rows.
+
+<Canvas of={TableStories.WithFooter} />
+
 ## CSS classes
 
 | Class                             | Condition                                                       |
@@ -89,7 +101,8 @@ Column `header` values accept any `React.ReactNode`, allowing checkboxes or othe
 | `cu-table__table`                 | Always — the `<table>` element                                  |
 | `cu-table__table--fixed`          | When `colgroup` is provided — switches to `table-layout: fixed` |
 | `cu-table__head`                  | Always — the `<thead>` element                                  |
-| `cu-table__header-cell`           | Always — each `<th scope="col">` in the header row              |
+| `cu-table__foot`                  | When `hasFooter` is `true` — the `<tfoot>` element              |
+| `cu-table__header-cell`           | Always — each `<th scope="col">` in the header and footer rows  |
 | `cu-table__header-cell--sortable` | When `column.sort.sortable` is `true`                           |
 | `cu-table__header-cell--no-wrap`  | When `noWordBreak` is `true`                                    |
 | `cu-table__header-cell-inner`     | When column is sortable — flex wrapper for label + sort button  |

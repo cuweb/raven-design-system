@@ -170,3 +170,11 @@ export const ReactNodeInHeader: Story = {
         enableRowHeader: true,
     },
 };
+
+export const WithFooter: Story = {
+    args: {
+        data: tableData,
+        columns,
+        hasFooter: true,
+    },
+};

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useSortableTable } from '../../hooks/useSortableTable';
+import TableFooter from './TableFooter';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 import { maxWidthClasses } from '../../utils/propClasses';
@@ -20,6 +21,7 @@ export interface TableProps {
     columns: ColumnDefinitionType[];
     colgroup?: number[];
     hasStripes?: boolean;
+    hasFooter?: boolean;
     noWordBreak?: boolean;
     enableRowHeader?: boolean;
     maxWidth?: MaxWidthKeys;
@@ -30,6 +32,7 @@ export const Table = ({
     columns,
     colgroup,
     hasStripes = false,
+    hasFooter = false,
     noWordBreak = false,
     enableRowHeader = false,
     maxWidth = 'aligncontent',
@@ -71,6 +74,7 @@ export const Table = ({
                     striped={hasStripes}
                     enableRowHeader={enableRowHeader}
                 />
+                {hasFooter && <TableFooter columns={columns} noWordBreak={noWordBreak} />}
             </table>
         </div>
     );
