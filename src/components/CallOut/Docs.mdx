@@ -41,3 +41,42 @@ Expands to the wide layout breakpoint (1280px). Use inside a matching `Section m
 Full-width. Use inside a matching `Section maxWidth="alignfull"`.
 
 <Canvas of={CallOutStories.MaxWidthFull} />
+
+## Props
+
+| Prop       | Type                                                   | Default        | Description                                              |
+| ---------- | ------------------------------------------------------ | -------------- | -------------------------------------------------------- |
+| `children` | `ReactNode`                                            | —              | Body content — typically a paragraph and a `ButtonGroup` |
+| `title`    | `string`                                               | —              | Heading text rendered via `PageHeader`                   |
+| `as`       | `h2 \| h3`                                             | `h2`           | HTML heading element for the title                       |
+| `justify`  | `start \| center \| end`                               | `center`       | Horizontal alignment of the heading, text, and buttons   |
+| `maxWidth` | `alignsmall \| aligncontent \| alignwide \| alignfull` | `aligncontent` | Max-width constraint applied to the root element         |
+
+## CSS classes
+
+| Class                | When applied                                                        |
+| -------------------- | ------------------------------------------------------------------- |
+| `cu-callout`         | Always — root block; white background, grey border, rounded corners |
+| `cu-callout--start`  | `justify="start"` — left-aligned text and buttons                   |
+| `cu-callout--center` | `justify="center"` — center-aligned text and buttons (default)      |
+| `cu-callout--end`    | `justify="end"` — right-aligned text and buttons                    |
+| `aligncontent`       | `maxWidth="aligncontent"` — constrained content-width layout        |
+| `alignwide`          | `maxWidth="alignwide"` — wide layout (1280px)                       |
+| `alignfull`          | `maxWidth="alignfull"` — full-width layout                          |
+
+## Design tokens
+
+| Token                     | Used for                  |
+| ------------------------- | ------------------------- |
+| `--rds--color-white`      | Card background color     |
+| `--rds--color-grey-light` | Border color              |
+| `--rds--radius-md`        | Border radius             |
+| `--rds--spacing-large`    | Vertical padding          |
+| `--rds--spacing-x-large`  | Horizontal padding        |
+| `--rds--spacing-medium`   | Spacing below the heading |
+
+## Accessibility
+
+- Use `as="h3"` when `CallOut` appears inside a section that already has an `h2` heading, to maintain a correct document outline.
+- The `title` prop is rendered as a semantic heading element — do not use it for decorative or non-heading text.
+- Buttons inside the component should have descriptive labels. Avoid generic text like "Click here" or "Learn more" without visible context.
