@@ -55,7 +55,7 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 | Figure       | done            | Yes          | Yes            | No               |
 | Listing      | done            | No           | No             | No               |
 | Location     | done            | No           | No             | No               |
-| Quote        | done            | No           | No             | No               |
+| Quote        | done            | Yes          | Yes            | No               |
 | Table        | done            | No           | No             | No               |
 | Testimonial  | done            | No           | No             | No               |
 | Text & Image | done            | No           | No             | No               |
