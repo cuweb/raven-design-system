@@ -3,7 +3,7 @@
 ## Creating a Diff.md file
 
 Prompt used: `Using the component diff instructions compare the COMPONENT_NAME blocks and create the Diff.md file`
-Other requirement: added legacy `Quote` component as a folder to the prompt
+Other requirement: added legacy component as a folder to the prompt
 
 ## Review and Update Docs.mds file
 
