@@ -39,7 +39,7 @@ const WideImageWrapper = ({
             ? {
                   backgroundImage: `url(${image})`,
                   backgroundPosition: `${focalPointX}% ${focalPointY}%`,
-                  ['--cu-wideimage-overlay' as string]: `rgba(0, 0, 0, ${opacity / 100})`,
+                  ['--cu-wideimage-overlay' as string]: `${opacity / 100}`,
               }
             : {};
 
@@ -49,7 +49,7 @@ const WideImageWrapper = ({
                 <PageHeader
                     header={title}
                     as={headerType}
-                    size={headerType === 'h1' ? 'lg' : 'md'}
+                    size={headerType === 'h1' ? 'primary' : 'xl'}
                     content={content}
                     isWhite={isType !== 'light'}
                     isCenter
