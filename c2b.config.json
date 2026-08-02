@@ -8,7 +8,7 @@
         "fontsDir": "public/fonts",
         "themeable": false,
         "emitScssAlongside": true,
-        "emitAggregate": true,
+        "emitAggregate": false,
         "scssVars": ["mediaQuery", "spacing"]
     },
 
