@@ -7,6 +7,7 @@ import { CookieBanner } from '../../components/CookieBanner';
 import { PageHeader } from '../../components/PageHeader';
 import { Column } from '../../components/Column';
 import { Card } from '../../components/Card';
+import { Testimonial } from '../../components/Testimonial';
 import { largeNavData } from '../../data/NavigationData';
 import { MultiParagraph } from '../../data/storyContent';
 
@@ -69,6 +70,26 @@ export const SectionsGroups: Story = {
                 </Section>
 
                 <MultiParagraph count={2} />
+
+                <Testimonial
+                    cite="Jane Doe"
+                    focalPointX={50}
+                    focalPointY={50}
+                    imageUrl="https://picsum.photos/id/342/600/400"
+                    imageZoom={0}
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    reverse={false}
+                />
+
+                <Testimonial
+                    cite="Jane Doe"
+                    focalPointX={50}
+                    focalPointY={50}
+                    imageUrl="https://picsum.photos/id/342/600/400"
+                    imageZoom={0}
+                    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut porta magna. Fusce id viverra mi. Etiam mollis feugiat nisl, sit amet tempor ante scelerisque vitae."
+                    reverse={false}
+                />
 
                 <Section as="section" bgType="grey">
                     <PageHeader

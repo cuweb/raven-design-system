@@ -5,6 +5,7 @@ import './styles.scss';
 type MaxWidthKeys = keyof typeof maxWidthClasses;
 
 export interface TestimonialProps {
+    children?: React.ReactNode;
     quote: string;
     cite?: string;
     imageUrl: string;
@@ -16,6 +17,7 @@ export interface TestimonialProps {
 }
 
 export const Testimonial = ({
+    children,
     quote,
     cite,
     imageUrl,
@@ -43,9 +45,7 @@ export const Testimonial = ({
         <div className={rootClasses}>
             <div className="cu-testimonial__image" style={imageStyles} aria-hidden="true" />
             <div className="cu-testimonial__content">
-                <Quote cite={cite}>
-                    <p>{quote}</p>
-                </Quote>
+                <Quote cite={cite}>{!children ? <p>{quote}</p> : <>{children}</>}</Quote>
             </div>
         </div>
     );
