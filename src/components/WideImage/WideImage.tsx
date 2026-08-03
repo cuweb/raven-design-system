@@ -28,7 +28,7 @@ const WideImageWrapper = ({
     focalPointX = 50,
     focalPointY = 50,
     isType = 'light',
-    maxWidth = 'aligncontent',
+    maxWidth = 'alignwide',
 }: WideImageProps) => {
     const rootClasses = ['cu-wideimage', `cu-wideimage--${isType}`, maxWidthClasses[maxWidth]]
         .filter(Boolean)
