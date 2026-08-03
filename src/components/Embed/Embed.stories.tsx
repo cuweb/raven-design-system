@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Main } from '../Main/Main';
 import { Embed } from './Embed';
-import { EmbedHubSpot } from './EmbedHubSpot';
 
 const meta: Meta<typeof Embed> = {
     title: 'Components/Media & Banners/Embed',
@@ -102,12 +101,6 @@ export const Audioboom: Story = {
                 url="https://audioboom.com/posts/7959102"
             />
         </Embed>
-    ),
-};
-
-export const HubSpot: Story = {
-    render: () => (
-        <EmbedHubSpot formId="b1c387fa-370c-4de8-a2a3-3f731340db45" portalId="342644269" />
     ),
 };
 
