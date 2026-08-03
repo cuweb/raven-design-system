@@ -61,6 +61,6 @@ Font Awesome Pro license requires Carleton to keep Pro Icons inside an auth-gate
 - **Node 22.14 specifically** — `eslint-visitor-keys` (transitive) requires 22.13+. Earlier minors fail on install.
 - **No SVGs ship from this repo** — FA Pro license requires icons stay in `@cuweb/rds-icons`. Never add `.svg` files here.
 - **Storybook source transform** — [`.storybook/preview.ts`](../../.storybook/preview.ts) unwraps `{ render: (args) => ... }` for the docs code panel. Only **expression-bodied** render functions work; block bodies break the transform.
-- **CSS custom properties don't work in `@media`** — for breakpoint values use SCSS variables from `src/styles/auto/_variables.scss` (`$rds-media-query-{sm,md,lg,xl}`).
+- **CSS custom properties don't work in `@media`** — for breakpoint values use SCSS variables from `src/styles/files/_variables.scss` (`$rds-media-query-{sm,md,lg,xl}`).
 - **TS 6 side-effect imports** — `declare module '*.scss';` (no body) in [`src/scss.d.ts`](../../src/scss.d.ts).
 - **`.npmrc` split** — project `.npmrc` has only `@cuweb:registry=...`; the auth `_authToken` lives in user-level `~/.npmrc`.

@@ -13,13 +13,13 @@ Consumed by: Next.js apps, WordPress block plugins, block themes, hybrid themes,
 - SCSS + CSS custom properties (no Tailwind)
 - Storybook 10 with `@storybook/react-vite`
 - Vitest + Playwright (a11y tests via axe — failures block CI)
-- `@troychaplin/component2block` generates tokens from `c2b.config.json` → `src/styles/auto/tokens.css` + `_variables.scss`
+- `@troychaplin/component2block` generates tokens from `c2b.config.json` → `src/styles/files/tokens.css` + `_variables.scss`
 
 ## Key Conventions
 
 - Class prefix: `cu-` with BEM (e.g. `cu-badge--green`)
 - CSS token prefix: `var(--rds--*)` (e.g. `var(--rds--color-primary)`)
-- SCSS variables (only for `@media` queries, since CSS custom properties don't work in media queries): `@use '../../styles/auto/variables' as *;` then `$rds-media-query-{sm,md,lg,xl}` for breakpoints
+- SCSS variables (only for `@media` queries, since CSS custom properties don't work in media queries): `@use '../../styles/files/variables' as *;` then `$rds-media-query-{sm,md,lg,xl}` for breakpoints
 - Components exported from `src/index.ts`; new components also added to `vite.config.components.ts` `componentNames` array
 - Component styles: `styles.scss` imported directly in the component TSX file
 - Shared prop-to-class mappings: `src/utils/propClasses.tsx`

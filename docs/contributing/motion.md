@@ -4,13 +4,13 @@ A small, accessibility-first motion layer. CSS does the animation; JS only flips
 
 ## Pieces
 
-| Piece                               | Where                                                                                                                                                                        |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Motion tokens (durations + easings) | [`src/styles/base/_motion.scss`](../../src/styles/base/_motion.scss) — hand-authored on `:root`. Slated to move into `c2b.config.json` once the tool grows a motion section. |
-| `useReducedMotion()` hook           | [`src/utils/motion/useReducedMotion.ts`](../../src/utils/motion/useReducedMotion.ts)                                                                                         |
-| `useScrollReveal()` hook            | [`src/utils/motion/useScrollReveal.ts`](../../src/utils/motion/useScrollReveal.ts)                                                                                           |
-| Vanilla `cu-motion` runtime         | [`src/utils/motion/vanilla.ts`](../../src/utils/motion/vanilla.ts) → builds to `dist/vanilla-js/cuMotion.{js,mjs}`                                                           |
-| Per-component reveal CSS            | e.g. [`src/components/Card/styles-reveal.scss`](../../src/components/Card/styles-reveal.scss)                                                                                |
+| Piece                               | Where                                                                                                                                                                          |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Motion tokens (durations + easings) | [`src/styles/files/_motion.scss`](../../src/styles/files/_motion.scss) — hand-authored on `:root`. Slated to move into `c2b.config.json` once the tool grows a motion section. |
+| `useReducedMotion()` hook           | [`src/utils/motion/useReducedMotion.ts`](../../src/utils/motion/useReducedMotion.ts)                                                                                           |
+| `useScrollReveal()` hook            | [`src/utils/motion/useScrollReveal.ts`](../../src/utils/motion/useScrollReveal.ts)                                                                                             |
+| Vanilla `cu-motion` runtime         | [`src/utils/motion/vanilla.ts`](../../src/utils/motion/vanilla.ts) → builds to `dist/vanilla-js/cuMotion.{js,mjs}`                                                             |
+| Per-component reveal CSS            | e.g. [`src/components/Card/styles-reveal.scss`](../../src/components/Card/styles-reveal.scss)                                                                                  |
 
 ## Tokens
 
@@ -26,7 +26,7 @@ A small, accessibility-first motion layer. CSS does the animation; JS only flips
 --rds--ease-accelerate: cubic-bezier(0.3, 0, 1, 1); // exits
 ```
 
-Component CSS reads them via `var(--rds--duration-base)` etc. To add a new value: edit [`_motion.scss`](../../src/styles/base/_motion.scss). When c2b adds a motion section, the file moves into `src/styles/auto/` and is generated from `c2b.config.json` like every other token category.
+Component CSS reads them via `var(--rds--duration-base)` etc. To add a new value: edit [`_motion.scss`](../../src/styles/files/_motion.scss). When c2b adds a motion section, the file moves into `src/styles/files/` and is generated from `c2b.config.json` like every other token category.
 
 ## React usage
 
@@ -128,4 +128,4 @@ Three layers honour `prefers-reduced-motion: reduce`:
 2. **`useScrollReveal`** — forces `isVisible: true` from first render, never attaches an `IntersectionObserver`.
 3. **`cuMotion.js`** — reveals every `[data-cu-reveal]` immediately, never attaches an observer.
 
-[`_globals.scss`](../../src/styles/base/_globals.scss) also flips `scroll-behavior` from `smooth` to `auto` so anchor-link jumps don't animate either.
+[`_globals.scss`](../../src/styles/files/_globals.scss) also flips `scroll-behavior` from `smooth` to `auto` so anchor-link jumps don't animate either.

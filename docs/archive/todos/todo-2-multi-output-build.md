@@ -9,20 +9,20 @@ The published package needs to serve two very different consumer
 shapes:
 
 1. **Modern frameworks (Next.js, Vite apps, etc.)**
-   - Want tree-shakable JS and a single global stylesheet import.
-   - `import { Button } from '@cuweb/rds2'`
-   - `import '@cuweb/rds2/styles'`
+    - Want tree-shakable JS and a single global stylesheet import.
+    - `import { Button } from '@cuweb/rds2'`
+    - `import '@cuweb/rds2/styles'`
 
 2. **WordPress block plugins and block themes**
-   - Want **global class names** (no CSS-module hashes) so they can be
-     used in block render callbacks, theme.json, and server-side markup.
-   - Need to import just one component's CSS from a block's
-     `editor.scss`:
-     ```scss
-     @import '@cuweb/rds2/components/Button/style.css';
-     ```
-   - Accept that CSS will be duplicated across blocks that use the same
-     component — that's an explicit trade-off, not a bug.
+    - Want **global class names** (no CSS-module hashes) so they can be
+      used in block render callbacks, theme.json, and server-side markup.
+    - Need to import just one component's CSS from a block's
+      `editor.scss`:
+        ```scss
+        @import '@cuweb/rds2/components/Button/style.css';
+        ```
+    - Accept that CSS will be duplicated across blocks that use the same
+      component — that's an explicit trade-off, not a bug.
 
 ## Target `dist/` shape
 
@@ -52,23 +52,23 @@ dist/
 
 ```jsonc
 {
-  "name": "@cuweb/rds2",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+    "name": "@cuweb/rds2",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs",
+        },
+        "./styles": "./dist/style.css",
+        "./tokens": "./dist/tokens.css",
+        "./globals": "./dist/globals.css",
+        "./components/Button": {
+            "types": "./dist/components/Button/index.d.ts",
+            "import": "./dist/components/Button/index.mjs",
+            "require": "./dist/components/Button/index.cjs",
+        },
+        "./components/Button/style.css": "./dist/components/Button/style.css",
     },
-    "./styles": "./dist/style.css",
-    "./tokens": "./dist/tokens.css",
-    "./globals": "./dist/globals.css",
-    "./components/Button": {
-      "types": "./dist/components/Button/index.d.ts",
-      "import": "./dist/components/Button/index.mjs",
-      "require": "./dist/components/Button/index.cjs"
-    },
-    "./components/Button/style.css": "./dist/components/Button/style.css"
-  }
 }
 ```
 
@@ -80,53 +80,58 @@ to avoid drift as components are added.
 ## Changes
 
 ### `package.json`
+
 - Replace `exports` block with the target map above.
 - Keep `files: ["dist"]`.
 - Leave `size-limit` targets; revisit after first build to verify new
   file layout.
 
 ### `vite.config.ts`
+
 - Switch from single `entry: 'src/index.ts'` to an entry map:
-  ```ts
-  build: {
-    lib: {
-      entry: {
-        index: 'src/index.ts',
-        'components/Button/index': 'src/components/Button/index.ts',
-        'styles/tokens': 'src/entries/tokens.ts',
-        'styles/globals': 'src/entries/globals.ts',
+    ```ts
+    build: {
+      lib: {
+        entry: {
+          index: 'src/index.ts',
+          'components/Button/index': 'src/components/Button/index.ts',
+          'styles/tokens': 'src/entries/tokens.ts',
+          'styles/globals': 'src/entries/globals.ts',
+        },
+        formats: ['es', 'cjs'],
+        fileName: (format, name) =>
+          `${name}.${format === 'es' ? 'mjs' : 'cjs'}`,
+        cssFileName: 'style',
       },
-      formats: ['es', 'cjs'],
-      fileName: (format, name) =>
-        `${name}.${format === 'es' ? 'mjs' : 'cjs'}`,
-      cssFileName: 'style',
+      cssCodeSplit: true,
+      rollupOptions: {
+        external: ['react', 'react-dom', 'react/jsx-runtime'],
+      },
     },
-    cssCodeSplit: true,
-    rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
-    },
-  },
-  ```
+    ```
 
 ### New CSS-only entry wrappers
-- `src/entries/tokens.ts` — only imports `../styles/auto/tokens.css`
+
+- `src/entries/tokens.ts` — only imports `../styles/files/tokens.css`
 - `src/entries/globals.ts` — only imports a new
   `../styles/globals-only.scss` file that `@use`s `modern-normalize`,
-  `base/globals`, and `auto/base-styles` (no tokens, no components)
+  `base/globals`, and `base/base-styles` (no tokens, no components)
 
 ### New SCSS composition file
+
 - `src/styles/globals-only.scss` — normalize + base + base-styles,
   no tokens. Rationale: `tokens.css` is its own entry, so `globals.css`
   should not duplicate the custom properties.
 
 ### Post-build cleanup (if needed)
+
 - The `tokens` and `globals` entries will produce zero-content JS files
   alongside their CSS. Either:
-  1. Leave them (tiny, harmless), or
-  2. Add a post-build script to delete
-     `dist/styles/tokens.{mjs,cjs}` and `dist/styles/globals.{mjs,cjs}`
-     so consumers only see the CSS files.
-  Choose based on what testing reveals.
+    1. Leave them (tiny, harmless), or
+    2. Add a post-build script to delete
+       `dist/styles/tokens.{mjs,cjs}` and `dist/styles/globals.{mjs,cjs}`
+       so consumers only see the CSS files.
+       Choose based on what testing reveals.
 
 ## Build-pipeline risks
 
@@ -198,9 +203,9 @@ block):
 
 - [ ] Confirm the following import in a block's `editor.scss` is a
       valid syntactic path:
-      ```scss
-      @import '@cuweb/rds2/components/Button/style.css';
-      ```
+      `scss
+@import '@cuweb/rds2/components/Button/style.css';
+`
 - [ ] Document in TODO 4 where to place this import in a block's
       `src/editor.scss` and `src/style.scss`.
 

@@ -1,1 +1,1 @@
-export { rdsTokens } from '../../styles/auto/rds-tokens';
+export { rdsTokens } from '../../styles/files/rds-tokens';

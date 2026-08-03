@@ -23,8 +23,8 @@ execSync(
 // The generated tokens source lives in src/styles/auto as JS plus a sibling
 // .d.ts file. tsc does not copy that declaration into outDir, so stage it
 // manually for rollup-plugin-dts to resolve src/components/tokens/index.d.ts.
-const tokensDeclSource = resolve(root, 'src/styles/auto/tokens.d.ts');
-const tokensDeclDest = resolve(tempDir, 'src/styles/auto/tokens.d.ts');
+const tokensDeclSource = resolve(root, 'src/styles/files/rds-tokens.d.ts');
+const tokensDeclDest = resolve(tempDir, 'src/styles/files/rds-tokens.d.ts');
 if (existsSync(tokensDeclSource)) {
   mkdirSync(dirname(tokensDeclDest), { recursive: true });
   copyFileSync(tokensDeclSource, tokensDeclDest);
