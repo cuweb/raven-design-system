@@ -6,8 +6,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 const configPath = resolve(root, 'src/config/assets.json');
 const tsOutPath = resolve(root, 'src/config/assets.ts');
-const scssOutPath = resolve(root, 'src/styles/auto/_assets.scss');
-const scssDevOutPath = resolve(root, 'src/styles/auto/_assets-dev.scss');
+const scssOutPath = resolve(root, 'src/styles/files/_assets.scss');
+const scssDevOutPath = resolve(root, 'src/styles/files/_assets-dev.scss');
 
 const kebabToCamel = (s) => s.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
 
@@ -67,5 +67,5 @@ await mkdir(dirname(scssDevOutPath), { recursive: true });
 await writeFile(scssDevOutPath, scssDevLines.join('\n'));
 
 console.log(`  ✓ src/config/assets.ts (${entries.length} keys)`);
-console.log(`  ✓ src/styles/auto/_assets.scss`);
-console.log(`  ✓ src/styles/auto/_assets-dev.scss`);
+console.log(`  ✓ src/styles/files/_assets.scss`);
+console.log(`  ✓ src/styles/files/_assets-dev.scss`);

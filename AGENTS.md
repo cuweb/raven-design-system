@@ -18,7 +18,7 @@ Canonical per-file rules live in `.github/instructions/`. When this file and an 
 - **Build:** Vite library mode (ESM + CJS), TypeScript 6, pnpm
 - **Runtime:** React 18, SCSS + CSS custom properties (no Tailwind)
 - **Testing:** Storybook 10 + Vitest + Playwright; axe a11y at `"error"` threshold
-- **Tokens:** `@troychaplin/component2block` generates `src/styles/auto/tokens.css` + `_variables.scss` from `c2b.config.json` — **never edit these files by hand**
+- **Tokens:** `@troychaplin/component2block` generates `src/styles/files//tokens.css` + `_variables.scss` from `c2b.config.json` — **never edit these files by hand**
 
 ---
 
@@ -194,11 +194,11 @@ The `!test` tag skips the story in `pnpm test:storybook` but keeps it visible in
 
 ## SCSS
 
-- All visual values from `--rds--*` tokens — see `src/styles/auto/tokens.css`
+- All visual values from `--rds--*` tokens — see `src/styles/files//tokens.css`
 - Breakpoints via SCSS variables (CSS custom properties don't work in `@media`):
 
 ```scss
-@use '../../styles/auto/variables' as *;
+@use '../../styles/files/variables' as *;
 
 @media (min-width: $rds-media-query-md) { ... }
 ```

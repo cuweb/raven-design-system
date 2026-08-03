@@ -1,27 +1,25 @@
 import type { Preview } from '@storybook/react-vite';
 import '../src/styles/main.scss';
 // Dev-only: override --rds--asset-* to point at public/_assets served by Vite at /_assets
-import '../src/styles/auto/_assets-dev.scss';
+import '../src/styles/files/_assets-dev.scss';
 
 const unwrapRender = (code: string): string => {
-if (!code) return code;
-const match = code.match(
-    /^\s*\{[\s\S]*?render:\s*\(?[\w,\s]*\)?\s*=>\s*([\s\S]+?)\s*,?\s*\}\s*$/,
-);
-if (!match) return code;
-let inner = match[1].trim();
-if (inner.startsWith('(') && inner.endsWith(')')) {
-    inner = inner.slice(1, -1).trim();
-}
-const lines = inner.split('\n');
-const indents = lines
-    .filter((l) => l.trim())
-    .map((l) => l.match(/^ */)?.[0].length ?? 0);
-const minIndent = indents.length ? Math.min(...indents) : 0;
-return lines
-    .map((l) => l.slice(minIndent))
-    .join('\n')
-    .trim();
+    if (!code) return code;
+    const match = code.match(
+        /^\s*\{[\s\S]*?render:\s*\(?[\w,\s]*\)?\s*=>\s*([\s\S]+?)\s*,?\s*\}\s*$/,
+    );
+    if (!match) return code;
+    let inner = match[1].trim();
+    if (inner.startsWith('(') && inner.endsWith(')')) {
+        inner = inner.slice(1, -1).trim();
+    }
+    const lines = inner.split('\n');
+    const indents = lines.filter((l) => l.trim()).map((l) => l.match(/^ */)?.[0].length ?? 0);
+    const minIndent = indents.length ? Math.min(...indents) : 0;
+    return lines
+        .map((l) => l.slice(minIndent))
+        .join('\n')
+        .trim();
 };
 
 const preview: Preview = {
@@ -47,19 +45,35 @@ const preview: Preview = {
         options: {
             storySort: {
                 order: [
-                'Overview',
-                [
-                    'About RDS',
-                    'Changelog',
-                    'Getting Started',
+                    'Overview',
+                    [
+                        'About RDS',
+                        'Changelog',
+                        'Getting Started',
                         ['Overview', 'Installation', 'Next.js', 'WordPress', 'Accessibility'],
-                    'Stylebook',
-                    'Templates',
-                        ['Carleton Homepage', 'cutheme', 'Events Calendar', 'FutureFunder', 'Prototype Tests'],
-                ],
-                'Components',
-                    ['Elements', 'Content', 'Media & Banners', 'Navigation', 'Forms', 'Feedback', 'Layout', 'Template Parts', 'Utilities'],
-                '*',
+                        'Stylebook',
+                        'Templates',
+                        [
+                            'Carleton Homepage',
+                            'cutheme',
+                            'Events Calendar',
+                            'FutureFunder',
+                            'Prototype Tests',
+                        ],
+                    ],
+                    'Components',
+                    [
+                        'Elements',
+                        'Content',
+                        'Media & Banners',
+                        'Navigation',
+                        'Forms',
+                        'Feedback',
+                        'Layout',
+                        'Template Parts',
+                        'Utilities',
+                    ],
+                    '*',
                 ],
             },
         },
