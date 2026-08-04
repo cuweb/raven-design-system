@@ -60,29 +60,29 @@ pnpm install
 # First time only: download Playwright browser binaries (used by pnpm test:storybook)
 pnpm exec playwright install chromium
 
-pnpm dev          # Storybook at http://localhost:6006
+pnpm run start         # Storybook at http://localhost:6006
 ```
 
 For full contributor onboarding (PAT alternative, troubleshooting) see [docs/contributing/local-setup.md](docs/contributing/local-setup.md).
 
 ## Scripts
 
-| Command                | Description                                                       |
-| ---------------------- | ----------------------------------------------------------------- |
-| `pnpm dev`             | Run `c2b generate` then start Storybook dev server                |
-| `pnpm build`           | Vite library build + `c2b generate`                               |
-| `pnpm build-storybook` | Build static Storybook for deployment                             |
-| `pnpm c2b`             | Regenerate tokens, base styles, and WP theme files                |
-| `pnpm typecheck`       | TypeScript type checking (no emit)                                |
-| `pnpm lint`            | ESLint across `src/`                                              |
-| `pnpm lint:fix`        | ESLint with auto-fix                                              |
-| `pnpm format`          | Prettier write                                                    |
-| `pnpm format:check`    | Prettier check (no write)                                         |
-| `pnpm test`            | Vitest unit tests                                                 |
-| `pnpm test:watch`      | Vitest in watch mode                                              |
-| `pnpm test:storybook`  | Vitest + axe a11y checks across all stories (requires Playwright) |
-| `pnpm test:coverage`   | Vitest with coverage report                                       |
-| `pnpm size`            | Bundle size check against limits                                  |
+| Command                    | Description                                                       |
+| -------------------------- | ----------------------------------------------------------------- |
+| `pnpm run start`           | Run `c2b generate` then start Storybook dev server                |
+| `pnpm run build`           | Vite library build + `c2b generate`                               |
+| `pnpm run build-storybook` | Build static Storybook for deployment                             |
+| `pnpm run c2b`             | Regenerate tokens, base styles, and WP theme files                |
+| `pnpm run typecheck`       | TypeScript type checking (no emit)                                |
+| `pnpm run lint`            | ESLint across `src/`                                              |
+| `pnpm run lint:fix`        | ESLint with auto-fix                                              |
+| `pnpm run format`          | Prettier write                                                    |
+| `pnpm run format:check`    | Prettier check (no write)                                         |
+| `pnpm run test`            | Vitest unit tests                                                 |
+| `pnpm run test:watch`      | Vitest in watch mode                                              |
+| `pnpm run test:storybook`  | Vitest + axe a11y checks across all stories (requires Playwright) |
+| `pnpm run test:coverage`   | Vitest with coverage report                                       |
+| `pnpm run size`            | Bundle size check against limits                                  |
 
 ## Formatting & code style
 
