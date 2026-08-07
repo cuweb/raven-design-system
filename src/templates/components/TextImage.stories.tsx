@@ -65,7 +65,7 @@ export const TextImageComponent: Story = {
                     bgType="light-gradient"
                     isHero
                 >
-                    <TextImage flexRow="lg" maxWidth="alignwide">
+                    <TextImage maxWidth="alignwide">
                         <TextImage.Content
                             headerType="h1"
                             title="Website and Application Development"
@@ -82,7 +82,7 @@ export const TextImageComponent: Story = {
 
                 <MultiParagraph count={2} />
 
-                <TextImage flexRow="lg">
+                <TextImage>
                     <TextImage.Content
                         imageUrl="https://picsum.photos/400/1200"
                         title="Website and Application Development"
@@ -98,7 +98,7 @@ export const TextImageComponent: Story = {
 
                 <MultiParagraph count={2} />
 
-                <TextImage flexRow="lg" maxWidth="alignwide">
+                <TextImage maxWidth="alignwide">
                     <TextImage.Content
                         imageUrl="https://picsum.photos/800/600"
                         title="Website and Application Development"
@@ -114,7 +114,7 @@ export const TextImageComponent: Story = {
                 <MultiParagraph count={2} />
 
                 <Section as="section" maxWidth="alignwide" bgType="grey">
-                    <TextImage flexRow="lg" maxWidth="alignwide" flipX>
+                    <TextImage maxWidth="alignwide" flipX>
                         <TextImage.Content
                             imageUrl="https://picsum.photos/800/600"
                             title="Website and Application Development"
@@ -126,7 +126,7 @@ export const TextImageComponent: Story = {
 
                 <MultiParagraph count={2} />
 
-                <TextImage flexRow="lg" maxWidth="alignwide">
+                <TextImage maxWidth="alignwide">
                     <TextImage.Content
                         imageUrl="https://picsum.photos/800/600"
                         title="Website and Application Development"
@@ -136,7 +136,7 @@ export const TextImageComponent: Story = {
                 <MultiParagraph count={2} />
 
                 <Section as="section" maxWidth="alignwide" bgType="grey" contentWidth="alignwide">
-                    <TextImage flexRow="lg" maxWidth="alignwide">
+                    <TextImage maxWidth="alignwide">
                         <TextImage.Content
                             imageUrl="https://picsum.photos/800/600"
                             title="Website and Application Development"

@@ -45,7 +45,7 @@ export const TextImageContent = ({
     imageZoom = 0,
     focalPointX = 50,
     focalPointY = 50,
-    showOnMobile,
+    showOnMobile = true,
 }: TextImageContentProps) => {
     const defaultSize = size ?? (headerType === 'h1' ? 'primary' : 'lg');
     const isAspect = imageMode !== 'stretch';

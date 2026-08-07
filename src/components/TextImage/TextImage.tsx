@@ -3,13 +3,9 @@ import { maxWidthClasses } from '../../utils/propClasses';
 import './styles.scss';
 
 type maxWidthKeys = keyof typeof maxWidthClasses;
-
-export type flexRowOptions = 'sm' | 'md' | 'lg';
-
 export interface TextImageProps {
     children: React.ReactNode;
     maxWidth?: maxWidthKeys;
-    flexRow?: flexRowOptions;
     flipX?: boolean;
     flipMobile?: boolean;
 }
@@ -17,14 +13,12 @@ export interface TextImageProps {
 export const TextImageWrapper = ({
     children,
     maxWidth = 'aligncontent',
-    flexRow = 'lg',
     flipX,
     flipMobile,
 }: TextImageProps) => {
     const rootClasses = [
         'cu-textimage',
         maxWidth,
-        `cu-textimage--row-${flexRow}`,
         flipX ? 'cu-textimage--reversed' : undefined,
         flipMobile ? 'cu-textimage--flip-mobile' : undefined,
     ]

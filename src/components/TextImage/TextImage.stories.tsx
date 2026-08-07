@@ -24,10 +24,6 @@ const meta: Meta<typeof TextImage> = {
             control: 'select',
             options: ['alignsmall', 'aligncontent', 'alignwide', 'alignfull'],
         },
-        flexRow: {
-            control: 'inline-radio',
-            options: ['sm', 'md', 'lg'],
-        },
         flipX: {
             control: 'boolean',
         },
@@ -49,7 +45,6 @@ type Story = StoryObj<typeof TextImage>;
 export const Primary: Story = {
     args: {
         maxWidth: 'aligncontent',
-        flexRow: 'lg',
         flipX: false,
         flipMobile: false,
     },
@@ -72,7 +67,6 @@ export const Primary: Story = {
 export const HeaderOne: Story = {
     args: {
         maxWidth: 'alignwide',
-        flexRow: 'lg',
     },
     render: (args) => (
         <TextImage {...args}>
@@ -94,7 +88,6 @@ export const HeaderOne: Story = {
 export const ImageLeft: Story = {
     args: {
         maxWidth: 'alignwide',
-        flexRow: 'lg',
         flipX: true,
     },
     render: (args) => (
@@ -117,7 +110,6 @@ export const ImageLeft: Story = {
 export const AspectRatio: Story = {
     args: {
         maxWidth: 'aligncontent',
-        flexRow: 'lg',
     },
     render: (args) => (
         <TextImage {...args}>
@@ -139,7 +131,6 @@ export const AspectRatio: Story = {
 export const NoUnderline: Story = {
     args: {
         maxWidth: 'aligncontent',
-        flexRow: 'lg',
     },
     render: (args) => (
         <TextImage {...args}>
@@ -161,7 +152,6 @@ export const NoUnderline: Story = {
 export const WithPreHeader: Story = {
     args: {
         maxWidth: 'aligncontent',
-        flexRow: 'lg',
     },
     render: (args) => (
         <TextImage {...args}>
@@ -179,7 +169,6 @@ export const WithPreHeader: Story = {
 export const NoImage: Story = {
     args: {
         maxWidth: 'aligncontent',
-        flexRow: 'lg',
     },
     render: (args) => (
         <TextImage {...args}>
