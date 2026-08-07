@@ -1,0 +1,80 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ButtonLoaderStories from './ButtonLoader.stories';
+
+<Meta of={ButtonLoaderStories} />
+
+# Button Loader
+
+A skeleton loading placeholder that renders one or more subtly pulsing button-shaped blocks, used
+while button content (labels, actions) is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Button` or group of buttons before
+  their content is available
+- Show multiple button skeletons side by side to match an eventual `ButtonGroup`
+- Pair with other `*Loader` components to build a full-page or full-section loading skeleton
+
+## Import
+
+```tsx
+import { ButtonLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Single button skeleton
+<ButtonLoader />
+
+// Multiple button skeletons
+<ButtonLoader count={3} />
+
+// Small button skeletons
+<ButtonLoader count={2} isSmall />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={ButtonLoaderStories.Default} />
+<Controls of={ButtonLoaderStories.Default} />
+
+### Multiple
+
+<Canvas of={ButtonLoaderStories.Multiple} />
+
+### Small
+
+<Canvas of={ButtonLoaderStories.Small} />
+
+## CSS classes
+
+| Class                      | When applied                 |
+| -------------------------- | ---------------------------- |
+| `cu-loader`                | Always — base class          |
+| `cu-loader--button`        | Always — flex wrapper        |
+| `cu-loader__button`        | Each pulsing skeleton button |
+| `cu-loader__button--small` | `isSmall`                    |
+
+## Design tokens
+
+| Token                       | Used for                         |
+| --------------------------- | -------------------------------- |
+| `--rds--color-grey-lighter` | Skeleton button background color |
+| `--rds--radius-md`          | Skeleton button border radius    |
+| `--rds--spacing-small`      | Gap between skeleton buttons     |
+| `--rds--ease-standard`      | Pulse animation easing curve     |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and `aria-label="Loading content"` so assistive technology
+  announces the loading state without needing to read the individual skeleton buttons.
+- Individual skeleton buttons are `aria-hidden="true"` since they are purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper (e.g.
+  `aria-label`) as needed.

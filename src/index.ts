@@ -100,6 +100,7 @@ export { Modal, type ModalProps, type ModalSize } from './components/Modal/Modal
 export { Toast, type ToastProps, type ToasterProps } from './components/Toast/Toast';
 export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/ProgressBar';
 export { BlockLoader, type BlockLoaderProps } from './components/BlockLoader/BlockLoader';
+export { ButtonLoader, type ButtonLoaderProps } from './components/ButtonLoader/ButtonLoader';
 export {
     Status,
     defaultStatusTypes,

@@ -1,0 +1,34 @@
+.cu-loader--button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rds--spacing-small);
+}
+
+.cu-loader__button {
+    width: 11rem;
+    height: 3rem;
+    border-radius: var(--rds--radius-md);
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-button-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+
+    &--small {
+        height: 2.25rem;
+    }
+}
+
+// A gentle, low-amplitude opacity pulse — subtle and slow enough to avoid
+// WCAG 2.3.1 (Three Flashes) concerns, and fully disabled under
+// prefers-reduced-motion per WCAG 2.3.3 (Animation from Interactions).
+@keyframes cu-loader-button-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

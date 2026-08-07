@@ -191,7 +191,7 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 | -------------------- | --------------- | ------------ | -------------- | ---------------- |
 | **Loaders**          | port            | No           | No             | No               |
 | → Block Loader       | done            | No           | No             | No               |
-| → Button Loader      | port            | No           | No             | No               |
+| → Button Loader      | done            | No           | No             | No               |
 | → Calendar Loader    | port            | No           | No             | No               |
 | → Card Loader        | port            | No           | No             | No               |
 | → Description Loader | port            | No           | No             | No               |
