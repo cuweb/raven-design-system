@@ -1,0 +1,79 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Grid wrapper ────────────────────────────────────────────────────────────
+
+.cu-loader--block {
+    display: grid;
+    gap: var(--rds--spacing-small);
+    width: 100%;
+
+    &-two {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    &-three {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    &-four {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (min-width: $rds-media-query-lg) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    &-one-third {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: 33% auto;
+        }
+    }
+
+    &-two-thirds {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: 66% auto;
+        }
+    }
+}
+
+// ─── Skeleton block ──────────────────────────────────────────────────────────
+
+.cu-loader__block {
+    width: 100%;
+    border-radius: var(--rds--radius-md);
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-block-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+// A gentle, low-amplitude opacity pulse — subtle and slow enough to avoid
+// WCAG 2.3.1 (Three Flashes) concerns, and fully disabled under
+// prefers-reduced-motion per WCAG 2.3.3 (Animation from Interactions).
+@keyframes cu-loader-block-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
