@@ -1,0 +1,102 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as BlockLoaderStories from './BlockLoader.stories';
+
+<Meta of={BlockLoaderStories} />
+
+# Block Loader
+
+A skeleton loading placeholder that renders one or more subtly pulsing blocks in a responsive grid,
+used while content (images, cards, media) is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for image, card, or media blocks before their
+  content is available
+- Show a multi-column skeleton grid that matches the eventual content layout (`cols`)
+- Pair with other `*Loader` components to build a full-page or full-section loading skeleton
+
+## Import
+
+```tsx
+import { BlockLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Single block, default height
+<BlockLoader />
+
+// Taller block
+<BlockLoader height={300} />
+
+// Multi-column grid of blocks
+<BlockLoader cols="3" />
+
+// Asymmetric 33/66 split (2 blocks)
+<BlockLoader cols="1/3" height={200} />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={BlockLoaderStories.Default} />
+<Controls of={BlockLoaderStories.Default} />
+
+### Two columns
+
+<Canvas of={BlockLoaderStories.TwoColumns} />
+
+### Three columns
+
+<Canvas of={BlockLoaderStories.ThreeColumns} />
+
+### Four columns
+
+<Canvas of={BlockLoaderStories.FourColumns} />
+
+### Asymmetric split
+
+`cols="1/3"` and `cols="2/3"` render a 2-block grid with a 33/66 width split, matching the layout
+used by `Column` and `ImageGrid`.
+
+<Canvas of={BlockLoaderStories.AsymmetricSplit} />
+
+### Tall block
+
+<Canvas of={BlockLoaderStories.TallBlock} />
+
+## CSS classes
+
+| Class                         | When applied                |
+| ----------------------------- | --------------------------- |
+| `cu-loader`                   | Always — base class         |
+| `cu-loader--block`            | Always — grid wrapper       |
+| `cu-loader--block-two`        | `cols="2"`                  |
+| `cu-loader--block-three`      | `cols="3"`                  |
+| `cu-loader--block-four`       | `cols="4"`                  |
+| `cu-loader--block-one-third`  | `cols="1/3"`                |
+| `cu-loader--block-two-thirds` | `cols="2/3"`                |
+| `cu-loader__block`            | Each pulsing skeleton block |
+
+## Design tokens
+
+| Token                       | Used for                        |
+| --------------------------- | ------------------------------- |
+| `--rds--color-grey-lighter` | Skeleton block background color |
+| `--rds--radius-md`          | Skeleton block border radius    |
+| `--rds--spacing-small`      | Gap between blocks              |
+| `--rds--ease-standard`      | Pulse animation easing curve    |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and `aria-label="Loading content"` so assistive technology
+  announces the loading state without needing to read the individual skeleton blocks.
+- Individual skeleton blocks are `aria-hidden="true"` since they are purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper (e.g.
+  `aria-label`) as needed.
