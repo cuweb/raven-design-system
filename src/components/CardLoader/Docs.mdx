@@ -1,0 +1,106 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CardLoaderStories from './CardLoader.stories';
+
+<Meta of={CardLoaderStories} />
+
+# Card Loader
+
+A skeleton loading placeholder that mirrors `Card`'s layout for each of its content variants —
+news, event, icon, page, people, and video — used while card data (images, titles, meta) is still
+loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Card` grid before its content is
+  available
+- Choose the `variant` that matches the eventual `Card` composition so the skeleton shape lines up
+  with the real content once it loads
+- Pair with other `*Loader` components to build a full-page or full-section loading skeleton
+
+## Import
+
+```tsx
+import { CardLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default (news) skeleton
+<CardLoader />
+
+// Match a specific Card variant
+<CardLoader variant="event" />
+<CardLoader variant="icon" />
+<CardLoader variant="page" />
+<CardLoader variant="people" />
+<CardLoader variant="video" />
+```
+
+## Examples
+
+### News
+
+<Canvas of={CardLoaderStories.News} />
+<Controls of={CardLoaderStories.News} />
+
+### Event
+
+<Canvas of={CardLoaderStories.Event} />
+
+### Icon
+
+<Canvas of={CardLoaderStories.Icon} />
+
+### Page
+
+<Canvas of={CardLoaderStories.Page} />
+
+### People
+
+<Canvas of={CardLoaderStories.People} />
+
+### Video
+
+<Canvas of={CardLoaderStories.Video} />
+
+## CSS classes
+
+| Class                             | When applied                                                           |
+| --------------------------------- | ---------------------------------------------------------------------- |
+| `cu-loader`                       | Always — base class                                                    |
+| `cu-loader--card`                 | Always — inner wrapper                                                 |
+| `cu-loader--card-{variant}`       | Always — one of `news`, `event`, `icon`, `page`, `people`, `video`     |
+| `cu-loader__card-figure`          | `news`, `event`, `video` — pulsing image/video placeholder             |
+| `cu-loader__card-date-thumb`      | `event` — pulsing date-thumbnail placeholder overlapping the figure    |
+| `cu-loader__card-avatar`          | `people` — pulsing circular avatar placeholder                         |
+| `cu-loader__card-icon`            | `icon` — pulsing icon placeholder                                      |
+| `cu-loader__card-body`            | Wrapper for the text-line placeholders                                 |
+| `cu-loader__card-line`            | A single pulsing text-line placeholder                                 |
+| `cu-loader__card-line--title`     | The title-sized line (each variant)                                    |
+| `cu-loader__card-line--small`     | Small meta line (`page` variant subtitle)                              |
+| `cu-loader__card-line--paragraph` | Taller paragraph-sized line (`icon`, `page` variants)                  |
+| `cu-loader__card-line--button`    | Button-sized line at the end of the body (all variants except `video`) |
+
+## Design tokens
+
+| Token                       | Used for                                          |
+| --------------------------- | ------------------------------------------------- |
+| `--rds--color-grey-lighter` | Skeleton figure/avatar/icon/line background color |
+| `--rds--radius-md`          | Figure, date-thumb, icon, and line border radius  |
+| `--rds--radius-full`        | Circular avatar placeholder                       |
+| `--rds--spacing-small`      | Gap between body lines, avatar top margin         |
+| `--rds--ease-standard`      | Pulse animation easing curve                      |
+
+## Accessibility
+
+- The inner wrapper carries `role="status"` and `aria-label="Loading content"` so assistive
+  technology announces the loading state without needing to read the individual skeleton pieces.
+- Every skeleton figure, avatar, icon, and line is `aria-hidden="true"` since they are purely
+  decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper (e.g.
+  `aria-label`) as needed.

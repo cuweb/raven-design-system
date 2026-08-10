@@ -106,6 +106,11 @@ export {
     type CalendarLoaderProps,
 } from './components/CalendarLoader/CalendarLoader';
 export {
+    CardLoader,
+    type CardLoaderProps,
+    type CardLoaderVariant,
+} from './components/CardLoader/CardLoader';
+export {
     Status,
     defaultStatusTypes,
     type StatusProps,

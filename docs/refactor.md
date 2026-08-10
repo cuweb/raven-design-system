@@ -193,7 +193,7 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 | → Block Loader       | done            | No           | No             | No               |
 | → Button Loader      | done            | No           | No             | No               |
 | → Calendar Loader    | done            | No           | No             | No               |
-| → Card Loader        | port            | No           | No             | No               |
+| → Card Loader        | done            | No           | No             | No               |
 | → Description Loader | port            | No           | No             | No               |
 | → Event Loader       | port            | No           | No             | No               |
 | → Form Loader        | port            | No           | No             | No               |
