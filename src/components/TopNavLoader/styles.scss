@@ -1,0 +1,31 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Wrapper ─────────────────────────────────────────────────────────────────
+
+.cu-loader--topnav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// ─── Spinner ──────────────────────────────────────────────────────────────────
+
+.cu-loader__topnav-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--rds--color-grey-light);
+    border-right-color: var(--rds--color-primary);
+    border-radius: var(--rds--radius-full);
+    animation: cu-loader-topnav-spin 1s linear infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation-duration: 1.5s;
+    }
+}
+
+@keyframes cu-loader-topnav-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

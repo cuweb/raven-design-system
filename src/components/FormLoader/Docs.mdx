@@ -1,0 +1,86 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FormLoaderStories from './FormLoader.stories';
+
+<Meta of={FormLoaderStories} />
+
+# Form Loader
+
+A skeleton loading placeholder that renders one or more pulsing field-shaped rows in a responsive
+grid, used while a form's field configuration is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Form` before its fields are known
+- Compose `FormLoader.RowLoader` rows with a `cols` value that matches the eventual field grid
+- Pair with other `*Loader` components to build a full-page loading skeleton
+
+## Import
+
+```tsx
+import { FormLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+<FormLoader>
+    <FormLoader.RowLoader fields={1} />
+    <FormLoader.RowLoader cols="2" fields={2} />
+    <FormLoader.RowLoader cols="3" fields={3} />
+    <FormLoader.RowLoader cols="4" fields={4} />
+</FormLoader>
+
+// Without the wrapper's bottom margin
+<FormLoader noMargin>
+    <FormLoader.RowLoader fields={1} />
+</FormLoader>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={FormLoaderStories.Default} />
+<Controls of={FormLoaderStories.Default} />
+
+### No margin
+
+<Canvas of={FormLoaderStories.NoMargin} />
+
+## CSS classes
+
+| Class                            | When applied                                               |
+| -------------------------------- | ---------------------------------------------------------- |
+| `cu-loader`                      | Always — base class                                        |
+| `cu-loader--form`                | Always — wrapper                                           |
+| `cu-loader--form-nomargin`       | `noMargin`                                                 |
+| `cu-loader__form-row`            | Always — each `RowLoader` grid row                         |
+| `cu-loader__form-row-stacked`    | `RowLoader` with no `cols` (single-column, vertical stack) |
+| `cu-loader__form-row-two`        | `RowLoader` with `cols="2"`                                |
+| `cu-loader__form-row-three`      | `RowLoader` with `cols="3"`                                |
+| `cu-loader__form-row-four`       | `RowLoader` with `cols="4"`                                |
+| `cu-loader__form-row-one-third`  | `RowLoader` with `cols="1/3"`                              |
+| `cu-loader__form-row-two-thirds` | `RowLoader` with `cols="2/3"`                              |
+| `cu-loader__form-field`          | Each pulsing skeleton field                                |
+
+## Design tokens
+
+| Token                       | Used for                             |
+| --------------------------- | ------------------------------------ |
+| `--rds--color-grey-lighter` | Skeleton field background color      |
+| `--rds--radius-md`          | Skeleton field border radius         |
+| `--rds--spacing-small`      | Gap between fields in a row          |
+| `--rds--spacing-medium`     | Gap between stacked (no `cols`) rows |
+| `--rds--spacing-large`      | Gap between rows in the wrapper      |
+| `--rds--ease-standard`      | Pulse animation easing curve         |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and `aria-label="Loading content"` so assistive technology
+  announces the loading state without needing to read the individual skeleton fields.
+- Individual skeleton fields are `aria-hidden="true"` since they are purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` on the wrapper so consumers can override or extend it.

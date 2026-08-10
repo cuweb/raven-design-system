@@ -1,0 +1,44 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Wrapper ─────────────────────────────────────────────────────────────────
+
+.cu-loader--table {
+    display: grid;
+    gap: var(--rds--spacing-2-x-small);
+    width: 100%;
+    border-radius: var(--rds--radius-md);
+    overflow: hidden;
+}
+
+// ─── Rows + cells ─────────────────────────────────────────────────────────────
+
+.cu-loader__table-row {
+    display: flex;
+    gap: var(--rds--spacing-2-x-small);
+}
+
+.cu-loader__table-cell {
+    flex-grow: 1;
+    display: block;
+    height: 3rem;
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-table-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    &--alt {
+        background-color: var(--rds--color-grey-pale);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes cu-loader-table-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

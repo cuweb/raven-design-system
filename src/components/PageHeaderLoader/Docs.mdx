@@ -1,0 +1,115 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as PageHeaderLoaderStories from './PageHeaderLoader.stories';
+
+<Meta of={PageHeaderLoaderStories} />
+
+# Page Header Loader
+
+A skeleton loading placeholder that mirrors `PageHeader`'s layout — a simple title/content variant
+for standard pages, plus dedicated `event` and `people` variants with a figure, meta lines, and
+(for `people`) an avatar row — used while page-header content is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `PageHeader` before its content is
+  available
+- Choose the `variant` that matches the eventual `PageHeader` composition: `default` for a simple
+  title (+ optional intro content), `event` for an event page header with a figure and meta detail
+  lines, `people` for a profile page header with a figure, meta lines, and avatar row
+- Pair with other `*Loader` components to build a full-page loading skeleton
+
+## Import
+
+```tsx
+import { PageHeaderLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default (title only)
+<PageHeaderLoader />
+
+// With intro content
+<PageHeaderLoader content="small" />
+<PageHeaderLoader content="large" />
+
+// Centered
+<PageHeaderLoader isCenter />
+
+// Event / people page header variants
+<PageHeaderLoader variant="event" />
+<PageHeaderLoader variant="people" />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={PageHeaderLoaderStories.Default} />
+<Controls of={PageHeaderLoaderStories.Default} />
+
+### With content
+
+<Canvas of={PageHeaderLoaderStories.WithContent} />
+
+### With large content
+
+<Canvas of={PageHeaderLoaderStories.WithLargeContent} />
+
+### Centered
+
+<Canvas of={PageHeaderLoaderStories.Center} />
+
+### Event
+
+<Canvas of={PageHeaderLoaderStories.Event} />
+
+### People
+
+<Canvas of={PageHeaderLoaderStories.People} />
+
+## CSS classes
+
+| Class                                  | When applied                                       |
+| -------------------------------------- | -------------------------------------------------- |
+| `cu-loader`                            | Always — base class                                |
+| `cu-loader--pageheader`                | Always — wrapper                                   |
+| `cu-loader--pageheader-{variant}`      | Always — one of `default`, `event`, `people`       |
+| `cu-loader--pageheader-center`         | `variant="default"` with `isCenter`                |
+| `cu-loader__pageheader-title`          | `default` — title skeleton                         |
+| `cu-loader__pageheader-content`        | `default` — intro content skeleton (`content` set) |
+| `cu-loader__pageheader-content--large` | `default` — `content="large"`                      |
+| `cu-loader__pageheader-figure`         | `event`, `people` — image placeholder              |
+| `cu-loader__pageheader-body`           | `event`, `people` — text content wrapper           |
+| `cu-loader__pageheader-line`           | A single pulsing text-line placeholder             |
+| `cu-loader__pageheader-line--title`    | The title-sized line (`event`, `people`)           |
+| `cu-loader__pageheader-line--small`    | Small meta line                                    |
+| `cu-loader__pageheader-lines`          | Group of meta lines                                |
+| `cu-loader__pageheader-avatars`        | `people` — avatar row wrapper                      |
+| `cu-loader__pageheader-avatar`         | `people` — each circular avatar skeleton           |
+
+## Design tokens
+
+| Token                       | Used for                                      |
+| --------------------------- | --------------------------------------------- |
+| `--rds--color-grey-lighter` | Skeleton fill color                           |
+| `--rds--radius-md`          | Title, content, and line border radius        |
+| `--rds--radius-lg`          | Figure border radius                          |
+| `--rds--radius-full`        | Avatar shape (circular)                       |
+| `--rds--spacing-x-small`    | Gap between lines within a group              |
+| `--rds--spacing-medium`     | Gap between body sections (`event`, `people`) |
+| `--rds--spacing-large`      | Gap between wrapper children (`default`)      |
+| `--rds--ease-standard`      | Pulse animation easing curve                  |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and `aria-label="Loading content"` so assistive technology
+  announces the loading state without needing to read the individual skeleton pieces.
+- Every skeleton title, content, figure, line, and avatar is `aria-hidden="true"` since they are
+  purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper.
