@@ -1,0 +1,73 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TableLoaderStories from './TableLoader.stories';
+
+<Meta of={TableLoaderStories} />
+
+# Table Loader
+
+A skeleton loading placeholder that renders a grid of pulsing cells with alternating row shading,
+used while tabular data is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a data table before its rows/columns are
+  available
+- Configure `numRow`/`numCol` to roughly match the eventual table dimensions
+
+## Import
+
+```tsx
+import { TableLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default 5x5 grid
+<TableLoader />
+
+// Custom dimensions
+<TableLoader numRow={3} numCol={3} />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={TableLoaderStories.Default} />
+<Controls of={TableLoaderStories.Default} />
+
+### Small table
+
+<Canvas of={TableLoaderStories.SmallTable} />
+
+## CSS classes
+
+| Class                        | When applied                                  |
+| ---------------------------- | --------------------------------------------- |
+| `cu-loader`                  | Always — base class                           |
+| `cu-loader--table`           | Always — wrapper                              |
+| `cu-loader__table-row`       | Each row                                      |
+| `cu-loader__table-cell`      | Each cell                                     |
+| `cu-loader__table-cell--alt` | Cells in odd-indexed rows (alternate shading) |
+
+## Design tokens
+
+| Token                       | Used for                       |
+| --------------------------- | ------------------------------ |
+| `--rds--color-grey-lighter` | Even-row cell background color |
+| `--rds--color-grey-pale`    | Odd-row cell background color  |
+| `--rds--radius-md`          | Wrapper border radius          |
+| `--rds--spacing-2-x-small`  | Gap between rows/cells         |
+| `--rds--ease-standard`      | Pulse animation easing curve   |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and `aria-label="Loading content"` so assistive technology
+  announces the loading state without needing to read the individual skeleton cells.
+- Each row and cell is `aria-hidden="true"` since they are purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper.

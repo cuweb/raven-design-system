@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as PageLoaderStories from './PageLoader.stories';
+
+<Meta of={PageLoaderStories} />
+
+# Page Loader
+
+A full-page spinner loading indicator, used for whole-page or whole-view loading states where a
+skeleton layout isn't yet known.
+
+## When to use
+
+- Show a generic loading state while an entire page or view is being fetched, before any layout
+  structure is known
+- Prefer a shape-specific `*Loader` skeleton (e.g. `CardLoader`, `ListingLoader`) when the eventual
+  content layout is already known — `PageLoader` is for when it isn't
+
+## Import
+
+```tsx
+import { PageLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default
+<PageLoader />
+
+// Custom accessible label
+<PageLoader label="Loading dashboard" />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={PageLoaderStories.Default} />
+<Controls of={PageLoaderStories.Default} />
+
+### Custom label
+
+<Canvas of={PageLoaderStories.CustomLabel} />
+
+## CSS classes
+
+| Class                     | When applied               |
+| ------------------------- | -------------------------- |
+| `cu-loader`               | Always — base class        |
+| `cu-loader--page`         | Always — wrapper           |
+| `cu-loader__page-spinner` | Always — the spinning ring |
+
+## Design tokens
+
+| Token                     | Used for                            |
+| ------------------------- | ----------------------------------- |
+| `--rds--color-grey-light` | Spinner ring base color             |
+| `--rds--color-primary`    | Spinner ring active/highlight color |
+| `--rds--radius-full`      | Spinner ring shape (circular)       |
+| `--rds--spacing-x-large`  | Wrapper padding                     |
+
+## Accessibility
+
+- The spinner carries `role="status"` and `aria-label` (default `"Loading"`, overridable via the
+  `label` prop) so assistive technology announces the loading state.
+- The spin animation is a continuous rotation rather than a flashing/pulsing effect, so it does not
+  trigger WCAG 2.3.1 (Three Flashes) concerns; its duration is slowed under
+  `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation from Interactions) rather than removed
+  entirely, since a completely static spinner would no longer communicate a loading state.
+- All HTML attributes spread via `...rest` on the wrapper so consumers can override or extend it.

@@ -1,0 +1,131 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Default variant ──────────────────────────────────────────────────────────
+
+.cu-loader--pageheader-default {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rds--spacing-large);
+}
+
+.cu-loader--pageheader-center {
+    justify-content: center;
+}
+
+.cu-loader__pageheader-title {
+    display: block;
+    width: 20rem;
+    max-width: 100%;
+    height: 5rem;
+    border-radius: var(--rds--radius-md);
+}
+
+.cu-loader__pageheader-content {
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: var(--rds--radius-md);
+
+    &--large {
+        height: 5rem;
+    }
+}
+
+// ─── Event / people variants ──────────────────────────────────────────────────
+
+.cu-loader--pageheader-event,
+.cu-loader--pageheader-people {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-large);
+    max-width: 64rem;
+    margin-inline: auto;
+
+    @media (min-width: $rds-media-query-md) {
+        flex-direction: row-reverse;
+    }
+}
+
+.cu-loader__pageheader-figure {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: var(--rds--radius-lg);
+
+    @media (min-width: $rds-media-query-md) {
+        width: 33%;
+        max-width: 320px;
+    }
+}
+
+.cu-loader__pageheader-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-medium);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.cu-loader__pageheader-line {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    border-radius: var(--rds--radius-md);
+
+    &--title {
+        max-width: 80%;
+        height: 3.5rem;
+    }
+
+    &--small {
+        max-width: 45%;
+    }
+}
+
+.cu-loader__pageheader-lines {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-x-small);
+}
+
+.cu-loader__pageheader-avatars {
+    display: flex;
+    gap: var(--rds--spacing-x-small);
+}
+
+.cu-loader__pageheader-avatar {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--rds--radius-full);
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-pageheader-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+// ─── Skeleton fill + pulse ───────────────────────────────────────────────────
+
+.cu-loader__pageheader-title,
+.cu-loader__pageheader-content,
+.cu-loader__pageheader-figure,
+.cu-loader__pageheader-line {
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-pageheader-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes cu-loader-pageheader-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

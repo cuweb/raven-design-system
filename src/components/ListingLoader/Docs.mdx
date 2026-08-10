@@ -1,0 +1,109 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ListingLoaderStories from './ListingLoader.stories';
+
+<Meta of={ListingLoaderStories} />
+
+# Listing Loader
+
+A skeleton loading placeholder that mirrors `Listing`'s layout for each of its content variants —
+news, event, icon, page, people, and description — used while listing data (thumbnails, titles,
+meta) is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Listing` item inside a `StackedList`
+  before its content is available
+- Choose the `variant` that matches the eventual `Listing` composition so the skeleton shape lines
+  up with the real content once it loads
+- Pair with `PaginationLoader` to build a full listing-page loading skeleton
+
+## Import
+
+```tsx
+import { ListingLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default (news) skeleton, inside a StackedList
+<StackedList cols="1">
+    <ListingLoader />
+</StackedList>
+
+// Match a specific Listing variant
+<ListingLoader variant="event" />
+<ListingLoader variant="icon" />
+<ListingLoader variant="page" />
+<ListingLoader variant="people" />
+<ListingLoader variant="description" />
+```
+
+## Examples
+
+### News
+
+<Canvas of={ListingLoaderStories.News} />
+<Controls of={ListingLoaderStories.News} />
+
+### Event
+
+<Canvas of={ListingLoaderStories.Event} />
+
+### Icon
+
+<Canvas of={ListingLoaderStories.Icon} />
+
+### Page
+
+<Canvas of={ListingLoaderStories.Page} />
+
+### People
+
+<Canvas of={ListingLoaderStories.People} />
+
+### Description
+
+<Canvas of={ListingLoaderStories.Description} />
+
+## CSS classes
+
+| Class                                | When applied                                                             |
+| ------------------------------------ | ------------------------------------------------------------------------ |
+| `cu-loader`                          | Always — base class                                                      |
+| `cu-loader--listing`                 | Always — inner wrapper                                                   |
+| `cu-loader--listing-{variant}`       | Always — one of `news`, `event`, `icon`, `page`, `people`, `description` |
+| `cu-loader__listing-figure`          | `news`, `people` — pulsing image placeholder                             |
+| `cu-loader__listing-date-thumb`      | `event` — pulsing date-thumbnail placeholder                             |
+| `cu-loader__listing-icon`            | `icon` — pulsing icon placeholder                                        |
+| `cu-loader__listing-body`            | Wrapper for the text-line placeholders                                   |
+| `cu-loader__listing-line`            | A single pulsing text-line placeholder                                   |
+| `cu-loader__listing-line--title`     | The title-sized line (each variant)                                      |
+| `cu-loader__listing-line--small`     | Small meta line                                                          |
+| `cu-loader__listing-line--paragraph` | Taller excerpt-sized line (`news`, `page`, `icon` variants)              |
+
+## Design tokens
+
+| Token                       | Used for                                         |
+| --------------------------- | ------------------------------------------------ |
+| `--rds--color-grey-lighter` | Skeleton figure/thumb/icon/line background color |
+| `--rds--radius-sm`          | Figure, date-thumb, and icon border radius       |
+| `--rds--radius-md`          | Line border radius                               |
+| `--rds--spacing-medium`     | Gap between figure and body                      |
+| `--rds--spacing-x-small`    | Gap between body lines                           |
+| `--rds--ease-standard`      | Pulse animation easing curve                     |
+
+## Accessibility
+
+- The inner wrapper carries `role="status"` and `aria-label="Loading content"` so assistive
+  technology announces the loading state without needing to read the individual skeleton pieces.
+- Every skeleton figure, thumb, icon, and line is `aria-hidden="true"` since they are purely
+  decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper (e.g.
+  `aria-label`) as needed.
+- `revealOnScroll={false}` is passed to the wrapping `Listing` so the skeleton renders immediately
+  without waiting for scroll-triggered reveal.

@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as EventLoaderStories from './EventLoader.stories';
+
+<Meta of={EventLoaderStories} />
+
+# Event Loader
+
+A full-page skeleton loading placeholder for the events listing page, composing `ListingLoader`,
+`PaginationLoader`, and `CalendarLoader` into the two-column events layout (listing + sidebar
+calendar).
+
+## When to use
+
+- Show a complete loading skeleton for an events listing page while event data and the sidebar
+  calendar are still loading
+- Use as a top-level page-loading state rather than composing individual loaders manually, when the
+  events-page layout applies
+
+## Import
+
+```tsx
+import { EventLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default
+<EventLoader />
+
+// Custom pagination page count
+<EventLoader pageCount={8} />
+
+// With the calendar's clear-filter button skeleton
+<EventLoader showClearButton />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={EventLoaderStories.Default} />
+<Controls of={EventLoaderStories.Default} />
+
+### With clear button
+
+<Canvas of={EventLoaderStories.WithClearButton} />
+
+## CSS classes
+
+| Class              | When applied            |
+| ------------------ | ----------------------- |
+| `cu-loader`        | Always — base class     |
+| `cu-loader--event` | Always — layout wrapper |
+
+`EventLoader` otherwise reuses the CSS classes of `Column`, `StackedList`, `Aside`, `ListingLoader`,
+`PaginationLoader`, and `CalendarLoader` — see those components' documentation for details.
+
+## Design tokens
+
+`EventLoader` introduces no new design tokens of its own; it composes `ListingLoader`,
+`PaginationLoader`, and `CalendarLoader`, which each document their own token usage.
+
+## Accessibility
+
+- Each composed loader (`ListingLoader`, `PaginationLoader`, `CalendarLoader`) carries its own
+  `role="status"` and `aria-label="Loading content"`, so assistive technology announces each
+  region's loading state independently.
+- All HTML attributes spread via `...rest` on the outer wrapper so consumers can override or extend
+  it.

@@ -1,0 +1,91 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CalendarLoaderStories from './CalendarLoader.stories';
+
+<Meta of={CalendarLoaderStories} />
+
+# Calendar Loader
+
+A skeleton loading placeholder that mirrors the `Calendar` component's month-view layout — header,
+weekday labels, and a 7-column day grid of subtly pulsing circular blocks — used while calendar data
+(events, availability) is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Calendar` before its events or
+  selectable days are available
+- Pass `showClearButton` to also render a `ButtonLoader` placeholder matching `Calendar`'s "Clear
+  selection" button
+- Pair with other `*Loader` components to build a full-page or full-section loading skeleton
+
+## Import
+
+```tsx
+import { CalendarLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default month-view skeleton
+<CalendarLoader />
+
+// With a clear-selection button skeleton
+<CalendarLoader showClearButton />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={CalendarLoaderStories.Default} />
+<Controls of={CalendarLoaderStories.Default} />
+
+### With clear button
+
+<Canvas of={CalendarLoaderStories.WithClearButton} />
+
+## CSS classes
+
+| Class                                      | When applied                                                                             |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| `cu-loader`                                | Always — base class                                                                      |
+| `cu-loader--calendar`                      | Always — root wrapper                                                                    |
+| `cu-loader__calendar-header`               | Navigation bar containing skeleton prev/next markers and month title                     |
+| `cu-loader__calendar-nav-btn`              | Skeleton previous/next month arrow placeholders                                          |
+| `cu-loader__calendar-month`                | Skeleton month/year title bar                                                            |
+| `cu-loader__calendar-weekdays`             | Row of abbreviated weekday labels (S M T W T F S)                                        |
+| `cu-loader__calendar-weekday`              | Individual weekday label cell                                                            |
+| `cu-loader__calendar-grid`                 | 7-column grid of day skeleton cells                                                      |
+| `cu-loader__calendar-row`                  | A single week's row of days                                                              |
+| `cu-loader__calendar-day`                  | Wrapper cell for a single day                                                            |
+| `cu-loader__calendar-day--col-start-{2–7}` | CSS grid column offset applied to the first cell when the month does not start on Sunday |
+| `cu-loader__calendar-day-btn`              | Pulsing circular skeleton block representing a day button                                |
+| `cu-loader__calendar-clear`                | Wrapper for the `ButtonLoader` shown when `showClearButton` is set                       |
+
+## Design tokens
+
+| Token                       | Used for                                   |
+| --------------------------- | ------------------------------------------ |
+| `--rds--color-grey-lighter` | Skeleton nav/month/day background color    |
+| `--rds--color-grey-light`   | Day grid border                            |
+| `--rds--color-grey-pale`    | Day grid background (gap color)            |
+| `--rds--color-white`        | Day cell background                        |
+| `--rds--color-grey-dark`    | Weekday label text color                   |
+| `--rds--font-size-x-small`  | Weekday label size                         |
+| `--rds--radius-full`        | Circular nav and day skeleton shapes       |
+| `--rds--radius-md`          | Month title bar and day grid border radius |
+| `--rds--spacing-medium`     | Header gap, spacing above weekday row      |
+| `--rds--ease-standard`      | Pulse animation easing curve               |
+
+## Accessibility
+
+- The root wrapper carries `role="status"` and `aria-label="Loading calendar"` so assistive
+  technology announces the loading state without needing to read the individual skeleton pieces.
+- The header, weekday row, and day grid are all `aria-hidden="true"` since they are purely
+  decorative placeholders with no real date data.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper (e.g.
+  `aria-label`) as needed.

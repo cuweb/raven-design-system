@@ -189,20 +189,20 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 | Component            | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | -------------------- | --------------- | ------------ | -------------- | ---------------- |
-| **Loaders**          | port            | No           | No             | No               |
+| **Loaders**          | done            | No           | No             | No               |
 | → Block Loader       | done            | No           | No             | No               |
-| → Button Loader      | port            | No           | No             | No               |
-| → Calendar Loader    | port            | No           | No             | No               |
-| → Card Loader        | port            | No           | No             | No               |
-| → Description Loader | port            | No           | No             | No               |
-| → Event Loader       | port            | No           | No             | No               |
-| → Form Loader        | port            | No           | No             | No               |
-| → Listing Loader     | port            | No           | No             | No               |
-| → Page Header Loader | port            | No           | No             | No               |
-| → Page Loader        | port            | No           | No             | No               |
-| → Pagination Loader  | port            | No           | No             | No               |
-| → Table Loader       | port            | No           | No             | No               |
-| → Top Nav Loader     | port            | No           | No             | No               |
+| → Button Loader      | done            | No           | No             | No               |
+| → Calendar Loader    | done            | No           | No             | No               |
+| → Card Loader        | done            | No           | No             | No               |
+| → Description Loader | done            | No           | No             | No               |
+| → Event Loader       | done            | No           | No             | No               |
+| → Form Loader        | done            | No           | No             | No               |
+| → Listing Loader     | done            | No           | No             | No               |
+| → Page Header Loader | done            | No           | No             | No               |
+| → Page Loader        | done            | No           | No             | No               |
+| → Pagination Loader  | done            | No           | No             | No               |
+| → Table Loader       | done            | No           | No             | No               |
+| → Top Nav Loader     | done            | No           | No             | No               |
 
 ---
 

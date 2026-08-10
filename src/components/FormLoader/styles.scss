@@ -1,0 +1,96 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Wrapper ─────────────────────────────────────────────────────────────────
+
+.cu-loader--form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-large);
+    width: 100%;
+
+    &-nomargin {
+        margin: 0;
+    }
+}
+
+// ─── Rows ─────────────────────────────────────────────────────────────────────
+
+.cu-loader__form-row {
+    display: grid;
+    gap: var(--rds--spacing-small);
+    align-items: start;
+
+    &-stacked {
+        grid-template-columns: 1fr;
+        gap: var(--rds--spacing-medium);
+    }
+
+    &-two {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    &-three {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    &-four {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (min-width: $rds-media-query-lg) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    &-one-third {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: 33% auto;
+        }
+    }
+
+    &-two-thirds {
+        grid-template-columns: 1fr;
+
+        @media (min-width: $rds-media-query-md) {
+            grid-template-columns: 66% auto;
+        }
+    }
+}
+
+// ─── Fields ───────────────────────────────────────────────────────────────────
+
+.cu-loader__form-field {
+    display: block;
+    width: 100%;
+    height: 3.5rem;
+    border-radius: var(--rds--radius-md);
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-form-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes cu-loader-form-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

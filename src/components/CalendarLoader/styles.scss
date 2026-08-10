@@ -1,0 +1,123 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+
+.cu-loader__calendar-header {
+    display: flex;
+    gap: var(--rds--spacing-medium);
+    align-items: center;
+    justify-content: center;
+}
+
+.cu-loader__calendar-nav-btn {
+    display: block;
+    flex: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--rds--radius-full);
+}
+
+.cu-loader__calendar-month {
+    display: block;
+    width: 12rem;
+    height: 1.25rem;
+    border-radius: var(--rds--radius-md);
+}
+
+// ─── Weekday labels ───────────────────────────────────────────────────────────
+
+.cu-loader__calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: var(--rds--spacing-medium);
+    text-align: center;
+    font-size: var(--rds--font-size-x-small);
+    color: var(--rds--color-grey-dark);
+}
+
+// ─── Day grid ─────────────────────────────────────────────────────────────────
+
+.cu-loader__calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    border: 1px solid var(--rds--color-grey-light);
+    border-radius: var(--rds--radius-md);
+    background-color: var(--rds--color-grey-pale);
+}
+
+.cu-loader__calendar-row {
+    display: contents;
+}
+
+.cu-loader__calendar-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    background-color: var(--rds--color-white);
+}
+
+// Grid column offsets for the first row
+.cu-loader__calendar-day--col-start-2 {
+    grid-column-start: 2;
+}
+.cu-loader__calendar-day--col-start-3 {
+    grid-column-start: 3;
+}
+.cu-loader__calendar-day--col-start-4 {
+    grid-column-start: 4;
+}
+.cu-loader__calendar-day--col-start-5 {
+    grid-column-start: 5;
+}
+.cu-loader__calendar-day--col-start-6 {
+    grid-column-start: 6;
+}
+.cu-loader__calendar-day--col-start-7 {
+    grid-column-start: 7;
+}
+
+.cu-loader__calendar-day-btn {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--rds--radius-full);
+}
+
+// ─── Clear button ─────────────────────────────────────────────────────────────
+
+.cu-loader__calendar-clear {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+// ─── Skeleton pulse ────────────────────────────────────────────────────────────
+
+.cu-loader__calendar-nav-btn,
+.cu-loader__calendar-month,
+.cu-loader__calendar-day-btn {
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-calendar-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+// A gentle, low-amplitude opacity pulse — subtle and slow enough to avoid
+// WCAG 2.3.1 (Three Flashes) concerns, and fully disabled under
+// prefers-reduced-motion per WCAG 2.3.3 (Animation from Interactions).
+@keyframes cu-loader-calendar-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

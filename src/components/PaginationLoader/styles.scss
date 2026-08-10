@@ -1,0 +1,69 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Wrapper ─────────────────────────────────────────────────────────────────
+
+.cu-loader--pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--rds--spacing-2-x-small);
+    padding-block: var(--rds--spacing-medium);
+
+    &-bordered {
+        border-top: 1px solid var(--rds--color-grey-light);
+    }
+}
+
+// ─── Page list ───────────────────────────────────────────────────────────────
+
+.cu-loader__pagination-list {
+    display: flex;
+    align-items: center;
+    gap: var(--rds--spacing-2-x-small);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cu-loader__pagination-item {
+    display: flex;
+    align-items: center;
+}
+
+.cu-loader__pagination-page {
+    display: inline-flex;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    border-radius: var(--rds--radius-sm);
+}
+
+.cu-loader__pagination-arrow {
+    display: inline-flex;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    border-radius: var(--rds--radius-sm);
+}
+
+// ─── Skeleton fill + pulse ───────────────────────────────────────────────────
+
+.cu-loader__pagination-page,
+.cu-loader__pagination-arrow {
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-pagination-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes cu-loader-pagination-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

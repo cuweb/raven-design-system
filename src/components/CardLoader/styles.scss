@@ -1,0 +1,102 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Figure ───────────────────────────────────────────────────────────────────
+
+.cu-loader__card-figure {
+    display: block;
+    width: calc(100% + 2.5rem);
+    aspect-ratio: 3/2;
+    margin: -1.25rem -1.25rem 1.25rem;
+    border-radius: var(--rds--radius-md) var(--rds--radius-md) 0 0;
+}
+
+.cu-loader__card-date-thumb {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    margin: -2.5rem 1.5rem 0.5rem;
+    border-radius: var(--rds--radius-md);
+}
+
+.cu-loader__card-avatar {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    margin: var(--rds--spacing-small) auto 1.25rem;
+    border-radius: var(--rds--radius-full);
+}
+
+.cu-loader__card-icon {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: var(--rds--spacing-small);
+    border-radius: var(--rds--radius-md);
+}
+
+// ─── Body ─────────────────────────────────────────────────────────────────────
+
+.cu-loader__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-small);
+}
+
+.cu-loader--card-people .cu-loader__card-body {
+    align-items: center;
+}
+
+.cu-loader__card-line {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    border-radius: var(--rds--radius-md);
+
+    &--title {
+        max-width: 80%;
+        height: 2rem;
+    }
+
+    &--small {
+        max-width: 50%;
+        height: 0.75rem;
+    }
+
+    &--paragraph {
+        height: 4rem;
+    }
+
+    &--button {
+        max-width: 9rem;
+        height: 3rem;
+        margin-top: 0.25rem;
+    }
+}
+
+// ─── Skeleton pulse ────────────────────────────────────────────────────────────
+
+.cu-loader__card-figure,
+.cu-loader__card-date-thumb,
+.cu-loader__card-avatar,
+.cu-loader__card-icon,
+.cu-loader__card-line {
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-card-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+// A gentle, low-amplitude opacity pulse — subtle and slow enough to avoid
+// WCAG 2.3.1 (Three Flashes) concerns, and fully disabled under
+// prefers-reduced-motion per WCAG 2.3.3 (Animation from Interactions).
+@keyframes cu-loader-card-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

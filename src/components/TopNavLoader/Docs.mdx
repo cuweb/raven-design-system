@@ -1,0 +1,72 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TopNavLoaderStories from './TopNavLoader.stories';
+
+<Meta of={TopNavLoaderStories} />
+
+# Top Nav Loader
+
+A compact spinner loading indicator sized for use inside the top navigation bar, used while
+nav-dependent content (e.g. user menu, session state) is still resolving.
+
+## When to use
+
+- Show a small, inline loading state within or near the top navigation while nav-dependent data is
+  fetched (e.g. authentication/user state)
+- Prefer `PageLoader` for whole-page loading states, and shape-specific `*Loader` skeletons when the
+  eventual layout is already known
+
+## Import
+
+```tsx
+import { TopNavLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default
+<TopNavLoader />
+
+// Custom accessible label
+<TopNavLoader label="Loading navigation" />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={TopNavLoaderStories.Default} />
+<Controls of={TopNavLoaderStories.Default} />
+
+### Custom label
+
+<Canvas of={TopNavLoaderStories.CustomLabel} />
+
+## CSS classes
+
+| Class                       | When applied               |
+| --------------------------- | -------------------------- |
+| `cu-loader`                 | Always — base class        |
+| `cu-loader--topnav`         | Always — wrapper           |
+| `cu-loader__topnav-spinner` | Always — the spinning ring |
+
+## Design tokens
+
+| Token                     | Used for                            |
+| ------------------------- | ----------------------------------- |
+| `--rds--color-grey-light` | Spinner ring base color             |
+| `--rds--color-primary`    | Spinner ring active/highlight color |
+| `--rds--radius-full`      | Spinner ring shape (circular)       |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and an `sr-only`-visible label (default `"Loading"`,
+  overridable via the `label` prop) so assistive technology announces the loading state without an
+  interruptive `aria-label` on the spinner itself.
+- The spinning ring is `aria-hidden="true"` since it is purely decorative — the accessible name
+  comes from the visually hidden label text.
+- The spin animation is a continuous rotation rather than a flashing/pulsing effect, so it does not
+  trigger WCAG 2.3.1 (Three Flashes) concerns; its duration is slowed under
+  `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation from Interactions) rather than removed
+  entirely, since a completely static spinner would no longer communicate a loading state.
+- All HTML attributes spread via `...rest` on the wrapper so consumers can override or extend it.

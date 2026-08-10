@@ -1,0 +1,33 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Wrapper ─────────────────────────────────────────────────────────────────
+
+.cu-loader--page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--rds--spacing-x-large);
+}
+
+// ─── Spinner ──────────────────────────────────────────────────────────────────
+
+.cu-loader__page-spinner {
+    display: inline-block;
+    width: 7rem;
+    height: 7rem;
+    border: 4px solid var(--rds--color-grey-light);
+    border-right-color: var(--rds--color-primary);
+    border-radius: var(--rds--radius-full);
+    animation: cu-loader-page-spin 1s linear infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation-duration: 1.5s;
+    }
+}
+
+@keyframes cu-loader-page-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
