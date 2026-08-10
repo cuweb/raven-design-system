@@ -46,21 +46,21 @@ Mid-level content display patterns. Typically consume Elements and are consumed 
 
 | Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | ------------ | --------------- | ------------ | -------------- | ---------------- |
-| Calendar     | done            | Yes          | Yes            | No               |
-| Call Out     | done            | Yes          | Yes            | No               |
+| Calendar     | done            | Yes          | Yes            | Yes              |
+| Call Out     | done            | Yes          | Yes            | Yes              |
 | Card         | done            | No           | No             | No               |
-| Carleton360  | done            | Yes          | Yes            | No               |
-| Details      | done            | Yes          | Yes            | No               |
-| Description  | done            | Yes          | Yes            | No               |
-| Figure       | done            | Yes          | Yes            | No               |
+| Carleton360  | done            | Yes          | Yes            | Yes              |
+| Details      | done            | Yes          | Yes            | Yes              |
+| Description  | done            | Yes          | Yes            | Yes              |
+| Figure       | done            | Yes          | Yes            | Yes              |
 | Listing      | done            | No           | No             | No               |
-| Location     | done            | No           | No             | No               |
-| Quote        | done            | Yes          | Yes            | No               |
-| Table        | done            | No           | No             | No               |
-| Testimonial  | done            | No           | No             | No               |
-| Text & Image | done            | No           | No             | No               |
-| Text & Media | done            | No           | No             | No               |
-| Timeline     | done            | No           | No             | No               |
+| Location     | done            | Yes          | Yes            | No               |
+| Quote        | done            | Yes          | Yes            | Yes              |
+| Table        | done            | Yes          | Yes            | No               |
+| Testimonial  | done            | Yes          | Yes            | No               |
+| Text & Image | done            | Yes          | Yes            | No               |
+| Text & Media | done            | Yes          | Yes            | No               |
+| Timeline     | done            | Yes          | Yes            | No               |
 
 ### Deprecated
 
