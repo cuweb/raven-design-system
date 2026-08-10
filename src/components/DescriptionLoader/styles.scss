@@ -1,0 +1,102 @@
+@use '../../styles/files/rds-variables' as *;
+
+// ─── Wrapper ─────────────────────────────────────────────────────────────────
+
+.cu-loader--description {
+    width: 100%;
+}
+
+.cu-loader__description-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+}
+
+// ─── Meta rows ───────────────────────────────────────────────────────────────
+
+.cu-loader__description-item {
+    display: grid;
+    grid-template-rows: auto;
+    gap: var(--rds--spacing-x-small);
+    border-bottom: 1px solid var(--rds--color-grey-light);
+    padding-top: var(--rds--spacing-medium);
+    padding-bottom: var(--rds--spacing-medium);
+
+    &:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    @media (min-width: $rds-media-query-md) {
+        &--columns {
+            grid-template-columns: 260px 1fr;
+            gap: var(--rds--spacing-medium);
+            align-items: start;
+        }
+    }
+}
+
+.cu-loader__description-term {
+    display: block;
+    width: 40%;
+    height: var(--rds--spacing-medium);
+    border-radius: var(--rds--radius-md);
+}
+
+.cu-loader__description-content {
+    display: block;
+    width: 100%;
+    height: var(--rds--spacing-x-large);
+    border-radius: var(--rds--radius-md);
+}
+
+// ─── Accordion rows ──────────────────────────────────────────────────────────
+
+.cu-loader__description-accordion {
+    display: flex;
+    flex-direction: column;
+}
+
+.cu-loader__description-row {
+    display: block;
+    width: 100%;
+    height: var(--rds--spacing-x-large);
+    margin: var(--rds--spacing-x-small) 0;
+    border-radius: var(--rds--radius-md);
+    border-top: 1px solid var(--rds--color-grey-light);
+    border-bottom: 1px solid var(--rds--color-grey-light);
+    padding-top: var(--rds--spacing-small);
+    padding-bottom: var(--rds--spacing-small);
+
+    &:first-child {
+        border-top: none;
+    }
+}
+
+// ─── Skeleton fill + pulse ───────────────────────────────────────────────────
+
+.cu-loader__description-term,
+.cu-loader__description-content,
+.cu-loader__description-row {
+    background-color: var(--rds--color-grey-lighter);
+    animation: cu-loader-description-pulse 1.8s var(--rds--ease-standard) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes cu-loader-description-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}

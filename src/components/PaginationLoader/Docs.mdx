@@ -1,0 +1,80 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as PaginationLoaderStories from './PaginationLoader.stories';
+
+<Meta of={PaginationLoaderStories} />
+
+# Pagination Loader
+
+A skeleton loading placeholder that mirrors `Pagination`'s page-number list, used while paginated
+content (search results, listings, tables) is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Pagination` control before the total page
+  count is known
+- Pair with other `*Loader` components (e.g. `ListingLoader`, `TableLoader`) to build a full listing
+  loading skeleton
+
+## Import
+
+```tsx
+import { PaginationLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Default
+<PaginationLoader />
+
+// Custom page count
+<PaginationLoader pageCount={8} />
+
+// With a top border (e.g. below a listing)
+<PaginationLoader hasBorder />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={PaginationLoaderStories.Default} />
+<Controls of={PaginationLoaderStories.Default} />
+
+### With border
+
+<Canvas of={PaginationLoaderStories.WithBorder} />
+
+## CSS classes
+
+| Class                            | When applied                  |
+| -------------------------------- | ----------------------------- |
+| `cu-loader`                      | Always — base class           |
+| `cu-loader--pagination`          | Always — wrapper              |
+| `cu-loader--pagination-bordered` | `hasBorder`                   |
+| `cu-loader__pagination-list`     | Page-number list wrapper      |
+| `cu-loader__pagination-item`     | Each page-number list item    |
+| `cu-loader__pagination-page`     | Each page-number skeleton     |
+| `cu-loader__pagination-arrow`    | Previous/next arrow skeletons |
+
+## Design tokens
+
+| Token                       | Used for                          |
+| --------------------------- | --------------------------------- |
+| `--rds--color-grey-lighter` | Skeleton fill color               |
+| `--rds--color-grey-light`   | Top border (`hasBorder`)          |
+| `--rds--radius-sm`          | Skeleton border radius            |
+| `--rds--spacing-2-x-small`  | Gap between page-number skeletons |
+| `--rds--spacing-medium`     | Wrapper vertical padding          |
+| `--rds--ease-standard`      | Pulse animation easing curve      |
+
+## Accessibility
+
+- The wrapper carries `role="status"` and `aria-label="Loading content"` so assistive technology
+  announces the loading state without needing to read the individual skeleton pieces.
+- The page-number list and arrow skeletons are `aria-hidden="true"` since they are purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` so consumers can override or extend the wrapper.

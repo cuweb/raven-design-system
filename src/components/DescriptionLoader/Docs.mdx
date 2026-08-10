@@ -1,0 +1,97 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as DescriptionLoaderStories from './DescriptionLoader.stories';
+
+<Meta of={DescriptionLoaderStories} />
+
+# Description Loader
+
+A skeleton loading placeholder that mirrors the `Description` term/detail list, used while
+description-list content (programme details, metadata, accordion sections) is still loading.
+
+## When to use
+
+- Reserve layout space and communicate loading state for a `Description` list before its content is
+  available
+- Pair with `Description.Meta`-style rows (`DescriptionLoader.Meta`) or accordion rows
+  (`DescriptionLoader.Accordion`) to match the eventual content shape
+- Pair with other `*Loader` components to build a full-page or full-section loading skeleton
+
+## Import
+
+```tsx
+import { DescriptionLoader } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Meta rows
+<DescriptionLoader>
+    <DescriptionLoader.Meta rows={2} />
+</DescriptionLoader>
+
+// Meta rows in a two-column layout
+<DescriptionLoader>
+    <DescriptionLoader.Meta rows={2} useColumns />
+</DescriptionLoader>
+
+// Accordion rows
+<DescriptionLoader>
+    <DescriptionLoader.Accordion rows={2} />
+</DescriptionLoader>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={DescriptionLoaderStories.Default} />
+<Controls of={DescriptionLoaderStories.Default} />
+
+### With columns
+
+<Canvas of={DescriptionLoaderStories.WithColumns} />
+
+### Accordion
+
+<Canvas of={DescriptionLoaderStories.Accordion} />
+
+## CSS classes
+
+| Class                                  | When applied                  |
+| -------------------------------------- | ----------------------------- |
+| `cu-loader`                            | Always — base class           |
+| `cu-loader--description`               | Always — wrapper              |
+| `cu-loader__description-list`          | Always — inner `<dl>` list    |
+| `cu-loader__description-item`          | Each `Meta` skeleton row      |
+| `cu-loader__description-item--columns` | `Meta` row with `useColumns`  |
+| `cu-loader__description-term`          | `Meta` row term skeleton      |
+| `cu-loader__description-content`       | `Meta` row content skeleton   |
+| `cu-loader__description-accordion`     | `Accordion` rows wrapper      |
+| `cu-loader__description-row`           | Each `Accordion` skeleton row |
+
+## Design tokens
+
+| Token                       | Used for                               |
+| --------------------------- | -------------------------------------- |
+| `--rds--color-grey-lighter` | Skeleton fill color                    |
+| `--rds--color-grey-light`   | Row divider borders                    |
+| `--rds--radius-md`          | Skeleton border radius                 |
+| `--rds--spacing-x-small`    | Row gap (`Meta`)                       |
+| `--rds--spacing-small`      | Vertical margin between accordion rows |
+| `--rds--spacing-medium`     | Row vertical padding / column gap      |
+| `--rds--spacing-x-large`    | Content/row skeleton height            |
+| `--rds--ease-standard`      | Pulse animation easing curve           |
+
+## Accessibility
+
+- The outer wrapper carries `role="status"` and `aria-label="Loading content"` so assistive
+  technology announces the loading state without needing to read the individual skeleton rows.
+  `role="status"` is placed on a `<div>` rather than the inner `<dl>` since `status` is not an
+  ARIA-allowed role for description lists.
+- Individual skeleton rows and pieces are `aria-hidden="true"` since they are purely decorative.
+- The loading animation is a subtle, low-amplitude opacity pulse (`opacity: 1` to `0.6` over 1.8s) —
+  slow and low-contrast enough to avoid WCAG 2.3.1 (Three Flashes or Below Threshold) concerns.
+- The pulse animation is fully removed under `prefers-reduced-motion: reduce` (WCAG 2.3.3, Animation
+  from Interactions), falling back to a static skeleton color.
+- All HTML attributes spread via `...rest` on the inner `<dl>` so consumers can override or extend it.
