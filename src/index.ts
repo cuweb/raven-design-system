@@ -102,6 +102,10 @@ export { ProgressBar, type ProgressBarProps } from './components/ProgressBar/Pro
 export { BlockLoader, type BlockLoaderProps } from './components/BlockLoader/BlockLoader';
 export { ButtonLoader, type ButtonLoaderProps } from './components/ButtonLoader/ButtonLoader';
 export {
+    CalendarLoader,
+    type CalendarLoaderProps,
+} from './components/CalendarLoader/CalendarLoader';
+export {
     Status,
     defaultStatusTypes,
     type StatusProps,
