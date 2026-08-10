@@ -39,3 +39,5 @@ border-cu-black-50 px-8 pt-5 pb-6 md:px-16 md:pt-8 md:py-10 rounded-lg`) → `cu
   `.cu-callout--end .cu-pageheader h2:after`; RDS2 targets it via
   `.cu-callout--end .cu-pageheader__heading--underline::after` — functionally equivalent, updated
   to match `PageHeader`'s new class naming and to work regardless of heading level (`h2`/`h3`).
+- Heading size: legacy always rendered `PageHeader` with `size="md"`; RDS2 renders it with
+  `size="lg"`, so the title displays larger than before.

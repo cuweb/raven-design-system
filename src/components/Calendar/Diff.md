@@ -29,6 +29,11 @@ moved from Tailwind + a `classNames` helper to `cu-calendar__*` BEM/SCSS classes
 
 - Component merge: two separate components/exports (`Calendar`, `MultiDayCalendar`) → a single
   `Calendar` component with a `mode` prop; `RDS2` has no standalone multi-day calendar export.
+- Initial selection state: legacy single-day `Calendar` seeded `selectedDay` with `new Date()`
+  when no `defaultDate` was given, so today was always pre-selected (highlighted) and `callback`
+  fired with today on mount. RDS2 starts with an empty selection (`selectedDays = []`) when no
+  `defaultDate` is set — nothing is highlighted and `onSelect` does not fire on mount in `single`
+  mode until a day is clicked. (Legacy `MultiDayCalendar` already started empty, matching RDS2.)
 - Event indicator bug fix in range mode: legacy `MultiDayCalendar`'s event dot only checked
   `isSameDay(event.startDatetime, day)`, so a multi-day event's dot only appeared on its start
   day. RDS2 uses the more thorough check (`isSameDay(start, day) || isSameDay(end, day) ||
