@@ -69,6 +69,14 @@ Three sizes are available. `sm` suits compact contexts like comment threads; `md
 
 <Canvas of={AvatarStories.Sizes} />
 
+## Accessible name
+
+The component always provides an accessible name on the outer element:
+
+- If `alt` is supplied it is used as the `aria-label` — use this when the person's full name alone is not a sufficient label (e.g. `alt="Open Jane Smith's profile"`).
+- Otherwise `aria-label` is set to the full name derived from `firstName` and `lastName`.
+- The inner `<img>` or initials `<span>` are both `aria-hidden="true"` — they are decorative because the outer element already provides the name.
+
 ## CSS classes
 
 | Class                 | When applied                             |
@@ -83,14 +91,6 @@ Three sizes are available. `sm` suits compact contexts like comment threads; `md
 | `cu-avatar__initials` | The inner `<span>` when no `src`         |
 
 When `onClick` is provided, the root element is a `<button>` — a `button.cu-avatar` selector in the styles resets `border`, `padding`, and `cursor`, and adds a `focus-visible` outline using `--rds--color-primary`.
-
-## Accessible name
-
-The component always provides an accessible name on the outer element:
-
-- If `alt` is supplied it is used as the `aria-label` — use this when the person's full name alone is not a sufficient label (e.g. `alt="Open Jane Smith's profile"`).
-- Otherwise `aria-label` is set to the full name derived from `firstName` and `lastName`.
-- The inner `<img>` or initials `<span>` are both `aria-hidden="true"` — they are decorative because the outer element already provides the name.
 
 ## Design tokens
 
