@@ -100,11 +100,11 @@ Wayfinding components — site chrome, page-level navigation, search, and pagina
 
 | Component       | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | --------------- | --------------- | ------------ | -------------- | ---------------- |
-| Department Bar  | done            | No           | No             | No               |
-| Footer          | done            | No           | No             | No               |
-| Footer Standard | done            | No           | No             | No               |
-| Nav             | done            | No           | No             | No               |
-| Pagination      | done            | No           | No             | No               |
+| Department Bar  | done            | Yes          | Yes            | No               |
+| Footer          | done            | Yes          | Yes            | No               |
+| Footer Standard | done            | Yes          | Yes            | No               |
+| Nav             | done            | Yes          | Yes            | No               |
+| Pagination      | done            | Yes          | Yes            | No               |
 
 ---
 
