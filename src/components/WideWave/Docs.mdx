@@ -5,11 +5,11 @@ import * as WideWaveStories from './WideWave.stories';
 
 # Wide Wave
 
-A page-level content container with an optional full-bleed background image and decorative wave element. Always renders a `<section>` with a grey background. Nests inside `Main` and wraps layout components like `Column`, `Article`, and `Aside`. Three max-width presets align with the WordPress block editor's alignment system.
+A page-level content container with a black or red background and a decorative wave graphic along its top edge. Always renders a `<section>` with `data-color-scheme="dark"`, inverting text and headings to white. Nests inside `Main` and wraps layout components like `Column`, `Article`, and `Aside`. Three max-width presets align with the WordPress block editor's alignment system.
 
 ## When to use
 
-Use `WideWave` when you want a visually distinct section with a background image and a white opacity overlay. Without an image it falls back to the standard grey background — making it a drop-in replacement for a grey `Section` band when image support is needed. Add `contentWidth` when you want the background to span one width while keeping children in a narrower readable column.
+Use `WideWave` for a high-impact accent band — a hero closer, a call-to-action strip, or a divider between content sections — where the decorative wave graphic reinforces brand identity. Add `contentWidth` when you want the wave band to span one width while keeping children in a narrower readable column.
 
 ## Import
 
@@ -20,30 +20,37 @@ import { WideWave } from '@cuweb/raven-design-system';
 ## Basic usage
 
 ```tsx
-// Default — content width, grey background, no image
+// Default — content width, black background
 <Main>
   <WideWave>
     <Column cols="3">...</Column>
   </WideWave>
 </Main>
 
-// Full-bleed with a background image
+// Red background
 <Main>
-  <WideWave maxWidth="alignfull" image="tory">
-    <Column cols="3">...</Column>
-  </WideWave>
-</Main>
-
-// Full-bleed image with content constrained to 1024px
-<Main>
-  <WideWave maxWidth="alignfull" image="tory" contentWidth="aligncontent">
+  <WideWave color="red">
     <Column cols="2">...</Column>
   </WideWave>
 </Main>
 
-// Full-bleed image with content constrained to 1280px
+// Full-bleed
 <Main>
-  <WideWave maxWidth="alignfull" image="tory" contentWidth="alignwide">
+  <WideWave maxWidth="alignfull">
+    <Column cols="3">...</Column>
+  </WideWave>
+</Main>
+
+// Full-bleed with content constrained to 1024px
+<Main>
+  <WideWave maxWidth="alignfull" contentWidth="aligncontent">
+    <Column cols="2">...</Column>
+  </WideWave>
+</Main>
+
+// Full-bleed with content constrained to 1280px
+<Main>
+  <WideWave maxWidth="alignfull" contentWidth="alignwide">
     <Column cols="2">...</Column>
   </WideWave>
 </Main>
@@ -53,26 +60,26 @@ import { WideWave } from '@cuweb/raven-design-system';
 
 ### Default
 
-Content width (`aligncontent`), grey background. Use the controls to explore `maxWidth`, `contentWidth`, `image`, and `opacity`.
+Content width (`aligncontent`), black background. Use the controls to explore `color`, `maxWidth`, and `contentWidth`.
 
 <Canvas of={WideWaveStories.Default} />
 <Controls of={WideWaveStories.Default} />
 
 ### Wide
 
-`maxWidth="alignwide"` expands the section to the wide layout width (`--rds--layout-wide-size`).
+`maxWidth="alignwide"` expands the section to the wide layout width (`--rds--layout-wide-size`), shown here with `color="red"`.
 
 <Canvas of={WideWaveStories.Wide} />
 
-### Full width with image
+### Full width
 
-`maxWidth="alignfull"` with `image` runs edge to edge with a background image and white overlay.
+`maxWidth="alignfull"` runs edge to edge.
 
 <Canvas of={WideWaveStories.FullWidth} />
 
 ### Full width with constrained content (1024px)
 
-`contentWidth="aligncontent"` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed background but a readable column of content.
+`contentWidth="aligncontent"` wraps children in an inner div constrained to 1024px — useful when you want a full-bleed wave band but a readable column of content.
 
 <Canvas of={WideWaveStories.FullWidthConstrained} />
 
@@ -84,37 +91,30 @@ Content width (`aligncontent`), grey background. Use the controls to explore `ma
 
 ## Max-width presets
 
-| `maxWidth`       | Token                        | Description                                    |
-| ---------------- | ---------------------------- | ---------------------------------------------- |
-| `"aligncontent"` | `--rds--layout-content-size` | Default — standard readable content width      |
-| `"alignwide"`    | `--rds--layout-wide-size`    | Wider — for card grids and media-rich sections |
-| `"alignfull"`    | `--rds--layout-full-size`    | Full viewport width — hero and accent bands    |
+| `maxWidth`       | Token                        | Description                                          |
+| ---------------- | ---------------------------- | ---------------------------------------------------- |
+| `"aligncontent"` | `--rds--layout-content-size` | Standard readable content width                      |
+| `"alignwide"`    | `--rds--layout-wide-size`    | Wider — for card grids and media-rich sections       |
+| `"alignfull"`    | `--rds--layout-full-size`    | Default — full viewport width, hero and accent bands |
 
 These names and tokens mirror the WordPress block editor's alignment system so that React templates and WordPress block themes share the same layout vocabulary.
 
-## The `image` prop
+## The `color` prop
 
-Pass an image name key (e.g. `"tory"`) — the component constructs the full CDN URL automatically:
-
-```
-https://cdn.carleton.ca/rds/assets/bg-images/{name}.jpg
-```
-
-Available image keys come from `BgImagesData.json`. When no image is provided, the component falls back to the grey background with no overlay.
-
-## The `opacity` prop
-
-Controls the white overlay applied on top of the background image — higher values increase the overlay opacity, making the image more subtle. Accepts `0–100` (default `85`). Has no effect when no `image` is set.
+| Value     | Background                     | Wave graphic                   |
+| --------- | ------------------------------ | ------------------------------ |
+| `"black"` | `--rds--color-black` (default) | `cu-waves-hard-edge-black.svg` |
+| `"red"`   | `--rds--color-primary-dark`    | `cu-waves-hard-edge-red.svg`   |
 
 ## The `contentWidth` prop
 
 When set, `contentWidth` wraps all children in an inner div constrained within the outer layout:
 
-| Value            | Inner content width                                   |
-| ---------------- | ----------------------------------------------------- |
-| `"aligncontent"` | 1024px — standard readable content width              |
-| `"alignwide"`    | 1280px — wider, for card grids and media-rich layouts |
-| `"alignfull"`    | Full viewport width                                   |
+| Value            | Inner content width                                             |
+| ---------------- | --------------------------------------------------------------- |
+| `"aligncontent"` | 1024px — standard readable content width                        |
+| `"alignwide"`    | 1280px — wider, for card grids and media-rich layouts (default) |
+| `"alignfull"`    | Full viewport width                                             |
 
 Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 
@@ -122,29 +122,32 @@ Omitting `contentWidth` keeps the existing behaviour: children are direct childr
 
 | Class                   | When applied                                           |
 | ----------------------- | ------------------------------------------------------ |
-| `cu-imagecover`         | Always                                                 |
-| `cu-imagecover--image`  | When `image` is set                                    |
+| `cu-widewave`           | Always                                                 |
+| `cu-widewave--black`    | `color="black"` (default)                              |
+| `cu-widewave--red`      | `color="red"`                                          |
+| `cu-widewave__wave`     | Always — decorative wave graphic element               |
 | `has-global-padding`    | Always — horizontal gutter from `--rds--layout-gutter` |
-| `aligncontent`          | `maxWidth="aligncontent"` (default)                    |
+| `aligncontent`          | `maxWidth="aligncontent"`                              |
 | `alignwide`             | `maxWidth="alignwide"`                                 |
-| `alignfull`             | `maxWidth="alignfull"`                                 |
+| `alignfull`             | `maxWidth="alignfull"` (default)                       |
 | `is-layout-constrained` | Always — constrains children to content / wide widths  |
 
 ## Design tokens
 
-| Token                        | Used for                                                       |
-| ---------------------------- | -------------------------------------------------------------- |
-| `--rds--color-grey-pale`     | Background colour (always applied)                             |
-| `--rds--spacing-large`       | Internal padding                                               |
-| `--rds--layout-content-size` | `aligncontent` max-width                                       |
-| `--rds--layout-wide-size`    | `alignwide` max-width                                          |
-| `--rds--layout-full-size`    | `alignfull` max-width (100%)                                   |
-| `--cu-imagecover-bg`         | CSS custom property set via `style` when image is provided     |
-| `--cu-imagecover-overlay`    | CSS custom property set via `style` to control overlay opacity |
+| Token                        | Used for                                 |
+| ---------------------------- | ---------------------------------------- |
+| `--rds--color-black`         | Background colour when `color="black"`   |
+| `--rds--color-primary-dark`  | Background colour when `color="red"`     |
+| `--rds--spacing-large`       | Internal padding, wave graphic offset    |
+| `--rds--spacing-x-large`     | Bottom padding at `md`+                  |
+| `--rds--radius-md`           | Border radius on non-full-width sections |
+| `--rds--layout-content-size` | `aligncontent` max-width                 |
+| `--rds--layout-wide-size`    | `alignwide` max-width                    |
+| `--rds--layout-full-size`    | `alignfull` max-width (100%)             |
 
 ## Accessibility
 
 - `WideWave` always renders a `<section>` element. Add `aria-label` or `aria-labelledby` when the section's purpose should be surfaced to screen reader landmark navigation.
 - Without an accessible name, `<section>` is not exposed as a landmark, which is acceptable for generic layout sections.
-- When stacking multiple `WideWave` sections on a page, ensure each meaningful one has a distinct label so screen reader users can distinguish between them.
-- The decorative wave element (`cu-imagecover__wave`) has no accessible meaning and is hidden from assistive technology.
+- `data-color-scheme="dark"` is applied automatically so text and headings inside invert to white — do not manually override text color on children.
+- The decorative wave graphic (`cu-widewave__wave`) has no accessible meaning and carries no text alternative, which is appropriate since it is purely ornamental.
