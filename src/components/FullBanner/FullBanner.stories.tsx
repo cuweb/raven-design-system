@@ -160,7 +160,7 @@ export const ContentBoxLg: Story = {
 export const JustifyCenter: Story = {
     render: (args) => (
         <FullBanner {...args}>
-            <ButtonGroup>
+            <ButtonGroup align="center">
                 <Button title="Apply Now" />
                 <Button title="Request Information" color="dark-grey" />
             </ButtonGroup>
