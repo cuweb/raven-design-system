@@ -5,7 +5,7 @@ import * as ButtonStories from './Button.stories';
 
 # Button
 
-A flexible action trigger that renders a native `<button>` element. Supports five color variants, optional Font Awesome icons, size and width modifiers, and a disabled state.
+A flexible action trigger that renders a native `<button>` element. Supports six color variants (with an optional outline treatment), optional Font Awesome icons, size and width modifiers, and a disabled state.
 
 ## When to use
 
@@ -23,6 +23,7 @@ import { Button } from '@cuweb/raven-design-system';
 <Button title="Get started" color="red" />
 <Button title="Download" color="dark-grey" icon="circle-down" />
 <Button icon="circle-down" ariaLabel="Download file" color="dark-grey" />
+<Button title="Cancel" color="red" isOutline />
 ```
 
 ## Examples
@@ -70,17 +71,19 @@ When `title` is omitted, `icon` and `ariaLabel` are both required — enforced b
 
 ## CSS classes
 
-| Class                  | When applied            |
-| ---------------------- | ----------------------- |
-| `cu-button`            | Always — base class     |
-| `cu-button--red`       | `color="red"` (default) |
-| `cu-button--grey`      | `color="grey"`          |
-| `cu-button--dark-grey` | `color="dark-grey"`     |
-| `cu-button--black`     | `color="black"`         |
-| `cu-button--white`     | `color="white"`         |
-| `cu-button--disabled`  | `isDisabled={true}`     |
-| `cu-button--small`     | `isSmall={true}`        |
-| `cu-button--full`      | `isFull={true}`         |
+| Class                  | When applied                               |
+| ---------------------- | ------------------------------------------ |
+| `cu-button`            | Always — base class                        |
+| `cu-button--red`       | `color="red"` (default)                    |
+| `cu-button--grey`      | `color="grey"`                             |
+| `cu-button--dark-grey` | `color="dark-grey"`                        |
+| `cu-button--blue`      | `color="blue"`                             |
+| `cu-button--black`     | `color="black"`                            |
+| `cu-button--white`     | `color="white"`                            |
+| `cu-button--disabled`  | `isDisabled={true}`                        |
+| `cu-button--outline`   | `isOutline={true}` (ignored when disabled) |
+| `cu-button--small`     | `isSmall={true}`                           |
+| `cu-button--full`      | `isFull={true}`                            |
 
 A top margin (`2rem` mobile, `2.5rem` desktop) is automatically applied when a `Button` or `ButtonGroup` directly follows a `Column` or `StackedList` element — no extra spacing class needed.
 
@@ -88,20 +91,21 @@ A top margin (`2rem` mobile, `2.5rem` desktop) is automatically applied when a `
 
 These `--rds--*` custom properties drive the Button's appearance. Overriding them at a higher scope will change every Button on the page.
 
-| Token                       | Used for                                                                        |
-| --------------------------- | ------------------------------------------------------------------------------- |
-| `--rds--font-family-inter`  | Font family                                                                     |
-| `--rds--font-size-small`    | Font size on mobile and when `isSmall`                                          |
-| `--rds--font-size-medium`   | Font size on desktop (≥ md breakpoint)                                          |
-| `--rds--font-weight-medium` | Font weight                                                                     |
-| `--rds--line-height-tight`  | Line height                                                                     |
-| `--rds--radius-md`          | Border radius                                                                   |
-| `--rds--color-primary`      | `red` variant background; hover state for `grey`, `dark-grey`, `black`, `white` |
-| `--rds--color-grey-dark`    | `dark-grey` variant background; `grey` variant text                             |
-| `--rds--color-grey-pale`    | `grey` variant background                                                       |
-| `--rds--color-grey-light`   | Disabled state background                                                       |
-| `--rds--color-white`        | `white` variant background; text on dark variants                               |
-| `--rds--color-black`        | `black` variant background; `white` variant text                                |
+| Token                          | Used for                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| `--rds--font-family-inter`     | Font family                                                                     |
+| `--rds--font-size-small`       | Font size on mobile and when `isSmall`                                          |
+| `--rds--font-size-medium`      | Font size on desktop (≥ md breakpoint)                                          |
+| `--rds--font-weight-medium`    | Font weight                                                                     |
+| `--rds--line-height-tight`     | Line height                                                                     |
+| `--rds--radius-md`             | Border radius                                                                   |
+| `--rds--color-primary`         | `red` variant background; hover state for `grey`, `dark-grey`, `black`, `white` |
+| `--rds--color-grey-dark`       | `dark-grey` variant background; `grey` variant text                             |
+| `--rds--color-grey-pale`       | `grey` variant background                                                       |
+| `--rds--color-grey-light`      | Disabled state background                                                       |
+| `--rds--color-white`           | `white` variant background; text on dark variants                               |
+| `--rds--color-black`           | `black` variant background; `white` variant text                                |
+| `--rds--color-experience-blue` | `blue` variant background                                                       |
 
 ## Accessibility
 

@@ -5,7 +5,7 @@ import * as BadgeGroupStories from './BadgeGroup.stories';
 
 # Badge Group
 
-A flex container that wraps one or more `Badge` components into a horizontal, wrapping row. Its primary use is overlaying a set of badges on a card image using the `cu-card__badge` positioning class.
+A flex container that wraps one or more `Badge` components into a horizontal, wrapping row. Its primary use is overlaying a set of badges on a card image — `Card` automatically positions an adjacent `BadgeGroup` over the figure.
 
 ## When to use
 
@@ -44,14 +44,14 @@ import { BadgeGroup } from '@cuweb/raven-design-system';
 
 ### Default
 
-An inline, wrapping row of badges. Use the controls to explore the `isAbsolute` positioning props — though for card overlays the `cu-card__badge` pattern below is preferred.
+An inline, wrapping row of badges. Use the controls to explore the `isAbsolute` positioning props — though for card overlays the adjacent-sibling pattern below is preferred.
 
 <Canvas of={BadgeGroupStories.Default} />
 <Controls of={BadgeGroupStories.Default} />
 
 ### On card
 
-The recommended pattern for badge overlays. Wrap `BadgeGroup` in a `<div className="cu-card__badge">` inside any `Card` — the class handles absolute positioning (`top` and `left`) using the `--rds--spacing-x-small` token, so the offset stays in sync with the design system spacing scale.
+The recommended pattern for badge overlays. Place `BadgeGroup` immediately adjacent to `Card.Figure` (before or after it) inside any `Card` — an adjacent-sibling CSS rule handles absolute positioning (`top` and `left`) using the `--rds--spacing-x-small` token, so the offset stays in sync with the design system spacing scale. No wrapper element is needed.
 
 <Canvas of={BadgeGroupStories.OnCard} />
 
@@ -60,12 +60,10 @@ The recommended pattern for badge overlays. Wrap `BadgeGroup` in a `<div classNa
     <Card.Figure>
         <img src={image} alt={alt} width="600" height="400" />
     </Card.Figure>
-    <div className="cu-card__badge">
-        <BadgeGroup>
-            <Badge text="Featured" color="black80" rounded="full" />
-            <Badge text="New" color="teal" rounded="full" />
-        </BadgeGroup>
-    </div>
+    <BadgeGroup>
+        <Badge text="Featured" color="black80" rounded="full" />
+        <Badge text="New" color="teal" rounded="full" />
+    </BadgeGroup>
     <Card.Header title={title} link={link} />
     <Card.Body>
         <Card.Excerpt text={excerpt} />
@@ -75,22 +73,21 @@ The recommended pattern for badge overlays. Wrap `BadgeGroup` in a `<div classNa
 
 ## CSS classes
 
-| Class            | When applied                                                           |
-| ---------------- | ---------------------------------------------------------------------- |
-| `cu-badge-group` | Always — base class on the `BadgeGroup` element                        |
-| `cu-card__badge` | Applied to a wrapping `<div>` in the Card — not on `BadgeGroup` itself |
+| Class            | When applied                                    |
+| ---------------- | ----------------------------------------------- |
+| `cu-badge-group` | Always — base class on the `BadgeGroup` element |
 
-`cu-card__badge` is defined in the Card component's styles and sets `position: absolute`, `z-index: 3`, and `top`/`left` offsets via `--rds--spacing-x-small`.
+`Card`'s own styles define an adjacent-sibling rule (`.cu-card__figure + .cu-badge-group`, and the reverse order) that sets `position: absolute`, `z-index: 3`, and `top`/`left` offsets via `--rds--spacing-x-small` whenever a `BadgeGroup` sits directly next to `Card.Figure`.
 
 ## Design tokens
 
-| Token                      | Used for                                            |
-| -------------------------- | --------------------------------------------------- |
-| `--rds--spacing-2-x-small` | Gap between badges in the group                     |
-| `--rds--spacing-x-small`   | `top` and `left` offset when using `cu-card__badge` |
+| Token                      | Used for                                                               |
+| -------------------------- | ---------------------------------------------------------------------- |
+| `--rds--spacing-2-x-small` | Gap between badges in the group                                        |
+| `--rds--spacing-x-small`   | `top` and `left` offset when `BadgeGroup` is adjacent to `Card.Figure` |
 
 ## Accessibility
 
 - `BadgeGroup` renders a plain `<div>` with no ARIA role — it is a visual layout wrapper only.
 - Individual `Badge` components within the group retain their own semantics (inline text or link).
-- When using `cu-card__badge` for overlay positioning, ensure the badges are placed in a logical reading order relative to the surrounding card content in the DOM.
+- When placing `BadgeGroup` adjacent to `Card.Figure` for overlay positioning, ensure the badges are placed in a logical reading order relative to the surrounding card content in the DOM.
