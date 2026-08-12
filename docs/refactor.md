@@ -77,13 +77,13 @@ Full-width or image/video-heavy promotional components.
 
 | Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | ------------ | --------------- | ------------ | -------------- | ---------------- |
-| Embed        | done            | No           | No             | No               |
-| Full Banner  | done            | No           | No             | No               |
-| Image Grid   | done            | No           | No             | No               |
-| Image Slider | done            | No           | No             | No               |
-| Page Header  | done            | No           | No             | No               |
-| Wide Banner  | done            | No           | No             | No               |
-| Wide Image   | done            | No           | No             | No               |
+| Embed        | done            | Yes          | Yes            | No               |
+| Full Banner  | done            | Yes          | Yes            | No               |
+| Image Grid   | done            | Yes          | Yes            | No               |
+| Image Slider | done            | Yes          | Yes            | No               |
+| Page Header  | done            | Yes          | Yes            | No               |
+| Wide Banner  | done            | Yes          | Yes            | No               |
+| Wide Image   | done            | Yes          | Yes            | No               |
 
 ### Deprecated
 
