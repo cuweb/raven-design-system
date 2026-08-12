@@ -44,7 +44,7 @@ export const YouTube: Story = {
 export const Vimeo: Story = {
     render: (args) => (
         <Embed {...args}>
-            <Embed.Vimeo title="Vimeo embed demo" url="https://vimeo.com/106595658" />
+            <Embed.Vimeo title="Vimeo embed demo" url="https://vimeo.com/347119375" />
         </Embed>
     ),
 };
