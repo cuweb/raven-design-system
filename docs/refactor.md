@@ -114,11 +114,11 @@ Structural wrappers and grid composition. These define the skeleton of a page re
 
 | Component    | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | ------------ | --------------- | ------------ | -------------- | ---------------- |
-| Column       | done            | No           | No             | No               |
+| Column       | done            | Yes          | No             | No               |
 | Image Cover  | done            | Yes          | No             | No               |
-| Section      | done            | No           | No             | No               |
-| Stacked List | done            | No           | No             | No               |
-| Wide Wave    | done            | No           | No             | No               |
+| Section      | done            | Yes          | No             | No               |
+| Stacked List | done            | Yes          | No             | No               |
+| Wide Wave    | done            | Yes          | No             | No               |
 
 ### Deprecated
 
@@ -134,10 +134,10 @@ WordPress block editor template part wrappers. These map directly to the templat
 
 | Component | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | --------- | --------------- | ------------ | -------------- | ---------------- |
-| Article   | done            | No           | No             | No               |
-| Aside     | done            | No           | No             | No               |
-| Body      | done            | No           | No             | No               |
-| Main      | done            | No           | No             | No               |
+| Article   | done            | Yes          | No             | No               |
+| Aside     | done            | Yes          | No             | No               |
+| Body      | done            | Yes          | No             | No               |
+| Main      | done            | Yes          | No             | No               |
 
 ---
 
