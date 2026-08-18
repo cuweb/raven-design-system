@@ -147,9 +147,9 @@ Behavioral or non-visual components. These don't render meaningful UI on their o
 
 | Component     | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | ------------- | --------------- | ------------ | -------------- | ---------------- |
-| Cookie Banner | done            | No           | No             | No               |
-| Link Provider | done            | No           | No             | No               |
-| Login         | done            | No           | No             | No               |
+| Cookie Banner | done            | Yes          | No             | No               |
+| Link Provider | done            | Yes          | No             | No               |
+| Login         | done            | Yes          | No             | No               |
 
 ### Deprecated
 
