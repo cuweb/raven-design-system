@@ -53,7 +53,7 @@ const SearchInputWrapper = ({
                     value={value}
                 />
             </div>
-            {open && children && <div className="cu-search-input__results">{children}</div>}
+            {open && children}
         </div>
     );
 };

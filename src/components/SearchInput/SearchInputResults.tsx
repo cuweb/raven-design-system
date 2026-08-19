@@ -17,18 +17,20 @@ export const SearchInputResults = ({ resultsData }: SearchInputResultsProps) => 
     if (!resultsData.length) return null;
 
     return (
-        <ul className="cu-search-input__results-list">
-            {resultsData.map((record) => (
-                <li key={record.id} className="cu-search-input__results-item">
-                    <LinkComponent
-                        href={String(record.url)}
-                        className="cu-search-input__results-link"
-                    >
-                        {record.title}
-                    </LinkComponent>
-                </li>
-            ))}
-        </ul>
+        <div className="cu-search-input__results">
+            <ul className="cu-search-input__results-list">
+                {resultsData.map((record) => (
+                    <li key={record.id} className="cu-search-input__results-item">
+                        <LinkComponent
+                            href={String(record.url)}
+                            className="cu-search-input__results-link"
+                        >
+                            {record.title}
+                        </LinkComponent>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 
