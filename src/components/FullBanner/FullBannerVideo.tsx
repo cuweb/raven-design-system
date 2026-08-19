@@ -1,8 +1,27 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from '../../utils/motion/useReducedMotion';
 
 export interface FullBannerVideoProps {
-    src: string;
+    src: string | string[];
+    poster?: string;
+    description?: string;
+    showControls?: boolean;
+    fallback?: string;
 }
+
+const videoMimeTypes: Record<string, string> = {
+    mp4: 'video/mp4',
+    m4v: 'video/mp4',
+    webm: 'video/webm',
+    ogv: 'video/ogg',
+    ogg: 'video/ogg',
+    mov: 'video/quicktime',
+};
+
+const getVideoType = (url: string) => {
+    const extension = url.split(/[?#]/)[0].split('.').pop()?.toLowerCase();
+    return extension ? videoMimeTypes[extension] : undefined;
+};
 
 const PauseIcon = () => (
     <svg
@@ -31,42 +50,82 @@ const PlayIcon = () => (
     </svg>
 );
 
-export const FullBannerVideo = ({ src }: FullBannerVideoProps) => {
+export const FullBannerVideo = ({
+    src,
+    poster,
+    description,
+    showControls = true,
+    fallback = 'Your browser does not support the video tag.',
+}: FullBannerVideoProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPlaying, setIsPlaying] = useState(true);
+    const prefersReducedMotion = useReducedMotion();
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const sources = Array.isArray(src) ? src : [src];
+    const sourceKey = sources.join('|');
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        video.muted = true;
+        video.load();
+
+        if (prefersReducedMotion) {
+            video.pause();
+            return;
+        }
+
+        void video.play().catch(() => undefined);
+    }, [sourceKey, prefersReducedMotion]);
 
     const toggle = () => {
         const video = videoRef.current;
         if (!video) return;
-        if (isPlaying) {
-            video.pause();
-        } else {
-            video.play();
+
+        if (video.paused) {
+            void video.play().catch(() => undefined);
+            return;
         }
-        setIsPlaying(!isPlaying);
+
+        video.pause();
     };
+
+    const label = isPlaying ? 'Pause background video' : 'Play background video';
 
     return (
         <div className="cu-fullbanner__video-wrap">
             <video
                 ref={videoRef}
                 className="cu-fullbanner__video"
-                autoPlay
+                poster={poster}
                 muted
                 loop
                 playsInline
+                controls={false}
+                preload={prefersReducedMotion ? 'metadata' : 'auto'}
                 aria-hidden="true"
+                tabIndex={-1}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                aria-label={description}
             >
-                <source src={src} />
+                {sources.map((source) => (
+                    <source key={source} src={source} type={getVideoType(source)} />
+                ))}
+                <p>{fallback}</p>
             </video>
-            <button
-                type="button"
-                className="cu-fullbanner__video-toggle"
-                onClick={toggle}
-                aria-label={isPlaying ? 'Pause background video' : 'Play background video'}
-            >
-                {isPlaying ? <PauseIcon /> : <PlayIcon />}
-            </button>
+            {showControls && (
+                <button
+                    type="button"
+                    className="cu-fullbanner__video-toggle"
+                    onClick={toggle}
+                    aria-label={label}
+                    title={label}
+                >
+                    {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                </button>
+            )}
         </div>
     );
 };
