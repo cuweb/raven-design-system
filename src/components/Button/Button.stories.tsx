@@ -75,6 +75,14 @@ export const Disabled: Story = {
     },
 };
 
+export const AsLink: Story = {
+    args: {
+        title: 'Visit Carleton',
+        color: 'red',
+        href: 'https://carleton.ca',
+    },
+};
+
 export const AllColors: Story = {
     render: () => (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
