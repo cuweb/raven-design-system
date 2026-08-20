@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from '../../utils/motion/useReducedMotion';
+import { useRef, useState } from 'react';
 
 export interface FullBannerVideoProps {
     src: string | string[];
     poster?: string;
     description?: string;
-    showControls?: boolean;
     fallback?: string;
 }
 
@@ -54,41 +52,22 @@ export const FullBannerVideo = ({
     src,
     poster,
     description,
-    showControls = true,
     fallback = 'Your browser does not support the video tag.',
 }: FullBannerVideoProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const prefersReducedMotion = useReducedMotion();
     const [isPlaying, setIsPlaying] = useState(false);
 
     const sources = Array.isArray(src) ? src : [src];
-    const sourceKey = sources.join('|');
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        video.muted = true;
-        video.load();
-
-        if (prefersReducedMotion) {
-            video.pause();
-            return;
-        }
-
-        void video.play().catch(() => undefined);
-    }, [sourceKey, prefersReducedMotion]);
 
     const toggle = () => {
         const video = videoRef.current;
         if (!video) return;
-
-        if (video.paused) {
-            void video.play().catch(() => undefined);
-            return;
+        if (isPlaying) {
+            video.pause();
+        } else {
+            video.play();
         }
-
-        video.pause();
+        setIsPlaying(!isPlaying);
     };
 
     const label = isPlaying ? 'Pause background video' : 'Play background video';
@@ -103,7 +82,6 @@ export const FullBannerVideo = ({
                 loop
                 playsInline
                 controls={false}
-                preload={prefersReducedMotion ? 'metadata' : 'auto'}
                 aria-hidden="true"
                 tabIndex={-1}
                 onPlay={() => setIsPlaying(true)}
@@ -115,17 +93,15 @@ export const FullBannerVideo = ({
                 ))}
                 <p>{fallback}</p>
             </video>
-            {showControls && (
-                <button
-                    type="button"
-                    className="cu-fullbanner__video-toggle"
-                    onClick={toggle}
-                    aria-label={label}
-                    title={label}
-                >
-                    {isPlaying ? <PauseIcon /> : <PlayIcon />}
-                </button>
-            )}
+            <button
+                type="button"
+                className="cu-fullbanner__video-toggle"
+                onClick={toggle}
+                aria-label={label}
+                title={label}
+            >
+                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+            </button>
         </div>
     );
 };
