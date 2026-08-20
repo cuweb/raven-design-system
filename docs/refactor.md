@@ -167,10 +167,10 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 | Component | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | --------- | --------------- | ------------ | -------------- | ---------------- |
-| Alert     | done            | No           | Yes            | No               |
-| Dialog    | done            | No           | Yes            | No               |
-| Modal     | done            | No           | Yes            | No               |
-| Toast     | done            | No           | Yes            | No               |
+| Alert     | done            | Yes          | Yes            | No               |
+| Dialog    | done            | Yes          | Yes            | No               |
+| Modal     | done            | Yes          | Yes            | No               |
+| Toast     | done            | Yes          | Yes            | No               |
 
 ### Deprecated
 
