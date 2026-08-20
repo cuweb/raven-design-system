@@ -32,7 +32,7 @@ type Story = StoryObj<typeof Carleton360>;
 export const Default: Story = {
     render: (args) => (
         <Carleton360 {...args}>
-            <ButtonGroup>
+            <ButtonGroup align="center">
                 <Button title="Sign up for 360" />
                 <Button title="Login to 360" color="dark-grey" />
             </ButtonGroup>
@@ -47,7 +47,7 @@ export const CustomDescription: Story = {
     },
     render: (args) => (
         <Carleton360 {...args}>
-            <ButtonGroup>
+            <ButtonGroup align="center">
                 <Button title="Sign up for 360" />
                 <Button title="Login to 360" color="dark-grey" />
             </ButtonGroup>
