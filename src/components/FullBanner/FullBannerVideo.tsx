@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 
 export interface FullBannerVideoProps {
     src: string | string[];
-    poster?: string;
+    backgroundImage?: string;
     description?: string;
     fallback?: string;
 }
@@ -50,12 +50,12 @@ const PlayIcon = () => (
 
 export const FullBannerVideo = ({
     src,
-    poster,
+    backgroundImage,
     description,
     fallback = 'Your browser does not support the video tag.',
 }: FullBannerVideoProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
 
     const sources = Array.isArray(src) ? src : [src];
 
@@ -77,7 +77,8 @@ export const FullBannerVideo = ({
             <video
                 ref={videoRef}
                 className="cu-fullbanner__video"
-                poster={poster}
+                poster={backgroundImage}
+                autoPlay
                 muted
                 loop
                 playsInline

@@ -116,6 +116,7 @@ export const WithVideo: Story = {
             {...args}
             media={
                 <FullBanner.Video
+                    backgroundImage="https://picsum.photos/id/381/1920/840"
                     src={[
                         'https://cdn.carleton.ca/truth/videos/aerial-view-20260513134411.mp4',
                         'https://cu-development.s3.amazonaws.com/truth/videos/aerial-view-20260513134422-20260623150734.webm',
