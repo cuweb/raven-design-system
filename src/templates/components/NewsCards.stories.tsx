@@ -142,7 +142,7 @@ export const NewsCardComponent: Story = {
 
                 <MultiParagraph count={2} />
 
-                <Section as="section" maxWidth="alignwide" bgType="grey">
+                <Section as="section" maxWidth="alignwide" contentWidth="alignwide" bgType="grey">
                     <PageHeader
                         as="h2"
                         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
@@ -171,6 +171,36 @@ export const NewsCardComponent: Story = {
                 </Section>
 
                 <MultiParagraph count={2} />
+
+                <MultiParagraph count={2} />
+
+                <Section as="section" maxWidth="alignfull" contentWidth="alignwide" bgType="grey">
+                    <PageHeader
+                        as="h2"
+                        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc varius feugiat euismod. Ut ut diam dapibus nisi ullamcorper sollicitudin id vitae turpis."
+                        header="Grey Background"
+                        size="lg"
+                        isFullWidth
+                    />
+                    <Column cols="4" maxWidth="alignwide">
+                        {NewsData.slice(0, 4).map((item) => (
+                            <Card key={`news-${item.id}`}>
+                                <Card.Figure>
+                                    <img src={item.image} alt={item.alt} width="600" height="400" />
+                                </Card.Figure>
+                                <Card.Header
+                                    title={item.title}
+                                    link={item.link}
+                                    date={item.date}
+                                    readTime="7"
+                                />
+                                <Card.Body>
+                                    <Card.Excerpt text={item.excerpt} />
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </Column>
+                </Section>
             </Main>
 
             <FooterStandard type="standard" />
