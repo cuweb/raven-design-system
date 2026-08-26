@@ -1,6 +1,7 @@
 @use '../../styles/files/rds-variables' as *;
 
-.cu-button {
+.cu-button,
+a.cu-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
