@@ -14,7 +14,7 @@
 
     "tokens": {
         "layout": {
-            "contentSize": "896px",
+            "contentSize": "960px",
             "wideSize": "1280px",
             "smallSize": { "value": "600px", "cssOnly": true },
             "maxSize": { "value": "1536px", "cssOnly": true }
@@ -23,7 +23,7 @@
         "mediaQuery": {
             "sm": "600px",
             "md": "784px",
-            "lg": "896px",
+            "lg": "960px",
             "xl": "1280px"
         },
 
