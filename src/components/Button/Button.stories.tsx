@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 
-const colorOptions = ['red', 'grey', 'dark-grey', 'blue', 'black', 'white'] as const;
+const colorOptions = ['red', 'grey', 'dark-grey', 'black', 'white'] as const;
 
 const meta: Meta<typeof Button> = {
     title: 'Components/Elements/Button',
@@ -72,14 +72,6 @@ export const Disabled: Story = {
     args: {
         title: 'Unavailable',
         isDisabled: true,
-    },
-};
-
-export const AsLink: Story = {
-    args: {
-        title: 'Visit Carleton',
-        color: 'red',
-        href: 'https://carleton.ca',
     },
 };
 

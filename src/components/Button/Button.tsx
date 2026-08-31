@@ -4,7 +4,10 @@ import type { IconName } from '../Icon';
 import { useLinkContext } from '../LinkProvider/useLinkContext';
 import './styles.scss';
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+export interface ButtonProps
+    extends
+        React.ComponentPropsWithoutRef<'button'>,
+        Pick<React.ComponentPropsWithoutRef<'a'>, 'target' | 'rel'> {
     color?: 'red' | 'grey' | 'dark-grey' | 'blue' | 'black' | 'white';
     type?: 'button' | 'submit' | 'reset';
     isSmall?: boolean;
