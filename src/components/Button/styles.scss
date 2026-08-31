@@ -1,11 +1,12 @@
 @use '../../styles/files/rds-variables' as *;
 
-.cu-button {
+.cu-button,
+a.cu-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    padding: var(--rds--spacing-x-small) var(--rds--spacing-medium);
     font-family: var(--rds--font-family-inter);
     font-size: var(--rds--font-size-small);
     font-weight: var(--rds--font-weight-medium);
@@ -21,7 +22,7 @@
     }
 
     @media (min-width: $rds-media-query-md) {
-        padding: 0.75rem 1.5rem;
+        padding: var(--rds--spacing-small) var(--rds--spacing-large);
         font-size: var(--rds--font-size-medium);
     }
 }

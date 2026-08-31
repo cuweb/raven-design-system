@@ -1,8 +1,25 @@
 import { useRef, useState } from 'react';
 
 export interface FullBannerVideoProps {
-    src: string;
+    src: string | string[];
+    backgroundImage?: string;
+    description?: string;
+    fallback?: string;
 }
+
+const videoMimeTypes: Record<string, string> = {
+    mp4: 'video/mp4',
+    m4v: 'video/mp4',
+    webm: 'video/webm',
+    ogv: 'video/ogg',
+    ogg: 'video/ogg',
+    mov: 'video/quicktime',
+};
+
+const getVideoType = (url: string) => {
+    const extension = url.split(/[?#]/)[0].split('.').pop()?.toLowerCase();
+    return extension ? videoMimeTypes[extension] : undefined;
+};
 
 const PauseIcon = () => (
     <svg
@@ -31,9 +48,16 @@ const PlayIcon = () => (
     </svg>
 );
 
-export const FullBannerVideo = ({ src }: FullBannerVideoProps) => {
+export const FullBannerVideo = ({
+    src,
+    backgroundImage,
+    description,
+    fallback = 'Your browser does not support the video tag.',
+}: FullBannerVideoProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(true);
+
+    const sources = Array.isArray(src) ? src : [src];
 
     const toggle = () => {
         const video = videoRef.current;
@@ -46,24 +70,36 @@ export const FullBannerVideo = ({ src }: FullBannerVideoProps) => {
         setIsPlaying(!isPlaying);
     };
 
+    const label = isPlaying ? 'Pause background video' : 'Play background video';
+
     return (
         <div className="cu-fullbanner__video-wrap">
             <video
                 ref={videoRef}
                 className="cu-fullbanner__video"
+                poster={backgroundImage}
                 autoPlay
                 muted
                 loop
                 playsInline
+                controls={false}
                 aria-hidden="true"
+                tabIndex={-1}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                aria-label={description}
             >
-                <source src={src} />
+                {sources.map((source) => (
+                    <source key={source} src={source} type={getVideoType(source)} />
+                ))}
+                <p>{fallback}</p>
             </video>
             <button
                 type="button"
                 className="cu-fullbanner__video-toggle"
                 onClick={toggle}
-                aria-label={isPlaying ? 'Pause background video' : 'Play background video'}
+                aria-label={label}
+                title={label}
             >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
             </button>

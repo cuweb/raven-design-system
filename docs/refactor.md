@@ -167,10 +167,10 @@ Loaders mirror their parent components (e.g. `CardLoader` pairs with `Card`) but
 
 | Component | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | --------- | --------------- | ------------ | -------------- | ---------------- |
-| Alert     | done            | No           | Yes            | No               |
-| Dialog    | done            | No           | Yes            | No               |
-| Modal     | done            | No           | Yes            | No               |
-| Toast     | done            | No           | Yes            | No               |
+| Alert     | done            | Yes          | Yes            | No               |
+| Dialog    | done            | Yes          | Yes            | No               |
+| Modal     | done            | Yes          | Yes            | No               |
+| Toast     | done            | Yes          | Yes            | No               |
 
 ### Deprecated
 
@@ -215,8 +215,8 @@ Data entry and filtering. Form is a sub-system with its own set of primitive inp
 | Component       | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | --------------- | --------------- | ------------ | -------------- | ---------------- |
 | Filter Panel    | done            | No           | No             | No               |
-| Location Picker | done            | No           | No             | No               |
-| Search Input    | done            | No           | No             | No               |
+| Location Picker | done            | Yes          | Yes            | No               |
+| Search Input    | done            | Yes          | Yes            | No               |
 
 ## Forms: Part Two
 
@@ -225,7 +225,7 @@ Data entry and filtering. Form is a sub-system with its own set of primitive inp
 | Component               | Refactor Status | Diff Created | Primary Review | Secondary Review |
 | ----------------------- | --------------- | ------------ | -------------- | ---------------- |
 | Form                    | port            | No           | No             | No               |
-| → Auto Suggest          | port            | No           | No             | No               |
+| → Auto Suggest          | port            | Yes          | Yes            | No               |
 | → Checkbox              | port            | No           | No             | No               |
 | → Date Time             | port            | No           | No             | No               |
 | → Error                 | port            | No           | No             | No               |

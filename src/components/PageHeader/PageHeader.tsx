@@ -12,6 +12,7 @@ export interface PageHeaderProps {
     size?: 'sm' | 'md' | 'lg' | 'xl' | 'primary';
     isWhite?: boolean;
     isCenter?: boolean;
+    isFullWidth?: boolean;
     noUnderline?: boolean;
     pronoun?: string;
 }
@@ -27,6 +28,7 @@ export const PageHeader = ({
     size = 'lg',
     isWhite = false,
     isCenter = false,
+    isFullWidth = false,
     noUnderline = false,
     pronoun,
 }: PageHeaderProps) => {
@@ -38,6 +40,7 @@ export const PageHeader = ({
         `cu-pageheader--${size}`,
         isWhite ? 'cu-pageheader--white' : '',
         isCenter ? 'cu-pageheader--center' : '',
+        isFullWidth ? 'cu-pageheader--full-width' : '',
     ]
         .filter(Boolean)
         .join(' ');

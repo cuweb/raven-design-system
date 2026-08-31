@@ -7,20 +7,23 @@
     justify-content: center;
     gap: var(--rds--spacing-x-small);
     width: 100%;
-    max-width: 64rem;
+    max-width: var(--rds--layout-wide-size);
     margin-inline: auto;
-    padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
     overflow: hidden;
     text-align: center;
     background-color: var(--rds--color-grey-pale);
     border-radius: var(--rds--radius-md);
 
-    @media (min-width: $rds-media-query-md) {
-        padding-inline: var(--rds--spacing-x-large);
-    }
-
     .cu-buttongroup {
         margin-top: var(--rds--spacing-medium);
+    }
+}
+
+.cu-carleton360__container {
+    padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
+
+    @media (min-width: $rds-media-query-md) {
+        padding-inline: var(--rds--spacing-x-large);
     }
 }
 

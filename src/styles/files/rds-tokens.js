@@ -93,7 +93,7 @@ export const rdsTokens = {
         full: '9999px'
     },
     layout: {
-        contentSize: '896px',
+        contentSize: '960px',
         wideSize: '1280px',
         smallSize: '600px',
         maxSize: '1536px'

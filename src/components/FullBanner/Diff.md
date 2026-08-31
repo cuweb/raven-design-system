@@ -29,11 +29,16 @@ explicit `src`.
 
 ### `FullBanner.Video`
 
-| Prop              | Legacy                                | RDS2                     | Change           |
-| ----------------- | ------------------------------------- | ------------------------ | ---------------- |
-| `videoName`       | `videoName?: VideoNameKeys`           | _removed_                | Removed          |
-| `videoBannerList` | `videoBannerList?: VideoBannerItem[]` | _removed_                | Removed          |
-| `src`             | _n/a_                                 | `src: string` (required) | Added (required) |
+| Prop              | Legacy                                                   | RDS2                     | Change           |
+| ----------------- | -------------------------------------------------------- | ------------------------ | ---------------- |
+| `videoName`       | `videoName?: VideoNameKeys`, default `'campus-2025'`     | _removed_                | Removed          |
+| `videoBannerList` | `videoBannerList?: VideoBannerItem[]` (accepted, unused) | _removed_                | Removed          |
+| `src`             | _n/a_                                                    | `src: string` (required) | Added (required) |
+
+`VideoNameKeys` was derived from `utils/json-lists.js` (`(typeof videoBanner)[number]['name']`), so the
+set of playable videos was closed at build time. `videoBannerList` was declared on
+`FullBannerVideoProps` and forwarded to `VideoBanner`, but `VideoBanner` never destructured it — it had
+no effect. Both are gone in RDS2, replaced by a single required `src` URL.
 
 ## Deprecations
 
@@ -42,9 +47,15 @@ explicit `src`.
 - `FullBanner.Image` — removed as a subcomponent. Use the `image` / `imageAlt` props, or pass an
   arbitrary node via `media`. `FullBannerImageProps` is no longer exported.
 - `videoName` / `videoBannerList` on `FullBanner.Video` — no direct replacement. The
-  `useVideoBanner` hook, the `videoBanner` JSON list, and the CDN URL convention
-  (`https://cdn.carleton.ca/cu-media/videos/banner/{name}.{webm,mp4}`) are gone; consumers must now
+  `useVideoBanner` hook (`VideoBanner`, `VideoBannerItem`), the `videoBanner` JSON list, the
+  `VideoNameKeys` union, the imperative `VideoControls()` DOM helper, the `PlayPauseButton`
+  subcomponent, and the CDN URL convention
+  (`https://cdn.carleton.ca/cu-media/videos/banner/{name}.{webm,mp4}`) are all gone; consumers must now
   supply a video URL explicitly via `src`.
+- `videoType` — legacy `FullBanner.Video` hard-coded `videoType="banner"` when calling `VideoBanner`;
+  the `'banner' | 'splash'` distinction no longer exists in RDS2.
+- `showPlayPauseButton` — `VideoBanner` exposed this toggle (default `true`), but `FullBanner.Video`
+  never forwarded it. RDS2 always renders the toggle button and offers no opt-out.
 
 ## Behavioral / Styling Changes
 
@@ -71,13 +82,39 @@ explicit `src`.
   RDS2 passes `size="primary"` and `size="lg"` respectively, and forwards the new `content` prop.
   `isWhite` and `noUnderline` are still applied in both. Legacy rendered `children` inside
   `PageHeader`; RDS2 renders `children` as a sibling after it, inside the content box.
-- Video accessibility/controls reworked: legacy rendered the video via `VideoBanner`
-  (`aria-label` from a JSON description, `id="video-banner"`, `tabIndex={-1}`) with an imperative
-  `VideoControls()` effect and a separate `PlayPauseButton`. RDS2's `FullBannerVideo` is
-  self-contained React state — the `<video>` is `aria-hidden="true"` as decorative background, and a
-  `<button>` with a dynamic `aria-label` (`Pause background video` / `Play background video`) and a
-  `:focus-visible` outline toggles playback. Legacy sourced both `.webm` and `.mp4`; RDS2 emits a
-  single `<source src={src} />` with no `type`.
+- Video markup/structure changed: legacy `FullBanner.Video` was a thin pass-through to the shared
+  `VideoBanner` hook component, which returned a fragment containing a bare `<video>` plus an
+  absolutely-positioned `PlayPauseButton` wrapper. RDS2's `FullBannerVideo` owns its own markup and
+  wraps everything in a `.cu-fullbanner__video-wrap` element.
+- Video class naming: `cu-video rounded-none w-full h-auto bg-black not-prose` and the Tailwind
+  control wrapper (`absolute right-0 -translate-x-4 md:-translate-x-6 xl:-translate-x-10 bottom-4
+lg:bottom-8 z-50`) → `cu-fullbanner__video`, `cu-fullbanner__video-wrap`, and
+  `cu-fullbanner__video-toggle` in SCSS. The shared `cu-video` / `cu-video-controls` hooks that
+  `VideoControls()` queried by class name no longer exist.
+- Video playback control rewritten from imperative DOM to React state: legacy ran a `useEffect` that
+  called `VideoControls()`, which walked `document.getElementsByClassName('cu-video')`, called
+  `video.load()`, used `video.closest('section')` to find the button, attached a `click` listener, and
+  guarded re-init with a `data-initialized` attribute. RDS2 uses a `useRef` on the `<video>` and an
+  `isPlaying` state flag with an `onClick` handler — no global DOM queries, no `section` ancestor
+  requirement, and no reliance on `.cu-video` being unique.
+- Video accessibility changed: legacy labelled the `<video>` itself with `aria-label` from the JSON
+  `description` (falling back to `'Default video description'`), gave it `id="video-banner"` and
+  `tabIndex={-1}`, and its button used static `aria-label`/`title` of `"Pause video"` that
+  `VideoControls` swapped to `"Play video"`. RDS2 treats the video as decorative with
+  `aria-hidden="true"` (no `id`, no `tabIndex`) and puts the accessible name on the `<button>` via a
+  React-driven `aria-label` of `Pause background video` / `Play background video`; `title` is no
+  longer set.
+- Video sources changed: legacy emitted two `<source>` elements (`.webm` then `.mp4`) with explicit
+  `type` attributes built from the CDN path, plus a `<p>Your browser does not support the video tag.</p>`
+  fallback. RDS2 emits a single `<source src={src} />` with no `type` and no text fallback.
+- Video attributes: `autoPlay muted loop playsInline` are unchanged; legacy's explicit
+  `controls={false}` is dropped (native controls are off by default).
+- Toggle button placement/appearance changed: legacy sat bottom-right with responsive negative
+  translations, `w-8 h-8 md:w-14 md:h-14`, `rounded-lg`, `bg-black/70`, `hover:bg-cu-red-700`, and a
+  Font Awesome-style play/pause SVG path. RDS2 pins it top-right at `var(--rds--spacing-small)`,
+  fixed `2rem` square, `--rds--radius-full`, `rgba(0,0,0,0.5)` → `0.75` on hover, with inline 14×14
+  `PauseIcon` / `PlayIcon` SVGs and a `:focus-visible` outline (legacy had no focus style).
+- `type="button"` is now set on the toggle so it can't submit a surrounding form.
 - Legacy global overrides that reached outside the component
   (`.cu-main > .cu-section > .cu-fullbanner:first-of-type` negative margins, forced white headings,
   `.cu-pageheader { margin-bottom: 0 }`, `img { rounded-none; margin: 0 }`) are gone; RDS2 styles
