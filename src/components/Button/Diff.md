@@ -4,8 +4,9 @@
 
 Tailwind utility classes replaced with `cu-*` BEM/SCSS token-based classes; a new `isOutline`
 variant was added along with a `blue` color option; `icon` is now typed as `IconName` instead of
-a bare `string`; and the `ariaLabel` default was fixed so an unset label is no longer rendered as
-the literal placeholder string `"aria-label"`.
+a bare `string`; the `ariaLabel` default was fixed so an unset label is no longer rendered as
+the literal placeholder string `"aria-label"`; and a new `href` prop (plus `target`/`rel`) lets
+`Button` render as a link through `LinkProvider` instead of always rendering a `<button>`.
 
 ## Props Changes
 
@@ -14,7 +15,9 @@ the literal placeholder string `"aria-label"`.
 | `color`     | 5 options: `red \| grey \| dark-grey \| black \| white`                   | 6 options: `red \| grey \| dark-grey \| blue \| black \| white` | Added value                 |
 | `icon`      | `icon?: string` / `icon: string` (raw icon name)                          | `icon?: IconName` / `icon: IconName` (typed)                    | Type narrowed               |
 | `isOutline` | _n/a_                                                                     | `isOutline?: boolean`                                           | Added                       |
-| `ariaLabel` | `ariaLabel?: string`, default `'aria-label'` (literal placeholder string) | `ariaLabel?: string`, no default (`undefined`)                  | Default removed / bug fixed |
+| `ariaLabel` | `ariaLabel?: string`, default `'aria-label'` (literal placeholder string) | `ariaLabel?: string`, no default (`undefined`)                  | Default removed / bug fixed |     | `href` | _n/a_ — legacy only ever rendered a `<button>` | `href?: string` — renders as a link via `LinkProvider` | Added |
+| `target`    | _n/a_                                                                     | `target?: React.ComponentPropsWithoutRef<'a'>['target']`        | Added                       |
+| `rel`       | _n/a_                                                                     | `rel?: React.ComponentPropsWithoutRef<'a'>['rel']`              | Added                       |
 
 ## Deprecations
 
@@ -39,3 +42,8 @@ None.
   present in legacy.
 - Disabled styling: legacy used hardcoded Tailwind slate colors (`border-slate-300`,
   `bg-slate-300`); RDS2 uses `var(--rds--color-grey-light)` / `var(--rds--color-grey-dark)` tokens.
+- Link rendering: legacy `Button` had no concept of a link — it always rendered a native
+  `<button>`, even when used for navigation. RDS2 adds an `href` prop; when set (and the button
+  isn't disabled), `Button` renders through `useLinkContext()`'s `LinkComponent` (a plain `<a>` by
+  default, or a framework `Link`) instead of a `<button>`, and accepts `target`/`rel` for
+  anchor-only behavior.
