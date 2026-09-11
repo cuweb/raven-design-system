@@ -15,6 +15,7 @@ export default defineConfig({
             {
                 extends: true,
                 test: {
+                    name: 'unit',
                     globals: true,
                     include: ['src/**/*.test.{ts,tsx}'],
                     setupFiles: ['./vitest.setup.ts'],

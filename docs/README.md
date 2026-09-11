@@ -30,6 +30,7 @@ If you're using GitHub Copilot in this repo, the conventions in [`.github/instru
 | Cut a release                                                 | [maintenance/releasing.md](maintenance/releasing.md)                                                       |
 | Use a Copilot prompt (`#update-changelog`, `#create-release`) | [maintenance/automation.md](maintenance/automation.md)                                                     |
 | Bootstrap an AI session outside Copilot                       | [contributing/ai-context.md](contributing/ai-context.md)                                                   |
+| Give an AI agent Carleton's visual design rules               | [../DESIGN.md](../DESIGN.md)                                                                               |
 
 ## Archive
 

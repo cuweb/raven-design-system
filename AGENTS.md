@@ -19,6 +19,7 @@ Canonical per-file rules live in `.github/instructions/`. When this file and an 
 - **Runtime:** React 18, SCSS + CSS custom properties (no Tailwind)
 - **Testing:** Storybook 10 + Vitest + Playwright; axe a11y at `"error"` threshold
 - **Tokens:** `@troychaplin/component2block` generates `src/styles/files//tokens.css` + `_variables.scss` from `c2b.config.json` — **never edit these files by hand**
+- **Design language:** [`DESIGN.md`](DESIGN.md) is the agent-readable brief of Carleton's visual rules (colours, type, spacing, shapes, component styling, do's and don'ts). Read it before making visual decisions; keep it in sync with `c2b.config.json`
 
 ---
 
@@ -29,13 +30,14 @@ pnpm storybook          # start Storybook dev server
 pnpm typecheck          # tsc --noEmit
 pnpm lint               # ESLint over src/
 pnpm lint:fix           # ESLint with --fix
-pnpm test               # Vitest unit tests
+pnpm test               # all Vitest projects (unit + storybook)
+pnpm test:unit          # unit tests only, incl. the DESIGN.md ↔ c2b.config.json drift check
 pnpm test:storybook     # all stories + axe a11y (requires Node 22+)
 pnpm build              # Vite library build
 pnpm c2b                # regenerate tokens.css + _variables.scss
 ```
 
-**Before committing:** `pnpm typecheck && pnpm lint && pnpm test:storybook` must all pass.
+**Before committing:** `pnpm typecheck && pnpm lint && pnpm test:unit && pnpm test:storybook` must all pass.
 
 ---
 
@@ -203,7 +205,7 @@ The `!test` tag skips the story in `pnpm test:storybook` but keeps it visible in
 @media (min-width: $rds-media-query-md) { ... }
 ```
 
-Available: `$rds-media-query-sm` (640px), `$rds-media-query-md` (768px), `$rds-media-query-lg` (1024px), `$rds-media-query-xl` (1280px).
+Available: `$rds-media-query-sm` (600px), `$rds-media-query-md` (784px), `$rds-media-query-lg` (960px), `$rds-media-query-xl` (1280px).
 
 Mobile-first: default styles target mobile; `min-width` queries enhance upward.
 
@@ -274,3 +276,4 @@ Prefixes: `_Added_`, `_Changed_`, `_Fixed_`, `_Removed_`, `_Deprecated_`, `_Brea
 - **TS 6 side-effect imports** — `declare module '*.scss';` (no body) in `src/scss.d.ts`
 - **`.npmrc` split** — project `.npmrc` has only `@cuweb:registry=...`; auth `_authToken` lives in `~/.npmrc`
 - **Never run `--no-verify`** — husky hooks exist because bypassing them masked real bugs in the past
+- **DESIGN.md mirrors `c2b.config.json`** — change a token and update `DESIGN.md` too (front matter + the prose scale tables); `pnpm test:unit` fails on drift

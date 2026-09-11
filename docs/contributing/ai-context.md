@@ -27,6 +27,8 @@ Tech stack:
 - Storybook 10 + Vitest + Playwright; axe a11y at threshold "error"
 - @troychaplin/component2block generates tokens from c2b.config.json
 
+Visual design rules (brand, tokens, component styling): DESIGN.md
+
 Conventions are in:
 - .github/copilot-instructions.md (project-wide)
 - .github/instructions/components.instructions.md (src/components/**/*.tsx)
@@ -49,6 +51,7 @@ Font Awesome Pro license requires Carleton to keep Pro Icons inside an auth-gate
 | Looking for                                 | Read                                                       |
 | ------------------------------------------- | ---------------------------------------------------------- |
 | File-by-file conventions Copilot enforces   | [`.github/instructions/`](../../.github/instructions/)     |
+| Brand, token values, component styling      | [`DESIGN.md`](../../DESIGN.md)                             |
 | Build pipeline, token flow, Storybook setup | [architecture.md](architecture.md)                         |
 | Adding a new component                      | [conventions.md](conventions.md#adding-a-new-component)    |
 | Running tests / a11y / lint                 | [testing.md](testing.md)                                   |

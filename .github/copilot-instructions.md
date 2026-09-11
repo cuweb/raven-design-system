@@ -24,6 +24,7 @@ Consumed by: Next.js apps, WordPress block plugins, block themes, hybrid themes,
 - Component styles: `styles.scss` imported directly in the component TSX file
 - Shared prop-to-class mappings: `src/utils/propClasses.tsx`
 - WordPress layout classes: `.alignfull`, `.alignwide`, `.has-global-padding`, `.is-layout-constrained`
+- Visual design rules (brand colours, type scale, spacing, shapes, component styling, do's and don'ts) live in `DESIGN.md` at the repo root. It mirrors `c2b.config.json` — when tokens change, update it too (`pnpm test:unit` fails on drift)
 
 ## Code Style
 
@@ -63,4 +64,5 @@ Never add SVG files to rds-2.0 itself. FA Pro licensing requires icons stay in t
 
 - `pnpm typecheck` — clean
 - `pnpm lint` — clean
+- `pnpm test:unit` — passes (includes the DESIGN.md ↔ `c2b.config.json` drift check)
 - `pnpm test:storybook` — all a11y checks pass (only runs on Node 22+)

@@ -30,6 +30,17 @@ import '@cuweb/raven-design-system/styles';
 | [per-component-css.md](per-component-css.md) | Importing one component's CSS instead of the bundled stylesheet                                                 |
 | [wordpress/](wordpress/)                     | WordPress block plugins, block themes, hybrid themes, Timber/Twig — pick the scenario that matches your project |
 
+## Using with AI agents
+
+The package ships a [`DESIGN.md`](../../DESIGN.md) at its root: Carleton's brand, design tokens, and component styling rules in Google's [DESIGN.md format](https://github.com/google-labs-code/design.md), which coding agents (Claude Code, Cursor, Copilot, Stitch) read to produce on-brand UI. It is versioned with the tokens you have installed.
+
+Point your agent at it from your project's `AGENTS.md`, `CLAUDE.md`, or `.github/copilot-instructions.md`:
+
+```md
+Follow the visual design rules in node_modules/@cuweb/raven-design-system/DESIGN.md.
+Prefer RDS components and `var(--rds--*)` tokens over custom styles or hardcoded values.
+```
+
 ## Background
 
 `@cuweb/raven-design-system` ships with `@cuweb/rds-icons` as a peer dependency. Both packages must be installed. Authentication for GitHub Packages is required because rds-icons is private by design — see [icons.md](icons.md) for the reason.

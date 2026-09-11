@@ -45,9 +45,9 @@ CSS custom properties **cannot** be used inside `@media` queries (spec limitatio
 
 Available breakpoint variables:
 
-- `$rds-media-query-sm` — 640px
-- `$rds-media-query-md` — 768px
-- `$rds-media-query-lg` — 1024px
+- `$rds-media-query-sm` — 600px
+- `$rds-media-query-md` — 784px
+- `$rds-media-query-lg` — 960px
 - `$rds-media-query-xl` — 1280px
 
 Mobile-first: default styles are mobile, use `min-width` media queries to enhance.
