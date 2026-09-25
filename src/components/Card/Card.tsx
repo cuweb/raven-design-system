@@ -12,6 +12,7 @@ import { CardInitials } from './CardInitials';
 import { CardPeopleMeta } from './CardPeopleMeta';
 import { CardStats } from './CardStats';
 import { CardStatus } from './CardStatus';
+import { CardTimeThumb } from './CardTimeThumb';
 import { CardVideoFigure } from './CardVideoFigure';
 import { useScrollReveal } from '../../utils/motion/useScrollReveal';
 import './styles.scss';
@@ -88,6 +89,7 @@ export const Card = Object.assign(CardWrapper, {
     Figure: CardFigure,
     VideoFigure: CardVideoFigure,
     DateThumb: CardDateThumb,
+    TimeThumb: CardTimeThumb,
     ImageThumb: CardImageThumb,
     Initials: CardInitials,
     Header: CardHeader,

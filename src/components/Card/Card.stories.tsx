@@ -91,6 +91,34 @@ export const EventCards: Story = {
     ),
 };
 
+const TransitData = [
+    { id: 1, title: 'Route 4 — Bayview', link: 'https://carleton.ca/transit', value: 10 },
+    { id: 2, title: 'Route 7 — Baseline', link: 'https://carleton.ca/transit', value: 'Now' },
+    { id: 3, title: 'Route 2 — Billings Bridge', link: 'https://carleton.ca/transit', value: 22 },
+];
+
+export const TimeCards: Story = {
+    render: () => (
+        <Column cols="3">
+            {TransitData.map((item) => (
+                <Card key={`time-${item.id}`} noImage>
+                    <Card.TimeThumb value={item.value} />
+                    <Card.Header title={item.title} link={item.link} />
+                    <Card.Body>
+                        <Card.Excerpt
+                            text={
+                                item.value === 'Now'
+                                    ? 'Arriving now'
+                                    : `Arriving in ${item.value} minutes`
+                            }
+                        />
+                    </Card.Body>
+                </Card>
+            ))}
+        </Column>
+    ),
+};
+
 export const PeopleCards: Story = {
     render: () => (
         <Column cols="3">

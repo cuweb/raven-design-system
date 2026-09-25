@@ -93,37 +93,46 @@ Body-only listing (no figure). The date appears below the title using `position=
 
 <Canvas of={ListingStories.PageListingMultiple} />
 
+### Time — Single
+
+Uses `Listing.TimeThumb` for a duration/countdown value (e.g. "10 min" or "Now") instead of a calendar date.
+
+<Canvas of={ListingStories.TimeListingSingle} />
+
 ## CSS classes
 
-| Class                                       | Condition                                                |
-| ------------------------------------------- | -------------------------------------------------------- |
-| `cu-listing`                                | Always applied to the `<li>` wrapper                     |
-| `cu-listing--no-hover`                      | When `noHover` is `true`                                 |
-| `cu-listing__figure`                        | Applied by `Listing.Figure`                              |
-| `cu-listing__figure--square`                | When `isSquare` is `true` on `Listing.Figure`            |
-| `cu-listing__figure--small`                 | When `isSmall` is `true` on `Listing.Figure`             |
-| `cu-listing__figure--hide-mobile`           | When `hideMobile` is `true` on `Listing.Figure`          |
-| `cu-listing__date-thumb`                    | Applied by `Listing.DateThumb`                           |
-| `cu-listing__date-thumb-month`              | Month label inside `Listing.DateThumb`                   |
-| `cu-listing__date-thumb-day`                | Day label inside `Listing.DateThumb`                     |
-| `cu-listing__icon-thumb`                    | Applied by `Listing.IconThumb`                           |
-| `cu-listing__initials`                      | Applied by `Listing.Initials`                            |
-| `cu-listing__initials-label`                | Text overlay inside `Listing.Initials`                   |
-| `cu-listing__body`                          | Applied by `Listing.Body`                                |
-| `cu-listing__header`                        | Applied by `Listing.Header`                              |
-| `cu-listing__header-title`                  | Title heading inside `Listing.Header`                    |
-| `cu-listing__header-meta`                   | Meta row (date + read time) inside `Listing.Header`      |
-| `cu-listing__header-time`                   | `<time>` element inside the meta row                     |
-| `cu-listing__header-readtime`               | Read time paragraph inside the meta row                  |
-| `cu-listing__header-readtime--with-divider` | Adds a left border when a date is also shown             |
-| `cu-listing__excerpt`                       | Applied by `Listing.Excerpt`                             |
-| `cu-listing__excerpt-more`                  | "More" text inside `Listing.Excerpt`                     |
-| `cu-listing__meta`                          | Applied by `Listing.EventMeta` and `Listing.PeopleMeta`  |
-| `cu-listing__meta--has-icons`               | Applied by `Listing.EventMeta` (icon-aligned list items) |
-| `cu-listing__people-meta-job`               | Job title item inside `Listing.PeopleMeta`               |
-| `cu-listing__people-meta-email`             | Email item inside `Listing.PeopleMeta`                   |
-| `cu-listing__content`                       | Applied by `Listing.Content`                             |
-| `cu-listing__footer`                        | Applied by `Listing.Footer`                              |
+| Class                                       | Condition                                                 |
+| ------------------------------------------- | --------------------------------------------------------- |
+| `cu-listing`                                | Always applied to the `<li>` wrapper                      |
+| `cu-listing--no-hover`                      | When `noHover` is `true`                                  |
+| `cu-listing__figure`                        | Applied by `Listing.Figure`                               |
+| `cu-listing__figure--square`                | When `isSquare` is `true` on `Listing.Figure`             |
+| `cu-listing__figure--small`                 | When `isSmall` is `true` on `Listing.Figure`              |
+| `cu-listing__figure--hide-mobile`           | When `hideMobile` is `true` on `Listing.Figure`           |
+| `cu-listing__date-thumb`                    | Applied by `Listing.DateThumb`                            |
+| `cu-listing__date-thumb-month`              | Month label inside `Listing.DateThumb`                    |
+| `cu-listing__date-thumb-day`                | Day label inside `Listing.DateThumb`                      |
+| `cu-listing__time-thumb`                    | Applied by `Listing.TimeThumb`                            |
+| `cu-listing__time-thumb-value`              | Value label inside `Listing.TimeThumb`                    |
+| `cu-listing__time-thumb-unit`               | Unit label inside `Listing.TimeThumb` (omitted for `Now`) |
+| `cu-listing__icon-thumb`                    | Applied by `Listing.IconThumb`                            |
+| `cu-listing__initials`                      | Applied by `Listing.Initials`                             |
+| `cu-listing__initials-label`                | Text overlay inside `Listing.Initials`                    |
+| `cu-listing__body`                          | Applied by `Listing.Body`                                 |
+| `cu-listing__header`                        | Applied by `Listing.Header`                               |
+| `cu-listing__header-title`                  | Title heading inside `Listing.Header`                     |
+| `cu-listing__header-meta`                   | Meta row (date + read time) inside `Listing.Header`       |
+| `cu-listing__header-time`                   | `<time>` element inside the meta row                      |
+| `cu-listing__header-readtime`               | Read time paragraph inside the meta row                   |
+| `cu-listing__header-readtime--with-divider` | Adds a left border when a date is also shown              |
+| `cu-listing__excerpt`                       | Applied by `Listing.Excerpt`                              |
+| `cu-listing__excerpt-more`                  | "More" text inside `Listing.Excerpt`                      |
+| `cu-listing__meta`                          | Applied by `Listing.EventMeta` and `Listing.PeopleMeta`   |
+| `cu-listing__meta--has-icons`               | Applied by `Listing.EventMeta` (icon-aligned list items)  |
+| `cu-listing__people-meta-job`               | Job title item inside `Listing.PeopleMeta`                |
+| `cu-listing__people-meta-email`             | Email item inside `Listing.PeopleMeta`                    |
+| `cu-listing__content`                       | Applied by `Listing.Content`                              |
+| `cu-listing__footer`                        | Applied by `Listing.Footer`                               |
 
 ## Design tokens
 
@@ -156,6 +165,7 @@ Body-only listing (no figure). The date appears below the title using `position=
 
 - `Listing` renders a semantic `<li>` element; place it inside `StackedList` which renders a `<ul>` by default.
 - `Listing.DateThumb` is `aria-hidden="true"` — the same date information is provided accessibly by `Listing.EventMeta` which uses proper `<time>` elements with `dateTime` attributes.
+- `Listing.TimeThumb` is `aria-hidden="true"` — same convention as `Listing.DateThumb`; the duration/countdown value should also be present in accessible text elsewhere (e.g. `Listing.Excerpt`).
 - `Listing.IconThumb` is `aria-hidden="true"` — it is a decorative visual and the title conveys the item's purpose.
 - `Listing.Header` wraps the title in a `<h2>` by default; use the `as="h3"` prop when the listing appears inside an existing `<h2>` section heading to maintain heading order.
 - `Listing.Header` uses `useLinkContext()` to render links, enabling consumers to swap in Next.js `Link` or React Router `Link` for client-side routing without changing the component API.

@@ -292,3 +292,29 @@ export const PageListingMultiple: Story = {
         </StackedList>
     ),
 };
+
+// ─── Time (duration/countdown) ───────────────────────────────────────────────
+
+const TransitData = [
+    { id: 1, title: 'Route 4 — Bayview', link: 'https://carleton.ca/transit', value: 10 },
+    { id: 2, title: 'Route 7 — Baseline', link: 'https://carleton.ca/transit', value: 'Now' },
+    { id: 3, title: 'Route 2 — Billings Bridge', link: 'https://carleton.ca/transit', value: 22 },
+];
+
+export const TimeListingSingle: Story = {
+    render: (args) => (
+        <StackedList cols="1">
+            {TransitData.map(({ id, title, link, value }) => (
+                <Listing key={id} {...args}>
+                    <Listing.TimeThumb value={value} />
+                    <Listing.Body>
+                        <Listing.Header title={title} link={link} />
+                        <Listing.Excerpt
+                            text={value === 'Now' ? 'Arriving now' : `Arriving in ${value} minutes`}
+                        />
+                    </Listing.Body>
+                </Listing>
+            ))}
+        </StackedList>
+    ),
+};
