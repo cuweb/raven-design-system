@@ -1,0 +1,30 @@
+name: Documentation / Storybook
+description: Request documentation or examples for the design system and its consumers.
+title: '[Documentation]: '
+body:
+    - type: textarea
+      id: documentation_request
+      attributes:
+          label: What documentation needs attention?
+          description: Describe what is missing, unclear, or out of date, and who needs the information.
+          placeholder: |
+              Name the component, feature, or workflow if known.
+              If useful, say whether this concerns component Docs.mdx, a Storybook story/example, consumer guidance, or contributor documentation.
+      validations:
+          required: true
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context or examples (optional)
+          description: Add a page or story reference, intended audience, usage example, or source of confusion if available.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: These checks are prefilled for convenience. Adjust them to fit the request.
+          value: |
+              - [ ] The relevant documentation or Storybook example is added or corrected.
+              - [ ] Guidance matches the current component behaviour and supported usage.
+              - [ ] Examples build or render successfully and are understandable to the intended audience.
+      validations:
+          required: true

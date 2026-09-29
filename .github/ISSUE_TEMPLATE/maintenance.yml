@@ -1,53 +1,30 @@
 name: Maintenance / Technical Task
-description: Propose maintenance, compatibility, tooling, refactoring, or technical-debt work.
+description: Suggest maintenance, dependency, tooling, compatibility, or technical-debt work.
 title: '[Maintenance]: '
 body:
     - type: textarea
-      id: task_objective
+      id: task_description
       attributes:
-          label: Task objective
-          description: What maintenance or technical task needs to be done?
+          label: What needs to be done?
+          description: Briefly describe the task and why it is useful. Implementation details are not required.
+          placeholder: |
+              What is the objective?
+              If useful, mention affected components, dependencies, relevant versions, constraints, or how the work could be verified.
       validations:
           required: true
     - type: textarea
-      id: reason
+      id: additional_context
       attributes:
-          label: Reason for the work
-          description: Explain why this work is needed now.
-      validations:
-          required: true
-    - type: textarea
-      id: scope
-      attributes:
-          label: Scope
-          description: Identify the package areas, components, tooling, or integrations in scope.
-      validations:
-          required: true
-    - type: textarea
-      id: technical_context
-      attributes:
-          label: Technical context
-          description: Include relevant React, TypeScript, Storybook, package, or compatibility details.
-    - type: textarea
-      id: dependencies_constraints
-      attributes:
-          label: Dependencies, constraints, or risks
-          description: Include known dependencies, constraints, or risks; otherwise leave blank.
-    - type: textarea
-      id: testing_verification
-      attributes:
-          label: Testing and verification
-          description: Describe the checks needed to confirm the work is complete and safe.
-      validations:
-          required: true
+          label: Additional context or verification (optional)
+          description: Add risks, scripts, compatibility details, or testing expectations if known. Design tokens come from c2b.config.json; do not edit generated token files by hand.
     - type: textarea
       id: acceptance_criteria
       attributes:
           label: Acceptance criteria
-          description: List the conditions that demonstrate the task is complete.
+          description: These checks are prefilled for convenience. Adjust them to fit the task.
           value: |
               - [ ] The stated maintenance objective is complete.
               - [ ] Relevant tests, tooling, and compatibility checks pass.
-              - [ ] Any material risks or regressions are addressed.
+              - [ ] Any material risks or regressions are addressed; generated files are regenerated from their source where applicable.
       validations:
           required: true

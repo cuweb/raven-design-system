@@ -1,46 +1,30 @@
 name: Feature / Enhancement
-description: Describe a need or opportunity and the outcome that would address it.
+description: Suggest an improvement or capability for the design system.
 title: '[Feature]: '
 body:
     - type: textarea
-      id: problem_or_opportunity
+      id: feature_description
       attributes:
-          label: Problem, need, or opportunity
-          description: What user or stakeholder need is not currently being met?
+          label: What would you like to improve?
+          description: Describe the need and desired outcome. You do not need to propose a technical solution.
+          placeholder: |
+              What should be possible, and who would benefit?
+              If useful, name a component or describe an example of how the improvement would be used.
       validations:
           required: true
     - type: textarea
-      id: desired_outcome
+      id: additional_context
       attributes:
-          label: Desired outcome
-          description: Describe what should be possible or how behaviour should change, without prescribing an implementation.
-      validations:
-          required: true
-    - type: textarea
-      id: user_value
-      attributes:
-          label: User or stakeholder value
-          description: Who benefits, and how would this help them?
-      validations:
-          required: true
-    - type: textarea
-      id: context_examples
-      attributes:
-          label: Relevant context or examples
-          description: Add examples, references, or related workflows if available.
-    - type: textarea
-      id: dependencies_constraints
-      attributes:
-          label: Dependencies or constraints
-          description: Include known dependencies or constraints, if any.
+          label: Additional context or examples (optional)
+          description: Add component names, consumer use cases, design references, or constraints if available.
     - type: textarea
       id: acceptance_criteria
       attributes:
           label: Acceptance criteria
-          description: List observable conditions that will demonstrate the desired outcome is met.
+          description: These checks are prefilled for convenience. Adjust them to fit the request.
           value: |
-              - [ ] The described user need or desired outcome is met.
-              - [ ] The change works in the relevant component or consumer context.
-              - [ ] Relevant tests or checks pass, and related guidance is updated if needed.
+              - [ ] The described user need or desired outcome is addressed.
+              - [ ] The component or capability works in its intended consumer context.
+              - [ ] Relevant tests or Storybook checks pass, and usage documentation is updated if needed.
       validations:
           required: true
