@@ -55,5 +55,9 @@ body:
       attributes:
           label: Acceptance criteria and verification
           description: Describe the accessible behaviour and how it can be verified.
+          value: |
+              - [ ] The reported barrier is resolved in the affected component or workflow.
+              - [ ] The experience is verified with relevant keyboard and assistive technology use.
+              - [ ] Any identified accessibility requirement is met.
       validations:
           required: true

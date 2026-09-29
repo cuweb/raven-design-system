@@ -54,5 +54,9 @@ body:
       attributes:
           label: Acceptance criteria
           description: What conditions will demonstrate that the defect is resolved?
+          value: |
+              - [ ] The reported issue no longer occurs in the affected context.
+              - [ ] The expected behaviour is restored.
+              - [ ] Relevant regression checks pass, with no unintended regressions.
       validations:
           required: true

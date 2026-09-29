@@ -38,5 +38,9 @@ body:
       attributes:
           label: Acceptance criteria
           description: List observable conditions that will demonstrate the desired outcome is met.
+          value: |
+              - [ ] The described user need or desired outcome is met.
+              - [ ] The change works in the relevant component or consumer context.
+              - [ ] Relevant tests or checks pass, and related guidance is updated if needed.
       validations:
           required: true

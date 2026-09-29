@@ -45,5 +45,9 @@ body:
       attributes:
           label: Acceptance criteria
           description: List the conditions that demonstrate the task is complete.
+          value: |
+              - [ ] The stated maintenance objective is complete.
+              - [ ] Relevant tests, tooling, and compatibility checks pass.
+              - [ ] Any material risks or regressions are addressed.
       validations:
           required: true
