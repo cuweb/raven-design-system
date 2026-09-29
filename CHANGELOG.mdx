@@ -17,6 +17,8 @@ Prefix the change with one of these keywords:
 
 ## [Unreleased]
 
+_Fixed_ `src/index.ts` re-exports now point to each component's public barrel (e.g. `./components/Column`) instead of its internal implementation file (e.g. `./components/Column/Column`), so `dist/index.d.ts` no longer leaks invalid subpath specifiers like `@cuweb/raven-design-system/Column/Column`.
+
 ## [0.12.1] - 2026-09-25
 
 _Added_ `Listing.TimeThumb` and `Card.TimeThumb` components for showing a duration/countdown value (e.g. "10 min" or "Now"), mirroring `DateThumb` with a reversed value/unit hierarchy.

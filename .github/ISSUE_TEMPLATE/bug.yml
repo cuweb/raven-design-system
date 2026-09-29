@@ -1,0 +1,58 @@
+name: Bug Report
+description: Report a defect that is not working as expected.
+title: '[Bug]: '
+body:
+    - type: textarea
+      id: problem_summary
+      attributes:
+          label: Problem summary
+          description: Clearly describe what is going wrong.
+      validations:
+          required: true
+    - type: textarea
+      id: steps_to_reproduce
+      attributes:
+          label: Steps to reproduce
+          description: List the steps to reproduce the issue. If it cannot be reproduced, explain how it was observed and what you tried.
+          placeholder: |
+              1. Go to ...
+              2. Do ...
+              3. Observe ...
+      validations:
+          required: true
+    - type: textarea
+      id: expected_behavior
+      attributes:
+          label: Expected behaviour
+          description: What did you expect to happen?
+      validations:
+          required: true
+    - type: textarea
+      id: actual_behavior
+      attributes:
+          label: Actual behaviour
+          description: What happened instead?
+      validations:
+          required: true
+    - type: textarea
+      id: environment
+      attributes:
+          label: Environment and context
+          description: Include relevant package, React, browser, device, Storybook, or consuming-app versions and context, if applicable.
+    - type: textarea
+      id: supporting_evidence
+      attributes:
+          label: Supporting evidence
+          description: Add screenshots, logs, console output, or other evidence if available.
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context
+          description: Include related information that may help investigate the issue.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: What conditions will demonstrate that the defect is resolved?
+      validations:
+          required: true

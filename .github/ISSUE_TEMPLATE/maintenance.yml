@@ -1,0 +1,49 @@
+name: Maintenance / Technical Task
+description: Propose maintenance, compatibility, tooling, refactoring, or technical-debt work.
+title: '[Maintenance]: '
+body:
+    - type: textarea
+      id: task_objective
+      attributes:
+          label: Task objective
+          description: What maintenance or technical task needs to be done?
+      validations:
+          required: true
+    - type: textarea
+      id: reason
+      attributes:
+          label: Reason for the work
+          description: Explain why this work is needed now.
+      validations:
+          required: true
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Identify the package areas, components, tooling, or integrations in scope.
+      validations:
+          required: true
+    - type: textarea
+      id: technical_context
+      attributes:
+          label: Technical context
+          description: Include relevant React, TypeScript, Storybook, package, or compatibility details.
+    - type: textarea
+      id: dependencies_constraints
+      attributes:
+          label: Dependencies, constraints, or risks
+          description: Include known dependencies, constraints, or risks; otherwise leave blank.
+    - type: textarea
+      id: testing_verification
+      attributes:
+          label: Testing and verification
+          description: Describe the checks needed to confirm the work is complete and safe.
+      validations:
+          required: true
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: List the conditions that demonstrate the task is complete.
+      validations:
+          required: true

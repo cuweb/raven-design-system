@@ -1,0 +1,42 @@
+name: Feature / Enhancement
+description: Describe a need or opportunity and the outcome that would address it.
+title: '[Feature]: '
+body:
+    - type: textarea
+      id: problem_or_opportunity
+      attributes:
+          label: Problem, need, or opportunity
+          description: What user or stakeholder need is not currently being met?
+      validations:
+          required: true
+    - type: textarea
+      id: desired_outcome
+      attributes:
+          label: Desired outcome
+          description: Describe what should be possible or how behaviour should change, without prescribing an implementation.
+      validations:
+          required: true
+    - type: textarea
+      id: user_value
+      attributes:
+          label: User or stakeholder value
+          description: Who benefits, and how would this help them?
+      validations:
+          required: true
+    - type: textarea
+      id: context_examples
+      attributes:
+          label: Relevant context or examples
+          description: Add examples, references, or related workflows if available.
+    - type: textarea
+      id: dependencies_constraints
+      attributes:
+          label: Dependencies or constraints
+          description: Include known dependencies or constraints, if any.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: List observable conditions that will demonstrate the desired outcome is met.
+      validations:
+          required: true

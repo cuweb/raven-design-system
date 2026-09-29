@@ -1,0 +1,59 @@
+name: Accessibility Issue
+description: Report an accessibility barrier or concern.
+title: '[Accessibility]: '
+body:
+    - type: textarea
+      id: issue_barrier
+      attributes:
+          label: Accessibility issue or observed barrier
+          description: Describe what is difficult or impossible to perceive, understand, or operate.
+      validations:
+          required: true
+    - type: textarea
+      id: affected_area
+      attributes:
+          label: Affected component, page, or interaction
+          description: Identify the affected component, story, page, or workflow.
+      validations:
+          required: true
+    - type: textarea
+      id: reproduction_steps
+      attributes:
+          label: Reproduction steps
+          description: Explain how to encounter the barrier, if applicable.
+    - type: textarea
+      id: expected_behavior
+      attributes:
+          label: Expected accessible behaviour
+          description: What should happen for the experience to be accessible?
+      validations:
+          required: true
+    - type: textarea
+      id: actual_behavior
+      attributes:
+          label: Actual behaviour
+          description: What happens currently?
+      validations:
+          required: true
+    - type: input
+      id: wcag_criterion
+      attributes:
+          label: WCAG criterion or accessibility requirement
+          description: Include a criterion or requirement if known; it is okay not to know one.
+    - type: textarea
+      id: assistive_technology_context
+      attributes:
+          label: Assistive technology, browser, or device context
+          description: Share relevant screen reader, keyboard, browser, or device details, if applicable.
+    - type: textarea
+      id: supporting_evidence
+      attributes:
+          label: Supporting evidence
+          description: Add screenshots, recordings, or other evidence if available.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria and verification
+          description: Describe the accessible behaviour and how it can be verified.
+      validations:
+          required: true
