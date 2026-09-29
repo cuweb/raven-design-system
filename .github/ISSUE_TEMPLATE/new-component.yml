@@ -1,0 +1,33 @@
+name: New Component
+description: Propose a new reusable component for the Raven Design System.
+title: '[New Component]: '
+body:
+    - type: textarea
+      id: component_request
+      attributes:
+          label: What component is needed?
+          description: Describe the user need, use cases, and expected behaviour. You do not need to design the API or prescribe an implementation.
+          placeholder: |
+              What should the component help users or consumers do?
+              If useful, describe who will use it and an example of where it would appear.
+      validations:
+          required: true
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context or examples (optional)
+          description: Add related components, consumer needs, design references, constraints, or examples if available.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: These checks are prefilled for convenience. Adjust them to fit the component.
+          value: |
+              - [ ] The component has a clear, reusable purpose and documented props/API.
+              - [ ] It is implemented and exported following the Raven component conventions.
+              - [ ] A Storybook story and required Docs.mdx page demonstrate intended usage.
+              - [ ] Styling follows the cu- BEM and --rds--* token conventions; generated token files are not edited by hand.
+              - [ ] Keyboard and assistive technology behavior is considered, and Storybook accessibility checks pass.
+              - [ ] Typecheck, lint, and relevant tests/build checks pass.
+      validations:
+          required: true
