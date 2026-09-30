@@ -11,6 +11,7 @@ import { ListingHeader } from './ListingHeader';
 import { ListingIconThumb } from './ListingIconThumb';
 import { ListingInitials } from './ListingInitials';
 import { ListingPeopleMeta } from './ListingPeopleMeta';
+import { ListingTimeThumb } from './ListingTimeThumb';
 import './styles.scss';
 
 export interface ListingProps {
@@ -39,6 +40,7 @@ export const ListingWrapper = ({ children, noHover, revealOnScroll = true }: Lis
 export const Listing = Object.assign(ListingWrapper, {
     Figure: ListingFigure,
     DateThumb: ListingDateThumb,
+    TimeThumb: ListingTimeThumb,
     IconThumb: ListingIconThumb,
     Initials: ListingInitials,
     Header: ListingHeader,

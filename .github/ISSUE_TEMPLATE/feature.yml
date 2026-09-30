@@ -1,0 +1,30 @@
+name: Feature / Enhancement
+description: Suggest an improvement or capability for the design system.
+title: '[Feature]: '
+body:
+    - type: textarea
+      id: feature_description
+      attributes:
+          label: What would you like to improve?
+          description: Describe the need and desired outcome. You do not need to propose a technical solution.
+          placeholder: |
+              What should be possible, and who would benefit?
+              If useful, name a component or describe an example of how the improvement would be used.
+      validations:
+          required: true
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context or examples (optional)
+          description: Add component names, consumer use cases, design references, or constraints if available.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: These checks are prefilled for convenience. Adjust them to fit the request.
+          value: |
+              - [ ] The described user need or desired outcome is addressed.
+              - [ ] The component or capability works in its intended consumer context.
+              - [ ] Relevant tests or Storybook checks pass, and usage documentation is updated if needed.
+      validations:
+          required: true

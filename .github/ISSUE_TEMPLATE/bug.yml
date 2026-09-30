@@ -1,0 +1,30 @@
+name: Bug Report
+description: Report something that is not working as expected.
+title: '[Bug]: '
+body:
+    - type: textarea
+      id: bug_description
+      attributes:
+          label: What went wrong?
+          description: A short description is enough. Include what happened and what you expected; details you do not know are okay.
+          placeholder: |
+              What happened, and what did you expect instead?
+              If useful, include steps to reproduce and the package, React, browser, Storybook, or consumer-app context.
+      validations:
+          required: true
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context or evidence (optional)
+          description: Add component names, versions, screenshots, logs, console output, or other details that may help.
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance criteria
+          description: These checks are prefilled for convenience. Adjust them to fit the issue.
+          value: |
+              - [ ] The reported issue no longer occurs in the affected context.
+              - [ ] The expected behaviour is restored for the relevant component or consumer.
+              - [ ] Relevant regression checks pass, with no unintended regressions.
+      validations:
+          required: true

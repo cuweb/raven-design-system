@@ -10,3 +10,4 @@ export type { ListingHeaderProps } from './ListingHeader';
 export type { ListingIconThumbProps } from './ListingIconThumb';
 export type { ListingInitialsProps } from './ListingInitials';
 export type { ListingPeopleMetaProps } from './ListingPeopleMeta';
+export type { ListingTimeThumbProps } from './ListingTimeThumb';
