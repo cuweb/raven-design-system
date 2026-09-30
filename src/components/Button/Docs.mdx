@@ -65,6 +65,12 @@ When `title` is omitted, `icon` and `ariaLabel` are both required — enforced b
 
 <Canvas of={ButtonStories.Disabled} />
 
+### As link
+
+Passing `href` renders the button through [`LinkProvider`](?path=/docs/components-utilities-linkprovider--docs)'s configured link component (a plain `<a>` by default, or a framework `Link`) instead of a native `<button>`. `target` and `rel` are supported for anchor-only behavior.
+
+<Canvas of={ButtonStories.AsLink} />
+
 ### All color variants
 
 <Canvas of={ButtonStories.AllColors} />
