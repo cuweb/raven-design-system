@@ -68,6 +68,11 @@ import { Section } from '@cuweb/raven-design-system';
     <Column cols="2">...</Column>
   </Section>
 </Main>
+
+// Add a custom class when a composed section needs its own styling
+<Section maxWidth="alignfull" contentWidth="alignwide" className="cu-campaign-hero">
+  ...
+</Section>
 ```
 
 ## Examples
@@ -153,6 +158,10 @@ When set, `contentWidth` wraps all children in a `cu-section__content` div indep
 
 Omitting `contentWidth` keeps the existing behaviour: children are direct children of the root and the root's `is-layout-constrained` applies.
 
+## The `className` prop
+
+Pass `className` to add component-specific styles to the outer section element. The standard `cu-layout`, `cu-section`, width, and layout classes remain in place.
+
 ## CSS classes
 
 | Class                        | When applied                                          |
@@ -161,6 +170,7 @@ Omitting `contentWidth` keeps the existing behaviour: children are direct childr
 | `cu-section--grey`           | `bgType="grey"`                                       |
 | `cu-section--black`          | `bgType="black"`                                      |
 | `cu-section--light-gradient` | `bgType="light-gradient"`                             |
+| Caller-provided class        | Any custom class supplied through `className`         |
 | `aligncontent`               | `maxWidth="aligncontent"` (default)                   |
 | `alignwide`                  | `maxWidth="alignwide"`                                |
 | `alignfull`                  | `maxWidth="alignfull"`                                |

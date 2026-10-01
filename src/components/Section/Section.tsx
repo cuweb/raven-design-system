@@ -7,6 +7,7 @@ export interface SectionProps {
     maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
     contentWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
     isHero?: boolean;
+    className?: string;
 }
 
 export const Section = ({
@@ -16,6 +17,7 @@ export const Section = ({
     maxWidth = 'aligncontent',
     contentWidth = 'aligncontent',
     isHero,
+    className,
 }: SectionProps) => {
     const SectionWrapper = as;
 
@@ -26,6 +28,7 @@ export const Section = ({
         bgType && 'has-global-padding',
         maxWidth,
         'is-layout-constrained',
+        className,
     ]
         .filter(Boolean)
         .join(' ');

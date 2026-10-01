@@ -49,52 +49,50 @@ export const CampaignHero = ({
 
     return (
         <>
-            <section className="cu-layout cu-campaign-hero alignfull is-layout-constrained">
+            <Section maxWidth="alignfull" contentWidth="alignwide" className="cu-campaign-hero">
                 <div className="cu-campaign-hero__visual">
                     <img className="cu-campaign-hero__image" src={imageUrl} alt={imageAlt} />
                 </div>
-                <div className="has-global-padding alignwide cu-campaign-hero__inner">
-                    <div className="cu-campaign-hero__content">
-                        <div className="cu-campaign-hero__copy">
-                            <PageHeader
-                                as="h1"
-                                preHeader={department}
-                                header={title}
-                                content={description}
-                                size="primary"
-                                isFullWidth
-                            >
-                                {categories.length > 0 && (
-                                    <ul
-                                        className="cu-campaign-hero__categories"
-                                        aria-label="Campaign categories"
-                                    >
-                                        {categories.map((category) => (
-                                            <li key={category}>
-                                                <Badge text={category} color="grey" />
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </PageHeader>
-                        </div>
-                        <div className="cu-campaign-hero__fundraising">
-                            <ProgressBar
-                                value={progressValue}
-                                max={fundraisingGoal}
-                                label={`Campaign fundraising progress: ${percentage}% of goal reached`}
-                            />
-                            {/* eslint-disable-next-line react-hooks/static-components -- LinkComponent is provided by LinkProvider */}
-                            <LinkComponent
-                                href={donateHref}
-                                className="cu-button cu-button--red cu-campaign-hero__donate"
-                            >
-                                Fund this project
-                            </LinkComponent>
-                        </div>
+                <div className="cu-campaign-hero__content">
+                    <div className="cu-campaign-hero__copy">
+                        <PageHeader
+                            as="h1"
+                            preHeader={department}
+                            header={title}
+                            content={description}
+                            size="primary"
+                            isFullWidth
+                        >
+                            {categories.length > 0 && (
+                                <ul
+                                    className="cu-campaign-hero__categories"
+                                    aria-label="Campaign categories"
+                                >
+                                    {categories.map((category) => (
+                                        <li key={category}>
+                                            <Badge text={category} color="grey" />
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </PageHeader>
+                    </div>
+                    <div className="cu-campaign-hero__fundraising">
+                        <ProgressBar
+                            value={progressValue}
+                            max={fundraisingGoal}
+                            label={`Campaign fundraising progress: ${percentage}% of goal reached`}
+                        />
+                        {/* eslint-disable-next-line react-hooks/static-components -- LinkComponent is provided by LinkProvider */}
+                        <LinkComponent
+                            href={donateHref}
+                            className="cu-button cu-button--red cu-campaign-hero__donate"
+                        >
+                            Fund this project
+                        </LinkComponent>
                     </div>
                 </div>
-            </section>
+            </Section>
 
             <Section as="div" bgType="grey" maxWidth="alignfull" contentWidth="alignwide">
                 <div

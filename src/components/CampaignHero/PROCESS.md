@@ -47,3 +47,25 @@ This log records the prompts and implementation decisions that shaped `CampaignH
 
 - A template story shows how a reusable component behaves with its surrounding site chrome, not only in an isolated component demo.
 - Duplicate the smallest existing composition that provides the desired context, then make the specifically requested substitution to keep the example familiar and easy to compare.
+
+## Prompt 3 — Use Section as the campaign hero wrapper
+
+### Requirements discussed
+
+- Review why the campaign hero did not use `Section` for its primary wrapper and whether the component could be reused without interfering with the full-bleed image.
+- The image treatment was not a blocker. The actual limitation was that `Section` had no `className` prop for the campaign-specific root styles.
+- The agreed approach was to add `className` passthrough to `Section` and use it as the campaign hero's outer `section`.
+
+### Implementation
+
+- Added optional `className` support to `Section`; existing layout/background classes are preserved and the custom class is appended to its root.
+- Documented the new prop in `Section/Docs.mdx`.
+- Replaced CampaignHero's hand-written section and alignwide wrapper with `Section maxWidth="alignfull" contentWidth="alignwide" className="cu-campaign-hero"`.
+- Kept the campaign image and gradient styling component-specific. On mobile, the image remains an above-content full-bleed region; on wider layouts, it is positioned against the Section root and bleeds behind the alignwide content.
+- Verified with `pnpm typecheck`, `pnpm lint`, `pnpm build`, and `pnpm test:storybook` (318 tests passed, 2 skipped). Changed TSX/SCSS files pass Prettier, and `git diff --check` passes.
+
+### Teaching notes
+
+- Prefer composing existing layout primitives, but check whether their API can carry the styles and semantics a composition needs before duplicating their markup.
+- A background image can extend past a constrained inner container when it is positioned relative to the full-width Section root.
+- Add generic wrapper capabilities at the shared component boundary only when they are broadly useful; keep campaign-specific visual rules in CampaignHero.
