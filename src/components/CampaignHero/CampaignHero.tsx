@@ -1,6 +1,6 @@
 import { PageHeader } from '../PageHeader';
 import { Badge } from '../Badge';
-import { ProgressBar } from '../ProgressBar';
+import { BadgeGroup } from '../BadgeGroup';
 import { Card } from '../Card';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../Button';
@@ -34,7 +34,6 @@ export const CampaignHero = ({
     fundraisingGoal,
     timeRemaining,
     currency = 'CAD',
-    // donateHref = '#donate',
 }: CampaignHeroProps) => {
     const currencyFormatter = new Intl.NumberFormat('en-CA', {
         style: 'currency',
@@ -55,8 +54,8 @@ export const CampaignHero = ({
                 contentWidth="alignwide"
                 className="cu-campaign-hero"
             >
-                <div className="cu-campaign-hero__visual">
-                    <img className="cu-campaign-hero__image" src={imageUrl} alt={imageAlt} />
+                <div className="cu-campaign-hero__image">
+                    <img src={imageUrl} alt={imageAlt} />
                 </div>
 
                 <div className="cu-campaign-hero__content">
@@ -69,27 +68,15 @@ export const CampaignHero = ({
                         isFullWidth
                     >
                         {categories.length > 0 && (
-                            <ul
-                                className="cu-campaign-hero__categories"
-                                aria-label="Campaign categories"
-                            >
+                            <BadgeGroup>
                                 {categories.map((category) => (
-                                    <li key={category}>
-                                        <Badge text={category} color="grey" />
-                                    </li>
+                                    <Badge key={category} text={category} color="white" href="#" />
                                 ))}
-                            </ul>
+                            </BadgeGroup>
                         )}
                     </PageHeader>
-                    <ProgressBar
-                        value={progressValue}
-                        max={fundraisingGoal}
-                        label={`Campaign fundraising progress: ${percentage}% of goal reached`}
-                    />
                     <ButtonGroup>
-                        <Button title="Primary Red" />
-                        <Button color="dark-grey" title="Dark Grey" />
-                        <Button color="grey" title="Light Grey" />
+                        <Button title="Fund this project" href="#donate" />
                     </ButtonGroup>
                 </div>
 
