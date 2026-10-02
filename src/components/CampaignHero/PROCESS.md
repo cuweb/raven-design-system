@@ -69,3 +69,21 @@ This log records the prompts and implementation decisions that shaped `CampaignH
 - Prefer composing existing layout primitives, but check whether their API can carry the styles and semantics a composition needs before duplicating their markup.
 - A background image can extend past a constrained inner container when it is positioned relative to the full-width Section root.
 - Add generic wrapper capabilities at the shared component boundary only when they are broadly useful; keep campaign-specific visual rules in CampaignHero.
+
+## Prompt 4 — Nest media queries in component classes
+
+### Requirements
+
+- Move CampaignHero's responsive media-query overrides inside the component classes they modify, instead of grouping all selectors in one trailing media query.
+
+### Implementation
+
+- Nested the desktop rules within `.cu-campaign-hero`, `.cu-campaign-hero__visual`, `.cu-campaign-hero__content`, and `.cu-campaign-hero__fundraising`.
+- Preserved the same `md` breakpoint and declarations, including the full-bleed image sizing/fades, content width, section spacing, and fundraising offset.
+- Removed the outer media-query block so each responsive override is colocated with its base selector.
+- Verified with `pnpm exec prettier --check src/components/CampaignHero/styles.scss`, `pnpm typecheck`, `pnpm lint`, `pnpm build`, and `git diff --check`; all passed.
+
+### Teaching notes
+
+- Nesting breakpoints locally makes it easier to find the responsive behavior associated with a component element.
+- Keep responsive organization changes behavior-neutral by comparing declarations and breakpoint values before and after.

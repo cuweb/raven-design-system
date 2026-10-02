@@ -37,10 +37,7 @@ export const FutureFunderCampaign: Story = {
         <>
             <Nav>
                 <Nav.Top>
-                    <Nav.Logo
-                        title="Max and Tessie Zelikovitz Centre for Jewish Studies"
-                        link="/science"
-                    />
+                    <Nav.Logo title="FutureFunder" link="/futurefunder" />
                     <Nav.Buttons
                         isSearch
                         buttons={[
