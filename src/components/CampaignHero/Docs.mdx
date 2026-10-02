@@ -1,0 +1,79 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CampaignHeroStories from './CampaignHero.stories';
+
+<Meta of={CampaignHeroStories} />
+
+# CampaignHero
+
+An image-led campaign introduction with department, campaign details, fundraising progress, a donation link, and summary statistics.
+
+## When to use
+
+- Use at the top of a fundraising campaign page to introduce the campaign and its goal.
+- Use the fundraising progress and statistics to make the campaign status visible at a glance.
+
+## Import
+
+```tsx
+import { CampaignHero } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+<CampaignHero
+    department="Faculty of Science"
+    title="Help advance research that changes lives"
+    description="Support the people and discoveries shaping a healthier future."
+    imageUrl="/images/campaign.jpg"
+    imageAlt="Researchers working in a laboratory"
+    categories={['Research', 'Student support']}
+    amountRaised={42500}
+    fundraisingGoal={80000}
+    timeRemaining="24 days"
+/>
+```
+
+`amountRaised` and `fundraisingGoal` are numeric amounts. They drive the progress bar and the raised, goal, and funded statistic cards. Amounts use Canadian dollars by default; set `currency` to another ISO 4217 currency code when needed. `donateHref` defaults to `#donate`.
+
+## Examples
+
+<Canvas of={CampaignHeroStories.Default} />
+<Controls of={CampaignHeroStories.Default} />
+
+## CSS classes
+
+| Class                           | When applied                                   |
+| ------------------------------- | ---------------------------------------------- |
+| `cu-campaign-hero`              | Full-width campaign introduction               |
+| `cu-campaign-hero__visual`      | Image region and gradient fade                 |
+| `cu-campaign-hero__image`       | Campaign image                                 |
+| `cu-campaign-hero__inner`       | Alignwide content wrapper                      |
+| `cu-campaign-hero__content`     | Text and fundraising content                   |
+| `cu-campaign-hero__copy`        | Department, title, description, and categories |
+| `cu-campaign-hero__categories`  | Category badge list                            |
+| `cu-campaign-hero__fundraising` | Progress bar and donation link                 |
+| `cu-campaign-hero__donate`      | Donation link styled as the primary button     |
+| `cu-campaign-hero__stats`       | Fundraising statistic group                    |
+
+`PageHeader`, `Badge`, `ProgressBar`, `Card`, `Column`, and `Section` also apply their own component classes.
+
+## Design tokens
+
+| Token                      | Used for                                 |
+| -------------------------- | ---------------------------------------- |
+| `--rds--color-grey-faint`  | Hero background and image fade           |
+| `--rds--color-grey-light`  | Divider above fundraising actions        |
+| `--rds--spacing-2-x-small` | Gap between category badges              |
+| `--rds--spacing-small`     | Desktop space before fundraising actions |
+| `--rds--spacing-medium`    | Content, action, and badge spacing       |
+| `--rds--spacing-large`     | Mobile section and group spacing         |
+| `--rds--spacing-2-x-large` | Desktop hero section spacing             |
+
+## Accessibility
+
+- The campaign image requires meaningful alternative text through `imageAlt`.
+- The campaign title is rendered as the page-level `h1` through `PageHeader`.
+- Category badges are presented as a labeled list.
+- The progress bar exposes its accessible label and percentage values; the statistic cards display the same calculated percentage.
+- The donation action is a semantic link and defaults to the in-page `#donate` target.

@@ -31,6 +31,7 @@ export type { DetailsItemProps } from './components/Details';
 export { Carleton360, type Carleton360Props } from './components/Carleton360';
 export { Card, type CardProps } from './components/Card';
 export { Listing, type ListingProps } from './components/Listing';
+export { CampaignHero, type CampaignHeroProps } from './components/CampaignHero';
 export type { CardStatusProps } from './components/Card';
 export type { CardVideoFigureProps } from './components/Card';
 export { FilterPanel, type FilterPanelProps } from './components/FilterPanel';

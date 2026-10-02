@@ -1,0 +1,54 @@
+@use '../../styles/files/rds-variables' as *;
+
+.cu-campaign-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.cu-campaign-hero__content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rds--spacing-large);
+    margin-bottom: var(--rds--spacing-x-large);
+
+    @media (min-width: $rds-media-query-lg) {
+        // max-width: var(--rds--layout-small-size);
+        max-width: 50%;
+    }
+}
+
+// Only show the campaign hero image on medium and larger screens
+.cu-campaign-hero__image {
+    display: none;
+
+    @media (min-width: $rds-media-query-lg) {
+        display: block;
+        position: absolute;
+        inset: 0 0 0 auto;
+        z-index: 0;
+        width: 75%;
+        max-width: none;
+        margin: 0;
+        aspect-ratio: auto;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                var(--rds--color-grey-pale) 15%,
+                transparent 100%
+            );
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

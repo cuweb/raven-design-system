@@ -3,15 +3,17 @@ import './styles.scss';
 export interface ProgressBarProps {
     value: number;
     max?: number;
+    variant?: 'white';
+    hasBorder?: boolean;
     label: string;
 }
 
-export const ProgressBar = ({ value, max = 100, label }: ProgressBarProps) => {
+export const ProgressBar = ({ value, max = 100, variant, hasBorder, label }: ProgressBarProps) => {
     const percentage = max > 0 ? Math.min(Math.round((value / max) * 100), 100) : 0;
 
     return (
         <div
-            className="cu-progressbar"
+            className={`cu-progressbar${variant ? ` cu-progressbar--${variant}` : ''}${hasBorder ? ' cu-progressbar--has-border' : ''}`}
             role="progressbar"
             aria-label={label}
             aria-valuenow={percentage}

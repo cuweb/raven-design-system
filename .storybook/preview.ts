@@ -52,14 +52,8 @@ const preview: Preview = {
                         'Getting Started',
                         ['Overview', 'Installation', 'Next.js', 'WordPress', 'Accessibility'],
                         'Stylebook',
-                        'Templates',
-                        [
-                            'Carleton Homepage',
-                            'cutheme',
-                            'Events Calendar',
-                            'FutureFunder',
-                            'Prototype Tests',
-                        ],
+                        'Prototypes',
+                        ['Carleton Homepage', 'cutheme', 'FutureFunder', 'Layouts', 'Components'],
                     ],
                     'Components',
                     [
