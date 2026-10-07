@@ -105,7 +105,7 @@ cd ~/Develop/personal/raven-design-system
 
 # Make your changes
 pnpm build          # run the full library build — verifies everything compiles
-pnpm test:storybook # run a11y tests
+pnpm test:storybook # optional local preflight; the publish workflow is the release test gate
 git add .
 git commit -m "feat: add Card component"
 
@@ -123,6 +123,8 @@ Pushing the tag triggers [.github/workflows/publish.yml](../../.github/workflows
 1. Installs deps (with `GITHUB_TOKEN` auth so the `@cuweb/rds-icons` peer dep resolves from GitHub Packages)
 2. Runs `pnpm build` and `pnpm test --run`
 3. Publishes `@cuweb/raven-design-system@<version>` to GitHub Packages
+
+The `pnpm run release <version>` helper refreshes the lockfile and runs the build locally, but does not run tests. Tests run once in the tag-triggered publish workflow; a test failure prevents publication but is detected after the release commit and tag have been pushed. Running `pnpm test:storybook` locally before releasing is an optional preflight.
 
 Authentication uses the workflow's built-in `secrets.GITHUB_TOKEN` with `packages: write` permission — no external setup, no `NPM_TOKEN`, and no npm Trusted Publishing/OIDC involved (that's an npmjs.com-only feature and doesn't apply here). The token is scoped to the repo automatically, so nothing needs reconfiguring on a rename.
 
@@ -212,11 +214,13 @@ Consumers can opt into the canary with `pnpm add @cuweb/raven-design-system@next
 
 Before tagging either repo:
 
-- [ ] All tests pass (`pnpm typecheck`, `pnpm lint`, `pnpm test:storybook` if applicable)
+- [ ] For raven-design-system, local checks pass (`pnpm typecheck`, `pnpm lint`, and `pnpm build`)
 - [ ] CHANGELOG entries are under the new version heading, not `[Unreleased]`
 - [ ] Version in `package.json` matches the tag you're about to push
 - [ ] If coordinated: the peer dep range in raven-design-system matches the rds-icons version you want consumers to use
 - [ ] FA Pro license compliance (for rds-icons): no new team members added without updating the seat count
+
+After pushing a raven-design-system tag, the publish workflow's tests must pass before package publication.
 
 ## FAQ
 

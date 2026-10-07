@@ -20,6 +20,7 @@ Prefix the change with one of these keywords:
 - _Added_ `CampaignHero` component with campaign details, fundraising progress, donation link, and statistic cards.
 - _Added_: `Button` component now accepts an `href` prop, rendering as a link (via `useLinkContext`) styled like a button instead of a `<button>` element.
 - _Fixed_ `src/index.ts` re-exports now point to each component's public barrel (e.g. `./components/Column`) instead of its internal implementation file (e.g. `./components/Column/Column`), so `dist/index.d.ts` no longer leaks invalid subpath specifiers like `@cuweb/raven-design-system/Column/Column`.
+- _Changed_ The local release helper no longer runs tests; the tag-triggered publish workflow remains the test gate before package publication.
 
 ## [0.12.1] - 2026-09-25
 
