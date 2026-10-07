@@ -10,10 +10,11 @@
  *   3. Verifies you're on main and the tag doesn't already exist
  *   4. Moves CHANGELOG.mdx [Unreleased] content into a new [<version>] - YYYY-MM-DD section
  *   5. Bumps package.json version
- *   6. Runs pnpm install (refreshes pnpm-lock.yaml), pnpm test, pnpm build
+ *   6. Runs pnpm install (refreshes pnpm-lock.yaml) and pnpm build
  *   7. Stages CHANGELOG.mdx, package.json, and pnpm-lock.yaml
  *   8. Creates a "release: <version>" commit and a <version> tag
- *   9. Prints push instructions — pushing the tag triggers the publish workflow
+ *   9. Prints push instructions — pushing the tag triggers tests and publishing
+ *      in the publish workflow
  *
  * To undo before pushing: git tag -d <version> && git reset --hard HEAD^
  */
@@ -127,12 +128,9 @@ writeFileSync(clPath, newChangelog, 'utf-8');
 pkgJson.version = version;
 writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2) + '\n', 'utf-8');
 
-// --- 9. Refresh lockfile, test, build ----------------------------------------
+// --- 9. Refresh lockfile and build -------------------------------------------
 console.log('release: Refreshing pnpm-lock.yaml...');
 run('pnpm install');
-
-console.log('release: Running tests...');
-run('pnpm test');
 
 console.log('release: Building...');
 run('pnpm run build');
