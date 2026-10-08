@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 
 export interface FullBannerVideoProps {
+    isDecorative?: boolean;
     src: string | string[];
     backgroundImage?: string;
     description?: string;
@@ -49,6 +50,7 @@ const PlayIcon = () => (
 );
 
 export const FullBannerVideo = ({
+    isDecorative = true,
     src,
     backgroundImage,
     description,
@@ -83,11 +85,11 @@ export const FullBannerVideo = ({
                 loop
                 playsInline
                 controls={false}
-                aria-hidden="true"
-                tabIndex={-1}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-                aria-label={description}
+                tabIndex={isDecorative ? -1 : 0}
+                aria-hidden={isDecorative ? true : undefined}
+                aria-label={isDecorative ? undefined : description}
             >
                 {sources.map((source) => (
                     <source key={source} src={source} type={getVideoType(source)} />
