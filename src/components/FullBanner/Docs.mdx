@@ -40,7 +40,12 @@ import { FullBanner } from '@cuweb/raven-design-system';
 // With video background
 <FullBanner
   title="Discover What Awaits"
-  media={<FullBanner.Video src="https://example.com/campus.mp4" />}
+  media={
+    <FullBanner.Video
+      src="https://example.com/campus.mp4"
+      isDecorative
+    />
+  }
   maxWidth="alignfull"
   opacity={60}
 >
@@ -94,7 +99,7 @@ import { FullBanner } from '@cuweb/raven-design-system';
 | `cu-fullbanner__inner--start`  | When `justify="start"` — aligns content box to the left                         |
 | `cu-fullbanner__inner--end`    | When `justify="end"` — aligns content box to the right                          |
 | `cu-fullbanner__inner--center` | When `justify="center"` — centers the content box                               |
-| `cu-fullbanner__box`           | The dark translucent content box, max-width 48rem                               |
+| `cu-fullbanner__box`           | The dark content box, max-width 48rem                                           |
 
 ## Design tokens
 
@@ -102,7 +107,7 @@ import { FullBanner } from '@cuweb/raven-design-system';
 | ---------------------------- | ------------------------------------------------------------------- |
 | `--rds--radius-xl`           | Border radius on the root element                                   |
 | `--rds--radius-lg`           | Border radius on the content box                                    |
-| `--rds--color-black`         | Content box background (80% opacity via `color-mix`)                |
+| `--rds--color-black`         | Content box background                                              |
 | `--rds--color-white`         | Text color inside the content box (via PageHeader `isWhite`)        |
 | `--rds--spacing-large`       | Padding on `__wrap` and `__box` at mobile sizes                     |
 | `--rds--spacing-x-large`     | Padding on `__wrap` and `__box` at `lg+`                            |
@@ -113,6 +118,7 @@ import { FullBanner } from '@cuweb/raven-design-system';
 ## Accessibility
 
 - Background images use a real `<img>` element — provide a meaningful `imageAlt` string when the image conveys information, or leave it empty (`imageAlt=""`) for decorative images
-- Background videos are `aria-hidden="true"` and use `muted` + `autoPlay` + `loop` — they are treated as decorative; all meaningful content must be in the text or children
+- `FullBanner.Video` is decorative by default (`isDecorative={true}`): it is hidden from assistive technology and removed from the tab order. Set `isDecorative={false}` for meaningful video; it remains keyboard-focusable and uses `description` as its accessible label
+- Background videos autoplay muted and loop; a play/pause button lets users stop or resume playback
 - The overlay `<div>` carries `aria-hidden="true"` to prevent screen reader exposure
 - Heading level is controlled via `headerType` — use `h1` for page-level heroes and `h2` for in-page sections to maintain a logical heading hierarchy
