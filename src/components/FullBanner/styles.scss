@@ -112,7 +112,7 @@
     }
 
     @media (min-width: $rds-media-query-lg) {
-        background-color: color-mix(in srgb, var(--rds--color-black) 90%, transparent);
+        background-color: var(--rds--color-black);
         border-radius: var(--rds--radius-lg);
 
         &--sm {

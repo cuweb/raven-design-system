@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 export interface FullBannerVideoProps {
     isDecorative?: boolean;
@@ -59,6 +59,11 @@ export const FullBannerVideo = ({
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(true);
 
+    const setVideoRef = useCallback((video: HTMLVideoElement | null) => {
+        videoRef.current = video;
+        if (video) video.defaultMuted = true;
+    }, []);
+
     const sources = Array.isArray(src) ? src : [src];
 
     const toggle = () => {
@@ -77,11 +82,11 @@ export const FullBannerVideo = ({
     return (
         <div className="cu-fullbanner__video-wrap">
             <video
-                ref={videoRef}
+                ref={setVideoRef}
                 className="cu-fullbanner__video"
                 poster={backgroundImage}
                 autoPlay
-                muted
+                muted={true}
                 loop
                 playsInline
                 controls={false}
