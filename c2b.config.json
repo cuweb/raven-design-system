@@ -9,7 +9,7 @@
         "themeable": false,
         "emitScssAlongside": true,
         "emitAggregate": false,
-        "scssVars": ["mediaQuery", "spacing"]
+        "scssVars": ["viewport", "spacing"]
     },
 
     "tokens": {
@@ -20,11 +20,9 @@
             "maxSize": { "value": "1536px", "cssOnly": true }
         },
 
-        "mediaQuery": {
-            "sm": "600px",
-            "md": "784px",
-            "lg": "960px",
-            "xl": "1280px"
+        "viewport": {
+            "mobile": "600px",
+            "tablet": "784px"
         },
 
         "color": {

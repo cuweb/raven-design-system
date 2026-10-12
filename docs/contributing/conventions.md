@@ -59,10 +59,10 @@ src/components/Foo/
 ## Styles
 
 - All visual values come from `--rds--*` design tokens. **Never hardcode** hex colors, pixel values, or font stacks.
-- Token reference: [`src/styles/files/tokens.css`](../../src/styles/files/tokens.css) (generated — do not edit).
+- Token reference: [`src/styles/files/rds-tokens.css`](../../src/styles/files/rds-tokens.css) (generated — do not edit).
 - BEM with `cu-` prefix for class names; utility classes use `cu-utils--`.
 - Mobile-first: default styles are mobile, use `min-width` media queries to enhance.
-- Breakpoint variables (`$rds-media-query-{sm,md,lg,xl}`) are auto-generated in [`src/styles/files/_variables.scss`](../../src/styles/files/_variables.scss) — never edit by hand; run `pnpm c2b` to regenerate.
+- Breakpoint variables (`$rds-media-query-{sm,md,lg,xl}`) live in the hand-maintained [`src/styles/files/_variables.scss`](../../src/styles/files/_variables.scss): `sm`/`md` map to the c2b `viewport` tokens in `c2b.config.json`, `lg`/`xl` are declared there directly.
 
 ## Icons
 

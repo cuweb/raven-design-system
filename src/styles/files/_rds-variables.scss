@@ -9,8 +9,50 @@ $rds-spacing-large: clamp(1.5rem, 3vw, 2.25rem);
 $rds-spacing-x-large: clamp(2.5rem, 4vw, 3.38rem);
 $rds-spacing-2-x-large: clamp(3.75rem, 6vw, 5.06rem);
 
-// Media Queries
-$rds-media-query-sm: 600px;
-$rds-media-query-md: 784px;
-$rds-media-query-lg: 960px;
-$rds-media-query-xl: 1280px;
+$rds-spacing: (
+  '2-x-small': $rds-spacing-2-x-small,
+  'x-small': $rds-spacing-x-small,
+  'small': $rds-spacing-small,
+  'medium': $rds-spacing-medium,
+  'large': $rds-spacing-large,
+  'x-large': $rds-spacing-x-large,
+  '2-x-large': $rds-spacing-2-x-large,
+);
+
+// Viewport
+$rds-viewport-mobile: 600px;
+$rds-viewport-tablet: 784px;
+
+$rds-viewport: (
+  'mobile': $rds-viewport-mobile,
+  'tablet': $rds-viewport-tablet,
+);
+
+// Viewport media queries
+// Built from the settings.viewport breakpoints WordPress uses for responsive
+// block styles. Each below-/above- pair is an exact complement, so no viewport
+// width matches both.
+
+@mixin below-mobile {
+  @media (width <= #{$rds-viewport-mobile}) {
+    @content;
+  }
+}
+
+@mixin above-mobile {
+  @media (width > #{$rds-viewport-mobile}) {
+    @content;
+  }
+}
+
+@mixin below-tablet {
+  @media (width <= #{$rds-viewport-tablet}) {
+    @content;
+  }
+}
+
+@mixin above-tablet {
+  @media (width > #{$rds-viewport-tablet}) {
+    @content;
+  }
+}

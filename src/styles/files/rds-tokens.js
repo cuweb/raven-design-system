@@ -97,7 +97,34 @@ export const rdsTokens = {
         wideSize: '1280px',
         smallSize: '600px',
         maxSize: '1536px'
+    },
+    viewport: {
+        mobile: '600px',
+        tablet: '784px'
+    },
+    root: {
+        paddingX: 'var(--rds--spacing-large)',
+        paddingY: '0',
+        paddingTop: 'var(--rds--root-padding-y)',
+        paddingRight: 'var(--rds--root-padding-x)',
+        paddingBottom: 'var(--rds--root-padding-y)',
+        paddingLeft: 'var(--rds--root-padding-x)',
+        blockGap: '0'
     }
+};
+
+export const rdsTokenKeys = {
+    color: { primary: 'primary', 'primary-dark': 'primary-dark', black: 'black', 'grey-dark': 'grey-dark', grey: 'grey', 'grey-light': 'grey-light', 'grey-lighter': 'grey-lighter', 'grey-pale': 'grey-pale', 'grey-faint': 'grey-faint', white: 'white', purple: 'purple', 'purple-light': 'purple-light', teal: 'teal', 'teal-light': 'teal-light', 'exp-blue': 'exp-blue', 'exp-blue-light': 'exp-blue-light', success: 'success', 'success-light': 'success-light', 'success-dark': 'success-dark', warning: 'warning', 'warning-light': 'warning-light', 'warning-dark': 'warning-dark', error: 'error', 'error-light': 'error-light', 'error-dark': 'error-dark', info: 'info', 'info-light': 'info-light', 'info-dark': 'info-dark', linkedin: 'linkedin', facebook: 'facebook', bluesky: 'bluesky', twitter: 'twitter', instagram: 'instagram', youtube: 'youtube', tiktok: 'tiktok', orcid: 'orcid' },
+    gradient: { 'red-to-dark-red': 'red-to-dark-red', 'dark-grey-to-black': 'dark-grey-to-black', 'white-to-pale-grey': 'white-to-pale-grey' },
+    spacing: { '2-x-small': '2-x-small', 'x-small': 'x-small', small: 'small', medium: 'medium', large: 'large', 'x-large': 'x-large', '2-x-large': '2-x-large' },
+    fontFamily: { inter: 'inter' },
+    fontSize: { 'x-small': 'x-small', small: 'small', medium: 'medium', large: 'large', 'x-large': 'x-large', '2x-large': '2x-large', 'heading-small': 'heading-small', 'heading-medium': 'heading-medium', 'heading-large': 'heading-large', 'heading-x-large': 'heading-x-large', 'heading-primary': 'heading-primary' },
+    shadow: { natural: 'natural', sharp: 'sharp' },
+    fontWeight: { light: 'light', normal: 'normal', medium: 'medium', semibold: 'semibold', bold: 'bold' },
+    lineHeight: { tight: 'tight', normal: 'normal', loose: 'loose' },
+    radius: { sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', full: 'full' },
+    layout: { 'content-size': 'content-size', 'wide-size': 'wide-size', 'small-size': 'small-size', 'max-size': 'max-size' },
+    viewport: { mobile: 'mobile', tablet: 'tablet' }
 };
 
 export default rdsTokens;

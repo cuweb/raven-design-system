@@ -13,7 +13,7 @@ Consumed by: Next.js apps, WordPress block plugins, block themes, hybrid themes,
 - SCSS + CSS custom properties (no Tailwind)
 - Storybook 10 with `@storybook/react-vite`
 - Vitest + Playwright (a11y tests via axe — failures block CI)
-- `@troychaplin/component2block` generates tokens from `c2b.config.json` → `src/styles/files/tokens.css` + `_variables.scss`
+- `@troychaplin/component2block` generates tokens from `c2b.config.json` → `src/styles/files/rds-tokens.css` + `_rds-variables.scss` (forwarded by the hand-maintained `_variables.scss`)
 
 ## Key Conventions
 
