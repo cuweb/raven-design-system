@@ -41,14 +41,14 @@
 //   composed into the top it takes over row 2 as a grey bar (Browse + buttons)
 //   and the logo gets row 1 to itself (see the .cu-nav__top > .cu-nav__menu and
 //   :has() rules below). This keeps everything off one cramped nowrap row.
-//   Desktop (≥md): single nowrap flex row so priority-plus overflows into the
-//   Browse button rather than wrapping.
+//   Desktop (≥sm, 600px): single nowrap flex row so priority-plus overflows into
+//   the Browse button rather than wrapping.
 // ---------------------------------------------------------------------------
 
 .cu-nav__top,
 .cu-nav__menu {
     width: 100%;
-    max-width: 1536px;
+    max-width: var(--rds--layout-max-size);
     margin-left: auto;
     margin-right: auto;
 }
@@ -71,14 +71,9 @@
 
 .cu-nav__bottom {
     background-color: var(--rds--color-grey-pale);
-    // background-color: var(--rds--color-white);
     border-top: 1px solid var(--rds--color-grey-light);
     // break out of cu-nav__inner padding to span full header width
     margin-inline: calc(-1 * var(--rds--spacing-large));
-
-    @media (min-width: $rds-media-query-sm) {
-        margin-inline: calc(-1 * var(--rds--spacing-large));
-    }
 }
 
 .cu-nav__bottom-inner {
@@ -135,8 +130,8 @@
 }
 
 .cu-nav__site-title {
-    font-size: var(--rds--font-size-medium);
-    font-weight: var(--rds--font-weight-bold);
+    font-size: var(--rds--font-size-small);
+    font-weight: var(--rds--font-weight-semibold);
     line-height: 1.2;
     color: var(--rds--color-black);
     text-decoration: none;
@@ -157,6 +152,9 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__menu {
+    // Left inset for dropdown rows (see .cu-nav__submenu-link). On mobile the
+    // Browse panel spans the full header, so the rows line up with its gutter.
+    --cu-nav-inset: var(--rds--spacing-large);
     flex-grow: 1;
     min-width: 0; // required so flex-grow doesn't prevent shrinking
     display: flex;
@@ -165,6 +163,7 @@
 
     // static on mobile: .cu-nav__browse-dropdown is positioned relative to <header>
     @media (min-width: $rds-media-query-sm) {
+        --cu-nav-inset: 1rem;
         position: relative; // on desktop: dropdown positioned relative to this container
     }
 }
@@ -173,7 +172,7 @@
 // the logo on row 1, and a grey bar on row 2 holding the Browse trigger (left)
 // and the CTA buttons (right). The bar background is painted by ::before so it
 // can bleed full-width to the header edges without consuming a grid track.
-// Above md everything reverts to the inline flex row.
+// Above sm everything reverts to the inline flex row.
 //
 // (A Nav.Bottom menu lives in .cu-nav__bottom instead, so these `> .cu-nav__menu`
 // rules don't match it; that composition keeps its buttons in the top row and
@@ -258,39 +257,52 @@
 }
 
 // ---------------------------------------------------------------------------
+// Shared reset for every nav link and button
+//
+// Items render as <a> or <button> depending on whether they open a submenu, so
+// reset both to look identical — buttons otherwise keep the browser's default
+// padding. Element rules below only add what differs.
+// ---------------------------------------------------------------------------
+
+.cu-nav__link,
+.cu-nav__browse,
+.cu-nav__submenu-link,
+.cu-nav__submenu-expand,
+.cu-nav__search-btn {
+    padding: 0;
+    font-family: inherit;
+    color: var(--rds--color-grey-dark);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+
+    &:hover {
+        color: var(--rds--color-primary);
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Nav link / button trigger
 // ---------------------------------------------------------------------------
 
 .cu-nav__link,
 .cu-nav__browse {
     display: block;
-    align-items: center;
     font-size: var(--rds--font-size-medium);
     font-weight: var(--rds--font-weight-medium);
-    color: var(--rds--color-grey-dark);
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-radius: var(--rds--radius-md);
     white-space: nowrap;
-    font-family: inherit;
     line-height: 1;
-    transition:
-        color 0.15s ease,
-        background-color 0.15s ease;
 
     @media (min-width: $rds-media-query-sm) {
         font-size: var(--rds--font-size-small);
     }
 
-    &:hover {
-        color: var(--rds--color-primary);
-    }
-
     &--open {
         color: var(--rds--color-primary);
-        background-color: var(--rds--color-grey-pale);
     }
 }
 
@@ -328,8 +340,6 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__browse {
-    padding-left: 0;
-
     @media (min-width: $rds-media-query-sm) {
         margin-left: min(1rem, 2vw);
     }
@@ -343,19 +353,18 @@
 }
 
 // ---------------------------------------------------------------------------
-// Browse overflow dropdown
+// Floating dropdowns — primary submenus and the Browse overflow panel
 //
-// Mobile (<md): full-width panel below the sticky header.
+// Mobile (<sm): the Browse panel is full-width below the sticky header.
 //   cu-nav__menu is position:static, so left:0/right:0 is relative to <header>.
 //
-// Desktop (≥md): narrow dropdown right-aligned to cu-nav__menu.
+// Desktop (≥sm, 600px): narrow dropdown right-aligned to cu-nav__menu.
 //   cu-nav__menu is position:relative on desktop.
 // ---------------------------------------------------------------------------
 
 .cu-nav__submenu,
 .cu-nav__browse-dropdown {
     position: absolute;
-    min-width: 14rem;
     top: 100%;
     left: 0;
     right: 0;
@@ -367,8 +376,15 @@
     background-color: var(--rds--color-white);
 
     @media (min-width: $rds-media-query-sm) {
+        width: 16rem;
         border: 1px solid var(--rds--color-grey-lighter);
         border-radius: var(--rds--radius-md);
+    }
+}
+
+.cu-nav__submenu {
+    @media (min-width: $rds-media-query-sm) {
+        top: calc(100% + 0.65rem);
     }
 }
 
@@ -380,25 +396,67 @@
 
     @media (min-width: $rds-media-query-sm) {
         left: auto;
-        width: 16rem;
         max-height: 80vh;
     }
 }
 
 // ---------------------------------------------------------------------------
-// Desktop dropdown submenu (primary nav items)
+// Inline submenus — expand in place inside a dropdown instead of floating.
+//   --mobile: children of a Browse panel item
+//   --nested: children of a submenu item
+// Must follow the floating-dropdown rules above so it overrides them.
 // ---------------------------------------------------------------------------
 
-.cu-nav__submenu--mobile {
+.cu-nav__submenu--mobile,
+.cu-nav__submenu--nested {
     position: static;
+    width: auto;
     box-shadow: none;
     border: none;
     border-top: 1px solid var(--rds--color-grey-lighter);
     border-radius: 0;
     background-color: var(--rds--color-grey-faint);
-    padding: 0;
 }
 
+// ---------------------------------------------------------------------------
+// Dropdown rows — shared by the primary submenus and the Browse panel.
+// .cu-nav__submenu-link is applied to <a> (leaf links) and <button> (items
+// with submenus), so it lays out as flex to keep the arrow right-aligned
+// without a wrapper element. Roomy rows on mobile, compact from sm up.
+// ---------------------------------------------------------------------------
+
+.cu-nav__submenu-item:not(:last-child) {
+    border-bottom: 1px solid var(--rds--color-grey-lighter);
+}
+
+.cu-nav__submenu-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-block: var(--rds--spacing-medium);
+    // 1rem end padding matches .cu-nav__submenu-expand so every arrow lines up.
+    padding-inline: var(--cu-nav-inset) 1rem;
+    font-size: var(--rds--font-size-small);
+    font-weight: var(--rds--font-weight-normal);
+    white-space: normal;
+
+    @media (min-width: $rds-media-query-sm) {
+        padding-block: var(--rds--spacing-x-small);
+    }
+
+    &:hover {
+        background-color: var(--rds--color-grey-pale);
+    }
+
+    &--open {
+        color: var(--rds--color-primary);
+        background-color: var(--rds--color-grey-pale);
+    }
+}
+
+// A submenu item with children: the link fills the row, the expand button sits
+// at its right edge.
 .cu-nav__submenu-row {
     display: flex;
     align-items: center;
@@ -414,76 +472,16 @@
     justify-content: center;
     flex-shrink: 0;
     padding: var(--rds--spacing-x-small) 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--rds--color-grey-dark);
-
-    &:hover {
-        color: var(--rds--color-primary);
-    }
 }
 
-.cu-nav__submenu--nested {
-    position: static;
-    box-shadow: none;
-    border: none;
-    border-top: 1px solid var(--rds--color-grey-lighter);
-    border-radius: 0;
-    background-color: var(--rds--color-grey-faint);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    z-index: auto;
-
-    .cu-nav__submenu-link {
-        padding-inline-start: 1.5rem;
-    }
+// Each inline submenu level indents its rows 0.5rem past the level above.
+.cu-nav__submenu--mobile .cu-nav__submenu-link,
+.cu-nav__submenu--nested .cu-nav__submenu-link {
+    padding-inline-start: calc(var(--cu-nav-inset) + 0.5rem);
 }
 
-// Shared style for all dropdown items — used in both the primary submenu and
-// the browse overflow dropdown. Applied to <a> (leaf links) and <button>
-// (toggle items with submenus), so includes button resets and flex layout
-// to keep the expand arrow right-aligned without a wrapper element.
-
-.cu-nav__submenu-item:not(:last-child) {
-    border-bottom: 1px solid var(--rds--color-grey-lighter);
-}
-
-.cu-nav__submenu-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    border: none;
-    padding-block: var(--rds--spacing-medium);
-    padding-inline-start: var(--rds--spacing-large);
-    padding-inline-end: 1rem;
-    font-size: var(--rds--font-size-x-small);
-    font-weight: var(--rds--font-weight-normal);
-    font-family: inherit;
-    color: var(--rds--color-grey-dark);
-    text-decoration: none;
-    background: none;
-    cursor: pointer;
-    white-space: normal;
-    transition:
-        color 0.15s ease,
-        background-color 0.15s ease;
-
-    &:hover {
-        color: var(--rds--color-primary);
-        background-color: var(--rds--color-grey-pale);
-    }
-
-    &--open {
-        color: var(--rds--color-primary);
-        background-color: var(--rds--color-grey-pale);
-    }
-
-    .cu-nav__submenu--mobile & {
-        padding-inline-start: 2rem;
-    }
+.cu-nav__submenu--mobile .cu-nav__submenu--nested .cu-nav__submenu-link {
+    padding-inline-start: calc(var(--cu-nav-inset) + 1rem);
 }
 
 // ---------------------------------------------------------------------------
@@ -506,16 +504,8 @@
     align-items: center;
     justify-content: center;
     padding: 0.375rem;
-    background: none;
-    border: none;
-    cursor: pointer;
     color: var(--rds--color-grey);
     border-radius: var(--rds--radius-md);
-    transition: color 0.15s ease;
-
-    &:hover {
-        color: var(--rds--color-primary);
-    }
 }
 
 .cu-nav__cta-link {
