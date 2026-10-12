@@ -73,7 +73,7 @@
 
 .cu-card__header-meta {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: var(--rds--spacing-x-small);
 }
 
