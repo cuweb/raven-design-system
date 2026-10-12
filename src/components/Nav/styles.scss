@@ -9,7 +9,7 @@
     top: 0;
     z-index: 40;
     background-color: var(--rds--color-white);
-    border-bottom: 1px solid var(--rds--color-grey-lighter);
+    border-bottom: 1px solid var(--rds--color-grey-light);
     // On scroll the wrapper sets `top` (in Nav.tsx): the header stays pinned but
     // shifts up so a Nav.Bottom strip stays visible while the white logo row
     // scrolls away. Animate that shift.
@@ -70,9 +70,9 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__bottom {
-    //   background-color: var(--rds--color-grey-pale);
-    background-color: var(--rds--color-white);
-    border-top: 1px solid var(--rds--color-grey-lighter);
+    background-color: var(--rds--color-grey-pale);
+    // background-color: var(--rds--color-white);
+    border-top: 1px solid var(--rds--color-grey-light);
     // break out of cu-nav__inner padding to span full header width
     margin-inline: calc(-1 * var(--rds--spacing-large));
 
@@ -356,7 +356,7 @@
 .cu-nav__browse-dropdown {
     position: absolute;
     min-width: 14rem;
-    top: calc(100% + 0.25rem);
+    top: 100%;
     left: 0;
     right: 0;
     margin: 0;
@@ -456,8 +456,11 @@
     justify-content: space-between;
     width: 100%;
     border: none;
-    padding: var(--rds--spacing-x-small) 1rem;
-    font-size: var(--rds--font-size-small);
+    padding-block: var(--rds--spacing-medium);
+    padding-inline-start: var(--rds--spacing-large);
+    padding-inline-end: 1rem;
+    font-size: var(--rds--font-size-x-small);
+    font-weight: var(--rds--font-weight-normal);
     font-family: inherit;
     color: var(--rds--color-grey-dark);
     text-decoration: none;
