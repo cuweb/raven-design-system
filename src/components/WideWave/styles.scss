@@ -6,7 +6,7 @@
     padding: var(--rds--spacing-large);
     background-color: var(--rds--color-black);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         padding-bottom: var(--rds--spacing-x-large);
     }
 }
@@ -47,7 +47,7 @@
     margin-top: calc(-1.05 * var(--rds--spacing-large));
     margin-bottom: var(--rds--spacing-large);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         height: 85px;
         background-size: 820px;
         margin-bottom: var(--rds--spacing-x-large);

@@ -14,7 +14,7 @@
     padding-top: 2rem;
     background-size: cover;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         padding-top: 3rem;
     }
 }
@@ -25,7 +25,7 @@
     padding: 2rem;
     background-size: 100.5%;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         padding: 3rem 2.5rem;
     }
 }
@@ -42,7 +42,7 @@
     padding-bottom: 2rem;
     text-align: center;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         margin-bottom: 2rem;
         border-bottom: 1px solid var(--rds--color-grey-dark);
     }
@@ -58,7 +58,7 @@
 .cu-footer__columns {
     display: none;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -124,7 +124,7 @@
     color: var(--rds--color-grey-light);
     font-size: var(--rds--font-size-medium);
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
@@ -161,7 +161,7 @@
     padding: 0;
     list-style: none;
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         justify-content: flex-end;
     }
 }
@@ -180,10 +180,10 @@
     justify-content: center;
     padding-bottom: 6rem;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         padding-bottom: 9rem;
     }
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         padding-bottom: 11rem;
     }
 }
@@ -193,7 +193,7 @@
     height: 8rem;
     margin: 0 auto 1.5rem;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         height: 11rem;
     }
 }
@@ -209,7 +209,7 @@
     color: var(--rds--color-grey-light);
     font-size: var(--rds--font-size-x-small);
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         gap: 1.5rem;
         font-size: var(--rds--font-size-small);
     }

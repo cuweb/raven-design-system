@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     gap: var(--rds--spacing-2-x-small);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         flex: 1 1 0%;
     }
 }

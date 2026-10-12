@@ -57,7 +57,7 @@
         color: var(--rds--color-primary);
     }
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         font-size: 2rem;
     }
 }

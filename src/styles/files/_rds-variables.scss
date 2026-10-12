@@ -56,3 +56,10 @@ $rds-viewport: (
     @content;
   }
 }
+
+// Same query as WordPress's @tablet: the band between the two breakpoints.
+@mixin only-tablet {
+  @media (#{$rds-viewport-mobile} < width <= #{$rds-viewport-tablet}) {
+    @content;
+  }
+}

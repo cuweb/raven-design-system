@@ -59,7 +59,7 @@
     align-items: center;
     column-gap: 0.75rem;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         display: flex;
         flex-wrap: nowrap;
     }
@@ -107,14 +107,14 @@
     width: auto;
     height: 38px;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         height: 40px;
     }
 
     &--sm-hidden {
         display: none;
 
-        @media (min-width: $rds-media-query-sm) {
+        @media (width > $rds-media-query-sm) {
             display: block;
         }
     }
@@ -124,7 +124,7 @@
     width: 30px;
     height: 38px;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         display: none;
     }
 }
@@ -162,7 +162,7 @@
     gap: 0.125rem; // matches ITEM_GAP_PX constant in NavMenu.tsx
 
     // static on mobile: .cu-nav__browse-dropdown is positioned relative to <header>
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         --cu-nav-inset: 1rem;
         position: relative; // on desktop: dropdown positioned relative to this container
     }
@@ -183,7 +183,7 @@
     justify-self: start;
     padding-block: var(--rds--spacing-x-small);
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         grid-column: auto;
         grid-row: auto;
         padding-block: 0;
@@ -201,7 +201,7 @@
     grid-row: 2;
     padding-block: var(--rds--spacing-x-small);
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         grid-row: auto;
         padding-block: 0;
     }
@@ -217,7 +217,7 @@
     background-color: var(--rds--color-grey-pale);
     border-top: 1px solid var(--rds--color-grey-lighter);
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         display: none;
     }
 }
@@ -297,7 +297,7 @@
     white-space: nowrap;
     line-height: 1;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         font-size: var(--rds--font-size-small);
     }
 
@@ -340,7 +340,7 @@
 // ---------------------------------------------------------------------------
 
 .cu-nav__browse {
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         margin-left: min(1rem, 2vw);
     }
 
@@ -375,7 +375,7 @@
     box-shadow: var(--rds--shadow-natural);
     background-color: var(--rds--color-white);
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         width: 16rem;
         border: 1px solid var(--rds--color-grey-lighter);
         border-radius: var(--rds--radius-md);
@@ -383,7 +383,7 @@
 }
 
 .cu-nav__submenu {
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         top: calc(100% + 0.65rem);
     }
 }
@@ -394,7 +394,7 @@
     max-height: calc(100svh - 4rem);
     overflow-y: auto;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         left: auto;
         max-height: 80vh;
     }
@@ -441,7 +441,7 @@
     font-weight: var(--rds--font-weight-normal);
     white-space: normal;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         padding-block: var(--rds--spacing-x-small);
     }
 

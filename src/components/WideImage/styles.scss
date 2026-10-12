@@ -25,11 +25,11 @@
     &--image {
         padding-block: var(--rds--spacing-2-x-large);
 
-        @media (min-width: $rds-media-query-lg) {
+        @media (width > $rds-media-query-lg) {
             padding-block: calc(var(--rds--spacing-2-x-large) * 1.5);
         }
 
-        @media (min-width: $rds-media-query-xl) {
+        @media (width > $rds-media-query-xl) {
             padding-block: calc(var(--rds--spacing-2-x-large) * 2);
         }
 

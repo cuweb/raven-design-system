@@ -61,7 +61,7 @@ src/components/Foo/
 - All visual values come from `--rds--*` design tokens. **Never hardcode** hex colors, pixel values, or font stacks.
 - Token reference: [`src/styles/files/rds-tokens.css`](../../src/styles/files/rds-tokens.css) (generated — do not edit).
 - BEM with `cu-` prefix for class names; utility classes use `cu-utils--`.
-- Mobile-first: default styles are mobile, use `min-width` media queries to enhance.
+- Mobile-first: default styles are mobile, use `(width > $breakpoint)` media queries to enhance. Use range syntax, not `min-width`: a viewport exactly at a breakpoint gets the smaller-screen styles, matching WordPress's `@mobile`/`@tablet` block styles.
 - Breakpoint variables (`$rds-media-query-{sm,md,lg,xl}`) live in the hand-maintained [`src/styles/files/_variables.scss`](../../src/styles/files/_variables.scss): `sm`/`md` map to the c2b `viewport` tokens in `c2b.config.json`, `lg`/`xl` are declared there directly.
 
 ## Icons

@@ -13,7 +13,7 @@
     gap: var(--rds--spacing-large);
     margin-bottom: var(--rds--spacing-x-large);
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         // max-width: var(--rds--layout-small-size);
         max-width: 50%;
     }
@@ -23,7 +23,7 @@
 .cu-campaign-hero__image {
     display: none;
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         display: block;
         position: absolute;
         inset: 0 0 0 auto;

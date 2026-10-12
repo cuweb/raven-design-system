@@ -25,7 +25,7 @@
 
 // In a 1-column StackedList, listings go side-by-side at md+.
 // In a 2-column StackedList, listings always stack vertically.
-@media (min-width: $rds-media-query-md) {
+@media (width > $rds-media-query-md) {
     .cu-stackedlist--cols-1 > .cu-listing {
         flex-direction: row;
         align-items: flex-start;
@@ -84,7 +84,7 @@
     &--hide-mobile {
         display: none;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             display: block;
         }
     }
@@ -161,7 +161,7 @@
     margin: 0;
 }
 
-@media (min-width: $rds-media-query-md) {
+@media (width > $rds-media-query-md) {
     .cu-stackedlist--cols-1 > .cu-listing .cu-listing__icon-thumb {
         background-color: var(--rds--color-grey-pale);
         color: var(--rds--color-primary);

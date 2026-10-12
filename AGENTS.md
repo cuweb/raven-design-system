@@ -200,14 +200,14 @@ The `!test` tag skips the story in `pnpm test:storybook` but keeps it visible in
 ```scss
 @use '../../styles/files/variables' as *;
 
-@media (min-width: $rds-media-query-md) { ... }
+@media (width > $rds-media-query-md) { ... }
 ```
 
 Available: `$rds-media-query-sm` (600px), `$rds-media-query-md` (784px), `$rds-media-query-lg` (960px), `$rds-media-query-xl` (1280px).
 
 `_variables.scss` is hand-maintained: it forwards the generated `_rds-variables.scss` and maps `sm`/`md` to the c2b `viewport` tokens (`mobile`/`tablet`). `lg`/`xl` are declared there directly.
 
-Mobile-first: default styles target mobile; `min-width` queries enhance upward.
+Mobile-first: default styles target mobile; `(width > $breakpoint)` queries enhance upward. Use range syntax, not `min-width`: a viewport exactly at a breakpoint gets the smaller-screen styles, matching WordPress's `@mobile`/`@tablet` block styles. For the rare max-width case use the exact complement, `(width <= $breakpoint)` — no `- 0.02px` offsets.
 
 ---
 

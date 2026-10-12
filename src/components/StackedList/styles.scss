@@ -40,7 +40,7 @@
     }
 
     &--cols-2 {
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
@@ -48,7 +48,7 @@
         > div {
             border-bottom: 1px solid var(--rds--color-grey-lighter);
 
-            @media (min-width: $rds-media-query-md) {
+            @media (width > $rds-media-query-md) {
                 &:last-child {
                     border-bottom: none;
                 }

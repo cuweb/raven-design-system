@@ -22,7 +22,7 @@
 .cu-carleton360__container {
     padding: var(--rds--spacing-x-large) var(--rds--spacing-large);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         padding-inline: var(--rds--spacing-x-large);
     }
 }

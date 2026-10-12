@@ -9,7 +9,7 @@
     &--two {
         grid-template-columns: 1fr;
 
-        @media (min-width: $rds-media-query-sm) {
+        @media (width > $rds-media-query-sm) {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
@@ -17,7 +17,7 @@
     &--three {
         grid-template-columns: 1fr;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
     }
@@ -25,11 +25,11 @@
     &--four {
         grid-template-columns: 1fr;
 
-        @media (min-width: $rds-media-query-sm) {
+        @media (width > $rds-media-query-sm) {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        @media (min-width: $rds-media-query-lg) {
+        @media (width > $rds-media-query-lg) {
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
     }
@@ -37,7 +37,7 @@
     &--one-third {
         grid-template-columns: 1fr;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-template-columns: 33% auto;
         }
     }
@@ -45,7 +45,7 @@
     &--two-thirds {
         grid-template-columns: 1fr;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-template-columns: 66% auto;
         }
     }
@@ -93,7 +93,7 @@
     &--col-2 {
         grid-column: span 1;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-column: span 2;
         }
     }
@@ -101,7 +101,7 @@
     &--col-3 {
         grid-column: span 1;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-column: span 3;
             aspect-ratio: 6/3;
         }
@@ -110,7 +110,7 @@
     &--col-4 {
         grid-column: span 1;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-column: span 4;
         }
     }
@@ -119,7 +119,7 @@
     &--row-2 {
         grid-row: span 1;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-row: span 2;
         }
     }
@@ -127,7 +127,7 @@
     &--row-3 {
         grid-row: span 1;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-row: span 3;
         }
     }
@@ -135,7 +135,7 @@
     &--row-4 {
         grid-row: span 1;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             grid-row: span 4;
         }
     }

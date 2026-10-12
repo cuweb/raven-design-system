@@ -5,7 +5,7 @@
     padding: 1.5rem 2rem;
     background-color: var(--rds--color-grey-pale);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         padding: 2rem 2.5rem;
     }
 }
@@ -15,7 +15,7 @@
     margin-right: auto;
     margin-left: auto;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         display: flex;
         align-items: center;
     }
@@ -33,10 +33,10 @@
     font-weight: var(--rds--font-weight-bold);
     text-align: center;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         text-align: left;
     }
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         font-size: var(--rds--font-size-large);
     }
 }
@@ -47,10 +47,10 @@
     list-style: none;
     text-align: center;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         text-align: left;
     }
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         display: flex;
         gap: 1.25rem;
     }
@@ -59,7 +59,7 @@
 .cu-department-bar__meta-item {
     font-size: var(--rds--font-size-medium);
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         padding-left: 1.25rem;
         border-left: 1px solid var(--rds--color-grey-light);
 
@@ -83,7 +83,7 @@
 .cu-department-bar__actions {
     margin-top: 1.25rem;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         margin-top: 0;
         margin-left: auto;
     }

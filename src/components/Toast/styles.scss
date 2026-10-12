@@ -8,7 +8,7 @@
     align-items: flex-end;
     padding: var(--rds--spacing-small);
 
-    @media (min-width: 640px) {
+    @media (width > 640px) {
         align-items: flex-start;
         padding: var(--rds--spacing-medium);
     }
@@ -21,7 +21,7 @@
     width: 100%;
     align-items: center;
 
-    @media (min-width: 640px) {
+    @media (width > 640px) {
         align-items: flex-end;
     }
 }
@@ -103,7 +103,7 @@
     opacity: 0;
     transform: translateY(0.5rem) translateX(0);
 
-    @media (min-width: 640px) {
+    @media (width > 640px) {
         transform: translateY(0) translateX(0.5rem);
     }
 }

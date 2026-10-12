@@ -42,7 +42,7 @@
         flex-wrap: wrap;
         margin-left: auto;
 
-        @media (min-width: $rds-media-query-sm) {
+        @media (width > $rds-media-query-sm) {
             gap: var(--rds--spacing-small);
         }
     }
@@ -52,7 +52,7 @@
         align-items: center;
         gap: var(--rds--spacing-x-small);
 
-        @media (min-width: $rds-media-query-sm) {
+        @media (width > $rds-media-query-sm) {
             gap: var(--rds--spacing-small);
         }
     }

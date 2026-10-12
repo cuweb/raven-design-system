@@ -11,7 +11,7 @@
     border-radius: var(--rds--radius-md);
     padding: var(--rds--spacing-medium);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         padding: var(--rds--spacing-large);
     }
 }
@@ -22,7 +22,7 @@
         padding-top: var(--rds--spacing-x-small);
         padding-bottom: var(--rds--spacing-x-small);
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             padding-top: var(--rds--spacing-small);
             padding-bottom: var(--rds--spacing-small);
         }

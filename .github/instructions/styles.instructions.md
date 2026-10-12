@@ -37,7 +37,7 @@ CSS custom properties **cannot** be used inside `@media` queries (spec limitatio
 .cu-column--two {
     grid-template-columns: 1fr;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
@@ -50,7 +50,7 @@ Available breakpoint variables:
 - `$rds-media-query-lg` — 960px
 - `$rds-media-query-xl` — 1280px
 
-Mobile-first: default styles are mobile, use `min-width` media queries to enhance.
+Mobile-first: default styles are mobile, use `(width > $breakpoint)` media queries to enhance. Use range syntax, not `min-width`: a viewport exactly at a breakpoint gets the smaller-screen styles, matching WordPress's `@mobile`/`@tablet` block styles. For the rare max-width case use the exact complement, `(width <= $breakpoint)` — no `- 0.02px` offsets.
 
 ## SCSS Variables
 
