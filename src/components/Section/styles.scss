@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-section--grey,
 .cu-section--black,
@@ -6,7 +6,7 @@
 .cu-section--hero {
     padding: var(--rds--spacing-large);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         padding: var(--rds--spacing-x-large);
     }
 }
@@ -19,7 +19,7 @@
             var(--rds--layout-content-size) + (var(--rds--spacing-large) * 2)
         ) !important;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             max-width: calc(
                 var(--rds--layout-content-size) + (var(--rds--spacing-x-large) * 2)
             ) !important;

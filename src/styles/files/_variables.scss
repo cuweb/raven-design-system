@@ -1,0 +1,10 @@
+// Hand-maintained. Forwards the c2b-generated variables and defines the
+// breakpoint names components use. c2b only generates the mobile/tablet
+// viewport breakpoints; lg/xl have no c2b category and live here.
+@forward 'rds-variables';
+@use 'rds-variables' as *;
+
+$rds-media-query-sm: $rds-viewport-mobile;
+$rds-media-query-md: $rds-viewport-tablet;
+$rds-media-query-lg: 960px;
+$rds-media-query-xl: 1280px;

@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-table {
     overflow-x: auto;
@@ -16,7 +16,7 @@
         &--fixed {
             table-layout: fixed;
 
-            @media (min-width: $rds-media-query-lg) {
+            @media (width > $rds-media-query-lg) {
                 width: 100%;
             }
         }
@@ -40,7 +40,7 @@
         font-weight: var(--rds--font-weight-semibold);
         color: var(--rds--color-black);
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             padding-block: var(--rds--spacing-small);
             padding-inline: var(--rds--spacing-x-small);
         }
@@ -97,7 +97,7 @@
         font-size: var(--rds--font-size-small);
         color: var(--rds--color-grey-dark);
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             padding-block: var(--rds--spacing-small);
             padding-inline: var(--rds--spacing-x-small);
         }

@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-textimage {
     display: flex;
@@ -7,11 +7,11 @@
     margin-left: auto;
     margin-right: auto;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         flex-direction: row;
     }
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         &--reversed {
             flex-direction: row-reverse;
         }
@@ -20,7 +20,7 @@
     &--flip-mobile {
         flex-direction: column-reverse;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             flex-direction: row;
         }
     }
@@ -62,7 +62,7 @@
     &--hide-mobile {
         display: none;
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             display: block;
         }
     }

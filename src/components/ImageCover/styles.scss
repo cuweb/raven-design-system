@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-imagecover {
     position: relative;
@@ -62,7 +62,7 @@
     margin-top: var(--rds--spacing-large);
     margin-bottom: calc(-1.2 * var(--rds--spacing-large));
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         height: 80px;
         background-size: 200px;
         margin-top: var(--rds--spacing-x-large);

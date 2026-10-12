@@ -97,4 +97,17 @@
   --rds--layout-wide-size: 1280px;
   --rds--layout-small-size: 600px;
   --rds--layout-max-size: 1536px;
+
+  /* Viewport */
+  --rds--viewport-mobile: 600px;
+  --rds--viewport-tablet: 784px;
+
+  /* Root Spacing */
+  --rds--root-padding-x: var(--rds--spacing-large);
+  --rds--root-padding-y: 0;
+  --rds--root-padding-top: var(--rds--root-padding-y);
+  --rds--root-padding-right: var(--rds--root-padding-x);
+  --rds--root-padding-bottom: var(--rds--root-padding-y);
+  --rds--root-padding-left: var(--rds--root-padding-x);
+  --rds--root-block-gap: 0;
 }

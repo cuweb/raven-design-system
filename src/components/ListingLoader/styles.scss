@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
 
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-@media (min-width: $rds-media-query-md) {
+@media (width > $rds-media-query-md) {
     .cu-stackedlist--cols-1 > .cu-listing .cu-loader--listing {
         flex-direction: row;
         align-items: flex-start;

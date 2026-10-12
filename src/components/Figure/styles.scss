@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-figure {
     max-width: 100%; // safety net — never overflow container
@@ -32,7 +32,7 @@
 
 // Below the float breakpoint, collapse all sized variants to full width
 // so they stack naturally without overflowing narrow viewports.
-@media (max-width: $rds-media-query-md - 0.02px) {
+@media (width <= $rds-media-query-md) {
     .cu-figure--xs,
     .cu-figure--sm,
     .cu-figure--md,
@@ -45,7 +45,7 @@
 .cu-figure--left {
     margin: var(--rds--spacing-medium) 0;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         float: left;
         clear: left;
         margin-top: 0;
@@ -56,7 +56,7 @@
 .cu-figure--right {
     margin: var(--rds--spacing-medium) 0;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         float: right;
         clear: right;
         margin-top: 0;

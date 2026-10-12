@@ -18,7 +18,7 @@ Canonical per-file rules live in `.github/instructions/`. When this file and an 
 - **Build:** Vite library mode (ESM + CJS), TypeScript 6, pnpm
 - **Runtime:** React 18, SCSS + CSS custom properties (no Tailwind)
 - **Testing:** Storybook 10 + Vitest + Playwright; axe a11y at `"error"` threshold
-- **Tokens:** `@troychaplin/component2block` generates `src/styles/files//tokens.css` + `_variables.scss` from `c2b.config.json` — **never edit these files by hand**
+- **Tokens:** `@troychaplin/component2block` generates `src/styles/files/rds-tokens.css` + `_rds-variables.scss` from `c2b.config.json` — **never edit these files by hand**
 
 ---
 
@@ -32,7 +32,7 @@ pnpm lint:fix           # ESLint with --fix
 pnpm test               # Vitest unit tests
 pnpm test:storybook     # all stories + axe a11y (requires Node 22+)
 pnpm build              # Vite library build
-pnpm c2b                # regenerate tokens.css + _variables.scss
+pnpm c2b                # regenerate rds-tokens.css + _rds-variables.scss
 ```
 
 **Before committing:** `pnpm typecheck && pnpm lint && pnpm test:storybook` must all pass.
@@ -194,18 +194,20 @@ The `!test` tag skips the story in `pnpm test:storybook` but keeps it visible in
 
 ## SCSS
 
-- All visual values from `--rds--*` tokens — see `src/styles/files//tokens.css`
+- All visual values from `--rds--*` tokens — see `src/styles/files/rds-tokens.css`
 - Breakpoints via SCSS variables (CSS custom properties don't work in `@media`):
 
 ```scss
 @use '../../styles/files/variables' as *;
 
-@media (min-width: $rds-media-query-md) { ... }
+@media (width > $rds-media-query-md) { ... }
 ```
 
-Available: `$rds-media-query-sm` (640px), `$rds-media-query-md` (768px), `$rds-media-query-lg` (1024px), `$rds-media-query-xl` (1280px).
+Available: `$rds-media-query-sm` (600px), `$rds-media-query-md` (784px), `$rds-media-query-lg` (960px), `$rds-media-query-xl` (1280px).
 
-Mobile-first: default styles target mobile; `min-width` queries enhance upward.
+`_variables.scss` is hand-maintained: it forwards the generated `_rds-variables.scss` and maps `sm`/`md` to the c2b `viewport` tokens (`mobile`/`tablet`). `lg`/`xl` are declared there directly.
+
+Mobile-first: default styles target mobile; `(width > $breakpoint)` queries enhance upward. Use range syntax, not `min-width`: a viewport exactly at a breakpoint gets the smaller-screen styles, matching WordPress's `@mobile`/`@tablet` block styles. For the rare max-width case use the exact complement, `(width <= $breakpoint)` — no `- 0.02px` offsets.
 
 ---
 

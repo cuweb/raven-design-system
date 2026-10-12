@@ -80,7 +80,7 @@ export const LargeTopMenu: Story = {
     render: () => (
         <Nav>
             <Nav.Top>
-                <Nav.Logo title="Faculty of Arts and Social Sciences" link="/science" />
+                <Nav.Logo />
                 <Nav.Menu menu={largeNavData} />
                 <Nav.Buttons
                     isSearch

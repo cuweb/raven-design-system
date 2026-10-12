@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 // ─── Default variant ──────────────────────────────────────────────────────────
 
@@ -41,7 +41,7 @@
     max-width: 64rem;
     margin-inline: auto;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         flex-direction: row-reverse;
     }
 }
@@ -52,7 +52,7 @@
     aspect-ratio: 4/3;
     border-radius: var(--rds--radius-lg);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         width: 33%;
         max-width: 320px;
     }

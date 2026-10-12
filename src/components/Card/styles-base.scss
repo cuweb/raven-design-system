@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-card {
     overflow: hidden;
@@ -73,7 +73,7 @@
 
 .cu-card__header-meta {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: var(--rds--spacing-x-small);
 }
 

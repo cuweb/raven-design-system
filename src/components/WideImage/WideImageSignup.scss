@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-wideimage__signup {
     width: 100%;
@@ -13,7 +13,7 @@
     gap: var(--rds--spacing-x-small);
     flex-direction: column;
 
-    @media (min-width: $rds-media-query-sm) {
+    @media (width > $rds-media-query-sm) {
         flex-direction: row;
     }
 }

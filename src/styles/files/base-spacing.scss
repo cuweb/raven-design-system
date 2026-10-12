@@ -1,4 +1,4 @@
-@use './rds-variables' as *;
+@use './variables' as *;
 
 // Global width classes for Gutenberg alignments, to be used in Section component
 .alignsmall {
@@ -22,7 +22,7 @@
 .cu-main > * > :not(.cu-layout) + .cu-layout {
     margin-top: var(--rds--spacing-medium);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         margin-top: var(--rds--spacing-large);
     }
 }
@@ -40,7 +40,7 @@
     > * + .cu-layout {
         margin-block-start: var(--rds--spacing-medium);
 
-        @media (min-width: $rds-media-query-md) {
+        @media (width > $rds-media-query-md) {
             margin-block-start: var(--rds--spacing-large);
         }
     }

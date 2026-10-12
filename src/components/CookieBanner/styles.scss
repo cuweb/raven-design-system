@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-cookie-banner {
     position: fixed;
@@ -23,7 +23,7 @@
     font-family: var(--rds--font-family-inter);
     text-align: center;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         flex-direction: row;
         align-items: center;
         text-align: left;
@@ -36,7 +36,7 @@
     color: var(--rds--color-grey-dark);
     font-size: var(--rds--font-size-small);
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         font-size: var(--rds--font-size-medium);
     }
 }
@@ -52,7 +52,7 @@
 }
 
 .cu-cookie-banner__action {
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         margin-left: auto;
     }
 }

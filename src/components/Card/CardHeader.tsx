@@ -74,7 +74,7 @@ export const CardHeader = ({
                         <p
                             className={`cu-card__header-readtime${date ? ' cu-card__header-readtime--with-divider' : ''}`}
                         >
-                            {readTime} minute read
+                            {readTime} min read
                         </p>
                     )}
                 </div>

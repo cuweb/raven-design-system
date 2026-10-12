@@ -1,4 +1,4 @@
-@use '../../styles/files/rds-variables' as *;
+@use '../../styles/files/variables' as *;
 
 .cu-fullbanner {
     position: relative;
@@ -21,11 +21,11 @@
     height: auto;
     object-fit: cover;
 
-    @media (min-width: $rds-media-query-md) {
+    @media (width > $rds-media-query-md) {
         max-height: 480px;
     }
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         max-height: 580px;
     }
 }
@@ -68,7 +68,7 @@
     pointer-events: none;
 }
 
-@media (min-width: $rds-media-query-lg) {
+@media (width > $rds-media-query-lg) {
     .cu-fullbanner__wrap {
         position: absolute;
         bottom: 0;
@@ -111,7 +111,7 @@
         color: var(--rds--color-white);
     }
 
-    @media (min-width: $rds-media-query-lg) {
+    @media (width > $rds-media-query-lg) {
         background-color: var(--rds--color-black);
         border-radius: var(--rds--radius-lg);
 
