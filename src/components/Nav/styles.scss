@@ -80,8 +80,12 @@
     display: flex;
     align-items: center;
     gap: var(--rds--spacing-small);
-    padding-block: min(1rem, 2vw);
+    padding-block: var(--rds--spacing-x-small);
     padding-inline: var(--rds--spacing-large);
+
+    @media (width > $rds-media-query-sm) {
+        padding-block: min(1rem, 3vw);
+    }
 }
 
 // ---------------------------------------------------------------------------
