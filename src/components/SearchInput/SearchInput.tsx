@@ -4,29 +4,30 @@ import { SearchInputResults } from './SearchInputResults';
 import './styles.scss';
 
 export interface SearchInputProps {
+    value?: string;
     callback?: (value: string) => void;
     placeholder?: string;
     children?: React.ReactNode;
 }
 
 const SearchInputWrapper = ({
-    callback = () => {},
+    value,
+    callback,
     placeholder = 'Search',
     children,
 }: SearchInputProps) => {
-    const [value, setValue] = useState('');
+    const [internalValue, setInternalValue] = useState('');
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
-        setValue(newValue);
+        if (value === undefined) {
+            setInternalValue(newValue);
+        }
         setOpen(newValue.length > 0);
+        callback?.(newValue);
     };
-
-    useEffect(() => {
-        callback(value);
-    }, [value, callback]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -50,7 +51,7 @@ const SearchInputWrapper = ({
                     autoComplete="off"
                     placeholder={placeholder}
                     onChange={handleChange}
-                    value={value}
+                    value={value ?? internalValue}
                 />
             </div>
             {open && children}
