@@ -58,12 +58,14 @@
         margin: 0;
         padding: 0;
 
-        a {
+        a,
+        button {
             font-weight: var(--rds--font-weight-normal);
         }
     }
 
-    &__results-link {
+    &__results-link,
+    &__results-button {
         display: block;
         padding: var(--rds--spacing-2-x-small) var(--rds--spacing-small);
         font-size: var(--rds--font-size-small);
@@ -75,5 +77,13 @@
         &:hover {
             background-color: var(--rds--color-grey-pale);
         }
+    }
+
+    &__results-button {
+        width: 100%;
+        font-family: inherit;
+        text-align: left;
+        background-color: transparent;
+        border: 0;
     }
 }

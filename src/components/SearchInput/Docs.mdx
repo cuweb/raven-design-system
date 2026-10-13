@@ -34,6 +34,13 @@ import { SearchInput } from '@cuweb/raven-design-system';
 </SearchInput>
 ```
 
+```tsx
+// Select a result without navigating; selection results do not need a url
+<SearchInput callback={setSearchString} placeholder="Find a transit stop...">
+    <SearchInput.Results resultsData={matchingStops} onSelect={(stop) => setSelectedStop(stop)} />
+</SearchInput>
+```
+
 ## Examples
 
 ### Default
@@ -47,17 +54,24 @@ Pair `SearchInput` with `SearchInput.Results` to render a filtered list as the u
 
 <Canvas of={SearchInputStories.AutoSuggest} />
 
+### Select a result
+
+Provide `onSelect` to receive the selected result instead of navigating. In this mode, each result needs an `id` and `title`, but does not need a `url`; results render as buttons.
+
+<Canvas of={SearchInputStories.AutoSuggestSelection} />
+
 ## CSS classes
 
-| Class                           | Condition                                     |
-| ------------------------------- | --------------------------------------------- |
-| `cu-search-input`               | Always — root wrapper element                 |
-| `cu-search-input__icon`         | Always — magnifying-glass icon                |
-| `cu-search-input__field`        | Always — the `<input>` element                |
-| `cu-search-input__results`      | When `children` is provided                   |
-| `cu-search-input__results-list` | Always on the `<ul>` in `SearchInput.Results` |
-| `cu-search-input__results-item` | Applied to each `<li>` result row             |
-| `cu-search-input__results-link` | Applied to each result link                   |
+| Class                             | Condition                                                            |
+| --------------------------------- | -------------------------------------------------------------------- |
+| `cu-search-input`                 | Always — root wrapper element                                        |
+| `cu-search-input__icon`           | Always — magnifying-glass icon                                       |
+| `cu-search-input__field`          | Always — the `<input>` element                                       |
+| `cu-search-input__results`        | When `children` is provided                                          |
+| `cu-search-input__results-list`   | Always on the `<ul>` in `SearchInput.Results`                        |
+| `cu-search-input__results-item`   | Applied to each `<li>` result row                                    |
+| `cu-search-input__results-link`   | Applied to each result link when `onSelect` is omitted               |
+| `cu-search-input__results-button` | Applied to each selectable result button when `onSelect` is provided |
 
 ## Design tokens
 
@@ -67,13 +81,13 @@ Pair `SearchInput` with `SearchInput.Results` to render a filtered list as the u
 | `--rds--spacing-x-small`   | Extra gap between icon and field text                   |
 | `--rds--spacing-2-x-small` | Results list vertical padding; result item padding      |
 | `--rds--font-family-inter` | Input font family                                       |
-| `--rds--font-size-small`   | Input and result link font size                         |
+| `--rds--font-size-small`   | Input and result action font size                       |
 | `--rds--color-grey`        | Icon color; input placeholder color; focus border color |
 | `--rds--color-grey-light`  | Input default border color                              |
-| `--rds--color-grey-dark`   | Input text color; result link text color                |
-| `--rds--color-grey-pale`   | Result link hover background                            |
+| `--rds--color-grey-dark`   | Input text color; result action text color              |
+| `--rds--color-grey-pale`   | Result action hover background                          |
 | `--rds--radius-lg`         | Input border radius                                     |
-| `--rds--radius-md`         | Result link hover border radius                         |
+| `--rds--radius-md`         | Result action hover border radius                       |
 
 ## Accessibility
 
@@ -81,4 +95,5 @@ Pair `SearchInput` with `SearchInput.Results` to render a filtered list as the u
 - The magnifying-glass `<Icon>` is decorative and rendered with `aria-hidden="true"` automatically
 - Pair the input with a visible `<label>` or `aria-label` in your consuming page to meet WCAG 2.1 SC 1.3.1 — the component does not render a label internally to remain layout-agnostic
 - The results `<ul>` list provides semantic structure; screen readers announce the number of items when focus enters the list
-- Result links are standard `<a>` elements and are keyboard-navigable via Tab
+- Results are standard links when `onSelect` is omitted and keyboard-navigable via Tab
+- When `onSelect` is provided, results are native buttons that invoke the callback and are keyboard-operable
