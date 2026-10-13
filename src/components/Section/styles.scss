@@ -5,10 +5,6 @@
 .cu-section--light-gradient,
 .cu-section--hero {
     padding: var(--rds--spacing-large);
-
-    @media (width > $rds-media-query-md) {
-        padding: var(--rds--spacing-x-large);
-    }
 }
 
 .cu-section--grey,

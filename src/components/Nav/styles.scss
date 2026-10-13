@@ -120,7 +120,7 @@
             display: block;
             // Shares the top row with the site title, so scale down at tablet
             // widths: 28px tall (104px wide) at 601px, full 40px by ~900px.
-            height: clamp(32px, 4vw + 4px, 40px);
+            height: clamp(30px, 4vw + 4px, 40px);
         }
     }
 }
