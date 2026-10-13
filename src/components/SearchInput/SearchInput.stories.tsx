@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState, useMemo } from 'react';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { Main } from '../Main/Main';
 import { Section } from '../Section/Section';
 import { SearchInput } from './SearchInput';
@@ -32,6 +32,20 @@ type Story = StoryObj<typeof SearchInput>;
 export const Default: Story = {
     args: {
         placeholder: 'Search...',
+        callback: fn(),
+    },
+    play: async ({ args, canvasElement }) => {
+        const canvas = within(canvasElement);
+        const input = canvas.getByRole('searchbox');
+        await expect(args.callback).not.toHaveBeenCalled();
+        await userEvent.type(input, 'Bus');
+        await expect(input).toHaveValue('Bus');
+        await expect(args.callback).toHaveBeenCalledTimes(3);
+        await expect(args.callback).toHaveBeenLastCalledWith('Bus');
+        await userEvent.clear(input);
+        await expect(input).toHaveValue('');
+        await expect(args.callback).toHaveBeenCalledTimes(4);
+        await expect(args.callback).toHaveBeenLastCalledWith('');
     },
 };
 
@@ -68,24 +82,44 @@ const TransitStops: SearchResultSelectionItem[] = [
     { id: 'bank-heron', title: 'Bank & Heron' },
 ];
 
-const AutoSuggestSelectionDemo = ({ placeholder }: { placeholder?: string }) => {
+const AutoSuggestSelectionDemo = ({
+    placeholder,
+    callback,
+}: {
+    placeholder?: string;
+    callback?: (value: string) => void;
+}) => {
     const [searchString, setSearchString] = useState('');
     const [selectedStop, setSelectedStop] = useState<SearchResultSelectionItem>();
 
     const filteredResults = useMemo(
         () =>
-            searchString === ''
+            searchString === '' || selectedStop
                 ? []
                 : TransitStops.filter((stop) =>
                       stop.title.toLowerCase().includes(searchString.toLowerCase()),
                   ),
-        [searchString],
+        [searchString, selectedStop],
     );
 
     return (
         <>
-            <SearchInput callback={setSearchString} placeholder={placeholder}>
-                <SearchInput.Results resultsData={filteredResults} onSelect={setSelectedStop} />
+            <SearchInput
+                value={searchString}
+                callback={(value) => {
+                    setSearchString(value);
+                    setSelectedStop(undefined);
+                    callback?.(value);
+                }}
+                placeholder={placeholder}
+            >
+                <SearchInput.Results
+                    resultsData={filteredResults}
+                    onSelect={(stop) => {
+                        setSelectedStop(stop);
+                        setSearchString(stop.title);
+                    }}
+                />
             </SearchInput>
             {selectedStop && <p aria-live="polite">Selected stop: {selectedStop.title}</p>}
         </>
@@ -95,12 +129,35 @@ const AutoSuggestSelectionDemo = ({ placeholder }: { placeholder?: string }) => 
 export const AutoSuggestSelection: Story = {
     args: {
         placeholder: 'Search for a stop...',
+        callback: fn(),
     },
-    render: (args) => <AutoSuggestSelectionDemo placeholder={args.placeholder} />,
-    play: async ({ canvasElement }) => {
+    render: (args) => (
+        <AutoSuggestSelectionDemo placeholder={args.placeholder} callback={args.callback} />
+    ),
+    play: async ({ args, canvasElement }) => {
         const canvas = within(canvasElement);
-        await userEvent.type(canvas.getByRole('searchbox'), 'Bronson');
+        const input = canvas.getByRole('searchbox');
+        await expect(args.callback).not.toHaveBeenCalled();
+        await userEvent.type(input, 'Bronson');
+        await expect(args.callback).toHaveBeenCalledTimes(7);
+        await expect(args.callback).toHaveBeenLastCalledWith('Bronson');
         await userEvent.click(await canvas.findByRole('button', { name: 'Bronson & Sunnyside' }));
         await expect(canvas.getByText('Selected stop: Bronson & Sunnyside')).toBeInTheDocument();
+        await expect(input).toHaveValue('Bronson & Sunnyside');
+        await expect(canvas.queryByRole('list')).not.toBeInTheDocument();
+        await expect(args.callback).toHaveBeenCalledTimes(7);
+        await userEvent.type(input, 'x');
+        await expect(input).toHaveValue('Bronson & Sunnysidex');
+        await expect(
+            canvas.queryByText('Selected stop: Bronson & Sunnyside'),
+        ).not.toBeInTheDocument();
+        await expect(args.callback).toHaveBeenCalledTimes(8);
+        await expect(args.callback).toHaveBeenLastCalledWith('Bronson & Sunnysidex');
+        await userEvent.clear(input);
+        await expect(input).toHaveValue('');
+        await expect(args.callback).toHaveBeenCalledTimes(9);
+        await expect(args.callback).toHaveBeenLastCalledWith('');
+        await userEvent.type(input, 'Bank');
+        await expect(canvas.getByRole('button', { name: 'Bank & Heron' })).toBeInTheDocument();
     },
 };

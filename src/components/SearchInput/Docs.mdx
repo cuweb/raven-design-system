@@ -5,7 +5,7 @@ import * as SearchInputStories from './SearchInput.stories';
 
 # SearchInput
 
-A controlled search field component that calls a callback on every keystroke, with an optional `SearchInput.Results` subcomponent for rendering a filtered auto-suggest list.
+A search field with optional controlled value support and an optional `SearchInput.Results` subcomponent for rendering a filtered auto-suggest list.
 
 ## When to use
 
@@ -35,11 +35,28 @@ import { SearchInput } from '@cuweb/raven-design-system';
 ```
 
 ```tsx
-// Select a result without navigating; selection results do not need a url
-<SearchInput callback={setSearchString} placeholder="Find a transit stop...">
-    <SearchInput.Results resultsData={matchingStops} onSelect={(stop) => setSelectedStop(stop)} />
+// Control the field and show the full selected title without navigating
+<SearchInput
+    value={busStopQuery}
+    callback={(query) => {
+        setBusStopQuery(query);
+        setSelectedStop(undefined);
+    }}
+    placeholder="Find a transit stop..."
+>
+    <SearchInput.Results
+        resultsData={selectedStop ? [] : matchingStops}
+        onSelect={(stop) => {
+            setSelectedStop(stop);
+            setBusStopQuery(stop.title);
+        }}
+    />
 </SearchInput>
 ```
+
+Omit `value` to let the component manage its own text. Pass `value` (including `''`) to control the displayed text; update that state from `callback` to reflect user edits. Keep the field controlled or uncontrolled throughout its lifetime.
+
+`callback` reports user edits only, including `''` when the user clears the field. It does not run on mount, when its function identity changes, or when the parent updates `value` (for example, after selecting a result). `SearchInput.Results.onSelect` still receives the selected record; it does not update the field or invoke `callback` itself. The consumer sets the selected title through `value` and passes an empty results array to hide suggestions after selection.
 
 ## Examples
 
@@ -56,7 +73,7 @@ Pair `SearchInput` with `SearchInput.Results` to render a filtered list as the u
 
 ### Select a result
 
-Provide `onSelect` to receive the selected result instead of navigating. In this mode, each result needs an `id` and `title`, but does not need a `url`; results render as buttons.
+Provide `onSelect` to receive the selected result instead of navigating. In this mode, each result needs an `id` and `title`, but does not need a `url`; results render as buttons. This controlled example fills the field with the selected title, hides suggestions, and resumes filtering when the user edits the field.
 
 <Canvas of={SearchInputStories.AutoSuggestSelection} />
 
