@@ -146,7 +146,9 @@ console.log(`release: ${version} ready.`);
 console.log('');
 console.log('Next steps:');
 console.log('  1. Review the commit:  git show HEAD');
-console.log('  2. Push to publish:    git push && git push --tags');
+// Push only this release's tag. `git push --tags` pushes every local tag, which
+// once re-published pre-purge tags carrying Font Awesome Pro assets.
+console.log(`  2. Push to publish:    git push && git push origin ${version}`);
 console.log('');
 console.log('To undo before pushing:');
 console.log(`  git tag -d ${version} && git reset --hard HEAD^`);

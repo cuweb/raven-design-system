@@ -50,7 +50,7 @@ git commit -m "feat: add 12 new dashboard icons"
 # Bump the version
 pnpm version patch  # or 'minor' or 'major' — prints and tags
 git push
-git push --tags
+git push origin v<new-version>  # only this tag — never `git push --tags`
 ```
 
 The `pnpm version` command:
@@ -115,7 +115,7 @@ $EDITOR CHANGELOG.mdx
 # Bump
 pnpm version patch
 git push
-git push --tags
+git push origin v<new-version>  # only this tag — never `git push --tags`
 ```
 
 Pushing the tag triggers [.github/workflows/publish.yml](../../.github/workflows/publish.yml) which:
@@ -197,7 +197,7 @@ If you want to test a change without affecting the default install:
 
 ```sh
 pnpm version prerelease --preid=next  # e.g. 0.2.0-next.0
-git push --tags
+git push origin v<new-version>  # only this tag — never `git push --tags`
 ```
 
 Consumers can opt into the canary with `pnpm add @cuweb/raven-design-system@next`. Default `latest` tag is unaffected.
