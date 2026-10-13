@@ -95,11 +95,17 @@
 .cu-nav__logo {
     display: flex;
     align-items: center;
-    gap: var(--rds--spacing-large);
+    gap: var(--rds--spacing-medium);
     padding-block: 0.875rem;
-    flex-shrink: 0; // never let the logo shrink (desktop flex row)
+    // Desktop flex row: may shrink so the row never overflows. The logomark stays
+    // fixed (flex-shrink: 0 below), so only the site title gives way.
+    min-width: 0;
     grid-column: 1; // mobile grid: row 1, left
     grid-row: 1;
+
+    @media (width > $rds-media-query-sm) {
+        gap: var(--rds--spacing-large);
+    }
 }
 
 .cu-nav__logomark {
@@ -111,15 +117,14 @@
     width: auto;
     height: 38px;
 
-    @media (width > $rds-media-query-sm) {
-        height: 40px;
-    }
-
     &--sm-hidden {
         display: none;
 
         @media (width > $rds-media-query-sm) {
             display: block;
+            // Shares the top row with the site title, so scale down at tablet
+            // widths: 28px tall (104px wide) at 601px, full 40px by ~900px.
+            height: clamp(32px, 4vw + 4px, 40px);
         }
     }
 }
@@ -140,6 +145,7 @@
     color: var(--rds--color-black);
     text-decoration: none;
     max-width: 14rem;
+    min-width: 0; // can shrink below its longest word; the 2-line clamp truncates
     display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;
@@ -192,6 +198,9 @@
         grid-row: auto;
         padding-block: 0;
         margin-left: var(--rds--spacing-medium);
+        // Basis 0 instead of width: 100%, so the menu takes only the leftover space
+        // (via flex-grow) and never forces the shrinkable logo to give way.
+        flex-basis: 0;
     }
 }
 

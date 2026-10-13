@@ -175,12 +175,12 @@ Below the `sm` breakpoint (600 px):
 | `cu-nav__top`                      | `<div>`             | 2-col grid on mobile; flex row on `sm+`                                |
 | `cu-nav__bottom`                   | `<div>`             | Grey accent strip; full-width bleed via negative `margin-inline`       |
 | `cu-nav__bottom-inner`             | `<div>`             | Flex row inside the bottom strip; re-applies padding                   |
-| `cu-nav__logo`                     | `<div>`             | Logo + site title; never shrinks; grid row 1 on mobile                 |
+| `cu-nav__logo`                     | `<div>`             | Logo + site title; only the title shrinks; grid row 1 on mobile        |
 | `cu-nav__logomark`                 | `<a>`               | Wraps the CU logo image(s)                                             |
 | `cu-nav__logomark-full`            | `<img>`             | Full horizontal wordmark; hidden on mobile when title is set           |
-| `cu-nav__logomark-full--sm-hidden` | Modifier            | Applied when `title` is provided; hides full logo below `sm`           |
+| `cu-nav__logomark-full--sm-hidden` | Modifier            | With `title`: hidden to `sm`, then scales 28–40px tall                 |
 | `cu-nav__logomark-shield`          | `<img>`             | Shield logo; visible only on mobile when title is set                  |
-| `cu-nav__site-title`               | `<a>`               | Department/site title link; two-line clamp                             |
+| `cu-nav__site-title`               | `<a>`               | Department/site title link; two-line clamp; shrinks before overflow    |
 | `cu-nav__menu`                     | `<div>`             | Priority-plus container; `flex-grow: 1`; `position: relative` on `sm+` |
 | `cu-nav__list`                     | `<ul>`              | Visible primary nav items; flex row                                    |
 | `cu-nav__list--measure`            | Modifier            | Off-flow hidden clone used only for width measurement                  |
