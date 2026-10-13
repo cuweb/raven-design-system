@@ -102,10 +102,6 @@
     min-width: 0;
     grid-column: 1; // mobile grid: row 1, left
     grid-row: 1;
-
-    @media (width > $rds-media-query-sm) {
-        gap: var(--rds--spacing-large);
-    }
 }
 
 .cu-nav__logomark {
