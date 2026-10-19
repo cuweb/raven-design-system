@@ -1,0 +1,124 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FormStories from './Form.stories';
+
+<Meta of={FormStories} />
+
+# Form
+
+An accessible form wrapper and field primitives that integrate with React Hook Form.
+
+## When to use
+
+- Build forms that use React Hook Form for state and submission.
+- Compose native input, textarea, select, radio, or checkbox controls with RDS styling.
+- Display field-scoped validation feedback from React Hook Form or an application resolver.
+
+## Import
+
+```tsx
+import { Form } from '@cuweb/raven-design-system/Form';
+```
+
+Install `react-hook-form` in the consuming application. Validation remains application-owned; use React Hook Form rules or a resolver such as Zod's `zodResolver`.
+
+## Basic usage
+
+```tsx
+import { useForm } from 'react-hook-form';
+import { Form } from '@cuweb/raven-design-system/Form';
+
+interface ContactValues {
+    name: string;
+    email: string;
+}
+
+function ContactForm() {
+    const methods = useForm<ContactValues>({
+        defaultValues: { name: '', email: '' },
+    });
+
+    return (
+        <Form
+            methods={methods}
+            onSubmit={async (values) => {
+                await saveContact(values);
+            }}
+        >
+            <Form.Group cols={2}>
+                <Form.Field
+                    name="name"
+                    label="Name"
+                    required
+                    rules={{ required: 'Name is required' }}
+                />
+                <Form.Field
+                    name="email"
+                    label="Email"
+                    type="email"
+                    required
+                    rules={{
+                        required: 'Email is required',
+                        pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: 'Enter a valid email address',
+                        },
+                    }}
+                />
+            </Form.Group>
+            <button type="submit" disabled={methods.formState.isSubmitting}>
+                Submit
+            </button>
+        </Form>
+    );
+}
+```
+
+For schema validation, configure a resolver in `useForm`; install that schema library and resolver in the application, not RDS. Use `useWatch` in a small child component for conditional fields so only that section subscribes to the watched value.
+
+## Examples
+
+<Canvas of={FormStories.BasicForm} />
+<Controls of={FormStories.BasicForm} />
+
+<Canvas of={FormStories.ConditionalFields} />
+
+## CSS classes
+
+| Class                                                                           | Condition                                    |
+| ------------------------------------------------------------------------------- | -------------------------------------------- |
+| `.cu-form`                                                                      | Form wrapper                                 |
+| `.cu-form__group`                                                               | Field group                                  |
+| `.cu-form__group--cols-2`, `.cu-form__group--cols-3`, `.cu-form__group--cols-4` | Multi-column group at tablet width and above |
+| `.cu-form__field`                                                               | Field wrapper                                |
+| `.cu-form__label`                                                               | Visible field label or group legend          |
+| `.cu-form__label--hidden`                                                       | Visually hidden label                        |
+| `.cu-form__required`                                                            | Required indicator                           |
+| `.cu-form__control`                                                             | Input, textarea, or select                   |
+| `.cu-form__control--error`                                                      | Control has a validation or explicit error   |
+| `.cu-form__helper`                                                              | Helper text                                  |
+| `.cu-form__error`                                                               | Validation feedback                          |
+| `.cu-form__loading`                                                             | Loading state                                |
+| `.cu-form__option-group`                                                        | Radio group or checkbox group                |
+| `.cu-form__options`                                                             | Option layout                                |
+| `.cu-form__options--inline`                                                     | Inline option layout                         |
+| `.cu-form__option`                                                              | Individual option label                      |
+| `.cu-form__choice`                                                              | Native radio or checkbox control             |
+
+## Design tokens
+
+| Token                                                                                                 | Usage                                          |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `--rds--color-black`, `--rds--color-grey-dark`, `--rds--color-grey`                                   | Labels, helper, placeholder, and disabled text |
+| `--rds--color-grey-light`, `--rds--color-grey-pale`, `--rds--color-white`                             | Field borders and backgrounds                  |
+| `--rds--color-error`, `--rds--color-error-light`, `--rds--color-error-dark`                           | Required marker, error state, and message      |
+| `--rds--color-primary`                                                                                | Focus indicator and native choice accent       |
+| `--rds--spacing-2-x-small`, `--rds--spacing-x-small`, `--rds--spacing-small`, `--rds--spacing-medium` | Field and group spacing                        |
+| `--rds--font-size-small`, `--rds--font-size-medium`, `--rds--font-weight-semibold`                    | Helper, label, and error typography            |
+| `--rds--radius-md`                                                                                    | Field corner radius                            |
+
+## Accessibility
+
+- Uses a semantic `<form>` and labeled native form controls; radio and checkbox groups use `<fieldset>` and `<legend>`.
+- Connects helper/error text with `aria-describedby`, reports invalid fields with `aria-invalid`, and exposes validation feedback with `role="alert"`.
+- Required state is conveyed by a visible asterisk and `aria-required`; actual required validation must be configured through React Hook Form rules or a resolver.
+- Error state is not conveyed by color alone: a text message is rendered for the invalid field.
