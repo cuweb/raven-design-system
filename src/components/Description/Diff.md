@@ -3,11 +3,10 @@
 ## Summary
 
 Public props are unchanged across `Description`, `Description.Meta`, and
-`Description.Accordion`. The accordion's open/closed state moved from an imperative DOM-manipulation
-script (`script.ts`, toggling classes/attributes via `querySelector`/`closest`) to React
-`useState`, and its clickable trigger changed from a `<div role="button">` to a semantic
-`<button>`. The shared `Description.Styles.ts` object and Tailwind utility classes were replaced
-by `cu-description__*` BEM/SCSS classes driven by design tokens.
+`Description.Accordion`. The accordion uses native `<details>`/`<summary>` disclosure behavior
+instead of custom state management, while metadata term/definition pairs remain semantic
+description lists. The shared `Description.Styles.ts` object and Tailwind utility classes were
+replaced by `cu-description__*` BEM/SCSS classes driven by design tokens.
 
 ## Props Changes
 
@@ -17,8 +16,8 @@ explicit `= false` default in RDS2, matching its effectively-falsy legacy behavi
 
 ## Deprecations
 
-- `script.ts` (the imperative `toggleAccordion` handler) — no direct replacement; the accordion's
-  open/closed state is now managed internally via React `useState`.
+- `script.ts` (the imperative `toggleAccordion` handler) — replaced by the browser's built-in
+  `<details>`/`<summary>` disclosure behavior; no custom toggle script is needed.
 - `Description.Styles.ts` (the shared `styles.base`/`styles.term`/`styles.desc`/`styles.baseMeta`
   Tailwind class object) — no direct replacement; equivalent styling now lives in `styles.scss`.
 - `cu-prose` / `cu-prose-first-last` classes on `Description.Meta`'s `<dd>` — no direct
@@ -27,24 +26,21 @@ explicit `= false` default in RDS2, matching its effectively-falsy legacy behavi
 
 ## Behavioral / Styling Changes
 
-- Accordion state management: legacy toggled the accordion by directly mutating the DOM —
-  setting `aria-expanded` on the trigger, toggling `rotate-0`/`rotate-90` classes on the icon, and
-  flipping the content's `hidden` property — all via `event.currentTarget.closest()` /
-  `querySelector()` in a plain event handler. RDS2 tracks `isOpen` in React state and derives all
-  of `aria-expanded`, the icon's modifier class, and the content's `hidden` attribute from it.
-- Trigger element: legacy used a `<div role="button" aria-expanded aria-controls onClick>` with
-  no keyboard handling (`role="button"` on a non-interactive element with no `onKeyDown` is an
-  accessibility anti-pattern). RDS2 uses a real `<button type="button">`, which gets native
-  keyboard activation (Enter/Space) for free.
-- `aria-controls`/`id` when `term` is empty: legacy generated an empty string (`''`) for
-  `termLabel` when there was no valid term, so `aria-controls=""` / `id=""` would be rendered.
-  RDS2 generates `undefined` in that case, so the attributes are omitted entirely.
+- Accordion behavior: legacy toggled the accordion by directly mutating the DOM; RDS2 uses
+  `<details>`/`<summary>` so the browser manages the open state and built-in disclosure semantics.
+  Items start closed and have no `name` attribute, so each opens independently.
+- Accordion markup: `Description.Accordion` changes from a term/definition pair inside the shared
+  `<dl>` to a native disclosure. `Description.Meta` now renders each `<dt>`/`<dd>` pair inside its
+  own `<dl>`, and the `Description` wrapper is a neutral `<div>` that can contain both item types.
+- Keyboard interaction: the native `<summary>` is keyboard-operable with Enter and Space; its
+  focus-visible outline remains styled. The summary text labels the disclosure, the browser
+  exposes its open state to assistive technology, and the decorative chevron follows the
+  `<details>` `open` state without custom `aria-expanded` or `aria-controls` attributes.
 - Icon color: legacy passed an explicit hardcoded `color="#808080"` to the chevron `<Icon>`; RDS2
   passes no explicit color and instead colors it via CSS (`var(--rds--color-grey)` on
   `.cu-description__accordion-icon`).
 - Icon rotation: legacy toggled Tailwind `rotate-0`/`rotate-90` utility classes imperatively via
-  JS; RDS2 toggles a `cu-description__accordion-icon--open` modifier class based on `isOpen`
-  state, with the rotation/transition defined in CSS.
+  JS; RDS2 rotates the chevron using the native `<details open>` state in CSS.
 - Column layout (`Description.Meta` with `useColumns`): legacy used a custom Tailwind grid
   template utility (`md:grid-cols-left-260 gap-2 md:gap-6`); RDS2 uses an explicit CSS Grid
   (`grid-template-columns: 260px 1fr`) under a `cu-description__item--columns` modifier class —

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { Description } from './Description';
 import { Main } from '../Main/Main';
 import { SingleParagraph, MultiParagraph, UnorderedList } from '../../data/storyContent';
@@ -98,4 +99,30 @@ export const MultipleAccordions: Story = {
             </Description.Accordion>
         </Description>
     ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const firstSummary = canvas.getByText('Programme overview');
+        const secondSummary = canvas.getByText('Admission requirements');
+        const firstDetails = firstSummary.parentElement;
+        const secondDetails = secondSummary.parentElement;
+
+        expect(firstDetails).not.toHaveAttribute('open');
+        expect(secondDetails).not.toHaveAttribute('open');
+
+        firstSummary.focus();
+        expect(firstSummary).toHaveFocus();
+        await userEvent.click(firstSummary);
+        expect(firstDetails).toHaveAttribute('open');
+
+        secondSummary.focus();
+        expect(secondSummary).toHaveFocus();
+        await userEvent.click(secondSummary);
+        expect(secondDetails).toHaveAttribute('open');
+        expect(firstDetails).toHaveAttribute('open');
+
+        firstSummary.focus();
+        await userEvent.click(firstSummary);
+        expect(firstDetails).not.toHaveAttribute('open');
+        expect(secondDetails).toHaveAttribute('open');
+    },
 };
