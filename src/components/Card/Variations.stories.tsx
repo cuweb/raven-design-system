@@ -12,7 +12,6 @@ import { IconData } from '../../data/IconData';
 import { StatData } from '../../data/StatData';
 import { VideoData } from '../../data/VideoData';
 import { HoursData } from '../../data/HoursData';
-import { LanguageData } from '../../data/LanguageData';
 
 const meta: Meta = {
     title: 'Components/Content/Card',
@@ -37,7 +36,6 @@ const video = VideoData[0];
 const icon = IconData[0];
 const stat = StatData[0];
 const hours = HoursData[0];
-const language = LanguageData[0];
 
 export const Variants: Story = {
     render: () => (
@@ -166,14 +164,6 @@ export const Variants: Story = {
                 {/* Stat card — left border, no hover */}
                 <Card leftBorder>
                     <Card.Stats stat={stat.stat} desc={stat.desc} />
-                </Card>
-
-                {/* Language card — grey background with decorative wave */}
-                <Card isGrey hasWave>
-                    <Card.Header title={language.title} link={language.link} />
-                    <Card.Body>
-                        <Card.Excerpt text={EXCERPT} />
-                    </Card.Body>
                 </Card>
             </Column>
         </Main>
