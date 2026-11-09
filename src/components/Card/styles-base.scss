@@ -1,4 +1,5 @@
 @use '../../styles/files/variables' as *;
+@use '../../styles/item-link' as *;
 
 .cu-card {
     overflow: hidden;
@@ -120,5 +121,32 @@
 
     .cu-card__meta li {
         justify-content: center;
+    }
+}
+
+@include item-link('.cu-card', '.cu-card__header', '.cu-card__header-title', var(--rds--radius-md));
+
+.cu-card:has(.cu-card__header-title > a[href]:not([href=''])) {
+    // Flex-child stacking contexts would trap the title overlay.
+    > *,
+    .cu-card__date-thumb,
+    .cu-card__time-thumb {
+        z-index: auto;
+    }
+
+    .cu-badge-group {
+        z-index: 0;
+
+        &:has(a[href]) {
+            z-index: 2;
+        }
+    }
+
+    > .cu-card__wave {
+        z-index: -1;
+    }
+
+    .cu-card__figure--video {
+        z-index: 2;
     }
 }

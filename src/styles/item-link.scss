@@ -1,0 +1,42 @@
+@mixin item-link($item, $header, $title, $radius: 0) {
+    #{$item}:has(#{$title} > a[href]:not([href=''])) {
+        isolation: isolate;
+
+        #{$title} > a[href]:not([href=''])::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            border-radius: $radius;
+        }
+
+        #{$title} > a:focus-visible::after {
+            outline: 2px solid var(--rds--color-primary);
+            outline-offset: -2px;
+        }
+
+        &:has(#{$header} ~ #{$header}) {
+            #{$title} > a::after {
+                content: none;
+            }
+        }
+    }
+
+    // Let existing control styles retain their positioning, including video overlays.
+    :where(#{$item}:has(#{$title} > a[href]:not([href=''])))
+        :where(
+            a[href],
+            button,
+            input,
+            label,
+            select,
+            textarea,
+            summary,
+            iframe,
+            [tabindex],
+            [contenteditable='true']
+        ):not(:where(#{$title} > a)) {
+        position: relative;
+        z-index: 2;
+    }
+}

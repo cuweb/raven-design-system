@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { ComponentProps } from 'react';
 import { Column } from '../Column/Column';
 import { Main } from '../Main/Main';
 import { Section } from '../Section/Section';
@@ -6,6 +7,8 @@ import { Card } from './Card';
 import { Icon } from '../Icon/Icon';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { formatHoursStatus } from '../Status/hoursStatus';
+import { checkItemLinks } from '../../utils/testing/checkItemLinks';
+import { LinkProvider } from '../LinkProvider';
 
 import { NewsData } from '../../data/NewsData';
 import { EventData } from '../../data/EventData';
@@ -22,6 +25,7 @@ import { LanguageData } from '../../data/LanguageData';
 const meta: Meta<typeof Card> = {
     title: 'Components/Content/Card',
     component: Card,
+    tags: ['!autodocs'],
     decorators: [
         (Story) => (
             <Main>
@@ -39,6 +43,59 @@ const meta: Meta<typeof Card> = {
 
 export default meta;
 type Story = StoryObj<typeof Card>;
+
+const ProvidedLink = ({ children, ...props }: ComponentProps<'a'>) => (
+    <a {...props} data-provided-link>
+        {children}
+    </a>
+);
+
+export const ItemLinks: Story = {
+    render: () => (
+        <LinkProvider component={ProvidedLink}>
+            <Column cols="3">
+                <Card revealOnScroll={false}>
+                    <Card.Figure>
+                        <img src={PeopleData[0].image} alt="" width="280" height="280" />
+                    </Card.Figure>
+                    <Card.Body>
+                        <Card.Content>
+                            <Card.Header title="Profile details" link="#profile" />
+                            <p data-item-excerpt>Read the profile and contact this person.</p>
+                        </Card.Content>
+                        <Card.PeopleMeta jobTitle="Staff member">
+                            <a href="mailto:person@example.test">Email person</a>
+                        </Card.PeopleMeta>
+                        <p data-item-metadata>Department information</p>
+                        <a href="tel:+16135550123">Call person</a>
+                    </Card.Body>
+                    <Card.Footer>
+                        <a href="#resource">Related resource</a>
+                        <button type="button">Save item</button>
+                    </Card.Footer>
+                </Card>
+                <Card revealOnScroll={false}>
+                    <Card.Header title="Unlinked information" />
+                    <Card.Excerpt text="This card has no primary action." />
+                </Card>
+                <Card revealOnScroll={false}>
+                    <Card.Header title="First independent title" link="#first" />
+                    <Card.Header title="Second independent title" link="#second" />
+                </Card>
+                <Card revealOnScroll={false}>
+                    <Card.VideoFigure
+                        url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                        title="Video preview"
+                        thumbnail={PeopleData[0].image}
+                        skipNetwork
+                    />
+                    <Card.Header title="Video article" link="#video-article" />
+                </Card>
+            </Column>
+        </LinkProvider>
+    ),
+    play: ({ canvasElement }) => checkItemLinks(canvasElement, '.cu-card'),
+};
 
 export const NewsCards: Story = {
     render: () => (
