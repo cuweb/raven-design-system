@@ -68,6 +68,12 @@ When `events` is omitted no indicator dots are shown.
 
 <Canvas of={CalendarStories.NoEvents} />
 
+### Past dates
+
+Past dates remain disabled and display grey numbers without a circular background. The grey token (`#767676`) provides approximately 4.54:1 contrast against the white day cells.
+
+<Canvas of={CalendarStories.PastDates} />
+
 ## CSS classes
 
 | Class                                 | When applied                                                                             |
@@ -98,9 +104,9 @@ When `events` is omitted no indicator dots are shown.
 | `--rds--color-primary-dark`   | Nav button active state                                                               |
 | `--rds--color-black`          | Default day text, month heading                                                       |
 | `--rds--color-grey-dark`      | Nav button default color                                                              |
-| `--rds--color-grey`           | Weekday label text, outside-month day text                                            |
-| `--rds--color-grey-light`     | Grid border, header border, disabled day text                                         |
-| `--rds--color-grey-pale`      | Grid background (gap color), disabled day background                                  |
+| `--rds--color-grey`           | Past-date and outside-month day text                                                  |
+| `--rds--color-grey-light`     | Grid border                                                                           |
+| `--rds--color-grey-pale`      | Grid background (gap color)                                                           |
 | `--rds--color-white`          | Day cell background, selected day text, header background                             |
 | `--rds--font-size-medium`     | Month heading size                                                                    |
 | `--rds--font-size-small`      | Day number size                                                                       |

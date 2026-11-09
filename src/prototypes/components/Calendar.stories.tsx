@@ -25,10 +25,7 @@ export const CalendarComponent: Story = {
     parameters: {
         a11y: {
             config: {
-                rules: [
-                    { id: 'color-contrast', enabled: false },
-                    { id: 'landmark-complementary-is-top-level', enabled: false },
-                ],
+                rules: [{ id: 'landmark-complementary-is-top-level', enabled: false }],
             },
         },
     },
