@@ -5,7 +5,7 @@ import * as DescriptionStories from './Description.stories';
 
 # Description
 
-A semantic description list (`<dl>`) for displaying labelled metadata — programme details, event attributes, contact information — in stacked, columnar, or collapsible accordion layouts.
+A container for labelled metadata and native disclosure items — programme details, event attributes, contact information — in stacked, columnar, or collapsible layouts.
 
 ## When to use
 
@@ -58,6 +58,8 @@ Collapsible accordion items:
 </Description>
 ```
 
+`Description.Meta` renders a semantic description list for each term/definition pair. `Description.Accordion` renders an independent native disclosure item. It accepts `term` and `children`; `hasBorder` is not a supported prop, and the standard item dividers are always applied.
+
 ## Examples
 
 ### Default
@@ -73,7 +75,9 @@ The `useColumns` prop switches to a two-column grid at the `md` breakpoint, with
 
 ### With accordion
 
-Each `Description.Accordion` item renders a toggle button; clicking expands the definition.
+Each `Description.Accordion` item uses a native `<details>/<summary>` disclosure. Items start closed and can be opened independently with a click, Enter, or Space.
+
+Collapsed items retain compact summary spacing without reserving a gap for hidden content. Expanded items add an x-small gap between the summary and content.
 
 <Canvas of={DescriptionStories.WithAccordion} />
 
@@ -91,17 +95,16 @@ Each `Description.Accordion` item renders a toggle button; clicking expands the 
 
 ## CSS classes
 
-| Class                                  | Condition                                                            |
-| -------------------------------------- | -------------------------------------------------------------------- |
-| `cu-description`                       | Always — applied to the root `<dl>`                                  |
-| `cu-description__item`                 | Always — applied to the wrapper `<div>` of each term/definition pair |
-| `cu-description__item--columns`        | When `useColumns` is `true` on `Description.Meta`                    |
-| `cu-description__item--accordion`      | Always on `Description.Accordion` items                              |
-| `cu-description__term`                 | Always — applied to the `<dt>` element                               |
-| `cu-description__content`              | Always — applied to the `<dd>` element                               |
-| `cu-description__trigger`              | Always on the `<button>` inside `Description.Accordion`              |
-| `cu-description__accordion-icon`       | Always on the chevron icon inside the accordion trigger              |
-| `cu-description__accordion-icon--open` | When the accordion item is expanded                                  |
+| Class                             | Condition                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| `cu-description`                  | Always — applied to the root `<div>`                                                       |
+| `cu-description__item`            | Always — applied to each `Description.Meta` `<dl>` and `Description.Accordion` `<details>` |
+| `cu-description__item--columns`   | When `useColumns` is `true` on `Description.Meta`                                          |
+| `cu-description__item--accordion` | Always on `Description.Accordion` items                                                    |
+| `cu-description__term`            | Always — applied to the `<dt>` in `Description.Meta` and `<summary>` in Accordion          |
+| `cu-description__content`         | Always — applied to the `<dd>` in `Description.Meta` and content `<div>` in Accordion      |
+| `cu-description__trigger`         | Always on the `<summary>` inside `Description.Accordion`                                   |
+| `cu-description__accordion-icon`  | Always on the chevron icon inside the accordion summary                                    |
 
 ## Design tokens
 
@@ -115,15 +118,14 @@ Each `Description.Accordion` item renders a toggle button; clicking expands the 
 | `--rds--font-family-inter`    | Font family for terms and content                                    |
 | `--rds--font-size-medium`     | Font size for terms and content                                      |
 | `--rds--font-weight-semibold` | Term font weight                                                     |
-| `--rds--spacing-x-small`      | Gap between term and definition in stacked layout                    |
-| `--rds--spacing-small`        | Vertical padding on each item; spacing between sibling content nodes |
-| `--rds--spacing-medium`       | Column gap in the `--columns` variant at `md` breakpoint             |
+| `--rds--spacing-x-small`      | Gap between term and content in stacked metadata and open accordions |
+| `--rds--spacing-small`        | Spacing between sibling content nodes                                |
+| `--rds--spacing-medium`       | Vertical item padding; column gap in `--columns` above `md`          |
 | `--rds--radius-sm`            | Focus ring border radius on the accordion trigger                    |
 
 ## Accessibility
 
-- The root element is a semantic `<dl>`; each `Description.Meta` and `Description.Accordion` contributes a `<dt>`/`<dd>` pair, preserving screen reader term/definition announcements
-- The accordion trigger is a `<button type="button">` — keyboard accessible and activatable with Space or Enter; avoid using `<div role="button">` or `onClick` on non-interactive elements
-- `aria-expanded` on the trigger reflects open/closed state; `aria-controls` links the button to its associated `<dd>` by `id`
-- The chevron icon is decorative and inherits `aria-hidden="true"` from `<Icon>` — the visible term text is the accessible label for the trigger
-- Do not place interactive elements (links, buttons) directly inside a `<dt>` — they belong in `<dd>` content
+- `Description.Meta` renders each term/definition pair as its own `<dl>` with `<dt>` and `<dd>` elements; the outer `Description` is a neutral `<div>` so it can also contain native disclosures.
+- `Description.Accordion` uses `<details>` and `<summary>`, providing built-in disclosure semantics and keyboard activation with Enter or Space. Items start closed and remain independent; they are not grouped with a `name` attribute.
+- The visible term labels the summary, and the chevron is decorative (`aria-hidden` by `<Icon>`). Its rotation follows the native `open` state.
+- The summary retains a visible focus outline for keyboard navigation. Standard dividers do not convey open/closed state by themselves; the disclosure and rotated chevron do.

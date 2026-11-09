@@ -13,10 +13,10 @@ export const DescriptionMeta = ({ term, children, useColumns = false }: Descript
         .join(' ');
 
     return (
-        <div className={classes}>
+        <dl className={classes}>
             <dt className="cu-description__term">{term}</dt>
             <dd className="cu-description__content">{children}</dd>
-        </div>
+        </dl>
     );
 };
 

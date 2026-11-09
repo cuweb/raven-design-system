@@ -29,6 +29,7 @@
     grid-template-rows: auto;
     gap: var(--rds--spacing-x-small);
     border-bottom: 1px solid var(--rds--color-grey-light);
+    margin: 0;
     padding-top: var(--rds--spacing-medium);
     padding-bottom: var(--rds--spacing-medium);
 
@@ -84,7 +85,6 @@
     width: 100%;
     background: none;
     border: none;
-    // padding: var(--rds--spacing-small) 0;
     padding: 0;
     cursor: pointer;
     font-family: var(--rds--font-family-inter);
@@ -92,6 +92,11 @@
     font-weight: var(--rds--font-weight-semibold);
     color: var(--rds--color-black);
     text-align: left;
+    list-style: none;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
 
     &:focus-visible {
         outline: 2px solid var(--rds--color-primary);
@@ -106,8 +111,20 @@
     color: var(--rds--color-grey);
     transition: transform 0.2s ease;
     transform: rotate(0deg);
+}
 
-    &--open {
-        transform: rotate(90deg);
+.cu-description__item--accordion[open] .cu-description__accordion-icon {
+    transform: rotate(90deg);
+}
+
+.cu-description__item--accordion {
+    display: block;
+
+    > .cu-description__trigger {
+        line-height: normal;
+    }
+
+    &[open] > .cu-description__content {
+        margin-top: var(--rds--spacing-x-small);
     }
 }
