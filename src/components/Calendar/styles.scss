@@ -152,8 +152,8 @@
 
 .cu-calendar__day-btn--disabled,
 .cu-calendar__day-btn:disabled {
-    background-color: var(--rds--color-grey-pale);
-    color: var(--rds--color-grey-light);
+    background-color: transparent;
+    color: var(--rds--color-grey);
     cursor: not-allowed;
     pointer-events: none;
 }

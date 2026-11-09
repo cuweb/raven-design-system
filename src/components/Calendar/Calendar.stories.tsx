@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { Calendar } from './Calendar';
 import { Main } from '../Main/Main';
 import { Section } from '../Section/Section';
@@ -103,10 +104,57 @@ export const RangeSelection: Story = {
         mode: 'range',
         events: sampleEvents,
     },
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        await userEvent.click(canvas.getByRole('button', { name: 'Next month' }));
+        const start = canvas.getByRole('button', { name: '5' });
+        const end = canvas.getByRole('button', { name: '10' });
+        await userEvent.click(start);
+        await userEvent.click(end);
+        expect(start).toHaveAttribute('aria-pressed', 'true');
+        expect(end).toHaveAttribute('aria-pressed', 'true');
+        expect(canvas.getByRole('button', { name: '7' })).toHaveClass(
+            'cu-calendar__day-btn--in-range',
+        );
+        await userEvent.click(canvas.getByRole('button', { name: 'Clear selection' }));
+        expect(start).toHaveAttribute('aria-pressed', 'false');
+        expect(end).toHaveAttribute('aria-pressed', 'false');
+    },
 };
 
 export const NoEvents: Story = {
     args: {
         mode: 'single',
+    },
+};
+
+export const PastDates: Story = {
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        await userEvent.click(canvas.getByRole('button', { name: 'Previous month' }));
+
+        const dates = canvas
+            .getAllByRole('button')
+            .filter((button) => button.querySelector('time'));
+
+        for (const date of dates) {
+            expect(date).toBeDisabled();
+            expect(date).toHaveStyle({
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                color: 'rgb(118, 118, 118)',
+            });
+            expect(date.parentElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 255)' });
+            expect(date).toHaveAttribute('aria-pressed', 'false');
+        }
+
+        await userEvent.click(canvas.getByRole('button', { name: 'Next month' }));
+        await userEvent.click(canvas.getByRole('button', { name: 'Next month' }));
+        const availableDate = canvas.getByRole('button', { name: '5' });
+        expect(availableDate).toBeEnabled();
+        await userEvent.click(availableDate);
+        expect(availableDate).toHaveAttribute('aria-pressed', 'true');
+        await userEvent.click(canvas.getByRole('button', { name: 'Clear selection' }));
+        await userEvent.click(canvas.getByRole('button', { name: 'Previous month' }));
+        await userEvent.click(canvas.getByRole('button', { name: 'Previous month' }));
     },
 };
