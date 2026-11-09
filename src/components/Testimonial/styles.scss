@@ -38,7 +38,11 @@
         width: 100%;
         min-width: 0;
         flex: 1 1 auto;
-        padding: var(--rds--spacing-2-x-large);
+        padding: var(--rds--spacing-large);
+
+        @media (width > $rds-media-query-sm) {
+            padding: var(--rds--spacing-2-x-large);
+        }
 
         .cu-quote {
             max-width: none;
