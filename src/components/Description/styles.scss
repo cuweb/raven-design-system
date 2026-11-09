@@ -116,3 +116,15 @@
 .cu-description__item--accordion[open] .cu-description__accordion-icon {
     transform: rotate(90deg);
 }
+
+.cu-description__item--accordion {
+    display: block;
+
+    > .cu-description__trigger {
+        line-height: normal;
+    }
+
+    &[open] > .cu-description__content {
+        margin-top: var(--rds--spacing-x-small);
+    }
+}

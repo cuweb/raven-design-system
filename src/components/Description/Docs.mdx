@@ -77,6 +77,8 @@ The `useColumns` prop switches to a two-column grid at the `md` breakpoint, with
 
 Each `Description.Accordion` item uses a native `<details>/<summary>` disclosure. Items start closed and can be opened independently with a click, Enter, or Space.
 
+Collapsed items retain compact summary spacing without reserving a gap for hidden content. Expanded items add an x-small gap between the summary and content.
+
 <Canvas of={DescriptionStories.WithAccordion} />
 
 ### Multiple stacked items
@@ -116,9 +118,9 @@ Each `Description.Accordion` item uses a native `<details>/<summary>` disclosure
 | `--rds--font-family-inter`    | Font family for terms and content                                    |
 | `--rds--font-size-medium`     | Font size for terms and content                                      |
 | `--rds--font-weight-semibold` | Term font weight                                                     |
-| `--rds--spacing-x-small`      | Gap between the term and content in stacked layout                   |
-| `--rds--spacing-small`        | Vertical padding on each item; spacing between sibling content nodes |
-| `--rds--spacing-medium`       | Column gap in the `--columns` variant at `md` breakpoint             |
+| `--rds--spacing-x-small`      | Gap between term and content in stacked metadata and open accordions |
+| `--rds--spacing-small`        | Spacing between sibling content nodes                                |
+| `--rds--spacing-medium`       | Vertical item padding; column gap in `--columns` above `md`          |
 | `--rds--radius-sm`            | Focus ring border radius on the accordion trigger                    |
 
 ## Accessibility
