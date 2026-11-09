@@ -1,0 +1,125 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+# Card
+
+A composable content container for news, events, people, resources, videos, and statistics, with an item-wide primary title link when present.
+
+## When to use
+
+- Present related content as tiles inside a `Column`.
+- Combine images, titles, excerpts, and metadata for a single destination.
+- Show contact details alongside a person's profile link.
+- Use a video figure or statistics without requiring a navigation link.
+
+## Import
+
+```tsx
+import { Card } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+<Card>
+    <Card.Header title="Profile details" link="/people/profile" />
+    <Card.Body>
+        <Card.PeopleMeta jobTitle="Staff member">
+            <a href="mailto:person@example.test">Email person</a>
+        </Card.PeopleMeta>
+    </Card.Body>
+</Card>
+```
+
+One linked `Card.Header` automatically makes the image, static content, and padding clickable using the existing title anchor. Email, phone links, buttons, and video controls remain independent. Plain phone text is not automatically converted to a link.
+
+Use one primary header per item. Sibling multiple headers retain local links; competing primary headers in separate nested containers are unsupported. Custom wrappers must not introduce positioning, clipping, or stacking contexts between the title anchor and the card root. `LinkProvider` implementations must render an anchor and forward its attributes.
+
+Static CMS markup with `.cu-card`, `.cu-card__header`, and `.cu-card__header-title > a[href]` receives the same CSS behavior without a click script. A card without a linked title, including video-only cards and loaders, gets no enlarged navigation target. The overlay can make selecting static text less convenient.
+
+`noHover` retains its existing Card modifier class; it does not disable links. This differs from Listing's existing pointer-disabling modifier.
+
+## Examples
+
+### News
+
+<Canvas of={CardStories.NewsCards} />
+<Controls of={CardStories.NewsCards} />
+
+### People
+
+<Canvas of={CardStories.PeopleCards} />
+
+### Item-wide links and secondary actions
+
+<Canvas of={CardStories.ItemLinks} />
+
+### Events
+
+<Canvas of={CardStories.EventCards} />
+
+### Videos
+
+Video-only cards retain their figure play link. When a linked title is also present, the video figure and player remain independently operable.
+
+<Canvas of={CardStories.VideoCards} />
+
+### Statistics
+
+<Canvas of={CardStories.StatCards} />
+
+## CSS classes
+
+| Class                                                                                                                     | Condition                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `cu-card`                                                                                                                 | Root container                                                            |
+| `cu-card--grey`, `cu-card--has-wave`                                                                                      | Grey background; optional decorative wave when grey                       |
+| `cu-card--center`, `cu-card--center-desktop`                                                                              | Corresponding alignment props                                             |
+| `cu-card--no-hover`, `cu-card--no-image`, `cu-card--border-left`                                                          | Corresponding wrapper props                                               |
+| `cu-card__wave`                                                                                                           | Decorative wave                                                           |
+| `cu-card__header`, `cu-card__header-title`                                                                                | Header and its heading; the direct child anchor supplies the primary link |
+| `cu-card__header-meta`, `cu-card__header-time`, `cu-card__header-readtime`                                                | Optional date/read-time metadata                                          |
+| `cu-card__header-readtime--with-divider`, `cu-card__header-extra`                                                         | Read time with a date; extra header text                                  |
+| `cu-card__body`, `cu-card__content`, `cu-card__footer`                                                                    | Composition containers                                                    |
+| `cu-card__excerpt`, `cu-card__excerpt--truncate-mobile`, `cu-card__excerpt-more`                                          | Excerpt and optional truncation/more markers                              |
+| `cu-card__figure`, `cu-card__figure--round`, `cu-card__figure--square`, `cu-card__figure--small`, `cu-card__figure--icon` | Figure and its variants                                                   |
+| `cu-card__image-thumb`, `cu-card__image-thumb--square`                                                                    | Image thumb and square variant                                            |
+| `cu-card__initials`, `cu-card__initials-label`                                                                            | Initials figure and label                                                 |
+| `cu-card__date-thumb`, `cu-card__date-thumb-month`, `cu-card__date-thumb-day`                                             | Decorative date thumb                                                     |
+| `cu-card__time-thumb`, `cu-card__time-thumb-value`, `cu-card__time-thumb-unit`                                            | Decorative time thumb                                                     |
+| `cu-card__meta`, `cu-card__meta--has-icons`                                                                               | People/event metadata; event icons                                        |
+| `cu-card__people-meta-job`, `cu-card__people-meta-email`                                                                  | Job title and email content                                               |
+| `cu-card__stats`, `cu-card__stats--reverse`, `cu-card__stats-stat`, `cu-card__stats-desc`                                 | Statistic container, ordering modifier, value, and description            |
+| `cu-card__status`                                                                                                         | Status wrapper                                                            |
+| `cu-card__figure--video`, `cu-card__figure--playing`                                                                      | Video figure and playback state                                           |
+| `cu-card__figure-link`, `cu-card__figure-iframe`, `cu-card__figure-poster`                                                | Video play link, player, and poster                                       |
+| `cu-card__figure-skeleton`, `cu-card__figure-placeholder`                                                                 | Loading and missing-poster placeholders                                   |
+| `cu-card__figure-play`, `cu-card__figure-play-bg`, `cu-card__figure-play-arrow`                                           | Decorative play icon parts                                                |
+
+## Design tokens
+
+| Token                                                                                                                                                       | Controls                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `--rds--color-primary`, `--rds--color-primary-dark`                                                                                                         | Links, focus indicators, icons, play hover, thumb labels     |
+| `--rds--color-black`, `--rds--color-white`                                                                                                                  | Text, backgrounds, and video icon                            |
+| `--rds--color-grey-pale`, `--rds--color-grey-light`, `--rds--color-grey-lighter`                                                                            | Grey cards, figure borders, video backgrounds and shimmer    |
+| `--rds--font-family-inter`                                                                                                                                  | Card font                                                    |
+| `--rds--font-size-x-small`, `--rds--font-size-small`, `--rds--font-size-large`, `--rds--font-size-x-large`, `--rds--font-size-heading-medium`               | Metadata, excerpts, titles, thumbs, and statistics           |
+| `--rds--font-weight-semibold`, `--rds--font-weight-bold`, `--rds--line-height-tight`                                                                        | Title/statistic typography                                   |
+| `--rds--spacing-2-x-small`, `--rds--spacing-x-small`, `--rds--spacing-small`, `--rds--spacing-medium`, `--rds--spacing-x-large`, `--rds--spacing-2-x-large` | Content gaps, metadata, figures, badges, and thumb placement |
+| `--rds--radius-sm`, `--rds--radius-md`                                                                                                                      | Figure/thumb and card corners                                |
+| `--rds--shadow-natural`                                                                                                                                     | Card and date/time-thumb shadows                             |
+| `--rds--duration-base`, `--rds--duration-slower`, `--rds--ease-standard`, `--rds--ease-emphasized`                                                          | Card shadow and scroll-reveal transitions                    |
+
+## Accessibility
+
+- The root is a noninteractive `div`; a linked title remains a native anchor with its existing title as its accessible name. No duplicate link or extra tab stop is added.
+- The primary link has an inset full-card focus indicator. Secondary links and controls keep their own focus indicators and keyboard actions.
+- Title links use `LinkProvider`, preserving native link semantics and client-side routing.
+- Choose `as="h2"` or `as="h3"` on `Card.Header` to match the page heading hierarchy.
+- Supply meaningful image alt text; use empty alt text for decorative images.
+- Date/time thumbs are decorative. Include equivalent information in accessible metadata.
+- Video play links have an accessible name; the iframe has a title.
+- Scroll reveal respects reduced-motion preferences.

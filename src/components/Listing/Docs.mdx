@@ -7,6 +7,8 @@ import * as ListingStories from './Listing.stories';
 
 An individual list item component designed for use inside `StackedList`. Each `Listing` stacks its visual element (figure, date thumb, or icon) above a body area containing the title, excerpt, and metadata — mirroring the `Card` layout but rendering as a `<li>` within the list container. Titles are linked directly; no separate call-to-action button is needed.
 
+When an item has one linked `Listing.Header`, that existing link covers the item, including its image, text, and padding. Secondary links and controls remain independently clickable. Items without a linked title remain unchanged.
+
 ## When to use
 
 - Inside a `StackedList` to display repeating content items such as news articles, events, people, or resource links.
@@ -169,5 +171,6 @@ Uses `Listing.TimeThumb` for a duration/countdown value (e.g. "10 min" or "Now")
 - `Listing.IconThumb` is `aria-hidden="true"` — it is a decorative visual and the title conveys the item's purpose.
 - `Listing.Header` wraps the title in a `<h2>` by default; use the `as="h3"` prop when the listing appears inside an existing `<h2>` section heading to maintain heading order.
 - `Listing.Header` uses `useLinkContext()` to render links, enabling consumers to swap in Next.js `Link` or React Router `Link` for client-side routing without changing the component API.
+- The primary title link has an inset full-item focus indicator. Secondary controls retain their own focus indicators; the item root adds no tab stop or interactive role.
 - `Listing.Initials` includes an empty `alt=""` on the background image so screen readers skip the decorative grey image.
 - Pass meaningful `alt` text on images inside `Listing.Figure` to describe the visual content.
