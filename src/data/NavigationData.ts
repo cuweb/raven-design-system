@@ -100,3 +100,10 @@ export const largeNavData: NavItem[] = [
     { title: 'Community', href: '/community' },
     { title: 'Athletics', href: '/athletics' },
 ];
+
+export const intranetNavData: NavItem[] = [
+    { title: 'Dashboard', href: '/dashboard' },
+    { title: 'Documents', href: '/documents' },
+    { title: 'Applications', href: '/applications' },
+    { title: 'Profile', href: '/profile' },
+];

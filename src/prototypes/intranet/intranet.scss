@@ -1,0 +1,237 @@
+@use '../../styles/files/variables' as *;
+
+.cu-intranet-frame {
+    container-type: inline-size;
+    container-name: intranet;
+}
+
+.cu-intranet {
+    min-height: 100vh;
+    background: var(--rds--color-grey-pale);
+    font-family: var(--rds--font-family-inter);
+
+    &__sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--rds--color-black);
+        color: var(--rds--color-white);
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: var(--rds--spacing-medium);
+        padding: var(--rds--spacing-large);
+        color: var(--rds--color-white);
+        text-decoration: none;
+        background: var(--rds--color-black);
+
+        img {
+            width: var(--rds--spacing-large);
+        }
+    }
+
+    &__identity {
+        display: none;
+        text-align: center;
+        padding: var(--rds--spacing-x-large) var(--rds--spacing-medium);
+
+        strong {
+            display: block;
+            margin-top: var(--rds--spacing-medium);
+        }
+        p {
+            color: var(--rds--color-grey-light);
+            font-size: var(--rds--font-size-small);
+        }
+        .cu-avatar {
+            outline: var(--rds--spacing-2-x-small) solid var(--rds--color-primary);
+        }
+    }
+
+    &__menu-toggle {
+        display: flex;
+        align-items: center;
+        gap: var(--rds--spacing-small);
+        margin-right: var(--rds--spacing-medium);
+        padding: var(--rds--spacing-medium);
+        border: none;
+        background: var(--rds--color-grey-dark);
+        color: var(--rds--color-white);
+        font: inherit;
+        cursor: pointer;
+    }
+
+    &__menu {
+        display: none;
+        width: 100%;
+        &--open {
+            display: block;
+        }
+    }
+
+    &__navigation {
+        display: block;
+        list-style: none;
+        padding: var(--rds--spacing-small);
+        margin: 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: var(--rds--spacing-medium);
+            padding: var(--rds--spacing-medium);
+            color: var(--rds--color-grey-light);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a[aria-current='page'] {
+            color: var(--rds--color-white);
+            background: var(--rds--color-primary-dark);
+        }
+    }
+
+    &__workspace {
+        container: workspace / inline-size;
+        min-width: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--rds--spacing-medium);
+        padding: var(--rds--spacing-medium) var(--rds--spacing-large);
+        background: var(--rds--color-white);
+        border-block-start: var(--rds--radius-md) solid var(--rds--color-primary);
+
+        h1 {
+            margin: 0;
+            color: var(--rds--color-black);
+            font-size: var(--rds--font-size-heading-primary);
+        }
+        nav {
+            display: flex;
+            gap: var(--rds--spacing-medium);
+        }
+        a {
+            color: var(--rds--color-grey-dark);
+            padding: var(--rds--spacing-x-small);
+            font-size: var(--rds--font-size-2x-large);
+        }
+    }
+
+    &__banner {
+        aspect-ratio: 5 / 1;
+        background-image: var(--rds--asset-campus-river-01);
+        background-color: var(--rds--color-grey-dark);
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__content {
+        padding-block: var(--rds--spacing-large);
+        .cu-section {
+            background: var(--rds--color-white);
+            padding: var(--rds--spacing-large);
+        }
+        .cu-section + .cu-section {
+            margin-top: var(--rds--spacing-large);
+        }
+    }
+
+    @container intranet (width <= #{$rds-media-query-sm}) {
+        &__content .cu-section {
+            padding: var(--rds--spacing-medium);
+        }
+
+        &__header {
+            padding: var(--rds--spacing-medium);
+
+            nav {
+                display: none;
+            }
+        }
+
+        &__menu-toggle svg,
+        &__navigation svg {
+            display: none;
+        }
+
+        &__brand {
+            padding: var(--rds--spacing-medium);
+        }
+    }
+
+    @container intranet (width > #{$rds-media-query-lg}) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
+
+        &__sidebar {
+            display: block;
+            min-width: 0;
+        }
+        &__menu-toggle {
+            display: none;
+        }
+        &__menu {
+            display: block;
+        }
+        &__identity {
+            display: block;
+        }
+        &__navigation {
+            display: block;
+        }
+    }
+}
+
+// The Docs canvas can be much narrower than the browser viewport.
+.cu-intranet__content {
+    overflow-wrap: anywhere;
+
+    .cu-column__content
+        > .cu-description:last-child
+        > .cu-description__item:last-child:not(.cu-description__item--accordion) {
+        padding-block-end: 0;
+    }
+
+    .cu-column {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .cu-column__content {
+        min-width: 0;
+    }
+    .cu-description__item--columns {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .cu-stackedlist--cols-2 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    @container workspace (width > #{$rds-media-query-md}) {
+        .cu-column--two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .cu-column--three {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .cu-column--one-third {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        }
+        .cu-column--two-thirds {
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        }
+        .cu-stackedlist--cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+.cu-main.cu-intranet__content .cu-section:last-child {
+    margin-block-end: 0;
+}
