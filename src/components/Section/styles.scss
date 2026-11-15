@@ -2,9 +2,12 @@
 
 .cu-section--grey,
 .cu-section--black,
-.cu-section--light-gradient,
-.cu-section--hero {
+.cu-section--light-gradient {
     padding: var(--rds--spacing-large);
+}
+
+.cu-section--hero {
+    padding-block: var(--rds--spacing-x-large);
 }
 
 .cu-section--grey,
