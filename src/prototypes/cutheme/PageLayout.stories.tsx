@@ -5,11 +5,9 @@ import { Nav } from '../../components/Nav/Nav';
 import { FooterStandard } from '../../components/FooterStandard';
 import { CookieBanner } from '../../components/CookieBanner';
 import { PageHeader } from '../../components/PageHeader';
-import { TextImage } from '../../components/TextImage';
 import { Quote } from '../../components/Quote';
-import { WideWave } from '../../components/WideWave';
 import { largeNavData } from '../../data/NavigationData';
-import { MultiParagraph, SingleParagraph } from '../../data/storyContent';
+import { MultiParagraph } from '../../data/storyContent';
 
 const meta: Meta = {
     title: 'Overview/Prototypes/cutheme',
@@ -79,25 +77,14 @@ export const PageLayout: Story = {
                     It might say something like this:
                 </p>
 
-                <TextImage maxWidth="aligncontent">
-                    <TextImage.Content title="Test"></TextImage.Content>
-                </TextImage>
-
-                <SingleParagraph />
-                <MultiParagraph count={1} />
-
                 <h2>Heading Two</h2>
                 <MultiParagraph count={2} />
+
                 <Quote cite="John Doe" graphic="border">
                     <MultiParagraph count={1} />
                 </Quote>
-                <MultiParagraph count={2} />
 
-                <WideWave>
-                    <MultiParagraph count={2} />
-                </WideWave>
-
-                <MultiParagraph count={2} />
+                <MultiParagraph count={3} />
 
                 <Section as="section" maxWidth="alignwide" bgType="grey">
                     <h2>Heading Two</h2>

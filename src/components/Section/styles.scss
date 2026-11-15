@@ -2,12 +2,13 @@
 
 .cu-section--grey,
 .cu-section--black,
-.cu-section--light-gradient {
-    padding: var(--rds--spacing-large);
-}
-
+.cu-section--light-gradient,
 .cu-section--hero {
-    padding-block: var(--rds--spacing-x-large);
+    padding: var(--rds--spacing-large);
+
+    @media (width > $rds-media-query-md) {
+        padding-block: var(--rds--spacing-x-large);
+    }
 }
 
 .cu-section--grey,
@@ -91,10 +92,18 @@
 .cu-main .cu-section--black.alignfull:last-child,
 .cu-main .cu-section--light-gradient.alignfull:last-child {
     margin-bottom: calc(-1 * var(--rds--spacing-large));
+
+    // @media (width > $rds-media-query-md) {
+    //     margin-bottom: calc(-1 * var(--rds--spacing-x-large));
+    // }
 }
 
 .cu-main .cu-section--grey.alignfull:first-child,
 .cu-main .cu-section--black.alignfull:first-child,
 .cu-main .cu-section--light-gradient.alignfull:first-child {
     margin-top: calc(-1 * var(--rds--spacing-large));
+
+    // @media (width > $rds-media-query-md) {
+    //     margin-top: calc(-1 * var(--rds--spacing-x-large));
+    // }
 }

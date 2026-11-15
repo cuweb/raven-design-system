@@ -20,10 +20,10 @@
 .cu-main > * > .cu-layout + .cu-layout,
 .cu-main > * > .cu-layout + :not(.cu-layout),
 .cu-main > * > :not(.cu-layout) + .cu-layout {
-    margin-top: var(--rds--spacing-medium);
+    margin-top: var(--rds--spacing-large);
 
     @media (width > $rds-media-query-md) {
-        margin-top: var(--rds--spacing-large);
+        margin-top: var(--rds--spacing-x-large);
     }
 }
 
