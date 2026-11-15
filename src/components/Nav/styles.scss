@@ -85,6 +85,7 @@
 
     @media (width > $rds-media-query-sm) {
         padding-block: min(1rem, 3vw);
+        // padding-block: min(1.15rem, 3vw);
     }
 }
 
@@ -96,7 +97,7 @@
     display: flex;
     align-items: center;
     gap: var(--rds--spacing-medium);
-    padding-block: 0.875rem;
+    padding-block: min(1.15rem, 3vw);
     // Desktop flex row: may shrink so the row never overflows. The logomark stays
     // fixed (flex-shrink: 0 below), so only the site title gives way.
     min-width: 0;
