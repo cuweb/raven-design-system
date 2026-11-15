@@ -2,6 +2,7 @@
 
 // Size variants — governs both heading and content font sizes
 .cu-pageheader {
+    width: 100%;
     max-width: var(--rds--layout-content-size);
     margin-left: auto;
     margin-right: auto;

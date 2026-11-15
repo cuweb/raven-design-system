@@ -5,10 +5,11 @@ import { Nav } from '../../components/Nav/Nav';
 import { FooterStandard } from '../../components/FooterStandard';
 import { CookieBanner } from '../../components/CookieBanner';
 import { PageHeader } from '../../components/PageHeader';
+import { TextImage } from '../../components/TextImage';
 import { Quote } from '../../components/Quote';
 import { WideWave } from '../../components/WideWave';
 import { largeNavData } from '../../data/NavigationData';
-import { MultiParagraph } from '../../data/storyContent';
+import { MultiParagraph, SingleParagraph } from '../../data/storyContent';
 
 const meta: Meta = {
     title: 'Overview/Prototypes/cutheme',
@@ -77,6 +78,12 @@ export const PageLayout: Story = {
                     people start with an About page that introduces them to potential site visitors.
                     It might say something like this:
                 </p>
+
+                <TextImage maxWidth="aligncontent">
+                    <TextImage.Content title="Test"></TextImage.Content>
+                </TextImage>
+
+                <SingleParagraph />
                 <MultiParagraph count={1} />
 
                 <h2>Heading Two</h2>
