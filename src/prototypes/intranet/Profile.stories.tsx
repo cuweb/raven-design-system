@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { intranetProfile } from '../../data/IntranetData';
 import { IntranetShell } from './IntranetShell';
 import { Avatar } from '../../components/Avatar';
 import { Badge } from '../../components/Badge';
@@ -29,12 +30,20 @@ export const Profile: Story = {
                     <Column.Content>
                         <Card noHover revealOnScroll={false}>
                             <Card.Body>
-                                <Avatar firstName="Alex" lastName="Morgan" size="lg" isCircle />
-                                <Card.Header title="Alex Morgan" extraText="They / them" />
-                                <Card.PeopleMeta jobTitle="Communications Officer">
-                                    University Communications
+                                <Avatar
+                                    firstName={intranetProfile.firstName}
+                                    lastName={intranetProfile.lastName}
+                                    size="lg"
+                                    isCircle
+                                />
+                                <Card.Header
+                                    title={intranetProfile.displayName}
+                                    extraText={intranetProfile.pronouns}
+                                />
+                                <Card.PeopleMeta jobTitle={intranetProfile.jobTitle}>
+                                    {intranetProfile.department}
                                 </Card.PeopleMeta>
-                                <Badge text="Staff" color="grey" />
+                                <Badge text={intranetProfile.employeeType} color="grey" />
                             </Card.Body>
                         </Card>
                     </Column.Content>
@@ -43,28 +52,24 @@ export const Profile: Story = {
                         <PageHeader as="h2" header="Contact information" size="sm" />
                         <Description>
                             <Description.Meta term="Display name" useColumns>
-                                Alex Morgan
+                                {intranetProfile.displayName}
                             </Description.Meta>
                             <Description.Meta term="Email" useColumns>
-                                alex.morgan@example.com
+                                {intranetProfile.email}
                             </Description.Meta>
                             <Description.Meta term="Phone" useColumns>
-                                Not provided
+                                {intranetProfile.phone ?? 'Not provided'}
                             </Description.Meta>
                             <Description.Meta term="Office" useColumns>
-                                Robertson Hall
+                                {intranetProfile.office}
                             </Description.Meta>
                             <Description.Meta term="Department" useColumns>
-                                University Communications
+                                {intranetProfile.department}
                             </Description.Meta>
                         </Description>
 
                         <PageHeader as="h2" header="About me" size="sm" />
-                        <p>
-                            I help campus teams share their stories through clear, accessible
-                            communications. Connect with me about web content, campus news, or
-                            collaborating on a department announcement.
-                        </p>
+                        <p>{intranetProfile.bio}</p>
                     </Column.Content>
                 </Column>
             </Section>
@@ -79,13 +84,13 @@ export const Profile: Story = {
                         <PageHeader as="h2" header="Account details" size="sm" />
                         <Description>
                             <Description.Meta term="Username" useColumns>
-                                alexmorgan
+                                {intranetProfile.username}
                             </Description.Meta>
                             <Description.Meta term="Account status" useColumns>
-                                Active
+                                {intranetProfile.accountStatus}
                             </Description.Meta>
                             <Description.Meta term="Sign-in verification" useColumns>
-                                Multi-factor authentication enabled
+                                {intranetProfile.signInVerification}
                             </Description.Meta>
                         </Description>
                     </Column.Content>
@@ -94,8 +99,9 @@ export const Profile: Story = {
                         <Description>
                             <Description.Meta term="Teams">
                                 <Details hasDividers>
-                                    <Details.Item>Web Content Working Group</Details.Item>
-                                    <Details.Item>Campus Communicators Network</Details.Item>
+                                    {intranetProfile.teams.map((team) => (
+                                        <Details.Item key={team}>{team}</Details.Item>
+                                    ))}
                                 </Details>
                             </Description.Meta>
                             <Description.Accordion term="Profile visibility — proposed option">

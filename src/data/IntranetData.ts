@@ -269,3 +269,21 @@ export const intranetManagerTools = [
         text: 'Review leave requests, confirm team coverage, and record approved absences before the next reporting deadline.',
     },
 ];
+
+export const intranetProfile = {
+    firstName: 'Alex',
+    lastName: 'Morgan',
+    displayName: 'Alex Morgan',
+    pronouns: 'They / them',
+    jobTitle: 'Communications Officer',
+    department: 'University Communications',
+    employeeType: 'Staff',
+    email: 'alex.morgan@example.com',
+    phone: null,
+    office: 'Robertson Hall',
+    bio: 'I help campus teams share their stories through clear, accessible communications. Connect with me about web content, campus news, or collaborating on a department announcement.',
+    username: 'alexmorgan',
+    accountStatus: 'Active',
+    signInVerification: 'Multi-factor authentication enabled',
+    teams: ['Web Content Working Group', 'Campus Communicators Network'],
+};
