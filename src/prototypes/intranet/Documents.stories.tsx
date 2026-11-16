@@ -21,12 +21,6 @@ const meta: Meta = {
     title: 'Overview/Prototypes/Intranet',
     parameters: {
         layout: 'fullscreen',
-        docs: {
-            description: {
-                component:
-                    'Documents and HR resource discovery prototype. Icon cards group resources, icon listings offer compact shortcuts, and a sortable table explores browsing a document collection. Document names and metadata are illustrative, not downloadable files. HR updates are sample editorial concepts; an internal source, ownership, and feed integration remain unconfirmed.',
-            },
-        },
     },
     tags: ['!autodocs'],
 };

@@ -18,12 +18,6 @@ const meta: Meta = {
     title: 'Overview/Prototypes/Intranet',
     parameters: {
         layout: 'fullscreen',
-        docs: {
-            description: {
-                component:
-                    'Application discovery prototype using cards for application entry points, compact listings for internal sites and support, and a sortable directory for larger site collections. Application cards link to service information pages. Internal site addresses follow the supplied reference and need confirmation; entries do not indicate the current user has access. Authentication, permissions, and personal link management are outside this prototype.',
-            },
-        },
     },
     tags: ['!autodocs'],
 };
