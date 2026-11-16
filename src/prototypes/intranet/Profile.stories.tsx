@@ -1,5 +1,5 @@
-import { IntranetShell } from './IntranetShell';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { IntranetShell } from './IntranetShell';
 import { Avatar } from '../../components/Avatar';
 import { Badge } from '../../components/Badge';
 import { Card } from '../../components/Card';
@@ -11,17 +11,11 @@ import { Section } from '../../components/Section';
 import './profile.scss';
 
 const meta: Meta = {
-    title: 'Overview/Prototypes/Intranet/Profile',
-    tags: ['autodocs'],
+    title: 'Overview/Prototypes/Intranet',
     parameters: {
         layout: 'fullscreen',
-        docs: {
-            description: {
-                component:
-                    'Profile layout exploration for Carleton Intranet. Confirmed scope: organize profile and related account information using the design system. This prototype assumes an employee viewing their own profile; all names and account details are fictional. Fields, team memberships, and profile visibility settings are proposals for review, not confirmed product requirements. Avatar and Description organize identity and account information. Stat Cards were explored and omitted because no meaningful profile metrics have been confirmed. The shared sidebar, title bar, campus banner, and content panels follow the supplied intranet reference. Editing, authentication, and live account integrations are outside this prototype.',
-            },
-        },
     },
+    tags: ['!autodocs'],
 };
 
 export default meta;
