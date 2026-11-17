@@ -60,7 +60,7 @@ pnpm install
 # First time only: download Playwright browser binaries (used by pnpm test:storybook)
 pnpm exec playwright install chromium
 
-pnpm run start         # Storybook at http://localhost:6006
+pnpm run dev         # Storybook at http://localhost:6006
 ```
 
 For full contributor onboarding (PAT alternative, troubleshooting) see [docs/contributing/local-setup.md](docs/contributing/local-setup.md).
@@ -69,7 +69,7 @@ For full contributor onboarding (PAT alternative, troubleshooting) see [docs/con
 
 | Command                    | Description                                                       |
 | -------------------------- | ----------------------------------------------------------------- |
-| `pnpm run start`           | Run `c2b generate` then start Storybook dev server                |
+| `pnpm run dev`           | Run `c2b generate` then start Storybook dev server                |
 | `pnpm run build`           | Vite library build + `c2b generate`                               |
 | `pnpm run build-storybook` | Build static Storybook for deployment                             |
 | `pnpm run c2b`             | Regenerate tokens, base styles, and WP theme files                |
