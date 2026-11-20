@@ -23,6 +23,7 @@ If you're using GitHub Copilot in this repo, the conventions in [`.github/instru
 | Topic                                                         | Where                                                                                                      |
 | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | Install RDS in a Next.js app                                  | [consumers/installation.md](consumers/installation.md) → [consumers/nextjs.md](consumers/nextjs.md)        |
+| Test an unreleased RDS checkout in a consumer                 | [consumers/local-development.md](consumers/local-development.md)                                           |
 | Use RDS in a WordPress block                                  | [consumers/wordpress/blocks-static.md](consumers/wordpress/blocks-static.md) (or `blocks-dynamic.md`)      |
 | Why icons live in a separate package                          | [contributing/architecture.md#two-package-icon-model](contributing/architecture.md#two-package-icon-model) |
 | Add a new component to the library                            | [contributing/conventions.md#adding-a-new-component](contributing/conventions.md#adding-a-new-component)   |
