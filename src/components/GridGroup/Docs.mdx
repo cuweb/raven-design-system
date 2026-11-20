@@ -1,0 +1,76 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as GridGroupStories from './GridGroup.stories';
+
+<Meta of={GridGroupStories} />
+
+# GridGroup
+
+A responsive CSS grid that lays its children out in equal-width columns and collapses to one column on smaller screens. Each child is a grid cell directly — no wrapper sub-component is needed.
+
+## When to use
+
+Use `GridGroup` inside a `Section` for a collection of equal items — cards, tiles, features — that should flow into rows of up to `cols` across. Use [`Column`](?path=/docs/components-layout-column--docs) for fractional splits or visual reordering, and [`FlexGroup`](?path=/docs/components-layout-flex-group--docs) for content-sized items in a row.
+
+## Import
+
+```tsx
+import { GridGroup } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// Up to three columns (default)
+<GridGroup>
+    <Card>...</Card>
+    <Card>...</Card>
+    <Card>...</Card>
+</GridGroup>
+
+// Two columns in the wide width
+<GridGroup cols="2" maxWidth="alignwide">...</GridGroup>
+```
+
+## Examples
+
+### Three columns
+
+The default. Stacks to a single column below the `md` breakpoint.
+
+<Canvas of={GridGroupStories.ThreeColumns} />
+<Controls of={GridGroupStories.ThreeColumns} />
+
+### Two columns
+
+Stacks to a single column below the `sm` breakpoint. Extra children flow onto new rows.
+
+<Canvas of={GridGroupStories.TwoColumns} />
+
+## Column configurations
+
+| `cols` | Mobile   | Tablet (`sm`) | Desktop (`md`+) |
+| ------ | -------- | ------------- | --------------- |
+| `"1"`  | 1 column | 1 column      | 1 column        |
+| `"2"`  | 1 column | 2 columns     | 2 columns       |
+| `"3"`  | 1 column | 1 column      | 3 columns       |
+
+## CSS classes
+
+| Class                                      | When applied                                  |
+| ------------------------------------------ | --------------------------------------------- |
+| `cu-gridgroup`                             | Always — base grid container, one column      |
+| `cu-gridgroup--one`                        | `cols="1"`                                    |
+| `cu-gridgroup--two`                        | `cols="2"`                                    |
+| `cu-gridgroup--three`                      | `cols="3"`                                    |
+| `aligncontent` / `alignwide` / `alignfull` | The `maxWidth` value (default `aligncontent`) |
+
+## Design tokens
+
+| Token                  | Used for          |
+| ---------------------- | ----------------- |
+| `--rds--spacing-large` | Gap between cells |
+
+## Accessibility
+
+- `GridGroup` renders a plain `<div>` — no landmark role. Landmark semantics belong to the content inside.
+- The grid never reorders items, so keyboard and reading order match what is on screen.

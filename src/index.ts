@@ -8,6 +8,8 @@ export { Main } from './components/Main';
 
 // Layout
 export { Column } from './components/Column';
+export { FlexGroup } from './components/FlexGroup';
+export { GridGroup } from './components/GridGroup';
 export { Section } from './components/Section';
 
 // Elements
