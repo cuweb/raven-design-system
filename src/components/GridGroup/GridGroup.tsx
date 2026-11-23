@@ -3,7 +3,7 @@ import './styles.scss';
 
 export interface GridGroupProps {
     children: React.ReactNode;
-    cols?: '1' | '2' | '3';
+    cols?: '1' | '2' | '3' | '4';
     maxWidth?: 'aligncontent' | 'alignwide' | 'alignfull';
 }
 

@@ -18,4 +18,10 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
     }
+
+    &--four {
+        @media (width > $rds-media-query-lg) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
 }
