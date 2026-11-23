@@ -25,6 +25,7 @@ import '@cuweb/raven-design-system/styles';
 | Doc                                          | When to read                                                                                                    |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | [installation.md](installation.md)           | Setting up `.npmrc`, installing both packages, CI authentication                                                |
+| [local-development.md](local-development.md) | Testing unreleased RDS changes in a consumer project with `pnpm link`                                           |
 | [nextjs.md](nextjs.md)                       | Using RDS in a Next.js app, including `LinkProvider` for client-side routing                                    |
 | [icons.md](icons.md)                         | The `<Icon>` component, import styles, the two-package model                                                    |
 | [per-component-css.md](per-component-css.md) | Importing one component's CSS instead of the bundled stylesheet                                                 |

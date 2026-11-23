@@ -1,0 +1,27 @@
+@use '../../styles/files/variables' as *;
+
+.cu-gridgroup {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rds--spacing-large);
+    margin-left: auto;
+    margin-right: auto;
+
+    &--two {
+        @media (width > $rds-media-query-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    &--three {
+        @media (width > $rds-media-query-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    &--four {
+        @media (width > $rds-media-query-lg) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+}

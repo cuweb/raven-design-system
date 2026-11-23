@@ -1,0 +1,77 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FlexGroupStories from './FlexGroup.stories';
+
+<Meta of={FlexGroupStories} />
+
+# FlexGroup
+
+A flex container that arranges its children in a row or a column with a fixed gap. Children keep their natural size, wrap onto new lines when they run out of room, and can be distributed and aligned along either axis.
+
+## When to use
+
+Use `FlexGroup` inside a `Section` for content-sized items that sit next to each other or stack: a row of badges, a title and action pushed apart, a short vertical stack. Use [`GridGroup`](?path=/docs/components-layout-grid-group--docs) or [`Column`](?path=/docs/components-layout-column--docs) when children should be equal-width columns.
+
+## Import
+
+```tsx
+import { FlexGroup } from '@cuweb/raven-design-system';
+```
+
+## Basic usage
+
+```tsx
+// A wrapping row
+<FlexGroup>
+    <Badge text="One" />
+    <Badge text="Two" />
+</FlexGroup>
+
+// A vertical stack
+<FlexGroup direction="column">...</FlexGroup>
+
+// Pushed apart and vertically centred
+<FlexGroup justify="space-between" align="center">...</FlexGroup>
+```
+
+## Examples
+
+### Row
+
+The default: children run along the inline axis and wrap when they run out of room.
+
+<Canvas of={FlexGroupStories.Row} />
+<Controls of={FlexGroupStories.Row} />
+
+### Column
+
+`direction="column"` stacks children along the block axis.
+
+<Canvas of={FlexGroupStories.Column} />
+
+### Justify space-between
+
+`justify` controls the main axis and `align` the cross axis, following standard flexbox naming in both directions.
+
+<Canvas of={FlexGroupStories.SpaceBetween} />
+
+## CSS classes
+
+| Class                                      | When applied                                  |
+| ------------------------------------------ | --------------------------------------------- |
+| `cu-flexgroup`                             | Always — base flex container                  |
+| `cu-flexgroup--column`                     | `direction="column"`                          |
+| `cu-flexgroup--nowrap`                     | `wrap="nowrap"`                               |
+| `cu-flexgroup--justify-{value}`            | `justify` is set                              |
+| `cu-flexgroup--align-{value}`              | `align` is set                                |
+| `aligncontent` / `alignwide` / `alignfull` | The `maxWidth` value (default `aligncontent`) |
+
+## Design tokens
+
+| Token                   | Used for          |
+| ----------------------- | ----------------- |
+| `--rds--spacing-medium` | Gap between items |
+
+## Accessibility
+
+- `FlexGroup` renders a plain `<div>` — no landmark role. Landmark semantics belong to the content inside.
+- `justify`, `align` and `direction` never reorder children, so keyboard and reading order follow the DOM. Keep the DOM in reading order.
